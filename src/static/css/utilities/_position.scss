@@ -1,0 +1,31 @@
+@each $breakpoint in map-keys($grid-breakpoints) {
+  @include media-breakpoint-up($breakpoint) {
+    $infix: breakpoint-infix($breakpoint, $grid-breakpoints);
+
+    // top / right / bottom / left
+    @each $prop, $abbrev in (top: t, right: r, bottom: b, left: l) {
+      .#{$abbrev}#{$infix}-auto {
+        #{$prop}: auto !important;
+      }
+
+      @each $size, $length in $spacers {
+        .#{$abbrev}#{$infix}-#{$size} {
+          #{$prop}: $length !important;
+        }
+        @if $size != 0 {
+          .#{$abbrev}#{$infix}-n#{$size} {
+            #{$prop}: -$length !important;
+          }
+        }
+      }
+    }
+  }
+}
+
+.position-center {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  margin: 0 -50% 0 0;
+  transform: translate(-50%, -50%) !important;
+}

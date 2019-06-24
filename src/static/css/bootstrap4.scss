@@ -1,0 +1,105 @@
+// DEFAULTS
+
+$white:    #fff !default;
+$gray-100: #f8f9fa !default;
+$gray-200: #e9ecef !default;
+$gray-300: #dee2e6 !default;
+$gray-400: #ced4da !default;
+$gray-500: #adb5bd !default;
+$gray-600: #6c757d !default;
+$gray-700: #495057 !default;
+$gray-800: #343a40 !default;
+$gray-900: #212529 !default;
+$black:    #000 !default;
+
+$blue:   #007bff !default;
+$indigo: #6610f2 !default;
+$purple: #6f42c1 !default;
+$pink:   #e83e8c !default;
+$red:    #dc3545 !default;
+$orange: #fd7e14 !default;
+$yellow: #ffc107 !default;
+$green:  #28a745 !default;
+$teal:   #20c997 !default;
+$cyan:   #17a2b8 !default;
+
+$primary:   $blue !default;
+$secondary: $gray-600 !default;
+$success:   $green !default;
+$info:      $cyan !default;
+$warning:   $yellow !default;
+$danger:    $red !default;
+$light:     $gray-100 !default;
+$dark:      $gray-800 !default;
+
+// CONFIG
+
+$enable-print-styles:          false;
+$enable-responsive-font-sizes: true;
+
+$light: $gray-400;
+
+// Use $light as the main color, then derive all others
+$navbar-dark-active-color:         $light;
+$navbar-dark-color:                rgba($navbar-dark-active-color, .75);
+$navbar-dark-hover-color:          rgba($navbar-dark-active-color, 1);
+$navbar-dark-disabled-color:       rgba($navbar-dark-active-color, .50);
+$navbar-dark-toggler-icon-bg:      str-replace(url("data:image/svg+xml,%3csvg viewBox='0 0 30 30' xmlns='http://www.w3.org/2000/svg'%3e%3cpath stroke='#{$navbar-dark-color}' stroke-width='2' stroke-linecap='round' stroke-miterlimit='10' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e"), "#", "%23");
+$navbar-dark-toggler-border-color: rgba($navbar-dark-active-color, .25);
+$navbar-dark-brand-color:          $navbar-dark-color;
+$navbar-dark-brand-hover-color:    $navbar-dark-active-color;
+
+// Add more spacer sizes
+$spacer: 1rem;
+$spacers: (
+  6: ($spacer * 4.5)
+);
+
+// Vertical length of 0, darker
+$box-shadow-sm: 0 0 .25rem rgba($black, .15) !default;
+$box-shadow:    0 0 1rem rgba($black, .3) !default;
+$box-shadow-lg: 0 0 3rem rgba($black, .35) !default;
+
+@import '../../../node_modules/bootstrap/scss/bootstrap';
+
+
+
+@import 'utilities/background';
+@import 'utilities/opacity';
+@import 'utilities/position';
+
+
+
+$navbar-height: 64px;
+.navbar {
+  height: $navbar-height;
+}
+.navbar-spacer {
+  height: $navbar-height;
+  z-index: -1;
+  & + * {
+    margin-top: $navbar-height !important;
+  }
+  @each $size, $length in $spacers {
+    & + .m-#{$size},
+    & + .my-#{$size},
+    & + .mt-#{$size} {
+      margin-top: $navbar-height/16px + $length !important;
+    }
+  }
+}
+
+.bg-trianglify {
+  background-image: url('../img/trianglify.svg');
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  @media (min-aspect-ratio: 1/1) {  // wide
+    background-size: 100% auto;
+  }
+}
+
+.text-shadow-sm { text-shadow: $box-shadow-sm !important; }
+.text-shadow { text-shadow: $box-shadow !important; }
+.text-shadow-lg { text-shadow: $box-shadow-lg !important; }
+.text-shadow-none { text-shadow: none !important; }

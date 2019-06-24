@@ -1,0 +1,17 @@
+header:
+  - link: https://www.linkedin.com/in/emmercm/
+    title: LinkedIn
+    icon: fab fa-linkedin-in
+
+  - link: https://twitter.com/emmercm
+    title: Twitter
+    icon: fab fa-twitter
+
+  - link: https://github.com/emmercm
+    title: GitHub
+    icon: fab fa-github
+
+footer:
+  - link: https://github.com/emmercm/www
+    title: Website Source
+    icon: fas fa-code
