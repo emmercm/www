@@ -31,7 +31,7 @@
     "metalsmith-html-minifier": "^3.0.3",
     "metalsmith-html-relative": "^0.1.0",
     "metalsmith-html-sri": "^0.1.0",
-    "metalsmith-html-unused": "^0.1.0",
+    "metalsmith-html-unused": "^0.2.0",
     "metalsmith-if": "^0.1.1",
     "metalsmith-include-files": "^0.1.0",
     "metalsmith-layouts": "^2.3.1",

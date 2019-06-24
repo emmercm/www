@@ -419,11 +419,12 @@ Metalsmith(__dirname)
         pattern: '**/*.@('
             + [
                 'css', 'js',
-                'bmp', 'gif', 'jpg', 'jpeg', 'png', 'svg', 'tif', 'tiff', 'webp',
+                'ai', 'bmp', 'gif', 'jpg', 'jpeg', 'png', 'svg', 'tif', 'tiff', 'webp',
                 'csv', 'json', 'tsv', 'xml', 'yml',
                 'doc', 'docx', 'pdf', 'ppt', 'pptx'
             ].join('|')
-            + ')'
+            + ')',
+        ignore: '**/trianglify.svg'
     })))
 
     /***************************
