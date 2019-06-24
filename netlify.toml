@@ -1,6 +1,6 @@
 [build]
-  publish = "build/"
-  command = "metalsmith"
+command = "node index"
+publish = "build/"
 
 [build.environment]
-  NODE_ENV = "production"
+NODE_ENV = "production"
