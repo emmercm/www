@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "dependencies": {
-    "@fortawesome/fontawesome-pro": "^5.8.2",
+    "@fortawesome/fontawesome-pro": "^5.9.0",
     "bootstrap": "^4.3.1",
     "handlebars": "^4.1.2",
     "handlebars-helpers": "^0.10.0",
@@ -44,7 +44,7 @@
     "metalsmith-sass": "^1.6.0",
     "metalsmith-twitter-card": "^1.0.4",
     "metalsmith-uglify": "^2.3.2",
-    "metalsmith-uncss-2": "^0.1.0"
+    "metalsmith-uncss-2": "^0.1.1"
   },
   "devDependencies": {},
   "repository": {
