@@ -1,10 +1,11 @@
+# Note: Adblock Plus will hide `a[title="LinkedIn"]` and `a[title="Twitter"]`
+
 header:
   - link: https://www.linkedin.com/in/emmercm/
-    title: LinkedIn
     icon: fab fa-linkedin-in
 
   - link: https://twitter.com/emmercm
-    title: Twitter
+    title: @emmercm
     icon: fab fa-twitter
 
   - link: https://github.com/emmercm
