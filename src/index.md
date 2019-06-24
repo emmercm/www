@@ -8,7 +8,7 @@ no_container: true
     <div class="my-auto">
         <h1 class="display-1">Christian Emmer</h1>
         <h2>Software Engineer</h2>
-        <h1 class="mt-5">
+        <p class="h1 mt-5">
             {{#each icons.header}}
                 <a href="{{link}}" target="_blank" class="text-dark text-decoration-none">
                     <span class="fa-stack align-top">
@@ -17,6 +17,6 @@ no_container: true
                     </span>
                 </a>
             {{/each}}
-        </h1>
+        </p>
     </div>
 </section>

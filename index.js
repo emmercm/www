@@ -317,7 +317,7 @@ Metalsmith(__dirname)
 
     // // Add favicons and icons
     .use(favicons({
-        src: '**/Christian Emmer3_Gray_Logo_Lighter.svg',
+        src: '**/logo3_Gray_Lighter.svg',
         appName: siteName,
         appDescription: siteDescription,
         developerName: siteName,
@@ -442,9 +442,7 @@ Metalsmith(__dirname)
 
     // Prod: trim CSS
     .use(msIf(prod, uncss({
-        basepath: 'static/css',
-        css: ['styles.css'],
-        output: 'styles.css',
+        output: 'static/css/styles.css',
         uncss: {
             ignore: [
                 // Bootstrap 4 JavaScript
@@ -490,13 +488,13 @@ Metalsmith(__dirname)
     .use(eslint())
 
     // Ensure no broken links
-    // .use(blc({
-    //     baseURL: '/not/root',
-    //     allowRedirects: true,
-    //     checkImages: true,
-    //     checkLinks: true,
-    //     checkAnchors: true
-    // }))
+    .use(blc({
+        baseURL: '/not/root',
+        allowRedirects: true,
+        checkImages: true,
+        checkLinks: true,
+        checkAnchors: true
+    }))
 
     /***********************
      *                     *
