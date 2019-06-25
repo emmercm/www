@@ -41,15 +41,7 @@ $enable-responsive-font-sizes: true;
 
 $light: $gray-400;
 
-// Use $light as the main color, then derive all others
-$navbar-dark-active-color:         $light;
-$navbar-dark-color:                rgba($navbar-dark-active-color, .75);
-$navbar-dark-hover-color:          rgba($navbar-dark-active-color, 1);
-$navbar-dark-disabled-color:       rgba($navbar-dark-active-color, .50);
-$navbar-dark-toggler-icon-bg:      str-replace(url("data:image/svg+xml,%3csvg viewBox='0 0 30 30' xmlns='http://www.w3.org/2000/svg'%3e%3cpath stroke='#{$navbar-dark-color}' stroke-width='2' stroke-linecap='round' stroke-miterlimit='10' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e"), "#", "%23");
-$navbar-dark-toggler-border-color: rgba($navbar-dark-active-color, .50);
-$navbar-dark-brand-color:          $navbar-dark-color;
-$navbar-dark-brand-hover-color:    $navbar-dark-active-color;
+$transition-base: all .15s ease-in-out;
 
 // Add more spacer sizes
 $spacer: 1rem;
@@ -62,6 +54,16 @@ $box-shadow-sm: 0 0 .25rem rgba($black, .15) !default;
 $box-shadow:    0 0 1rem rgba($black, .3) !default;
 $box-shadow-lg: 0 0 3rem rgba($black, .35) !default;
 
+// Use $light as the main color, then derive all others
+$navbar-dark-active-color:         $light;
+$navbar-dark-color:                rgba($navbar-dark-active-color, .75);
+$navbar-dark-hover-color:          rgba($navbar-dark-active-color, 1);
+$navbar-dark-disabled-color:       rgba($navbar-dark-active-color, .50);
+$navbar-dark-toggler-icon-bg:      str-replace(url("data:image/svg+xml,%3csvg viewBox='0 0 30 30' xmlns='http://www.w3.org/2000/svg'%3e%3cpath stroke='#{$navbar-dark-color}' stroke-width='2' stroke-linecap='round' stroke-miterlimit='10' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e"), "#", "%23");
+$navbar-dark-toggler-border-color: rgba($navbar-dark-active-color, .50);
+$navbar-dark-brand-color:          $navbar-dark-color;
+$navbar-dark-brand-hover-color:    $navbar-dark-active-color;
+
 @import '../../../node_modules/bootstrap/scss/bootstrap';
 
 
@@ -72,6 +74,10 @@ $box-shadow-lg: 0 0 3rem rgba($black, .35) !default;
 @import 'utilities/position';
 
 
+
+a {
+  transition: $transition-base;
+}
 
 $navbar-height: 64px;
 .navbar {
@@ -90,6 +96,19 @@ $navbar-height: 64px;
     & + .my-#{$size},
     & + .mt-#{$size} {
       margin-top: $navbar-height/16px + $length !important;
+    }
+  }
+}
+
+.footer {
+  color: $navbar-dark-color;
+  a {
+    color: $navbar-dark-color;
+    @include hover-focus {
+      color: $navbar-dark-hover-color;
+    }
+    &.disabled {
+      color: $navbar-dark-disabled-color;
     }
   }
 }
