@@ -26,16 +26,16 @@
 
 <body class="bg-secondary bg-trianglify" data-parallax="scroll" data-parallax-velocity="0.25">
 <nav class="navbar navbar-expand-md navbar-dark fixed-top clearfix bg-dark vw-100 {{#unless no_container}}shadow{{/unless}}">
-    <div class="container h-100">
-        <a class="navbar-brand h-100" href="/">
-            <img src="**/logo3_Gray_Lighter.svg" title="Logo" class="h-100 mr-2">
+    <div class="container">
+        <a class="navbar-brand" href="/">
+            <img src="**/logo3_Gray_Lighter.svg" title="Logo" class="mr-2">
             <span class="align-middle">Christian Emmer</span>
         </a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>
 
-        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <div class="collapse navbar-collapse mt-2 mt-md-0 pt-2 pt-md-0 border-top border-md-none border-light" id="navbarSupportedContent">
             <ul class="navbar-nav d-flex align-items-center ml-auto">
 <!--                <li class="nav-item">-->
 <!--                    <a class="nav-link" href="/blog">Blog</a>-->
@@ -76,7 +76,7 @@
         <div class="text-center">&copy; {{ year }}</div>
         <div>
             {{#each icons.footer}}
-                <a href="{{link}}" target="_blank" title="{{title}}" class="text-white">
+                <a href="{{link}}" target="_blank" title="{{title}}" class="text-light">
                     <span class="fa-stack align-top">
                         <i class="fal fa-circle fa-stack-2x"></i>
                         <i class="{{icon}} fa-stack-1x"></i>

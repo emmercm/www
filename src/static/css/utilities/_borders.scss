@@ -1,0 +1,21 @@
+@each $breakpoint in map-keys($grid-breakpoints) {
+  @include media-breakpoint-up($breakpoint) {
+    $infix: breakpoint-infix($breakpoint, $grid-breakpoints);
+
+    .border#{$infix} {
+      border: $border-width solid $border-color !important;
+    }
+    .border#{$infix}-none {
+      border: 0 !important;
+    }
+
+    @each $prop in (top, right, bottom, left) {
+      .border-#{$prop}#{$infix} {
+        border-#{$prop}: $border-width solid $border-color !important;
+      }
+      .border-#{$prop}#{$infix}-none {
+        border-#{$prop}: 0 !important;
+      }
+    }
+  }
+}
