@@ -51,9 +51,31 @@ $enable-responsive-font-sizes: true;
 
 $transition-base: all .15s ease-in-out;
 
+$link-hover-decoration: none;
+
 // Colors
 
-$primary: darken($orange, 15%);
+// Darken all colors
+$blue:   darken($blue,   15%);
+$indigo: darken($indigo, 15%);
+$purple: darken($purple, 15%);
+$pink:   darken($pink,   15%);
+$red:    darken($red,    15%);
+$orange: darken($orange, 15%);
+$yellow: darken($yellow, 15%);
+$green:  darken($green,  15%);
+$teal:   darken($teal,   15%);
+$cyan:   darken($cyan,   15%);
+$primary:   $blue;
+$secondary: $gray-600;
+$success:   $green;
+$info:      $cyan;
+$warning:   $yellow;
+$danger:    $red;
+$light:     $gray-100;
+$dark:      $gray-800;
+
+$primary: $orange;
 $light:   $gray-400;
 
 $headings-color: $gray-800;

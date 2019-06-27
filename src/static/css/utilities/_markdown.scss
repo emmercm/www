@@ -7,6 +7,6 @@
   h1,
   .h1 {
     padding-bottom: $headings-margin-bottom / 3;
-    border-bottom: $border-width solid lighten(if($headings-color, $headings-color, $body-color), 25%);
+    border-bottom: $border-width solid lighten(if($headings-color, $headings-color, $body-color), 35%);
   }
 }
