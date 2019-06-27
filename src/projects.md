@@ -41,7 +41,7 @@ A plugin to include files outside the source directory.
 
 ## [metalsmith-htaccess](https://github.com/emmercm/metalsmith-htaccess)
 
-A plugin to create [`.htaccess`](https://httpd.apache.org/docs/current/howto/htaccess.html) Apache HTTP Server configuration files. 
+A plugin to create a `.htaccess` [Apache HTTP Server configuration file](https://httpd.apache.org/docs/current/howto/htaccess.html). 
 
 ## [metalsmith-html-glob](https://github.com/emmercm/metalsmith-html-glob)
 
