@@ -1,6 +1,6 @@
 $(document).ready(function () {
     $("[data-parallax][data-parallax!='']").each(function () {
-        var $elem = $(this);
+        var $elem = $(this).css('transition', 'none');
         var velocity = parseFloat($elem.attr('data-parallax-velocity') || 1.0);
 
         if ($elem.attr('data-parallax') === 'scroll') {
