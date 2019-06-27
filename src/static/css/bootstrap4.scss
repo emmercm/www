@@ -1,4 +1,8 @@
-// DEFAULTS
+/**
+ *
+ * DEFAULTS
+ *
+ */
 
 @import '../../../node_modules/bootstrap/scss/functions';
 
@@ -34,25 +38,32 @@ $danger:    $red !default;
 $light:     $gray-100 !default;
 $dark:      $gray-800 !default;
 
-// CONFIG
+$spacer: 1rem;
+
+/**
+ *
+ * CUSTOM
+ *
+ */
 
 $enable-print-styles:          false;
 $enable-responsive-font-sizes: true;
 
-$light: $gray-400;
-
 $transition-base: all .15s ease-in-out;
 
-// Add more spacer sizes
-$spacer: 1rem;
-$spacers: (
-  6: ($spacer * 4.5)
-);
+// Colors
 
-// Vertical length of 0, darker
-$box-shadow-sm: 0 0 .25rem rgba($black, .15) !default;
-$box-shadow:    0 0 1rem rgba($black, .3) !default;
-$box-shadow-lg: 0 0 3rem rgba($black, .35) !default;
+$primary: darken($orange, 15%);
+$light:   $gray-400;
+
+$headings-color: $gray-800;
+
+$link-color:                              $primary;
+$link-hover-color:                        darken($link-color, 5%);
+$emphasized-link-hover-darken-percentage: 5%;
+
+$code-color: $gray-900;
+$code-bg:    $gray-500;
 
 // Use $light as the main color, then derive all others
 $navbar-dark-active-color:         $light;
@@ -64,19 +75,44 @@ $navbar-dark-toggler-border-color: rgba($navbar-dark-active-color, .50);
 $navbar-dark-brand-color:          $navbar-dark-color;
 $navbar-dark-brand-hover-color:    $navbar-dark-active-color;
 
+// Add more spacer sizes
+$spacers: (
+  6: ($spacer * 4.5)
+);
+
+$headings-margin-bottom: $spacer;
+
+// Vertical length of 0, darker
+$box-shadow-sm: 0 0 .25rem rgba($black, .15);
+$box-shadow:    0 0 1rem rgba($black, .3);
+$box-shadow-lg: 0 0 3rem rgba($black, .35);
+
 @import '../../../node_modules/bootstrap/scss/bootstrap';
 
 
 
-@import 'utilities/background';
-@import 'utilities/borders';
-@import 'utilities/opacity';
-@import 'utilities/position';
+@import "utilities/background";
+@import "utilities/borders";
+@import "utilities/code";
+@import "utilities/markdown";
+@import "utilities/opacity";
+@import "utilities/position";
 
 
 
-a {
+* {
   transition: $transition-base;
+}
+
+p,
+h1, h2, h3, h4, h5, h6,
+.h1, .h2, .h3, .h4, .h5, .h6 {
+  &:first-child {
+    margin-top: 0 !important;
+  }
+  &:last-child {
+    margin-bottom: 0 !important;
+  }
 }
 
 $navbar-height: 64px;

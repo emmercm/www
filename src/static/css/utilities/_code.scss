@@ -1,0 +1,12 @@
+code {
+  background-color: $code-bg;
+  margin: .125rem;
+  padding: .125rem .25rem;
+
+  a > & {
+    color: lighten($link-color, 2.5%);
+    @include hover {
+      color: lighten($link-hover-color, 2.5%);
+    }
+  }
+}
