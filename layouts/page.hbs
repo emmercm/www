@@ -26,7 +26,7 @@
 
 <body class="bg-secondary bg-trianglify" data-parallax="scroll" data-parallax-velocity="0.25">
 <nav class="navbar navbar-expand-md navbar-dark fixed-top clearfix bg-dark vw-100 {{#unless no_container}}shadow{{/unless}}">
-    <div class="container">
+    <div class="container-fluid">
         <a class="navbar-brand" href="/">
             <img src="**/logo3_Gray_Lighter.svg" title="Logo" class="mr-2">
             <span class="align-middle">Christian Emmer</span>
@@ -40,6 +40,9 @@
 <!--                <li class="nav-item">-->
 <!--                    <a class="nav-link" href="/blog">Blog</a>-->
 <!--                </li>-->
+                <li class="nav-item">
+                    <a class="nav-link {{#eq path.dir "projects"}}active{{/eq}}" href="/projects">Projects</a>
+                </li>
                 {{#each icons.header}}
                     <li class="nav-item">
                         <a href="{{link}}" target="_blank" {{#if title}}title="{{title}}"{{/if}} class="nav-link pr-0">
@@ -58,9 +61,11 @@
 <main>
     {{#unless no_container}}
         <div class="navbar-spacer fixed-top"></div>
-        <div class="my-6 bg-light">
-            <div class="container py-6">
-                {{{ contents }}}
+        <div class="container-fluid py-6 markdown">
+            <div class="row">
+                <div class="col-sm-12 col-lg-10 offset-lg-1 p-5 bg-light">
+                    {{{ contents }}}
+                </div>
             </div>
         </div>
     {{else}}
@@ -69,17 +74,23 @@
 </main>
 
 <footer class="footer bg-dark text-light {{#unless no_container}}shadow{{/unless}}">
-    <div class="container d-flex justify-content-between align-items-center py-3">
-        <div class="text-center">&copy; {{ year }}</div>
-        <div>
-            {{#each icons.footer}}
-                <a href="{{link}}" target="_blank" title="{{title}}" class="text-decoration-none">
-                    <span class="fa-stack align-top">
-                        <i class="fal fa-circle fa-stack-2x"></i>
-                        <i class="{{icon}} fa-stack-1x"></i>
-                    </span>
-                </a>
-            {{/each}}
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-sm-12 col-lg-10 offset-lg-1 py-4 px-5">
+                <div class="d-flex justify-content-between align-items-center">
+                    <div class="text-center">&copy; {{ year }}</div>
+                    <div>
+                        {{#each icons.footer}}
+                            <a href="{{link}}" target="_blank" title="{{title}}" class="text-decoration-none">
+                                <span class="fa-stack align-top">
+                                    <i class="fal fa-circle fa-stack-2x"></i>
+                                    <i class="{{icon}} fa-stack-1x"></i>
+                                </span>
+                            </a>
+                        {{/each}}
+                    </div>
+                </div>
+            </div>
         </div>
     </div>
 </footer>
