@@ -24,7 +24,7 @@ no_container: true
 <section class="d-flex flex-column text-center w-100 bg-light">
     <div class="position-absolute w-100 text-center" style="transform:translate(0%,-50%)">
         <a href="#" onclick="document.getElementById('summary').scrollIntoView({behavior:'smooth'}); return false;">
-            <img src="{{gravatar.main}}?r=g&d=mp&s=256" class="mw-75 max-vh-25 rounded-circle img-thumbnail bg-dark border-dark">
+            <img src="{{gravatar.main}}?r=g&d=mp&s=256" alt="{{ sitename }}" class="mw-75 max-vh-25 rounded-circle img-thumbnail bg-dark border-dark">
         </a>
     </div>
     <div style="min-height:85px;">&nbsp;</div> <!-- 256px/3 Gravatar spacer -->
