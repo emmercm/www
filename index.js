@@ -4,6 +4,7 @@ const msIf       = require('metalsmith-if');
 const env              = require('metalsmith-env');
 const buildinfo        = require('metalsmith-build-info');
 const metadata         = require('metalsmith-metadata-directory');
+const gravatar         = require('metalsmith-gravatar');
 // const validate         = require('metalsmith-validate');
 const dataLoader       = require('metalsmith-data-loader');
 const defaultValues    = require('metalsmith-default-values');
@@ -49,6 +50,7 @@ const siteCharset     = 'utf-8';
 const siteLanguage    = 'en';
 const siteName        = 'Christian Emmer';
 const siteURL         = 'https://emmer.dev';
+const siteEmail       = 'emmercm@gmail.com';
 const siteDescription = '';
 const siteKeywords    = [];
 const twitterHandle   = '@emmercm';
@@ -79,6 +81,16 @@ Metalsmith(__dirname)
     // Load metadata files
     .use(metadata({
         directory: "./src/data/*.yml"
+    }))
+
+    // Load Gravatar URL
+    .use(gravatar({
+        options: {
+            protocol: 'https'
+        },
+        avatars: {
+            main: siteEmail
+        }
     }))
 
     // Set source directory

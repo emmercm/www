@@ -26,6 +26,7 @@
     "metalsmith-eslint": "^4.0.0",
     "metalsmith-favicons": "^1.0.0",
     "metalsmith-formatcheck": "^0.2.5",
+    "metalsmith-gravatar": "^0.1.0",
     "metalsmith-hbt-md": "^1.0.1",
     "metalsmith-html-glob": "^0.1.0",
     "metalsmith-html-minifier": "^3.0.3",
