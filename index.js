@@ -3,11 +3,10 @@ const msIf       = require('metalsmith-if');
 
 const env              = require('metalsmith-env');
 const buildinfo        = require('metalsmith-build-info');
-const metadata         = require('metalsmith-metadata-directory')
+const metadata         = require('metalsmith-metadata-directory');
 // const validate         = require('metalsmith-validate');
 const dataLoader       = require('metalsmith-data-loader');
 const defaultValues    = require('metalsmith-default-values');
-// const htaccess         = require('metalsmith-htaccess');
 const sass             = require('metalsmith-sass');
 const autoprefixer     = require('metalsmith-autoprefixer');
 // const sharp            = require('metalsmith-sharp');
@@ -55,13 +54,13 @@ const siteKeywords    = [];
 const twitterHandle   = '@emmercm';
 
 Metalsmith(__dirname)
-/***********************
- *                     *
- *     SETUP INPUT     *
- *                     *
- ***********************/
+    /***********************
+     *                     *
+     *     SETUP INPUT     *
+     *                     *
+     ***********************/
 
-// Global variables available in layouts
+    // Global variables available in layouts
     .metadata({
         sitecharset: siteCharset,
         sitelanguage: siteLanguage,
@@ -77,6 +76,7 @@ Metalsmith(__dirname)
     // Add build info to global metadata
     .use(buildinfo())
 
+    // Load metadata files
     .use(metadata({
         directory: "./src/data/*.yml"
     }))
@@ -137,26 +137,6 @@ Metalsmith(__dirname)
             description: file => file.hasOwnProperty('description') ? file.description : siteDescription
         }
     }]))
-
-    // // Create Apache .htaccess file
-    // .use(htaccess({
-    //     core: {
-    //         defaultCharset: siteCharset
-    //     },
-    //     expires: {
-    //         default: 'access plus 1 month'
-    //     },
-    //     mime: {
-    //         defaultLanguage: siteLanguage
-    //     },
-    //     rewrite: {
-    //         httpsRedirect: prod,
-    //         404: '/'
-    //     },
-    //     spelling: {
-    //         check: true
-    //     }
-    // }))
 
     /*********************
      *                   *
@@ -347,20 +327,20 @@ Metalsmith(__dirname)
     }))
 
     // Add Twitter meta
-    .use(defaultValues([{
-        pattern: '**/*.html',
-        defaults: {
-            twitter: file => ({
-                title: file.pageTitle,
-                description: file.pageDescription
-            })
-        }
-    }]))
-    // .use(twitterCard({
-    //     siteurl: siteURL,
-    //     card: 'summary',
-    //     site: twitterHandle
-    // }))
+    // .use(defaultValues([{
+    //     pattern: '**/*.html',
+    //     defaults: {
+    //         twitter: file => ({
+    //             title: file.pageTitle,
+    //             description: file.pageDescription
+    //         })
+    //     }
+    // }]))
+    .use(twitterCard({
+        siteurl: siteURL,
+        card: 'summary',
+        site: twitterHandle
+    }))
 
     /**********************************
      *                                *

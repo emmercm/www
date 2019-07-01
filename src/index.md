@@ -6,7 +6,7 @@ no_container: true
 
 <section class="d-flex flex-column text-center w-100 vh-100 text-shadow-sm">
     <div class="my-auto">
-        <h1 class="display-1">Christian Emmer</h1>
+        <h1 class="display-1">{{ sitename }}</h1>
         <h2>Software Engineer</h2>
         <p class="h1 mt-5">
             {{#each icons.header}}
