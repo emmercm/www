@@ -27,7 +27,7 @@ no_container: true
             <img src="{{gravatar.main}}?r=g&d=mp&s=256" alt="{{ sitename }}" class="mw-50 rounded-circle img-thumbnail bg-dark border-dark">
         </a>
     </div>
-    <div style="min-height:85px;">&nbsp;</div> <!-- 256px/3 Gravatar spacer -->
+    <div style="min-height:128px;">&nbsp;</div> <!-- 256px/2 Gravatar spacer -->
     <div id="summary" class="mw-md-75 my-6 mx-auto px-4">
         <h2>
             <i class="far fa-map-marker-alt"></i>
