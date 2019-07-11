@@ -24,7 +24,7 @@ no_container: true
 <section class="d-flex flex-column text-center w-100 bg-light">
     <div class="position-absolute w-100 text-center" style="transform:translate(0%,-50%)">
         <a href="#" onclick="document.getElementById('summary').scrollIntoView({behavior:'smooth'}); return false;">
-            <img src="{{gravatar.main}}?r=g&d=mp&s=256" alt="{{ sitename }}" class="mw-75 max-vh-25 rounded-circle img-thumbnail bg-dark border-dark">
+            <img src="{{gravatar.main}}?r=g&d=mp&s=256" alt="{{ sitename }}" class="mw-50 rounded-circle img-thumbnail bg-dark border-dark">
         </a>
     </div>
     <div style="min-height:85px;">&nbsp;</div> <!-- 256px/3 Gravatar spacer -->
@@ -35,9 +35,9 @@ no_container: true
         </h2>
         <br>
         <h4>
-            Software engineer with 7+ years of experience developing back-end web services in PHP, Go, Node.js, Python, and Ruby on Rails.
+            Software engineer with {{subtract (date "today" "YYYY") (date "January 16 2012" "YYYY")}}+ years of experience developing full-stack solutions in PHP, Go, Node.js, Python, and Ruby on Rails.
             Skilled at distributed architecture and technical project management.
-            Passionate about mentoring, documentation, and setting quality standards.
+            Passionate about setting quality standards and leading by example.
         </h4>
     </div>
 </section>
