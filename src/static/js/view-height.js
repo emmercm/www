@@ -7,6 +7,17 @@
 
 $(document).ready(function () {
     $("[class^='vh-'], [class*=' vh-']").each(function () {
-        this.style.setProperty('height', $(this).outerHeight() + 'px', 'important');
+        var $elem = $(this).css('transition', 'none');
+
+        var fix = function() {
+            // Remove any previously set height, to re-calc height
+            $elem.get(0).style.removeProperty('height');
+
+            // Fix height to a specific amount
+            $elem.get(0).style.setProperty('height', $elem.outerHeight() + 'px', 'important');
+        };
+
+        fix();
+        $(window).resize(fix);
     })
 });
