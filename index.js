@@ -365,8 +365,9 @@ Metalsmith(__dirname)
             './node_modules/@fortawesome/fontawesome-pro/css/all.css'
         ],
         'static/js': [
-            './node_modules/bootstrap/dist/js/bootstrap.bundle.js',
-            './node_modules/jquery/dist/jquery.slim.min.js'
+            './node_modules/jquery/dist/jquery.slim.min.js',
+            './node_modules/mobile-detect/mobile-detect.min.js',
+            './node_modules/bootstrap/dist/js/bootstrap.bundle.js'
         ],
         'static/webfonts': [
             './node_modules/@fortawesome/fontawesome-pro/webfonts/*'
