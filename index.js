@@ -365,8 +365,11 @@ Metalsmith(__dirname)
             './node_modules/@fortawesome/fontawesome-pro/css/all.css'
         ],
         'static/js': [
-            './node_modules/bootstrap/dist/js/bootstrap.bundle.js',
-            './node_modules/jquery/dist/jquery.slim.min.js'
+            // Minified files that need to come first and won't get combined
+            './node_modules/jquery/dist/jquery.slim.min.js',
+            './node_modules/mobile-detect/mobile-detect.min.js',
+            // Everything else
+            './node_modules/bootstrap/dist/js/bootstrap.js'
         ],
         'static/webfonts': [
             './node_modules/@fortawesome/fontawesome-pro/webfonts/*'

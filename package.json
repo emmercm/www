@@ -46,6 +46,7 @@
     "metalsmith-twitter-card": "^1.0.4",
     "metalsmith-uglify": "^2.3.2",
     "metalsmith-uncss-2": "^0.1.1",
+    "mobile-detect": "^1.4.3",
     "moment": "^2.24.0"
   },
   "repository": {
