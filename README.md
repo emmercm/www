@@ -2,7 +2,7 @@
 
 ## Dependencies
 
-This website is built using [Metalsmith](https://metalsmith.io/) and [Node.js](https://nodejs.org), you need to install the dependencies in [package.json](./package.json):
+This website is built with [Node.js](https://nodejs.org), and it's dependencies are managed by [npm](https://www.npmjs.com/):
 
 ```bash
 npm install
