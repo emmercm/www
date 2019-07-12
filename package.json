@@ -26,6 +26,7 @@
     "metalsmith-eslint": "^4.0.0",
     "metalsmith-favicons": "^1.0.0",
     "metalsmith-formatcheck": "^0.2.5",
+    "metalsmith-gravatar": "^0.1.0",
     "metalsmith-hbt-md": "^1.0.1",
     "metalsmith-html-glob": "^0.1.0",
     "metalsmith-html-minifier": "^3.0.3",
@@ -44,9 +45,9 @@
     "metalsmith-sass": "^1.6.0",
     "metalsmith-twitter-card": "^1.0.4",
     "metalsmith-uglify": "^2.3.2",
-    "metalsmith-uncss-2": "^0.1.1"
+    "metalsmith-uncss-2": "^0.1.1",
+    "moment": "^2.24.0"
   },
-  "devDependencies": {},
   "repository": {
     "type": "git",
     "url": "git+https://github.com/emmercm/www.git"

@@ -119,8 +119,21 @@ $box-shadow-lg: 0 0 3rem rgba($black, .35);
 @import "utilities/markdown";
 @import "utilities/opacity";
 @import "utilities/position";
+@import "utilities/sizes";
 
 
+
+@import url('https://fonts.googleapis.com/css?family=Open+Sans:400,700&display=swap');
+body {
+  font-family: 'Open Sans', sans-serif;
+}
+
+@import url('https://fonts.googleapis.com/css?family=Montserrat:600&display=swap');
+.navbar-brand {
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 600;
+  text-transform: uppercase;
+}
 
 * {
   transition: $transition-base;
