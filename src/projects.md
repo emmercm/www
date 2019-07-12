@@ -1,5 +1,8 @@
 ---
+
 title: Projects
+description: Published open source projects.
+
 ---
 
 # <i class="fab fa-docker"></i> Docker Images

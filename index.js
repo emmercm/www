@@ -51,7 +51,7 @@ const siteLanguage    = 'en';
 const siteName        = 'Christian Emmer';
 const siteURL         = 'https://emmer.dev';
 const siteEmail       = 'emmercm@gmail.com';
-const siteDescription = '';
+const siteDescription = 'Software engineer with ' + require('moment')().diff('2012-01-16', 'years') + '+ years of experience developing full-stack solutions in PHP, Go, Node.js, Python, and Ruby on Rails.';
 const siteKeywords    = [];
 const twitterHandle   = '@emmercm';
 

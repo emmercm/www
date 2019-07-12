@@ -45,9 +45,9 @@
     "metalsmith-sass": "^1.6.0",
     "metalsmith-twitter-card": "^1.0.4",
     "metalsmith-uglify": "^2.3.2",
-    "metalsmith-uncss-2": "^0.1.1"
+    "metalsmith-uncss-2": "^0.1.1",
+    "moment": "^2.24.0"
   },
-  "devDependencies": {},
   "repository": {
     "type": "git",
     "url": "git+https://github.com/emmercm/www.git"

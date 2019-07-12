@@ -35,7 +35,7 @@ no_container: true
         </h2>
         <br>
         <h4>
-            Software engineer with {{subtract (date "today" "YYYY") (date "January 16 2012" "YYYY")}}+ years of experience developing full-stack solutions in PHP, Go, Node.js, Python, and Ruby on Rails.
+            {{{ sitedescription }}}
             Skilled at distributed architecture and technical project management.
             Passionate about quality, mentoring, and leading by example.
         </h4>
