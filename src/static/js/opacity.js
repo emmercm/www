@@ -1,3 +1,7 @@
+/**
+ * Handle tags with data-opacity-* attributes.
+ */
+
 $(document).ready(function () {
     $("[data-opacity][data-opacity!='']").each(function () {
         var $elem = $(this);
