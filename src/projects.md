@@ -41,7 +41,7 @@ A plugin to include files outside the source directory.
 
 ## [metalsmith-htaccess](https://github.com/emmercm/metalsmith-htaccess)
 
-A plugin to create a `.htaccess` Apache HTTP Server (`httpd`) [configuration file](https://httpd.apache.org/docs/current/howto/htaccess.html). 
+A plugin to create an `.htaccess` Apache HTTP Server (`httpd`) [configuration file](https://httpd.apache.org/docs/current/howto/htaccess.html). 
 
 ## [metalsmith-html-glob](https://github.com/emmercm/metalsmith-html-glob)
 
@@ -49,11 +49,11 @@ A plugin to process glob patterns (e.g. `<script src="**/*.js">`) in HTML tags.
 
 ## [metalsmith-html-relative](https://github.com/emmercm/metalsmith-html-relative)
 
-A plugin to resolve relative paths (e.g. `<a href="../index.html">`) in HTML tags
+A plugin to make paths relative (e.g. `<a href="../index.html">`) in HTML tags.
 
 ## [metalsmith-html-unused](https://github.com/emmercm/metalsmith-html-unused)
 
-A plugin to remove resources (`.css`, `.js`, `.png`, etc.) that aren't referenced in any HTML file.
+A plugin to remove resources (`.css`, `.js`, `.png`, etc.) that aren't used in any HTML file.
 
 ## [metalsmith-html-sri](https://github.com/emmercm/metalsmith-html-sri)
 
@@ -74,6 +74,8 @@ A script to build and install the [Raspberry Pi Foundation kernel](https://githu
 ## [rpi-headers](https://github.com/emmercm/rpi-headers)
 
 A script to build and install the [Raspberry Pi Foundation kernel](https://github.com/raspberrypi/linux) headers from source.
+
+Kernel headers are used for compiling code that interfaces with the kernel such as drivers.
 
 ## [rpi-backports](https://github.com/emmercm/rpi-backports)
 
