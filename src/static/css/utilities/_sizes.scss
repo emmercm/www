@@ -1,0 +1,27 @@
+@each $breakpoint in map-keys($grid-breakpoints) {
+  @include media-breakpoint-up($breakpoint) {
+    $infix: breakpoint-infix($breakpoint, $grid-breakpoints);
+
+    @each $size, $length in $sizes {
+      // width / height / min-width / min-height / max-width / max-height
+      @each $prop, $abbrev in (width: w, height: h, min-width: min-w, min-height: min-h, max-width: mw, max-height: mh) {
+        .#{$abbrev}#{$infix}-#{$size} {
+          #{$prop}: $length !important;
+        }
+      }
+
+      // viewport: width / height / min-width / min-height / max-width / max-height
+      @each $prop, $abbrev in (width: vw, height: vh) {
+        .#{$abbrev}#{$infix}-#{$size} {
+          #{$prop}: #{$size}#{$abbrev} !important;
+        }
+        .min-#{$abbrev}#{$infix}-#{$size} {
+          min-#{$prop}: #{$size}#{$abbrev} !important;
+        }
+        .max-#{$abbrev}#{$infix}-#{$size} {
+          max-#{$prop}: #{$size}#{$abbrev} !important;
+        }
+      }
+    }
+  }
+}

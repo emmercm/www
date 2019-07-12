@@ -1,3 +1,7 @@
+/**
+ * Handle tags with data-parallax-* attributes.
+ */
+
 $(document).ready(function () {
     $("[data-parallax][data-parallax!='']").each(function () {
         var $elem = $(this).css('transition', 'none');

@@ -29,7 +29,7 @@
     <div class="container-fluid">
         <a class="navbar-brand" href="/">
             <img src="**/logo3_Gray_Lighter.svg" title="Logo" class="mr-2">
-            <span class="align-middle">Christian Emmer</span>
+            <span class="align-middle">{{ sitename }}</span>
         </a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
@@ -61,9 +61,9 @@
 <main>
     {{#unless no_container}}
         <div class="navbar-spacer fixed-top"></div>
-        <div class="container-fluid py-6 markdown">
+        <div class="container-fluid py-5 py-lg-6 markdown">
             <div class="row">
-                <div class="col-sm-12 col-lg-10 offset-lg-1 p-5 bg-light">
+                <div class="col-sm-12 col-lg-10 offset-lg-1 p-4 p-md-5 bg-light">
                     {{{ contents }}}
                 </div>
             </div>
@@ -76,7 +76,7 @@
 <footer class="footer bg-dark text-light {{#unless no_container}}shadow{{/unless}}">
     <div class="container-fluid">
         <div class="row">
-            <div class="col-sm-12 col-lg-10 offset-lg-1 py-4 px-5">
+            <div class="col-sm-12 col-lg-10 offset-lg-1 p-4 px-lg-0">
                 <div class="d-flex justify-content-between align-items-center">
                     <div class="text-center">&copy; {{ year }}</div>
                     <div>
