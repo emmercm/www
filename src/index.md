@@ -27,7 +27,7 @@ no_container: true
             <img src="{{gravatar.main}}?r=g&d=mp&s=256" alt="{{ sitename }}" class="mw-50 rounded-circle img-thumbnail bg-dark border-dark">
         </a>
     </div>
-    <div style="min-height:128px;">&nbsp;</div> <!-- 256px/2 Gravatar spacer -->
+    <div style="height:128px; max-height:20vw;">&nbsp;</div> <!-- 256px/2 Gravatar spacer -->
     <div id="summary" class="mw-md-75 my-6 mx-auto px-4">
         <h2>
             <i class="far fa-map-marker-alt"></i>
@@ -37,7 +37,7 @@ no_container: true
         <h4>
             Software engineer with {{subtract (date "today" "YYYY") (date "January 16 2012" "YYYY")}}+ years of experience developing full-stack solutions in PHP, Go, Node.js, Python, and Ruby on Rails.
             Skilled at distributed architecture and technical project management.
-            Passionate about setting quality standards and leading by example.
+            Passionate about quality, mentoring, and leading by example.
         </h4>
     </div>
 </section>
