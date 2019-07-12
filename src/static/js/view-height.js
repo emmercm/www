@@ -11,12 +11,18 @@ if (md.mobile()) {
         $("[class^='vh-'], [class*=' vh-']").each(function () {
             var $elem = $(this).css('transition', 'none');
 
+            var orientation = undefined;
             var fix = function () {
-                // Remove any previously set height, to re-calc height
-                $elem.get(0).style.removeProperty('height');
+                // Replicate deprecated window.orientationchange() behavior
+                var newOrientation = $(window).height() > $(window).width() ? 'portrait' : 'landscape';
+                if (orientation !== newOrientation) {
+                    // Remove any previously set height, to re-calc height
+                    $elem.get(0).style.removeProperty('height');
 
-                // Fix height to a specific amount
-                $elem.get(0).style.setProperty('height', $elem.outerHeight() + 'px', 'important');
+                    // Fix height to a specific amount
+                    $elem.get(0).style.setProperty('height', $elem.outerHeight() + 'px', 'important');
+                }
+                orientation = newOrientation;
             };
 
             fix();
