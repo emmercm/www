@@ -1,5 +1,36 @@
 {
   "extends": [
-    "config:base"
+    "config:base",
+    "schedule:weekly"
+  ],
+  "dockerfile": {
+    "enabled": false
+  },
+  "groupName": "All",
+  "timezone": "America/Detroit",
+  "assignees": ["@emmercm"],
+  "vulnerabilityAlerts": {
+    "labels": ["security"],
+    "schedule": "at any time"
+  },
+  "packageRules": [
+    {
+      "packageNames": [".+"],
+      "excludePackagePatterns": [
+        "^metalsmith",
+        "^handlebars",
+        "^jstransformer"
+      ],
+      "groupName": "Front-End"
+    },
+    {
+      "packagePatterns": [
+        "^metalsmith",
+        "^handlebars",
+        "^jstransformer"
+      ],
+      "excludePackageNames": ["metalsmith-concat"],
+      "groupName": "Back-End"
+    }
   ]
 }
