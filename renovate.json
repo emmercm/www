@@ -13,6 +13,10 @@
     "labels": ["security"],
     "schedule": "at any time"
   },
+  "npmrc": "@fortawesome:registry=https://npm.fontawesome.com/\n//npm.fontawesome.com/:_authToken=${NPM_TOKEN}"
+  "encrypted": {
+    "npmToken": "G4WJ+OXITaxMDqc9cJq9fy51DHWHAnx8nStTmcm8JicLPqkZhA5OFJrW+Z67JiyLR1BJSDsNZv8exYeV/v60pf30XU7VZ40+DeFQ09Ax7F5wJ4I0kEUHvOf84D/w/KdUHfFxPlgIAfnWTv8xw5db9A8ohV5oqtGUjzdpfPtc9akAB/xbj3A6/zC2kjkmYG/rZl5UTvfa4aygUudSpgjYw3ujCfsXVFvVHfJL2vQ8zJ8Ht9kZEY1ui4kJ9EVX3z2si2vweW5JjNmm410Jgp7L7/mMYMg3qtCm+NYyRG7GPpHo8HSGhr84DJC4Gt4OZFuhXiw6NUY/fEVFAd2eH1toWQ=="
+  },
   "packageRules": [
     {
       "packageNames": [".+"],
