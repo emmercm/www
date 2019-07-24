@@ -17,8 +17,10 @@ const collect          = require('metalsmith-auto-collections');
 const renamer          = require('metalsmith-renamer');
 const permalinks       = require('metalsmith-permalinks');
 const paths            = require('metalsmith-paths');
+const branch           = require('metalsmith-branch');
 const hbtmd            = require('metalsmith-hbt-md');
 const markdown         = require('metalsmith-markdown');
+const excerpts         = require('metalsmith-excerpts');
 const favicons         = require('metalsmith-favicons');
 const layouts          = require('metalsmith-layouts');
 const openGraph        = require('metalsmith-open-graph');
@@ -250,22 +252,8 @@ Metalsmith(__dirname)
     .use(collect({
         pattern: '*/**/*.md',
         settings: {
-            sortBy: function (a, b) {
-                // https://github.com/segmentio/metalsmith-collections
-                if (isNaN(a.index)) {
-                    throw "Missing index for '" + a.path + "'";
-                } else if (isNaN(b.index)) {
-                    throw "Missing index for '" + b.path + "'";
-                } else if (a.index === b.index) {
-                    throw "Duplicate index for '" + a.path + "' and '" + b.path + "': " + a.index;
-                } else if (a.index > b.index) {
-                    return 1;
-                } else if (a.index < b.index) {
-                    return -1;
-                }
-                return 0;
-            },
-            refer: false
+            sortBy: 'date',
+            reverse: true
         }
     }))
 
@@ -281,9 +269,12 @@ Metalsmith(__dirname)
     // Move pages to separate index.html inside folders
     .use(permalinks({
         relative: false,  // don't copy static files everywhere
-        slug: {
-            replacement: '-'
-        }
+        linksets: [
+            {
+                match: { collection: 'blog' },
+                pattern: 'blog/:title'
+            }
+        ]
     }))
 
     // Add a "path" object to each file's metadata - after permalinks() moves them
@@ -299,6 +290,15 @@ Metalsmith(__dirname)
         }
     }))
 
+    // Render blog templates (same as below) first so excerpts can be parsed before being referenced on other pages
+    .use(branch('blog/*/**/*.md')
+        .use(hbtmd(Handlebars))
+        .use(markdown({
+            headerIds: false
+        }))
+        .use(excerpts())
+    )
+
     // Process handlebars templating inside markdown
     .use(hbtmd(Handlebars))
 
@@ -307,7 +307,7 @@ Metalsmith(__dirname)
         headerIds: false
     }))
 
-    // // Add favicons and icons
+    // Add favicons and icons
     .use(favicons({
         src: '**/logo3_Gray_Lighter.svg',
         appName: siteName,

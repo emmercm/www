@@ -1,41 +1,22 @@
 ---
 
----
-
-## THIS IS A TITLE
-
-### THIS IS A SUBTITLE
+title: Blog
+no_padding: true
+background: transparent
 
 ---
 
-## THIS IS ANOTHER TITLE
-
-### THIS IS ANOTHER SUBTITLE
-
----
-
-<section class="d-flex flex-column text-center w-100 vh-25" style="text-shadow: 0 2px 3px #666;">
-    <div class="my-auto">
-        <h1>THIS IS THE TITLE</h1>
-        <hr>
-        <h2>THIS IS THE SUBTITLE</h2>
-    </div>
-</section>
-
-<section class="d-flex flex-column text-center w-100 vh-100" style="text-shadow: 0 2px 3px #666;">
-    <div class="my-auto">
-        <h2 class="display-1">SOME DUMMY TEXT</h2>
-    </div>
-</section>
-
-<section class="d-flex flex-column text-center w-100 vh-100" style="text-shadow: 0 2px 3px #666;">
-    <div class="my-auto">
-        <h2 class="display-1">SOME DUMMY TEXT</h2>
-    </div>
-</section>
-
-<section class="d-flex flex-column text-center w-100 vh-100" style="text-shadow: 0 2px 3px #666;">
-    <div class="my-auto">
-        <h2 class="display-1">SOME DUMMY TEXT</h2>
-    </div>
-</section>
+<div class="row d-flex justify-content-center align-items-stretch">
+    {{#each collections.blog}}
+        <div class="col-12 col-md-6 p-2 p-md-3">
+            <div class="card h-100 bg-light">
+                <div class="card-body">
+                    <h1 class="card-title">{{ title }}</h1>
+                    <h5>{{moment this.date "MMMM M, YYYY"}} by {{ sitename }}</h5>
+                    <p class="card-text">{{sanitize excerpt}}</p>
+                    <p class="card-text"><a href="{{ path.href }}">Read more</a></p>
+                </div>
+            </div>
+        </div>
+    {{/each}}
+</div>
