@@ -21,6 +21,7 @@ const branch           = require('metalsmith-branch');
 const hbtmd            = require('metalsmith-hbt-md');
 const markdown         = require('metalsmith-markdown');
 const excerpts         = require('metalsmith-excerpts');
+const except           = require('metalsmith-except');
 const favicons         = require('metalsmith-favicons');
 const layouts          = require('metalsmith-layouts');
 const openGraph        = require('metalsmith-open-graph');
@@ -306,6 +307,13 @@ Metalsmith(__dirname)
             headerIds: false
         }))
         .use(excerpts())
+        .use(except('pageDescription'))
+        .use(defaultValues([{
+            pattern: '**/*',
+            defaults: {
+                pageDescription: file => file.excerpt.replace(/<[^>]*>/g, '').trim()
+            }
+        }]))
     )
 
     // Process handlebars templating inside markdown
@@ -348,15 +356,15 @@ Metalsmith(__dirname)
     }))
 
     // Add Twitter meta
-    // .use(defaultValues([{
-    //     pattern: '**/*.html',
-    //     defaults: {
-    //         twitter: file => ({
-    //             title: file.pageTitle,
-    //             description: file.pageDescription
-    //         })
-    //     }
-    // }]))
+    .use(defaultValues([{
+        pattern: '**/*.html',
+        defaults: {
+            twitter: file => ({
+                title: file.pageTitle,
+                description: file.pageDescription
+            })
+        }
+    }]))
     .use(twitterCard({
         siteurl: siteURL,
         card: 'summary',

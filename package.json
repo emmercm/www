@@ -25,6 +25,7 @@
     "metalsmith-discover-partials": "^0.1.2",
     "metalsmith-env": "^2.1.1",
     "metalsmith-eslint": "^4.0.0",
+    "metalsmith-except": "^0.1.1",
     "metalsmith-excerpts": "^1.2.0",
     "metalsmith-favicons": "^1.0.0",
     "metalsmith-formatcheck": "^0.2.5",
