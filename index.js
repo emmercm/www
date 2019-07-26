@@ -5,7 +5,7 @@ const env              = require('metalsmith-env');
 const buildinfo        = require('metalsmith-build-info');
 const metadata         = require('metalsmith-metadata-directory');
 const gravatar         = require('metalsmith-gravatar');
-// const validate         = require('metalsmith-validate');
+const validate         = require('metalsmith-validate');
 const dataLoader       = require('metalsmith-data-loader');
 const defaultValues    = require('metalsmith-default-values');
 const sass             = require('metalsmith-sass');
@@ -46,6 +46,8 @@ require('handlebars-helpers')({
     handlebars: Handlebars
 });
 
+const moment = require('moment');
+
 const prod = (process.env.NODE_ENV || 'development').toLowerCase() === 'production';
 
 const siteCharset     = 'utf-8';
@@ -53,7 +55,7 @@ const siteLanguage    = 'en';
 const siteName        = 'Christian Emmer';
 const siteURL         = 'https://emmer.dev';
 const siteEmail       = 'emmercm@gmail.com';
-const siteDescription = 'Software engineer with ' + require('moment')().diff('2012-01-16', 'years') + '+ years of experience developing full-stack solutions in PHP, Go, Node.js, Python, and Ruby on Rails.';
+const siteDescription = 'Software engineer with ' + moment().diff('2012-01-16', 'years') + '+ years of experience developing full-stack solutions in PHP, Go, Node.js, Python, and Ruby on Rails.';
 const siteKeywords    = [];
 const twitterHandle   = '@emmercm';
 
@@ -104,16 +106,16 @@ Metalsmith(__dirname)
         '**/*.json',
     ])
 
-    // // Validate required metadata
-    // .use(validate([
-    //     {
-    //         pattern: '**/!(index).md',
-    //         metadata: {
-    //             title: true,
-    //             description: true
-    //         }
-    //     }
-    // ]))
+    // Validate required metadata
+    .use(validate([
+        {
+            pattern: 'blog/*/**/*.md',
+            metadata: {
+                title: true,
+                date: true
+            }
+        }
+    ]))
 
     // Load external YAML files into page metadata
     .use(dataLoader({
@@ -252,7 +254,14 @@ Metalsmith(__dirname)
     .use(collect({
         pattern: '*/**/*.md',
         settings: {
-            sortBy: 'date',
+            sortBy: (a, b) => {
+                if (moment(a.date).isAfter(b.date)) {
+                    return 1;
+                } else if (moment(a.date).isBefore(b.date)) {
+                    return -1;
+                }
+                return 0;
+            },
             reverse: true
         }
     }))
