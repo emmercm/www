@@ -37,15 +37,17 @@
 
         <div class="collapse navbar-collapse mt-2 mt-md-0 pt-2 pt-md-0 border-top border-md-none border-light" id="navbarSupportedContent">
             <ul class="navbar-nav d-flex align-items-center ml-auto">
-                <li class="nav-item">
-                    <a class="nav-link" href="/blog">Blog</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link {{#eq path.dir "projects"}}active{{/eq}}" href="/projects">Projects</a>
+                {{#if collections.blog}}
+                    <li class="nav-item {{#eq (segments path.dir 0 1) "blog"}}active{{/eq}}">
+                        <a class="nav-link" href="/blog">Blog</a>
+                    </li>
+                {{/if}}
+                <li class="nav-item {{#eq (segments path.dir 0 1) "projects"}}active{{/eq}}">
+                    <a class="nav-link" href="/projects">Projects</a>
                 </li>
                 {{#each icons.header}}
                     <li class="nav-item">
-                        <a href="{{link}}" target="_blank" {{#if title}}title="{{title}}"{{/if}} class="nav-link pr-0">
+                        <a href="{{link}}" target="_blank" {{#if title}}title="{{title}}"{{/if}} class="nav-link px-0">
                             <span class="fa-stack align-top">
                                 <i class="fal fa-circle fa-stack-2x"></i>
                                 <i class="{{icon}} fa-stack-1x"></i>
@@ -63,10 +65,18 @@
         <div class="navbar-spacer fixed-top"></div>
     {{/unless}}
     {{#unless no_container}}
-        <div class="container-fluid py-5 py-lg-6 markdown">
+        <div class="container-fluid py-4 py-md-5 py-lg-6 markdown">
             <div class="row">
-                <div class="col-sm-12 col-lg-10 offset-lg-1 {{#unless no_padding}}p-4 p-md-5{{/unless}} {{#if background}}bg-{{background}}{{else}}bg-light{{/if}}">
-                    {{{ contents }}}
+                <div class="col-sm-12 col-lg-10 offset-lg-1 p-0 br-lg-1 {{#if background}}bg-{{background}}{{else}}bg-light{{/if}}">
+                    <div class="{{#if no_padding}}p-0{{else}}p-4 p-md-5{{/if}}">
+                        {{#and title (not no_title)}}
+                            <h1>{{ title }}</h1>
+                        {{/and}}
+                        {{#if this.date}}
+                            <h5 class="mt-0"><small class="text-muted">{{moment this.date "MMMM D, YYYY"}} by {{ sitename }}</small></h5>
+                        {{/if}}
+                        {{{ contents }}}
+                    </div>
                 </div>
             </div>
         </div>
@@ -80,7 +90,7 @@
         <div class="row">
             <div class="col-sm-12 col-lg-10 offset-lg-1 p-4 px-lg-0">
                 <div class="d-flex justify-content-between align-items-center">
-                    <div class="text-center">&copy; {{ year }}</div>
+                    <div class="text-center">&copy; {{ year }} {{ sitename }}</div>
                     <div>
                         {{#each icons.footer}}
                             <a href="{{link}}" target="_blank" title="{{title}}" class="text-decoration-none">

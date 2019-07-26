@@ -156,6 +156,31 @@ $navbar-height: 64px;
     height: $navbar-height - 26px;
   }
 }
+.navbar-expand {
+  @each $breakpoint in map-keys($grid-breakpoints) {
+    $next: breakpoint-next($breakpoint, $grid-breakpoints);
+    $infix: breakpoint-infix($next, $grid-breakpoints);
+    &#{$infix} {
+      @include media-breakpoint-up($next) {
+        .navbar-nav {
+          .nav-link {
+            margin: 0 $navbar-nav-link-padding-x/2;
+          }
+        }
+      }
+    }
+  }
+}
+.navbar-dark {
+  .navbar-nav {
+    .show > .nav-link,
+    .active > .nav-link,
+    .nav-link.show,
+    .nav-link.active {
+      border-bottom: 2px solid $navbar-dark-active-color;
+    }
+  }
+}
 .navbar-spacer {
   height: $navbar-height;
   z-index: -1;
