@@ -1,7 +1,7 @@
 <div class="row d-flex justify-content-center align-items-stretch">
     {{#each data}}
-        <div class="col-12 {{#equalsLength ../data 1}}col-xl-12{{else equalsLength ../data 2}}col-xl-6{{else and @first (eq (modulo (length ../data) 4) 0)}}col-xl-12{{else and (lt @index 2) (eq (modulo (length ../data) 5) 0)}}col-xl-6{{else}}col-xl-4{{/equalsLength}} p-2 p-md-3">
-            <div class="h-100 p-4 br-md-2 bg-light">
+        <div class="col-12 {{#equalsLength ../data 1}}col-xl-12{{else equalsLength ../data 2}}col-xl-6{{else and @first (eq (modulo (length ../data) 4) 0)}}col-xl-12{{else and (lt @index 2) (eq (modulo (length ../data) 5) 0)}}col-xl-6{{else}}col-xl-4{{/equalsLength}} py-3 px-0 px-lg-3">
+            <div class="h-100 p-4 br-lg-2 bg-light">
                 <h1>
                     <a href="{{ path.href }}" class="text-dark">{{ title }}</a>
                 </h1>

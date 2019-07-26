@@ -65,9 +65,9 @@
         <div class="navbar-spacer fixed-top"></div>
     {{/unless}}
     {{#unless no_container}}
-        <div class="container-fluid py-4 py-md-5 py-lg-6 markdown">
+        <div class="container-fluid py-4 py-lg-6 markdown">
             <div class="row">
-                <div class="col-sm-12 col-lg-10 offset-lg-1 p-0 br-lg-1 {{#if background}}bg-{{background}}{{else}}bg-light{{/if}}">
+                <div class="col-12 col-lg-10 offset-lg-1 br-lg-1 {{#if background}}bg-{{background}}{{else}}bg-light{{/if}}">
                     <div class="{{#if no_padding}}p-0{{else}}p-4 p-md-5{{/if}}">
                         {{#and title (not no_title)}}
                             <h1>{{ title }}</h1>
@@ -88,7 +88,7 @@
 <footer class="footer bg-dark text-light {{#unless no_container}}shadow{{/unless}}">
     <div class="container-fluid">
         <div class="row">
-            <div class="col-sm-12 col-lg-10 offset-lg-1 p-4 px-lg-0">
+            <div class="col-12 col-lg-10 offset-lg-1 p-4 px-lg-0">
                 <div class="d-flex justify-content-between align-items-center">
                     <div class="text-center">&copy; {{ year }} {{ sitename }}</div>
                     <div>
