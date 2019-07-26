@@ -43,6 +43,6 @@ no_container: true
     </div>
 </section>
 
-{{#if collections.blog}}<section class="p-6 markdown">
-    {{>blog_list data=(first collections.blog 3)}}
+{{#if collections.blog}}<section class="p-5 p-md-6 markdown">
+    {{>blog_list data=(first collections.blog 3) br_breakpoint="xs"}}
 </section>{{/if}}
