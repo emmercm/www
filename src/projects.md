@@ -87,3 +87,15 @@ A script to build and install the [Backports Project](https://backports.wiki.ker
 ## [rpi-rtl8812au](https://github.com/emmercm/rpi-rtl8812au)
 
 A script to build and install a Realtek RTL8812AU WiFi driver.
+
+# <i class="far fa-robot"></i> FIRST Robotics Competition
+
+I have developed a number of projects for use in the [FIRST Robotics Competition](https://www.firstinspires.org/robotics/frc), a worldwide STEM competition for high school students.
+
+## [SharkScout](https://github.com/hammerhead226/SharkScout)
+
+A [Python](https://www.python.org/) ([CherryPy](https://cherrypy.org/), [ws4py](https://ws4py.readthedocs.io/en/latest/), [Genshi](https://genshi.edgewall.org/)) and [MongoDB](https://www.mongodb.com/)\-based web app for both quantitative and qualitative [competition scouting](http://www.team358.org/files/scouting/). Used by [The Hammerheads (226)](http://hammerhead226.org/) in the 2017 and 2018 competition seasons.
+
+Built with unreliable client connections as a primary concern, the app makes use of front-end caching and background syncing with web sockets. Designed to make use of official team and event data from [The Blue Alliance](https://www.thebluealliance.com/), there is very little work is required to get started.
+
+## [SharkCV](https://github.com/hammerhead226/SharkCV)
