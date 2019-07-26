@@ -362,13 +362,14 @@ Metalsmith(__dirname)
 
     .use(include({
         'static/css': [
+            // Un-minified files that will get combined into one file
             './node_modules/@fortawesome/fontawesome-pro/css/all.css'
         ],
         'static/js': [
             // Minified files that need to come first and won't get combined
             './node_modules/jquery/dist/jquery.slim.min.js',
             './node_modules/mobile-detect/mobile-detect.min.js',
-            // Everything else
+            // Un-minified files that will get combined into one file
             './node_modules/bootstrap/dist/js/bootstrap.js'
         ],
         'static/webfonts': [
