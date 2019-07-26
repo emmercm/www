@@ -1,6 +1,6 @@
 ---
 
-date: 2019-07-23
+date: 2019-07-23 00:00:00+00
 title: First? Yeah I think it is
 
 ---
