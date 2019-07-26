@@ -2,6 +2,7 @@
 
 title: Projects
 description: Published open source projects.
+no_title: true
 
 ---
 
