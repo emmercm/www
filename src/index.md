@@ -42,3 +42,7 @@ no_container: true
         </h4>
     </div>
 </section>
+
+{{#if collections.blog}}<section class="p-6 markdown">
+    {{>blog_list data=(first collections.blog 3)}}
+</section>{{/if}}
