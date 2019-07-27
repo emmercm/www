@@ -305,7 +305,8 @@ Metalsmith(__dirname)
     .use(branch('blog/*/**/*.md')
         .use(hbtmd(Handlebars))
         .use(markdown({
-            headerIds: false
+            headerIds: false,
+            smartypants: true
         }))
         .use(excerpts())
         .use(except('pageDescription'))
