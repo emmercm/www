@@ -28,7 +28,7 @@ A collection of images with a headless version of [qBittorrent](https://www.qbit
 
 A collection of images with [FlexGet](https://flexget.com/) installed and the web UI exposed.
 
-# <i class="fab fa-js"></i> Metalsmith Plugins
+# <i class="fab fa-node-js"></i> Metalsmith Plugins
 
 I have published a number of plugins for [Metalsmith](https://metalsmith.io/), a plugin-based JavaScript static site generator, to [npm](https://www.npmjs.com/settings/emmercm/packages).
 
