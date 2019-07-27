@@ -304,7 +304,8 @@ Metalsmith(__dirname)
 
     // Convert markdown to HTML
     .use(markdown({
-        headerIds: false
+        headerIds: false,
+        smartypants: true
     }))
 
     // // Add favicons and icons

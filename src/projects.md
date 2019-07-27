@@ -82,7 +82,7 @@ A script to build and install the [Raspberry Pi Foundation kernel](https://githu
 
 A script to build and install the [Raspberry Pi Foundation kernel](https://github.com/raspberrypi/linux) headers from source.
 
-Kernel headers are used for compiling code that interfaces with the kernel such as drivers.
+Kernel headers are used for compiling code that interfaces with the kernel, such as drivers.
 
 ### [rpi-backports](https://github.com/emmercm/rpi-backports)
 
@@ -90,11 +90,11 @@ A script to build and install the [Backports Project](https://backports.wiki.ker
 
 ### [rpi-rtl8812au](https://github.com/emmercm/rpi-rtl8812au)
 
-A script to build and install a Realtek RTL8812AU WiFi driver.
+A script to build and install a Realtek RTL8812AU WiFi driver from source.
 
 ## <i class="far fa-robot"></i> FIRST Robotics Competition
 
-I have developed a number of projects for use in the [FIRST Robotics Competition](https://www.firstinspires.org/robotics/frc), a worldwide STEM competition for high school students.
+I have developed a number of applications for use in the [FIRST Robotics Competition](https://www.firstinspires.org/robotics/frc), a worldwide STEM competition for high school students.
 
 ### [SharkScout](https://github.com/hammerhead226/SharkScout)
 
