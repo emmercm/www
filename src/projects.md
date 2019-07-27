@@ -100,7 +100,7 @@ I have developed a number of applications for use in the [FIRST Robotics Competi
 
 A Python (`CherryPy`, `ws4py`, `Genshi`) and MongoDB-based web app for both quantitative and qualitative [competition scouting](http://www.team358.org/files/scouting/). Used by the [Hammerheads (226)](http://hammerhead226.org/) in the 2017 and 2018 competition seasons.
 
-Built with unreliable client connections as a primary concern, the app makes use of front-end caching and background syncing with web sockets. Designed to make use of official team and event data from [The Blue Alliance](https://www.thebluealliance.com/), there is very little work required to get started.
+Built with unreliable client connections as a primary concern, the app makes use of front-end caching and background syncing with web sockets. Designed to make use of team and event data from [The Blue Alliance](https://www.thebluealliance.com/), stored locally for offline use, there is very little work required to get started.
 
 ### [SharkCV](https://github.com/hammerhead226/SharkCV)
 
