@@ -47,7 +47,7 @@
                 </li>
                 {{#each icons.header}}
                     <li class="nav-item">
-                        <a href="{{link}}" target="_blank" {{#if title}}title="{{title}}"{{/if}} class="nav-link px-0">
+                        <a href="{{link}}" {{#if title}}title="{{title}}"{{/if}} class="nav-link px-0">
                             <span class="fa-stack align-top">
                                 <i class="fal fa-circle fa-stack-2x"></i>
                                 <i class="{{icon}} fa-stack-1x"></i>
@@ -93,7 +93,7 @@
                     <div class="text-center">&copy; {{ year }} {{ sitename }}</div>
                     <div>
                         {{#each icons.footer}}
-                            <a href="{{link}}" target="_blank" title="{{title}}" class="text-decoration-none">
+                            <a href="{{link}}" title="{{title}}" class="text-decoration-none">
                                 <span class="fa-stack align-top">
                                     <i class="fal fa-circle fa-stack-2x"></i>
                                     <i class="{{icon}} fa-stack-1x"></i>

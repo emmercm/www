@@ -24,6 +24,7 @@ const excerpts         = require('metalsmith-excerpts');
 const except           = require('metalsmith-except');
 const favicons         = require('metalsmith-favicons');
 const layouts          = require('metalsmith-layouts');
+const jquery           = require('metalsmith-jquery');
 const openGraph        = require('metalsmith-open-graph');
 const twitterCard      = require('metalsmith-twitter-card');
 const include          = require('metalsmith-include-files');
@@ -321,7 +322,8 @@ Metalsmith(__dirname)
 
     // Convert markdown to HTML
     .use(markdown({
-        headerIds: false
+        headerIds: false,
+        smartypants: true
     }))
 
     // Add favicons and icons
@@ -347,6 +349,9 @@ Metalsmith(__dirname)
         default: 'page.hbs',
         engine: 'handlebars'
     }))
+
+    // Change all links with a protocol (external) to be target="_blank"
+    .use(jquery('**/*.html', $ => $('a[href*="://"]').attr('target', '_blank')))
 
     // Add Facebook OpenGraph meta tags
     .use(openGraph({
@@ -379,13 +384,14 @@ Metalsmith(__dirname)
 
     .use(include({
         'static/css': [
+            // Un-minified files that will get combined into one file
             './node_modules/@fortawesome/fontawesome-pro/css/all.css'
         ],
         'static/js': [
             // Minified files that need to come first and won't get combined
             './node_modules/jquery/dist/jquery.slim.min.js',
             './node_modules/mobile-detect/mobile-detect.min.js',
-            // Everything else
+            // Un-minified files that will get combined into one file
             './node_modules/bootstrap/dist/js/bootstrap.js'
         ],
         'static/webfonts': [

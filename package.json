@@ -38,6 +38,7 @@
     "metalsmith-html-unused": "^0.2.0",
     "metalsmith-if": "^0.1.1",
     "metalsmith-include-files": "^0.1.0",
+    "metalsmith-jquery": "^0.2.2",
     "metalsmith-layouts": "^2.3.1",
     "metalsmith-markdown": "^1.2.0",
     "metalsmith-metadata-directory": "^1.1.1",
