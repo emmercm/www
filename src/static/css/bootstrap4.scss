@@ -135,7 +135,9 @@ body {
   text-transform: uppercase;
 }
 
-* {
+*,
+*::before,
+*::after {
   transition: $transition-base;
 }
 
@@ -156,6 +158,22 @@ $navbar-height: 64px;
     height: $navbar-height - 26px;
   }
 }
+.navbar-spacer {
+  height: $navbar-height;
+  z-index: -1;
+  & + * {
+    margin-top: $navbar-height !important;
+  }
+  @each $size, $length in $spacers {
+    & + .m-#{$size},
+    & + .my-#{$size},
+    & + .mt-#{$size} {
+      margin-top: $navbar-height/16px + $length !important;
+    }
+  }
+}
+
+// Navbar spacing and active item underline
 .navbar-expand {
   @each $breakpoint in map-keys($grid-breakpoints) {
     $next: breakpoint-next($breakpoint, $grid-breakpoints);
@@ -173,25 +191,28 @@ $navbar-height: 64px;
 }
 .navbar-dark {
   .navbar-nav {
+    .nav-link {
+      position: relative;
+      &::after {
+        content: "";
+        display: block;
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        width: 0;
+        height: 2px;
+        background: $navbar-dark-active-color;
+      }
+    }
+    .nav-link:hover,
+    .nav-link:focus,
     .show > .nav-link,
     .active > .nav-link,
     .nav-link.show,
     .nav-link.active {
-      border-bottom: 2px solid $navbar-dark-active-color;
-    }
-  }
-}
-.navbar-spacer {
-  height: $navbar-height;
-  z-index: -1;
-  & + * {
-    margin-top: $navbar-height !important;
-  }
-  @each $size, $length in $spacers {
-    & + .m-#{$size},
-    & + .my-#{$size},
-    & + .mt-#{$size} {
-      margin-top: $navbar-height/16px + $length !important;
+      &::after {
+        width: 100%;
+      }
     }
   }
 }
