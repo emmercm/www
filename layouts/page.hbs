@@ -25,7 +25,7 @@
 </head>
 
 <body class="bg-secondary bg-trianglify" data-parallax="scroll" data-parallax-velocity="0.25">
-<nav class="navbar navbar-expand-md navbar-dark fixed-top clearfix bg-dark vw-100 {{#unless no_container}}shadow{{/unless}}">
+<nav class="navbar navbar-expand-md navbar-dark fixed-top clearfix bg-dark vw-100 shadow">
     <div class="container-fluid">
         <a class="navbar-brand" href="/">
             <img src="**/logo3_Gray_Lighter.svg" title="Logo" class="mr-2">
@@ -38,11 +38,11 @@
         <div class="collapse navbar-collapse mt-2 mt-md-0 pt-2 pt-md-0 border-top border-md-none border-light" id="navbarSupportedContent">
             <ul class="navbar-nav d-flex align-items-center ml-auto">
                 {{#if collections.blog}}
-                    <li class="nav-item {{#eq (segments path.dir 0 1) "blog"}}active{{/eq}}">
+                    <li class="nav-item{{#eq (segments path.dir 0 1) "blog"}} active{{/eq}}">
                         <a class="nav-link" href="/blog">Blog</a>
                     </li>
                 {{/if}}
-                <li class="nav-item {{#eq (segments path.dir 0 1) "projects"}}active{{/eq}}">
+                <li class="nav-item{{#eq (segments path.dir 0 1) "projects"}} active{{/eq}}">
                     <a class="nav-link" href="/projects">Projects</a>
                 </li>
                 {{#each icons.header}}
@@ -59,22 +59,18 @@
         </div>
     </div>
 </nav>
-
+\
 <main>
-    {{#unless no_spacer}}
+    {{#or (eq style "container") (eq style "blog")}}
         <div class="navbar-spacer fixed-top"></div>
-    {{/unless}}
-    {{#unless no_container}}
         <div class="container-fluid py-5 py-lg-6 markdown">
             <div class="row">
                 <div class="col-12 col-lg-10 offset-lg-1 br-lg-1 {{#if background}}bg-{{background}}{{else}}bg-light{{/if}}">
                     <div class="{{#if no_padding}}p-0{{else}}p-4 p-md-5{{/if}}">
-                        {{#and title (not no_title)}}
+                        {{#eq style "blog"}}
                             <h1>{{ title }}</h1>
-                        {{/and}}
-                        {{#if this.date}}
                             <h5 class="mt-0"><small class="text-muted">{{moment this.date "MMMM D, YYYY"}} by {{ sitename }}</small></h5>
-                        {{/if}}
+                        {{/eq}}
                         {{{ contents }}}
                     </div>
                 </div>
@@ -82,10 +78,10 @@
         </div>
     {{else}}
         {{{ contents }}}
-    {{/unless}}
+    {{/or}}
 </main>
 
-<footer class="footer bg-dark text-light {{#unless no_container}}shadow{{/unless}}">
+<footer class="footer bg-dark text-light shadow">
     <div class="container-fluid">
         <div class="row">
             <div class="col-12 col-lg-10 offset-lg-1 p-4 px-lg-0">

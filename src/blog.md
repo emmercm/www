@@ -1,8 +1,8 @@
 ---
 
 title: Blog
+style: container
 no_padding: true
-no_title: true
 background: transparent
 
 ---

@@ -3,7 +3,7 @@ const msIf       = require('metalsmith-if');
 
 const env              = require('metalsmith-env');
 const buildinfo        = require('metalsmith-build-info');
-const metadata         = require('metalsmith-metadata-directory');
+const metaDirectory    = require('metalsmith-metadata-directory');
 const gravatar         = require('metalsmith-gravatar');
 const validate         = require('metalsmith-validate');
 const dataLoader       = require('metalsmith-data-loader');
@@ -14,6 +14,7 @@ const autoprefixer     = require('metalsmith-autoprefixer');
 const discoverHelpers  = require('metalsmith-discover-helpers');
 const discoverPartials = require('metalsmith-discover-partials');
 const collect          = require('metalsmith-auto-collections');
+const metaCollection   = require('metalsmith-collection-metadata');
 const renamer          = require('metalsmith-renamer');
 const permalinks       = require('metalsmith-permalinks');
 const paths            = require('metalsmith-paths');
@@ -85,7 +86,7 @@ Metalsmith(__dirname)
     .use(buildinfo())
 
     // Load metadata files
-    .use(metadata({
+    .use(metaDirectory({
         directory: "./src/data/*.yml"
     }))
 
@@ -111,7 +112,7 @@ Metalsmith(__dirname)
     // Validate required metadata
     .use(validate([
         {
-            pattern: 'blog/*/**/*.md',
+            pattern: 'blog/*.md',
             metadata: {
                 title: true,
                 date: true
@@ -128,6 +129,7 @@ Metalsmith(__dirname)
     .use(defaultValues([{
         pattern: '**/*.md',
         defaults: {
+            description: file => file.hasOwnProperty('description') ? file.description : siteDescription,
             pageTitle: file => {
                 // Leave non-strings alone
                 if (file.hasOwnProperty('pageTitle') && typeof file.pageTitle !== 'string') {
@@ -150,9 +152,7 @@ Metalsmith(__dirname)
                 pageTitle += siteName;
                 return pageTitle;
             },
-            pageDescription: file => file.description || siteDescription,
-            header: file => file.hasOwnProperty('title') ? file.title : siteName,
-            description: file => file.hasOwnProperty('description') ? file.description : siteDescription
+            pageDescription: file => file.description || siteDescription
         }
     }]))
 
@@ -267,6 +267,11 @@ Metalsmith(__dirname)
             reverse: true
         }
     }))
+    .use(metaCollection({
+        'collections.blog': {
+            style: 'blog'
+        }
+    }))
 
     // Temporarily rename .md to .html for permalinks() and paths()
     // Use metalsmith-renamer instead of metalsmith-copy because it breaks the reference from collections to files
@@ -279,7 +284,7 @@ Metalsmith(__dirname)
 
     // Move pages to separate index.html inside folders
     .use(permalinks({
-        relative: false,  // don't copy static files everywhere
+        relative: false,
         linksets: [
             {
                 match: { collection: 'blog' },
@@ -302,7 +307,7 @@ Metalsmith(__dirname)
     }))
 
     // Render blog templates (same as below) first so excerpts can be parsed before being referenced on other pages
-    .use(branch('blog/*/**/*.md')
+    .use(branch('blog/*/*.md')
         .use(hbtmd(Handlebars))
         .use(markdown({
             headerIds: false,
