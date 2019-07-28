@@ -267,11 +267,11 @@ Metalsmith(__dirname)
             reverse: true
         }
     }))
-    .use(metaCollection({
-        'collections.blog': {
-            style: 'blog'
-        }
-    }))
+    // .use(metaCollection({
+    //     'collections.blog': {
+    //         style: 'blog'
+    //     }
+    // }))
 
     // Temporarily rename .md to .html for permalinks() and paths()
     // Use metalsmith-renamer instead of metalsmith-copy because it breaks the reference from collections to files
