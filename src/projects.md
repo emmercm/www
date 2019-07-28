@@ -2,6 +2,7 @@
 
 title: Projects
 description: A collection of open source projects I have developed.
+style: container
 
 ---
 

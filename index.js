@@ -3,9 +3,9 @@ const msIf       = require('metalsmith-if');
 
 const env              = require('metalsmith-env');
 const buildinfo        = require('metalsmith-build-info');
-const metadata         = require('metalsmith-metadata-directory');
+const metaDirectory    = require('metalsmith-metadata-directory');
 const gravatar         = require('metalsmith-gravatar');
-// const validate         = require('metalsmith-validate');
+const validate         = require('metalsmith-validate');
 const dataLoader       = require('metalsmith-data-loader');
 const defaultValues    = require('metalsmith-default-values');
 const sass             = require('metalsmith-sass');
@@ -14,11 +14,15 @@ const autoprefixer     = require('metalsmith-autoprefixer');
 const discoverHelpers  = require('metalsmith-discover-helpers');
 const discoverPartials = require('metalsmith-discover-partials');
 const collect          = require('metalsmith-auto-collections');
+const metaCollection   = require('metalsmith-collection-metadata');
 const renamer          = require('metalsmith-renamer');
 const permalinks       = require('metalsmith-permalinks');
 const paths            = require('metalsmith-paths');
+const branch           = require('metalsmith-branch');
 const hbtmd            = require('metalsmith-hbt-md');
 const markdown         = require('metalsmith-markdown');
+const excerpts         = require('metalsmith-excerpts');
+const except           = require('metalsmith-except');
 const favicons         = require('metalsmith-favicons');
 const layouts          = require('metalsmith-layouts');
 const jquery           = require('metalsmith-jquery');
@@ -45,6 +49,8 @@ require('handlebars-helpers')({
     handlebars: Handlebars
 });
 
+const moment = require('moment');
+
 const prod = (process.env.NODE_ENV || 'development').toLowerCase() === 'production';
 
 const siteCharset     = 'utf-8';
@@ -52,7 +58,7 @@ const siteLanguage    = 'en';
 const siteName        = 'Christian Emmer';
 const siteURL         = 'https://emmer.dev';
 const siteEmail       = 'emmercm@gmail.com';
-const siteDescription = 'Software engineer with ' + require('moment')().diff('2012-01-16', 'years') + '+ years of experience developing full-stack solutions in PHP, Go, Node.js, Python, and Ruby on Rails.';
+const siteDescription = 'Software engineer with ' + moment().diff('2012-01-16', 'years') + '+ years of experience developing full-stack solutions in PHP, Go, Node.js, Python, and Ruby on Rails.';
 const siteKeywords    = [];
 const twitterHandle   = '@emmercm';
 
@@ -80,7 +86,7 @@ Metalsmith(__dirname)
     .use(buildinfo())
 
     // Load metadata files
-    .use(metadata({
+    .use(metaDirectory({
         directory: "./src/data/*.yml"
     }))
 
@@ -103,16 +109,16 @@ Metalsmith(__dirname)
         '**/*.json',
     ])
 
-    // // Validate required metadata
-    // .use(validate([
-    //     {
-    //         pattern: '**/!(index).md',
-    //         metadata: {
-    //             title: true,
-    //             description: true
-    //         }
-    //     }
-    // ]))
+    // Validate required metadata
+    .use(validate([
+        {
+            pattern: 'blog/*.md',
+            metadata: {
+                title: true,
+                date: true
+            }
+        }
+    ]))
 
     // Load external YAML files into page metadata
     .use(dataLoader({
@@ -123,6 +129,7 @@ Metalsmith(__dirname)
     .use(defaultValues([{
         pattern: '**/*.md',
         defaults: {
+            description: file => file.hasOwnProperty('description') ? file.description : siteDescription,
             pageTitle: file => {
                 // Leave non-strings alone
                 if (file.hasOwnProperty('pageTitle') && typeof file.pageTitle !== 'string') {
@@ -145,9 +152,7 @@ Metalsmith(__dirname)
                 pageTitle += siteName;
                 return pageTitle;
             },
-            pageDescription: file => file.description || siteDescription,
-            header: file => file.hasOwnProperty('title') ? file.title : siteName,
-            description: file => file.hasOwnProperty('description') ? file.description : siteDescription
+            pageDescription: file => file.description || siteDescription
         }
     }]))
 
@@ -251,24 +256,22 @@ Metalsmith(__dirname)
     .use(collect({
         pattern: '*/**/*.md',
         settings: {
-            sortBy: function (a, b) {
-                // https://github.com/segmentio/metalsmith-collections
-                if (isNaN(a.index)) {
-                    throw "Missing index for '" + a.path + "'";
-                } else if (isNaN(b.index)) {
-                    throw "Missing index for '" + b.path + "'";
-                } else if (a.index === b.index) {
-                    throw "Duplicate index for '" + a.path + "' and '" + b.path + "': " + a.index;
-                } else if (a.index > b.index) {
+            sortBy: (a, b) => {
+                if (moment(a.date).isAfter(b.date)) {
                     return 1;
-                } else if (a.index < b.index) {
+                } else if (moment(a.date).isBefore(b.date)) {
                     return -1;
                 }
                 return 0;
             },
-            refer: false
+            reverse: true
         }
     }))
+    // .use(metaCollection({
+    //     'collections.blog': {
+    //         style: 'blog'
+    //     }
+    // }))
 
     // Temporarily rename .md to .html for permalinks() and paths()
     // Use metalsmith-renamer instead of metalsmith-copy because it breaks the reference from collections to files
@@ -281,10 +284,13 @@ Metalsmith(__dirname)
 
     // Move pages to separate index.html inside folders
     .use(permalinks({
-        relative: false,  // don't copy static files everywhere
-        slug: {
-            replacement: '-'
-        }
+        relative: false,
+        linksets: [
+            {
+                match: { collection: 'blog' },
+                pattern: 'blog/:title'
+            }
+        ]
     }))
 
     // Add a "path" object to each file's metadata - after permalinks() moves them
@@ -299,6 +305,23 @@ Metalsmith(__dirname)
             rename: file => file.replace(/\.html$/, '.md')
         }
     }))
+
+    // Render blog templates (same as below) first so excerpts can be parsed before being referenced on other pages
+    .use(branch('blog/*/*.md')
+        .use(hbtmd(Handlebars))
+        .use(markdown({
+            headerIds: false,
+            smartypants: true
+        }))
+        .use(excerpts())
+        .use(except('pageDescription'))
+        .use(defaultValues([{
+            pattern: '**/*',
+            defaults: {
+                pageDescription: file => file.excerpt.replace(/<[^>]*>/g, '').trim()
+            }
+        }]))
+    )
 
     // Process handlebars templating inside markdown
     .use(hbtmd(Handlebars))
@@ -344,15 +367,15 @@ Metalsmith(__dirname)
     }))
 
     // Add Twitter meta
-    // .use(defaultValues([{
-    //     pattern: '**/*.html',
-    //     defaults: {
-    //         twitter: file => ({
-    //             title: file.pageTitle,
-    //             description: file.pageDescription
-    //         })
-    //     }
-    // }]))
+    .use(defaultValues([{
+        pattern: '**/*.html',
+        defaults: {
+            twitter: file => ({
+                title: file.pageTitle,
+                description: file.pageDescription
+            })
+        }
+    }]))
     .use(twitterCard({
         siteurl: siteURL,
         card: 'summary',

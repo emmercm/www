@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="{{sanitize sitelanguage}}">
+<html class="h-100" lang="{{sanitize sitelanguage}}">
 <head>
     <!-- SEO GOOD https://moz.com/blog/seo-meta-tags -->
     <meta charset="{{sanitize sitecharset}}">
@@ -24,8 +24,8 @@
     <link rel="stylesheet" href="**/*.css">
 </head>
 
-<body class="bg-secondary bg-trianglify" data-parallax="scroll" data-parallax-velocity="0.25">
-<nav class="navbar navbar-expand-md navbar-dark fixed-top clearfix bg-dark vw-100 {{#unless no_container}}shadow{{/unless}}">
+<body class="d-flex flex-column h-100 bg-secondary bg-trianglify" data-parallax="scroll" data-parallax-velocity="0.25">
+<nav class="navbar navbar-expand-md navbar-dark fixed-top clearfix bg-dark vw-100 shadow">
     <div class="container-fluid">
         <a class="navbar-brand" href="/">
             <img src="**/logo3_Gray_Lighter.svg" title="Logo" class="mr-2">
@@ -37,15 +37,17 @@
 
         <div class="collapse navbar-collapse mt-2 mt-md-0 pt-2 pt-md-0 border-top border-md-none border-light" id="navbarSupportedContent">
             <ul class="navbar-nav d-flex align-items-center ml-auto">
-<!--                <li class="nav-item">-->
-<!--                    <a class="nav-link" href="/blog">Blog</a>-->
-<!--                </li>-->
-                <li class="nav-item">
-                    <a class="nav-link {{#eq path.dir "projects"}}active{{/eq}}" href="/projects">Projects</a>
+                {{#if collections.blog}}
+                    <li class="nav-item{{#eq (segments path.dir 0 1) "blog"}} active{{/eq}}">
+                        <a class="nav-link" href="/blog">Blog</a>
+                    </li>
+                {{/if}}
+                <li class="nav-item{{#eq (segments path.dir 0 1) "projects"}} active{{/eq}}">
+                    <a class="nav-link" href="/projects">Projects</a>
                 </li>
                 {{#each icons.header}}
                     <li class="nav-item">
-                        <a href="{{link}}" {{#if title}}title="{{title}}"{{/if}} class="nav-link pr-0">
+                        <a href="{{link}}" {{#if title}}title="{{title}}"{{/if}} class="nav-link px-0">
                             <span class="fa-stack align-top">
                                 <i class="fal fa-circle fa-stack-2x"></i>
                                 <i class="{{icon}} fa-stack-1x"></i>
@@ -59,26 +61,32 @@
 </nav>
 
 <main>
-    {{#unless no_container}}
+    {{#or (eq style "container") (eq style "blog")}}
         <div class="navbar-spacer fixed-top"></div>
         <div class="container-fluid py-5 py-lg-6 markdown">
             <div class="row">
-                <div class="col-sm-12 col-lg-10 offset-lg-1 p-4 p-md-5 bg-light">
-                    {{{ contents }}}
+                <div class="col-12 col-lg-10 offset-lg-1 p-0 br-lg-1 {{#if background}}bg-{{background}}{{else}}bg-light{{/if}}">
+                    <div class="{{#if no_padding}}p-0{{else}}p-4 p-md-5{{/if}}">
+                        {{#eq style "blog"}}
+                            <h1>{{ title }}</h1>
+                            <h5 class="mt-0"><small class="text-muted">{{moment this.date "MMMM D, YYYY"}} by {{ sitename }}</small></h5>
+                        {{/eq}}
+                        {{{ contents }}}
+                    </div>
                 </div>
             </div>
         </div>
     {{else}}
         {{{ contents }}}
-    {{/unless}}
+    {{/or}}
 </main>
 
-<footer class="footer bg-dark text-light {{#unless no_container}}shadow{{/unless}}">
+<footer class="footer mt-auto bg-dark text-light shadow">
     <div class="container-fluid">
         <div class="row">
-            <div class="col-sm-12 col-lg-10 offset-lg-1 p-4 px-lg-0">
+            <div class="col-12 col-lg-10 offset-lg-1 p-4 px-lg-0">
                 <div class="d-flex justify-content-between align-items-center">
-                    <div class="text-center">&copy; {{ year }}</div>
+                    <div class="text-center">&copy; {{ year }} {{ sitename }}</div>
                     <div>
                         {{#each icons.footer}}
                             <a href="{{link}}" title="{{title}}" class="text-decoration-none">
