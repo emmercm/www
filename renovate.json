@@ -3,9 +3,6 @@
     "config:base",
     "schedule:weekly"
   ],
-  "dockerfile": {
-    "enabled": false
-  },
   "groupName": "All",
   "timezone": "America/Detroit",
   "assignees": ["@emmercm"],
