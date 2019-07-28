@@ -19,7 +19,6 @@
   },
   "packageRules": [
     {
-      "packagePatterns": [".+"],
       "excludePackagePatterns": [
         "^handlebars",
         "^jstransformer",
