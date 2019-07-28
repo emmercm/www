@@ -135,7 +135,9 @@ body {
   text-transform: uppercase;
 }
 
-* {
+*,
+*::before,
+*::after {
   transition: $transition-base;
 }
 
@@ -167,6 +169,50 @@ $navbar-height: 64px;
     & + .my-#{$size},
     & + .mt-#{$size} {
       margin-top: $navbar-height/16px + $length !important;
+    }
+  }
+}
+
+// Navbar spacing and active item underline
+.navbar-expand {
+  @each $breakpoint in map-keys($grid-breakpoints) {
+    $next: breakpoint-next($breakpoint, $grid-breakpoints);
+    $infix: breakpoint-infix($next, $grid-breakpoints);
+    &#{$infix} {
+      @include media-breakpoint-up($next) {
+        .navbar-nav {
+          .nav-link {
+            margin: 0 $navbar-nav-link-padding-x/2;
+          }
+        }
+      }
+    }
+  }
+}
+.navbar-dark {
+  .navbar-nav {
+    .nav-link {
+      position: relative;
+      &::after {
+        content: "";
+        display: block;
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        width: 0;
+        height: 2px;
+        background: $navbar-dark-active-color;
+      }
+    }
+    .nav-link:hover,
+    .nav-link:focus,
+    .show > .nav-link,
+    .active > .nav-link,
+    .nav-link.show,
+    .nav-link.active {
+      &::after {
+        width: 100%;
+      }
     }
   }
 }
