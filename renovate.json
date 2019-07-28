@@ -19,19 +19,21 @@
   },
   "packageRules": [
     {
-      "packageNames": [".+"],
+      "packagePatterns": [".+"],
       "excludePackagePatterns": [
-        "^metalsmith",
         "^handlebars",
-        "^jstransformer"
+        "^jstransformer",
+        "^metalsmith",
+        "^moment"
       ],
       "groupName": "Front-End"
     },
     {
       "packagePatterns": [
-        "^metalsmith",
         "^handlebars",
-        "^jstransformer"
+        "^jstransformer",
+        "^metalsmith",
+        "^moment"
       ],
       "excludePackageNames": ["metalsmith-concat"],
       "groupName": "Back-End"
