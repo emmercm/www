@@ -19,14 +19,14 @@
     </div>
 </section>
 
-<section class="d-flex flex-column text-center w-100 bg-light">
+<section id="summary" class="d-flex flex-column text-center w-100 bg-light">
     <div class="position-absolute w-100 text-center" style="transform:translate(0%,-50%)">
-        <a href="#" onclick="document.getElementById('summary').scrollIntoView({behavior:'smooth'}); return false;">
+        <a href="#" onclick="scrollToCenter('#summary'); return false;">
             <img src="{{gravatar.main}}?r=g&d=mp&s=256" alt="{{ sitename }}" class="mw-50 rounded-circle img-thumbnail bg-dark border-dark">
         </a>
     </div>
     <div style="height:128px; max-height:20vw;">&nbsp;</div> <!-- 256px/2 Gravatar spacer -->
-    <div id="summary" class="mw-md-75 my-6 mx-auto px-4">
+    <div class="mw-md-75 my-6 mx-auto px-4">
         <h2>
             <i class="far fa-map-marker-alt"></i>
             Detroit, MI
