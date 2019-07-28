@@ -2,10 +2,11 @@
   h1, h2, h3, h4, h5, h6,
   .h1, .h2, .h3, .h4, .h5, .h6 {
     margin-top: $headings-margin-bottom * 1.5;
+    //margin-bottom: $headings-margin-bottom;
   }
 
-  h1,
-  .h1 {
+  h1, h2,
+  .h1, .h2 {
     padding-bottom: $headings-margin-bottom / 3;
     border-bottom: $border-width solid lighten(if($headings-color, $headings-color, $body-color), 35%);
   }
