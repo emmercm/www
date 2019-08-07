@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "dependencies": {
-    "@fortawesome/fontawesome-pro": "^5.9.0",
+    "@fortawesome/fontawesome-pro": "^5.10.1",
     "bootstrap": "^4.3.1",
     "handlebars": "^4.1.2",
     "handlebars-helpers": "^0.10.0",
