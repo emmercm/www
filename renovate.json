@@ -17,6 +17,7 @@
   "groupName": "All",
   "packageRules": [
     {
+      "packagePatterns": [".+"],
       "excludePackagePatterns": [
         "^handlebars",
         "^jstransformer",
