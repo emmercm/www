@@ -288,6 +288,7 @@ Metalsmith(__dirname)
     // Move pages to separate index.html inside folders
     .use(permalinks({
         relative: false,
+        slug: require('transliteration').slugify,
         linksets: [
             {
                 match: { collection: 'blog' },

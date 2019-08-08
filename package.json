@@ -53,7 +53,8 @@
     "metalsmith-uncss-2": "^0.1.4",
     "metalsmith-validate": "^0.1.4",
     "mobile-detect": "^1.4.3",
-    "moment": "^2.24.0"
+    "moment": "^2.24.0",
+    "transliteration": "^2.1.5"
   },
   "repository": {
     "type": "git",
