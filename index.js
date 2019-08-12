@@ -515,10 +515,10 @@ Metalsmith(__dirname)
      *********************/
 
     // Prod: lint HTML (requires internet connection)
-    .use(msIf(prod, formatcheck({
-        failErrors: true,
-        failWarnings: true
-    })))
+    // .use(msIf(prod, formatcheck({
+    //     failErrors: true,
+    //     failWarnings: true
+    // })))
 
     // Lint JavaScript
     .use(eslint())
