@@ -276,6 +276,13 @@ Metalsmith(__dirname)
         }
     }))
 
+    .use(defaultValues([{
+        pattern: '**/*.html',
+        defaults: {
+            permalink: false
+        }
+    }]))
+
     // Temporarily rename .md to .html for permalinks() and paths()
     // Use metalsmith-renamer instead of metalsmith-copy because it breaks the reference from collections to files
     .use(renamer({
@@ -375,8 +382,8 @@ Metalsmith(__dirname)
         pattern: '**/*.html',
         defaults: {
             twitter: file => ({
-                title: file.pageTitle,
-                description: file.pageDescription
+                title: file.pageTitle || siteName,
+                description: file.pageDescription || siteDescription
             })
         }
     }]))
