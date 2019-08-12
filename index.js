@@ -28,7 +28,6 @@ const layouts          = require('metalsmith-layouts');
 const jquery           = require('metalsmith-jquery');
 const openGraph        = require('metalsmith-open-graph');
 const twitterCard      = require('metalsmith-twitter-card');
-const sitemap          = require('metalsmith-sitemap');
 const include          = require('metalsmith-include-files');
 const beautify         = require('metalsmith-beautify');
 const concat           = require('metalsmith-concat');
@@ -277,13 +276,6 @@ Metalsmith(__dirname)
         }
     }))
 
-    .use(defaultValues([{
-        pattern: '**/*.html',
-        defaults: {
-            permalink: false
-        }
-    }]))
-
     // Temporarily rename .md to .html for permalinks() and paths()
     // Use metalsmith-renamer instead of metalsmith-copy because it breaks the reference from collections to files
     .use(renamer({
@@ -383,8 +375,8 @@ Metalsmith(__dirname)
         pattern: '**/*.html',
         defaults: {
             twitter: file => ({
-                title: file.pageTitle || siteName,
-                description: file.pageDescription || siteDescription
+                title: file.pageTitle,
+                description: file.pageDescription
             })
         }
     }]))
@@ -392,13 +384,6 @@ Metalsmith(__dirname)
         siteurl: siteURL,
         card: 'summary',
         site: twitterHandle
-    }))
-
-    // Generate a sitemap
-    .use(sitemap({
-        hostname: siteURL,
-        omitIndex: true,
-        modifiedProperty: 'date'
     }))
 
     /**********************************
@@ -523,10 +508,10 @@ Metalsmith(__dirname)
      *********************/
 
     // Prod: lint HTML (requires internet connection)
-    // .use(msIf(prod, formatcheck({
-    //     failErrors: true,
-    //     failWarnings: true
-    // })))
+    .use(msIf(prod, formatcheck({
+        failErrors: true,
+        failWarnings: true
+    })))
 
     // Lint JavaScript
     .use(eslint())
@@ -545,6 +530,12 @@ Metalsmith(__dirname)
      *     FINAL BUILD     *
      *                     *
      ***********************/
+
+    .use(include({
+        '': [
+            './googleb35f29cb76bb3ae1.html'
+        ]
+    }))
 
     // Set destination directory
     .destination('./build')
