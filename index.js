@@ -28,6 +28,7 @@ const layouts          = require('metalsmith-layouts');
 const jquery           = require('metalsmith-jquery');
 const openGraph        = require('metalsmith-open-graph');
 const twitterCard      = require('metalsmith-twitter-card');
+const sitemap          = require('metalsmith-sitemap');
 const include          = require('metalsmith-include-files');
 const beautify         = require('metalsmith-beautify');
 const concat           = require('metalsmith-concat');
@@ -391,6 +392,13 @@ Metalsmith(__dirname)
         siteurl: siteURL,
         card: 'summary',
         site: twitterHandle
+    }))
+
+    // Generate a sitemap
+    .use(sitemap({
+        hostname: siteURL,
+        omitIndex: true,
+        modifiedProperty: 'date'
     }))
 
     /**********************************
