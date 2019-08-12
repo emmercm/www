@@ -35,7 +35,7 @@ A collection of images with [FlexGet](https://flexget.com/) installed and the we
 
 ## <i class="fab fa-node-js"></i> Metalsmith Plugins
 
-I have published a number of plugins for [Metalsmith](https://metalsmith.io/), a plugin-based JavaScript static site generator, to [npm](https://www.npmjs.com/settings/emmercm/packages).
+I have published a number of plugins for [Metalsmith](https://metalsmith.io/), a plugin-based static site generator originally from [Segment](https://segment.com/), to [npm](https://www.npmjs.com/settings/emmercm/packages).
 
 All plugins have:
 
