@@ -15,7 +15,7 @@
     "metalsmith-autoprefixer": "^1.1.2",
     "metalsmith-beautify": "^0.2.0",
     "metalsmith-branch": "^0.0.5",
-    "metalsmith-broken-link-checker": "^1.0.1",
+    "metalsmith-broken-link-checker": "^1.0.2",
     "metalsmith-build-info": "^1.0.1",
     "metalsmith-clean-css": "^6.0.0",
     "metalsmith-collection-metadata": "^0.1.0",
