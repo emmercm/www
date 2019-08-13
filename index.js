@@ -51,7 +51,9 @@ require('handlebars-helpers')({
     handlebars: Handlebars
 });
 
-const moment = require('moment');
+const moment          = require('moment');
+const transliteration = require('transliteration');
+const highlight       = require('highlight.js');
 
 const prod = (process.env.NODE_ENV || 'development').toLowerCase() === 'production';
 
@@ -290,7 +292,7 @@ Metalsmith(__dirname)
     // Move pages to separate index.html inside folders
     .use(permalinks({
         relative: false,
-        slug: require('transliteration').slugify,
+        slug: transliteration.slugify,
         linksets: [
             {
                 match: { collection: 'blog' },
@@ -317,6 +319,7 @@ Metalsmith(__dirname)
         .use(hbtmd(Handlebars))
         .use(markdown({
             headerIds: false,
+            highlight: (code, lang) => highlight.getLanguage(lang) ? highlight.highlight(lang, code).value : highlight.highlightAuto(code).value,
             smartypants: true
         }))
         // Extract first paragraph as an excerpt and then change the page description
@@ -336,6 +339,7 @@ Metalsmith(__dirname)
     // Convert markdown to HTML
     .use(markdown({
         headerIds: false,
+        highlight: (code, lang) => highlight.getLanguage(lang) ? highlight.highlight(lang, code).value : highlight.highlightAuto(code).value,
         smartypants: true
     }))
 
