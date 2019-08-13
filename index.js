@@ -51,7 +51,8 @@ require('handlebars-helpers')({
     handlebars: Handlebars
 });
 
-const moment = require('moment');
+const moment          = require('moment');
+const transliteration = require('transliteration');
 
 const prod = (process.env.NODE_ENV || 'development').toLowerCase() === 'production';
 
@@ -290,7 +291,7 @@ Metalsmith(__dirname)
     // Move pages to separate index.html inside folders
     .use(permalinks({
         relative: false,
-        slug: require('transliteration').slugify,
+        slug: transliteration.slugify,
         linksets: [
             {
                 match: { collection: 'blog' },
