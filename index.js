@@ -28,7 +28,6 @@ const layouts          = require('metalsmith-layouts');
 const jquery           = require('metalsmith-jquery');
 const openGraph        = require('metalsmith-open-graph');
 const twitterCard      = require('metalsmith-twitter-card');
-const sitemap          = require('metalsmith-sitemap');
 const include          = require('metalsmith-include-files');
 const beautify         = require('metalsmith-beautify');
 const concat           = require('metalsmith-concat');
@@ -43,6 +42,8 @@ const sri              = require('metalsmith-html-sri');
 const formatcheck      = require('metalsmith-formatcheck');
 const eslint           = require('metalsmith-eslint');
 const blc              = require('metalsmith-broken-link-checker');
+const sitemap          = require('metalsmith-sitemap');
+const ignore           = require('metalsmith-ignore');
 
 // Register Handlebars helper libraries
 const Handlebars = require('handlebars');
@@ -107,7 +108,7 @@ Metalsmith(__dirname)
     // Ignore junk files
     .ignore([
         '**/.*',
-        '**/*.json',
+        '**/*.json'
     ])
 
     // Validate required metadata
@@ -131,7 +132,7 @@ Metalsmith(__dirname)
 
     // Add default page metadata
     .use(defaultValues([{
-        pattern: '**/*.md',
+        pattern: '**/*.@(html|md)',
         defaults: {
             description: file => file.hasOwnProperty('description') ? file.description : siteDescription,
             pageTitle: file => {
@@ -318,6 +319,7 @@ Metalsmith(__dirname)
             headerIds: false,
             smartypants: true
         }))
+        // Extract first paragraph as an excerpt and then change the page description
         .use(excerpts())
         .use(except('pageDescription'))
         .use(defaultValues([{
@@ -385,13 +387,6 @@ Metalsmith(__dirname)
         siteurl: siteURL,
         card: 'summary',
         site: twitterHandle
-    }))
-
-    // Generate a sitemap
-    .use(sitemap({
-        hostname: siteURL,
-        omitIndex: true,
-        modifiedProperty: 'date'
     }))
 
     /**********************************
@@ -538,6 +533,22 @@ Metalsmith(__dirname)
      *     FINAL BUILD     *
      *                     *
      ***********************/
+
+    // Generate a sitemap
+    .use(sitemap({
+        hostname: siteURL,
+        omitIndex: true,
+        modifiedProperty: 'date'
+    }))
+
+    // Include raw Google ownership verification file
+    .use(ignore([
+        '**/google*/*.html',
+        '**/google*.html'
+    ]))
+    .use(include({
+        '': ['./src/googleb35f29cb76bb3ae1.html']
+    }))
 
     // Set destination directory
     .destination('./build')
