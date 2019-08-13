@@ -43,6 +43,7 @@ const formatcheck      = require('metalsmith-formatcheck');
 const eslint           = require('metalsmith-eslint');
 const blc              = require('metalsmith-broken-link-checker');
 const sitemap          = require('metalsmith-sitemap');
+const ignore           = require('metalsmith-ignore');
 
 // Register Handlebars helper libraries
 const Handlebars = require('handlebars');
@@ -107,7 +108,7 @@ Metalsmith(__dirname)
     // Ignore junk files
     .ignore([
         '**/.*',
-        '**/*.json',
+        '**/*.json'
     ])
 
     // Validate required metadata
@@ -131,7 +132,7 @@ Metalsmith(__dirname)
 
     // Add default page metadata
     .use(defaultValues([{
-        pattern: '**/*.md',
+        pattern: '**/*.@(html|md)',
         defaults: {
             description: file => file.hasOwnProperty('description') ? file.description : siteDescription,
             pageTitle: file => {
@@ -318,6 +319,7 @@ Metalsmith(__dirname)
             headerIds: false,
             smartypants: true
         }))
+        // Extract first paragraph as an excerpt and then change the page description
         .use(excerpts())
         .use(except('pageDescription'))
         .use(defaultValues([{
@@ -539,11 +541,13 @@ Metalsmith(__dirname)
         modifiedProperty: 'date'
     }))
 
-    // Include Google ownership verification file
+    // Include raw Google ownership verification file
+    .use(ignore([
+        '**/google*/*.html',
+        '**/google*.html'
+    ]))
     .use(include({
-        '': [
-            './googleb35f29cb76bb3ae1.html'
-        ]
+        '': ['./src/googleb35f29cb76bb3ae1.html']
     }))
 
     // Set destination directory
