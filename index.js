@@ -5,6 +5,7 @@ const env              = require('metalsmith-env');
 const buildinfo        = require('metalsmith-build-info');
 const metaDirectory    = require('metalsmith-metadata-directory');
 const gravatar         = require('metalsmith-gravatar');
+const drafts           = require('metalsmith-drafts');
 const validate         = require('metalsmith-validate');
 const dataLoader       = require('metalsmith-data-loader');
 const defaultValues    = require('metalsmith-default-values');
@@ -113,6 +114,9 @@ Metalsmith(__dirname)
         '**/*.json'
     ])
 
+    // Ignore draft files
+    .use(drafts())
+
     // Validate required metadata
     .use(validate([
         {
@@ -121,7 +125,7 @@ Metalsmith(__dirname)
                 title: true,
                 date: {
                     exists: true,
-                    pattern: value => value.getTime()
+                    pattern: value => value && value.getTime()
                 }
             }
         }
