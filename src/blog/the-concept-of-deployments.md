@@ -17,7 +17,16 @@ So I did my civic duty and wrote a Confluence article on the subject that I'm no
 
 ## When should you deploy?
 
-The act of merging code into deploy-able branch (master, staging, etc.) indicates it is safe and ready to be deployed, and that deployment should be done immediately. This is not optional. There may be cases where the code author(s) or the code merger are the only ones that understand the risks of the deploy or the correct way to verify it after deployment. This should not be left to the next deployer to find. If the code is not being deployed in a short period of time after its merged it should be reverted out.
+A lot of this is up to your organization. Some release many times a day, once a day, once a week, once a sprint, or even once a quarter. It really depends on your type of software, the clients' needs, and your business model.
+
+But I'm a big fan of deploy early, deploy often. The [GitHub Flow](http://scottchacon.com/2011/08/31/github-flow.html) was designed around making deployments easy and reliable enough that any developer could deploy with confidence. It defines "when" as immediately after merging code into a deployable branch (`master`, `staging`, etc.).
+
+This does three things:
+
+- It lets you catch smaller bugs earlier rather than larger bugs later. If you keep the amount of code you're merging smaller you reduce your risks.
+- It enforces individual responsibility. If the merged code isn't deployed immediately it is left as a possible time bomb for the next person. There may be known risks with the code that only the authors know about and can monitor for.
+- It keeps `master` clean. Only production-ready code is merged to `master`, and if the code isn't deployed in a short amount of time after merge it should be reverted out.
+
 
 ## Are you triple sure it's ready to deploy?
 
