@@ -14,7 +14,7 @@
   },
   "scripts": {
     "test": "markdownlint --config markdownlint.json **/*.md",
-    "build": "node index.js"
+    "start": "node index.js"
   },
   "dependencies": {
     "@fortawesome/fontawesome-pro": "^5.10.1",
