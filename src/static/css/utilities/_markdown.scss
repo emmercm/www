@@ -1,13 +1,18 @@
 .markdown {
   h1, h2, h3, h4, h5, h6,
   .h1, .h2, .h3, .h4, .h5, .h6 {
-    margin-top: $headings-margin-bottom * 1.5;
+    margin-top: $headings-margin-bottom*2;
     //margin-bottom: $headings-margin-bottom;
   }
 
   h1, h2,
   .h1, .h2 {
-    padding-bottom: $headings-margin-bottom / 3;
-    border-bottom: $border-width solid lighten(if($headings-color, $headings-color, $body-color), 35%);
+    padding-bottom: $headings-margin-bottom/2;
+    border-bottom: $border-width*2 solid lighten(if($headings-color, $headings-color, $body-color), 35%);
+  }
+
+  blockquote {
+    padding: $spacer/2 $spacer;
+    border-left: $border-width*4 solid lighten(if($headings-color, $headings-color, $body-color), 35%);
   }
 }
