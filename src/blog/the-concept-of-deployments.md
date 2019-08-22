@@ -6,7 +6,7 @@ date: 2019-08-21
 ---
 
 <blockquote class="twitter-tweet" data-lang="en"><p lang="en" dir="ltr">Pupils dilated. Sweaty palms. Tingly legs. You lean in. A world of opportunity lays before you. You close your eyes…and wait.<br><br>Deployments.</p>&mdash; I Am Devloper (@iamdevloper) <a href="https://twitter.com/iamdevloper/status/468132413433200640?ref_src=twsrc%5Etfw">May 18, 2014</a></blockquote>
-<script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+<script async src="https://platform.twitter.com/widgets.js"></script>
 
 A number of months ago I found myself teaching the same concept over and over to others at work -- deployments. Not what to deploy, that's usually pretty obvious. Not when to deploy, I'm a big believer of deploying early and often. And not even how to deploy, that's usually covered by repository READMEs or handled by CI/CD. But everything else involved that isn't obvious.
 
