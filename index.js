@@ -323,8 +323,7 @@ Metalsmith(__dirname)
         .use(hbtmd(Handlebars))
         .use(markdown({
             headerIds: false,
-            highlight: (code, lang) => highlight.getLanguage(lang) ? highlight.highlight(lang, code).value : highlight.highlightAuto(code).value,
-            smartypants: true
+            highlight: (code, lang) => highlight.getLanguage(lang) ? highlight.highlight(lang, code).value : highlight.highlightAuto(code).value
         }))
         // Extract first paragraph as an excerpt and then change the page description
         .use(excerpts())
@@ -343,8 +342,7 @@ Metalsmith(__dirname)
     // Convert markdown to HTML
     .use(markdown({
         headerIds: false,
-        highlight: (code, lang) => highlight.getLanguage(lang) ? highlight.highlight(lang, code).value : highlight.highlightAuto(code).value,
-        smartypants: true
+        highlight: (code, lang) => highlight.getLanguage(lang) ? highlight.highlight(lang, code).value : highlight.highlightAuto(code).value
     }))
 
     // Add favicons and icons
