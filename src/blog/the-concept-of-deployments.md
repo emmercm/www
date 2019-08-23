@@ -58,51 +58,54 @@ If you haven't, it's a good idea to sit with an existing code owner and have the
 
 Again, I personally believe the deployment instructions for a codebase should live in its README, but documentation is a continuous process that will never be perfect so there may be missing or inaccurate steps.
 
+## Do you know what needs to happen after the deploy?
 
-## Do you know what needs to happen immediately after the deploy?
-
-A lot of repositories have steps that need to happen after deploy such as running a database migration tool manually.
-
-Refer to the repository's readme for instructions.
+Sometimes there's steps to take after a deploy such as running a database migration tool manually. Instructions should be in the codebase's README.
 
 ## Do you know how to verify the deployed code is working?
 
-Something that's easy to forget is verifying the new code is working as expected. Things like: runtime/memory cache, non-fatal build errors, edge cases found at scale, or deploying the wrong version are reasons to check this.
+An often forgotten step of deployment is ensuring the code deployed is working as expected and meets acceptance criteria in production.
 
-Do yourself a favor and check this before communicating it's live to others, it's embarrassing when someone else is the one to discover your deploy was wrong.
+> It work on both my machine and in staging, shouldn't it work in production? Why do I need to check?
+
+There's always differences in environments, and things like different load at scale can make the code behave differently.
+
+You should also check the code is working before communicating it's live to others, it's pretty embarrassing when someone else catches your mistakes. 
 
 ## Who should you notify after a successful deployment?
 
 Are there any Scrum Masters or project managers you need to notify the change is live? Do you need to notify the stakeholders directly? Someone probably wants to know about the changes!
 
-## Do you know how to determine if the deployed code is producing _new_ errors?
+## Do you know how to determine if the deployed code is producing new errors?
 
-This is a frequently missed step. As the deployer it is your responsibility to ensure the code being deployed does not introduce any new errors.
+Like I mentioned above, it's pretty embarrassing when someone else catches your mistakes. As the deployer of the code it's your responsibility to ensure you didn't introduce any new errors.
 
-Where does your application log, does it get aggregated by a SaaS? Do you have performance or error monitors, and do they send Slack or email notifications? Those are the kinds of things to think of.
+You're going to want to keep an eye on monitoring tools you use in your organization such as: log aggregators for new errors, performance monitors for any significant changes in requests per minute or response time, and hardware monitors to watch CPU and memory.
 
-## Do you know how to determine if the deployed code caused any of its _dependents_ to produce new errors?
+## Do you know how to determine if the deployed code caused any of its dependents to produce new errors?
 
-It can be difficult to determine what depends on the repository being deployed, especially in a world of more and more new microservices being written.
+In an ever-interconnected world it's likely there is other code that is dependent on the code you just deployed, and it's important that you maintain your stability and contracts for it. You may need to communicate changes to developers elsewhere in your organization so they can watch their codebases for errors.
 
-See the section above about monitoring for new errors, and apply it to known dependent services.
+The above section about monitoring for new errors can be applied to these dependents.
 
-## Do you know how to _recover_ from a bad deploy?
+## Do you know how to recover from a bad deploy?
 
-This is the one of the most important things to know. Bad deploys happen, there's no faster way to find edge cases than release new code into the wild, and it happens to every developer regardless of attention to detail or skill level.
+I can't stress how import this is. Bad deploys and production errors happen to the best developers regardless of skill level or attention to detail. There's no faster way to find edge cases and performance problems than releasing new code into production.
 
-### Immediately deploy the last known "good" version:
+### Immediately deploy the last known "good" version
 
-Without hesitation, at the first sign of errors you can positively attribute to the new deploy you need to deploy the last known "good" version. Fixing errors in production is not acceptable to most businesses.
+Without hesitation, at the first sign of errors you can positively attribute to the new deployment you need to deploy the last known "good" version. Fixing errors in production is not acceptable to most businesses.
 
-Many times the instructions for this are the same as a normal deploy but with an old version number, but the repository's readme should have instructions or should link to documentation that has the instructions.
+Many times the instructions for this are the same as a normal deployment but with an old version number, but the codebase's README should have instructions or should link to documentation that has the instructions.
 
 Be mindful of any extra steps such as reversing database migrations if required.
 
-### Then reverting out the "bad" code:
+### Then reverting out the "bad" code
 
-Immediately after the deploy you need to revert the "bad" code out of what you just deployed. This is not optional. This is to protect the next person who deploys the same code from including these errors again in their deploy, and this can be especially dangerous with the master or default branch.
+Immediately after the deploy you need to revert the "bad" code out of the branch you just deployed. I consider this non-optional. This is to protect the next person who deploys the same code from including these errors again in their deploy, and this can be especially dangerous with the `master` or default branch.
 
-In GitHub, at the bottom of the pull request page there exists a "revert" button on the same line as the merge status, this will create a new revert pull request for you. You need to immediately communicate with the repository code owners to get it approved and merged before anyone has a change to deploy that branch again.
+In GitHub, at the bottom of pull request pages there exists a "revert" button on the same line as the merge status - this will create a new revert pull request for you. You need to immediately communicate with the codebase's code owners to get it approved and merged before anyone has a change to deploy that branch again.
 
 After the "bad" code has been reverted out of the branch only then is it safe to start development to fix any errors seen during or after deployment.
+
+## Conclusion
