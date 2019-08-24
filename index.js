@@ -5,6 +5,7 @@ const env              = require('metalsmith-env');
 const buildinfo        = require('metalsmith-build-info');
 const metaDirectory    = require('metalsmith-metadata-directory');
 const gravatar         = require('metalsmith-gravatar');
+const drafts           = require('metalsmith-drafts');
 const validate         = require('metalsmith-validate');
 const dataLoader       = require('metalsmith-data-loader');
 const defaultValues    = require('metalsmith-default-values');
@@ -113,6 +114,9 @@ Metalsmith(__dirname)
         '**/*.json'
     ])
 
+    // Ignore draft files
+    .use(drafts())
+
     // Validate required metadata
     .use(validate([
         {
@@ -121,7 +125,7 @@ Metalsmith(__dirname)
                 title: true,
                 date: {
                     exists: true,
-                    pattern: value => value.getTime()
+                    pattern: value => value && value.getTime()
                 }
             }
         }
@@ -319,8 +323,7 @@ Metalsmith(__dirname)
         .use(hbtmd(Handlebars))
         .use(markdown({
             headerIds: false,
-            highlight: (code, lang) => highlight.getLanguage(lang) ? highlight.highlight(lang, code).value : highlight.highlightAuto(code).value,
-            smartypants: true
+            highlight: (code, lang) => highlight.getLanguage(lang) ? highlight.highlight(lang, code).value : highlight.highlightAuto(code).value
         }))
         // Extract first paragraph as an excerpt and then change the page description
         .use(excerpts())
@@ -339,8 +342,7 @@ Metalsmith(__dirname)
     // Convert markdown to HTML
     .use(markdown({
         headerIds: false,
-        highlight: (code, lang) => highlight.getLanguage(lang) ? highlight.highlight(lang, code).value : highlight.highlightAuto(code).value,
-        smartypants: true
+        highlight: (code, lang) => highlight.getLanguage(lang) ? highlight.highlight(lang, code).value : highlight.highlightAuto(code).value
     }))
 
     // Add favicons and icons

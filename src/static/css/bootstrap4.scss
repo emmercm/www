@@ -201,7 +201,7 @@ $navbar-height: 64px;
         bottom: 0;
         left: 0;
         width: 0;
-        height: 2px;
+        height: $border-width*2;
         background: $navbar-dark-active-color;
       }
     }
