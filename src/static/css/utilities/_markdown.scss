@@ -27,5 +27,6 @@
   blockquote {
     padding: $spacer/2 $spacer;
     border-left: $border-width*4 solid lighten(if($headings-color, $headings-color, $body-color), 35%);
+    font-style: italic;
   }
 }
