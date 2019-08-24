@@ -39,6 +39,7 @@
     "metalsmith-default-values": "^3.0.0",
     "metalsmith-discover-helpers": "^0.1.1",
     "metalsmith-discover-partials": "^0.1.2",
+    "metalsmith-drafts": "^0.1.0",
     "metalsmith-env": "^2.1.1",
     "metalsmith-eslint": "^4.0.0",
     "metalsmith-except": "^0.1.1",
