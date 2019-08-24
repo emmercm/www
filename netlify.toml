@@ -4,3 +4,4 @@ publish = "build/"
 
 [build.environment]
 NODE_ENV = "production"
+TZ = "America/Detroit"
