@@ -1,7 +1,7 @@
 ---
 
 title: The Concept of Deployments
-date: 2019-08-24T00:43:00
+date: 2019-08-24T01:11:00
 
 ---
 
@@ -18,7 +18,7 @@ So I did my civic duty and wrote a Confluence article on the subject that I'm no
 
 A lot of this depends on your organization. Some organizations release many times a day, some once a day, some once a week, some once a sprint, or even some once a quarter. It really depends on your type of software, the clients' needs, and your business model.
 
-But I'm a big fan of deploy early, deploy often. The [GitHub Flow](http://scottchacon.com/2011/08/31/github-flow.html) was designed around making deployments easy and reliable enough that any developer can deploy with confidence. It defines "when" as immediately after merging code into a deployable branch (`master`, `staging`, etc.). This does three things:
+But I'm a big fan of deploy early, deploy often. The [GitHub Flow](http://scottchacon.com/2011/08/31/github-flow.html) was designed around making deployments easy and reliable enough that any developer can deploy with confidence. It defines "when" as immediately after merging code into a deployable branch (`master`, `develop`, `staging`, etc.). This does three things:
 
 - It lets you catch smaller bugs earlier rather than larger bugs later. If you keep the amount of code you're merging smaller you reduce your risks.
 - It enforces individual responsibility. If the merged code isn't deployed immediately it's left as a possible time bomb for the next person. There may be known risks with the code that only the authors know about and can monitor for.
@@ -46,7 +46,7 @@ I personally believe the deployment instructions for a codebase should live in i
 
 It's popular for web services to be built into a Docker image that packages all code and code dependencies together. One of the main goals of containers is to provide consistency between environments.
 
-The code you want to deploy may require a Docker image to be built, and those build instructions are going to vary slightly between codebases. If it does require a Docker image to be built it probably also requires pushing that image to a container registry such as [Docker Hub](https://hub.docker.com/) or [Quay](https://quay.io/). Consult your organization's instructions for containers.
+The code you want to deploy may require a Docker image to be built, and those build instructions are going to vary slightly between codebases. If it does require a Docker image to be built it probably also requires pushing that image to a container registry such as [Docker Hub](https://hub.docker.com/) or [Quay](https://quay.io/). Consult your organization's instructions on containers.
 
 ## Do you know what needs to happen before deploying?
 
@@ -100,7 +100,7 @@ Be mindful of any extra steps such as reversing database migrations if required.
 
 Immediately after deploying the old version you need to revert the bad code out. I consider this non-optional. This is to protect the next person who deploys the same codebase from including the bad code again in their deploy.
 
-In GitHub, at the bottom of pull request pages there exists a "revert" button on the same line as the merge status - this will create a new revert pull request for you. You need to immediately communicate with the codebase's code owners to get it approved and merged before anyone has a change to deploy it again.
+In GitHub, at the bottom of pull request pages there exists a "revert" button on the same line as the merge status - this can create a new revert pull request for you.
 
 After the bad code has been reverted out of the branch only then is it safe to start development to fix any errors seen during or after deployment.
 
