@@ -1,7 +1,7 @@
 ---
 
 title: The Concept of Deployments
-date: 2019-08-21
+date: 2019-08-24T00:43:00
 
 ---
 
