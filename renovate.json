@@ -17,10 +17,6 @@
   "groupName": "Back-End",
   "packageRules": [
     {
-      "packageNames": ["metalsmith-concat"],
-      "groupName": "metalsmith-concat"
-    },
-    {
       "packageNames": [
         "@fortawesome/fontawesome-pro",
         "bootstrap",
