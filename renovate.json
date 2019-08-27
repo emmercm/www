@@ -20,6 +20,7 @@
       "packageNames": [
         "@fortawesome/fontawesome-pro",
         "bootstrap",
+        "highlight.js",
         "jquery",
         "mobile-detect"
       ],
