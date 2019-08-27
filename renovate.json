@@ -17,13 +17,10 @@
   "groupName": "Back-End",
   "packageRules": [
     {
-      "packageNames": ["metalsmith-concat"],
-      "groupName": "metalsmith-concat"
-    },
-    {
       "packageNames": [
         "@fortawesome/fontawesome-pro",
         "bootstrap",
+        "highlight.js",
         "jquery",
         "mobile-detect"
       ],
