@@ -563,7 +563,7 @@ Metalsmith(__dirname)
     .clean(true)
 
     // Build
-    .build(function(err, files) {
+    .build(function(err) {
         if (err) {
             throw err;
         }
