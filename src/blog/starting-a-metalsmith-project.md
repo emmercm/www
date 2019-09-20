@@ -1,11 +1,11 @@
 ---
 
 title: Starting a Metalsmith Project
-date: 0000-00-00
+date: 2019-09-20T01:31:00
 
 ---
 
-[Metalsmith](https://metalsmith.io/) is a plugin-based static site generator originally from [Segment](https://segment.com/). It's a current favorite of mine because of how projects are built as a pipeline of plugins where the output of each is the input of the next. This allows for strong control over what happens and when it happens.
+[Metalsmith](https://metalsmith.io/) is a plugin-based static site generator originally from [Segment](https://segment.com/). It's a current favorite of mine because of how sites are built as a pipeline of plugins where the output of each plugin is the input of the next. This allows for strong control over what happens and when it happens.
 
 An simple pipeline could look like:
 
@@ -31,7 +31,7 @@ While a more complex pipeline could look like:
 11. Clean the output directory.
 12. Output all files.
 
-As of writing this website is built using Metalsmith and 44 plugins.
+As of writing, this website is built using Metalsmith and 44 plugins.
 
 In this tutorial we'll first set up a blank project and then we'll continue to iterate on it by adding additional plugins and source files.
 
@@ -43,7 +43,7 @@ This guide assumes you already have Node.js installed.
 
 ### 1. Directory structure
 
-The official Metalsmith examples recommend a certain directory structure, so we'll stick to that. Throughout this guide I will continue to list the directory tree to keep things clear.
+The official Metalsmith [examples](https://metalsmith.io/#welcome) recommend a certain directory structure, so we'll stick to that. Throughout this guide I will continue to list the directory tree to keep things clear.
 
 Go ahead and make a new directory for your project and a `src/` directory under that:
 
@@ -141,7 +141,7 @@ And then run the command:
 node index
 ```
 
-And if there is no output or errors from the command we know Metalsmith is working right.
+If there is no output from the command we know Metalsmith is working right.
 
 ### 5. Adding an index page
 
@@ -165,7 +165,7 @@ And then try the command again:
 node index
 ```
 
-And we'll know this worked if it copied `src/index.html` to `build/index.html`:
+We'll know this worked if it copied `src/index.html` to `build/index.html`:
 
 ```text
 /
@@ -183,7 +183,7 @@ And we'll know this worked if it copied `src/index.html` to `build/index.html`:
 
 ### 6. Creating a layout
 
-We're not living in 1999 anymore and we have the power of HTML templating systems these days, thankfully. [Handlebars](https://handlebarsjs.com/) (`.hbs`) is a default choice for Metalsmith and is what we're going to use but there are plugins for other systems such as [Nunjucks](https://github.com/jstransformers/jstransformer-nunjucks) (`.njk`) as well.
+We're not living in 1999 anymore and we have the power of HTML templating systems these days, thankfully. [Handlebars](https://handlebarsjs.com/) (`.hbs`) is a popular choice for Metalsmith and is what we're going to use, but there are plugins for other systems such as [Nunjucks](https://github.com/jstransformers/jstransformer-nunjucks) (`.njk`) as well.
 
 Let's install both the layouts plugin as well as Handlebars like we did with Metalsmith:
 
@@ -212,7 +212,7 @@ Metalsmith(__dirname)
     });
 ```
 
-By default `metalsmith-layouts` will look for templates in the `layouts/` directory, so let's create that and a file `layouts/page.hbs` that looks very similar to `src/index.html` but with a Handlebars expression:
+By default `metalsmith-layouts` will look for templates in the `layouts/` directory, so let's create that and a file `layouts/page.hbs` that looks very similar to `src/index.html` but with a special Handlebars expression:
 
 ```handlebars
 <html lang="en">
@@ -228,7 +228,7 @@ By default `metalsmith-layouts` will look for templates in the `layouts/` direct
 
 `{{{ contents }}}` here will be replaced with the body of any source file that uses this template. We use `{{{ }}}` instead of `{{ }}` to preserve any HTML in the source files.
 
-Now that we've moved the outer HTML from `src/index.html` to `layouts/page.hbs` we can trim `src/index.html` down to just:
+Now that we've moved the structural HTML from `src/index.html` to `layouts/page.hbs` we can write a page body in `src/index.html`:
 
 ```html
 <h1>This is a title!</h1>
@@ -241,7 +241,7 @@ Then build:
 node index
 ```
 
-And we'll end up with `build/index.html` looking like:
+We'll end up with `build/index.html` looking like:
 
 ```html
 <html lang="en">
@@ -324,7 +324,7 @@ And build:
 node index
 ```
 
-Which will give us a `build/index.html` very similar to before (heading IDs can be turned off with a `metalsmith-markdown` option later):
+Which will give us a `build/index.html` very similar to before (heading IDs can be turned off with a `metalsmith-markdown` option):
 
 ```html
 <html lang="en">
@@ -362,7 +362,7 @@ And a directory tree:
 
 ### 8. Frontmatter in Markdown
 
-Wouldn't it be neat if we actually had a page title instead of `<title></title>`? That's where frontmatter and page metadata comes in.
+Wouldn't it be neat if we had a real page title instead of `<title></title>`? That's where frontmatter and page metadata comes in.
 
 According to [Middleman](https://middlemanapp.com/basics/frontmatter/):
 
@@ -509,14 +509,14 @@ Metalsmith(__dirname)
     });
 ```
 
-`metalsmith-discover-partials` looks in the `partials/` directory by default, so go ahead and create that and the file `partials/header.hbs`:
+`metalsmith-discover-partials` looks for Handlebars files in the `partials/` directory by default, so go ahead and create that and the file `partials/header.hbs`:
 
 ```handlebars
 <b>This is the header.</b>
 <hr>
 ```
 
-And we can reference it by its filename in `layouts/page.hbs` like this:
+And we can reference it by its filename base in `layouts/page.hbs` like this:
 
 ```handlebars
 <html lang="en">
@@ -582,4 +582,4 @@ And a directory tree of:
 
 ## Conclusion
 
-Metalsmith is a great option for someone looking for a lot of control in a static site generator. There are many different [plugins](https://metalsmith.io/#the-community-plugins) that exist for processing different kinds of inputs and there is no strict order they have to be used in. With a minimal amount of setup that should be familiar to existing Node.js developers it's very quick to get started with Metalsmith.
+Metalsmith is a great option for someone looking for a lot of control in a static site generator. There are many [different plugins](https://metalsmith.io/#the-community-plugins) that exist for processing different kinds of inputs and there is no strict order they need to be used in. With a minimal amount of setup that should be familiar to existing Node.js developers it's very quick to get started with Metalsmith.
