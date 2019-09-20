@@ -1,6 +1,10 @@
 pre {
   background-color: $code-bg;
   padding: .75rem 1rem;
+
+  &:last-child {
+    margin-bottom: 0 !important;
+  }
 }
 
 :not(pre) > code {
