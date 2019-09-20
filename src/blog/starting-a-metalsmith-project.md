@@ -5,7 +5,7 @@ date: 0000-00-00
 
 ---
 
-[Metalsmith](https://metalsmith.io/) is a plugin-based static site generator originally from [Segment](https://segment.com/). It's a current favorite of mine because of how projects are built like a pipeline where the output of each plugin is the input of the next. This allows for strong control over what happens and when it happens.
+[Metalsmith](https://metalsmith.io/) is a plugin-based static site generator originally from [Segment](https://segment.com/). It's a current favorite of mine because of how projects are built as a pipeline of plugins where the output of each is the input of the next. This allows for strong control over what happens and when it happens.
 
 An simple pipeline could look like:
 
@@ -31,17 +31,19 @@ While a more complex pipeline could look like:
 11. Clean the output directory.
 12. Output all files.
 
-As of writing this website was built using Metalsmith and 44 plugins.
+As of writing this website is built using Metalsmith and 44 plugins.
 
-In this tutorial we'll first set up a blank project and then we'll continue to iterate on it multiple times adding plugins and source files as we go.
+In this tutorial we'll first set up a blank project and then we'll continue to iterate on it by adding additional plugins and source files.
 
 ## Setting up Metalsmith
 
 Setting up a Metalsmith project is a lot like setting up any other Node.js project, in the end you'll have a `package.json` and `package-lock.json`, `index.js`, and other source files throughout.
 
+This guide assumes you already have Node.js installed.
+
 ### 1. Directory structure
 
-The official Metalsmith examples recommend a certain directory structure so we'll stick to that. Throughout this guide I will continue to list the directory structure to help make things clearer.
+The official Metalsmith examples recommend a certain directory structure, so we'll stick to that. Throughout this guide I will continue to list the directory tree to keep things clear.
 
 Go ahead and make a new directory for your project and a `src/` directory under that:
 
@@ -72,7 +74,7 @@ And then running the command:
 nvm install
 ```
 
-Now our directory structure will look like:
+Now our directory tree will look like:
 
 ```text
 /
@@ -139,7 +141,7 @@ And then run the command:
 node index
 ```
 
-And if there is no output and no errors we know Metalsmith is working right.
+And if there is no output or errors from the command we know Metalsmith is working right.
 
 ### 5. Adding an index page
 
@@ -197,7 +199,7 @@ const layouts    = require('metalsmith-layouts');
 
 Metalsmith(__dirname)
     .source('./src')         // source directory for the pipeline
-    .use(layouts({           // process all HTML files with Handlebars
+    .use(layouts({           // <-- process all HTML files with Handlebars
         default: 'page.hbs',
         engine: 'handlebars'
     }))
@@ -229,7 +231,7 @@ By default `metalsmith-layouts` will look for templates in the `layouts/` direct
 Now that we've moved the outer HTML from `src/index.html` to `layouts/page.hbs` we can trim `src/index.html` down to just:
 
 ```html
-<h1>This is a header!</h1>
+<h1>This is a title!</h1>
 <p>This is a paragraph.</p>
 ```
 
@@ -248,13 +250,13 @@ And we'll end up with `build/index.html` looking like:
     <title></title>
 </head>
 <body>
-<h1>This is a header!</h1>
+<h1>This is a title!</h1>
 <p>This is a paragraph.</p>
 </body>
 </html>
 ```
 
-And a directory structure looking like:
+And a directory tree looking like:
 
 ```text
 /
@@ -276,7 +278,7 @@ And a directory structure looking like:
 
 ### 7. Using Markdown
 
-It's more common to use Markdown instead of HTML as an input source in Metalsmith because of its ease of use and familiarity among developers. Plus it's more portable so you'd be able to use it with a different static site generator in the future.
+It's more common to use Markdown instead of HTML as an input source in Metalsmith because of its ease-of-use and familiarity among developers. Plus it's more portable so you'll be able to use it with a different static site generator in the future.
 
 Markdown conversion requires another plugin:
 
@@ -293,7 +295,7 @@ const layouts    = require('metalsmith-layouts');
 
 Metalsmith(__dirname)
     .source('./src')         // source directory for the pipeline
-    .use(markdown())         // convert Markdown to HTML
+    .use(markdown())         // <-- convert Markdown to HTML
     .use(layouts({           // process all HTML files with Handlebars
         default: 'page.hbs',
         engine: 'handlebars'
@@ -311,7 +313,7 @@ Metalsmith(__dirname)
 Then rename `src/index.html` to `src/index.md` and change it to Markdown syntax:
 
 ```markdown
-# This is a header!
+# This is a title!
 
 This is a paragraph.
 ```
@@ -322,7 +324,7 @@ And build:
 node index
 ```
 
-Which will give us a `build/index.html` very similar to before:
+Which will give us a `build/index.html` very similar to before (heading IDs can be turned off with a `metalsmith-markdown` option later):
 
 ```html
 <html lang="en">
@@ -331,7 +333,7 @@ Which will give us a `build/index.html` very similar to before:
     <title></title>
 </head>
 <body>
-<h1 id="this-is-a-header">This is a header!</h1>
+<h1 id="this-is-a-header">This is a title!</h1>
 <p>This is a paragraph.</p>
 </body>
 </html>
@@ -375,7 +377,7 @@ title: This is the Index
 
 ---
 
-# This is a header!
+# This is a title!
 
 This is a paragraph.
 ```
@@ -409,7 +411,7 @@ We get `build/index.html`:
     <title>This is the Index</title>
 </head>
 <body>
-<h1 id="this-is-a-header">This is a header!</h1>
+<h1 id="this-is-a-header">This is a title!</h1>
 <p>This is a paragraph.</p>
 </body>
 </html>
@@ -449,7 +451,7 @@ Produces `build/help.html`:
 </html>
 ```
 
-For a final directory structure of:
+And a directory tree looking like:
 
 ```text
 /
@@ -463,6 +465,112 @@ For a final directory structure of:
 |   |-- metalsmith/
 |   |-- metalsmith-layouts/
 |   |-- metalsmith-markdown/
+|-- src/
+|   |-- help.md
+|   |-- index.md
+|-- .nvmrc
+|-- index.js
+|-- package-lock.json
+|-- package.json
+```
+
+### 10. Using template partials
+
+Good development practices encourage splitting up code into smaller pieces that can be composed together. Template partials allow us to define HTML snippets, such as headers or footers, that can be used and re-used in our templates.
+
+To make our lives easier let's install another plugin:
+
+```bash
+npm install --save metalsmith-discover-partials
+```
+
+And add it to our `index.js`:
+
+```javascript
+const Metalsmith       = require('metalsmith');
+const discoverPartials = require('metalsmith-discover-partials');
+const markdown         = require('metalsmith-markdown');
+const layouts          = require('metalsmith-layouts');
+
+Metalsmith(__dirname)
+    .source('./src')          // source directory for the pipeline
+    .use(discoverPartials())  // <-- find and register template partials
+    .use(markdown())          // convert Markdown to HTML
+    .use(layouts({            // process all HTML files with Handlebars
+        default: 'page.hbs',
+        engine: 'handlebars'
+    }))
+    .destination('./build')   // destination directory of the pipeline
+    .clean(true)              // clean the destination directory before build
+    .build(function (err) {   // execute the build
+        if (err) {
+            throw err;
+        }
+    });
+```
+
+`metalsmith-discover-partials` looks in the `partials/` directory by default, so go ahead and create that and the file `partials/header.hbs`:
+
+```handlebars
+<b>This is the header.</b>
+<hr>
+```
+
+And we can reference it by its filename in `layouts/page.hbs` like this:
+
+```handlebars
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>{{ title }}</title>
+</head>
+<body>
+{{> header}}
+{{{ contents }}}
+</body>
+</html>
+```
+
+And after one last build:
+
+```bash
+node index
+```
+
+We end up with a `build/index.html` of:
+
+```html
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>This is the Index</title>
+</head>
+<body>
+<b>This is the header</b>
+<hr>
+<h1 id="this-is-a-title">This is a title!</h1>
+<p>This is a paragraph.</p>
+</body>
+</html>
+```
+
+And a directory tree of:
+
+```text
+/
+|-- build/
+|   |-- help.html
+|   |-- index.html
+|-- layouts/
+|   |-- page.hbs
+|-- node_modules/
+|   |-- jstransformer-handlebars/
+|   |-- metalsmith/
+|   |-- metalsmith-discover-partials/
+|   |-- metalsmith-layouts/
+|   |-- metalsmith-markdown/
+|-- partials/
+|   |-- header.hbs
 |-- src/
 |   |-- help.md
 |   |-- index.md
