@@ -320,7 +320,7 @@ Metalsmith(__dirname)
 
     // Render blog templates (same as below) first so excerpts can be parsed before being referenced on other pages
     .use(branch('blog/*/*.md')
-        .use(hbtmd(Handlebars))
+        // .use(hbtmd(Handlebars))
         .use(markdown({
             headerIds: false,
             highlight: (code, lang) => highlight.getLanguage(lang) ? highlight.highlight(lang, code).value : highlight.highlightAuto(code).value
