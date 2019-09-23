@@ -17,7 +17,7 @@
     "start": "node index.js"
   },
   "dependencies": {
-    "@fortawesome/fontawesome-pro": "^5.10.2",
+    "@fortawesome/fontawesome-pro": "^5.11.2",
     "bootstrap": "^4.3.1",
     "handlebars": "^4.2.0",
     "handlebars-helpers": "^0.10.0",
@@ -70,7 +70,7 @@
     "metalsmith-uglify": "^2.3.2",
     "metalsmith-uncss-2": "^0.1.4",
     "metalsmith-validate": "^0.1.4",
-    "mobile-detect": "^1.4.3",
+    "mobile-detect": "^1.4.4",
     "moment": "^2.24.0",
     "transliteration": "^2.1.7"
   }
