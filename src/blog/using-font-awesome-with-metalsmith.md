@@ -41,7 +41,7 @@ But there's also a number of reasons to not use a CDN:
 - Having fixed package versions allows for reproducible builds.
 - After a one time package install it allows for entirely offline builds.
 - It allows you to control server caching of the static assets. 
-- Combining the Font Awesome CSS together with the rest of your CSS using a plugin such as `metalsmith-concat` reduces network calls the browser needs to make.
+- Combining the Font Awesome CSS together with the rest of your CSS using a plugin such as `metalsmith-concat` reduces the network calls the browser needs to make.
 - Trimming unused CSS rules with a plugin such as `metalsmith-uncss-2` reduces the size of CSS files the browser needs to fetch.
 
 ### Source file structure
@@ -114,3 +114,9 @@ node index
 ```
 
 Then open the resulting `build/index.html` in your browser and you should see the two icons displayed.
+
+## Using the pro version of Font Awesome
+
+As of writing, the pro tier of Font Awesome has more than 4x the icons of the free tier, and more styles available. It's pricey but may be worth it for your application.
+
+All of the above instructions still apply, but the package name is changed to `@fortawesome/fontawesome-pro`. See the "[Using a Package Manager](https://fontawesome.com/how-to-use/on-the-web/setup/using-package-managers)" page for instructions on installation.
