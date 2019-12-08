@@ -42,7 +42,7 @@ const htmlMinifier     = require('metalsmith-html-minifier');
 const sri              = require('metalsmith-html-sri');
 const formatcheck      = require('metalsmith-formatcheck');
 const eslint           = require('metalsmith-eslint');
-const blc              = require('metalsmith-broken-link-checker');
+const linkcheck        = require('metalsmith-linkcheck');
 const sitemap          = require('metalsmith-sitemap');
 const ignore           = require('metalsmith-ignore');
 
@@ -526,12 +526,11 @@ Metalsmith(__dirname)
     .use(eslint())
 
     // Ensure no broken links
-    .use(blc({
-        baseURL: '/not/root',
-        allowRedirects: true,
-        checkImages: true,
-        checkLinks: true,
-        checkAnchors: true
+    .use(include({
+        '': ['./src/links_ignore.json']
+    }))
+    .use(linkcheck({
+        failMissing: true
     }))
 
     /***********************
