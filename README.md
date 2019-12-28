@@ -19,14 +19,14 @@ node index
 The resulting `build/` directory contains the output, similar to:
 
 ```
-build/
-|-- static/
-|   |-- css/
-|   |   |-- styles.css
-|   |-- img/ 
-|   |-- js/
-|   |   |-- scripts.js
-|-- index.html
+build
+├── index.html
+└── static
+    ├── css
+    │   └── styles.css
+    ├── img
+    └── js
+        └── scripts.js
 ```
 
 ## Deploying

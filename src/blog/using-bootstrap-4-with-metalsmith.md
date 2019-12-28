@@ -36,15 +36,15 @@ We'll ignore the [Popper.js](https://popper.js.org/) peer dependency as we'll us
 Create the following directories and files for use in the build pipeline:
 
 ```text
-/
-|-- layouts/
-|   |-- page.hbs
-|-- src/
-|   |-- static/
-|   |   |-- css/
-|   |   |   |-- bootstrap.scss
-|   |-- index.md
-|-- index.js
+.
+├── index.js
+├── layouts
+│   └── page.hbs
+└── src
+    ├── index.md
+    └── static
+        └── css
+            └── bootstrap.scss
 ```
 
 - `layouts/page.hbs` will be our primary template for `metalsmith-layouts` for common elements like the navigation bar.
