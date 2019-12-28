@@ -47,6 +47,12 @@ All plugins have:
 
 A plugin to include files outside of the source directory.
 
+Related blog posts:
+
+* [Using Bootstrap 4 with Metalsmith](/blog/using-bootstrap-4-with-metalsmith)
+* [Using Font Awesome with Metalsmith](/blog/using-font-awesome-with-metalsmith)
+* [Adding a Google Site Ownership Verification File in Metalsmith](/blog/adding-a-google-site-ownership-verification-file-in-metalsmith)
+
 ### [metalsmith-htaccess](https://github.com/emmercm/metalsmith-htaccess)
 
 A plugin to create an `.htaccess` Apache HTTP Server (`httpd`) [configuration file](https://httpd.apache.org/docs/current/howto/htaccess.html).
@@ -70,6 +76,10 @@ A plugin to add [subresource integrity](https://developer.mozilla.org/en-US/docs
 ### [metalsmith-uncss-2](https://github.com/emmercm/metalsmith-uncss-2)
 
 A plugin to run the [UnCSS](https://github.com/uncss/uncss) unused CSS remover on source files.
+
+Related blog posts:
+
+* [Using Font Awesome with Metalsmith](/blog/using-font-awesome-with-metalsmith)
 
 ## <i class="fab fa-raspberry-pi"></i> Raspberry Pi Tools
 
