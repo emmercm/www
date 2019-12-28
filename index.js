@@ -328,11 +328,24 @@ Metalsmith(__dirname)
         }))
         // Extract first paragraph as an excerpt and then change the page description
         .use(excerpts())
+        .use((files, metalsmith, done) => {
+            // Fix terrible Cheerio output from metalsmith-excerpts
+            Object.keys(files)
+                .forEach(filename => {
+                    files[filename].excerpt = he.decode(
+                        files[filename].excerpt
+                            .replace(/<[^>]*>/g, ' ')
+                            .replace(/[ ][ ]+/g, ' ')
+                            .trim()
+                    )
+                });
+            done();
+        })
         .use(except('pageDescription'))
         .use(defaultValues([{
             pattern: '**/*',
             defaults: {
-                pageDescription: file => file.excerpt.replace(/<[^>]*>/g, '').trim()
+                pageDescription: file => file.excerpt
             }
         }]))
     )
