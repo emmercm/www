@@ -55,6 +55,7 @@ require('handlebars-helpers')({
 const moment          = require('moment');
 const transliteration = require('transliteration');
 const highlight       = require('highlight.js');
+const he              = require('he');
 
 const prod = (process.env.NODE_ENV || 'development').toLowerCase() === 'production';
 
@@ -505,7 +506,7 @@ Metalsmith(__dirname)
     .use(jquery('**/*.html', $ => {
         $('*').each((i, elem) => {
             Object.keys(elem.attribs)
-                .forEach(attribute => $(elem).attr(attribute, elem.attribs[attribute].replace('&apos;', '\'')));
+                .forEach(attribute => $(elem).attr(attribute, he.decode(elem.attribs[attribute])));
         });
     }, {decodeEntities: false}))
 
