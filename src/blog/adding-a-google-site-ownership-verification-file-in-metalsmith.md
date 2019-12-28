@@ -5,7 +5,7 @@ date: 2019-12-28T19:53:00
 
 ---
 
-In order to manage your website in the [Google Search Console](https://support.google.com/webmasters/answer/9128668) you first need to [verify ownership](https://support.google.com/webmasters/answer/9008080) of your site. One way of doing this is by having a special HTML file that Google knows to crawl.
+In order to manage your website in the [Google Search Console](https://support.google.com/webmasters/answer/9128668) you first need to [verify ownership](https://support.google.com/webmasters/answer/9008080) of your site. One way of doing this is by downloading a special HTML file from Google and uploading it to your site for Google to crawl.
 
 Here's Google's explanation of Search Console:
 
