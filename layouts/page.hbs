@@ -37,14 +37,11 @@
 
         <div class="collapse navbar-collapse mt-2 mt-md-0 pt-2 pt-md-0 border-top border-md-none border-light" id="navbarSupportedContent">
             <ul class="navbar-nav d-flex align-items-center ml-auto">
-                {{#if collections.blog}}
-                    <li class="nav-item{{#eq (segments path.dir 0 1) "blog"}} active{{/eq}}">
-                        <a class="nav-link" href="/blog">Blog</a>
+                {{#each menu.header}}
+                    <li class="nav-item{{#eq (segments ../path.dir 0 1) link}} active{{/eq}}">
+                        <a class="nav-link nav-link-underline" href="/{{link}}">{{title}}</a>
                     </li>
-                {{/if}}
-                <li class="nav-item{{#eq (segments path.dir 0 1) "projects"}} active{{/eq}}">
-                    <a class="nav-link" href="/projects">Projects</a>
-                </li>
+                {{/each}}
                 {{#each icons.header}}
                     <li class="nav-item">
                         <a href="{{link}}" {{#if title}}title="{{title}}"{{/if}} class="nav-link px-0">

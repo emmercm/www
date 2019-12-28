@@ -193,16 +193,18 @@ $navbar-height: 64px;
 .navbar-dark {
   .navbar-nav {
     .nav-link {
-      position: relative;
-      &::after {
-        content: "";
-        display: block;
-        position: absolute;
-        bottom: 0;
-        left: 0;
-        width: 0;
-        height: $border-width*2;
-        background: $navbar-dark-active-color;
+      &.nav-link-underline {
+        position: relative;
+        &::after {
+          content: "";
+          display: block;
+          position: absolute;
+          bottom: 0;
+          left: 0;
+          width: 0;
+          height: $border-width*2;
+          background: $navbar-dark-active-color;
+        }
       }
     }
     .nav-link:hover,
@@ -211,7 +213,7 @@ $navbar-height: 64px;
     .active > .nav-link,
     .nav-link.show,
     .nav-link.active {
-      &::after {
+      &.nav-link-underline::after {
         width: 100%;
       }
     }
