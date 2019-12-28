@@ -6,7 +6,7 @@
                     <a href="{{ path.href }}" class="text-dark">{{ title }}</a>
                 </h1>
                 <h5 class="mt-0"><small class="text-muted">{{moment this.date "MMMM D, YYYY"}} by {{ ../sitename }}</small></h5>
-                <p>{{{sanitize (replace excerpt "<br[ ]*/?>" " ")}}}</p>
+                <p>{{{sanitize excerpt}}}</p>
                 <p>
                     <a href="{{ path.href }}">Read more</a>
                 </p>

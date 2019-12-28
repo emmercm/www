@@ -55,6 +55,7 @@ require('handlebars-helpers')({
 const moment          = require('moment');
 const transliteration = require('transliteration');
 const highlight       = require('highlight.js');
+const he              = require('he');
 
 const prod = (process.env.NODE_ENV || 'development').toLowerCase() === 'production';
 
@@ -327,11 +328,24 @@ Metalsmith(__dirname)
         }))
         // Extract first paragraph as an excerpt and then change the page description
         .use(excerpts())
+        .use((files, metalsmith, done) => {
+            // Fix terrible Cheerio output from metalsmith-excerpts
+            Object.keys(files)
+                .forEach(filename => {
+                    files[filename].excerpt = he.decode(
+                        files[filename].excerpt
+                            .replace(/<[^>]*>/g, ' ')
+                            .replace(/[ ][ ]+/g, ' ')
+                            .trim()
+                    )
+                });
+            done();
+        })
         .use(except('pageDescription'))
         .use(defaultValues([{
             pattern: '**/*',
             defaults: {
-                pageDescription: file => file.excerpt.replace(/<[^>]*>/g, '').trim()
+                pageDescription: file => file.excerpt
             }
         }]))
     )
@@ -498,17 +512,19 @@ Metalsmith(__dirname)
         }
     })))
 
+    // Add subresource integrity attributes (after all minification) (can require internet connection)
+    .use(sri())
+
+    // Fix Cheerio-mangled attribute values
+    .use(jquery('**/*.html', $ => {
+        $('*').each((i, elem) => {
+            Object.keys(elem.attribs)
+                .forEach(attribute => $(elem).attr(attribute, he.decode(elem.attribs[attribute])));
+        });
+    }, {decodeEntities: false}))
+
     // Prod: minify HTML
     .use(msIf(prod, htmlMinifier()))
-
-    /*******************************
-     *                             *
-     *     ADD SECURITY CHECKS     *
-     *                             *
-     *******************************/
-
-    // Add subresource integrity attributes (can require internet connection)
-    .use(sri())
 
     /*********************
      *                   *
