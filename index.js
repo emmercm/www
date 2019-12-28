@@ -555,20 +555,22 @@ Metalsmith(__dirname)
      *                     *
      ***********************/
 
-    // Generate a sitemap
-    .use(sitemap({
-        hostname: siteURL,
-        omitIndex: true,
-        modifiedProperty: 'date'
-    }))
-
-    // Include raw Google ownership verification file
+    // Ignore processed Google ownership verification file (before generating sitemap)
     .use(ignore([
         '**/google*/*.html',
         '**/google*.html'
     ]))
+
+    // Generate a sitemap
+    .use(msIf(prod, sitemap({
+        hostname: siteURL,
+        omitIndex: true,
+        modifiedProperty: 'date'
+    })))
+
+    // Include raw Google ownership verification file
     .use(include({
-        '': ['./src/googleb35f29cb76bb3ae1.html']
+        '': ['./src/google*.html']
     }))
 
     // Set destination directory
