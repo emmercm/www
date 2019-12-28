@@ -5,7 +5,7 @@ date: 2019-09-22T20:45:00
 
 ---
 
-As a primarily back-end developer I tend to use [Bootstrap](https://getbootstrap.com/) in most of my full-stack applications. It's a great way to save some time getting a small project or prototype up and running. Using Bootstrap in [Metalsmith](https://metalsmith.io/) isn't complicated, it just takes 2 plugins.
+As a primarily back-end developer I tend to use [Bootstrap](https://getbootstrap.com/) in most of my full-stack applications. It's a great way to save some time getting a small project or prototype up and running. Using Bootstrap in [Metalsmith](https://metalsmith.io/) isn't complicated, it just takes 3 plugins.
 
 ## Project setup
 
@@ -16,11 +16,12 @@ This guide assumes some base understanding of Metalsmith, see "[Starting a Metal
 Starting with an empty project, install some Metalsmith plugins:
 
 ```bash
-npm install --save metalsmith metalsmith-layouts jstransformer-handlebars metalsmith-markdown metalsmith-sass metalsmith-include-files
+npm install --save metalsmith metalsmith-layouts jstransformer-handlebars metalsmith-markdown metalsmith-sass metalsmith-autoprefixer metalsmith-include-files
 ```
 
 - `metalsmith`, `metalsmith-layouts`, `jstransformer-handlebars`, `metalsmith-markdown` as a base for our source parsing and templating.
 - `metalsmith-sass` to compile the Bootstrap Sass which lets us customize its variables.
+- `metalsmith-autoprefixer` to add vendor prefixes to CSS rules. The Bootstrap build [also does this](https://getbootstrap.com/docs/4.0/getting-started/build-tools/#autoprefixer).
 - `metalsmith-include-files` to include external JavaScript in our source files.
 
 And then install [jQuery](https://jquery.com/) and [Bootstrap](https://getbootstrap.com/):
@@ -36,15 +37,15 @@ We'll ignore the [Popper.js](https://popper.js.org/) peer dependency as we'll us
 Create the following directories and files for use in the build pipeline:
 
 ```text
-/
-|-- layouts/
-|   |-- page.hbs
-|-- src/
-|   |-- static/
-|   |   |-- css/
-|   |   |   |-- bootstrap.scss
-|   |-- index.md
-|-- index.js
+.
+├── index.js
+├── layouts
+│   └── page.hbs
+└── src
+    ├── index.md
+    └── static
+        └── css
+            └── bootstrap.scss
 ```
 
 - `layouts/page.hbs` will be our primary template for `metalsmith-layouts` for common elements like the navigation bar.
@@ -63,6 +64,7 @@ Set up your `index.js` file like this:
 ```javascript
 const Metalsmith       = require('metalsmith');
 const sass             = require('metalsmith-sass');
+const autoprefixer     = require('metalsmith-autoprefixer');
 const include          = require('metalsmith-include-files');
 const markdown         = require('metalsmith-markdown');
 const layouts          = require('metalsmith-layouts');
@@ -70,6 +72,7 @@ const layouts          = require('metalsmith-layouts');
 Metalsmith(__dirname)
     .source('./src')          // source directory for the pipeline
     .use(sass())              // compile Sass
+    .use(autoprefixer())      // add vendor prefixes to CSS rules
     .use(include({            // include external JavaScript
         'static/js': [
             './node_modules/jquery/dist/jquery.slim.min.js',
@@ -94,6 +97,7 @@ Metalsmith(__dirname)
 This will:
 
 - Compile all `*.scss` files with `metalsmith-sass`.
+- Add vendor prefixes to CSS rules.
 - Add the pre-built Bootstrap JavaScript and its dependencies as input files.
 - Build `src/index.md` into `build/index.html` using `layouts/page.hbs` as the template.
 

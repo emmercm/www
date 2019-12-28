@@ -48,8 +48,8 @@ The official Metalsmith [examples](https://metalsmith.io/#welcome) recommend a c
 Go ahead and make a new directory for your project and a `src/` directory under that:
 
 ```text
-/
-|-- src/
+.
+└── src
 ```
 
 ### 2. Set up `nvm`
@@ -77,9 +77,9 @@ nvm install
 Now our directory tree will look like:
 
 ```text
-/
-|-- src/
-|-- .nvmrc
+.
+├── .nvmrc
+└── src
 ```
 
 ### 3. Set up `npm`
@@ -93,10 +93,10 @@ npm init
 And follow the prompts. Hitting the enter key for all prompts is fine for now if you don't want to fill it all out. This will create an initialized `package.json` for us:
 
 ```text
-/
-|-- src/
-|-- .nvmrc
-|-- package.json
+.
+├── .nvmrc
+├── package.json
+└── src
 ```
 
 ### 4. Set up Metalsmith
@@ -110,13 +110,13 @@ npm install --save metalsmith
 Which will install Metalsmith and all required dependencies. This will create the `node_modules/` directory (with _many_ subdirectories in it) and the `package-lock.json` file. To save some space I'll skip writing out all the extra `node_modules/` subdirectories:
 
 ```text
-/
-|-- node_modules/
-|   |-- metalsmith/
-|-- src/
-|-- .nvmrc
-|-- package-lock.json
-|-- package.json
+.
+├── .nvmrc
+├── node_modules
+│   └── metalsmith
+├── package-lock.json
+├── package.json
+└── src
 ```
 
 Now we're going to set up a dummy pipeline to make sure Metalsmith is installed and working right. Create an `index.js` file with the contents:
@@ -168,17 +168,17 @@ node index
 We'll know this worked if it copied `src/index.html` to `build/index.html`:
 
 ```text
-/
-|-- build/
-|   |-- index.html
-|-- node_modules/
-|   |-- metalsmith/
-|-- src/
-|   |-- index.html
-|-- .nvmrc
-|-- index.js
-|-- package-lock.json
-|-- package.json
+.
+├── .nvmrc
+├── build
+│   └── index.html
+├── index.js
+├── node_modules
+│   └── metalsmith
+├── package-lock.json
+├── package.json
+└── src
+    └── index.html
 ```
 
 ### 6. Creating a layout
@@ -259,21 +259,21 @@ We'll end up with `build/index.html` looking like:
 And a directory tree looking like:
 
 ```text
-/
-|-- build/
-|   |-- index.html
-|-- layouts/
-|   |-- page.hbs
-|-- node_modules/
-|   |-- jstransformer-handlebars/
-|   |-- metalsmith/
-|   |-- metalsmith-layouts/
-|-- src/
-|   |-- index.html
-|-- .nvmrc
-|-- index.js
-|-- package-lock.json
-|-- package.json
+.
+├── .nvmrc
+├── build
+│   └── index.html
+├── index.js
+├── layouts
+│   └── page.hbs
+├── node_modules
+│   ├── jstransformer-handlebars
+│   ├── metalsmith
+│   └── metalsmith-layouts
+├── package-lock.json
+├── package.json
+└── src
+    └── index.html
 ```
 
 ### 7. Using Markdown
@@ -342,22 +342,22 @@ Which will give us a `build/index.html` very similar to before (heading IDs can 
 And a directory tree:
 
 ```text
-/
-|-- build/
-|   |-- index.html
-|-- layouts/
-|   |-- page.hbs
-|-- node_modules/
-|   |-- jstransformer-handlebars/
-|   |-- metalsmith/
-|   |-- metalsmith-layouts/
-|   |-- metalsmith-markdown/
-|-- src/
-|   |-- index.md
-|-- .nvmrc
-|-- index.js
-|-- package-lock.json
-|-- package.json
+.
+├── .nvmrc
+├── build
+│   └── index.html
+├── index.js
+├── layouts
+│   └── page.hbs
+├── node_modules
+│   ├── jstransformer-handlebars
+│   ├── metalsmith
+│   ├── metalsmith-layouts
+│   └── metalsmith-markdown
+├── package-lock.json
+├── package.json
+└── src
+    └── index.html
 ```
 
 ### 8. Frontmatter in Markdown
@@ -454,24 +454,24 @@ Produces `build/help.html`:
 And a directory tree looking like:
 
 ```text
-/
-|-- build/
-|   |-- help.html
-|   |-- index.html
-|-- layouts/
-|   |-- page.hbs
-|-- node_modules/
-|   |-- jstransformer-handlebars/
-|   |-- metalsmith/
-|   |-- metalsmith-layouts/
-|   |-- metalsmith-markdown/
-|-- src/
-|   |-- help.md
-|   |-- index.md
-|-- .nvmrc
-|-- index.js
-|-- package-lock.json
-|-- package.json
+.
+├── .nvmrc
+├── build
+│   ├── help.html
+│   └── index.html
+├── index.js
+├── layouts
+│   └── page.hbs
+├── node_modules
+│   ├── jstransformer-handlebars
+│   ├── metalsmith
+│   ├── metalsmith-layouts
+│   └── metalsmith-markdown
+├── package-lock.json
+├── package.json
+└── src
+    ├── help.md
+    └── index.html
 ```
 
 ### 10. Using template partials
@@ -557,27 +557,27 @@ We end up with a `build/index.html` of:
 And a directory tree of:
 
 ```text
-/
-|-- build/
-|   |-- help.html
-|   |-- index.html
-|-- layouts/
-|   |-- page.hbs
-|-- node_modules/
-|   |-- jstransformer-handlebars/
-|   |-- metalsmith/
-|   |-- metalsmith-discover-partials/
-|   |-- metalsmith-layouts/
-|   |-- metalsmith-markdown/
-|-- partials/
-|   |-- header.hbs
-|-- src/
-|   |-- help.md
-|   |-- index.md
-|-- .nvmrc
-|-- index.js
-|-- package-lock.json
-|-- package.json
+.
+├── .nvmrc
+├── build
+│   ├── help.html
+│   └── index.html
+├── index.js
+├── layouts
+│   └── page.hbs
+├── node_modules
+│   ├── jstransformer-handlebars
+│   ├── metalsmith
+│   ├── metalsmith-discover-partials
+│   ├── metalsmith-layouts
+│   └── metalsmith-markdown
+├── package-lock.json
+├── package.json
+├── partials
+│   └── header.hbs
+└── src
+    ├── help.md
+    └── index.html
 ```
 
 ## Conclusion
