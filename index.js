@@ -498,17 +498,19 @@ Metalsmith(__dirname)
         }
     })))
 
+    // Add subresource integrity attributes (after all minification) (can require internet connection)
+    .use(sri())
+
+    // Fix Cheerio-mangled attribute values
+    .use(jquery('**/*.html', $ => {
+        $('*').each((i, elem) => {
+            Object.keys(elem.attribs)
+                .forEach(attribute => $(elem).attr(attribute, elem.attribs[attribute].replace('&apos;', '\'')));
+        });
+    }, {decodeEntities: false}))
+
     // Prod: minify HTML
     .use(msIf(prod, htmlMinifier()))
-
-    /*******************************
-     *                             *
-     *     ADD SECURITY CHECKS     *
-     *                             *
-     *******************************/
-
-    // Add subresource integrity attributes (can require internet connection)
-    .use(sri())
 
     /*********************
      *                   *
