@@ -1,14 +1,14 @@
 <div class="row d-flex justify-content-center align-items-stretch my-n3 mx-0">
     {{#each data}}
-        <div class="col-12 {{#equalsLength ../data 1}}col-xl-12{{else equalsLength ../data 2}}col-xl-6{{else and @first (eq (modulo (length ../data) 4) 0)}}col-xl-12{{else and (lt @index 2) (eq (modulo (length ../data) 5) 0)}}col-xl-6{{else}}col-xl-4{{/equalsLength}} py-3 px-0 px-lg-3">
+        <div class="col-12 {{#equalsLength ../data 1}}col-xl-12{{else equalsLength ../data 2}}col-xl-6{{else and @first (or (eq (modulo (length ../data) 4) 0) (eq (modulo (length ../data) 7) 0))}}col-xl-12{{else and (lt @index 2) (eq (modulo (length ../data) 5) 0)}}col-xl-6{{else}}col-xl-4{{/equalsLength}} py-3 px-0 px-lg-3">
             <div class="h-100 p-4 br{{#eq ../br_breakpoint "xs"}}{{else if ../br_breakpoint}}-{{../br_breakpoint}}{{else}}-lg{{/eq}}-2 bg-light">
-                <h1>
+                <h2>
                     <a href="{{ path.href }}" class="text-dark">{{ title }}</a>
-                </h1>
+                </h2>
                 <h5 class="mt-0"><small class="text-muted">{{moment this.date "MMMM D, YYYY"}} by {{ ../sitename }}</small></h5>
                 <p>{{{sanitize excerpt}}}</p>
                 <p>
-                    <a href="{{ path.href }}">Read more</a>
+                    <a href="{{ path.href }}"><i>Continue reading</i></a>
                 </p>
             </div>
         </div>
