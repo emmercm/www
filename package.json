@@ -51,7 +51,7 @@
     "metalsmith-html-glob": "^0.1.3",
     "metalsmith-html-minifier": "^4.0.0",
     "metalsmith-html-relative": "^0.1.3",
-    "metalsmith-html-sri": "^0.1.3",
+    "metalsmith-html-sri": "^0.2.0",
     "metalsmith-html-unused": "^0.2.3",
     "metalsmith-if": "^0.1.1",
     "metalsmith-ignore": "^1.0.0",
