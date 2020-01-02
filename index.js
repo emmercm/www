@@ -515,7 +515,13 @@ Metalsmith(__dirname)
     })))
 
     // Add subresource integrity attributes (after all minification) (can require internet connection)
-    .use(sri())
+    .use(sri({
+        ignoreResources: [
+            'fonts.googleapis.com/css',
+            'googletagmanager.com/gtag/js',
+            'platform.twitter.com/widgets.js'
+        ]
+    }))
 
     // Fix Cheerio-mangled attribute values
     .use(jquery('**/*.html', $ => {
