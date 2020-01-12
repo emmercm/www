@@ -1,6 +1,8 @@
 ---
 
 title: Blog
+priority: 0.9
+
 style: container
 no_padding: true
 background: transparent

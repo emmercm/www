@@ -1,6 +1,7 @@
 ---
 
 title:
+priority: 1.0
 
 ---
 
