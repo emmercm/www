@@ -67,17 +67,19 @@
 </nav>
 
 <main>
-    {{#or (eq style "container") (eq style "blog")}}
+    {{#if pageContainer}}
         <div class="navbar-spacer fixed-top"></div>
         <div class="container-fluid py-5 py-lg-6 markdown">
             <div class="row">
-                <div class="col-12 {{#eq style "blog"}}col-xl-8 offset-xl-2{{/eq}} col-md-10 offset-md-1 p-0 br-lg-1 {{#if background}}bg-{{background}}{{else}}bg-light{{/if}}">
-                    <div class="{{#if no_padding}}p-0{{else}}p-4 p-md-5{{/if}}">
-                        {{#eq style "blog"}}
+                <div class="col-12 {{#unless pageWide}}col-xl-8 offset-xl-2{{/unless}} col-md-10 offset-md-1 p-0 br-lg-1 {{#if pageBackground}}bg-light{{else}}bg-transparent{{/if}}">
+                    <div class="{{#if pageBackground}}p-4 p-md-5{{else}}p-0{{/if}}">
+                        {{#if pageHeader}}
                             <h1>{{ title }}</h1>
-                            <h5 class="mt-0"><small class="text-muted">{{moment this.date "MMMM D, YYYY"}} by {{ sitename }}</small></h5>
+                            <h5 class="mt-0">
+                                <small class="text-muted">{{moment this.date "MMMM D, YYYY"}} by {{ sitename }}</small>
+                            </h5>
                             <br>
-                        {{/eq}}
+                        {{/if}}
                         {{{ contents }}}
                     </div>
                 </div>
@@ -85,7 +87,7 @@
         </div>
     {{else}}
         {{{ contents }}}
-    {{/or}}
+    {{/if}}
 </main>
 
 <footer class="footer mt-auto bg-dark text-light shadow">

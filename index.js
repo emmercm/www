@@ -143,6 +143,7 @@ Metalsmith(__dirname)
     .use(defaultValues([{
         pattern: '**/*.@(html|md)',
         defaults: {
+            // Metadata
             description: file => file.hasOwnProperty('description') ? file.description : siteDescription,
             pageTitle: file => {
                 // Leave non-strings alone
@@ -166,7 +167,11 @@ Metalsmith(__dirname)
                 pageTitle += siteName;
                 return pageTitle;
             },
-            pageDescription: file => file.description || siteDescription
+            pageDescription: file => file.description || siteDescription,
+            // Style
+            pageContainer: true,
+            pageWide: false,
+            pageBackground: true
         }
     }]))
 
@@ -283,7 +288,7 @@ Metalsmith(__dirname)
     }))
     .use(metaCollection({
         'collections.blog': {
-            style: 'blog'
+            pageHeader: true
         }
     }))
 

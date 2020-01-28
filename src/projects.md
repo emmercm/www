@@ -4,8 +4,6 @@ title: Projects
 description: A collection of open source projects I have developed.
 priority: 0.9
 
-style: container
-
 ---
 
 # {{ title }}
