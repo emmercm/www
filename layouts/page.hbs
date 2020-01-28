@@ -34,8 +34,8 @@
 </head>
 
 <body class="d-flex flex-column h-100 bg-secondary bg-trianglify" data-parallax="scroll" data-parallax-velocity="0.25">
-<nav class="navbar navbar-expand-md navbar-dark fixed-top clearfix bg-dark vw-100 shadow">
-    <div class="container-fluid">
+<nav class="navbar navbar-expand-md navbar-dark fixed-top clearfix bg-dark vw-100 px-4 shadow">
+    <div class="container-fluid px-0">
         <a class="navbar-brand" href="/">
             <img src="**/logo3_Gray_Lighter.svg" title="Logo" class="mr-2">
             <span class="align-middle">{{ sitename }}</span>
@@ -47,13 +47,13 @@
         <div class="collapse navbar-collapse mt-2 mt-md-0 pt-2 pt-md-0 border-top border-md-none border-light" id="navbarSupportedContent">
             <ul class="navbar-nav d-flex align-items-center ml-auto">
                 {{#each menu.header}}
-                    <li class="nav-item{{#eq (segments ../path.dir 0 1) link}} active{{/eq}}">
+                    <li class="nav-item{{#eq (segments ../path.dir 0 1) link}} active{{/eq}} my-1 my-md-0">
                         <a class="nav-link nav-link-underline" href="/{{link}}">{{title}}</a>
                     </li>
                 {{/each}}
                 <li class="nav-item d-flex">
                     {{#each icons.header}}
-                        <a href="{{link}}" {{#if title}}title="{{title}}"{{/if}} class="nav-link px-0">
+                        <a href="{{link}}" {{#if title}}title="{{title}}"{{/if}} class="nav-link mx-1 px-0">
                             <span class="fa-stack align-top">
                                 <i class="fal fa-circle fa-stack-2x"></i>
                                 <i class="{{icon}} fa-stack-1x"></i>
@@ -71,7 +71,7 @@
         <div class="navbar-spacer fixed-top"></div>
         <div class="container-fluid py-5 py-lg-6 markdown">
             <div class="row">
-                <div class="col-12 col-lg-10 offset-lg-1 p-0 br-lg-1 {{#if background}}bg-{{background}}{{else}}bg-light{{/if}}">
+                <div class="col-12 {{#eq style "blog"}}col-xl-8 offset-xl-2{{/eq}} col-md-10 offset-md-1 p-0 br-lg-1 {{#if background}}bg-{{background}}{{else}}bg-light{{/if}}">
                     <div class="{{#if no_padding}}p-0{{else}}p-4 p-md-5{{/if}}">
                         {{#eq style "blog"}}
                             <h1>{{ title }}</h1>
@@ -91,12 +91,12 @@
 <footer class="footer mt-auto bg-dark text-light shadow">
     <div class="container-fluid">
         <div class="row">
-            <div class="col-12 col-lg-10 offset-lg-1 p-4 px-lg-0">
+            <div class="col-12 p-4">
                 <div class="d-flex justify-content-between align-items-center">
                     <div class="text-center">&copy; {{ year }} {{ sitename }}</div>
-                    <div>
+                    <div class="d-flex">
                         {{#each icons.footer}}
-                            <a href="{{link}}" title="{{title}}" class="text-decoration-none">
+                            <a href="{{link}}" title="{{title}}" class="text-decoration-none mx-1">
                                 <span class="fa-stack align-top">
                                     <i class="fal fa-circle fa-stack-2x"></i>
                                     <i class="{{icon}} fa-stack-1x"></i>
