@@ -534,6 +534,25 @@ Metalsmith(__dirname)
     // Prod: minify HTML
     .use(msIf(prod, htmlMinifier()))
 
+    /****************************
+     *                          *
+     *     GENERATE SITEMAP     *
+     *                          *
+     ****************************/
+
+    // Ignore processed Google ownership verification file (before generating sitemap)
+    .use(ignore([
+        '**/google*/*.html',
+        '**/google*.html'
+    ]))
+
+    // Generate a sitemap
+    .use(sitemap({
+        hostname: siteURL,
+        omitIndex: true,
+        modifiedProperty: 'date'
+    }))
+
     /*********************
      *                   *
      *     RUN TESTS     *
@@ -562,19 +581,6 @@ Metalsmith(__dirname)
      *     FINAL BUILD     *
      *                     *
      ***********************/
-
-    // Ignore processed Google ownership verification file (before generating sitemap)
-    .use(ignore([
-        '**/google*/*.html',
-        '**/google*.html'
-    ]))
-
-    // Generate a sitemap
-    .use(msIf(prod, sitemap({
-        hostname: siteURL,
-        omitIndex: true,
-        modifiedProperty: 'date'
-    })))
 
     // Include raw Google ownership verification file
     .use(include({
