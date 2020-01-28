@@ -143,6 +143,7 @@ Metalsmith(__dirname)
     .use(defaultValues([{
         pattern: '**/*.@(html|md)',
         defaults: {
+            // Metadata
             description: file => file.hasOwnProperty('description') ? file.description : siteDescription,
             pageTitle: file => {
                 // Leave non-strings alone
@@ -166,7 +167,11 @@ Metalsmith(__dirname)
                 pageTitle += siteName;
                 return pageTitle;
             },
-            pageDescription: file => file.description || siteDescription
+            pageDescription: file => file.description || siteDescription,
+            // Style
+            pageContainer: true,
+            pageWide: false,
+            pageBackground: true
         }
     }]))
 
@@ -283,7 +288,7 @@ Metalsmith(__dirname)
     }))
     .use(metaCollection({
         'collections.blog': {
-            style: 'blog'
+            pageHeader: true
         }
     }))
 
@@ -534,6 +539,25 @@ Metalsmith(__dirname)
     // Prod: minify HTML
     .use(msIf(prod, htmlMinifier()))
 
+    /****************************
+     *                          *
+     *     GENERATE SITEMAP     *
+     *                          *
+     ****************************/
+
+    // Ignore processed Google ownership verification file (before generating sitemap)
+    .use(ignore([
+        '**/google*/*.html',
+        '**/google*.html'
+    ]))
+
+    // Generate a sitemap
+    .use(sitemap({
+        hostname: siteURL,
+        omitIndex: true,
+        modifiedProperty: 'date'
+    }))
+
     /*********************
      *                   *
      *     RUN TESTS     *
@@ -562,19 +586,6 @@ Metalsmith(__dirname)
      *     FINAL BUILD     *
      *                     *
      ***********************/
-
-    // Ignore processed Google ownership verification file (before generating sitemap)
-    .use(ignore([
-        '**/google*/*.html',
-        '**/google*.html'
-    ]))
-
-    // Generate a sitemap
-    .use(msIf(prod, sitemap({
-        hostname: siteURL,
-        omitIndex: true,
-        modifiedProperty: 'date'
-    })))
 
     // Include raw Google ownership verification file
     .use(include({

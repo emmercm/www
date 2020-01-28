@@ -13,6 +13,10 @@ header:
     icon: fab fa-linkedin-in
 
 footer:
+  - link: /sitemap.xml
+    title: Sitemap
+    icon: far fa-sitemap
+
   - link: https://github.com/emmercm/www
     title: Website Source
     icon: fas fa-code

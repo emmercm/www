@@ -3,6 +3,9 @@
 title:
 priority: 1.0
 
+pageContainer: false
+pageWide: true
+
 ---
 
 <section class="d-flex flex-column text-center w-100 vh-100 text-shadow-sm">
