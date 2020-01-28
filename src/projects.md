@@ -4,8 +4,6 @@ title: Projects
 description: A collection of open source projects I have developed.
 priority: 0.9
 
-style: container
-
 ---
 
 # {{ title }}
@@ -99,7 +97,7 @@ Kernel headers are used for compiling code that interfaces with the kernel, such
 
 ### [rpi-backports](https://github.com/emmercm/rpi-backports)
 
-A script to build and install the [Backports Project](https://backports.wiki.kernel.org/index.php/Main_Page) drivers (formerly `compat-drivers`) from source.
+A script to build and install the [Backports Project](https://backports.wiki.kernel.org/index.php/Main_Page) drivers (formerly [`compat-drivers`](https://backports.wiki.kernel.org/index.php/Documentation/compat-drivers)) from source.
 
 ### [rpi-rtl8812au](https://github.com/emmercm/rpi-rtl8812au)
 
@@ -111,7 +109,7 @@ I have developed a number of applications for use in the [FIRST Robotics Competi
 
 ### [SharkScout](https://github.com/hammerhead226/SharkScout)
 
-A Python (`CherryPy`, `ws4py`, `Genshi`) and MongoDB-based web app for both quantitative and qualitative [competition scouting](http://www.team358.org/files/scouting/). Used by the [Hammerheads (226)](http://hammerhead226.org/) in the 2017 and 2018 competition seasons.
+A Python ([`CherryPy`](https://cherrypy.org/), [`ws4py`](https://ws4py.readthedocs.io/en/latest/), [`Genshi`](https://genshi.edgewall.org/)) and MongoDB-based web app for both quantitative and qualitative [competition scouting](http://www.team358.org/files/scouting/). Used by the [Hammerheads (226)](http://hammerhead226.org/) in the 2017 and 2018 competition seasons.
 
 Built with unreliable client connections as a primary concern, the app makes use of front-end caching and background syncing with web sockets. Designed to make use of team and event data from [The Blue Alliance](https://www.thebluealliance.com/), stored locally for offline use, there is very little work required to get started.
 
