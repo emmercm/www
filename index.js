@@ -15,7 +15,7 @@ const autoprefixer     = require('metalsmith-autoprefixer');
 const discoverHelpers  = require('metalsmith-discover-helpers');
 const discoverPartials = require('metalsmith-discover-partials');
 const collect          = require('metalsmith-auto-collections');
-const metaCollection   = require('metalsmith-collection-metadata');
+const collectionMeta   = require('metalsmith-collection-metadata');
 const renamer          = require('metalsmith-renamer');
 const permalinks       = require('metalsmith-permalinks');
 const paths            = require('metalsmith-paths');
@@ -286,8 +286,8 @@ Metalsmith(__dirname)
             reverse: true
         }
     }))
-    .use(metaCollection({
-        'collections.blog': {
+    .use(collectionMeta({
+        blog: {
             pageHeader: true
         }
     }))
