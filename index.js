@@ -11,7 +11,7 @@ const dataLoader       = require('metalsmith-data-loader');
 const defaultValues    = require('metalsmith-default-values');
 const sass             = require('metalsmith-sass');
 const autoprefixer     = require('metalsmith-autoprefixer');
-// const sharp            = require('metalsmith-sharp');
+const sharp            = require('metalsmith-sharp');
 const discoverHelpers  = require('metalsmith-discover-helpers');
 const discoverPartials = require('metalsmith-discover-partials');
 const collect          = require('metalsmith-auto-collections');
@@ -192,6 +192,94 @@ Metalsmith(__dirname)
      *     PROCESS IMAGES     *
      *                        *
      **************************/
+
+    // Process blog images
+    .use(sharp({
+        // Preserve quality during processing
+        src: 'static/img/blog/*.@(bmp|heic|heif|gif|jpg|jpeg|svg|tif|tiff|webp)',
+        namingPattern: '{dir}{name}.png',
+        moveFile: true,
+        methods: [{
+            name: 'png',
+            args: {palette: true}
+        }]
+    }))
+    .use(sharp({
+        // Trim image borders (must be a separate step)
+        src: 'static/img/blog/*',
+        methods: [{
+            name: 'trim'
+        }]
+    }))
+    .use(sharp({
+        // Downsize large images
+        src: 'static/img/blog/*',
+        methods: [{
+            name: 'resize',
+            args: [
+                1024,
+                1024,
+                {
+                    kernel: 'cubic',
+                    fit: 'inside',
+                    withoutEnlargement: true
+                }
+            ]
+        }]
+    }))
+    .use(sharp({
+        // Crop large images
+        src: 'static/img/blog/*',
+        methods: [{
+            name: 'resize',
+            args: [
+                1024,
+                Math.floor(1024 / 3),
+                {
+                    fit: 'cover',
+                    strategy: 'attention',
+                    withoutEnlargement: true
+                }
+            ]
+        }]
+    }))
+    .use(sharp({
+        // Pad small images
+        src: 'static/img/blog/*',
+        methods: [{
+            name: 'extend',
+            args: metadata => {
+                const y = Math.floor(1024 / 3) - metadata.height;
+                const x = 1024 - metadata.width;
+                return [{
+                    top: Math.floor(y / 2),
+                    left: Math.floor(x / 2),
+                    bottom: Math.ceil(y / 2),
+                    right: Math.ceil(x / 2),
+                    background: {r: 0, g: 0, b: 0, alpha: 0}
+                }]
+            }
+        }]
+    }))
+    .use(sharp({
+        // Compress images
+        src: 'static/img/blog/*',
+        namingPattern: '{dir}{name}.jpg',
+        moveFile: true,
+        methods: [
+            {
+                name: 'flatten',
+                args: [
+                    {
+                        background: {r:255, g:255, b:255}
+                    }
+                ]
+            },
+            {
+                name: 'jpeg'
+            }
+        ]
+    }))
 
     // // Convert all images to PNG
     // .use(sharp({
@@ -468,6 +556,7 @@ Metalsmith(__dirname)
 
     // Process glob wildcards in href= and src=
     .use(glob())
+    .use(jquery('**/*.html', $ => $('img[src*="**"]').remove()))
 
     // Resolve all local links to relative links
     .use(relative())
