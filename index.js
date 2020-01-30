@@ -270,9 +270,21 @@ Metalsmith(__dirname)
                     left: Math.floor(x / 2),
                     bottom: Math.ceil(y / 2),
                     right: Math.ceil(x / 2),
-                    background: {r: 0, g: 0, b: 0, alpha: 0}
+                    background: {r:0, g:0, b:0, alpha:0}
                 }]
             }
+        }]
+    }))
+    .use(sharp({
+        // Flatten transparent images
+        src: 'static/img/blog/*',
+        methods: [{
+            name: 'flatten',
+            args: [
+                {
+                    background: '#dee2e6' // $gray-300, halfway to $secondary ($gray-600)
+                }
+            ]
         }]
     }))
     .use(msIf(prod, sharp({
@@ -280,19 +292,9 @@ Metalsmith(__dirname)
         src: 'static/img/blog/*',
         namingPattern: '{dir}{name}.jpg',
         moveFile: true,
-        methods: [
-            {
-                name: 'flatten',
-                args: [
-                    {
-                        background: {r:255, g:255, b:255}
-                    }
-                ]
-            },
-            {
-                name: 'jpeg'
-            }
-        ]
+        methods: [{
+            name: 'jpeg'
+        }]
     })))
 
     /***********************
