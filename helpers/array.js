@@ -1,9 +1,7 @@
 'use strict';
 
 /**
- * Create an array out of all function arguments.
- *
- * Note: last parameter is Handlebars "options", we don't want that.
+ * Create an array out of all function parameters (except the Handlebars "options").
  *
  * @param values
  * @returns {*[]}

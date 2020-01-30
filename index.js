@@ -11,7 +11,7 @@ const dataLoader       = require('metalsmith-data-loader');
 const defaultValues    = require('metalsmith-default-values');
 const sass             = require('metalsmith-sass');
 const autoprefixer     = require('metalsmith-autoprefixer');
-// const sharp            = require('metalsmith-sharp');
+const sharp            = require('metalsmith-sharp');
 const discoverHelpers  = require('metalsmith-discover-helpers');
 const discoverPartials = require('metalsmith-discover-partials');
 const collect          = require('metalsmith-auto-collections');
@@ -62,7 +62,7 @@ const prod = (process.env.NODE_ENV || 'development').toLowerCase() === 'producti
 const siteCharset     = 'utf-8';
 const siteLanguage    = 'en';
 const siteName        = 'Christian Emmer';
-const siteURL         = 'https://emmer.dev';
+const siteURL         = process.env.NETLIFY && process.env.CONTEXT !== 'production' ? process.env.DEPLOY_PRIME_URL : (process.env.URL || 'https://emmer.dev');
 const siteEmail       = 'emmercm@gmail.com';
 const siteDescription = 'Software engineer with ' + moment().diff('2012-01-16', 'years') + '+ years of experience developing full-stack solutions in PHP, Go, Node.js, Python, and Ruby on Rails.';
 const siteKeywords    = [];
@@ -193,69 +193,109 @@ Metalsmith(__dirname)
      *                        *
      **************************/
 
-    // // Convert all images to PNG
+    // Process blog images
+    .use(sharp({
+        // Rasterize vector images
+        src: 'static/img/blog/*.svg',
+        namingPattern: '{dir}{name}.png',
+        moveFile: true,
+        methods: [{
+            name: 'png',
+            args: {
+                palette: true
+            }
+        }]
+    }))
+    .use(msIf(prod, sharp({
+        // Preserve quality during processing
+        src: 'static/img/blog/*.@(bmp|heic|heif|gif|jpg|jpeg|tif|tiff|webp)',
+        namingPattern: '{dir}{name}.png',
+        moveFile: true,
+        methods: [{
+            name: 'png',
+            args: {
+                palette: true
+            }
+        }]
+    })))
     // .use(sharp({
-    //     src: '**/*.@(bmp|gif|jpg|jpeg|svg|tif|tiff|webp)',
-    //     namingPattern: '{dir}{name}.png',
-    //     moveFile: true,
-    //     methods: [
-    //         {name: 'png', args: {palette: true}}
-    //     ]
+    //     // Trim image borders (must be a separate step)
+    //     src: 'static/img/blog/*',
+    //     methods: [{
+    //         name: 'trim'
+    //     }]
     // }))
-    //
-    // // Trim white edges of known bad images
-    // .use(sharp({
-    //     src: '**/partners/*.png',
-    //     methods: [
-    //         {
-    //             // Extend has to happen in a separate pipeline because it's forced to happen after resizes
-    //             name: 'extend',
-    //             args: {
-    //                 top: 10,
-    //                 left: 10,
-    //                 bottom: 10,
-    //                 right: 10,
-    //                 background: '#ffffff'
-    //             }
-    //         }
-    //     ]
-    // }))
-    // .use(sharp({
-    //     src: '**/partners/*.png',
-    //     methods: [
-    //         {name: 'trim'}
-    //     ]
-    // }))
-    //
-    // // Max size 512x512
-    // .use(sharp({
-    //     src: '**/!(carousel)/*.png',
-    //     methods: [
-    //         {
-    //             name: 'resize',
-    //             args: [
-    //                 512,
-    //                 512,
-    //                 {
-    //                     kernel: 'cubic',
-    //                     fit: 'inside',
-    //                     withoutEnlargement: true
-    //                 }
-    //             ]
-    //         }
-    //     ]
-    // }))
-    //
-    // // Darken some images
-    // .use(sharp({
-    //     src: '**/carousel/*.png',
-    //     methods: [
-    //         {
-    //             name: 'overlayWith',
-    //             args: metadata => [pngColor(metadata.width, metadata.height, 'rgba(0, 0, 0, 0.5)')]
-    //         }
-    //     ]
-    // }))
+    .use(sharp({
+        // Downsize large images
+        src: 'static/img/blog/*',
+        methods: [{
+            name: 'resize',
+            args: [
+                1024,
+                1024,
+                {
+                    kernel: 'cubic',
+                    fit: 'outside',
+                    withoutEnlargement: true
+                }
+            ]
+        }]
+    }))
+    .use(sharp({
+        // Crop large images
+        src: 'static/img/blog/*',
+        methods: [{
+            name: 'resize',
+            args: [
+                1024,
+                Math.floor(1024 / 3),
+                {
+                    fit: 'cover',
+                    strategy: 'attention',
+                    withoutEnlargement: true
+                }
+            ]
+        }]
+    }))
+    .use(sharp({
+        // Pad small images
+        src: 'static/img/blog/*',
+        methods: [{
+            name: 'extend',
+            args: metadata => {
+                const y = Math.max(Math.floor(1024 / 3) - metadata.height, 0);
+                const x = Math.max(1024 - metadata.width, 0);
+                return [{
+                    top: Math.floor(y / 2),
+                    left: Math.floor(x / 2),
+                    bottom: Math.ceil(y / 2),
+                    right: Math.ceil(x / 2),
+                    background: {r:0, g:0, b:0, alpha:0}
+                }]
+            }
+        }]
+    }))
+    .use(sharp({
+        // Flatten transparent images
+        src: 'static/img/blog/*',
+        methods: [{
+            name: 'flatten',
+            args: [
+                {
+                    background: '#dee2e6' // $gray-300, halfway to $secondary ($gray-600)
+                }
+            ]
+        }]
+    }))
+    .use(msIf(prod, sharp({
+        // Compress images
+        src: 'static/img/blog/*',
+        namingPattern: '{dir}{name}.jpg',
+        moveFile: true,
+        methods: [{
+            name: 'jpeg'
+        }]
+    })))
 
     /***********************
      *                     *
@@ -341,7 +381,8 @@ Metalsmith(__dirname)
                 .forEach(filename => {
                     files[filename].excerpt = he.decode(
                         files[filename].excerpt
-                            .replace(/<[^>]*>/g, ' ')
+                            .replace(/<[^/][^>]*>/g, ' ')
+                            .replace(/<\/[^>]*>/g, '')
                             .replace(/[ ][ ]+/g, ' ')
                             .trim()
                     )
@@ -368,7 +409,7 @@ Metalsmith(__dirname)
 
     // Add favicons and icons
     .use(favicons({
-        src: '**/logo3_Gray_Lighter.svg',
+        src: '**/prologo1/logo3_Gray_Lighter.svg',
         appName: siteName,
         appDescription: siteDescription,
         developerName: siteName,
@@ -392,29 +433,6 @@ Metalsmith(__dirname)
 
     // Change all links with a protocol (external) to be target="_blank"
     .use(jquery('**/*.html', $ => $('a[href*="://"]').attr('target', '_blank')))
-
-    // Add Facebook OpenGraph meta tags
-    .use(openGraph({
-        sitename: siteName,
-        siteurl: siteURL,
-        pattern: '**/*.html',
-    }))
-
-    // Add Twitter meta
-    .use(defaultValues([{
-        pattern: '**/*.html',
-        defaults: {
-            twitter: file => ({
-                title: file.pageTitle,
-                description: file.pageDescription
-            })
-        }
-    }]))
-    .use(twitterCard({
-        siteurl: siteURL,
-        card: 'summary',
-        site: twitterHandle
-    }))
 
     /**********************************
      *                                *
@@ -484,6 +502,37 @@ Metalsmith(__dirname)
             + ')',
         ignore: '**/trianglify.svg'
     })))
+
+    /***************************
+     *                         *
+     *     ADD SOCIAL TAGS     *
+     *                         *
+     ***************************/
+
+    // Add Facebook OpenGraph meta tags
+    .use(openGraph({
+        sitename: siteName,
+        siteurl: siteURL,
+        pattern: '**/*.html',
+        image: '.og-image'
+    }))
+
+    // Add Twitter meta
+    .use(defaultValues([{
+        pattern: '**/*.html',
+        defaults: {
+            twitter: file => ({
+                title: file.pageTitle,
+                description: file.pageDescription
+            })
+        }
+    }]))
+    .use(twitterCard({
+        siteurl: siteURL,
+        card: 'summary',
+        site: twitterHandle,
+        creator: twitterHandle
+    }))
 
     /***************************
      *                         *
