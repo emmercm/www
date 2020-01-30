@@ -408,7 +408,7 @@ Metalsmith(__dirname)
 
     // Add favicons and icons
     .use(favicons({
-        src: '**/logo3_Gray_Lighter.svg',
+        src: '**/prologo1/logo3_Gray_Lighter.svg',
         appName: siteName,
         appDescription: siteDescription,
         developerName: siteName,
@@ -508,7 +508,6 @@ Metalsmith(__dirname)
 
     // Process glob wildcards in href= and src=
     .use(glob())
-    .use(jquery('**/*.html', $ => $('img[src*="**"]').remove()))
 
     // Resolve all local links to relative links
     .use(relative())
