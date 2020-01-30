@@ -69,9 +69,9 @@
 <main>
     {{#if pageContainer}}
         <div class="navbar-spacer fixed-top"></div>
-        <div class="container-fluid py-5 py-lg-6 markdown">
+        <div class="container-fluid pt-5 pt-lg-6 {{#and (inArray collection "blog") (gt collections.blog.length 2)}}pb-3{{else}}pb-5 pb-lg-6{{/and}} markdown">
             <div class="row">
-                <div class="col-12 {{#unless pageWide}}col-xl-8 offset-xl-2{{/unless}} col-md-10 offset-md-1 p-0 br-lg-1 {{#if pageBackground}}bg-light{{else}}bg-transparent{{/if}}">
+                <div class="col-12 {{#unless pageWide}}col-xl-8 offset-xl-2{{/unless}} col-md-10 offset-md-1 p-0 br-1 {{#if pageBackground}}bg-light{{else}}bg-transparent{{/if}}">
                     <div class="{{#if pageBackground}}p-4 p-md-5{{else}}p-0{{/if}}">
                         {{#if pageHeader}}
                             <h1>{{ title }}</h1>
@@ -85,6 +85,16 @@
                 </div>
             </div>
         </div>
+
+        {{#and (inArray collection "blog") (gt collections.blog.length 2)}}
+            <div class="container-fluid pb-5 pb-lg-6">
+                <div class="row">
+                    <div class="col-12 {{#unless pageWide}}col-xl-8 offset-xl-2{{/unless}} col-md-10 offset-md-1 p-0 br-1 markdown">
+                        {{>blog_list data=(reverse (sortBy (array (coalesce previous (last collections.blog)) (coalesce next (first collections.blog))) "date"))}}
+                    </div>
+                </div>
+            </div>
+        {{/and}}
     {{else}}
         {{{ contents }}}
     {{/if}}
