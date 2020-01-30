@@ -80,7 +80,7 @@
                             </h5>
                             <br>
                             {{#if (match (readdir "src/static/img/blog") (concat "**/" (stem path.dir) ".@(bmp|gif|jpg|jpeg|png|svg|tif|tiff|webp)"))}}
-                                <img src="**/static/img/blog/{{stem path.dir}}.@(bmp|gif|jpg|jpeg|png|svg|tif|tiff|webp)" class="w-100 mb-5 og-image">
+                                <img src="**/static/img/blog/{{stem path.dir}}.@(bmp|gif|jpg|jpeg|png|svg|tif|tiff|webp)" title="{{{sanitize title}}}" class="w-100 mb-5 og-image">
                             {{/if}}
                         {{/if}}
                         {{{ contents }}}
