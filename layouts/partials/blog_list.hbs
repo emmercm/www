@@ -1,7 +1,14 @@
 <div class="row d-flex justify-content-center align-items-stretch mx-0 mx-xl-n3">
     {{#each data}}
         <div class="col-12 {{#equalsLength ../data 1}}col-xl-12{{else equalsLength ../data 2}}col-xl-6{{else and @first (eq (modulo (minus (length ../data) 1) 3) 0)}}col-xl-12{{else and (lt @index 2) (eq (modulo (minus (length ../data) 2) 3) 0)}}col-xl-6{{else}}col-xl-4{{/equalsLength}} py-3 px-0 px-xl-3">
-            <div class="card h-100 bg-light border-light">
+            <div class="card h-100 bg-light border-none">
+                <a href="{{ path.href }}">
+                    {{#if (match (readdir "src/static/img/blog") (concat "**/" (stem path.dir) ".@(bmp|gif|jpg|jpeg|png|svg|tif|tiff|webp)"))}}
+                        <img src="**/static/img/blog/{{stem path.dir}}.@(bmp|gif|jpg|jpeg|png|svg|tif|tiff|webp)" class="card-img-top">
+                    {{else}}
+                        <img src="**/static/img/blog/default.@(bmp|gif|jpg|jpeg|png|svg|tif|tiff|webp)" class="card-img-top">
+                    {{/if}}
+                </a>
                 <div class="card-body">
                     <h3 class="card-title">
                         <a href="{{ path.href }}" class="text-dark">{{ title }}</a>
