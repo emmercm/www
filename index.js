@@ -218,13 +218,13 @@ Metalsmith(__dirname)
             }
         }]
     })))
-    .use(sharp({
-        // Trim image borders (must be a separate step)
-        src: 'static/img/blog/*',
-        methods: [{
-            name: 'trim'
-        }]
-    }))
+    // .use(sharp({
+    //     // Trim image borders (must be a separate step)
+    //     src: 'static/img/blog/*',
+    //     methods: [{
+    //         name: 'trim'
+    //     }]
+    // }))
     .use(sharp({
         // Downsize large images
         src: 'static/img/blog/*',
