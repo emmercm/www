@@ -194,9 +194,21 @@ Metalsmith(__dirname)
      **************************/
 
     // Process blog images
+    .use(sharp({
+        // Rasterize vector images
+        src: 'static/img/blog/*.svg',
+        namingPattern: '{dir}{name}.png',
+        moveFile: true,
+        methods: [{
+            name: 'png',
+            args: {
+                palette: true
+            }
+        }]
+    }))
     .use(msIf(prod, sharp({
         // Preserve quality during processing
-        src: 'static/img/blog/*.@(bmp|heic|heif|gif|jpg|jpeg|svg|tif|tiff|webp)',
+        src: 'static/img/blog/*.@(bmp|heic|heif|gif|jpg|jpeg|tif|tiff|webp)',
         namingPattern: '{dir}{name}.png',
         moveFile: true,
         methods: [{
