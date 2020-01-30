@@ -263,8 +263,8 @@ Metalsmith(__dirname)
         methods: [{
             name: 'extend',
             args: metadata => {
-                const y = Math.floor(1024 / 3) - metadata.height;
-                const x = 1024 - metadata.width;
+                const y = Math.max(Math.floor(1024 / 3) - metadata.height, 0);
+                const x = Math.max(1024 - metadata.width, 0);
                 return [{
                     top: Math.floor(y / 2),
                     left: Math.floor(x / 2),
