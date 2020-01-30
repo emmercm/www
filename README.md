@@ -2,7 +2,13 @@
 
 ## Dependencies
 
-This website is built with [Node.js](https://nodejs.org), and it's dependencies are managed by [npm](https://www.npmjs.com/):
+This website is built with [Node.js](https://nodejs.org), with the specific version managed by [`nvm`](https://github.com/nvm-sh/nvm):
+
+```bash
+nvm use
+```
+
+and its dependencies are managed by [`npm`](https://www.npmjs.com/):
 
 ```bash
 npm install
@@ -16,7 +22,7 @@ This website is built with [Node.js](https://nodejs.org):
 node index
 ```
 
-The resulting `build/` directory contains the output, similar to:
+The resulting `build` directory contains the output, similar to:
 
 ```
 build
