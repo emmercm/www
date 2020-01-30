@@ -381,7 +381,8 @@ Metalsmith(__dirname)
                 .forEach(filename => {
                     files[filename].excerpt = he.decode(
                         files[filename].excerpt
-                            .replace(/<[^>]*>/g, ' ')
+                            .replace(/<[^/][^>]*>/g, ' ')
+                            .replace(/<\/[^>]*>/g, '')
                             .replace(/[ ][ ]+/g, ' ')
                             .trim()
                     )
