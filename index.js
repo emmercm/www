@@ -62,7 +62,7 @@ const prod = (process.env.NODE_ENV || 'development').toLowerCase() === 'producti
 const siteCharset     = 'utf-8';
 const siteLanguage    = 'en';
 const siteName        = 'Christian Emmer';
-const siteURL         = 'https://emmer.dev';
+const siteURL         = process.env.NETLIFY && process.env.CONTEXT !== 'production' ? process.env.DEPLOY_PRIME_URL : (process.env.URL || 'https://emmer.dev');
 const siteEmail       = 'emmercm@gmail.com';
 const siteDescription = 'Software engineer with ' + moment().diff('2012-01-16', 'years') + '+ years of experience developing full-stack solutions in PHP, Go, Node.js, Python, and Ruby on Rails.';
 const siteKeywords    = [];
