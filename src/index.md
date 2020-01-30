@@ -46,6 +46,6 @@ pageWide: true
     </div>
 </section>
 
-{{#if collections.blog}}<section class="p-5 p-md-6 markdown">
-    {{>blog_list data=(first collections.blog 3) br_breakpoint="xs"}}
+{{#if collections.blog}}<section class="p-5 py-md-5 px-md-6 markdown">
+    {{>blog_list data=(first collections.blog 3)}}
 </section>{{/if}}
