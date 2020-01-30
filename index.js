@@ -194,16 +194,18 @@ Metalsmith(__dirname)
      **************************/
 
     // Process blog images
-    .use(sharp({
+    .use(msIf(prod, sharp({
         // Preserve quality during processing
         src: 'static/img/blog/*.@(bmp|heic|heif|gif|jpg|jpeg|svg|tif|tiff|webp)',
         namingPattern: '{dir}{name}.png',
         moveFile: true,
         methods: [{
             name: 'png',
-            args: {palette: true}
+            args: {
+                palette: true
+            }
         }]
-    }))
+    })))
     .use(sharp({
         // Trim image borders (must be a separate step)
         src: 'static/img/blog/*',
@@ -261,7 +263,7 @@ Metalsmith(__dirname)
             }
         }]
     }))
-    .use(sharp({
+    .use(msIf(prod, sharp({
         // Compress images
         src: 'static/img/blog/*',
         namingPattern: '{dir}{name}.jpg',
@@ -279,7 +281,7 @@ Metalsmith(__dirname)
                 name: 'jpeg'
             }
         ]
-    }))
+    })))
 
     // // Convert all images to PNG
     // .use(sharp({
