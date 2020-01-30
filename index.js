@@ -434,29 +434,6 @@ Metalsmith(__dirname)
     // Change all links with a protocol (external) to be target="_blank"
     .use(jquery('**/*.html', $ => $('a[href*="://"]').attr('target', '_blank')))
 
-    // Add Facebook OpenGraph meta tags
-    .use(openGraph({
-        sitename: siteName,
-        siteurl: siteURL,
-        pattern: '**/*.html',
-    }))
-
-    // Add Twitter meta
-    .use(defaultValues([{
-        pattern: '**/*.html',
-        defaults: {
-            twitter: file => ({
-                title: file.pageTitle,
-                description: file.pageDescription
-            })
-        }
-    }]))
-    .use(twitterCard({
-        siteurl: siteURL,
-        card: 'summary',
-        site: twitterHandle
-    }))
-
     /**********************************
      *                                *
      *     INCLUDE EXTERNAL FILES     *
@@ -525,6 +502,37 @@ Metalsmith(__dirname)
             + ')',
         ignore: '**/trianglify.svg'
     })))
+
+    /***************************
+     *                         *
+     *     ADD SOCIAL TAGS     *
+     *                         *
+     ***************************/
+
+    // Add Facebook OpenGraph meta tags
+    .use(openGraph({
+        sitename: siteName,
+        siteurl: siteURL,
+        pattern: '**/*.html',
+        image: '.og-image'
+    }))
+
+    // Add Twitter meta
+    .use(defaultValues([{
+        pattern: '**/*.html',
+        defaults: {
+            twitter: file => ({
+                title: file.pageTitle,
+                description: file.pageDescription
+            })
+        }
+    }]))
+    .use(twitterCard({
+        siteurl: siteURL,
+        card: 'summary',
+        site: twitterHandle,
+        creator: twitterHandle
+    }))
 
     /***************************
      *                         *
