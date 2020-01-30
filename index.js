@@ -235,7 +235,7 @@ Metalsmith(__dirname)
                 1024,
                 {
                     kernel: 'cubic',
-                    fit: 'inside',
+                    fit: 'outside',
                     withoutEnlargement: true
                 }
             ]
