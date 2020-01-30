@@ -66,6 +66,7 @@
     "metalsmith-permalinks": "^2.2.0",
     "metalsmith-renamer": "^0.4.1",
     "metalsmith-sass": "^1.7.0",
+    "metalsmith-sharp": "^2.2.1",
     "metalsmith-sitemap": "^1.2.2",
     "metalsmith-twitter-card": "^1.0.4",
     "metalsmith-uglify": "^2.3.3",
