@@ -85,6 +85,16 @@
                 </div>
             </div>
         </div>
+
+        {{#and (inArray collection "blog") (gt collections.blog.length 2)}}
+            <div class="container-fluid pb-5 pb-lg-6">
+                <div class="row">
+                    <div class="col-12 {{#unless pageWide}}col-xl-8 offset-xl-2{{/unless}} col-md-10 offset-md-1 p-0 br-1 markdown">
+                        {{>blog_list data=(reverse (sortBy (array (coalesce previous (last collections.blog)) (coalesce next (first collections.blog))) "date"))}}
+                    </div>
+                </div>
+            </div>
+        {{/and}}
     {{else}}
         {{{ contents }}}
     {{/if}}
