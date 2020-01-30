@@ -1,15 +1,17 @@
-<div class="row d-flex justify-content-center align-items-stretch my-n3 mx-0">
+<div class="row d-flex justify-content-center align-items-stretch mx-0 mx-xl-n3">
     {{#each data}}
-        <div class="col-12 {{#equalsLength ../data 1}}col-xl-12{{else equalsLength ../data 2}}col-xl-6{{else and @first (eq (modulo (minus (length ../data) 1) 3) 0)}}col-xl-12{{else and (lt @index 2) (eq (modulo (minus (length ../data) 2) 3) 0)}}col-xl-6{{else}}col-xl-4{{/equalsLength}} py-3 px-0 px-lg-3">
-            <div class="h-100 p-4 br{{#eq ../br_breakpoint "xs"}}{{else if ../br_breakpoint}}-{{../br_breakpoint}}{{else}}-lg{{/eq}}-2 bg-light">
-                <h2>
-                    <a href="{{ path.href }}" class="text-dark">{{ title }}</a>
-                </h2>
-                <h5 class="mt-0"><small class="text-muted">{{moment this.date "MMMM D, YYYY"}} by {{ ../sitename }}</small></h5>
-                <p>{{{sanitize excerpt}}}</p>
-                <p>
-                    <a href="{{ path.href }}">Continue reading</a>
-                </p>
+        <div class="col-12 {{#equalsLength ../data 1}}col-xl-12{{else equalsLength ../data 2}}col-xl-6{{else and @first (eq (modulo (minus (length ../data) 1) 3) 0)}}col-xl-12{{else and (lt @index 2) (eq (modulo (minus (length ../data) 2) 3) 0)}}col-xl-6{{else}}col-xl-4{{/equalsLength}} py-3 px-0 px-xl-3">
+            <div class="card h-100 bg-light border-light">
+                <div class="card-body">
+                    <h3 class="card-title">
+                        <a href="{{ path.href }}" class="text-dark">{{ title }}</a>
+                    </h3>
+                    <h5 class="card-text"><small class="text-muted">{{moment this.date "MMMM D, YYYY"}}</small></h5>
+                    <p class="card-text">{{{sanitize excerpt}}}</p>
+                    <p class="card-text">
+                        <a href="{{ path.href }}">Continue reading</a>
+                    </p>
+                </div>
             </div>
         </div>
     {{/each}}
