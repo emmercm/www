@@ -29,4 +29,8 @@
     border-left: $border-width*4 solid lighten(if($headings-color, $headings-color, $body-color), 35%);
     font-style: italic;
   }
+
+  li {
+    @extend .my-1;
+  }
 }

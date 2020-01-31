@@ -75,10 +75,9 @@
                     <div class="{{#if pageBackground}}p-4 p-md-5{{else}}p-0{{/if}}">
                         {{#if pageHeader}}
                             <h1>{{ title }}</h1>
-                            <h5 class="mt-0">
+                            <h5 class="mt-0 mb-5">
                                 <small class="text-muted">{{moment this.date "MMMM D, YYYY"}} by {{ sitename }}</small>
                             </h5>
-                            <br>
                             {{#if (match (readdir "src/static/img/blog") (concat "**/" (stem path.dir) ".@(bmp|gif|jpg|jpeg|png|svg|tif|tiff|webp)"))}}
                                 <img src="**/static/img/blog/{{stem path.dir}}.@(bmp|gif|jpg|jpeg|png|svg|tif|tiff|webp)" title="{{{sanitize title}}}" class="w-100 mb-5 og-image">
                             {{/if}}
@@ -92,7 +91,7 @@
         {{#and (inArray collection "blog") (gt collections.blog.length 2)}}
             <div class="container-fluid pb-5 pb-lg-6">
                 <div class="row">
-                    <div class="col-12 {{#unless pageWide}}col-xl-8 offset-xl-2{{/unless}} col-md-10 offset-md-1 p-0 br-1 markdown">
+                    <div class="col-10 offset-1 {{#unless pageWide}}col-xl-8 offset-xl-2{{/unless}} col-md-10 offset-md-1 p-0 br-1 markdown">
                         {{>blog_list data=(reverse (sortBy (array (coalesce previous (last collections.blog)) (coalesce next (first collections.blog))) "date"))}}
                     </div>
                 </div>
