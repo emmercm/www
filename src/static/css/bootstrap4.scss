@@ -148,7 +148,7 @@ h1, h2, h3, h4, h5, h6,
   &:first-child {
     margin-top: 0 !important;
   }
-  &:last-child {
+  :not(li) > &:last-child {
     margin-bottom: 0 !important;
   }
 }
