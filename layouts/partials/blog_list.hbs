@@ -1,6 +1,6 @@
-<div class="row d-flex justify-content-center align-items-stretch mx-0 mx-xl-n3">
+<div class="row d-flex justify-content-center align-items-stretch mx-0 mx-lg-n3">
     {{#each data}}
-        <div class="col-12 {{#equalsLength ../data 1}}col-xl-12{{else equalsLength ../data 2}}col-xl-6{{else and @first (eq (modulo (minus (length ../data) 1) 3) 0)}}col-xl-12{{else and (lt @index 2) (eq (modulo (minus (length ../data) 2) 3) 0)}}col-xl-6{{else}}col-xl-4{{/equalsLength}} py-3 px-0 px-xl-3">
+        <div class="col-12 {{#equalsLength ../data 1}}col-lg-12{{else equalsLength ../data 2}}col-lg-6{{else and @first (eq (modulo (minus (length ../data) 1) 3) 0)}}col-lg-12{{else and (lt @index 2) (eq (modulo (minus (length ../data) 2) 3) 0)}}col-lg-6{{else}}col-lg-4{{/equalsLength}} py-3 px-0 px-lg-3">
             <div class="card h-100 bg-light border-none">
                 <a href="{{ path.href }}">
                     {{#if (match (readdir "src/static/img/blog") (concat "**/" (stem path.dir) ".@(bmp|gif|jpg|jpeg|png|svg|tif|tiff|webp)"))}}
@@ -13,7 +13,7 @@
                     <h3 class="card-title">
                         <a href="{{ path.href }}" class="text-dark">{{ title }}</a>
                     </h3>
-                    <h5 class="card-text"><small class="text-muted">{{moment this.date "MMMM D, YYYY"}}</small></h5>
+                    <h5 class="card-text mt-0"><small class="text-muted">{{moment this.date "MMMM D, YYYY"}}</small></h5>
                     <p class="card-text">{{{sanitize excerpt}}}</p>
                 </div>
             </div>
