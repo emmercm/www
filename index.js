@@ -445,12 +445,11 @@ Metalsmith(__dirname)
             // Un-minified files that will get combined into one file
             './node_modules/@fortawesome/fontawesome-pro/css/all.css'
         ],
-        'static/js': [
-            // Minified files that need to come first and won't get combined
-            './node_modules/jquery/dist/jquery.slim.min.js',
-            './node_modules/mobile-detect/mobile-detect.min.js',
-            // Un-minified files that will get combined into one file
-            './node_modules/bootstrap/dist/js/bootstrap.js'
+        'static/js/vendor': [
+            // Un-minified files that can be concatenated
+            './node_modules/jquery/dist/jquery.slim.js',
+            './node_modules/bootstrap/dist/js/bootstrap.js',
+            './node_modules/mobile-detect/mobile-detect.js'
         ],
         'static/webfonts': [
             './node_modules/@fortawesome/fontawesome-pro/webfonts/*'
@@ -466,7 +465,11 @@ Metalsmith(__dirname)
     // Expand HTML, CSS, and JavaScript first
     .use(beautify())
 
-    // Concatenate all un-minified JS
+    // Concatenate all un-minified JS (non-vendor first so they appear last)
+    .use(concat({
+        files: '**/!(vendor)*/!(*.min).js',
+        output: 'static/js/non-vendor.js'
+    }))
     .use(concat({
         files: '**/!(*.min).js',
         output: 'static/js/scripts.js'
@@ -478,11 +481,60 @@ Metalsmith(__dirname)
         output: 'static/css/styles.css'
     }))
 
-    /***************************************
-     *                                     *
-     *     PROCESS LINKED SUBRESOURCES     *
-     *                                     *
-     ***************************************/
+    /******************************
+     *                            *
+     *     COMPRESS RESOURCES     *
+     *                            *
+     ******************************/
+
+    // Prod: minify JavaScript
+    .use(msIf(prod, uglify({
+        removeOriginal: true,
+        uglify: {
+            sourceMap: false
+        }
+    })))
+
+    // Prod: trim CSS
+    .use(msIf(prod, uncss({
+        output: 'static/css/styles.css',
+        uncss: {
+            ignore: [
+                // Bootstrap 4 JavaScript
+                /\.carousel-item-.+/,
+                /\.modal/,
+                /\.show/
+            ]
+        }
+    })))
+
+    // Prod: minify CSS
+    .use(msIf(prod, cleanCSS({
+        cleanCSS: {
+            rebase: false
+        }
+    })))
+    .use(msIf(prod, renamer({
+        css: {
+            pattern: '**/*.css',
+            rename: file => file.replace(/\.css$/, '.min.css')
+        }
+    })))
+
+    // Add subresource integrity attributes (after minification) (can require internet connection)
+    .use(sri({
+        ignoreResources: [
+            'fonts.googleapis.com/css',
+            'googletagmanager.com/gtag/js',
+            'platform.twitter.com/widgets.js'
+        ]
+    }))
+
+    /************************************
+     *                                  *
+     *     PROCESS LINKED RESOURCES     *
+     *                                  *
+     ************************************/
 
     // Process glob wildcards in href= and src=
     .use(glob())
@@ -534,48 +586,11 @@ Metalsmith(__dirname)
         creator: twitterHandle
     }))
 
-    /***************************
-     *                         *
-     *     COMPRESS OUTPUT     *
-     *                         *
-     ***************************/
-
-    // Prod: minify JavaScript
-    .use(msIf(prod, uglify({
-        sameName: true,
-        uglify: {
-            sourceMap: false
-        }
-    })))
-
-    // Prod: trim CSS
-    .use(msIf(prod, uncss({
-        output: 'static/css/styles.css',
-        uncss: {
-            ignore: [
-                // Bootstrap 4 JavaScript
-                /\.carousel-item-.+/,
-                /\.modal/,
-                /\.show/
-            ]
-        }
-    })))
-
-    // Prod: minify CSS
-    .use(msIf(prod, cleanCSS({
-        cleanCSS: {
-            rebase: false
-        }
-    })))
-
-    // Add subresource integrity attributes (after all minification) (can require internet connection)
-    .use(sri({
-        ignoreResources: [
-            'fonts.googleapis.com/css',
-            'googletagmanager.com/gtag/js',
-            'platform.twitter.com/widgets.js'
-        ]
-    }))
+    /*************************
+     *                       *
+     *     COMPRESS HTML     *
+     *                       *
+     *************************/
 
     // Fix Cheerio-mangled attribute values
     .use(jquery('**/*.html', $ => {
