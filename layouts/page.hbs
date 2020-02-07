@@ -79,7 +79,7 @@
                                 <small class="text-muted">{{moment this.date "MMMM D, YYYY"}} by {{ sitename }}</small>
                             </h5>
                             {{#if (match (readdir "src/static/img/blog") (concat "**/" (stem path.dir) ".@(bmp|gif|jpg|jpeg|png|svg|tif|tiff|webp)"))}}
-                                <img data-src="**/static/img/blog/{{stem path.dir}}.@(bmp|gif|jpg|jpeg|png|svg|tif|tiff|webp)" title="{{{sanitize title}}}" class="w-100 mb-5 og-image">
+                                <img src="**/static/img/blog/{{stem path.dir}}.@(bmp|gif|jpg|jpeg|png|svg|tif|tiff|webp)" title="{{{sanitize title}}}" class="w-100 mb-5 og-image">
                             {{/if}}
                         {{/if}}
                         {{{ contents }}}

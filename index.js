@@ -587,11 +587,17 @@ Metalsmith(__dirname)
         creator: twitterHandle
     }))
 
-    /*************************
-     *                       *
-     *     COMPRESS HTML     *
-     *                       *
-     *************************/
+    /*********************************
+     *                               *
+     *     ALTER & COMPRESS HTML     *
+     *                               *
+     *********************************/
+
+    // Process lazy image loading
+    .use(jquery('**/*.html', $ => {
+        // TODO: Convert img[src]:not([data-src]) below-the-fold images to be lazy loaded
+        $('img[data-src][data-src!=""]').addClass('lozad');
+    }))
 
     // Fix Cheerio-mangled attribute values
     .use(jquery('**/*.html', $ => {
