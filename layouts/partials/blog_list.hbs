@@ -4,9 +4,9 @@
             <div class="card h-100 bg-light border-none">
                 <a href="{{ path.href }}">
                     {{#if (match (readdir "src/static/img/blog") (concat "**/" (stem path.dir) ".@(bmp|gif|jpg|jpeg|png|svg|tif|tiff|webp)"))}}
-                        <img src="**/static/img/blog/{{stem path.dir}}.@(bmp|gif|jpg|jpeg|png|svg|tif|tiff|webp)" title="{{{sanitize title}}}" class="card-img-top">
+                        <img data-src="**/static/img/blog/{{stem path.dir}}.@(bmp|gif|jpg|jpeg|png|svg|tif|tiff|webp)" title="{{{sanitize title}}}" class="card-img-top">
                     {{else}}
-                        <img src="**/static/img/blog/default.@(bmp|gif|jpg|jpeg|png|svg|tif|tiff|webp)" title="{{{sanitize title}}}" class="card-img-top">
+                        <img data-src="**/static/img/blog/default.@(bmp|gif|jpg|jpeg|png|svg|tif|tiff|webp)" title="{{{sanitize title}}}" class="card-img-top">
                     {{/if}}
                 </a>
                 <div class="card-body">
