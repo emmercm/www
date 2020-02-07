@@ -449,7 +449,8 @@ Metalsmith(__dirname)
             // Un-minified files that can be concatenated
             './node_modules/jquery/dist/jquery.slim.js',
             './node_modules/bootstrap/dist/js/bootstrap.js',
-            './node_modules/mobile-detect/mobile-detect.js'
+            './node_modules/mobile-detect/mobile-detect.js',
+            './node_modules/lozad/dist/lozad.js'
         ],
         'static/webfonts': [
             './node_modules/@fortawesome/fontawesome-pro/webfonts/*'
