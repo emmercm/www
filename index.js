@@ -608,7 +608,18 @@ Metalsmith(__dirname)
     }, {decodeEntities: false}))
 
     // Prod: minify HTML
-    .use(msIf(prod, htmlMinifier()))
+    .use(msIf(prod, htmlMinifier({
+        minifierOptions: {
+            // Fix metalsmith-html-minifier defaults
+            removeAttributeQuotes: false,
+            // Additional minification rules
+            minifyCSS: true,
+            minifyJS: true,
+            quoteCharacter: '"',
+            removeScriptTypeAttributes: true,
+            removeStyleLinkTypeAttributes: true
+        }
+    })))
 
     /****************************
      *                          *
