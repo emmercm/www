@@ -40,7 +40,7 @@ const uncss            = require('metalsmith-uncss-2');
 const cleanCSS         = require('metalsmith-clean-css');
 const htmlMinifier     = require('metalsmith-html-minifier');
 const sri              = require('metalsmith-html-sri');
-const formatcheck      = require('metalsmith-formatcheck');
+const linter           = require('metalsmith-html-linter');
 const eslint           = require('metalsmith-eslint');
 const linkcheck        = require('metalsmith-linkcheck');
 const sitemap          = require('metalsmith-sitemap');
@@ -432,7 +432,7 @@ Metalsmith(__dirname)
     }))
 
     // Change all links with a protocol (external) to be target="_blank"
-    .use(jquery('**/*.html', $ => $('a[href*="://"]').attr('target', '_blank')))
+    .use(jquery('**/*.html', $ => $('a[href*="://"]').attr('target', '_blank').attr('rel', 'noopener')))
 
     /**********************************
      *                                *
@@ -449,7 +449,8 @@ Metalsmith(__dirname)
             // Un-minified files that can be concatenated
             './node_modules/jquery/dist/jquery.slim.js',
             './node_modules/bootstrap/dist/js/bootstrap.js',
-            './node_modules/mobile-detect/mobile-detect.js'
+            './node_modules/mobile-detect/mobile-detect.js',
+            './node_modules/lozad/dist/lozad.js'
         ],
         'static/webfonts': [
             './node_modules/@fortawesome/fontawesome-pro/webfonts/*'
@@ -501,9 +502,10 @@ Metalsmith(__dirname)
         uncss: {
             ignore: [
                 // Bootstrap 4 JavaScript
-                /\.carousel-item-.+/,
-                /\.modal/,
-                /\.show/
+                // /\.carousel-.+/,
+                '.collapse', '.collapsing', '.collapsed',
+                // /\.modal-.+/,
+                '.show', '.fade'
             ]
         }
     })))
@@ -586,11 +588,17 @@ Metalsmith(__dirname)
         creator: twitterHandle
     }))
 
-    /*************************
-     *                       *
-     *     COMPRESS HTML     *
-     *                       *
-     *************************/
+    /*********************************
+     *                               *
+     *     ALTER & COMPRESS HTML     *
+     *                               *
+     *********************************/
+
+    // Process lazy image loading
+    .use(jquery('**/*.html', $ => {
+        // TODO: Convert img[src]:not([data-src]) below-the-fold images to be lazy loaded
+        $('img[data-src][data-src!=""]').addClass('lozad');
+    }))
 
     // Fix Cheerio-mangled attribute values
     .use(jquery('**/*.html', $ => {
@@ -601,7 +609,18 @@ Metalsmith(__dirname)
     }, {decodeEntities: false}))
 
     // Prod: minify HTML
-    .use(msIf(prod, htmlMinifier()))
+    .use(msIf(prod, htmlMinifier({
+        minifierOptions: {
+            // Fix metalsmith-html-minifier defaults
+            removeAttributeQuotes: false,
+            // Additional minification rules
+            minifyCSS: true,
+            minifyJS: true,
+            quoteCharacter: '"',
+            removeScriptTypeAttributes: true,
+            removeStyleLinkTypeAttributes: true
+        }
+    })))
 
     /****************************
      *                          *
@@ -628,11 +647,12 @@ Metalsmith(__dirname)
      *                   *
      *********************/
 
-    // Prod: lint HTML (requires internet connection)
-    .use(msIf(prod, formatcheck({
-        failErrors: true,
-        failWarnings: true
-    })))
+    // Lint HTML
+    .use(linter({
+        htmllint: {
+            'img-req-src': false // because of lazy loading
+        }
+    }))
 
     // Lint JavaScript
     .use(eslint())
