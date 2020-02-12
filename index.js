@@ -40,7 +40,7 @@ const uncss            = require('metalsmith-uncss-2');
 const cleanCSS         = require('metalsmith-clean-css');
 const htmlMinifier     = require('metalsmith-html-minifier');
 const sri              = require('metalsmith-html-sri');
-const formatcheck      = require('metalsmith-formatcheck');
+const linter           = require('metalsmith-html-linter');
 const eslint           = require('metalsmith-eslint');
 const linkcheck        = require('metalsmith-linkcheck');
 const sitemap          = require('metalsmith-sitemap');
@@ -635,11 +635,12 @@ Metalsmith(__dirname)
      *                   *
      *********************/
 
-    // Prod: lint HTML (requires internet connection)
-    .use(msIf(prod, formatcheck({
-        failErrors: true,
-        failWarnings: true
-    })))
+    // Lint HTML
+    .use(linter({
+        htmllint: {
+            'img-req-src': false // because of lazy loading
+        }
+    }))
 
     // Lint JavaScript
     .use(eslint())

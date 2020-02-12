@@ -37,7 +37,7 @@
 <nav class="navbar navbar-expand-md navbar-dark fixed-top clearfix bg-dark vw-100 px-4 shadow">
     <div class="container-fluid px-0">
         <a class="navbar-brand" href="/">
-            <img src="**/logo3_Gray_Lighter.svg" title="Logo" class="mr-2">
+            <img src="**/logo3_Gray_Lighter.svg" alt="Logo" class="mr-2">
             <span class="align-middle">{{ sitename }}</span>
         </a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -79,7 +79,7 @@
                                 <small class="text-muted">{{moment this.date "MMMM D, YYYY"}} by {{ sitename }}</small>
                             </h5>
                             {{#if (match (readdir "src/static/img/blog") (concat "**/" (stem path.dir) ".@(bmp|gif|jpg|jpeg|png|svg|tif|tiff|webp)"))}}
-                                <img src="**/static/img/blog/{{stem path.dir}}.@(bmp|gif|jpg|jpeg|png|svg|tif|tiff|webp)" title="{{{sanitize title}}}" class="w-100 mb-5 og-image">
+                                <img src="**/static/img/blog/{{stem path.dir}}.@(bmp|gif|jpg|jpeg|png|svg|tif|tiff|webp)" alt="{{{sanitize title}}}" class="w-100 mb-5 og-image">
                             {{/if}}
                         {{/if}}
                         {{{ contents }}}
