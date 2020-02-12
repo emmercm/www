@@ -43,16 +43,6 @@ All plugins have:
 * Dependencies kept up-to-date by [Renovate](https://renovatebot.com/), with automatic pull request merges.
 * CI/CD using [Circle CI](https://circleci.com/) for automatic testing and publishing to [npm](https://www.npmjs.com/settings/emmercm/packages).
 
-### [metalsmith-include-files](https://github.com/emmercm/metalsmith-include-files)
-
-A plugin to include files outside of the source directory.
-
-Related blog posts:
-
-* [Using Bootstrap 4 with Metalsmith](/blog/using-bootstrap-4-with-metalsmith)
-* [Using Font Awesome with Metalsmith](/blog/using-font-awesome-with-metalsmith)
-* [Adding a Google Site Ownership Verification File in Metalsmith](/blog/adding-a-google-site-ownership-verification-file-in-metalsmith)
-
 ### [metalsmith-htaccess](https://github.com/emmercm/metalsmith-htaccess)
 
 A plugin to create an `.htaccess` Apache HTTP Server (`httpd`) [configuration file](https://httpd.apache.org/docs/current/howto/htaccess.html).
@@ -65,13 +55,23 @@ A plugin to process glob patterns (e.g. `<script src="**/*.js">`) in HTML tags.
 
 A plugin to make local paths relative (e.g. `<a href="../index.html">`) in HTML tags.
 
+### [metalsmith-html-sri](https://github.com/emmercm/metalsmith-html-sri)
+
+A plugin to add [subresource integrity](https://developer.mozilla.org/en-US/docs/Web/Security/Subresource_Integrity) attributes (e.g. `<script src="..." integrity="sha384-sc7RxY9...">`) to HTML tags.
+
 ### [metalsmith-html-unused](https://github.com/emmercm/metalsmith-html-unused)
 
 A plugin to remove resources (`.css`, `.js`, `.png`, etc.) that aren't used in any HTML file.
 
-### [metalsmith-html-sri](https://github.com/emmercm/metalsmith-html-sri)
+### [metalsmith-include-files](https://github.com/emmercm/metalsmith-include-files)
 
-A plugin to add [subresource integrity](https://developer.mozilla.org/en-US/docs/Web/Security/Subresource_Integrity) attributes (e.g. `<script src="..." integrity="sha384-sc7RxY9...">`) to HTML tags.
+A plugin to include files outside of the source directory.
+
+Related blog posts:
+
+* [Using Bootstrap 4 with Metalsmith](/blog/using-bootstrap-4-with-metalsmith)
+* [Using Font Awesome with Metalsmith](/blog/using-font-awesome-with-metalsmith)
+* [Adding a Google Site Ownership Verification File in Metalsmith](/blog/adding-a-google-site-ownership-verification-file-in-metalsmith)
 
 ### [metalsmith-uncss-2](https://github.com/emmercm/metalsmith-uncss-2)
 
