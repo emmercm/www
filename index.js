@@ -502,9 +502,10 @@ Metalsmith(__dirname)
         uncss: {
             ignore: [
                 // Bootstrap 4 JavaScript
-                /\.carousel-item-.+/,
-                /\.modal/,
-                /\.show/
+                // /\.carousel-.+/,
+                '.collapse', '.collapsing', '.collapsed',
+                // /\.modal-.+/,
+                '.show', '.fade'
             ]
         }
     })))
