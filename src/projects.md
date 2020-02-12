@@ -51,6 +51,10 @@ A plugin to create an `.htaccess` Apache HTTP Server (`httpd`) [configuration fi
 
 A plugin to process glob patterns (e.g. `<script src="**/*.js">`) in HTML tags.
 
+### [metalsmith-html-linter](https://github.com/emmercm/metalsmith-html-linter)
+
+A plugin to lint HTML files.
+
 ### [metalsmith-html-relative](https://github.com/emmercm/metalsmith-html-relative)
 
 A plugin to make local paths relative (e.g. `<a href="../index.html">`) in HTML tags.
@@ -61,7 +65,7 @@ A plugin to add [subresource integrity](https://developer.mozilla.org/en-US/docs
 
 ### [metalsmith-html-unused](https://github.com/emmercm/metalsmith-html-unused)
 
-A plugin to remove resources (`.css`, `.js`, `.png`, etc.) that aren't used in any HTML file.
+A plugin to remove resources (`.css`, `.js`, `.png`, etc.) that aren't referenced by any HTML file.
 
 ### [metalsmith-include-files](https://github.com/emmercm/metalsmith-include-files)
 
