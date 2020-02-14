@@ -2,6 +2,8 @@
   @include media-breakpoint-up($breakpoint) {
     $infix: breakpoint-infix($breakpoint, $grid-breakpoints);
 
+    // Borders
+
     .border#{$infix} {
       border: $border-width solid $border-color !important;
     }
@@ -18,17 +20,29 @@
       }
     }
 
-    .br#{$infix}-0 {
-      border-radius: 0;
-    }
-    .br#{$infix}-1 {
-      border-radius: $border-radius-sm;
-    }
-    .br#{$infix}-2 {
-      border-radius: $border-radius;
-    }
-    .br#{$infix}-3 {
-      border-radius: $border-radius-lg;
+    // Border radius
+
+    @each $size, $length in (0: 0, 1: $border-radius-sm, 2: $border-radius, 3: $border-radius-lg) {
+      .br#{$infix}-#{$size} {
+        border-radius: $length;
+      }
+
+      .brt#{$infix}-#{$size} {
+        border-top-left-radius: $length;
+        border-top-right-radius: $length;
+      }
+      .brr#{$infix}-#{$size} {
+        border-top-right-radius: $length;
+        border-bottom-right-radius: $length;
+      }
+      .brb#{$infix}-#{$size} {
+        border-bottom-right-radius: $length;
+        border-bottom-left-radius: $length;
+      }
+      .brl#{$infix}-#{$size} {
+        border-bottom-left-radius: $length;
+        border-top-left-radius: $length;
+      }
     }
   }
 }

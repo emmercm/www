@@ -9,7 +9,7 @@ pageWide: true
 ---
 
 <section class="d-flex flex-column text-center w-100 vh-100 text-shadow-sm">
-    <div class="my-auto p-4">
+    <div class="container my-auto p-4">
         <h1 class="display-1">{{ sitename }}</h1>
         <h2>Software Engineer</h2>
         <p class="h1 mt-5">
@@ -32,7 +32,7 @@ pageWide: true
         </a>
     </div>
     <div style="height:128px; max-height:20vw;">&nbsp;</div> <!-- 256px/2 Gravatar spacer -->
-    <div class="mw-md-75 my-6 mx-auto px-4">
+    <div class="container mw-md-md my-6 mx-auto">
         <h2>
             <i class="far fa-map-marker-alt"></i>
             Detroit, MI
@@ -46,6 +46,6 @@ pageWide: true
     </div>
 </section>
 
-{{#if collections.blog}}<section class="p-5 py-md-5 px-md-6 markdown">
+{{#if collections.blog}}<section class="container-lg py-3 py-md-4 py-lg-5 markdown">
     {{>blog_list data=(first collections.blog 3)}}
 </section>{{/if}}

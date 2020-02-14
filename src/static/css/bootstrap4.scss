@@ -78,7 +78,7 @@ $dark:      $gray-800;
 $primary: $orange;
 $light:   $gray-400;
 
-$headings-color: $gray-800;
+$headings-color: $dark;
 
 $link-color:                              $primary;
 $link-hover-color:                        darken($link-color, 5%);
@@ -142,7 +142,7 @@ body {
   transition: $transition-base;
 }
 
-p,
+p, ul,
 h1, h2, h3, h4, h5, h6,
 .h1, .h2, .h3, .h4, .h5, .h6 {
   &:first-child {
