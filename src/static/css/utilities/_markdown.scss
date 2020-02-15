@@ -1,27 +1,33 @@
 .markdown {
   h1, .h1 {
-    margin-top: $h1-font-size;
+    margin-top: $h1-font-size * 1.5;
+    margin-bottom: max($h1-font-size * 2/3, $font-size-base);
   }
   h2, .h2 {
-    margin-top: $h2-font-size;
+    margin-top: $h2-font-size * 1.5;
+    margin-bottom: max($h2-font-size * 2/3, $font-size-base);
   }
   h3, .h3 {
-    margin-top: $h3-font-size;
+    margin-top: $h3-font-size * 1.5;
+    margin-bottom: max($h3-font-size * 2/3, $font-size-base);
   }
   h4, .h4 {
-    margin-top: $h4-font-size;
+    margin-top: $h4-font-size * 1.5;
+    margin-bottom: max($h4-font-size * 2/3, $font-size-base);
   }
   h5, .h5 {
-    margin-top: $h5-font-size;
+    margin-top: $h5-font-size * 1.5;
+    margin-bottom: max($h5-font-size * 2/3, $font-size-base);
   }
   h6, .h6 {
-    margin-top: $h6-font-size;
+    margin-top: $h6-font-size * 1.5;
+    margin-bottom: max($h6-font-size * 2/3, $font-size-base);
   }
 
   h1, h2,
   .h1, .h2 {
-    padding-bottom: $headings-margin-bottom/2;
-    border-bottom: $border-width*2 solid lighten(if($headings-color, $headings-color, $body-color), 35%);
+    //padding-bottom: $headings-margin-bottom/2;
+    //border-bottom: $border-width*2 solid lighten(if($headings-color, $headings-color, $body-color), 35%);
   }
 
   blockquote {

@@ -68,6 +68,9 @@ const siteDescription = 'Software engineer with ' + moment().diff('2012-01-16', 
 const siteKeywords    = [];
 const twitterHandle   = '@emmercm';
 
+const blogImageWidth  = 768;
+const blogImageHeight = Math.floor(blogImageWidth / 2);
+
 Metalsmith(__dirname)
     /***********************
      *                     *
@@ -231,8 +234,8 @@ Metalsmith(__dirname)
         methods: [{
             name: 'resize',
             args: [
-                1024,
-                1024,
+                blogImageWidth,
+                blogImageWidth,
                 {
                     kernel: 'cubic',
                     fit: 'outside',
@@ -247,11 +250,11 @@ Metalsmith(__dirname)
         methods: [{
             name: 'resize',
             args: [
-                1024,
-                Math.floor(1024 / 3),
+                blogImageWidth,
+                blogImageHeight,
                 {
                     fit: 'cover',
-                    strategy: 'attention',
+                    // position: 17, // sharp.strategy.attention
                     withoutEnlargement: true
                 }
             ]
@@ -263,8 +266,8 @@ Metalsmith(__dirname)
         methods: [{
             name: 'extend',
             args: metadata => {
-                const y = Math.max(Math.floor(1024 / 3) - metadata.height, 0);
-                const x = Math.max(1024 - metadata.width, 0);
+                const y = Math.max(blogImageHeight - metadata.height, 0);
+                const x = Math.max(blogImageWidth - metadata.width, 0);
                 return [{
                     top: Math.floor(y / 2),
                     left: Math.floor(x / 2),
@@ -683,7 +686,7 @@ Metalsmith(__dirname)
     .clean(true)
 
     // Build
-    .build(function(err) {
+    .build((err) => {
         if (err) {
             throw err;
         }
