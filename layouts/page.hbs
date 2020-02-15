@@ -35,7 +35,7 @@
 
 <body class="d-flex flex-column h-100 bg-secondary bg-trianglify" data-parallax="scroll" data-parallax-velocity="0.25">
 <nav class="navbar navbar-expand-md navbar-dark fixed-top clearfix bg-dark vw-100 px-4 shadow">
-    <div class="container-fluid px-0">
+    <div class="container-xl px-0">
         <a class="navbar-brand" href="/">
             <img src="**/logo3_Gray_Lighter.svg" alt="Logo" class="mr-2">
             <span class="align-middle">{{ sitename }}</span>
@@ -71,7 +71,7 @@
         <div class="navbar-spacer fixed-top"></div>
         <div class="{{#if pageWide}}container-lg{{else}}container-md mw-md-md px-0{{/if}} pt-4 pt-lg-5 pt-xl-6 {{#and (inArray collection "blog") (gt collections.blog.length 2)}}pb-3{{else}}pb-4 pb-lg-5 pb-xl-6{{/and}} markdown">
             {{#if pageHeader}}
-                <div class="{{#if pageHeader}}brt-1{{else}}br-1{{/if}} {{#if pageBackground}}p-4 p-md-5 bg-light{{else}}bg-transparent{{/if}}">
+                <div class="{{#if pageHeader}}brt-1{{else}}br-1{{/if}} {{#if pageBackground}}pt-4 px-4 pt-md-5 px-md-5 bg-light{{else}}bg-transparent{{/if}}">
                     <h1>{{ title }}</h1>
                     <div class="media align-items-center">
                         <img src="{{gravatar.main}}?r=g&d=mp&s=48" class="mr-3 rounded-circle img-thumbnail bg-dark border-none" alt="{{ sitename }}">
@@ -82,7 +82,9 @@
                     </div>
                 </div>
                 {{#if (match (readdir "src/static/img/blog") (concat "**/" (stem path.dir) ".@(bmp|gif|jpg|jpeg|png|svg|tif|tiff|webp)"))}}
-                    <img src="**/static/img/blog/{{stem path.dir}}.@(bmp|gif|jpg|jpeg|png|svg|tif|tiff|webp)" alt="{{{sanitize title}}}" class="w-100 og-image">
+                    <div class="{{#if pageBackground}}pt-5 bg-light{{else}}bg-transparent{{/if}}">
+                        <img src="**/static/img/blog/{{stem path.dir}}.@(bmp|gif|jpg|jpeg|png|svg|tif|tiff|webp)" alt="{{{sanitize title}}}" class="w-100 og-image">
+                    </div>
                 {{/if}}
             {{/if}}
             <div class="{{#if pageHeader}}brb-1{{else}}br-1{{/if}} {{#if pageBackground}}p-4 p-md-5 bg-light{{else}}bg-transparent{{/if}}">
@@ -101,7 +103,7 @@
 </main>
 
 <footer class="footer mt-auto bg-dark text-light shadow">
-    <div class="container-fluid">
+    <div class="container-xl">
         <div class="row row-cols-1">
             <div class="col p-4">
                 <div class="d-flex justify-content-between align-items-center">

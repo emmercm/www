@@ -69,7 +69,7 @@ const siteKeywords    = [];
 const twitterHandle   = '@emmercm';
 
 const blogImageWidth  = 768;
-const blogImageHeight = Math.floor(blogImageWidth / 3);
+const blogImageHeight = Math.floor(blogImageWidth / 2);
 
 Metalsmith(__dirname)
     /***********************
@@ -686,7 +686,7 @@ Metalsmith(__dirname)
     .clean(true)
 
     // Build
-    .build(function(err) {
+    .build((err) => {
         if (err) {
             throw err;
         }

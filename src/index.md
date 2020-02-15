@@ -46,6 +46,6 @@ pageWide: true
     </div>
 </section>
 
-{{#if collections.blog}}<section class="container-lg py-3 py-md-4 py-lg-5 markdown">
+{{#if collections.blog}}<section class="container-xl py-3 py-md-4 py-lg-5 markdown">
     {{>blog_list data=(first collections.blog 3)}}
 </section>{{/if}}
