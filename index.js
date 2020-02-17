@@ -413,21 +413,21 @@ Metalsmith(__dirname)
     // Add favicons and icons
     .use(favicons({
         src: '**/prologo1/logo3_Gray_Lighter.svg',
+        dest: '.',
         appName: siteName,
         appDescription: siteDescription,
         developerName: siteName,
         developerURL: siteURL,
-        background: '#FFFFFF',
         start_url: siteURL,
-        pixel_art: true,
         icons: {
             android: true,
             appleIcon: true,
             favicons: true,
+            windows: true
         }
     }))
 
-    // Use handlebar templating
+    // Use Handlebars templating
     .use(layouts({
         pattern: '**/*.html',
         default: 'page.hbs',
