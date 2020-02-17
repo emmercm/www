@@ -117,8 +117,7 @@ Metalsmith(__dirname)
     .ignore([
         '**/.*',
         '**/*.json',
-        '**/*.rsls',
-        '**/*.rslsc'
+        '**/*.rsls*'
     ])
 
     // Ignore draft files
