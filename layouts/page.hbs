@@ -94,7 +94,7 @@
 
         {{#and (inArray collection "blog") (gt collections.blog.length 2)}}
             <div class="container-xl pb-3 pb-lg-5 pb-xl-6 markdown">
-                {{>blog_list data=(reverse (sortBy (array (coalesce previous (last collections.blog)) (coalesce next (first collections.blog))) "date"))}}
+                {{>blog_list data=related.blog}}
             </div>
         {{/and}}
     {{else}}
