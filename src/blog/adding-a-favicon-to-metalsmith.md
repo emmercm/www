@@ -1,11 +1,11 @@
 ---
 
 title: Adding a Favicon in Metalsmith
-date: 2020-02-17T23:35:00
+date: 2020-02-18T01:51:00
 
 ---
 
-Favicons are low-resolution website icons that web browsers use to help identify bookmarks, tabs, and desktop icons at a glance - and it's easy to add one in Metalsmith.
+Favicons are low-resolution website icons that web browsers use to help identify bookmarks, tabs, and desktop icons at a glance - and they're easy to add in Metalsmith.
 
 ## Project setup
  
@@ -37,7 +37,7 @@ Create the following directories and files for use in the build pipeline:
     └── index.html
 ```
 
-Any valid PNG file will do for `src/favicon.png`.
+Any valid PNG file will do for `src/favicon.png`, so use a logo of yours or another website's.
 
 Then fill in your `src/page.hbs` like this:
 
@@ -45,8 +45,6 @@ Then fill in your `src/page.hbs` like this:
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Title</title>
-
     {{#each favicons.html}}
         {{{ this }}}
     {{/each}}
@@ -59,7 +57,7 @@ Then fill in your `src/page.hbs` like this:
 
 Which will serve as a base template for us to be able to use the `favicons` metadata.
 
-You can fill `src/index.html` in with any content such as lorem ipsum.
+You can fill `src/index.html` in with any content such as lorem ipsum, it isn't important for the point of this article.
 
 ## Writing the source files
 
@@ -70,6 +68,7 @@ const Metalsmith = require('metalsmith');
 const favicons   = require('metalsmith-favicons');
 const layouts    = require('metalsmith-layouts');
 
+// Define some site-wide metadata
 const siteName = 'Your Webiste Name';
 const siteDescription = 'Your website description.';
 const siteURL = 'https://your.website.com';
@@ -113,9 +112,9 @@ This will:
 - Generate `build/favicon.*` icons to be used in `<link rel="icon">`s.
 - Generate a `build/browserconfig.xml` [browser configuration schema reference](https://docs.microsoft.com/en-us/previous-versions/windows/internet-explorer/ie-developer/platform-apis/dn320426\(v=vs.85\)).
 - Generate `build/mstile-*.png` icons to be used in `build/browserconfig.xml`.
-- Process `src/index.html` through `layouts/page.hbs` adding the icon metadata to the page.
+- Process `src/index.html` through `layouts/page.hbs`, adding the icon metadata to the page.
 
-Note this does a lot more than just generate a single `favicon.ico`, see the [RealFaviconGenerator FAQ](https://realfavicongenerator.net/faq) for a great explanation of each file generated.
+Note this does a lot more than just generate a single `favicon.ico` or `favicon.png`, it also generates a number of non-image files used for defining "web apps" or "pinned sites." See the [RealFaviconGenerator FAQ](https://realfavicongenerator.net/faq) for a great explanation of each of the files generated.
 
 ### Build
 
