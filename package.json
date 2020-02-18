@@ -35,7 +35,7 @@
     "metalsmith-build-info": "^1.0.1",
     "metalsmith-clean-css": "^6.1.2",
     "metalsmith-collection-metadata": "^1.0.0",
-    "metalsmith-collections-related": "^0.0.1",
+    "metalsmith-collections-related": "^0.0.2",
     "metalsmith-concat": "^7.0.2",
     "metalsmith-data-loader": "^1.1.4",
     "metalsmith-default-values": "^3.0.0",
