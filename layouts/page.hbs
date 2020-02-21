@@ -73,11 +73,21 @@
             {{#if pageHeader}}
                 <div class="{{#if pageHeader}}brt-1{{else}}br-1{{/if}} {{#if pageBackground}}pt-4 px-4 pt-md-5 px-md-5 bg-light{{else}}bg-transparent{{/if}}">
                     <h1>{{ title }}</h1>
-                    <div class="media align-items-center">
-                        <img src="{{gravatar.main}}?r=g&d=mp&s=48" class="mr-3 rounded-circle img-thumbnail bg-dark border-none" alt="{{ sitename }}">
-                        <div class="media-body">
-                            <div>{{ sitename }}</div>
-                            <div class="text-muted">{{moment this.date "MMMM D, YYYY"}}</div>
+                    <div class="media justify-content-between align-items-center">
+                        <div class="d-flex align-items-center">
+                            <img src="{{gravatar.main}}?r=g&d=mp&s=48" class="mr-3 rounded-circle img-thumbnail bg-dark border-none" alt="{{ sitename }}">
+                            <div class="media-body">
+                                <div>{{ sitename }}</div>
+                                <div class="text-muted">{{moment this.date "MMMM D, YYYY"}}</div>
+                            </div>
+                        </div>
+                        <div>
+                            <a href="/blog/rss.xml" class="text-dark">
+                                <span class="fa-stack align-top">
+                                    <i class="fal fa-circle fa-stack-2x"></i>
+                                    <i class="fas fa-rss fa-stack-1x"></i>
+                                </span>
+                            </a>
                         </div>
                     </div>
                 </div>
