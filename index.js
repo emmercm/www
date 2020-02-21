@@ -570,7 +570,7 @@ Metalsmith(__dirname)
                 'css', 'js',
                 'ai', 'bmp', 'gif', 'jpg', 'jpeg', 'png', 'svg', 'tif', 'tiff', 'webp',
                 'csv', 'json', 'tsv', 'xml', 'yml',
-                'doc', 'docx', 'pdf', 'ppt', 'pptx'
+                'doc', 'docx', 'pdf', 'ppt', 'pptx', 'xls', 'xlsx'
             ].join('|')
             + ')',
         ignore: '**/trianglify.svg'
