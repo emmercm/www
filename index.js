@@ -197,6 +197,7 @@ Metalsmith(__dirname)
      **************************/
 
     // Process blog images
+    .use(ignore(['static/img/blog/*.@(psd|xcf)']))
     .use(sharp({
         // Rasterize vector images
         src: 'static/img/blog/*.svg',
@@ -551,7 +552,7 @@ Metalsmith(__dirname)
     .use(relative())
 
     // Prod: remove unused files
-    .use(msIf(prod, unused({
+    .use(unused({
         pattern: '**/*.@('
             + [
                 'css', 'js',
@@ -561,7 +562,7 @@ Metalsmith(__dirname)
             ].join('|')
             + ')',
         ignore: '**/trianglify.svg'
-    })))
+    }))
 
     /***************************
      *                         *

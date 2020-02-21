@@ -43,6 +43,10 @@ All plugins have:
 * Dependencies kept up-to-date by [Renovate](https://renovatebot.com/), with automatic pull request merges.
 * CI/CD using [Circle CI](https://circleci.com/) for automatic testing and publishing to [npm](https://www.npmjs.com/settings/emmercm/packages).
 
+### [metalsmith-collections-related](https://github.com/emmercm/metalsmith-collections-related)
+
+A plugin to find related files within collections, such as related blog posts.
+
 ### [metalsmith-htaccess](https://github.com/emmercm/metalsmith-htaccess)
 
 A plugin to create an `.htaccess` Apache HTTP Server (`httpd`) [configuration file](https://httpd.apache.org/docs/current/howto/htaccess.html).
