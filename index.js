@@ -551,7 +551,7 @@ Metalsmith(__dirname)
     .use(relative())
 
     // Prod: remove unused files
-    .use(msIf(prod, unused({
+    .use(unused({
         pattern: '**/*.@('
             + [
                 'css', 'js',
@@ -561,7 +561,7 @@ Metalsmith(__dirname)
             ].join('|')
             + ')',
         ignore: '**/trianglify.svg'
-    })))
+    }))
 
     /***************************
      *                         *
