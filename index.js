@@ -359,6 +359,7 @@ Metalsmith(__dirname)
 
     // Add a "path" object to each file's metadata - after permalinks() moves them
     .use(paths({
+        property: 'paths',
         directoryIndex: 'index.html'
     }))
 

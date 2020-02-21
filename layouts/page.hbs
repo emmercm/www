@@ -47,7 +47,7 @@
         <div class="collapse navbar-collapse mt-2 mt-md-0 pt-2 pt-md-0 border-top border-md-none border-light" id="navbarSupportedContent">
             <ul class="navbar-nav d-flex align-items-center ml-auto">
                 {{#each menu.header}}
-                    <li class="nav-item{{#eq (segments ../path.dir 0 1) link}} active{{/eq}} my-1 my-md-0">
+                    <li class="nav-item{{#eq (segments ../paths.dir 0 1) link}} active{{/eq}} my-1 my-md-0">
                         <a class="nav-link nav-link-underline" href="/{{link}}">{{title}}</a>
                     </li>
                 {{/each}}
@@ -81,9 +81,9 @@
                         </div>
                     </div>
                 </div>
-                {{#if (match (readdir "src/static/img/blog") (concat "**/" (stem path.dir) ".@(bmp|gif|jpg|jpeg|png|svg|tif|tiff|webp)"))}}
+                {{#if (match (readdir "src/static/img/blog") (concat "**/" (stem paths.dir) ".@(bmp|gif|jpg|jpeg|png|svg|tif|tiff|webp)"))}}
                     <div class="{{#if pageBackground}}pt-5 bg-light{{else}}bg-transparent{{/if}}">
-                        <img src="**/static/img/blog/{{stem path.dir}}.@(bmp|gif|jpg|jpeg|png|svg|tif|tiff|webp)" alt="{{{sanitize title}}}" class="w-100 og-image">
+                        <img src="**/static/img/blog/{{stem paths.dir}}.@(bmp|gif|jpg|jpeg|png|svg|tif|tiff|webp)" alt="{{{sanitize title}}}" class="w-100 og-image">
                     </div>
                 {{/if}}
             {{/if}}
