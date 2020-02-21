@@ -16,6 +16,7 @@ const discoverHelpers  = require('metalsmith-discover-helpers');
 const discoverPartials = require('metalsmith-discover-partials');
 const collect          = require('metalsmith-auto-collections');
 const collectionMeta   = require('metalsmith-collection-metadata');
+const feed             = require('metalsmith-feed');
 const renamer          = require('metalsmith-renamer');
 const permalinks       = require('metalsmith-permalinks');
 const paths            = require('metalsmith-paths');
@@ -401,6 +402,16 @@ Metalsmith(__dirname)
                 pageDescription: file => file.excerpt
             }
         }]))
+        // Use excerpt for RSS feed
+        .use(feed({
+            // metalsmith-feed
+            collection: 'blog',
+            destination: 'blog/rss.xml',
+            // rss
+            title: siteName,
+            description: siteDescription,
+            site_url: siteURL
+        }))
     )
 
     // Process handlebars templating inside markdown
