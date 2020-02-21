@@ -197,6 +197,7 @@ Metalsmith(__dirname)
      **************************/
 
     // Process blog images
+    .use(ignore(['static/img/blog/*.@(psd|xcf)']))
     .use(sharp({
         // Rasterize vector images
         src: 'static/img/blog/*.svg',
