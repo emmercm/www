@@ -425,8 +425,8 @@ Metalsmith(__dirname)
     // Find related files
     .use(related())
 
-    // Add favicons and icons
-    .use(favicons({
+    // Prod: add favicons and icons
+    .use(msIf(prod, favicons({
         src: '**/prologo1/logo3_Gray_Lighter.svg',
         dest: '.',
         appName: siteName,
@@ -440,7 +440,7 @@ Metalsmith(__dirname)
             favicons: true,
             windows: true
         }
-    }))
+    })))
 
     // Use Handlebars templating
     .use(layouts({
@@ -481,8 +481,8 @@ Metalsmith(__dirname)
      *                                       *
      *****************************************/
 
-    // Expand HTML, CSS, and JavaScript first
-    .use(beautify())
+    // Prod: expand HTML, CSS, and JavaScript
+    .use(msIf(prod, beautify()))
 
     // Concatenate all un-minified JS (non-vendor first so they appear last)
     .use(concat({
@@ -673,12 +673,12 @@ Metalsmith(__dirname)
     }))
 
     // Ensure no broken links
-    .use(include({
+    .use(msIf(prod, include({
         '': ['./src/links_ignore.json']
-    }))
-    .use(linkcheck({
+    })))
+    .use(msIf(prod, linkcheck({
         failMissing: true
-    }))
+    })))
 
     /***********************
      *                     *
