@@ -1,4 +1,5 @@
 const Metalsmith = require('metalsmith');
+const tracer     = require('metalsmith-tracer');
 const msIf       = require('metalsmith-if');
 
 const env              = require('metalsmith-env');
@@ -72,7 +73,7 @@ const twitterHandle   = '@emmercm';
 const blogImageWidth  = 768;
 const blogImageHeight = Math.floor(blogImageWidth / 2);
 
-Metalsmith(__dirname)
+tracer(Metalsmith(__dirname))
     /***********************
      *                     *
      *     SETUP INPUT     *
