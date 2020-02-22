@@ -43,7 +43,6 @@ const cleanCSS         = require('metalsmith-clean-css');
 const htmlMinifier     = require('metalsmith-html-minifier');
 const sri              = require('metalsmith-html-sri');
 const linter           = require('metalsmith-html-linter');
-const eslint           = require('metalsmith-eslint');
 const linkcheck        = require('metalsmith-linkcheck');
 const sitemap          = require('metalsmith-sitemap');
 const ignore           = require('metalsmith-ignore');
@@ -672,9 +671,6 @@ Metalsmith(__dirname)
             'img-req-src': false // because of lazy loading
         }
     }))
-
-    // Lint JavaScript
-    .use(eslint())
 
     // Ensure no broken links
     .use(include({
