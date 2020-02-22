@@ -188,8 +188,8 @@ Metalsmith(__dirname)
     // Compile Sass files
     .use(sass())
 
-    // Prod: run autoprefixer on CSS files
-    .use(msIf(prod, autoprefixer()))
+    // Run autoprefixer on CSS files
+    .use(autoprefixer())
 
     /**************************
      *                        *
@@ -563,7 +563,7 @@ Metalsmith(__dirname)
     // Resolve all local links to relative links
     .use(relative())
 
-    // Prod: remove unused files
+    // Remove unused files
     .use(unused({
         pattern: '**/*.@('
             + [
