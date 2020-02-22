@@ -1,4 +1,5 @@
 const Metalsmith = require('metalsmith');
+const tracer     = require('metalsmith-tracer');
 const msIf       = require('metalsmith-if');
 
 const env              = require('metalsmith-env');
@@ -43,7 +44,6 @@ const cleanCSS         = require('metalsmith-clean-css');
 const htmlMinifier     = require('metalsmith-html-minifier');
 const sri              = require('metalsmith-html-sri');
 const linter           = require('metalsmith-html-linter');
-const eslint           = require('metalsmith-eslint');
 const linkcheck        = require('metalsmith-linkcheck');
 const sitemap          = require('metalsmith-sitemap');
 const ignore           = require('metalsmith-ignore');
@@ -73,7 +73,7 @@ const twitterHandle   = '@emmercm';
 const blogImageWidth  = 768;
 const blogImageHeight = Math.floor(blogImageWidth / 2);
 
-Metalsmith(__dirname)
+tracer(Metalsmith(__dirname))
     /***********************
      *                     *
      *     SETUP INPUT     *
@@ -188,8 +188,8 @@ Metalsmith(__dirname)
     // Compile Sass files
     .use(sass())
 
-    // Prod: run autoprefixer on CSS files
-    .use(msIf(prod, autoprefixer()))
+    // Run autoprefixer on CSS files
+    .use(autoprefixer())
 
     /**************************
      *                        *
@@ -426,8 +426,8 @@ Metalsmith(__dirname)
     // Find related files
     .use(related())
 
-    // Add favicons and icons
-    .use(favicons({
+    // Prod: add favicons and icons
+    .use(msIf(prod, favicons({
         src: '**/prologo1/logo3_Gray_Lighter.svg',
         dest: '.',
         appName: siteName,
@@ -441,7 +441,7 @@ Metalsmith(__dirname)
             favicons: true,
             windows: true
         }
-    }))
+    })))
 
     // Use Handlebars templating
     .use(layouts({
@@ -482,8 +482,8 @@ Metalsmith(__dirname)
      *                                       *
      *****************************************/
 
-    // Expand HTML, CSS, and JavaScript first
-    .use(beautify())
+    // Prod: expand HTML, CSS, and JavaScript
+    .use(msIf(prod, beautify()))
 
     // Concatenate all un-minified JS (non-vendor first so they appear last)
     .use(concat({
@@ -563,7 +563,7 @@ Metalsmith(__dirname)
     // Resolve all local links to relative links
     .use(relative())
 
-    // Prod: remove unused files
+    // Remove unused files
     .use(unused({
         pattern: '**/*.@('
             + [
@@ -673,16 +673,13 @@ Metalsmith(__dirname)
         }
     }))
 
-    // Lint JavaScript
-    .use(eslint())
-
     // Ensure no broken links
-    .use(include({
+    .use(msIf(prod, include({
         '': ['./src/links_ignore.json']
-    }))
-    .use(linkcheck({
+    })))
+    .use(msIf(prod, linkcheck({
         failMissing: true
-    }))
+    })))
 
     /***********************
      *                     *
