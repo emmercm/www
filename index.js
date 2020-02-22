@@ -26,6 +26,7 @@ const hbtmd            = require('metalsmith-hbt-md');
 const markdown         = require('metalsmith-markdown');
 const excerpts         = require('metalsmith-excerpts');
 const except           = require('metalsmith-except');
+const readingTime      = require('metalsmith-reading-time');
 const related          = require('metalsmith-collections-related');
 const favicons         = require('metalsmith-favicons');
 const layouts          = require('metalsmith-layouts');
@@ -422,6 +423,9 @@ tracer(Metalsmith(__dirname))
         headerIds: false,
         highlight: (code, lang) => highlight.getLanguage(lang) ? highlight.highlight(lang, code).value : highlight.highlightAuto(code).value
     }))
+
+    // Estimate pages' reading times
+    .use(readingTime())
 
     // Find related files
     .use(related())
