@@ -17,16 +17,16 @@ const discoverHelpers  = require('metalsmith-discover-helpers');
 const discoverPartials = require('metalsmith-discover-partials');
 const collect          = require('metalsmith-auto-collections');
 const collectionMeta   = require('metalsmith-collection-metadata');
-const feed             = require('metalsmith-feed');
 const renamer          = require('metalsmith-renamer');
 const permalinks       = require('metalsmith-permalinks');
 const paths            = require('metalsmith-paths');
 const branch           = require('metalsmith-branch');
+const readingTime      = require('metalsmith-reading-time');
 const hbtmd            = require('metalsmith-hbt-md');
 const markdown         = require('metalsmith-markdown');
 const excerpts         = require('metalsmith-excerpts');
 const except           = require('metalsmith-except');
-const readingTime      = require('metalsmith-reading-time');
+const feed             = require('metalsmith-feed');
 const related          = require('metalsmith-collections-related');
 const favicons         = require('metalsmith-favicons');
 const layouts          = require('metalsmith-layouts');
@@ -359,7 +359,7 @@ tracer(Metalsmith(__dirname))
         ]
     }))
 
-    // Add a "path" object to each file's metadata - after permalinks() moves them
+    // Add a "paths" object to each file's metadata - after permalinks() moves them
     .use(paths({
         property: 'paths',
         directoryIndex: 'index.html'
@@ -415,6 +415,9 @@ tracer(Metalsmith(__dirname))
         }))
     )
 
+    // Estimate pages' reading times
+    .use(readingTime())
+
     // Process handlebars templating inside markdown
     .use(hbtmd(Handlebars))
 
@@ -423,9 +426,6 @@ tracer(Metalsmith(__dirname))
         headerIds: false,
         highlight: (code, lang) => highlight.getLanguage(lang) ? highlight.highlight(lang, code).value : highlight.highlightAuto(code).value
     }))
-
-    // Estimate pages' reading times
-    .use(readingTime())
 
     // Find related files
     .use(related())
