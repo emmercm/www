@@ -13,7 +13,7 @@
                     <h3 class="card-title">
                         <a href="{{ paths.href }}" class="text-dark">{{ title }}</a>
                     </h3>
-                    <h5 class="card-text mt-0"><small class="text-muted">{{moment this.date "MMMM D, YYYY"}}</small></h5>
+                    <h5 class="card-text mt-0"><small class="text-muted">{{moment this.date "MMM D, YYYY"}} &middot; {{this.readingTime}}</small></h5>
                     <p class="card-text">{{{sanitize excerpt}}}</p>
                 </div>
             </div>
