@@ -17,15 +17,16 @@ const discoverHelpers  = require('metalsmith-discover-helpers');
 const discoverPartials = require('metalsmith-discover-partials');
 const collect          = require('metalsmith-auto-collections');
 const collectionMeta   = require('metalsmith-collection-metadata');
-const feed             = require('metalsmith-feed');
 const renamer          = require('metalsmith-renamer');
 const permalinks       = require('metalsmith-permalinks');
 const paths            = require('metalsmith-paths');
 const branch           = require('metalsmith-branch');
+const readingTime      = require('metalsmith-reading-time');
 const hbtmd            = require('metalsmith-hbt-md');
 const markdown         = require('metalsmith-markdown');
 const excerpts         = require('metalsmith-excerpts');
 const except           = require('metalsmith-except');
+const feed             = require('metalsmith-feed');
 const related          = require('metalsmith-collections-related');
 const favicons         = require('metalsmith-favicons');
 const layouts          = require('metalsmith-layouts');
@@ -358,7 +359,7 @@ tracer(Metalsmith(__dirname))
         ]
     }))
 
-    // Add a "path" object to each file's metadata - after permalinks() moves them
+    // Add a "paths" object to each file's metadata - after permalinks() moves them
     .use(paths({
         property: 'paths',
         directoryIndex: 'index.html'
@@ -413,6 +414,9 @@ tracer(Metalsmith(__dirname))
             site_url: siteURL
         }))
     )
+
+    // Estimate pages' reading times
+    .use(readingTime())
 
     // Process handlebars templating inside markdown
     .use(hbtmd(Handlebars))
