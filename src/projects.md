@@ -81,6 +81,10 @@ Related blog posts:
 * [Using Font Awesome with Metalsmith](/blog/using-font-awesome-with-metalsmith)
 * [Adding a Google Site Ownership Verification File in Metalsmith](/blog/adding-a-google-site-ownership-verification-file-in-metalsmith)
 
+### [metalsmith-tracer](https://github.com/emmercm/metalsmith-tracer)
+
+A tool to automatically trace and measure Metalsmith build time.
+
 ### [metalsmith-uncss-2](https://github.com/emmercm/metalsmith-uncss-2)
 
 A plugin to run the [UnCSS](https://github.com/uncss/uncss) unused CSS remover on source files.
