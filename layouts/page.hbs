@@ -47,7 +47,7 @@
         <div class="collapse navbar-collapse mt-2 mt-md-0 pt-2 pt-md-0 border-top border-md-none border-light" id="navbarSupportedContent">
             <ul class="navbar-nav d-flex align-items-center ml-auto">
                 {{#each menu.header}}
-                    <li class="nav-item{{#eq (segments ../path.dir 0 1) link}} active{{/eq}} my-1 my-md-0">
+                    <li class="nav-item{{#eq (segments ../paths.dir 0 1) link}} active{{/eq}} my-1 my-md-0">
                         <a class="nav-link nav-link-underline" href="/{{link}}">{{title}}</a>
                     </li>
                 {{/each}}
@@ -73,17 +73,27 @@
             {{#if pageHeader}}
                 <div class="{{#if pageHeader}}brt-1{{else}}br-1{{/if}} {{#if pageBackground}}pt-4 px-4 pt-md-5 px-md-5 bg-light{{else}}bg-transparent{{/if}}">
                     <h1>{{ title }}</h1>
-                    <div class="media align-items-center">
-                        <img src="{{gravatar.main}}?r=g&d=mp&s=48" class="mr-3 rounded-circle img-thumbnail bg-dark border-none" alt="{{ sitename }}">
-                        <div class="media-body">
-                            <div>{{ sitename }}</div>
-                            <div class="text-muted">{{moment this.date "MMMM D, YYYY"}}</div>
+                    <div class="media justify-content-between align-items-center">
+                        <div class="d-flex align-items-center">
+                            <img src="{{gravatar.main}}?r=g&d=mp&s=48" class="mr-3 rounded-circle img-thumbnail bg-dark border-none" alt="{{ sitename }}">
+                            <div class="media-body">
+                                <div>{{ sitename }}</div>
+                                <div class="text-muted">{{moment this.date "MMMM D, YYYY"}}</div>
+                            </div>
+                        </div>
+                        <div>
+                            <a href="/blog/rss.xml" class="text-dark">
+                                <span class="fa-stack align-top">
+                                    <i class="fal fa-circle fa-stack-2x"></i>
+                                    <i class="fas fa-rss fa-stack-1x"></i>
+                                </span>
+                            </a>
                         </div>
                     </div>
                 </div>
-                {{#if (match (readdir "src/static/img/blog") (concat "**/" (stem path.dir) ".@(bmp|gif|jpg|jpeg|png|svg|tif|tiff|webp)"))}}
+                {{#if (match (readdir "src/static/img/blog") (concat "**/" (stem paths.dir) ".@(bmp|gif|jpg|jpeg|png|svg|tif|tiff|webp)"))}}
                     <div class="{{#if pageBackground}}pt-5 bg-light{{else}}bg-transparent{{/if}}">
-                        <img src="**/static/img/blog/{{stem path.dir}}.@(bmp|gif|jpg|jpeg|png|svg|tif|tiff|webp)" alt="{{{sanitize title}}}" class="w-100 og-image">
+                        <img src="**/static/img/blog/{{stem paths.dir}}.@(bmp|gif|jpg|jpeg|png|svg|tif|tiff|webp)" alt="{{{sanitize title}}}" class="w-100 og-image">
                     </div>
                 {{/if}}
             {{/if}}
