@@ -24,7 +24,7 @@ node index
 
 The resulting `build` directory contains the output, similar to:
 
-```
+```text
 build
 ├── index.html
 └── static

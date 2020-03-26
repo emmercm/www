@@ -12,6 +12,7 @@ const dataLoader       = require('metalsmith-data-loader');
 const defaultValues    = require('metalsmith-default-values');
 const sass             = require('metalsmith-sass');
 const autoprefixer     = require('metalsmith-autoprefixer');
+const ignore           = require('metalsmith-ignore');
 const sharp            = require('metalsmith-sharp');
 const discoverHelpers  = require('metalsmith-discover-helpers');
 const discoverPartials = require('metalsmith-discover-partials');
@@ -44,10 +45,9 @@ const uncss            = require('metalsmith-uncss-2');
 const cleanCSS         = require('metalsmith-clean-css');
 const htmlMinifier     = require('metalsmith-html-minifier');
 const sri              = require('metalsmith-html-sri');
+const sitemap          = require('metalsmith-sitemap');
 const linter           = require('metalsmith-html-linter');
 const linkcheck        = require('metalsmith-linkcheck');
-const sitemap          = require('metalsmith-sitemap');
-const ignore           = require('metalsmith-ignore');
 
 // Register Handlebars helper libraries
 const Handlebars = require('handlebars');
@@ -67,7 +67,7 @@ const siteLanguage    = 'en';
 const siteName        = 'Christian Emmer';
 const siteURL         = process.env.NETLIFY && process.env.CONTEXT !== 'production' ? process.env.DEPLOY_PRIME_URL : (process.env.URL || 'https://emmer.dev');
 const siteEmail       = 'emmercm@gmail.com';
-const siteDescription = 'Software engineer with ' + moment().diff('2012-01-16', 'years') + '+ years of experience developing full-stack solutions in PHP, Go, Node.js, Python, and Ruby on Rails.';
+const siteDescription = 'Software engineer with ' + moment().diff('2012-01-16', 'years') + '+ years of experience developing full-stack solutions in PHP, Go, Node.js, and Python';
 const siteKeywords    = [];
 const twitterHandle   = '@emmercm';
 
@@ -121,6 +121,17 @@ tracer(Metalsmith(__dirname))
         '**/*.json',
         '**/*.rsls*'
     ])
+
+    // Lowercase extensions
+    .use(renamer({
+        lowercase: {
+            pattern: '**/*.*',
+            rename: file => {
+                const split = file.split('.');
+                return split.slice(0, split.length - 1).join('.') + '.' + split[split.length-1].toLowerCase();
+            }
+        }
+    }))
 
     // Ignore draft files
     .use(drafts())
@@ -225,7 +236,7 @@ tracer(Metalsmith(__dirname))
         }]
     })))
     // .use(sharp({
-    //     // Trim image borders (must be a separate step)
+    //     // Trim image borders
     //     src: 'static/img/blog/*',
     //     methods: [{
     //         name: 'trim'
@@ -281,7 +292,7 @@ tracer(Metalsmith(__dirname))
             }
         }]
     }))
-    .use(sharp({
+    .use(msIf(prod, sharp({
         // Flatten transparent images
         src: 'static/img/blog/*',
         methods: [{
@@ -292,7 +303,7 @@ tracer(Metalsmith(__dirname))
                 }
             ]
         }]
-    }))
+    })))
     .use(msIf(prod, sharp({
         // Compress images
         src: 'static/img/blog/*',
@@ -455,7 +466,10 @@ tracer(Metalsmith(__dirname))
     }))
 
     // Change all links with a protocol (external) to be target="_blank"
-    .use(jquery('**/*.html', $ => $('a[href*="://"]').attr('target', '_blank').attr('rel', 'noopener')))
+    .use(jquery('**/*.html', $ => {
+        $('a[href*="://"]').attr('target', '_blank');
+        $('a[target="_blank"]').attr('rel', 'noopener');
+    }))
 
     /**********************************
      *                                *
@@ -528,7 +542,7 @@ tracer(Metalsmith(__dirname))
                 // /\.carousel-.+/,
                 '.collapse', '.collapsing', '.collapsed',
                 // /\.modal-.+/,
-                '.show', '.fade'
+                /.*\.show/, /.*\.fade/
             ]
         }
     })))
