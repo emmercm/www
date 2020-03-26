@@ -96,6 +96,7 @@ A plugin to run the [UnCSS](https://github.com/uncss/uncss) unused CSS remover o
 Related blog posts:
 
 - [Using Font Awesome with Metalsmith](/blog/using-font-awesome-with-metalsmith)
+- [Minify Files in Metalsmith](/blog/minify-files-in-metalsmith)
 
 ## <i class="fab fa-raspberry-pi"></i> Raspberry Pi Tools
 
