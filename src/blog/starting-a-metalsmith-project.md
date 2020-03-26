@@ -148,7 +148,7 @@ If there is no output from the command we know Metalsmith is working right.
 You might have noticed after the `node index` command above it didn't actually create the `build/` directory like we configured in `index.js`, that's because there's nothing for it to output yet. Let's fix that by creating a file `src/index.html` with the contents:
 
 ```html
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">

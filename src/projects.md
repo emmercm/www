@@ -16,10 +16,10 @@ I have published a number of public Docker images to [Docker Hub](https://hub.do
 
 All images have:
 
-* Been optimized to have the fewest number of the smallest layers possible.
-* High test coverage using Google's [Container Structure Test](https://github.com/GoogleContainerTools/container-structure-test).
-* Base images kept up-to-date by [Renovate](https://renovatebot.com/), with automatic pull request merges.
-* CI/CD using [Circle CI](https://circleci.com/) for automatic testing and pushing to [Docker Hub](https://hub.docker.com/u/emmercm).
+- Been optimized to have the fewest number of the smallest layers possible.
+- High test coverage using Google's [Container Structure Test](https://github.com/GoogleContainerTools/container-structure-test).
+- Base images kept up-to-date by [Renovate](https://renovatebot.com/), with automatic pull request merges.
+- CI/CD using [Circle CI](https://circleci.com/) for automatic testing and pushing to [Docker Hub](https://hub.docker.com/u/emmercm).
 
 ### [libtorrent](https://github.com/emmercm/docker-libtorrent)
 
@@ -39,9 +39,9 @@ I have published a number of plugins for [Metalsmith](https://metalsmith.io/), a
 
 All plugins have:
 
-* High test coverage using [Jest](https://jestjs.io/).
-* Dependencies kept up-to-date by [Renovate](https://renovatebot.com/), with automatic pull request merges.
-* CI/CD using [Circle CI](https://circleci.com/) for automatic testing and publishing to [npm](https://www.npmjs.com/settings/emmercm/packages).
+- High test coverage using [Jest](https://jestjs.io/).
+- Dependencies kept up-to-date by [Renovate](https://renovatebot.com/), with automatic pull request merges.
+- CI/CD using [Circle CI](https://circleci.com/) for automatic testing and publishing to [npm](https://www.npmjs.com/settings/emmercm/packages).
 
 ### [metalsmith-collections-related](https://github.com/emmercm/metalsmith-collections-related)
 
@@ -77,9 +77,13 @@ A plugin to include files outside of the source directory.
 
 Related blog posts:
 
-* [Using Bootstrap 4 with Metalsmith](/blog/using-bootstrap-4-with-metalsmith)
-* [Using Font Awesome with Metalsmith](/blog/using-font-awesome-with-metalsmith)
-* [Adding a Google Site Ownership Verification File in Metalsmith](/blog/adding-a-google-site-ownership-verification-file-in-metalsmith)
+- [Using Bootstrap 4 with Metalsmith](/blog/using-bootstrap-4-with-metalsmith)
+- [Using Font Awesome with Metalsmith](/blog/using-font-awesome-with-metalsmith)
+- [Adding a Google Site Ownership Verification File in Metalsmith](/blog/adding-a-google-site-ownership-verification-file-in-metalsmith)
+
+### [metalsmith-reading-time](https://github.com/emmercm/metalsmith-reading-time)
+
+A Metalsmith plugin to estimate pages' reading times, similar to Medium.
 
 ### [metalsmith-tracer](https://github.com/emmercm/metalsmith-tracer)
 
@@ -91,7 +95,7 @@ A plugin to run the [UnCSS](https://github.com/uncss/uncss) unused CSS remover o
 
 Related blog posts:
 
-* [Using Font Awesome with Metalsmith](/blog/using-font-awesome-with-metalsmith)
+- [Using Font Awesome with Metalsmith](/blog/using-font-awesome-with-metalsmith)
 
 ## <i class="fab fa-raspberry-pi"></i> Raspberry Pi Tools
 
