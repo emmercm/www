@@ -28,7 +28,7 @@ But I'm a big fan of deploy early, deploy often. The [GitHub Flow](http://scottc
 
 First, if you have tests for your code, make sure those are passing. I consider this the minimum bar your code must meet before asking others to review it.
 
-And then second, have others reviewed it? The more eyes on the code the better - everyone brings a different way of thinking and a different set of skills. 
+And then second, have others reviewed it? The more eyes on the code the better - everyone brings a different way of thinking and a different set of skills.
 
 Depending on the development environments available to you it's also a good idea to test your code in a prod-like or staging environment. This will help highlight any errors in the code or deployment itself. This also allows stakeholders to make sure your changes meet their acceptance criteria.
 
@@ -66,7 +66,7 @@ An often forgotten step of deployment is ensuring the code deployed is actually 
 
 There's always differences in environments, and differences like higher load at scale can make code behave differently.
 
-You should also check the code is working before communicating it's live to others, it's pretty embarrassing when someone else catches your mistakes. 
+You should also check the code is working before communicating it's live to others, it's pretty embarrassing when someone else catches your mistakes.
 
 ## Who should you notify after a successful deployment?
 
