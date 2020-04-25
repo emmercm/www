@@ -10,8 +10,8 @@ Sitemaps are XML files that provide a list of all pages on a site that should be
 Most of the pages on a site are probably linked together in one way or another, so search engine crawlers should be able to find them all, but sitemaps help list all pages in one (or more) places for efficiency. Sitemaps are also useful for when there exist pages that are isolated from others.
 
 ## Project setup
- 
- To keep this article short and to the point we're not going to set up a full website, just enough to show sample usage. See "[Starting a Metalsmith Project](/blog/starting-a-metalsmith-project)" for a more complete article on how to set up a Metalsmith project.
+
+To keep this article short and to the point we're not going to set up a full website, just enough to show sample usage. See "[Starting a Metalsmith Project](/blog/starting-a-metalsmith-project)" for a more complete article on how to set up a Metalsmith project.
 
 ### Installing packages
 

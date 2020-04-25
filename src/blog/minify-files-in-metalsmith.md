@@ -8,7 +8,7 @@ date: 2020-03-26T21:16:00
 Minified files maintain all the functionality of their original source but optimize for size, which in turns means faster page loads and improved SEO - and it's a snap to do in Metalsmith.
 
 ## Project setup
- 
+
 To keep this article short and to the point we're not going to set up a full website, just enough to show sample usage. See "[Starting a Metalsmith Project](/blog/starting-a-metalsmith-project)" for a more complete article on how to set up a Metalsmith project.
 
 ### Installing packages
