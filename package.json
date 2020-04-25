@@ -13,7 +13,7 @@
     "url": "git+https://github.com/emmercm/www.git"
   },
   "scripts": {
-    "test": "markdownlint --config markdownlint.json **/*.md",
+    "test": "markdownlint --config markdownlint.json \"**/*.md\" --ignore node_modules",
     "start": "node index.js"
   },
   "dependencies": {

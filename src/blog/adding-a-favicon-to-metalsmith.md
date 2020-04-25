@@ -8,7 +8,7 @@ date: 2020-02-18T01:51:00
 Favicons are low-resolution website icons that web browsers use to help identify bookmarks, tabs, and desktop icons at a glance - and they're easy to add in Metalsmith.
 
 ## Project setup
- 
+
 To keep this article short and to the point we're not going to set up a full website, just enough to show sample usage. See "[Starting a Metalsmith Project](/blog/starting-a-metalsmith-project)" for a more complete article on how to set up a Metalsmith project.
 
 ### Installing packages

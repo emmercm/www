@@ -127,7 +127,7 @@ docker build -t sum .
 
 Then we'll walk through the different Docker commands that change depending on which testing command we want.
 
-### `test-debug`
+### `test-debug` in Docker
 
 To run `test-debug` we have a fairly short command:
 
@@ -142,7 +142,7 @@ docker run -p 9229:9229 sum npm run test-debug
 
 This will start the container and wait for a debugger to be attached on port 9229, then execute the tests.
 
-### `test-watch-debug`
+### `test-watch-debug` in Docker
 
 The `--watchAll` flag for Jest requires some additional Docker flags:
 
