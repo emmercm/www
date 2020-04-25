@@ -28,7 +28,7 @@
     "lozad": "^1.14.0",
     "markdownlint-cli": "^0.22.0",
     "metalsmith": "^2.3.0",
-    "metalsmith-auto-collections": "^0.1.4",
+    "metalsmith-auto-collections": "^0.2.0",
     "metalsmith-autoprefixer": "^1.1.2",
     "metalsmith-beautify": "^0.2.0",
     "metalsmith-branch": "^0.0.5",
