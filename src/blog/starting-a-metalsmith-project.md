@@ -126,7 +126,7 @@ const Metalsmith = require('metalsmith');
 
 Metalsmith(__dirname)
     .source('./src')         // source directory for the pipeline
-    .destination('./build')  // destination directory of the pipeline 
+    .destination('./build')  // destination directory of the pipeline
     .clean(true)             // clean the destination directory before build
     .build(function (err) {  // execute the build
         if (err) {
