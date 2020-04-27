@@ -5,9 +5,9 @@ date: 2020-04-25T00:06:00
 
 ---
 
-[Netlify](https://www.netlify.com/) is a popular service to host [Jamstack](https://www.netlify.com/jamstack/) websites with, and updating those websites automatically on a schedule is easy with [GitHub Actions](https://github.com/features/actions).
+[Netlify](https://www.netlify.com/) is a popular service to host [JAMstack](https://www.netlify.com/jamstack/) websites with, and updating those websites automatically on a schedule is easy with [GitHub Actions](https://github.com/features/actions).
 
-In case you aren't familiar with the term Jamstack, it mostly means a web front-end that is decoupled from its back-end (if there is one) and is hosted with a [Content Delivery Network (CDN)](https://en.wikipedia.org/wiki/Content_delivery_network). There's a little more nuance than that, but I won't cover it here.
+See "[What is the 'JAMstack'?](/blog/what-is-the-jamstack)" for a complete explanation, but JAMstack websites are completely static, pre-rendered websites hosted with a [Content Delivery Network (CDN)](https://en.wikipedia.org/wiki/Content_delivery_network).
 
 ## Netlify
 
