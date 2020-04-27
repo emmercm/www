@@ -638,12 +638,12 @@ tracer(Metalsmith(__dirname))
     }))
 
     // Fix Cheerio-mangled attribute values
-    .use(jquery('**/*.html', $ => {
-        $('*').each((i, elem) => {
-            Object.keys(elem.attribs)
-                .forEach(attribute => $(elem).attr(attribute, he.decode(elem.attribs[attribute])));
-        });
-    }, {decodeEntities: false}))
+    // .use(jquery('**/*.html', $ => {
+    //     $('*').each((i, elem) => {
+    //         Object.keys(elem.attribs)
+    //             .forEach(attribute => $(elem).attr(attribute, he.decode(elem.attribs[attribute])));
+    //     });
+    // }, {decodeEntities: false}))
 
     // Prod: minify HTML
     .use(msIf(prod, htmlMinifier({

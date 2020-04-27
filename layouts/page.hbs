@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html class="h-100" lang="{{{sanitize sitelanguage}}}">
+<html class="h-100" lang="{{sanitize sitelanguage}}">
 <head>
     <!-- Global site tag (gtag.js) - Google Analytics -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=UA-155149217-1"></script>
@@ -11,9 +11,9 @@
     </script>
 
     <!-- SEO GOOD https://moz.com/blog/seo-meta-tags -->
-    <meta charset="{{{sanitize sitecharset}}}">
+    <meta charset="{{sanitize sitecharset}}">
     <title>{{{sanitize pageTitle}}}</title>
-    <meta name="description" content="{{{sanitize pageDescription}}}">
+    <meta name="description" content="{{sanitize pageDescription}}">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
     <!-- SEO INDIFFERENT https://moz.com/blog/seo-meta-tags -->
@@ -93,7 +93,7 @@
                 </div>
                 {{#if (match (readdir "src/static/img/blog") (concat "**/" (stem paths.dir) ".@(bmp|gif|jpg|jpeg|png|svg|tif|tiff|webp)"))}}
                     <div class="{{#if pageBackground}}pt-5 bg-light{{else}}bg-transparent{{/if}}">
-                        <img src="**/static/img/blog/{{stem paths.dir}}.@(bmp|gif|jpg|jpeg|png|svg|tif|tiff|webp)" alt="{{{sanitize title}}}" class="w-100 og-image">
+                        <img src="**/static/img/blog/{{stem paths.dir}}.@(bmp|gif|jpg|jpeg|png|svg|tif|tiff|webp)" alt="{{sanitize title}}" class="w-100 og-image">
                     </div>
                 {{/if}}
             {{/if}}
