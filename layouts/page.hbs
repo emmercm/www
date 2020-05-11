@@ -71,9 +71,9 @@
         <div class="navbar-spacer fixed-top"></div>
         <div class="{{#if pageWide}}container-lg{{else}}container-md mw-md-md px-0{{/if}} pt-4 pt-lg-5 pt-xl-6 {{#and (inArray collection "blog") (gt collections.blog.length 2)}}pb-3{{else}}pb-4 pb-lg-5 pb-xl-6{{/and}} markdown">
             {{#if pageHeader}}
-                <div class="{{#if pageHeader}}brt-1{{else}}br-1{{/if}} {{#if pageBackground}}pt-4 px-4 pt-md-5 px-md-5 bg-light{{else}}bg-transparent{{/if}}">
+                <div id="metadata" class="brt-1 {{#if pageBackground}}pt-4 px-4 pt-md-5 px-md-5 bg-light{{else}}bg-transparent{{/if}}">
                     <h1>{{ title }}</h1>
-                    <div class="media justify-content-between align-items-center">
+                    <div class="media d-flex flex-column flex-sm-row justify-content-between align-items-sm-center">
                         <div class="d-flex align-items-center">
                             <img src="{{gravatar.main}}?r=g&d=mp&s=48" class="mr-3 rounded-circle img-thumbnail bg-dark border-none" alt="{{ sitename }}">
                             <div class="media-body">
@@ -81,7 +81,25 @@
                                 <div class="text-muted">{{moment this.date "MMM D, YYYY"}} &middot; {{readingTime}}</div>
                             </div>
                         </div>
-                        <div>
+                        <div class="mx-auto mx-sm-0 mt-3 mt-sm-0">
+                            <a href="https://twitter.com/intent/tweet?url={{encodeURI siteurl}}{{encodeURI paths.href}}&text={{encodeURI title}}%20by%20{{encodeURI twitterhandle}}" class="text-dark">
+                                <span class="fa-stack align-top">
+                                    <i class="fal fa-circle fa-stack-2x"></i>
+                                    <i class="fab fa-twitter fa-stack-1x"></i>
+                                </span>
+                            </a>
+                            <a href="https://www.linkedin.com/shareArticle?url={{encodeURI siteurl}}{{encodeURI paths.href}}&mini=true&title={{{encodeURI title}}}&summary={{{encodeURI excerpt}}}&source={{{encodeURI sitename}}}" class="text-dark">
+                                <span class="fa-stack align-top">
+                                    <i class="fal fa-circle fa-stack-2x"></i>
+                                    <i class="fab fa-linkedin-in fa-stack-1x"></i>
+                                </span>
+                            </a>
+                            <!--<a href="https://www.facebook.com/sharer.php?u={{encodeURI siteurl}}{{encodeURI paths.href}}" class="text-dark">
+                                <span class="fa-stack align-top">
+                                    <i class="fal fa-circle fa-stack-2x"></i>
+                                    <i class="fab fa-facebook-f fa-stack-1x"></i>
+                                </span>
+                            </a>-->
                             <a href="/blog/rss.xml" class="text-dark">
                                 <span class="fa-stack align-top">
                                     <i class="fal fa-circle fa-stack-2x"></i>
@@ -97,9 +115,19 @@
                     </div>
                 {{/if}}
             {{/if}}
-            <div class="{{#if pageHeader}}brb-1{{else}}br-1{{/if}} {{#if pageBackground}}p-4 p-md-5 bg-light{{else}}bg-transparent{{/if}}">
+            <div id="contents" class="{{#not pageHeader}}brt-1{{/not}} {{#not pageFooter}}brb-1{{/not}} {{#if pageBackground}}p-4 p-md-5 bg-light{{else}}bg-transparent{{/if}}">
                 {{{ contents }}}
             </div>
+            {{#if pageFooter}}
+                <div class="brb-1 {{#if pageBackground}}pb-4 px-4 pb-md-5 px-md-5 bg-light{{else}}bg-transparent{{/if}} text-right">
+                    <a href="https://twitter.com/search?q={{encodeURI siteurl}}{{encodeURI paths.href}}">
+                        <i>
+                            <i class="fab fa-twitter"></i>
+                            Discuss on Twitter
+                        </i>
+                    </a>
+                </div>
+            {{/if}}
         </div>
 
         {{#and (inArray collection "blog") (gt collections.blog.length 2)}}
