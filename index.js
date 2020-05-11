@@ -12,13 +12,14 @@ const dataLoader       = require('metalsmith-data-loader');
 const defaultValues    = require('metalsmith-default-values');
 const sass             = require('metalsmith-sass');
 const autoprefixer     = require('metalsmith-autoprefixer');
+const include          = require('metalsmith-include-files');
+const renamer          = require('metalsmith-renamer');
 const ignore           = require('metalsmith-ignore');
 const sharp            = require('metalsmith-sharp');
 const discoverHelpers  = require('metalsmith-discover-helpers');
 const discoverPartials = require('metalsmith-discover-partials');
 const collect          = require('metalsmith-auto-collections');
 const collectionMeta   = require('metalsmith-collection-metadata');
-const renamer          = require('metalsmith-renamer');
 const permalinks       = require('metalsmith-permalinks');
 const paths            = require('metalsmith-paths');
 const branch           = require('metalsmith-branch');
@@ -34,7 +35,6 @@ const layouts          = require('metalsmith-layouts');
 const jquery           = require('metalsmith-jquery');
 const openGraph        = require('metalsmith-open-graph');
 const twitterCard      = require('metalsmith-twitter-card');
-const include          = require('metalsmith-include-files');
 const beautify         = require('metalsmith-beautify');
 const concat           = require('metalsmith-concat');
 const glob             = require('metalsmith-html-glob');
@@ -68,6 +68,7 @@ const siteName        = 'Christian Emmer';
 const siteURL         = process.env.NETLIFY && process.env.CONTEXT !== 'production' ? process.env.DEPLOY_PRIME_URL : (process.env.URL || 'https://emmer.dev');
 const siteEmail       = 'emmercm@gmail.com';
 const siteDescription = 'Software engineer with ' + moment().diff('2012-01-16', 'years') + '+ years of experience developing full-stack solutions in PHP, Go, Node.js, and Python.';
+const siteLogo        = '**/prologo1/logo3_Gray_Lighter.svg';
 const siteKeywords    = [];
 const twitterHandle   = '@emmercm';
 
@@ -88,7 +89,8 @@ tracer(Metalsmith(__dirname))
         sitename: siteName,
         siteurl: siteURL,
         sitedescription: siteDescription,
-        sitekeywords: siteKeywords
+        sitekeywords: siteKeywords,
+        twitterhandle: twitterHandle,
     })
 
     // Add all env vars to global metadata
@@ -210,6 +212,17 @@ tracer(Metalsmith(__dirname))
      **************************/
 
     // Process blog images
+    .use(include({
+        'static/img/blog': [
+            siteLogo
+        ]
+    }))
+    .use(renamer({
+        siteLogo: {
+            pattern: `static/img/blog/${siteLogo.split('/').pop()}`,
+            rename: file => `default.${file.split('.').pop()}`
+        }
+    }))
     .use(ignore(['static/img/blog/*.@(psd|xcf)']))
     .use(sharp({
         // Rasterize vector images
@@ -345,7 +358,8 @@ tracer(Metalsmith(__dirname))
     }))
     .use(collectionMeta({
         blog: {
-            pageHeader: true
+            pageHeader: true,
+            pageFooter: true
         }
     }))
 
@@ -443,7 +457,7 @@ tracer(Metalsmith(__dirname))
 
     // Prod: add favicons and icons
     .use(msIf(prod, favicons({
-        src: '**/prologo1/logo3_Gray_Lighter.svg',
+        src: siteLogo,
         dest: '.',
         appName: siteName,
         appDescription: siteDescription,
