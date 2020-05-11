@@ -659,6 +659,15 @@ tracer(Metalsmith(__dirname))
     //     });
     // }, {decodeEntities: false}))
 
+    // Fix Windows path separator URLs
+    // TODO: Figure out what plugins are doing this
+    .use(jquery('**/*.html', $ => {
+        $('a[href*="://"]').each((i, elem) => {
+            $(elem).attr('href', $(elem).attr('href').replace(/\\/g, '/'));
+            $(elem).attr('href', $(elem).attr('href').replace(/%5C/g, '%2F'));
+        });
+    }))
+
     // Prod: minify HTML
     .use(msIf(prod, htmlMinifier({
         minifierOptions: {
