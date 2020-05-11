@@ -1,7 +1,7 @@
 ---
 
 title: 'SLIs, SLOs, and SLAs: What Are They?'
-imageCredit: 'Photo by <a href="https://unsplash.com/@condorito1953?utm_source=unsplash&amp;utm_medium=referral&amp;utm_content=creditCopyText">Arie Wubben</a> on <a href="/s/photos/gauge?utm_source=unsplash&amp;utm_medium=referral&amp;utm_content=creditCopyText">Unsplash</a>'
+imageCredit: 'Photo by <a href="https://unsplash.com/@condorito1953">Arie Wubben</a> on <a href="https://unsplash.com/photos/MHIw0nSxCR4">Unsplash</a>'
 date: 2020-05-11T18:03:00
 
 ---

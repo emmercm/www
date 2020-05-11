@@ -1,6 +1,7 @@
 ---
 
 title: The Concept of Deployments
+imageCredit: 'Photo by <a href="https://unsplash.com/@alexmachado">Alex Machado</a> on <a href="https://unsplash.com/photos/80sv993lUKI">Unsplash</a>'
 date: 2019-08-24T01:11:00
 
 ---
