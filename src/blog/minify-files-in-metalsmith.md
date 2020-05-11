@@ -1,6 +1,7 @@
 ---
 
 title: Minify Files in Metalsmith
+imageCredit: 'Photo by <a href="https://pixabay.com/users/Alexei_other-9114223/">Alexei Chizhov</a> on <a href="https://pixabay.com/photos/clamp-hand-tool-steel-metal-tool-4966206/">Pixabay</a>'
 date: 2020-03-26T21:16:00
 
 ---
