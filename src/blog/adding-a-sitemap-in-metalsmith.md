@@ -1,6 +1,7 @@
 ---
 
 title: Adding a Sitemap in Metalsmith
+imageCredit: 'Photo by <a href="https://unsplash.com/@sylwiabartyzel">Sylwia Bartyzel</a> on <a href="https://unsplash.com/photos/D2K1UZr4vxk">Unsplash</a>'
 date: 2020-01-12T01:26:00
 
 ---
