@@ -1,6 +1,7 @@
 ---
 
 title: Adding a Google Site Ownership Verification File in Metalsmith
+imageCredit: 'Photo by <a href="https://unsplash.com/@taylorgsimpson">Taylor Simpson</a> on <a href="https://unsplash.com/photos/Gy7fiskX-Sk">Unsplash</a>'
 date: 2019-12-28T19:53:00
 
 ---
