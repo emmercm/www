@@ -323,7 +323,10 @@ tracer(Metalsmith(__dirname))
         namingPattern: '{dir}{name}.jpg',
         moveFile: true,
         methods: [{
-            name: 'jpeg'
+            name: 'jpeg',
+            args: [{
+                quality: 90
+            }]
         }]
     })))
 
