@@ -281,7 +281,7 @@ tracer(Metalsmith(__dirname))
                 blogImageHeight,
                 {
                     fit: 'cover',
-                    // position: 17, // sharp.strategy.attention
+                    position: 17, // sharp.strategy.attention
                     withoutEnlargement: true
                 }
             ]

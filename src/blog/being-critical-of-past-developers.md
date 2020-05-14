@@ -1,7 +1,7 @@
 ---
 
 title: Being Critical of Past Developers
-imageCredit: Photo by <a href="https://unsplash.com/@charlesdeluvio">Charles Deluvio</a> on <a href="https://unsplash.com/photos/AT5vuPoi8vc">Unsplash</a>
+imageCredit: 'Photo by <a href="https://unsplash.com/@kylejglenn">Kyle Glenn</a> on <a href="https://unsplash.com/photos/IFLgWYlT2fI">Unsplash</a>'
 date: 2020-05-14T22:25:00
 
 ---
