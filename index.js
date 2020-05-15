@@ -281,7 +281,7 @@ tracer(Metalsmith(__dirname))
                 blogImageHeight,
                 {
                     fit: 'cover',
-                    // position: 17, // sharp.strategy.attention
+                    position: 17, // sharp.strategy.attention
                     withoutEnlargement: true
                 }
             ]
@@ -323,7 +323,10 @@ tracer(Metalsmith(__dirname))
         namingPattern: '{dir}{name}.jpg',
         moveFile: true,
         methods: [{
-            name: 'jpeg'
+            name: 'jpeg',
+            args: [{
+                quality: 90
+            }]
         }]
     })))
 
@@ -627,8 +630,13 @@ tracer(Metalsmith(__dirname))
         pattern: '**/*.html',
         defaults: {
             twitter: file => ({
-                title: file.pageTitle,
+                // https://github.com/vitaliy-bobrov/metalsmith-twitter-card/issues/2
+                title: file.pageTitle
+                    .replace(/\./g, '&#46;')
+                    .replace(/#/g, '&#35;'),
                 description: file.pageDescription
+                    .replace(/\./g, '&#46;')
+                    .replace(/#/g, '&#35;')
             })
         }
     }]))
