@@ -71,6 +71,10 @@ A plugin to add [subresource integrity](https://developer.mozilla.org/en-US/docs
 
 A plugin to remove resources (`.css`, `.js`, `.png`, etc.) that aren't referenced by any HTML file.
 
+Related blog posts:
+
+- [Remove Unused Assets in Metalsmith](/blog/remove-unused-assets-in-metalsmith)
+
 ### [metalsmith-include-files](https://github.com/emmercm/metalsmith-include-files)
 
 A plugin to include files outside of the source directory.
