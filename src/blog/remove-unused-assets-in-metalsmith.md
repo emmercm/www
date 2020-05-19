@@ -8,7 +8,7 @@ date: 2020-05-19T18:22:00
 
 Have assets in your source directory that are never used by your output? Save some space, get rid of them!
 
-Removing static assets (images, CSS, JavaScript, documents/PDFs) at the end of your build pipeline reduces the amount of content that has to be written to disk and then eventually uploaded. Not removing these assets probably doesn't hurt your build time as much as other plugins, but it's an easy optimization to take.
+Removing static assets (images, CSS, JavaScript, documents/PDFs, etc.) at the end of your build pipeline reduces the amount of content that has to be written to disk and then eventually uploaded to a web server. Not removing these assets probably doesn't hurt your build time as much as running other plugins, but it's an easy optimization to take.
 
 See "[Minify Files in Metalsmith](/blog/minify-files-in-metalsmith)" on reducing the size of assets that are used in your final build output.  
 
@@ -48,7 +48,7 @@ Create the following directories and files for use in the build pipeline:
             └── used.js
 ```
 
-You can fill in those CSS and JavaScript files with anything, or leave them blank entirely, their contents don't matter, just that they exist.
+You can fill in those CSS and JavaScript files with anything, or leave them blank entirely - their contents don't matter, just that they exist.
 
 ## Writing the source files
 
@@ -91,7 +91,7 @@ Metalsmith(__dirname)
 
 This will:
 
-- Scan through all HTML files in `src/` (so just `src/index.html`) looking for any `*.css`, `*.js`, and `*.png` files that are unused, and removing them from our output.
+- Scan through all HTML files in `src/` (so just `src/index.html`) looking for any `*.css`, `*.js`, and `*.png` files that are unused, and remove them from our output.
 - Copy `src/index.html` to `build/index.html`.
 - Copy `src/static/*/used.*` to `build/static/*/used.*` (and not `src/static/*/unused.*` as they were removed).
 
@@ -111,6 +111,8 @@ Then look in `build/static` and see that none of the "unused" assets are there.
 
 As stated in the intro, there's a number of reasons why you might want to remove unused files:
 
-- It reduces the size of files needed to publish.
+- It reduces the total size of files that will be uploaded.
 - Could remove old versions of files/documents that shouldn't be available anymore.
 - Could remove unused files before expensive processing (such as converting/resizing images with [`metalsmith-sharp`](https://www.npmjs.com/package/metalsmith-sharp)).
+
+With such little code needed you might as well take this optimization!
