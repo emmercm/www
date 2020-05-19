@@ -8,6 +8,8 @@ date: 2020-03-26T21:16:00
 
 Minified files maintain all the functionality of their original source but optimize for size, which in turns means faster page loads and improved SEO - and it's a snap to do in Metalsmith.
 
+See "[Remove Unused Assets in Metalsmith](/blog/remove-unused-assets-in-metalsmith)" on removing unused assets entirely.
+
 ## Project setup
 
 To keep this article short and to the point we're not going to set up a full website, just enough to show sample usage. See "[Starting a Metalsmith Project](/blog/starting-a-metalsmith-project)" for a more complete article on how to set up a Metalsmith project.
@@ -81,7 +83,6 @@ const htmlMinifier = require('metalsmith-html-minifier');
 
 Metalsmith(__dirname)
     .source('./src')         // source directory for the pipeline
-    .destination('./build')  // destination directory of the pipeline
     .use(uglify({            // minify JavaScript files
         removeOriginal: true,
         uglify: {
@@ -114,6 +115,7 @@ Metalsmith(__dirname)
             removeStyleLinkTypeAttributes: true
         }
     }))
+    .destination('./build')  // destination directory of the pipeline
     .clean(true)             // clean the destination directory before build
     .build(function (err) {  // execute the build
         if (err) {
