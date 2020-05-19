@@ -91,7 +91,7 @@ Metalsmith(__dirname)
 
 This will:
 
-- Scan through all HTML files in `src` (so just `src/index.html`) looking for any `*.css`, `*.js`, and `*.png` files that are unused, and removing them from our output.
+- Scan through all HTML files in `src/` (so just `src/index.html`) looking for any `*.css`, `*.js`, and `*.png` files that are unused, and removing them from our output.
 - Copy `src/index.html` to `build/index.html`.
 - Copy `src/static/*/used.*` to `build/static/*/used.*` (and not `src/static/*/unused.*` as they were removed).
 
