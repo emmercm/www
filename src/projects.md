@@ -63,6 +63,10 @@ A plugin to lint HTML files.
 
 A plugin to make local paths relative (e.g. `<a href="../index.html">`) in HTML tags.
 
+Related blog posts:
+
+- [Using Relative Links in Metalsmith](/blog/using-relative-links-in-metalsmith)
+
 ### [metalsmith-html-sri](https://github.com/emmercm/metalsmith-html-sri)
 
 A plugin to add [subresource integrity](https://developer.mozilla.org/en-US/docs/Web/Security/Subresource_Integrity) attributes (e.g. `<script src="..." integrity="sha384-sc7RxY9...">`) to HTML tags.

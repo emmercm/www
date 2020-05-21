@@ -51,6 +51,7 @@ Fill in those files with some dummy content such as:
 
 ```html
 <!-- src/index.html -->
+
 <!DOCTYPE html>
 <html lang="en">
 </html>
@@ -58,6 +59,7 @@ Fill in those files with some dummy content such as:
 
 ```css
 /* src/static/css/styles.css */
+
 body {
     background: white;
 }
@@ -65,6 +67,7 @@ body {
 
 ```javascript
 // src/static/js/scripts.js
+
 console.log('foo');
 console.log('bar');
 ```
