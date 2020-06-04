@@ -1,6 +1,9 @@
 {
   "default": true,
 
+  "MD010": {
+    "code_blocks": false
+  },
   "MD013": false,
   "MD025": {
     "front_matter_title": ""
