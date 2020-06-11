@@ -3,10 +3,10 @@
         <div class="col p-3">
             <div class="card h-100 bg-light border-none">
                 <a href="{{ paths.href }}">
-                    {{#if (match (readdir "src/static/img/blog") (concat "**/" (stem paths.dir) ".@(bmp|gif|jpg|jpeg|png|svg|tif|tiff|webp)"))}}
-                        <img data-src="**/static/img/blog/{{stem paths.dir}}.@(bmp|gif|jpg|jpeg|png|svg|tif|tiff|webp)" alt="{{sanitize title}}" class="card-img-top">
+                    {{#if (match (readdir "src/static/img/blog") (concat "**/" (stem paths.dir) ".*"))}}
+                        <img data-src="**/static/img/blog/{{stem paths.dir}}-thumb.*" alt="{{sanitize title}}" class="card-img-top">
                     {{else}}
-                        <img data-src="**/static/img/blog/default.@(bmp|gif|jpg|jpeg|png|svg|tif|tiff|webp)" alt="{{sanitize title}}" class="card-img-top">
+                        <img data-src="**/static/img/blog/default-thumb.*" alt="{{sanitize title}}" class="card-img-top">
                     {{/if}}
                 </a>
                 <div class="card-body">

@@ -1,0 +1,51 @@
+bash:
+  icon: fad fa-terminal
+  color: dark
+
+bootstrap:
+  icon: fab fa-bootstrap
+  color: bootstrap
+
+ci-cd:
+  icon: fad fa-code-merge
+  color: secondary
+
+databases:
+  icon: far fa-database
+  color: gray
+
+docker:
+  icon: fab fa-docker
+  color: docker
+
+fontawesome:
+  icon: fab fa-font-awesome
+  color: fontawesome
+
+github:
+  icon: fab fa-github
+  color: github
+
+go:
+  icon: fad fa-code
+  color: go
+
+kubernetes:
+  icon: fad fa-cubes
+  color: kubernetes
+
+life:
+  icon: fad fa-hand-holding-seedling
+  color: indigo
+
+metalsmith:
+  icon: fad fa-browser
+  color: metalsmith
+
+node.js:
+  icon: fab fa-node-js
+  color: node
+
+testing:
+  icon: fad fa-vial
+  color: pink

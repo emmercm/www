@@ -34,10 +34,10 @@
 </head>
 
 <body class="d-flex flex-column h-100 bg-secondary bg-trianglify" data-parallax="scroll" data-parallax-velocity="0.25">
-<nav class="navbar navbar-expand-md navbar-dark fixed-top clearfix bg-dark vw-100 px-4 shadow">
+<nav class="navbar navbar-expand-md navbar-dark clearfix bg-dark px-4 shadow">
     <div class="container-xl px-0">
         <a class="navbar-brand" href="/">
-            <img src="**/logo3_Gray_Lighter.svg" alt="Logo" class="mr-2">
+            <img src="{{ sitelogo }}" alt="Logo" class="mr-2">
             <span class="align-middle">{{ sitename }}</span>
         </a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -68,7 +68,7 @@
 
 <main>
     {{#if pageContainer}}
-        <div class="navbar-spacer fixed-top"></div>
+        <!--<div class="navbar-spacer fixed-top"></div>-->
         <div class="{{#if pageWide}}container-lg{{else}}container-md mw-md-md px-0{{/if}} pt-4 pt-lg-5 pt-xl-6 {{#and (inArray collection "blog") (gt collections.blog.length 2)}}pb-3{{else}}pb-4 pb-lg-5 pb-xl-6{{/and}} markdown">
             {{#if pageHeader}}
                 <div id="metadata" class="brt-1 {{#if pageBackground}}pt-4 px-4 pt-md-5 px-md-5 bg-light{{else}}bg-transparent{{/if}}">
@@ -109,9 +109,9 @@
                         </div>
                     </div>
                 </div>
-                {{#if (match (readdir "src/static/img/blog") (concat "**/" (stem paths.dir) ".@(bmp|gif|jpg|jpeg|png|svg|tif|tiff|webp)"))}}
+                {{#if (match (readdir "src/static/img/blog") (concat "**/" (stem paths.dir) ".*"))}}
                     <div class="{{#if pageBackground}}pt-5 bg-light{{else}}bg-transparent{{/if}}">
-                        <img src="**/static/img/blog/{{stem paths.dir}}.@(bmp|gif|jpg|jpeg|png|svg|tif|tiff|webp)" alt="{{sanitize title}}" class="w-100 og-image">
+                        <img src="**/static/img/blog/{{stem paths.dir}}.*" alt="{{sanitize title}}" class="w-100 og-image">
                         {{#if imageCredit}}
                             <p class="mt-3 text-center font-italic">{{{ imageCredit }}}</p>
                         {{/if}}
@@ -122,7 +122,17 @@
                 {{{ contents }}}
             </div>
             {{#if pageFooter}}
-                <div class="brb-1 {{#if pageBackground}}pb-4 px-4 pb-md-5 px-md-5 bg-light{{else}}bg-transparent{{/if}} text-right">
+                <div class="d-flex justify-content-between brb-1 {{#if pageBackground}}pb-4 px-4 pb-md-5 px-md-5 bg-light{{else}}bg-transparent{{/if}}">
+                    <div class="d-flex flex-wrap">
+                        {{#if tags}}
+                            <span>Tags:</span>
+                            {{#each tags}}
+                                <h5 class="my-0 ml-2">
+                                    <a href="/blog/tag/{{this}}" title="{{this}}" class="badge badge-{{get "color" (get this ../blog_tags)}}">{{ this }}</a>
+                                </h5>
+                            {{/each}}
+                        {{/if}}
+                    </div>
                     <a href="https://twitter.com/search?q={{encodeURI siteurl}}{{encodeURI paths.href}}">
                         <i>
                             <i class="fab fa-twitter"></i>
@@ -135,7 +145,7 @@
 
         {{#and (inArray collection "blog") (gt collections.blog.length 2)}}
             <div class="container-xl pb-3 pb-lg-5 pb-xl-6 markdown">
-                {{>blog_list data=related.blog}}
+                {{>blog_list_horizontal data=related.blog}}
             </div>
         {{/and}}
     {{else}}

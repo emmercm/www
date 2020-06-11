@@ -2,6 +2,9 @@
 
 title: Debugging Remote Jest Tests
 date: 2020-02-21T02:09:00
+tags:
+- node.js
+- testing
 
 ---
 

@@ -1,3 +1,5 @@
+'use strict';
+
 const Metalsmith = require('metalsmith');
 const tracer     = require('metalsmith-tracer');
 const msIf       = require('metalsmith-if');
@@ -9,13 +11,12 @@ const gravatar         = require('metalsmith-gravatar');
 const drafts           = require('metalsmith-drafts');
 const validate         = require('metalsmith-validate');
 const dataLoader       = require('metalsmith-data-loader');
-const defaultValues    = require('metalsmith-default-values');
 const sass             = require('metalsmith-sass');
 const autoprefixer     = require('metalsmith-autoprefixer');
 const include          = require('metalsmith-include-files');
 const renamer          = require('metalsmith-renamer');
 const ignore           = require('metalsmith-ignore');
-const sharp            = require('metalsmith-sharp');
+const copy             = require('metalsmith-copy');
 const discoverHelpers  = require('metalsmith-discover-helpers');
 const discoverPartials = require('metalsmith-discover-partials');
 const collect          = require('metalsmith-auto-collections');
@@ -24,6 +25,8 @@ const permalinks       = require('metalsmith-permalinks');
 const paths            = require('metalsmith-paths');
 const branch           = require('metalsmith-branch');
 const readingTime      = require('metalsmith-reading-time');
+const pagination       = require('metalsmith-pagination')
+const defaultValues    = require('metalsmith-default-values');
 const hbtmd            = require('metalsmith-hbt-md');
 const markdown         = require('metalsmith-markdown');
 const excerpts         = require('metalsmith-excerpts');
@@ -57,8 +60,13 @@ require('handlebars-helpers')({
 
 const moment          = require('moment');
 const transliteration = require('transliteration');
+const marked          = require('marked');
 const highlight       = require('highlight.js');
 const he              = require('he');
+
+const path = require('path');
+
+const { blogImage } = require('./lib/sharp');
 
 const prod = (process.env.NODE_ENV || 'development').toLowerCase() === 'production';
 
@@ -72,8 +80,22 @@ const siteLogo        = '**/prologo1/logo3_Gray_Lighter.svg';
 const siteKeywords    = [];
 const twitterHandle   = '@emmercm';
 
-const blogImageWidth  = 768;
+// x2 for retina displays
+const blogImageWidth  = 768 * 2;
 const blogImageHeight = Math.floor(blogImageWidth / 2);
+const blogImageThumbWidth  = 338 * 2;
+const blogImageThumbHeight = Math.floor(blogImageThumbWidth / 2);
+
+const markdownRenderer = new marked.Renderer();
+markdownRenderer.heading = (text, level, raw, slugger) => {
+    const slug = slugger.slug(raw);
+    return `<h${level} id="${slug}">
+        <a href="#${slug}" class="link" aria-hidden="true">
+            <i class="far fa-link"></i>
+        </a>
+        ${text}
+        </h${level}>`;
+};
 
 tracer(Metalsmith(__dirname))
     /***********************
@@ -90,7 +112,8 @@ tracer(Metalsmith(__dirname))
         siteurl: siteURL,
         sitedescription: siteDescription,
         sitekeywords: siteKeywords,
-        twitterhandle: twitterHandle,
+        sitelogo: siteLogo,
+        twitterhandle: twitterHandle
     })
 
     // Add all env vars to global metadata
@@ -157,42 +180,6 @@ tracer(Metalsmith(__dirname))
         removeSource: true
     }))
 
-    // Add default page metadata
-    .use(defaultValues([{
-        pattern: '**/*.@(html|md)',
-        defaults: {
-            // Metadata
-            description: file => file.hasOwnProperty('description') ? file.description : siteDescription,
-            pageTitle: file => {
-                // Leave non-strings alone
-                if (file.hasOwnProperty('pageTitle') && typeof file.pageTitle !== 'string') {
-                    return file.pageTitle
-                }
-                // Assemble string
-                let pageTitle = '';
-                if (file.hasOwnProperty('collection') && file.collection.length) {
-                    pageTitle += file.collection[0]
-                        .split(' ')
-                        .map(s => s.charAt(0).toUpperCase() + s.substring(1))
-                        .join(' ');
-                }
-                if (file.hasOwnProperty('title') && file.title) {
-                    if (pageTitle) {
-                        pageTitle += ' - ';
-                    }
-                    pageTitle += file.title + ' | ';
-                }
-                pageTitle += siteName;
-                return pageTitle;
-            },
-            pageDescription: file => file.description || siteDescription,
-            // Style
-            pageContainer: true,
-            pageWide: false,
-            pageBackground: true
-        }
-    }]))
-
     /*********************
      *                   *
      *     BUILD CSS     *
@@ -211,7 +198,7 @@ tracer(Metalsmith(__dirname))
      *                        *
      **************************/
 
-    // Process blog images
+    // Create static/img/blog/default.*
     .use(include({
         'static/img/blog': [
             siteLogo
@@ -223,112 +210,19 @@ tracer(Metalsmith(__dirname))
             rename: file => `default.${file.split('.').pop()}`
         }
     }))
+
+    // Ignore files that can't be processed
     .use(ignore(['static/img/blog/*.@(psd|xcf)']))
-    .use(sharp({
-        // Rasterize vector images
-        src: 'static/img/blog/*.svg',
-        namingPattern: '{dir}{name}.png',
-        moveFile: true,
-        methods: [{
-            name: 'png',
-            args: {
-                palette: true
-            }
-        }]
+
+    // Process large blog images
+    .use(blogImage('static/img/blog/!(*-thumb).*', blogImageWidth, blogImageHeight, prod))
+
+    // Process small blog images
+    .use(copy({
+        pattern: 'static/img/blog/*',
+        transform: filename => filename.replace(/\.([^.]+)$/, '-thumb.$1')
     }))
-    .use(msIf(prod, sharp({
-        // Preserve quality during processing
-        src: 'static/img/blog/*.@(bmp|heic|heif|gif|jpg|jpeg|tif|tiff|webp)',
-        namingPattern: '{dir}{name}.png',
-        moveFile: true,
-        methods: [{
-            name: 'png',
-            args: {
-                palette: true
-            }
-        }]
-    })))
-    // .use(sharp({
-    //     // Trim image borders
-    //     src: 'static/img/blog/*',
-    //     methods: [{
-    //         name: 'trim'
-    //     }]
-    // }))
-    .use(sharp({
-        // Downsize large images
-        src: 'static/img/blog/*',
-        methods: [{
-            name: 'resize',
-            args: [
-                blogImageWidth,
-                blogImageWidth,
-                {
-                    kernel: 'cubic',
-                    fit: 'outside',
-                    withoutEnlargement: true
-                }
-            ]
-        }]
-    }))
-    .use(sharp({
-        // Crop large images
-        src: 'static/img/blog/*',
-        methods: [{
-            name: 'resize',
-            args: [
-                blogImageWidth,
-                blogImageHeight,
-                {
-                    fit: 'cover',
-                    position: 17, // sharp.strategy.attention
-                    withoutEnlargement: true
-                }
-            ]
-        }]
-    }))
-    .use(sharp({
-        // Pad small images
-        src: 'static/img/blog/*',
-        methods: [{
-            name: 'extend',
-            args: metadata => {
-                const y = Math.max(blogImageHeight - metadata.height, 0);
-                const x = Math.max(blogImageWidth - metadata.width, 0);
-                return [{
-                    top: Math.floor(y / 2),
-                    left: Math.floor(x / 2),
-                    bottom: Math.ceil(y / 2),
-                    right: Math.ceil(x / 2),
-                    background: {r:0, g:0, b:0, alpha:0}
-                }]
-            }
-        }]
-    }))
-    .use(msIf(prod, sharp({
-        // Flatten transparent images
-        src: 'static/img/blog/*',
-        methods: [{
-            name: 'flatten',
-            args: [
-                {
-                    background: '#dee2e6' // $gray-300, halfway to $secondary ($gray-600)
-                }
-            ]
-        }]
-    })))
-    .use(msIf(prod, sharp({
-        // Compress images
-        src: 'static/img/blog/*',
-        namingPattern: '{dir}{name}.jpg',
-        moveFile: true,
-        methods: [{
-            name: 'jpeg',
-            args: [{
-                quality: 90
-            }]
-        }]
-    })))
+    .use(blogImage('static/img/blog/*-thumb.*', blogImageThumbWidth, blogImageThumbHeight, prod))
 
     /***********************
      *                     *
@@ -401,11 +295,11 @@ tracer(Metalsmith(__dirname))
         }
     }))
 
-    // Render blog templates (same as below) first so excerpts can be parsed before being referenced on other pages
+    // Render blog post partials (same as below) first so excerpts can be parsed before being referenced on other pages
     .use(branch('blog/*/*.md')
         // .use(hbtmd(Handlebars))
         .use(markdown({
-            headerIds: false,
+            renderer: markdownRenderer,
             highlight: (code, lang) => highlight.getLanguage(lang) ? highlight.highlight(lang, code).value : highlight.highlightAuto(code).value
         }))
         // Extract first paragraph as an excerpt and then change the page description
@@ -416,10 +310,10 @@ tracer(Metalsmith(__dirname))
                 .forEach(filename => {
                     files[filename].excerpt = he.decode(
                         files[filename].excerpt
-                            .replace(/<[^/][^>]*>/g, ' ')
-                            .replace(/<\/[^>]*>/g, '')
-                            .replace(/[ ][ ]+/g, ' ')
-                            .trim()
+                            .replace(/<[^/][^>]*>/g, ' ') // HTML start tags
+                            .replace(/<\/[^>]*>/g, '') // HTML end tags
+                            .replace(/[ ][ ]+/g, ' ') // multiple spaces in a row
+                            .trim() // leading/trailing whitespace
                     )
                 });
             done();
@@ -446,12 +340,179 @@ tracer(Metalsmith(__dirname))
     // Estimate pages' reading times
     .use(readingTime())
 
+    .use((files, metalsmith, done) => {
+        // metalsmith-tag-collections
+
+        const minimatch = require('minimatch');
+        const collections = require('metalsmith-collections');
+
+        const options = {
+            pattern: 'blog/**',
+            key: 'tags',
+            collection: 'blog/tag/{tag}',
+            settings: {
+                sortBy: (a, b) => {
+                    if (moment(a.date).isAfter(b.date)) {
+                        return 1;
+                    } else if (moment(a.date).isBefore(b.date)) {
+                        return -1;
+                    }
+                    return 0;
+                },
+                reverse: true
+            }
+        };
+
+        const collectionsConfig = {};
+
+        // Clear side-effect data from previous metalsmith-colletions
+        // const metadata = metalsmith.metadata();
+        // Object.keys(metadata.collections || {})
+        //     .forEach((collection) => {
+        //         if(metadata[collection]) {
+        //             delete metadata[collection];
+        //         }
+        //
+        //     });
+
+        // const tags = Object.keys(files)
+        //     .filter(minimatch.filter(options.pattern))
+        //     .map((filename) => {
+        //         const file = files[filename];
+        //         if(file[options.key]) {
+        //             const val = file[options.key];
+        //             return Array.isArray(val) ? val : [val];
+        //         }
+        //     })
+        //     .filter((tags) => tags)
+        //     .reduce((acc, val) => acc.concat(val), []) // .flat()
+        //     .filter((value, index, self) => self.indexOf(value) === index);
+
+        Object.keys(files)
+            .filter(minimatch.filter(options.pattern))
+            .forEach((filename) => {
+                const file = files[filename];
+
+                if(file[options.key]) {
+                    const val = file[options.key];
+
+                    (Array.isArray(val) ? val : [val]).forEach((tag) => {
+                        const collection = options.collection.replace('{tag}', tag);
+
+                        // Set the collection in the file's metadata
+                        files[filename].collection = [...(files[filename].collection || []), collection];
+
+                        // Build the settings for metalsmith-collections
+                        collectionsConfig[collection] = options.settings;
+                    });
+                }
+            });
+
+        // Clear side-effect data from previous metalsmith-colletions,
+        //  otherwise we could end up with duplicate pages in collections
+        const metadata = metalsmith.metadata();
+        Object.keys(metadata.collections || {})
+            .forEach((collection) => {
+                if(metadata[collection]) {
+                    delete metadata[collection];
+                }
+            });
+
+        // Snapshot any collections we didn't intend to change
+        //  metalsmith-collections will end up overwriting them and forgetting previous settings
+        const collectionsSnapshot = Object.keys(metadata.collections || [])
+            .filter((collection) => !collectionsConfig[collection])
+            .reduce((acc, val) => ({...acc, [val]: metadata.collections[val]}), {})
+
+        // Run metalsmith-collections
+        collections(collectionsConfig)(files, metalsmith, (...args) => {
+            // Restore collections we didn't intend to change
+            Object.keys(collectionsSnapshot)
+                .forEach((collection) => {
+                    metadata.collections[collection] = collectionsSnapshot[collection];
+                })
+
+            done(...args);
+        });
+    })
+
+    // Generate and render paginated blog index partials
+    .use((files, metalsmith, done) => {
+        const collections = metalsmith.metadata().collections;
+        const options = Object.keys(collections).reduce((acc, val) => {
+            acc[`collections['${val}']`] = {
+                perPage: 12,
+                first: path.join(val, 'index.html'),
+                noPageOne: true,
+                path: path.join(val, ':num', 'index.html'),
+                pageMetadata: {
+                    collection: [],
+                    priority: 0.9,
+                    pageWide: true,
+                    // pageBackground: false,
+                    title: 'Blog' // TODO: something more elegant
+                },
+                layout: 'blog_index.hbs'
+            };
+            return acc;
+        }, {});
+        pagination(options)(files, metalsmith, done);
+    })
+    .use(branch('blog/{tag/**/,}{[0-9]*/,}index.html')
+        // Re-run some above plugins
+        .use(paths({
+            property: 'paths',
+            directoryIndex: 'index.html'
+        }))
+        // Render the partial
+        .use(layouts({
+            engine: 'handlebars'
+        }))
+        .use(except('layout'))
+    )
+
+    // Add default page metadata
+    .use(defaultValues([{
+        pattern: '**/*.@(html|md)',
+        defaults: {
+            // Metadata
+            description: file => file.hasOwnProperty('description') ? file.description : siteDescription,
+            pageTitle: file => {
+                // Leave non-strings alone
+                if (file.hasOwnProperty('pageTitle') && typeof file.pageTitle !== 'string') {
+                    return file.pageTitle
+                }
+                // Assemble string
+                let pageTitle = '';
+                // if (file.hasOwnProperty('collection') && file.collection.length) {
+                //     pageTitle += file.collection[0]
+                //         .split(' ')
+                //         .map(s => s.charAt(0).toUpperCase() + s.substring(1))
+                //         .join(' ');
+                // }
+                if (file.hasOwnProperty('title') && file.title) {
+                    if (pageTitle) {
+                        pageTitle += ' - ';
+                    }
+                    pageTitle += file.title + ' | ';
+                }
+                pageTitle += siteName;
+                return pageTitle;
+            },
+            pageDescription: file => file.description || siteDescription,
+            // Style
+            pageContainer: true,
+            pageWide: false,
+            pageBackground: true
+        }
+    }]))
+
     // Process handlebars templating inside markdown
     .use(hbtmd(Handlebars))
 
     // Convert markdown to HTML
     .use(markdown({
-        headerIds: false,
+        renderer: markdownRenderer,
         highlight: (code, lang) => highlight.getLanguage(lang) ? highlight.highlight(lang, code).value : highlight.highlightAuto(code).value
     }))
 
@@ -599,6 +660,7 @@ tracer(Metalsmith(__dirname))
     .use(relative())
 
     // Remove unused files
+    // TODO: Remove unused images before metalsmith-sharp?
     .use(unused({
         pattern: '**/*.@('
             + [

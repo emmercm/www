@@ -47,5 +47,5 @@ pageWide: true
 </section>
 
 {{#if collections.blog}}<section class="container-xl py-3 py-md-4 py-lg-5 markdown">
-    {{>blog_list data=(first collections.blog 3)}}
+    {{>blog_list_horizontal data=(first collections.blog 3)}}
 </section>{{/if}}

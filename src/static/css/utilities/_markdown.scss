@@ -30,6 +30,35 @@
     //border-bottom: $border-width*2 solid lighten(if($headings-color, $headings-color, $body-color), 35%);
   }
 
+  h1, h2, h3, h4, h5, h6,
+  .h1, .h2, .h3, .h4, .h5, .h6 {
+    //&::before {
+    //  // https://stackoverflow.com/a/28824157
+    //  content: "";
+    //  display: block;
+    //  height: $navbar-height;
+    //  margin-top: $navbar-height * -1;
+    //}
+    .link {
+      float: left;
+      margin-left: $font-size-base * -1.5;
+      padding-right: $font-size-base * 0.5;
+      line-height: 1;
+      & > * {
+        opacity: 0;
+        @include font-size($font-size-base);
+        vertical-align: middle;
+      }
+    }
+    &:hover {
+      .link {
+        & > * {
+          opacity: 1;
+        }
+      }
+    }
+  }
+
   blockquote {
     padding: $spacer/2 $spacer;
     border-left: $border-width*4 solid lighten(if($headings-color, $headings-color, $body-color), 35%);
@@ -37,6 +66,7 @@
   }
 
   li {
-    @extend .my-1;
+    margin-top: map_get($spacers, 0);
+    margin-bottom: map_get($spacers, 0);
   }
 }

@@ -2,6 +2,8 @@
 
 title: What is the "JAMstack"?
 date: 2020-04-27T02:13:00
+tags:
+- metalsmith
 
 ---
 
