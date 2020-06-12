@@ -28,6 +28,6 @@
       "groupName": "Front-End"
     },
     { "packageNames": ["metalsmith-renamer"], "allowedVersions": "!/^0.5.0$/" },
-    { "packageNames": ["metalsmith-twitter-card"], "allowedVersions": "!/^1.0.6$/"}
+    { "packageNames": ["metalsmith-twitter-card"], "allowedVersions": "!/^1.0.[56]$/"}
   ]
 }
