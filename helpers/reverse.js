@@ -5,7 +5,7 @@
  *
  * Note: necessary because handlebars-helpers defines this function twice.
  *
- * @param {string|Array}val
+ * @param {string|Array} val
  * @returns {string|*}
  */
 module.exports = (val) => {
