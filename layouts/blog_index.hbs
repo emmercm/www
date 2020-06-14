@@ -35,7 +35,7 @@
         {{#gt pagination.pages.length 1}}
             <ul class="pagination justify-content-center mt-5">
                 <li class="page-item {{#eq pagination.index 0}}disabled{{/eq}}">
-                    <a href="{{ pagination.previous.path }}" class="page-link" tabindex="-1" {{#eq pagination.index 0}}aria-disabled="true"{{/eq}}>Newer Posts</a>
+                    <a href="/{{ pagination.previous.path }}" class="page-link" tabindex="-1" {{#eq pagination.index 0}}aria-disabled="true"{{/eq}}>Newer Posts</a>
                 </li>
                 {{#forEach pagination.pages}}
                     {{#eq ../pagination.index (subtract index 1)}}
@@ -47,12 +47,12 @@
                         </li>
                     {{else}}
                         <li class="page-item {{#eq ../pagination.index (subtract index 1)}}active{{/eq}}" {{#eq ../pagination.index (subtract index 1)}}aria-current="page"{{/eq}}>
-                            <a href="{{get "path" (itemAt ../pagination.pages index)}}" class="page-link">{{ index }}</a>
+                            <a href="/{{get "path" (itemAt ../pagination.pages index)}}" class="page-link">{{ index }}</a>
                         </li>
                     {{/eq}}
                 {{/forEach}}
                 <li class="page-item {{#eq pagination.index (subtract pagination.pages.length 1)}}disabled{{/eq}}">
-                    <a href="{{ pagination.next.path }}" class="page-link" tabindex="-1" {{#eq pagination.index (subtract pagination.pages.length 1)}}aria-disabled="true"{{/eq}}>Older Posts</a>
+                    <a href="/{{ pagination.next.path }}" class="page-link" tabindex="-1" {{#eq pagination.index (subtract pagination.pages.length 1)}}aria-disabled="true"{{/eq}}>Older Posts</a>
                 </li>
             </ul>
         {{/gt}}
