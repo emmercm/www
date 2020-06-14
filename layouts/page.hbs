@@ -12,7 +12,7 @@
 
     <!-- SEO GOOD https://moz.com/blog/seo-meta-tags -->
     <meta charset="{{sanitize sitecharset}}">
-    <title>{{{sanitize pageTitle}}}</title>
+    <title>{{sanitize pageTitle}}</title>
     <meta name="description" content="{{sanitize pageDescription}}">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
@@ -82,19 +82,19 @@
                             </div>
                         </div>
                         <div class="mx-auto mx-sm-0 mt-3 mt-sm-0">
-                            <a href="https://twitter.com/intent/tweet?url={{encodeURI siteurl}}{{encodeURI paths.href}}&text={{encodeURI title}}%20by%20{{encodeURI twitterhandle}}" title="Share on Twitter" class="text-dark">
+                            <a href="https://twitter.com/intent/tweet?url={{{encodeURI siteurl}}}{{{encodeURI paths.href}}}&text={{{encodeURI (concat title " by " twitterhandle)}}}" title="Share on Twitter" class="text-dark">
                                 <span class="fa-stack align-top">
                                     <i class="fal fa-circle fa-stack-2x"></i>
                                     <i class="fab fa-twitter fa-stack-1x"></i>
                                 </span>
                             </a>
-                            <a href="https://www.linkedin.com/shareArticle?url={{encodeURI siteurl}}{{encodeURI paths.href}}&mini=true&title={{{encodeURI title}}}&summary={{{encodeURI excerpt}}}&source={{{encodeURI sitename}}}" title="Share on LinkedIn" class="text-dark">
+                            <a href="https://www.linkedin.com/shareArticle?url={{{encodeURI siteurl}}}{{{encodeURI paths.href}}}&mini=true&title={{{encodeURI title}}}&summary={{{encodeURI excerpt}}}&source={{{encodeURI sitename}}}" title="Share on LinkedIn" class="text-dark">
                                 <span class="fa-stack align-top">
                                     <i class="fal fa-circle fa-stack-2x"></i>
                                     <i class="fab fa-linkedin-in fa-stack-1x"></i>
                                 </span>
                             </a>
-                            <!--<a href="https://www.facebook.com/sharer.php?u={{encodeURI siteurl}}{{encodeURI paths.href}}" title="Share on Facebook" class="text-dark">
+                            <!--<a href="https://www.facebook.com/sharer.php?u={{{encodeURI siteurl}}}{{{encodeURI paths.href}}}" title="Share on Facebook" class="text-dark">
                                 <span class="fa-stack align-top">
                                     <i class="fal fa-circle fa-stack-2x"></i>
                                     <i class="fab fa-facebook-f fa-stack-1x"></i>
@@ -133,7 +133,7 @@
                             {{/each}}
                         {{/if}}
                     </div>
-                    <a href="https://twitter.com/search?q={{encodeURI siteurl}}{{encodeURI paths.href}}">
+                    <a href="https://twitter.com/search?q={{{encodeURI siteurl}}}{{{encodeURI paths.href}}}">
                         <i>
                             <i class="fab fa-twitter"></i>
                             Discuss on Twitter
