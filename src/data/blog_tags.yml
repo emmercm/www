@@ -1,51 +1,69 @@
 bash:
+  title: Bash
   icon: fad fa-terminal
   color: dark
 
 bootstrap:
+  title: Bootstrap
   icon: fab fa-bootstrap
   color: bootstrap
 
+career:
+  title: Career
+  icon: fad fa-briefcase
+  color: purple
+
 ci-cd:
+  title: CI/CD
   icon: fad fa-code-merge
   color: secondary
 
 databases:
+  title: Databases
   icon: far fa-database
   color: gray
 
 docker:
+  title: Docker
   icon: fab fa-docker
   color: docker
 
 fontawesome:
+  title: Font Awesome
   icon: fab fa-font-awesome
   color: fontawesome
 
 github:
+  title: GitHub
   icon: fab fa-github
   color: github
 
 go:
+  title: Go
   icon: fad fa-code
   color: go
 
 kubernetes:
+  title: Kubernetes
   icon: fad fa-cubes
   color: kubernetes
 
 life:
+  title: Life
   icon: fad fa-hand-holding-seedling
-  color: indigo
+  color: life
 
 metalsmith:
+  title: Metalsmith
   icon: fad fa-browser
   color: metalsmith
 
 node.js:
+  title: Node.js
   icon: fab fa-node-js
   color: node
 
 testing:
+  title: Testing
   icon: fad fa-vial
   color: pink

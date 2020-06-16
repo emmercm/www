@@ -83,8 +83,8 @@ const twitterHandle   = '@emmercm';
 // x2 for retina displays
 const blogImageWidth  = 768 * 2;
 const blogImageHeight = Math.floor(blogImageWidth / 2);
-const blogImageThumbWidth  = 338 * 2;
-const blogImageThumbHeight = Math.floor(blogImageThumbWidth / 2);
+const blogImageThumbWidth  = 126 * 2;
+const blogImageThumbHeight = blogImageThumbWidth;
 
 const markdownRenderer = new marked.Renderer();
 markdownRenderer.heading = (text, level, raw, slugger) => {
@@ -214,15 +214,15 @@ tracer(Metalsmith(__dirname))
     // Ignore files that can't be processed
     .use(ignore(['static/img/blog/*.@(psd|xcf)']))
 
-    // Process large blog images
-    .use(blogImage('static/img/blog/!(*-thumb).*', blogImageWidth, blogImageHeight, prod))
+    // Process large blog images (sharp.strategy.attention)
+    .use(blogImage('static/img/blog/!(*-thumb).*', blogImageWidth, blogImageHeight, 17, prod))
 
-    // Process small blog images
+    // Process small blog images (sharp.gravity.center)
     .use(copy({
         pattern: 'static/img/blog/*',
         transform: filename => filename.replace(/\.([^.]+)$/, '-thumb.$1')
     }))
-    .use(blogImage('static/img/blog/*-thumb.*', blogImageThumbWidth, blogImageThumbHeight, prod))
+    .use(blogImage('static/img/blog/*-thumb.*', blogImageThumbWidth, blogImageThumbHeight, 0, prod))
 
     /***********************
      *                     *
@@ -295,7 +295,7 @@ tracer(Metalsmith(__dirname))
         }
     }))
 
-    // Render blog post partials (same as below) first so excerpts can be parsed before being referenced on other pages
+    // Render blog article partials (same as below) first so excerpts can be parsed before being referenced on other pages
     .use(branch('blog/*/*.md')
         // .use(hbtmd(Handlebars))
         .use(markdown({
@@ -341,7 +341,7 @@ tracer(Metalsmith(__dirname))
     .use(readingTime())
 
     .use((files, metalsmith, done) => {
-        // metalsmith-tag-collections
+        // TODO: metalsmith-tag-collections
 
         const minimatch = require('minimatch');
         const collections = require('metalsmith-collections');
@@ -440,6 +440,9 @@ tracer(Metalsmith(__dirname))
     .use((files, metalsmith, done) => {
         const collections = metalsmith.metadata().collections;
         const options = Object.keys(collections).reduce((acc, val) => {
+            const tag = val.split('/').length > 1 ? val.split('/').pop() : null;
+            const blogTags = metalsmith.metadata().blog_tags;
+            const title = blogTags[tag] ? blogTags[tag].title : null;
             acc[`collections['${val}']`] = {
                 perPage: 12,
                 first: path.join(val, 'index.html'),
@@ -450,7 +453,8 @@ tracer(Metalsmith(__dirname))
                     priority: 0.9,
                     pageWide: true,
                     // pageBackground: false,
-                    title: 'Blog' // TODO: something more elegant
+                    pageTitle: `Blog${title ? ` - ${title}` : ''} | ${siteName}`,
+                    title
                 },
                 layout: 'blog_index.hbs'
             };

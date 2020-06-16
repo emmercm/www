@@ -1,54 +1,52 @@
 <div>
     {{#each data}}
         <div class="row no-gutters">
-            <div class="col-sm-2">
-                <a href="{{ paths.href }}">
-                    {{#if (match (readdir "src/static/img/blog") (concat "**/" (stem paths.dir) ".*"))}}
-                        <img data-src="**/static/img/blog/{{stem paths.dir}}-thumb.*" alt="{{sanitize title}}" class="w-100">
-                    {{else}}
-                        <img data-src="**/static/img/blog/default-thumb.*" alt="{{sanitize title}}" class="w-100">
-                    {{/if}}
-                </a>
-
+            <div class="col-9 col-md-10 pr-3 pr-md-4">
+                <h3 class="d-flex align-items-start justify-content-between">
+                    <a href="{{ paths.href }}" class="text-dark">{{ title }}</a>
+                </h3>
+                <h5 class="mt-0">
+                    <small class="text-muted">{{moment this.date "MMM D, YYYY"}} &middot; {{this.readingTime}}</small>
+                </h5>
+                <p class="mt-3">{{{sanitize excerpt}}}</p>
 <!--                {{#if tags}}-->
-<!--                    <div class="d-flex align-items-start justify-content-center flex-wrap mt-2">-->
-<!--                        {{#each tags}}-->
-<!--                            <h5 class="m-0">-->
-<!--                                <a href="/blog/tag/{{this}}" title="{{this}}" class="badge badge-{{get "color" (get this ../../blog_tags)}} m-1">{{ this }}</a>-->
-<!--                            </h5>-->
-<!--                        {{/each}}-->
+<!--                    <div class="mt-3">-->
+<!--                        <div class="d-flex flex-md-column align-items-end flex-wrap">-->
+<!--                            {{#each tags}}-->
+<!--                                <h5 class="{{#unless @first}}mt-0 mt-md-1 ml-1 ml-md-0{{else}}mt-0{{/unless}} mb-0">-->
+<!--                                    <a href="/blog/tag/{{this}}" title="{{this}}" class="badge badge-{{get "color" (get this ../../blog_tags)}}">{{ this }}</a>-->
+<!--                                </h5>-->
+<!--                            {{/each}}-->
+<!--                        </div>-->
 <!--                    </div>-->
 <!--                {{/if}}-->
             </div>
 
-            <div class="col-sm-10 pl-sm-4">
-                <div class="d-flex align-items-start justify-content-between mb-3">
-                    <div>
-                        <h3 class="d-flex align-items-start justify-content-between mt-4 mt-sm-0">
-                            <a href="{{ paths.href }}" class="text-dark">{{ title }}</a>
-                        </h3>
-                        <h5 class="mt-0">
-                            <small class="text-muted">{{moment this.date "MMM D, YYYY"}} &middot; {{this.readingTime}}</small>
-                        </h5>
-                    </div>
-                    <div class="ml-4">
-                        {{#if tags}}
-                            <div class="d-flex flex-column align-items-end flex-wrap">
-                                {{#each tags}}
-                                    <h5 class="{{#unless @first}}mt-1{{else}}mt-0{{/unless}} mb-0">
-                                        <a href="/blog/tag/{{this}}" title="{{this}}" class="badge badge-{{get "color" (get this ../../blog_tags)}}">{{ this }}</a>
-                                    </h5>
-                                {{/each}}
-                            </div>
+            <div class="col-3 col-md-2">
+                <a href="{{ paths.href }}">
+<!--                    <div class="d-flex align-items-center max-vh-25 overflow-hidden">-->
+                        {{#if (match (readdir "src/static/img/blog") (concat "**/" (stem paths.dir) ".*"))}}
+                            <img data-src="**/static/img/blog/{{stem paths.dir}}-thumb.*" alt="{{sanitize title}}" class="w-100">
+                        {{else}}
+                            <img data-src="**/static/img/blog/default-thumb.*" alt="{{sanitize title}}" class="w-100">
                         {{/if}}
+<!--                    </div>-->
+                </a>
+
+                {{#if tags}}
+                    <div class="d-flex justify-content-center flex-wrap mt-2">
+                        {{#each (sort tags)}}
+                            <h5 class="m-1 mw-100">
+                                <a href="/blog/tag/{{this}}" title="{{this}}" class="badge badge-{{get "color" (get this ../../blog_tags)}} mw-100 text-break text-wrap">{{ this }}</a>
+                            </h5>
+                        {{/each}}
                     </div>
-                </div>
-                <p>{{{sanitize excerpt}}}</p>
+                {{/if}}
             </div>
         </div>
 
         {{#unless @last}}
-            <hr class="my-5">
+            <hr class="my-4 my-md-5">
         {{/unless}}
     {{/each}}
 </div>

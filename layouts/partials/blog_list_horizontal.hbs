@@ -1,7 +1,7 @@
 <div class="row row-cols-1 {{#gt (length data) 1}}row-cols-md-2{{/gt}} {{#gt (length data) 2}}row-cols-md-3{{/gt}} align-items-stretch mx-0">
     {{#each data}}
         <div class="col p-3">
-            <div class="card h-100 bg-light border-none">
+            <div class="card h-100 bg-light border-0">
                 <a href="{{ paths.href }}">
                     {{#if (match (readdir "src/static/img/blog") (concat "**/" (stem paths.dir) ".*"))}}
                         <img data-src="**/static/img/blog/{{stem paths.dir}}-thumb.*" alt="{{sanitize title}}" class="card-img-top">

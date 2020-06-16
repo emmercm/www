@@ -4,25 +4,27 @@
 
     // Borders
 
-    .border#{$infix} {
-      border: $border-width solid $border-color !important;
-    }
-    .border#{$infix}-none {
-      border: 0 !important;
-    }
-
-    @each $prop in (top, right, bottom, left) {
-      .border-#{$prop}#{$infix} {
-        border-#{$prop}: $border-width solid $border-color !important;
+    @if $infix != "" {
+      .border#{$infix} {
+        border: $border-width solid $border-color !important;
       }
-      .border-#{$prop}#{$infix}-none {
-        border-#{$prop}: 0 !important;
+      .border#{$infix}-0 {
+        border: 0 !important;
+      }
+
+      @each $prop in (top, right, bottom, left) {
+        .border-#{$prop}#{$infix} {
+          border-#{$prop}: $border-width solid $border-color !important;
+        }
+        .border-#{$prop}#{$infix}-0 {
+          border-#{$prop}: 0 !important;
+        }
       }
     }
 
     // Border radius
 
-    @each $size, $length in (0: 0, 1: $border-radius-sm, 2: $border-radius, 3: $border-radius-lg) {
+    @each $size, $length in (0: 0, 1: $border-radius-sm, 2: $border-radius, 3: $border-radius-lg, max: 9999px) {
       .br#{$infix}-#{$size} {
         border-radius: $length;
       }

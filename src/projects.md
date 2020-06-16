@@ -45,7 +45,7 @@ All plugins have:
 
 ### [metalsmith-collections-related](https://github.com/emmercm/metalsmith-collections-related)
 
-A plugin to find related files within collections, such as related blog posts.
+A plugin to find related files within collections, such as related blog articles.
 
 ### [metalsmith-htaccess](https://github.com/emmercm/metalsmith-htaccess)
 
@@ -63,7 +63,7 @@ A plugin to lint HTML files.
 
 A plugin to make local paths relative (e.g. `<a href="../index.html">`) in HTML tags.
 
-Related blog posts:
+Related blog articles:
 
 - [Using Relative Links in Metalsmith](/blog/using-relative-links-in-metalsmith)
 
@@ -75,7 +75,7 @@ A plugin to add [subresource integrity](https://developer.mozilla.org/en-US/docs
 
 A plugin to remove resources (`.css`, `.js`, `.png`, etc.) that aren't referenced by any HTML file.
 
-Related blog posts:
+Related blog articles:
 
 - [Remove Unused Assets in Metalsmith](/blog/remove-unused-assets-in-metalsmith)
 
@@ -83,7 +83,7 @@ Related blog posts:
 
 A plugin to include files outside of the source directory.
 
-Related blog posts:
+Related blog articles:
 
 - [Using Bootstrap 4 with Metalsmith](/blog/using-bootstrap-4-with-metalsmith)
 - [Using Font Awesome with Metalsmith](/blog/using-font-awesome-with-metalsmith)
@@ -101,7 +101,7 @@ A tool to automatically trace and measure Metalsmith build time.
 
 A plugin to run the [UnCSS](https://github.com/uncss/uncss) unused CSS remover on source files.
 
-Related blog posts:
+Related blog articles:
 
 - [Using Font Awesome with Metalsmith](/blog/using-font-awesome-with-metalsmith)
 - [Minify Files in Metalsmith](/blog/minify-files-in-metalsmith)

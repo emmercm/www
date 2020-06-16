@@ -1,25 +1,10 @@
 <div class="row">
-    <div class="col-3">
-        <h2>
-            <a href="/blog" class="text-dark">Recent Posts</a>
-        </h2>
-        <ul class="fa-ul ml-1">
-            {{#each (sort (unique (flat (pluck collections.blog "tags"))))}}
-                <li class="my-2">
-                    <span class="fa-li"></span>
-                    <i class="{{get "icon" (get this ../blog_tags)}} fa-fw mr-1"></i>
-                    {{#eq (segments ../paths.dir -1 undefined) this}}
-                        <b>{{ this }}</b>
-                    {{else}}
-                        <a href="/blog/tag/{{this}}">{{ this }}</a>
-                    {{/eq}}
-                </li>
-            {{/each}}
-        </ul>
-    </div>
-    <div class="col-9">
-        <div class="d-flex justify-content-between align-items-center mb-5">
-            <h1 class="m-0">Recent Posts</h1>
+    <div class="col-12 col-md-9">
+        <div class="d-flex justify-content-between align-items-center mb-4 mb-md-5 pb-3 border-bottom border-secondary">
+            <h1 class="m-0">
+                <a href="/blog" class="text-dark">Recent Articles</a>
+                {{#if title}} - {{title}}{{/if}}
+            </h1>
             <h5 class="m-0">
                 <a href="/blog/rss.xml" title="RSS Feed" class="text-dark">
                     <span class="fa-stack align-top">
@@ -32,29 +17,31 @@
 
         {{>blog_list_vertical data=pagination.files}}
 
-        {{#gt pagination.pages.length 1}}
-            <ul class="pagination justify-content-center mt-5">
-                <li class="page-item {{#eq pagination.index 0}}disabled{{/eq}}">
-                    <a href="/{{ pagination.previous.path }}" class="page-link" tabindex="-1" {{#eq pagination.index 0}}aria-disabled="true"{{/eq}}>Newer Posts</a>
-                </li>
-                {{#forEach pagination.pages}}
-                    {{#eq ../pagination.index (subtract index 1)}}
-                        <li class="page-item active" aria-current="page">
-                            <span class="page-link">
-                                {{ index }}
-                                <span class="sr-only">(current)</span>
-                            </span>
-                        </li>
+        <hr class="my-4 my-md-5">
+
+        <div class="d-flex justify-content-center">
+            <a href="/{{pagination.previous.path}}" class="btn {{#eq pagination.index 0}}btn-outline-secondary disabled{{else}}btn-outline-dark{{/eq}} br-max">Newer</a>
+            {{#forEach pagination.pages}}
+                <a href="/{{get "path" (itemAt ../pagination.pages (subtract index 1))}}" class="btn {{#eq ../pagination.index (subtract index 1)}}btn-outline-primary disabled{{else}}btn-outline-dark{{/eq}} br-max ml-2">{{ index }}</a>
+            {{/forEach}}
+            <a href="/{{pagination.next.path}}" class="btn {{#eq pagination.index (subtract pagination.pages.length 1)}}btn-outline-secondary disabled{{else}}btn-outline-dark{{/eq}} br-max ml-2">Older</a>
+        </div>
+    </div>
+
+    <div class="col-12 col-md-3 pl-md-5 pt-5 pt-md-0">
+        <h3>Article Tags</h3>
+        <ul class="fa-ul ml-1 text-md-truncate">
+            {{#each (sort (unique (flat (pluck collections.blog "tags"))))}}
+                <li class="my-2 d-inline-block d-md-block {{#unless @last}}mr-2 mr-md-0{{/unless}}">
+                    <span class="fa-li"></span>
+                    <i class="{{get "icon" (get this ../blog_tags)}} fa-fw mr-1"></i>
+                    {{#eq ../tag this}}
+                        <b>{{ this }}</b>
                     {{else}}
-                        <li class="page-item {{#eq ../pagination.index (subtract index 1)}}active{{/eq}}" {{#eq ../pagination.index (subtract index 1)}}aria-current="page"{{/eq}}>
-                            <a href="/{{get "path" (itemAt ../pagination.pages index)}}" class="page-link">{{ index }}</a>
-                        </li>
+                        <a href="/blog/tag/{{this}}">{{ this }}</a>
                     {{/eq}}
-                {{/forEach}}
-                <li class="page-item {{#eq pagination.index (subtract pagination.pages.length 1)}}disabled{{/eq}}">
-                    <a href="/{{ pagination.next.path }}" class="page-link" tabindex="-1" {{#eq pagination.index (subtract pagination.pages.length 1)}}aria-disabled="true"{{/eq}}>Older Posts</a>
                 </li>
-            </ul>
-        {{/gt}}
+            {{/each}}
+        </ul>
     </div>
 </div>

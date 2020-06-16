@@ -44,7 +44,7 @@
             <span class="navbar-toggler-icon"></span>
         </button>
 
-        <div class="collapse navbar-collapse mt-2 mt-md-0 pt-2 pt-md-0 border-top border-md-none border-light" id="navbarSupportedContent">
+        <div class="collapse navbar-collapse mt-2 mt-md-0 pt-2 pt-md-0 border-top border-md-0 border-light" id="navbarSupportedContent">
             <ul class="navbar-nav d-flex align-items-center ml-auto">
                 {{#each menu.header}}
                     <li class="nav-item{{#eq (segments ../paths.dir 0 1) link}} active{{/eq}} my-1 my-md-0">
@@ -68,14 +68,13 @@
 
 <main>
     {{#if pageContainer}}
-        <!--<div class="navbar-spacer fixed-top"></div>-->
         <div class="{{#if pageWide}}container-lg{{else}}container-md mw-md-md px-0{{/if}} pt-4 pt-lg-5 pt-xl-6 {{#and (inArray collection "blog") (gt collections.blog.length 2)}}pb-3{{else}}pb-4 pb-lg-5 pb-xl-6{{/and}} markdown">
             {{#if pageHeader}}
                 <div id="metadata" class="brt-1 {{#if pageBackground}}pt-4 px-4 pt-md-5 px-md-5 bg-light{{else}}bg-transparent{{/if}}">
                     <h1>{{ title }}</h1>
                     <div class="media d-flex flex-column flex-sm-row justify-content-between align-items-sm-center">
                         <div class="d-flex align-items-center">
-                            <img src="{{gravatar.main}}?r=g&d=mp&s=48" class="mr-3 rounded-circle img-thumbnail bg-dark border-none" alt="{{ sitename }}">
+                            <img src="{{gravatar.main}}?r=g&d=mp&s=48" class="mr-3 rounded-circle img-thumbnail bg-dark border-0" alt="{{ sitename }}">
                             <div class="media-body">
                                 <div>{{ sitename }}</div>
                                 <div class="text-muted">{{moment this.date "MMM D, YYYY"}} &middot; {{readingTime}}</div>
@@ -125,9 +124,8 @@
                 <div class="d-flex justify-content-between brb-1 {{#if pageBackground}}pb-4 px-4 pb-md-5 px-md-5 bg-light{{else}}bg-transparent{{/if}}">
                     <div class="d-flex flex-wrap">
                         {{#if tags}}
-                            <span>Tags:</span>
                             {{#each tags}}
-                                <h5 class="my-0 ml-2">
+                                <h5 class="my-0 {{#unless @first}}ml-2{{/unless}}">
                                     <a href="/blog/tag/{{this}}" title="{{this}}" class="badge badge-{{get "color" (get this ../blog_tags)}}">{{ this }}</a>
                                 </h5>
                             {{/each}}

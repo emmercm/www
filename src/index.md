@@ -8,7 +8,7 @@ pageWide: true
 
 ---
 
-<section class="d-flex flex-column text-center w-100 vh-100 text-shadow-sm">
+<section class="d-flex flex-column text-center w-100 vh-100 navbar-nspacer text-shadow-sm">
     <div class="container my-auto p-4">
         <h1 class="display-1">{{ sitename }}</h1>
         <h2>Software Engineer</h2>
@@ -39,7 +39,7 @@ pageWide: true
         </h2>
         <br>
         <h4>
-            {{{ sitedescription }}}
+            {{ sitedescription }}
             Skilled at distributed architecture and technical project management.
             Passionate about quality, mentoring, and leading by example.
         </h4>
