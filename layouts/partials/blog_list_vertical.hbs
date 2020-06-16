@@ -3,36 +3,20 @@
         <div class="row no-gutters">
             <div class="col-9 col-md-10 pr-3 pr-md-4">
                 <h3 class="d-flex align-items-start justify-content-between">
-                    <a href="{{ paths.href }}" class="text-dark">{{ title }}</a>
+                    <a href="{{paths.href}}" class="text-dark">{{ title }}</a>
                 </h3>
                 <h5 class="mt-0">
                     <small class="text-muted">{{moment this.date "MMM D, YYYY"}} &middot; {{this.readingTime}}</small>
                 </h5>
                 <p class="mt-3">{{{sanitize excerpt}}}</p>
-<!--                {{#if tags}}-->
-<!--                    <div class="mt-3">-->
-<!--                        <div class="d-flex flex-md-column align-items-end flex-wrap">-->
-<!--                            {{#each tags}}-->
-<!--                                <h5 class="{{#unless @first}}mt-0 mt-md-1 ml-1 ml-md-0{{else}}mt-0{{/unless}} mb-0">-->
-<!--                                    <a href="/blog/tag/{{this}}" title="{{this}}" class="badge badge-{{get "color" (get this ../../blog_tags)}}">{{ this }}</a>-->
-<!--                                </h5>-->
-<!--                            {{/each}}-->
-<!--                        </div>-->
-<!--                    </div>-->
-<!--                {{/if}}-->
             </div>
 
             <div class="col-3 col-md-2">
-                <a href="{{ paths.href }}">
-<!--                    <div class="d-flex align-items-center max-vh-25 overflow-hidden">-->
-                        {{#if (match (readdir "src/static/img/blog") (concat "**/" (stem paths.dir) ".*"))}}
-                            <img data-src="**/static/img/blog/{{stem paths.dir}}-thumb.*" alt="{{sanitize title}}" class="w-100">
-                        {{else}}
-                            <img data-src="**/static/img/blog/default-thumb.*" alt="{{sanitize title}}" class="w-100">
-                        {{/if}}
-<!--                    </div>-->
-                </a>
-
+                {{#if image}}
+                    <a href="{{paths.href}}">
+                        <img data-src="{{image}}-thumb.*" alt="{{sanitize title}}" class="w-100">
+                    </a>
+                {{/if}}
                 {{#if tags}}
                     <div class="d-flex justify-content-center flex-wrap mt-2">
                         {{#each (sort tags)}}

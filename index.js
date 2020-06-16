@@ -58,11 +58,12 @@ require('handlebars-helpers')({
     handlebars: Handlebars
 });
 
+const he              = require('he');
+const highlight       = require('highlight.js');
+const marked          = require('marked');
+const minimatch       = require('minimatch');
 const moment          = require('moment');
 const transliteration = require('transliteration');
-const marked          = require('marked');
-const highlight       = require('highlight.js');
-const he              = require('he');
 
 const path = require('path');
 
@@ -295,6 +296,23 @@ tracer(Metalsmith(__dirname))
         }
     }))
 
+    // Find images for pages
+    .use((files, metalsmith, done) => defaultValues([{
+        pattern: '**/*.@(html|md)',
+        defaults: {
+            image: file => {
+                const basename = file.path
+                    .replace(/\/index\.[a-z]+$/, '')
+                    .split('/').pop()
+                    .replace(/\.[a-z]+$/, '');
+                return (Object.keys(files)
+                    .filter(minimatch.filter(`static/img/{**/,}${basename}.*`))
+                    .find(e => true) || '')
+                    .replace(/\.[a-z]+$/, '');
+            }
+        }
+    }])(files, metalsmith, done))
+
     // Render blog article partials (same as below) first so excerpts can be parsed before being referenced on other pages
     .use(branch('blog/*/*.md')
         // .use(hbtmd(Handlebars))
@@ -479,21 +497,15 @@ tracer(Metalsmith(__dirname))
         pattern: '**/*.@(html|md)',
         defaults: {
             // Metadata
-            description: file => file.hasOwnProperty('description') ? file.description : siteDescription,
+            description: file => file.description ? file.description : siteDescription,
             pageTitle: file => {
                 // Leave non-strings alone
-                if (file.hasOwnProperty('pageTitle') && typeof file.pageTitle !== 'string') {
+                if (file.pageTitle && typeof file.pageTitle !== 'string') {
                     return file.pageTitle
                 }
                 // Assemble string
                 let pageTitle = '';
-                // if (file.hasOwnProperty('collection') && file.collection.length) {
-                //     pageTitle += file.collection[0]
-                //         .split(' ')
-                //         .map(s => s.charAt(0).toUpperCase() + s.substring(1))
-                //         .join(' ');
-                // }
-                if (file.hasOwnProperty('title') && file.title) {
+                if (file.title) {
                     if (pageTitle) {
                         pageTitle += ' - ';
                     }
