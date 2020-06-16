@@ -68,9 +68,9 @@
 
 <main>
     {{#if pageContainer}}
-        <div class="{{#if pageWide}}container-lg{{else}}container-md mw-md-md px-0{{/if}} pt-4 pt-lg-5 pt-xl-6 {{#and (inArray collection "blog") (gt collections.blog.length 2)}}pb-3{{else}}pb-4 pb-lg-5 pb-xl-6{{/and}} markdown">
+        <div class="{{#if pageSize}}container-{{pageSize}} mw-{{pageSize}}-{{pageSize}}{{else}}container-md mw-md-md{{/if}} px-0 pt-4 pt-md-5 pt-xl-6 {{#and (inArray collection "blog") (gt collections.blog.length 2)}}pb-3{{else}}pb-4 pb-md-5 pb-xl-6{{/and}} markdown">
             {{#if pageHeader}}
-                <div id="metadata" class="brt-1 {{#if pageBackground}}pt-4 px-4 pt-md-5 px-md-5 bg-light{{else}}bg-transparent{{/if}}">
+                <div id="metadata" class="brt-{{#if pageSize}}{{pageSize}}{{else}}md{{/if}}-1 pt-4 px-4 pt-md-5 px-md-5 bg-light">
                     <h1>{{ title }}</h1>
                     <div class="media d-flex flex-column flex-sm-row justify-content-between align-items-sm-center">
                         <div class="d-flex align-items-center">
@@ -109,7 +109,7 @@
                     </div>
                 </div>
                 {{#if (match (readdir "src/static/img/blog") (concat "**/" (stem paths.dir) ".*"))}}
-                    <div class="{{#if pageBackground}}pt-5 bg-light{{else}}bg-transparent{{/if}}">
+                    <div class="pt-5 bg-light">
                         <img src="**/static/img/blog/{{stem paths.dir}}.*" alt="{{sanitize title}}" class="w-100 og-image">
                         {{#if imageCredit}}
                             <p class="mt-3 text-center font-italic">{{{ imageCredit }}}</p>
@@ -117,15 +117,16 @@
                     </div>
                 {{/if}}
             {{/if}}
-            <div id="contents" class="{{#not pageHeader}}brt-1{{/not}} {{#not pageFooter}}brb-1{{/not}} {{#if pageBackground}}p-4 p-md-5 bg-light{{else}}bg-transparent{{/if}}">
+            <div id="contents" class="{{#not pageHeader}}brt-{{#if pageSize}}{{pageSize}}{{else}}md{{/if}}-1{{/not}} {{#not pageFooter}}brb-{{#if pageSize}}{{pageSize}}{{else}}md{{/if}}-1{{/not}} p-4 p-md-5 bg-light">
                 {{{ contents }}}
             </div>
             {{#if pageFooter}}
-                <div class="d-flex justify-content-between brb-1 {{#if pageBackground}}pb-4 px-4 pb-md-5 px-md-5 bg-light{{else}}bg-transparent{{/if}}">
+                <div class="d-flex justify-content-between brb-{{#if pageSize}}{{pageSize}}{{else}}md{{/if}}-1 pb-4 px-4 pb-md-5 px-md-5 bg-light">
                     <div class="d-flex flex-wrap">
                         {{#if tags}}
+                            <span>Tags:</span>
                             {{#each tags}}
-                                <h5 class="my-0 {{#unless @first}}ml-2{{/unless}}">
+                                <h5 class="my-0 ml-2">
                                     <a href="/blog/tag/{{this}}" title="{{this}}" class="badge badge-{{get "color" (get this ../blog_tags)}}">{{ this }}</a>
                                 </h5>
                             {{/each}}

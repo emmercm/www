@@ -1,10 +1,7 @@
 <div class="row">
     <div class="col-12 col-md-9">
         <div class="d-flex justify-content-between align-items-center mb-4 mb-md-5 pb-3 border-bottom border-secondary">
-            <h1 class="m-0">
-                <a href="/blog" class="text-dark">Recent Articles</a>
-                {{#if title}} - {{title}}{{/if}}
-            </h1>
+            <h1 class="m-0">Recent Articles{{#if title}} - {{title}}{{/if}}</h1>
             <h5 class="m-0">
                 <a href="/blog/rss.xml" title="RSS Feed" class="text-dark">
                     <span class="fa-stack align-top">
@@ -35,7 +32,7 @@
                 <li class="my-2 d-inline-block d-md-block {{#unless @last}}mr-2 mr-md-0{{/unless}}">
                     <span class="fa-li"></span>
                     <i class="{{get "icon" (get this ../blog_tags)}} fa-fw mr-1"></i>
-                    {{#eq ../tag this}}
+                    {{#eq (segments ../paths.dir -1 undefined) this}}
                         <b>{{ this }}</b>
                     {{else}}
                         <a href="/blog/tag/{{this}}">{{ this }}</a>

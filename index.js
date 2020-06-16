@@ -451,8 +451,7 @@ tracer(Metalsmith(__dirname))
                 pageMetadata: {
                     collection: [],
                     priority: 0.9,
-                    pageWide: true,
-                    // pageBackground: false,
+                    pageSize: 'lg',
                     pageTitle: `Blog${title ? ` - ${title}` : ''} | ${siteName}`,
                     title
                 },
@@ -505,9 +504,7 @@ tracer(Metalsmith(__dirname))
             },
             pageDescription: file => file.description || siteDescription,
             // Style
-            pageContainer: true,
-            pageWide: false,
-            pageBackground: true
+            pageContainer: true
         }
     }]))
 
@@ -521,7 +518,9 @@ tracer(Metalsmith(__dirname))
     }))
 
     // Find related files
-    .use(related())
+    .use(related({
+        maxRelated: 6
+    }))
 
     // Prod: add favicons and icons
     .use(msIf(prod, favicons({
