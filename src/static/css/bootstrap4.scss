@@ -317,3 +317,34 @@ h1, h2, h3, h4, h5, h6,
 .text-shadow { text-shadow: $box-shadow !important; }
 .text-shadow-lg { text-shadow: $box-shadow-lg !important; }
 .text-shadow-none { text-shadow: none !important; }
+
+// https://codepen.io/2xsamurai/pen/WwmjKQ
+// Usage: <div class="mouse-scroll"><div><div></div></div></div>
+.mouse-scroll {
+  width: 37px;
+  height: 59px;
+}
+.mouse-scroll > * {
+  width: 3px;
+  padding: 10px 15px;
+  height: 35px;
+  border: 2px solid $light;
+  border-radius: 25px;
+  opacity: 0.75;
+  box-sizing: content-box;
+}
+.mouse-scroll > * > * {
+  width: 3px;
+  height: 10px;
+  border-radius: 25%;
+  background-color: $light;
+  animation-name: scroll;
+  animation-duration: 2.2s;
+  animation-timing-function: cubic-bezier(.15,.41,.69,.94);
+  animation-iteration-count: infinite;
+}
+@keyframes scroll {
+  0% { opacity: 0; }
+  10% { transform: translateY(0); opacity: 1; }
+  100% { transform: translateY(15px); opacity: 0; }
+}
