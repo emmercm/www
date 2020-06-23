@@ -45,7 +45,7 @@ go:
 
 kubernetes:
   title: Kubernetes
-  icon: fad fa-cubes
+  icon: far fa-dharmachakra
   color: kubernetes
 
 life:

@@ -18,7 +18,7 @@
                     </a>
                 {{/if}}
                 {{#if tags}}
-                    <div class="d-flex justify-content-center flex-wrap mt-2">
+                    <div class="d-flex justify-content-center flex-wrap {{#if image}}mt-2{{/if}}">
                         {{#each (sort tags)}}
                             <h5 class="m-1 mw-100">
                                 <a href="/blog/tag/{{this}}" title="{{this}}" class="badge badge-{{get "color" (get this ../../blog_tags)}} mw-100 text-break text-wrap">{{ this }}</a>
