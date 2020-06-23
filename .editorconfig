@@ -1,0 +1,26 @@
+root = true
+
+[*]
+indent_style = space
+indent_size = 4
+charset = utf-8
+trim_trailing_whitespace = true
+insert_final_newline = true
+end_of_line = lf
+# editorconfig-tools is unable to ignore longs strings or urls
+max_line_length = off
+
+[*.html]
+indent_size = 4
+
+[*.json]
+indent_size = 2
+
+[*.md]
+indent_size = 2
+
+[src/*]
+indent_size = 8
+
+[*.{yml, yaml}]
+indent_size = 2

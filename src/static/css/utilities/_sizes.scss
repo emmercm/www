@@ -11,15 +11,19 @@
       }
 
       // viewport: width / height / min-width / min-height / max-width / max-height
+      //  https://css-tricks.com/the-trick-to-viewport-units-on-mobile/
       @each $prop, $abbrev in (width: vw, height: vh) {
         .#{$abbrev}#{$infix}-#{$size} {
           #{$prop}: #{$size}#{$abbrev} !important;
+          #{$prop}: calc(var(--#{$abbrev}, 1#{$abbrev}) * #{$size}) !important;
         }
         .min-#{$abbrev}#{$infix}-#{$size} {
           min-#{$prop}: #{$size}#{$abbrev} !important;
+          min-#{$prop}: calc(var(--#{$abbrev}, 1#{$abbrev}) * #{$size}) !important;
         }
         .max-#{$abbrev}#{$infix}-#{$size} {
           max-#{$prop}: #{$size}#{$abbrev} !important;
+          max-#{$prop}: calc(var(--#{$abbrev}, 1#{$abbrev}) * #{$size}) !important;
         }
       }
     }
