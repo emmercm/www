@@ -2,6 +2,9 @@
 
 title: Using Font Awesome with Metalsmith
 date: 2019-12-01T23:55:00
+tags:
+- metalsmith
+- fontawesome
 
 ---
 

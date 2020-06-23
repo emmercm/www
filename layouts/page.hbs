@@ -12,7 +12,7 @@
 
     <!-- SEO GOOD https://moz.com/blog/seo-meta-tags -->
     <meta charset="{{sanitize sitecharset}}">
-    <title>{{{sanitize pageTitle}}}</title>
+    <title>{{sanitize pageTitle}}</title>
     <meta name="description" content="{{sanitize pageDescription}}">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
@@ -20,7 +20,7 @@
     <!-- metalsmith-open-graph -->
     <!-- metalsmith-twitter-card -->
     {{#if sitekeywords}}
-        <meta name="keywords" content="{{#each sitekeywords}}{{ this }}{{else}}{{ sitekeywords }}{{/each}}">
+        <meta name="keywords" content="{{#each sitekeywords}}{{ this }}{{else}}{{sitekeywords}}{{/each}}">
     {{/if}}
 
     <!-- https://blog.wsol.com/seo-for-https-sites-should-you-implement-the-meta-referrer-tag -->
@@ -34,17 +34,17 @@
 </head>
 
 <body class="d-flex flex-column h-100 bg-secondary bg-trianglify" data-parallax="scroll" data-parallax-velocity="0.25">
-<nav class="navbar navbar-expand-md navbar-dark fixed-top clearfix bg-dark vw-100 px-4 shadow">
+<nav class="navbar navbar-expand-md navbar-dark clearfix bg-dark px-4 shadow">
     <div class="container-xl px-0">
         <a class="navbar-brand" href="/">
-            <img src="**/logo3_Gray_Lighter.svg" alt="Logo" class="mr-2">
+            <img src="{{sitelogo}}" alt="Logo" class="mr-2">
             <span class="align-middle">{{ sitename }}</span>
         </a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>
 
-        <div class="collapse navbar-collapse mt-2 mt-md-0 pt-2 pt-md-0 border-top border-md-none border-light" id="navbarSupportedContent">
+        <div class="collapse navbar-collapse mt-2 mt-md-0 pt-2 pt-md-0 border-top border-md-0 border-light" id="navbarSupportedContent">
             <ul class="navbar-nav d-flex align-items-center ml-auto">
                 {{#each menu.header}}
                     <li class="nav-item{{#eq (segments ../paths.dir 0 1) link}} active{{/eq}} my-1 my-md-0">
@@ -68,33 +68,32 @@
 
 <main>
     {{#if pageContainer}}
-        <div class="navbar-spacer fixed-top"></div>
-        <div class="{{#if pageWide}}container-lg{{else}}container-md mw-md-md px-0{{/if}} pt-4 pt-lg-5 pt-xl-6 {{#and (inArray collection "blog") (gt collections.blog.length 2)}}pb-3{{else}}pb-4 pb-lg-5 pb-xl-6{{/and}} markdown">
+        <div class="{{#if pageSize}}container-{{pageSize}} mw-{{pageSize}}-{{pageSize}}{{else}}container-md mw-md-md{{/if}} px-0 pt-4 pt-md-5 pt-xl-6 {{#and (inArray collection "blog") (gt collections.blog.length 2)}}pb-3{{else}}pb-4 pb-md-5 pb-xl-6{{/and}} markdown">
             {{#if pageHeader}}
-                <div id="metadata" class="brt-1 {{#if pageBackground}}pt-4 px-4 pt-md-5 px-md-5 bg-light{{else}}bg-transparent{{/if}}">
+                <div id="metadata" class="brt-{{#if pageSize}}{{pageSize}}{{else}}md{{/if}}-1 pt-4 px-4 pt-md-5 px-md-5 bg-light">
                     <h1>{{ title }}</h1>
                     <div class="media d-flex flex-column flex-sm-row justify-content-between align-items-sm-center">
                         <div class="d-flex align-items-center">
-                            <img src="{{gravatar.main}}?r=g&d=mp&s=48" class="mr-3 rounded-circle img-thumbnail bg-dark border-none" alt="{{ sitename }}">
+                            <img src="{{gravatar.main}}?r=g&d=mp&s=112" class="mr-3 rounded-circle img-thumbnail bg-dark border-0" style="width:56px;" alt="{{sitename}}">
                             <div class="media-body">
                                 <div>{{ sitename }}</div>
                                 <div class="text-muted">{{moment this.date "MMM D, YYYY"}} &middot; {{readingTime}}</div>
                             </div>
                         </div>
                         <div class="mx-auto mx-sm-0 mt-3 mt-sm-0">
-                            <a href="https://twitter.com/intent/tweet?url={{encodeURI siteurl}}{{encodeURI paths.href}}&text={{encodeURI title}}%20by%20{{encodeURI twitterhandle}}" title="Share on Twitter" class="text-dark">
+                            <a href="https://twitter.com/intent/tweet?url={{{encodeURI siteurl}}}{{{encodeURI paths.href}}}&text={{{encodeURI (concat title " by " twitterhandle)}}}" title="Share on Twitter" class="text-dark">
                                 <span class="fa-stack align-top">
                                     <i class="fal fa-circle fa-stack-2x"></i>
                                     <i class="fab fa-twitter fa-stack-1x"></i>
                                 </span>
                             </a>
-                            <a href="https://www.linkedin.com/shareArticle?url={{encodeURI siteurl}}{{encodeURI paths.href}}&mini=true&title={{{encodeURI title}}}&summary={{{encodeURI excerpt}}}&source={{{encodeURI sitename}}}" title="Share on LinkedIn" class="text-dark">
+                            <a href="https://www.linkedin.com/shareArticle?url={{{encodeURI siteurl}}}{{{encodeURI paths.href}}}&mini=true&title={{{encodeURI title}}}&summary={{{encodeURI excerpt}}}&source={{{encodeURI sitename}}}" title="Share on LinkedIn" class="text-dark">
                                 <span class="fa-stack align-top">
                                     <i class="fal fa-circle fa-stack-2x"></i>
                                     <i class="fab fa-linkedin-in fa-stack-1x"></i>
                                 </span>
                             </a>
-                            <!--<a href="https://www.facebook.com/sharer.php?u={{encodeURI siteurl}}{{encodeURI paths.href}}" title="Share on Facebook" class="text-dark">
+                            <!--<a href="https://www.facebook.com/sharer.php?u={{{encodeURI siteurl}}}{{{encodeURI paths.href}}}" title="Share on Facebook" class="text-dark">
                                 <span class="fa-stack align-top">
                                     <i class="fal fa-circle fa-stack-2x"></i>
                                     <i class="fab fa-facebook-f fa-stack-1x"></i>
@@ -109,21 +108,31 @@
                         </div>
                     </div>
                 </div>
-                {{#if (match (readdir "src/static/img/blog") (concat "**/" (stem paths.dir) ".@(bmp|gif|jpg|jpeg|png|svg|tif|tiff|webp)"))}}
-                    <div class="{{#if pageBackground}}pt-5 bg-light{{else}}bg-transparent{{/if}}">
-                        <img src="**/static/img/blog/{{stem paths.dir}}.@(bmp|gif|jpg|jpeg|png|svg|tif|tiff|webp)" alt="{{sanitize title}}" class="w-100 og-image">
+                {{#if image}}
+                    <div class="pt-5 bg-light">
+                        <img src="{{image}}.*" alt="{{sanitize title}}" class="w-100 og-image">
                         {{#if imageCredit}}
                             <p class="mt-3 text-center font-italic">{{{ imageCredit }}}</p>
                         {{/if}}
                     </div>
                 {{/if}}
             {{/if}}
-            <div id="contents" class="{{#not pageHeader}}brt-1{{/not}} {{#not pageFooter}}brb-1{{/not}} {{#if pageBackground}}p-4 p-md-5 bg-light{{else}}bg-transparent{{/if}}">
+            <div id="contents" class="{{#not pageHeader}}brt-{{#if pageSize}}{{pageSize}}{{else}}md{{/if}}-1{{/not}} {{#not pageFooter}}brb-{{#if pageSize}}{{pageSize}}{{else}}md{{/if}}-1{{/not}} p-4 p-md-5 bg-light">
                 {{{ contents }}}
             </div>
             {{#if pageFooter}}
-                <div class="brb-1 {{#if pageBackground}}pb-4 px-4 pb-md-5 px-md-5 bg-light{{else}}bg-transparent{{/if}} text-right">
-                    <a href="https://twitter.com/search?q={{encodeURI siteurl}}{{encodeURI paths.href}}">
+                <div class="d-flex justify-content-between brb-{{#if pageSize}}{{pageSize}}{{else}}md{{/if}}-1 pb-4 px-4 pb-md-5 px-md-5 bg-light">
+                    <div class="d-flex flex-wrap">
+                        {{#if tags}}
+                            <span>Tags:</span>
+                            {{#each tags}}
+                                <h5 class="my-0 ml-2">
+                                    <a href="/blog/tag/{{this}}" title="{{this}}" class="badge badge-{{get "color" (get this ../blog_tags)}}">{{ this }}</a>
+                                </h5>
+                            {{/each}}
+                        {{/if}}
+                    </div>
+                    <a href="https://twitter.com/search?q={{{encodeURI siteurl}}}{{{encodeURI paths.href}}}">
                         <i>
                             <i class="fab fa-twitter"></i>
                             Discuss on Twitter
@@ -135,7 +144,7 @@
 
         {{#and (inArray collection "blog") (gt collections.blog.length 2)}}
             <div class="container-xl pb-3 pb-lg-5 pb-xl-6 markdown">
-                {{>blog_list data=related.blog}}
+                {{>blog_list_horizontal data=related.blog}}
             </div>
         {{/and}}
     {{else}}

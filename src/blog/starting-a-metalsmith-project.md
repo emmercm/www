@@ -2,12 +2,14 @@
 
 title: Starting a Metalsmith Project
 date: 2019-09-20T01:31:00
+tags:
+- metalsmith
 
 ---
 
 [Metalsmith](https://metalsmith.io/) is a plugin-based static site generator originally from [Segment](https://segment.com/). It's a current favorite of mine because of how sites are built as a pipeline of plugins where the output of each plugin is the input of the next. This allows for strong control over what happens and when it happens.
 
-An simple pipeline could look like:
+A simple pipeline could look like:
 
 1. Set the input directory.
 2. Convert all Markdown files to HTML.

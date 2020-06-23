@@ -3,6 +3,8 @@
 title: Using Relative Links in Metalsmith
 imageCredit: Photo by <a href="https://unsplash.com/@franckinjapan">Franck V.</a> on <a href="https://unsplash.com/photos/0La7MwJhSyo">Unsplash</a>
 date: 2020-05-21T17:26:00
+tags:
+- metalsmith
 
 ---
 

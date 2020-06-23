@@ -3,6 +3,8 @@
 title: Remove Unused Assets in Metalsmith
 imageCredit: Photo by <a href="https://unsplash.com/@rocinante_11">Mick Haupt</a> on <a href="https://unsplash.com/photos/VE9DQ7zm22Y">Unsplash</a>
 date: 2020-05-19T18:22:00
+tags:
+- metalsmith
 
 ---
 

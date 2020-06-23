@@ -2,6 +2,9 @@
 
 title: Linting Metalsmith Output HTML
 date: 2019-12-08T19:19:00
+tags:
+- metalsmith
+- testing
 
 ---
 
