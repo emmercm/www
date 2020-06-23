@@ -22,8 +22,7 @@
         "bootstrap",
         "highlight.js",
         "jquery",
-        "lozad",
-        "mobile-detect"
+        "lozad"
       ],
       "groupName": "Front-End"
     },
