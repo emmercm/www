@@ -6,19 +6,9 @@
  * http://bencentra.com/code/2015/02/27/optimizing-window-resize.html
  */
 
-var viewHeightOrientation = undefined;
 function viewHeight() {
-    // Replicate deprecated window.orientationchange() behavior
-    var newOrientation = $(window).height() > $(window).width() ? 'portrait' : 'landscape';
-    if (newOrientation !== viewHeightOrientation) {
-        document.documentElement.style.setProperty('--vh', (window.innerHeight * 0.01) + 'px');
-        viewHeightOrientation = newOrientation;
-    }
+    document.documentElement.style.setProperty('--vh', (window.innerHeight * 0.01) + 'px');
 }
 viewHeight();
 
-var timeout = false;
-window.addEventListener('resize', function() {
-    clearTimeout(timeout);
-    timeout = setTimeout(viewHeight, 250);
-});
+window.addEventListener('resize', viewHeight);
