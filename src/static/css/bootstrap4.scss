@@ -18,6 +18,18 @@ $gray-800: #343a40 !default;
 $gray-900: #212529 !default;
 $black:    #000 !default;
 
+$grays: (
+  "100": $gray-100,
+  "200": $gray-200,
+  "300": $gray-300,
+  "400": $gray-400,
+  "500": $gray-500,
+  "600": $gray-600,
+  "700": $gray-700,
+  "800": $gray-800,
+  "900": $gray-900
+);
+
 $blue:   #007bff !default;
 $indigo: #6610f2 !default;
 $purple: #6f42c1 !default;
@@ -66,17 +78,55 @@ $yellow: darken($yellow, 15%);
 $green:  darken($green,  15%);
 $teal:   darken($teal,   15%);
 $cyan:   darken($cyan,   15%);
-$primary:   $blue;
+
+$colors: (
+  "blue":      $blue,
+  "indigo":    $indigo,
+  "purple":    $purple,
+  "pink":      $pink,
+  "red":       $red,
+  "orange":    $orange,
+  "yellow":    $yellow,
+  "green":     $green,
+  "teal":      $teal,
+  "cyan":      $cyan,
+  "white":     $white,
+  "gray":      $gray-600,
+  "gray-dark": $gray-800
+);
+
+// Default theme colors
+$primary:   $orange;
 $secondary: $gray-600;
 $success:   $green;
 $info:      $cyan;
 $warning:   $yellow;
 $danger:    $red;
-$light:     $gray-100;
+$light:     $gray-400;
 $dark:      $gray-800;
 
-$primary: $orange;
-$light:   $gray-400;
+$theme-colors: (
+  "primary":   $primary,
+  "secondary": $secondary,
+  "success":   $success,
+  "info":      $info,
+  "warning":   $warning,
+  "danger":    $danger,
+  "light":     $light,
+  "dark":      $dark
+);
+$theme-colors: map-merge($theme-colors, $grays);
+$theme-colors: map-merge($theme-colors, $colors);
+$theme-colors: map-merge($theme-colors, (
+  "bootstrap": #533B78,
+  "docker": #2396ED,
+  "fontawesome": #339AF0,
+  "github": #222222,
+  "go": #00ACD7,
+  "kubernetes": #316CE6,
+  "metalsmith": #262727,
+  "node": #679E63
+));
 
 $headings-color: $dark;
 
@@ -109,9 +159,26 @@ $box-shadow-sm: 0 0 .25rem rgba($black, .15);
 $box-shadow:    0 0 1rem rgba($black, .3);
 $box-shadow-lg: 0 0 3rem rgba($black, .35);
 
+$badge-font-weight: normal;
+
+$pagination-color:                 $primary;
+$pagination-bg:                    darken($light, 10%);
+$pagination-border-color:          darken($pagination-bg, 10%);
+$pagination-hover-color:           darken($pagination-color, 15%);
+$pagination-hover-bg:              $gray-200;
+$pagination-hover-border-color:    $pagination-border-color;
+$pagination-active-color:          $pagination-bg;
+$pagination-active-bg:             $pagination-color;
+$pagination-active-border-color:   $pagination-active-bg;
+$pagination-disabled-color:        $gray-600;
+$pagination-disabled-bg:           $pagination-bg;
+$pagination-disabled-border-color: $pagination-border-color;
+
 @import '../../../node_modules/bootstrap/scss/bootstrap';
 
 
+
+$navbar-height: 64px;
 
 @import "utilities/background";
 @import "utilities/borders";
@@ -121,15 +188,16 @@ $box-shadow-lg: 0 0 3rem rgba($black, .35);
 @import "utilities/opacity";
 @import "utilities/position";
 @import "utilities/sizes";
+@import "utilities/text";
 
 
 
-@import url('https://fonts.googleapis.com/css?family=Open+Sans:400,700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@600&family=Open+Sans:wght@400;700&display=swap');
+
 body {
   font-family: 'Open Sans', sans-serif;
 }
 
-@import url('https://fonts.googleapis.com/css?family=Montserrat:600&display=swap');
 .navbar-brand {
   font-family: 'Montserrat', sans-serif;
   font-weight: 600;
@@ -146,14 +214,13 @@ p, ul,
 h1, h2, h3, h4, h5, h6,
 .h1, .h2, .h3, .h4, .h5, .h6 {
   &:first-child {
-    margin-top: 0 !important;
+    margin-top: 0;
   }
   :not(li) > &:last-child {
-    margin-bottom: 0 !important;
+    margin-bottom: 0;
   }
 }
 
-$navbar-height: 64px;
 .navbar {
   .navbar-brand img {
     height: $navbar-height - 26px;
@@ -172,6 +239,9 @@ $navbar-height: 64px;
       margin-top: $navbar-height/16px + $length !important;
     }
   }
+}
+.navbar-nspacer {
+  margin-top: -$navbar-height;
 }
 
 // Navbar spacing and active item underline
@@ -247,3 +317,34 @@ $navbar-height: 64px;
 .text-shadow { text-shadow: $box-shadow !important; }
 .text-shadow-lg { text-shadow: $box-shadow-lg !important; }
 .text-shadow-none { text-shadow: none !important; }
+
+// https://codepen.io/2xsamurai/pen/WwmjKQ
+// Usage: <div class="mouse-scroll"><div><div></div></div></div>
+.mouse-scroll {
+  width: 37px;
+  height: 59px;
+}
+.mouse-scroll > * {
+  width: 3px;
+  padding: 10px 15px;
+  height: 35px;
+  border: 2px solid $light;
+  border-radius: 25px;
+  opacity: 0.75;
+  box-sizing: content-box;
+}
+.mouse-scroll > * > * {
+  width: 3px;
+  height: 10px;
+  border-radius: 25%;
+  background-color: $light;
+  animation-name: scroll;
+  animation-duration: 2.2s;
+  animation-timing-function: cubic-bezier(.15,.41,.69,.94);
+  animation-iteration-count: infinite;
+}
+@keyframes scroll {
+  0% { opacity: 0; }
+  10% { transform: translateY(0); opacity: 1; }
+  100% { transform: translateY(15px); opacity: 0; }
+}

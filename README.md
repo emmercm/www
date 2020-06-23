@@ -37,4 +37,4 @@ build
 
 ## Deploying
 
-This website is set up to be hosted with [Netlify](https://www.netlify.com/). They have a very detailed [blog post](https://www.netlify.com/blog/2015/12/08/a-step-by-step-guide-metalsmith-on-netlify/) on how to get started with Metalsmith.
+This website is set up to be hosted with [Netlify](https://www.netlify.com/). They have a very detailed [blog article](https://www.netlify.com/blog/2015/12/08/a-step-by-step-guide-metalsmith-on-netlify/) on how to get started with Metalsmith.

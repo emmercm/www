@@ -2,6 +2,9 @@
 
 title: Using Bootstrap 4 with Metalsmith
 date: 2019-09-22T20:45:00
+tags:
+- metalsmith
+- bootstrap
 
 ---
 
