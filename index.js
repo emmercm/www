@@ -78,7 +78,6 @@ const siteURL         = process.env.NETLIFY && process.env.CONTEXT !== 'producti
 const siteEmail       = 'emmercm@gmail.com';
 const siteDescription = 'Tech lead with ' + moment().diff('2012-01-16', 'years') + '+ years of experience developing full-stack solutions in PHP, Go, Node.js, and Python.';
 const siteLogo        = '**/prologo1/logo3_Gray_Lighter.svg';
-const siteKeywords    = [];
 const twitterHandle   = '@emmercm';
 
 // x2 for retina displays
@@ -97,6 +96,46 @@ markdownRenderer.heading = (text, level, raw, slugger) => {
         ${text}
         </h${level}>`;
 };
+markdownRenderer.code = (_code, infostring, escaped) => {
+    const _highlight = (code, lang) => highlight.getLanguage(lang) ? highlight.highlight(lang, code).value : highlight.highlightAuto(code).value;
+    // Fix https://github.com/segmentio/metalsmith-markdown/issues/48
+    _code = _code.replace(new RegExp(`^[ ]{${_code.search(/\S/)}}`, 'gm'), '');
+    // v1.1.0
+    const escapeTest = /[&<>"']/;
+    const escapeReplace = /[&<>"']/g;
+    const escapeTestNoEncode = /[<>"']|&(?!#?\w+;)/;
+    const escapeReplaceNoEncode = /[<>"']|&(?!#?\w+;)/g;
+    const escapeReplacements = {
+        '&': '&amp;',
+        '<': '&lt;',
+        '>': '&gt;',
+        '"': '&quot;',
+        "'": '&#39;',
+    };
+    const getEscapeReplacement = (ch) => escapeReplacements[ch];
+    const escape = (html, encode) => {
+        if (encode) {
+            if (escapeTest.test(html)) {
+                return html.replace(escapeReplace, getEscapeReplacement);
+            }
+        } else if (escapeTestNoEncode.test(html)) {
+            return html.replace(escapeReplaceNoEncode, getEscapeReplacement);
+        }
+        return html;
+    };
+    const lang = (infostring || '').match(/\S*/)[0];
+    if (_highlight) {
+        const out = _highlight(_code, lang);
+        if (out != null && out !== _code) {
+            escaped = true;
+            _code = out;
+        }
+    }
+    if (!lang) {
+        return `<pre><code>${escaped ? _code : escape(_code, true)}</code></pre>\n`;
+    }
+    return `<pre><code class="language-${escape(lang, true)}">${escaped ? _code : escape(_code, true)}</code></pre>\n`;
+};
 
 tracer(Metalsmith(__dirname))
     /***********************
@@ -112,7 +151,6 @@ tracer(Metalsmith(__dirname))
         sitename: siteName,
         siteurl: siteURL,
         sitedescription: siteDescription,
-        sitekeywords: siteKeywords,
         sitelogo: siteLogo,
         twitterhandle: twitterHandle
     })
@@ -353,10 +391,9 @@ tracer(Metalsmith(__dirname))
             description: siteDescription,
             site_url: siteURL
         }))
+        // Estimate pages' reading times
+        .use(readingTime())
     )
-
-    // Estimate pages' reading times
-    .use(readingTime())
 
     .use((files, metalsmith, done) => {
         // TODO: metalsmith-tag-collections
@@ -695,6 +732,7 @@ tracer(Metalsmith(__dirname))
 
     // Add Facebook OpenGraph meta tags
     .use(openGraph({
+        // TODO: figure out sitetype:'article' for blog pages
         sitename: siteName,
         siteurl: siteURL,
         pattern: '**/*.html',
@@ -717,8 +755,9 @@ tracer(Metalsmith(__dirname))
         }
     }]))
     .use(twitterCard({
+        // TODO: Homepage entity decoding is screwed up
         siteurl: siteURL,
-        card: 'summary',
+        card: 'summary_large_image',
         site: twitterHandle,
         creator: twitterHandle
     }))
