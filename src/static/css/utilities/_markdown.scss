@@ -65,8 +65,15 @@
     font-style: italic;
   }
 
+  $ul-padding: 2.5em;
+  ul {
+    padding-left: 40px;
+  }
   li {
     margin-top: map_get($spacers, 0);
     margin-bottom: map_get($spacers, 0);
+    & > pre {
+      margin-right: $ul-padding;
+    }
   }
 }
