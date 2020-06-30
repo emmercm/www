@@ -11,6 +11,7 @@ function viewHeight() {
 }
 viewHeight();
 
+var timeout = false;
 window.addEventListener('resize', function() {
     clearTimeout(timeout);
     timeout = setTimeout(viewHeight, 250);
