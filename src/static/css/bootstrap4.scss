@@ -192,6 +192,8 @@ $navbar-height: 64px;
 
 
 
+// Fonts
+
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@600&family=Open+Sans:wght@400;700&display=swap');
 
 body {
@@ -203,6 +205,8 @@ body {
   font-weight: 600;
   text-transform: uppercase;
 }
+
+// Global styling
 
 *,
 *::before,
@@ -221,6 +225,24 @@ h1, h2, h3, h4, h5, h6,
   }
 }
 
+.bg-trianglify {
+    background-image: url('../img/trianglify.svg');
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    @media (min-aspect-ratio: 1/1) {  // wide
+        background-size: 100% auto;
+    }
+}
+
+// Head and footer
+
+// Make sure navbar is clickable / on top
+.navbar {
+    z-index: 1;
+}
+
+// Navbar height
 .navbar {
   .navbar-brand img {
     height: $navbar-height - 26px;
@@ -303,20 +325,14 @@ h1, h2, h3, h4, h5, h6,
   }
 }
 
-.bg-trianglify {
-  background-image: url('../img/trianglify.svg');
-  background-position: center center;
-  background-repeat: no-repeat;
-  background-attachment: fixed;
-  @media (min-aspect-ratio: 1/1) {  // wide
-    background-size: 100% auto;
-  }
-}
+// Text
 
 .text-shadow-sm { text-shadow: $box-shadow-sm !important; }
 .text-shadow { text-shadow: $box-shadow !important; }
 .text-shadow-lg { text-shadow: $box-shadow-lg !important; }
 .text-shadow-none { text-shadow: none !important; }
+
+// Custom styles
 
 // https://codepen.io/2xsamurai/pen/WwmjKQ
 // Usage: <div class="mouse-scroll"><div><div></div></div></div>
