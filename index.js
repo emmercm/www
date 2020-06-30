@@ -97,6 +97,46 @@ markdownRenderer.heading = (text, level, raw, slugger) => {
         ${text}
         </h${level}>`;
 };
+markdownRenderer.code = (_code, infostring, escaped) => {
+    const _highlight = (code, lang) => highlight.getLanguage(lang) ? highlight.highlight(lang, code).value : highlight.highlightAuto(code).value;
+    // Fix https://github.com/segmentio/metalsmith-markdown/issues/48
+    _code = _code.replace(new RegExp(`^[ ]{${_code.search(/\S/)}}`, 'gm'), '');
+    // v1.1.0
+    const escapeTest = /[&<>"']/;
+    const escapeReplace = /[&<>"']/g;
+    const escapeTestNoEncode = /[<>"']|&(?!#?\w+;)/;
+    const escapeReplaceNoEncode = /[<>"']|&(?!#?\w+;)/g;
+    const escapeReplacements = {
+        '&': '&amp;',
+        '<': '&lt;',
+        '>': '&gt;',
+        '"': '&quot;',
+        "'": '&#39;',
+    };
+    const getEscapeReplacement = (ch) => escapeReplacements[ch];
+    const escape = (html, encode) => {
+        if (encode) {
+            if (escapeTest.test(html)) {
+                return html.replace(escapeReplace, getEscapeReplacement);
+            }
+        } else if (escapeTestNoEncode.test(html)) {
+            return html.replace(escapeReplaceNoEncode, getEscapeReplacement);
+        }
+        return html;
+    };
+    const lang = (infostring || '').match(/\S*/)[0];
+    if (_highlight) {
+        const out = _highlight(_code, lang);
+        if (out != null && out !== _code) {
+            escaped = true;
+            _code = out;
+        }
+    }
+    if (!lang) {
+        return `<pre><code>${escaped ? _code : escape(_code, true)}</code></pre>\n`;
+    }
+    return `<pre><code class="language-${escape(lang, true)}">${escaped ? _code : escape(_code, true)}</code></pre>\n`;
+};
 
 tracer(Metalsmith(__dirname))
     /***********************
