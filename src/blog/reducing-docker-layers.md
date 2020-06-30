@@ -29,10 +29,11 @@ There are tradeoffs when using strategies to reduce layers in your images, and n
 
 **Pros of reducing layers:**
 
-- Fewer layers to publish or download, likely reducing image size
+- Fewer layers to publish or download, likely reducing image size.
 - Chaining `RUN` instructions reduces cache-ability for non-deterministic commands such as [`apt-get update`](https://docs.docker.com/develop/develop-images/dockerfile_best-practices/#apt-get):
 
     ```dockerfile
+    # Don't use a cached "update" with an "install"
     RUN apt-get update && \
         apt-get install -y <packages>
     ```
@@ -40,6 +41,7 @@ There are tradeoffs when using strategies to reduce layers in your images, and n
 - Chaining `RUN` instructions increases idempotency, which may desirable:
 
     ```dockerfile
+    # Don't cache the "update" and "install" if "make" doesn't succeed
     RUN apt-get update && \
         apt-get install -y <packages> && \
         make
@@ -47,8 +49,8 @@ There are tradeoffs when using strategies to reduce layers in your images, and n
 
 **Cons of reducing layers:**
 
-- Reduced cache-ability, especially when building repeatedly locally
-- Chaining `RUN` instructions probably means `COPY` and `ADD` instructions come first, reducing the ability to use the build cache
+- Reduced cache-ability, especially when building repeatedly locally.
+- Chaining `RUN` instructions probably means `COPY` and `ADD` instructions come first, reducing the ability to use the [build cache](https://docs.docker.com/develop/develop-images/dockerfile_best-practices/#leverage-build-cache) for `RUN`.
 - Chaining `RUN` instructions can reduce readability (paraphrase of [`docker-libtorrent`'s Dockerfile](https://github.com/emmercm/docker-libtorrent/blob/master/1.2/Dockerfile)):
 
     ```dockerfile
@@ -57,12 +59,13 @@ There are tradeoffs when using strategies to reduce layers in your images, and n
         for PYTHON_VERSION in $(seq 2 3); do \
             (./configure PYTHON="$(which python${PYTHON_VERSION})" &&
             make -j$(nproc)) || exit 1; \
-        done
+        done && \
+        rm -rf /tmp/*
     ```
 
 ## Strategies to reduce layers
 
-Remember what was said above - there's only 3 instructions that cause layers - so here are some strategies for reducing those.
+Remember from above - there's only 3 instructions that cause layers - so here are some strategies for reducing those specific instructions.
 
 ### Use multi-stage builds
 
@@ -83,13 +86,13 @@ COPY --from=builder /app /usr/local/bin/app
 CMD ["app"]
 ```
 
-That will produce an image with only 2 layers, 1 from the base image, and 1 from `COPY`. The big win here is that you can still leverage the [build cache](https://docs.docker.com/develop/develop-images/dockerfile_best-practices/#leverage-build-cache) in the first stage.
+That will produce an image with only 2 layers - 1 from the base image and 1 from `COPY`. The big win here is that you can still leverage the [build cache](https://docs.docker.com/develop/develop-images/dockerfile_best-practices/#leverage-build-cache) in the first stage.
 
 ### Use a base image with fewer layers
 
 Because your image will inherit all the layers (and size) of your base image, it's important to pick the smallest base image for your needs.
 
-For example, a lightweight image such as [Alpine](https://hub.docker.com/_/alpine) has very few layers (1):
+For example, a lightweight image such as [Alpine Linux](https://hub.docker.com/_/alpine) has very few layers (1):
 
 ```bash
 $ docker pull alpine:3.12.0
@@ -123,11 +126,11 @@ sha256:ec1817c93e7c08d27bfee063f0f1349185a558b87b2d806768af0a8fbbf5bc11
 sha256:05f3b67ed530c5b55f6140dfcdfb9746cdae7b76600de13275197d009086bb3d
 ```
 
-### Combine `COPY` and `ADD` instructions
+### Combine multiple `COPY` and `ADD` instructions
 
 Organizing source directories and destination directories so that you can `COPY` more files with fewer instructions is the goal.
 
-Given a source tree and Dockerfile such as:
+Given a [build context](https://docs.docker.com/develop/develop-images/dockerfile_best-practices/#understand-build-context) and Dockerfile such as:
 
 ```text
 .
@@ -162,22 +165,27 @@ You could reorganize your source files so that you only need one `COPY` instruct
 COPY . ./
 ```
 
-That's a 4 layer reduction right there.
+**That's a 4 layer reduction right there.**
 
-Be careful when copying everything from the [build context](https://docs.docker.com/develop/develop-images/dockerfile_best-practices/#understand-build-context) like this, you probably want a [`.dockerignore` file](https://docs.docker.com/develop/develop-images/dockerfile_best-practices/#exclude-with-dockerignore).
+Be careful when copying everything from the build context with `COPY .`, you probably want a [`.dockerignore` file](https://docs.docker.com/develop/develop-images/dockerfile_best-practices/#exclude-with-dockerignore) to cut down on build time and size.
 
-### Combine `RUN` instructions
+### Combine multiple `RUN` instructions
 
-The majority of `RUN` instructions in a Dockerfile can probably be combined into one long instruction of chained commands.
+The majority of the `RUN` instructions in a Dockerfile can probably be combined into one long instruction of chained commands.
 
 Given a Dockerfile such as:
 
 ```dockerfile
+# Install build dependencies
 RUN apt-get update
 RUN apt-get install -y autoconf automake g++ gcc make
+
+# Configure and make
 RUN ./configure
 RUN make
 RUN make install
+
+# Cleanup
 RUN rm -rf /var/lib/apt/lists/*
 ```
 
@@ -192,7 +200,7 @@ RUN apt-get update && \
     rm -rf /var/lib/apt/lists/*
 ```
 
-That's a 5 layer reduction.
+**That's a 5 layer reduction.**
 
 It's likely that attempting to combine all of your `RUN` instructions into one instruction will cause your source file `COPY` and `ADD` instructions to be before `RUN`, which means any change to your source files will [invalidate the build cache](https://docs.docker.com/develop/develop-images/dockerfile_best-practices/#leverage-build-cache), meaning it will have to execute the entire `RUN` instruction again.
 
@@ -206,10 +214,10 @@ COPY . ./
 RUN sleep 300
 ```
 
-Every time the source files change it invalidates the build cache of the `RUN` instruction, causing long build times.
+Every time the source files change it invalidates the build cache of the `COPY` instruction and every instruction after it, causing long build times.
 
 ## Conclusion
 
 There are definite advantages and disadvantages for targeting the fewest possible number of layers in your images.
 
-Me personally, I like to squeeze the layers and sizes out of public images I maintain, but when it comes to a workplace environment where productivity is valued higher I tend to optimize for using the build cache for faster local builds.
+Me personally, I like to squeeze the layers and size out of public images I maintain, but when it comes to a workplace environment where productivity is valued higher I tend to optimize for using the build cache for faster local builds.
