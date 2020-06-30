@@ -27,7 +27,7 @@
 
     <div class="col-12 col-md-3 pl-md-5 pt-5 pt-md-0">
         <h3>Article Tags</h3>
-        <ul class="fa-ul ml-1 text-md-truncate">
+        <ul class="fa-ul ml-1 pl-0 text-md-truncate">
             {{#each (sort (unique (flat (pluck collections.blog "tags"))))}}
                 <li class="my-2 d-inline-block d-md-block {{#unless @last}}mr-2 mr-md-0{{/unless}}">
                     <span class="fa-li"></span>
