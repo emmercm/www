@@ -10,25 +10,33 @@
         gtag('config', 'UA-155149217-1');
     </script>
 
-    <!-- SEO GOOD https://moz.com/blog/seo-meta-tags -->
-    <meta charset="{{sanitize sitecharset}}">
     <title>{{sanitize pageTitle}}</title>
-    <meta name="description" content="{{sanitize pageDescription}}">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-
-    <!-- SEO INDIFFERENT https://moz.com/blog/seo-meta-tags -->
-    <!-- metalsmith-open-graph -->
-    <!-- metalsmith-twitter-card -->
-    {{#if sitekeywords}}
-        <meta name="keywords" content="{{#each sitekeywords}}{{ this }}{{else}}{{sitekeywords}}{{/each}}">
-    {{/if}}
-
-    <!-- https://blog.wsol.com/seo-for-https-sites-should-you-implement-the-meta-referrer-tag -->
+    <meta charset="{{sanitize sitecharset}}">
+    <meta name="viewport" content="width=device-width,minimum-scale=1,initial-scale=1">
     <meta name="referrer" content="unsafe-url">
 
+    <!-- META TAGS FOR EVERY PAGE -->
+    <meta name="title" content="{{sanitize pageTitle}}">
+    <meta name="description" content="{{sanitize pageDescription}}">
+    <meta name="author" content="{{sanitize sitename}}">
     {{#each favicons.html}}
         {{{ this }}}
     {{/each}}
+    <!-- metalsmith-open-graph -->
+    <!-- metalsmith-twitter-card -->
+
+    <!-- META TAGS FOR BLOG PAGES -->
+    {{#if readingTime}}
+        <meta name="twitter:label1" value="Reading time">
+        <meta name="twitter:data1" value="{{readingTime}}">
+    {{/if}}
+    <!-- <meta property="article:author" content="{{siteurl}}"> -->
+    {{#if this.date}}
+        <meta property="article:published_time" content="{{moment this.date}}">
+    {{/if}}
+    {{#eq (segments paths.dir 0 1) "blog"}}
+        <link rel="alternate" type="application/rss+xml" href="/blog/rss.xml">
+    {{/eq}}
 
     <link rel="stylesheet" href="**/styles*.css">
 </head>

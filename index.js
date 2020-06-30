@@ -78,7 +78,6 @@ const siteURL         = process.env.NETLIFY && process.env.CONTEXT !== 'producti
 const siteEmail       = 'emmercm@gmail.com';
 const siteDescription = 'Tech lead with ' + moment().diff('2012-01-16', 'years') + '+ years of experience developing full-stack solutions in PHP, Go, Node.js, and Python.';
 const siteLogo        = '**/prologo1/logo3_Gray_Lighter.svg';
-const siteKeywords    = [];
 const twitterHandle   = '@emmercm';
 
 // x2 for retina displays
@@ -152,7 +151,6 @@ tracer(Metalsmith(__dirname))
         sitename: siteName,
         siteurl: siteURL,
         sitedescription: siteDescription,
-        sitekeywords: siteKeywords,
         sitelogo: siteLogo,
         twitterhandle: twitterHandle
     })
@@ -393,10 +391,9 @@ tracer(Metalsmith(__dirname))
             description: siteDescription,
             site_url: siteURL
         }))
+        // Estimate pages' reading times
+        .use(readingTime())
     )
-
-    // Estimate pages' reading times
-    .use(readingTime())
 
     .use((files, metalsmith, done) => {
         // TODO: metalsmith-tag-collections
@@ -735,6 +732,7 @@ tracer(Metalsmith(__dirname))
 
     // Add Facebook OpenGraph meta tags
     .use(openGraph({
+        // TODO: figure out sitetype:'article' for blog pages
         sitename: siteName,
         siteurl: siteURL,
         pattern: '**/*.html',
@@ -757,8 +755,9 @@ tracer(Metalsmith(__dirname))
         }
     }]))
     .use(twitterCard({
+        // TODO: Homepage entity decoding is screwed up
         siteurl: siteURL,
-        card: 'summary',
+        card: 'summary_large_image',
         site: twitterHandle,
         creator: twitterHandle
     }))
