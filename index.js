@@ -740,20 +740,31 @@ tracer(Metalsmith(__dirname))
     }))
 
     // Add Twitter meta
-    .use(defaultValues([{
+    .use((files, metalsmith, done) => defaultValues([{
         pattern: '**/*.html',
         defaults: {
-            twitter: file => ({
-                // https://github.com/vitaliy-bobrov/metalsmith-twitter-card/issues/2
-                title: file.pageTitle
-                    .replace(/\./g, '&#46;')
-                    .replace(/#/g, '&#35;'),
-                description: file.pageDescription
-                    .replace(/\./g, '&#46;')
-                    .replace(/#/g, '&#35;')
-            })
+            twitter: file => {
+                const meta = {
+                    // TODO: get rid of .replace()s
+                    //  https://github.com/vitaliy-bobrov/metalsmith-twitter-card/issues/2
+                    title: file.pageTitle
+                        .replace(/\./g, '&#46;')
+                        .replace(/#/g, '&#35;'),
+                    description: file.pageDescription
+                        .replace(/\./g, '&#46;')
+                        .replace(/#/g, '&#35;')
+                };
+                // TODO: change this to '.og-image'
+                //  https://github.com/vitaliy-bobrov/metalsmith-twitter-card/issues/3
+                if(file.image) {
+                    meta.image = Object.keys(files)
+                        .filter(minimatch.filter(`${file.image}.*`))
+                        .find(e => true);
+                }
+                return meta;
+            }
         }
-    }]))
+    }])(files, metalsmith, done))
     .use(twitterCard({
         // TODO: Homepage entity decoding is screwed up
         siteurl: siteURL,
