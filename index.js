@@ -51,6 +51,7 @@ const sri              = require('metalsmith-html-sri');
 const sitemap          = require('metalsmith-sitemap');
 const linter           = require('metalsmith-html-linter');
 const linkcheck        = require('metalsmith-linkcheck');
+const robots           = require('metalsmith-robots');
 
 // Register Handlebars helper libraries
 const Handlebars = require('handlebars');
@@ -822,10 +823,9 @@ tracer(Metalsmith(__dirname))
      *                          *
      ****************************/
 
-    // Ignore processed Google ownership verification file (before generating sitemap)
+    // Ignore non-HTML pages that will get included again later
     .use(ignore([
-        '**/google*/*.html',
-        '**/google*.html'
+        '**/google{*/,}*.html'
     ]))
 
     // Generate a sitemap
@@ -865,6 +865,12 @@ tracer(Metalsmith(__dirname))
     // Include raw Google ownership verification file
     .use(include({
         '': ['./src/google*.html']
+    }))
+
+    // Generate robots.txt
+    .use(robots({
+        disallow: prod ? [] : ['/'],
+        sitemap: `${siteURL}/sitemap.xml`
     }))
 
     // Set destination directory
