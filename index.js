@@ -76,7 +76,7 @@ const siteLanguage    = 'en';
 const siteName        = 'Christian Emmer';
 const siteURL         = process.env.NETLIFY && process.env.CONTEXT !== 'production' ? process.env.DEPLOY_PRIME_URL : (process.env.URL || 'https://emmer.dev');
 const siteEmail       = 'emmercm@gmail.com';
-const siteDescription = 'Tech lead with ' + moment().diff('2012-01-16', 'years') + '+ years of experience developing full-stack solutions in PHP, Go, Node.js, and Python.';
+const siteDescription = 'Software engineering tech lead with ' + moment().diff('2012-01-16', 'years') + '+ years of experience developing full-stack solutions in PHP, Go, Node.js, and Python.';
 const siteLogo        = '**/prologo1/logo3_Gray_Lighter.svg';
 const twitterHandle   = '@emmercm';
 
