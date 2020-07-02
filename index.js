@@ -231,7 +231,9 @@ tracer(Metalsmith(__dirname))
      *********************/
 
     // Compile Sass files
-    .use(sass())
+    .use(sass({
+        outputStyle: 'expanded'
+    }))
 
     // Run autoprefixer on CSS files
     .use(autoprefixer())

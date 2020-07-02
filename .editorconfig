@@ -10,6 +10,9 @@ end_of_line = lf
 # editorconfig-tools is unable to ignore longs strings or urls
 max_line_length = off
 
+[*.{css,scss}]
+indent_size = 2
+
 [*.html]
 indent_size = 4
 
@@ -18,9 +21,6 @@ indent_size = 2
 
 [*.md]
 indent_size = 2
-
-[src/*]
-indent_size = 8
 
 [*.{yml, yaml}]
 indent_size = 2
