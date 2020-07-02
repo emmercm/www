@@ -69,11 +69,12 @@ const transliteration = require('transliteration');
 const path = require('path');
 
 const { blogImage } = require('./lib/sharp');
+const jsonld = require('./lib/jsonld');
 
 const prod = (process.env.NODE_ENV || 'development').toLowerCase() === 'production';
 
 const siteCharset     = 'utf-8';
-const siteLanguage    = 'en';
+const siteLanguage    = 'en-US';
 const siteName        = 'Christian Emmer';
 const siteURL         = process.env.NETLIFY && process.env.CONTEXT !== 'production' ? process.env.DEPLOY_PRIME_URL : (process.env.URL || 'https://emmer.dev');
 const siteEmail       = 'emmercm@gmail.com';
@@ -535,6 +536,90 @@ tracer(Metalsmith(__dirname))
         }))
         .use(except('layout'))
     )
+
+    // Add schema.org structured data
+    .use((files, metalsmith, done) => jsonld(siteURL, {
+        defaults: [
+            {
+                '@context': 'http://schema.org',
+                '@type': 'WebSite',
+                '@id': `${siteURL}/#website`,
+                url: siteURL,
+                name: siteName,
+                description: siteDescription,
+                publisher: {
+                    '@id': `${siteURL}/#organization`
+                },
+                inLanguage: siteLanguage
+            },
+            {
+                '@context': 'http://schema.org',
+                '@type': 'ImageObject',
+                '@id': `${siteURL}/#logo`,
+                url: `${siteURL}/android-chrome-512x512.png` // metalsmith-favicons
+            },
+            // {
+            //     '@context': 'http://schema.org',
+            //     '@type': 'WebPage',
+            //     // TODO: @id
+            //     isPartOf: {
+            //         '@id': `${siteURL}/#website`
+            //     },
+            //     // TODO
+            //     url: 'url',
+            //     name: 'title',
+            //     description: 'excerpt',
+            //     inLanguage: siteLanguage
+            // },
+            {
+                '@context': 'http://schema.org',
+                '@type': 'Organization',
+                '@id': `${siteURL}/#organization`,
+                name: siteName,
+                description: siteDescription,
+                logo: {
+                    '@id': `${siteURL}/#logo`
+                }
+            },
+            {
+                '@context': 'http://schema.org',
+                '@type': 'Person',
+                '@id': `${siteURL}/#person`,
+                name: siteName,
+                description: siteDescription,
+                image: `${metalsmith.metadata().gravatar.main}?s=512`, // metalsmith-gravatar
+                sameAs: [
+                    `https://twitter.com/${twitterHandle.slice(1)}`
+                ]
+            }
+        ],
+        collections: {
+            blog: [
+                {
+                    '@context': 'http://schema.org',
+                    '@type': 'BlogPosting',
+                    publisher: {
+                        '@id': `${siteURL}/#organization`
+                    },
+                    author: {
+                        '@id': `${siteURL}/#person`
+                    },
+                    inLanguage: siteLanguage,
+                    // Things to get from frontmatter
+                    url: 'url',
+                    mainEntityOfPage: 'url', // TODO: @id /#webpage
+                    name: 'title',
+                    headline: 'title',
+                    description: 'excerpt', // metalsmith-excerpts
+                    image: 'image', // TODO: full URL?
+                    keywords: 'tags',
+                    dateCreated: 'date',
+                    datePublished: 'date',
+                    dateModified: 'date'
+                }
+            ]
+        }
+    })(files, metalsmith, done))
 
     // Add default page metadata
     .use(defaultValues([{

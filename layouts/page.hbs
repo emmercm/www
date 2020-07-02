@@ -26,6 +26,9 @@
     <!-- metalsmith-open-graph -->
     <meta property="og:url" content="{{siteurl}}{{paths.href}}">
     <!-- metalsmith-twitter-card -->
+    {{#if jsonld}}
+        {{{ jsonld }}}
+    {{/if}}
 
     <!-- META TAGS FOR BLOG PAGES -->
     {{#if readingTime}}
