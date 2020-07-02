@@ -35,7 +35,7 @@
                     {{#eq (segments ../paths.dir -1 undefined) this}}
                         <b>{{ this }}</b>
                     {{else}}
-                        <a href="/blog/tag/{{this}}" title="{{this}} Tag">{{ this }}</a>
+                        <a href="/blog/tag/{{this}}" title="{{this}}">{{ this }}</a>
                     {{/eq}}
                 </li>
             {{/each}}
