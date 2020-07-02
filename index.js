@@ -89,9 +89,13 @@ const blogImageThumbHeight = blogImageThumbWidth;
 
 const markdownRenderer = new marked.Renderer();
 markdownRenderer.heading = (text, level, raw, slugger) => {
-    const slug = slugger.slug(raw);
+    const title = raw
+        .replace(/<\/?[^>]+>/g, '')
+        .replace(/"/g, '')
+        .trim();
+    const slug = slugger.slug(title);
     return `<h${level} id="${slug}">
-        <a href="#${slug}" class="link" aria-hidden="true">
+        <a href="#${slug}" title="${title}" class="link" aria-hidden="true">
             <i class="far fa-link"></i>
         </a>
         ${text}

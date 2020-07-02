@@ -3,7 +3,7 @@
         <div class="row no-gutters">
             <div class="col-9 col-md-10 pr-3 pr-md-4">
                 <h3 class="d-flex align-items-start justify-content-between">
-                    <a href="{{paths.href}}" class="text-dark">{{ title }}</a>
+                    <a href="{{paths.href}}" title="{{title}}" class="text-dark">{{ title }}</a>
                 </h3>
                 <h5 class="mt-0">
                     <small class="text-muted">{{moment this.date "MMM D, YYYY"}} &middot; {{this.readingTime}}</small>
@@ -13,7 +13,7 @@
 
             <div class="col-3 col-md-2">
                 {{#if image}}
-                    <a href="{{paths.href}}">
+                    <a href="{{paths.href}}" title="{{title}}">
                         <img data-src="{{image}}-thumb.*" alt="{{sanitize title}}" class="w-100">
                     </a>
                 {{/if}}
@@ -21,7 +21,7 @@
                     <div class="d-flex justify-content-center flex-wrap {{#if image}}mt-2{{/if}}">
                         {{#each (sort tags)}}
                             <h5 class="m-1 mw-100">
-                                <a href="/blog/tag/{{this}}" title="{{this}}" class="badge badge-{{get "color" (get this ../../blog_tags)}} mw-100 text-break text-wrap">{{ this }}</a>
+                                <a href="/blog/tag/{{this}}" title="{{this}} Tag" class="badge badge-{{get "color" (get this ../../blog_tags)}} mw-100 text-break text-wrap">{{ this }}</a>
                             </h5>
                         {{/each}}
                     </div>
