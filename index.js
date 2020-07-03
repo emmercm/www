@@ -71,7 +71,8 @@ const path = require('path');
 const { blogImage } = require('./lib/sharp');
 const jsonld = require('./lib/jsonld');
 
-const prod = (process.env.NODE_ENV || 'development').toLowerCase() === 'production';
+const prodBuild = (process.env.NODE_ENV || 'development').toLowerCase() === 'production';
+const prodDeploy = process.env.NETLIFY && process.env.CONTEXT === 'production';
 
 const siteCharset     = 'utf-8';
 const siteLanguage    = 'en-US';
@@ -262,14 +263,14 @@ tracer(Metalsmith(__dirname))
     .use(ignore(['static/img/blog/*.@(psd|xcf)']))
 
     // Process large blog images (sharp.strategy.attention)
-    .use(blogImage('static/img/blog/!(*-thumb).*', blogImageWidth, blogImageHeight, 17, prod))
+    .use(blogImage('static/img/blog/!(*-thumb).*', blogImageWidth, blogImageHeight, 17, prodBuild))
 
     // Process small blog images (sharp.gravity.center)
     .use(copy({
         pattern: 'static/img/blog/*',
         transform: filename => filename.replace(/\.([^.]+)$/, '-thumb.$1')
     }))
-    .use(blogImage('static/img/blog/*-thumb.*', blogImageThumbWidth, blogImageThumbHeight, 0, prod))
+    .use(blogImage('static/img/blog/*-thumb.*', blogImageThumbWidth, blogImageThumbHeight, 0, prodBuild))
 
     /***********************
      *                     *
@@ -588,6 +589,7 @@ tracer(Metalsmith(__dirname))
                 name: siteName,
                 description: siteDescription,
                 image: `${metalsmith.metadata().gravatar.main}?s=512`, // metalsmith-gravatar
+                url: siteURL,
                 sameAs: [
                     'https://github.com/emmercm',
                     'https://twitter.com/emmercm',
@@ -665,7 +667,7 @@ tracer(Metalsmith(__dirname))
     }))
 
     // Prod: add favicons and icons
-    .use(msIf(prod, favicons({
+    .use(msIf(prodBuild, favicons({
         src: siteLogo,
         dest: '.',
         appName: siteName,
@@ -723,7 +725,7 @@ tracer(Metalsmith(__dirname))
      *****************************************/
 
     // Prod: expand HTML, CSS, and JavaScript
-    .use(msIf(prod, beautify()))
+    .use(msIf(prodBuild, beautify()))
 
     // Concatenate all un-minified JS (non-vendor first so they appear last)
     .use(concat({
@@ -748,7 +750,7 @@ tracer(Metalsmith(__dirname))
      ******************************/
 
     // Prod: minify JavaScript
-    .use(msIf(prod, uglify({
+    .use(msIf(prodBuild, uglify({
         removeOriginal: true,
         uglify: {
             sourceMap: false
@@ -756,7 +758,7 @@ tracer(Metalsmith(__dirname))
     })))
 
     // Prod: trim CSS
-    .use(msIf(prod, uncss({
+    .use(msIf(prodBuild, uncss({
         output: 'static/css/styles.css',
         uncss: {
             ignore: [
@@ -770,12 +772,12 @@ tracer(Metalsmith(__dirname))
     })))
 
     // Prod: minify CSS
-    .use(msIf(prod, cleanCSS({
+    .use(msIf(prodBuild, cleanCSS({
         cleanCSS: {
             rebase: false
         }
     })))
-    .use(msIf(prod, renamer({
+    .use(msIf(prodBuild, renamer({
         css: {
             pattern: '**/*.css',
             rename: file => file.replace(/\.css$/, '.min.css')
@@ -896,7 +898,7 @@ tracer(Metalsmith(__dirname))
     }))
 
     // Prod: minify HTML
-    .use(msIf(prod, htmlMinifier({
+    .use(msIf(prodBuild, htmlMinifier({
         minifierOptions: {
             // Fix metalsmith-html-minifier defaults
             removeAttributeQuotes: false,
@@ -941,10 +943,10 @@ tracer(Metalsmith(__dirname))
     }))
 
     // Ensure no broken links
-    .use(msIf(prod, include({
+    .use(msIf(prodBuild, include({
         '': ['./src/links_ignore.json']
     })))
-    .use(msIf(prod, linkcheck({
+    .use(msIf(prodBuild, linkcheck({
         failMissing: true
     })))
 
@@ -961,7 +963,7 @@ tracer(Metalsmith(__dirname))
 
     // Generate robots.txt
     .use(robots({
-        disallow: prod ? [] : ['/'],
+        disallow: prodDeploy ? [] : ['/'],
         sitemap: `${siteURL}/sitemap.xml`
     }))
 
