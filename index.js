@@ -589,7 +589,9 @@ tracer(Metalsmith(__dirname))
                 description: siteDescription,
                 image: `${metalsmith.metadata().gravatar.main}?s=512`, // metalsmith-gravatar
                 sameAs: [
-                    `https://twitter.com/${twitterHandle.slice(1)}`
+                    'https://github.com/emmercm',
+                    'https://twitter.com/emmercm',
+                    'https://www.linkedin.com/in/emmercm/'
                 ]
             }
         ],
