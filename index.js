@@ -354,6 +354,7 @@ tracer(Metalsmith(__dirname))
                 return (Object.keys(files)
                     .filter(minimatch.filter(`static/img/{**/,}${basename}.*`))
                     .find(e => true) || '')
+                    .replace(/^([^/])/, '/$1')
                     .replace(/\.[a-z]+$/, '');
             }
         }
@@ -363,8 +364,7 @@ tracer(Metalsmith(__dirname))
     .use(branch('blog/*/*.md')
         // .use(hbtmd(Handlebars))
         .use(markdown({
-            renderer: markdownRenderer,
-            highlight: (code, lang) => highlight.getLanguage(lang) ? highlight.highlight(lang, code).value : highlight.highlightAuto(code).value
+            renderer: markdownRenderer
         }))
         // Extract first paragraph as an excerpt and then change the page description
         .use(excerpts())
@@ -656,8 +656,7 @@ tracer(Metalsmith(__dirname))
 
     // Convert markdown to HTML
     .use(markdown({
-        renderer: markdownRenderer,
-        highlight: (code, lang) => highlight.getLanguage(lang) ? highlight.highlight(lang, code).value : highlight.highlightAuto(code).value
+        renderer: markdownRenderer
     }))
 
     // Find related files
@@ -852,7 +851,7 @@ tracer(Metalsmith(__dirname))
                 //  https://github.com/vitaliy-bobrov/metalsmith-twitter-card/issues/3
                 if(file.image) {
                     meta.image = Object.keys(files)
-                        .filter(minimatch.filter(`${file.image}.*`))
+                        .filter(minimatch.filter(`${file.image.replace(/^\/+/, '')}.*`))
                         .find(e => true);
                 }
                 return meta;
