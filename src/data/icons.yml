@@ -1,15 +1,15 @@
-# Note: Adblock Plus will hide `a[title="LinkedIn"]` and `a[title="Twitter"]`
-
+# Note: "Fanboy's Social Blocking List" tends to block `a[title="<social media name>"]`
 header:
   - link: https://github.com/emmercm
     title: GitHub
     icon: fab fa-github
 
   - link: https://twitter.com/emmercm
-    title: "@emmercm"
+    title: Twitter
     icon: fab fa-twitter
 
   - link: https://www.linkedin.com/in/emmercm/
+    title: LinkedIn
     icon: fab fa-linkedin-in
 
 footer:

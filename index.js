@@ -51,6 +51,7 @@ const sri              = require('metalsmith-html-sri');
 const sitemap          = require('metalsmith-sitemap');
 const linter           = require('metalsmith-html-linter');
 const linkcheck        = require('metalsmith-linkcheck');
+const robots           = require('metalsmith-robots');
 
 // Register Handlebars helper libraries
 const Handlebars = require('handlebars');
@@ -68,11 +69,13 @@ const transliteration = require('transliteration');
 const path = require('path');
 
 const { blogImage } = require('./lib/sharp');
+const jsonld = require('./lib/jsonld');
 
-const prod = (process.env.NODE_ENV || 'development').toLowerCase() === 'production';
+const prodBuild = (process.env.NODE_ENV || 'development').toLowerCase() === 'production';
+const prodDeploy = process.env.NETLIFY && process.env.CONTEXT === 'production';
 
 const siteCharset     = 'utf-8';
-const siteLanguage    = 'en';
+const siteLanguage    = 'en-US';
 const siteName        = 'Christian Emmer';
 const siteURL         = process.env.NETLIFY && process.env.CONTEXT !== 'production' ? process.env.DEPLOY_PRIME_URL : (process.env.URL || 'https://emmer.dev');
 const siteEmail       = 'emmercm@gmail.com';
@@ -88,9 +91,13 @@ const blogImageThumbHeight = blogImageThumbWidth;
 
 const markdownRenderer = new marked.Renderer();
 markdownRenderer.heading = (text, level, raw, slugger) => {
-    const slug = slugger.slug(raw);
+    const title = raw
+        .replace(/<\/?[^>]+>/g, '')
+        .replace(/"/g, '')
+        .trim();
+    const slug = slugger.slug(title);
     return `<h${level} id="${slug}">
-        <a href="#${slug}" class="link" aria-hidden="true">
+        <a href="#${slug}" title="${title}" class="link" aria-hidden="true">
             <i class="far fa-link"></i>
         </a>
         ${text}
@@ -226,7 +233,9 @@ tracer(Metalsmith(__dirname))
      *********************/
 
     // Compile Sass files
-    .use(sass())
+    .use(sass({
+        outputStyle: 'expanded'
+    }))
 
     // Run autoprefixer on CSS files
     .use(autoprefixer())
@@ -254,14 +263,14 @@ tracer(Metalsmith(__dirname))
     .use(ignore(['static/img/blog/*.@(psd|xcf)']))
 
     // Process large blog images (sharp.strategy.attention)
-    .use(blogImage('static/img/blog/!(*-thumb).*', blogImageWidth, blogImageHeight, 17, prod))
+    .use(blogImage('static/img/blog/!(*-thumb).*', blogImageWidth, blogImageHeight, 17, prodBuild))
 
     // Process small blog images (sharp.gravity.center)
     .use(copy({
         pattern: 'static/img/blog/*',
         transform: filename => filename.replace(/\.([^.]+)$/, '-thumb.$1')
     }))
-    .use(blogImage('static/img/blog/*-thumb.*', blogImageThumbWidth, blogImageThumbHeight, 0, prod))
+    .use(blogImage('static/img/blog/*-thumb.*', blogImageThumbWidth, blogImageThumbHeight, 0, prodBuild))
 
     /***********************
      *                     *
@@ -346,6 +355,7 @@ tracer(Metalsmith(__dirname))
                 return (Object.keys(files)
                     .filter(minimatch.filter(`static/img/{**/,}${basename}.*`))
                     .find(e => true) || '')
+                    .replace(/^([^/])/, '/$1')
                     .replace(/\.[a-z]+$/, '');
             }
         }
@@ -355,8 +365,7 @@ tracer(Metalsmith(__dirname))
     .use(branch('blog/*/*.md')
         // .use(hbtmd(Handlebars))
         .use(markdown({
-            renderer: markdownRenderer,
-            highlight: (code, lang) => highlight.getLanguage(lang) ? highlight.highlight(lang, code).value : highlight.highlightAuto(code).value
+            renderer: markdownRenderer
         }))
         // Extract first paragraph as an excerpt and then change the page description
         .use(excerpts())
@@ -529,6 +538,93 @@ tracer(Metalsmith(__dirname))
         .use(except('layout'))
     )
 
+    // Add schema.org structured data
+    .use((files, metalsmith, done) => jsonld(siteURL, {
+        defaults: [
+            {
+                '@context': 'http://schema.org',
+                '@type': 'WebSite',
+                '@id': `${siteURL}/#website`,
+                url: siteURL,
+                name: siteName,
+                description: siteDescription,
+                publisher: {
+                    '@id': `${siteURL}/#organization`
+                },
+                inLanguage: siteLanguage
+            },
+            {
+                '@context': 'http://schema.org',
+                '@type': 'ImageObject',
+                '@id': `${siteURL}/#logo`,
+                url: `${siteURL}/android-chrome-512x512.png` // metalsmith-favicons
+            },
+            // {
+            //     '@context': 'http://schema.org',
+            //     '@type': 'WebPage',
+            //     // TODO: @id
+            //     isPartOf: {
+            //         '@id': `${siteURL}/#website`
+            //     },
+            //     // TODO
+            //     url: 'url',
+            //     name: 'title',
+            //     description: 'excerpt',
+            //     inLanguage: siteLanguage
+            // },
+            {
+                '@context': 'http://schema.org',
+                '@type': 'Organization',
+                '@id': `${siteURL}/#organization`,
+                name: siteName,
+                description: siteDescription,
+                logo: {
+                    '@id': `${siteURL}/#logo`
+                }
+            },
+            {
+                '@context': 'http://schema.org',
+                '@type': 'Person',
+                '@id': `${siteURL}/#person`,
+                name: siteName,
+                description: siteDescription,
+                image: `${metalsmith.metadata().gravatar.main}?s=512`, // metalsmith-gravatar
+                url: siteURL,
+                sameAs: [
+                    'https://github.com/emmercm',
+                    'https://twitter.com/emmercm',
+                    'https://www.linkedin.com/in/emmercm/'
+                ]
+            }
+        ],
+        collections: {
+            blog: [
+                {
+                    '@context': 'http://schema.org',
+                    '@type': 'BlogPosting',
+                    publisher: {
+                        '@id': `${siteURL}/#organization`
+                    },
+                    author: {
+                        '@id': `${siteURL}/#person`
+                    },
+                    inLanguage: siteLanguage,
+                    // Things to get from frontmatter
+                    url: 'url',
+                    mainEntityOfPage: 'url', // TODO: @id /#webpage
+                    name: 'title',
+                    headline: 'title',
+                    description: 'excerpt', // metalsmith-excerpts
+                    image: 'image', // TODO: full URL?
+                    keywords: 'tags',
+                    dateCreated: 'date',
+                    datePublished: 'date',
+                    dateModified: 'date'
+                }
+            ]
+        }
+    })(files, metalsmith, done))
+
     // Add default page metadata
     .use(defaultValues([{
         pattern: '**/*.@(html|md)',
@@ -562,8 +658,7 @@ tracer(Metalsmith(__dirname))
 
     // Convert markdown to HTML
     .use(markdown({
-        renderer: markdownRenderer,
-        highlight: (code, lang) => highlight.getLanguage(lang) ? highlight.highlight(lang, code).value : highlight.highlightAuto(code).value
+        renderer: markdownRenderer
     }))
 
     // Find related files
@@ -572,7 +667,7 @@ tracer(Metalsmith(__dirname))
     }))
 
     // Prod: add favicons and icons
-    .use(msIf(prod, favicons({
+    .use(msIf(prodBuild, favicons({
         src: siteLogo,
         dest: '.',
         appName: siteName,
@@ -630,7 +725,7 @@ tracer(Metalsmith(__dirname))
      *****************************************/
 
     // Prod: expand HTML, CSS, and JavaScript
-    .use(msIf(prod, beautify()))
+    .use(msIf(prodBuild, beautify()))
 
     // Concatenate all un-minified JS (non-vendor first so they appear last)
     .use(concat({
@@ -655,7 +750,7 @@ tracer(Metalsmith(__dirname))
      ******************************/
 
     // Prod: minify JavaScript
-    .use(msIf(prod, uglify({
+    .use(msIf(prodBuild, uglify({
         removeOriginal: true,
         uglify: {
             sourceMap: false
@@ -663,7 +758,7 @@ tracer(Metalsmith(__dirname))
     })))
 
     // Prod: trim CSS
-    .use(msIf(prod, uncss({
+    .use(msIf(prodBuild, uncss({
         output: 'static/css/styles.css',
         uncss: {
             ignore: [
@@ -677,12 +772,12 @@ tracer(Metalsmith(__dirname))
     })))
 
     // Prod: minify CSS
-    .use(msIf(prod, cleanCSS({
+    .use(msIf(prodBuild, cleanCSS({
         cleanCSS: {
             rebase: false
         }
     })))
-    .use(msIf(prod, renamer({
+    .use(msIf(prodBuild, renamer({
         css: {
             pattern: '**/*.css',
             rename: file => file.replace(/\.css$/, '.min.css')
@@ -740,20 +835,31 @@ tracer(Metalsmith(__dirname))
     }))
 
     // Add Twitter meta
-    .use(defaultValues([{
+    .use((files, metalsmith, done) => defaultValues([{
         pattern: '**/*.html',
         defaults: {
-            twitter: file => ({
-                // https://github.com/vitaliy-bobrov/metalsmith-twitter-card/issues/2
-                title: file.pageTitle
-                    .replace(/\./g, '&#46;')
-                    .replace(/#/g, '&#35;'),
-                description: file.pageDescription
-                    .replace(/\./g, '&#46;')
-                    .replace(/#/g, '&#35;')
-            })
+            twitter: file => {
+                const meta = {
+                    // TODO: get rid of .replace()s
+                    //  https://github.com/vitaliy-bobrov/metalsmith-twitter-card/issues/2
+                    title: file.pageTitle
+                        .replace(/\./g, '&#46;')
+                        .replace(/#/g, '&#35;'),
+                    description: file.pageDescription
+                        .replace(/\./g, '&#46;')
+                        .replace(/#/g, '&#35;')
+                };
+                // TODO: change this to '.og-image'
+                //  https://github.com/vitaliy-bobrov/metalsmith-twitter-card/issues/3
+                if(file.image) {
+                    meta.image = Object.keys(files)
+                        .filter(minimatch.filter(`${file.image.replace(/^\/+/, '')}.*`))
+                        .find(e => true);
+                }
+                return meta;
+            }
         }
-    }]))
+    }])(files, metalsmith, done))
     .use(twitterCard({
         // TODO: Homepage entity decoding is screwed up
         siteurl: siteURL,
@@ -792,7 +898,7 @@ tracer(Metalsmith(__dirname))
     }))
 
     // Prod: minify HTML
-    .use(msIf(prod, htmlMinifier({
+    .use(msIf(prodBuild, htmlMinifier({
         minifierOptions: {
             // Fix metalsmith-html-minifier defaults
             removeAttributeQuotes: false,
@@ -811,10 +917,9 @@ tracer(Metalsmith(__dirname))
      *                          *
      ****************************/
 
-    // Ignore processed Google ownership verification file (before generating sitemap)
+    // Ignore non-HTML pages that will get included again later
     .use(ignore([
-        '**/google*/*.html',
-        '**/google*.html'
+        '**/google{*/,}*.html'
     ]))
 
     // Generate a sitemap
@@ -838,10 +943,10 @@ tracer(Metalsmith(__dirname))
     }))
 
     // Ensure no broken links
-    .use(msIf(prod, include({
+    .use(msIf(prodBuild, include({
         '': ['./src/links_ignore.json']
     })))
-    .use(msIf(prod, linkcheck({
+    .use(msIf(prodBuild, linkcheck({
         failMissing: true
     })))
 
@@ -854,6 +959,12 @@ tracer(Metalsmith(__dirname))
     // Include raw Google ownership verification file
     .use(include({
         '': ['./src/google*.html']
+    }))
+
+    // Generate robots.txt
+    .use(robots({
+        disallow: prodDeploy ? [] : ['/'],
+        sitemap: `${siteURL}/sitemap.xml`
     }))
 
     // Set destination directory
