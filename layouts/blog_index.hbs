@@ -17,11 +17,11 @@
         <hr class="my-4 my-md-5">
 
         <div class="d-flex justify-content-center">
-            <a href="/{{pagination.previous.path}}" class="btn {{#eq pagination.index 0}}btn-outline-secondary disabled{{else}}btn-outline-dark{{/eq}} br-max">Newer</a>
+            <a href="/{{pagination.previous.path}}" title="Newer" class="btn {{#eq pagination.index 0}}btn-outline-secondary disabled{{else}}btn-outline-dark{{/eq}} br-max">Newer</a>
             {{#forEach pagination.pages}}
-                <a href="/{{get "path" (itemAt ../pagination.pages (subtract index 1))}}" class="btn {{#eq ../pagination.index (subtract index 1)}}btn-outline-primary disabled{{else}}btn-outline-dark{{/eq}} br-max ml-2">{{ index }}</a>
+                <a href="/{{get "path" (itemAt ../pagination.pages (subtract index 1))}}" title="Page {{index}}" class="btn {{#eq ../pagination.index (subtract index 1)}}btn-outline-primary disabled{{else}}btn-outline-dark{{/eq}} br-max ml-2">{{ index }}</a>
             {{/forEach}}
-            <a href="/{{pagination.next.path}}" class="btn {{#eq pagination.index (subtract pagination.pages.length 1)}}btn-outline-secondary disabled{{else}}btn-outline-dark{{/eq}} br-max ml-2">Older</a>
+            <a href="/{{pagination.next.path}}" title="Older" class="btn {{#eq pagination.index (subtract pagination.pages.length 1)}}btn-outline-secondary disabled{{else}}btn-outline-dark{{/eq}} br-max ml-2">Older</a>
         </div>
     </div>
 
@@ -35,7 +35,7 @@
                     {{#eq (segments ../paths.dir -1 undefined) this}}
                         <b>{{ this }}</b>
                     {{else}}
-                        <a href="/blog/tag/{{this}}">{{ this }}</a>
+                        <a href="/blog/tag/{{this}}" title="{{this}}">{{ this }}</a>
                     {{/eq}}
                 </li>
             {{/each}}

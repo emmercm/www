@@ -3,7 +3,7 @@
         <div class="row no-gutters">
             <div class="col-9 col-md-10 pr-3 pr-md-4">
                 <h3 class="d-flex align-items-start justify-content-between">
-                    <a href="{{paths.href}}" class="text-dark">{{ title }}</a>
+                    <a href="{{paths.href}}" title="{{title}}" class="text-dark">{{ title }}</a>
                 </h3>
                 <h5 class="mt-0">
                     <small class="text-muted">{{moment this.date "MMM D, YYYY"}} &middot; {{this.readingTime}}</small>
@@ -13,7 +13,7 @@
 
             <div class="col-3 col-md-2">
                 {{#if image}}
-                    <a href="{{paths.href}}">
+                    <a href="{{paths.href}}" title="{{title}}">
                         <img data-src="{{image}}-thumb.*" alt="{{sanitize title}}" class="w-100">
                     </a>
                 {{/if}}
