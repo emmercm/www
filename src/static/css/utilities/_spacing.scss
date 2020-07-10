@@ -1,0 +1,14 @@
+@each $breakpoint in map-keys($grid-breakpoints) {
+  @include media-breakpoint-up($breakpoint) {
+    $infix: breakpoint-infix($breakpoint, $grid-breakpoints);
+
+    .m#{$infix}-collapse {
+      & > :first-child {
+        margin-top: 0 !important;
+      }
+       & > :last-child {
+        margin-bottom: 0 !important;
+      }
+    }
+  }
+}
