@@ -16,32 +16,32 @@ _See "[Restarting Resources in Kubernetes v1.15+](/blog/restarting-resources-in-
 One of the most common ways to restart resources you'll see online is to reduce a deployment's replica count to zero and then back up to its previous number. This isn't great for a number of reasons:
 
 - At some point in time you will have zero replicas running, which might have drastic consequences in production.
-- It may not respect your deployment strategy. This way of restarting is the same as the "recreate" deployment strategy, and that may not be desired.
-- If you're using horizontal pod autoscaler it will likely fight you.
+- It may not respect your [deployment strategy](https://kubernetes.io/docs/concepts/workloads/controllers/deployment/#strategy). This way of restarting is the same as the "recreate" deployment strategy, and that may not be desired.
+- If you're using [horizontal pod autoscaler](https://kubernetes.io/docs/tasks/run-application/horizontal-pod-autoscale/) it will likely fight you.
 
 ## A better way
 
-Editing a deployment's pod template will cause a rollout, so we can edit the template with a change that has no effect but causes the rollout anyway. You only need to make a change to one container in the pod template in order to cause this.
+Editing a deployment's pod template will cause a rollout, so we can edit the template with a change that has no effect but will cause the rollout anyway. You only need to make a change to one container in the pod template in order to cause this.
 
 One way of doing this is by adding/setting an environment variable such as `LAST_MANUAL_RESTART` with an ever-changing value such as the output from `date +%s`.
 
-First, let's get the first container name in the first pod template (replacing `<DEPLOYMENT>` with your deployment name):
+First, let's get the first container name in the pod template (replacing `<DEPLOYMENT>` with your deployment name):
 
 ```bash
-kubectl get deployment --output=jsonpath="{.spec.template.spec.containers[*].name}" <DEPLOYMENT> | tr -s '[[:space:]]' '\n' | head -1
+kubectl get deployment --output=jsonpath="{.spec.template.spec.containers[*].name}" "<DEPLOYMENT>" | tr -s '[[:space:]]' '\n' | head -1
 ```
 
-Let's pretend that gave us an output of `api` for the container name.
-
-Then we can patch the deployment to cause a rollout like this (still replacing `<DEPLOYMENT>` with your deployment name, and also `<CONTAINER>` with the container name you just found):
+Then we can patch the deployment to cause a rollout like this (still replacing `<DEPLOYMENT>` with your deployment name, and now also `<CONTAINER>` with the container name you just found):
 
 ```bash
-kubectl patch deployment <DEPLOYMENT> --patch="{\"spec\":{\"template\":{\"spec\":{\"containers\":[{\"name\":\"<CONTAINER>\",\"env\":[{\"name\":\"LAST_MANUAL_RESTART\",\"value\":\"$(date +%s)\"}]}]}}}}"
+kubectl patch deployment "<DEPLOYMENT>" --patch="{\"spec\":{\"template\":{\"spec\":{\"containers\":[{\"name\":\"<CONTAINER>\",\"env\":[{\"name\":\"LAST_MANUAL_RESTART\",\"value\":\"$(date +%s)\"}]}]}}}}"
 ```
 
-You can string those together and make yourself an alias like:
+You can string those together and make yourself an alias such as:
 
 ```bash
+# Reboot a Kubernetes deployment
+# @param {string} $1 Deployment name
 kreboot() {
     CONTAINER=$(kubectl get deployment --output=jsonpath="{.spec.template.spec.containers[*].name}" "$1" | tr -s '[[:space:]]' '\n' | head -1)
     kubectl patch deployment "$1" --patch="{\"spec\":{\"template\":{\"spec\":{\"containers\":[{\"name\":\"${CONTAINER}\",\"env\":[{\"name\":\"LAST_MANUAL_RESTART\",\"value\":\"$(date +%s)\"}]}]}}}}"
