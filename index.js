@@ -26,10 +26,11 @@ const paths            = require('metalsmith-paths');
 const branch           = require('metalsmith-branch');
 const readingTime      = require('metalsmith-reading-time');
 const pagination       = require('metalsmith-pagination')
+const jsonld           = require('./lib/metalsmith-jsonld');
 const defaultValues    = require('metalsmith-default-values');
-const hbtmd            = require('metalsmith-hbt-md');
+const hbtmd            = require('./lib/metalsmith-hbt-md');
 const markdown         = require('metalsmith-markdown');
-const excerpts         = require('metalsmith-excerpts');
+const excerpts         = require('./lib/metalsmith-excerpts');
 const except           = require('metalsmith-except');
 const feed             = require('metalsmith-feed');
 const related          = require('metalsmith-collections-related');
@@ -59,7 +60,6 @@ require('handlebars-helpers')({
     handlebars: Handlebars
 });
 
-const he              = require('he');
 const highlight       = require('highlight.js');
 const marked          = require('marked');
 const minimatch       = require('minimatch');
@@ -69,7 +69,6 @@ const transliteration = require('transliteration');
 const path = require('path');
 
 const { blogImage } = require('./lib/sharp');
-const jsonld = require('./lib/jsonld');
 
 const prodBuild = (process.env.NODE_ENV || 'development').toLowerCase() === 'production';
 const prodDeploy = process.env.NETLIFY && process.env.CONTEXT === 'production';
@@ -363,26 +362,13 @@ tracer(Metalsmith(__dirname))
 
     // Render blog article partials (same as below) first so excerpts can be parsed before being referenced on other pages
     .use(branch('blog/*/*.md')
-        // .use(hbtmd(Handlebars))
+        // Render the files
+        .use(hbtmd(Handlebars))
         .use(markdown({
             renderer: markdownRenderer
         }))
-        // Extract first paragraph as an excerpt and then change the page description
+        // Extract first paragraph as an excerpt and then change the page description (needs to happen after metalsmith-markdown)
         .use(excerpts())
-        .use((files, metalsmith, done) => {
-            // Fix terrible Cheerio output from metalsmith-excerpts
-            Object.keys(files)
-                .forEach(filename => {
-                    files[filename].excerpt = he.decode(
-                        files[filename].excerpt
-                            .replace(/<[^/][^>]*>/g, ' ') // HTML start tags
-                            .replace(/<\/[^>]*>/g, '') // HTML end tags
-                            .replace(/[ ][ ]+/g, ' ') // multiple spaces in a row
-                            .trim() // leading/trailing whitespace
-                    )
-                });
-            done();
-        })
         .use(except('pageDescription'))
         .use(defaultValues([{
             pattern: '**/*',
@@ -402,6 +388,29 @@ tracer(Metalsmith(__dirname))
         }))
         // Estimate pages' reading times
         .use(readingTime())
+    )
+    .use(branch('blog/*/*.html')
+        // Automatically add {{>blog_crosspost}} partials
+        .use((files, metalsmith, done) => {
+            Object.keys(files)
+                .forEach(filename => {
+                    files[filename].contents = Buffer.from(
+                        files[filename].contents.toString()
+                            // Lines that contain blog links
+                            // .replace(/^(.*?\[[^\[]+\]\(\/?blog\/.*?\).*?)$/gm, val => {
+                            .replace(/^(.*?href="\/?blog\/.*?".*?)$/gm, val => {
+                                // Each blog link
+                                // /\[[^\[]+\]\((\/?blog\/.*?)\)/g.exec(val).slice(1)
+                                /href="(\/?blog\/.*?)"/g.exec(val).slice(1)
+                                    // Append the partial to the end
+                                    .forEach(match => val = `${val}\n\n{{>blog_crosspost path="${match.replace(/^\/+|\/+$/g, '')}"}}`)
+                                return val;
+                            })
+                    );
+                });
+            done();
+        })
+        .use(hbtmd(Handlebars, { pattern: '**/*' }))
     )
 
     .use((files, metalsmith, done) => {

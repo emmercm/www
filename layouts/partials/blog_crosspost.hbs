@@ -1,0 +1,8 @@
+<div class="m-5 br-2 shadow">
+    <!-- Because of course "files" isn't exposed as metadata, we have to find files via collections -->
+    {{#each (unique_by (flat (array_values collections)) "path")}}
+        {{#eq path ../path}}
+            {{>blog_card data=this tags=false bg="lighter"}}
+        {{/eq}}
+    {{/each}}
+</div>
