@@ -26,10 +26,11 @@ const paths            = require('metalsmith-paths');
 const branch           = require('metalsmith-branch');
 const readingTime      = require('metalsmith-reading-time');
 const pagination       = require('metalsmith-pagination')
+const jsonld           = require('./lib/metalsmith-jsonld');
 const defaultValues    = require('metalsmith-default-values');
-const hbtmd            = require('metalsmith-hbt-md');
+const hbtmd            = require('./lib/metalsmith-hbt-md');
 const markdown         = require('metalsmith-markdown');
-const excerpts         = require('metalsmith-excerpts');
+const excerpts         = require('./lib/metalsmith-excerpts');
 const except           = require('metalsmith-except');
 const feed             = require('metalsmith-feed');
 const related          = require('metalsmith-collections-related');
@@ -59,7 +60,6 @@ require('handlebars-helpers')({
     handlebars: Handlebars
 });
 
-const he              = require('he');
 const highlight       = require('highlight.js');
 const marked          = require('marked');
 const minimatch       = require('minimatch');
@@ -69,7 +69,6 @@ const transliteration = require('transliteration');
 const path = require('path');
 
 const { blogImage } = require('./lib/sharp');
-const jsonld = require('./lib/jsonld');
 
 const prodBuild = (process.env.NODE_ENV || 'development').toLowerCase() === 'production';
 const prodDeploy = process.env.NETLIFY && process.env.CONTEXT === 'production';
