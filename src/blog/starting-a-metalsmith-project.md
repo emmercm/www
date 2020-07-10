@@ -527,7 +527,7 @@ And we can reference it by its filename base in `layouts/page.hbs` like this:
     <title>{{ title }}</title>
 </head>
 <body>
-{{> header}}
+{{>header}}
 {{{ contents }}}
 </body>
 </html>
