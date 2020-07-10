@@ -92,7 +92,6 @@ $colors: (
   "cyan":      $cyan,
   "white":     $white,
   "gray":      $gray-600,
-  "gray-dark": $gray-800
 );
 
 // Default theme colors
@@ -103,7 +102,9 @@ $info:      $cyan;
 $warning:   $yellow;
 $danger:    $red;
 $light:     $gray-400;
+$lighter:   lighten($light, 5%);
 $dark:      $gray-800;
+$darker:    darken($dark, 5%);
 
 $theme-colors: (
   "primary":   $primary,
@@ -113,7 +114,9 @@ $theme-colors: (
   "warning":   $warning,
   "danger":    $danger,
   "light":     $light,
-  "dark":      $dark
+  "lighter":   $lighter,
+  "dark":      $dark,
+  "darker":    $darker
 );
 $theme-colors: map-merge($theme-colors, $grays);
 $theme-colors: map-merge($theme-colors, $colors);
@@ -188,6 +191,7 @@ $navbar-height: 64px;
 @import "utilities/opacity";
 @import "utilities/position";
 @import "utilities/sizes";
+@import "utilities/spacing";
 @import "utilities/text";
 
 
