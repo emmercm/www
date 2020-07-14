@@ -230,20 +230,23 @@ h1, h2, h3, h4, h5, h6,
 }
 
 .bg-trianglify {
-    background-image: url('../img/trianglify.svg');
-    background-position: center center;
-    background-repeat: no-repeat;
-    background-attachment: fixed;
-    @media (min-aspect-ratio: 1/1) {  // wide
-        background-size: 100% auto;
-    }
+  background-image: url('../img/trianglify.svg');
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  @media (min-aspect-ratio: 1/1) {  // wide
+    background-size: 100% auto;
+  }
 }
 
 // Head and footer
 
-// Make sure navbar is clickable / on top
+// Make sure navbar is clickable / on top, and that page-progress is on top of that
 .navbar {
-    z-index: 1;
+  z-index: 1;
+}
+.navbar ~ .progress {
+  z-index: 2;
 }
 
 // Navbar height

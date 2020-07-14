@@ -81,9 +81,13 @@
     </div>
 </nav>
 
+<div class="progress position-fixed w-100 br-0 bg-transparent" style="height: 4px;">
+    <div id="page-progress" class="progress-bar bg-primary"></div>
+</div>
+
 <main>
     {{#if pageContainer}}
-        <div class="{{#if pageSize}}container-{{pageSize}} mw-{{pageSize}}-{{pageSize}}{{else}}container-md mw-md-md{{/if}} px-0 pt-4 pt-md-5 pt-xl-6 {{#and (inArray collection "blog") (gt collections.blog.length 2)}}pb-3{{else}}pb-4 pb-md-5 pb-xl-6{{/and}} markdown">
+        <div class="{{#if pageSize}}container-{{pageSize}} mw-{{pageSize}}-{{pageSize}}{{else}}container-md mw-md-md{{/if}} px-0 pt-4 pt-md-5 pt-xl-6 {{#inArray collection "blog"}}pb-3{{else}}pb-4 pb-md-5 pb-xl-6{{/inArray}} markdown" {{#inArray collection "blog"}}data-page-progress="page-progress"{{/inArray}}>
             {{#if pageHeader}}
                 <div id="metadata" class="brt-{{#if pageSize}}{{pageSize}}{{else}}md{{/if}}-1 pt-4 px-4 pt-md-5 px-md-5 bg-light">
                     <h1>{{ title }}</h1>
