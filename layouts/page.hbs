@@ -160,7 +160,7 @@
             {{/if}}
         </div>
 
-        {{#and (inArray collection "blog") (gt collections.blog.length 2)}}
+        {{#and (inArray collection "blog") (gte collections.blog.length 6)}}
             <div class="container-xl pb-3 pb-lg-5 pb-xl-6 markdown">
                 {{>blog_list_horizontal data=related.blog}}
             </div>
@@ -173,7 +173,7 @@
 <footer class="footer mt-auto bg-dark text-light shadow">
     <div class="container-xl">
         <div class="row row-cols-1">
-            <div class="col p-3 p-md-4">
+            <div class="col p-4">
                 <div class="d-flex justify-content-between align-items-center">
                     <div class="text-center">&copy; {{ year }} {{ sitename }}</div>
                     <div class="d-flex">
