@@ -21,8 +21,7 @@
         "@fortawesome/fontawesome-pro",
         "bootstrap",
         "highlight.js",
-        "jquery",
-        "lozad"
+        "jquery"
       ],
       "groupName": "Front-End"
     },

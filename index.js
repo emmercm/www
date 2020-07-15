@@ -719,8 +719,7 @@ tracer(Metalsmith(__dirname))
         'static/js/vendor': [
             // Un-minified files that can be concatenated
             './node_modules/jquery/dist/jquery.slim.js',
-            './node_modules/bootstrap/dist/js/bootstrap.js',
-            './node_modules/lozad/dist/lozad.js'
+            './node_modules/bootstrap/dist/js/bootstrap.js'
         ],
         'static/webfonts': [
             './node_modules/@fortawesome/fontawesome-pro/webfonts/*'
@@ -882,12 +881,6 @@ tracer(Metalsmith(__dirname))
      *     ALTER & COMPRESS HTML     *
      *                               *
      *********************************/
-
-    // Process lazy image loading
-    .use(jquery('**/*.html', $ => {
-        // TODO: Convert img[src]:not([data-src]) below-the-fold images to be lazy loaded
-        $('img[data-src][data-src!=""]').addClass('lozad');
-    }))
 
     // Fix Cheerio-mangled attribute values
     // .use(jquery('**/*.html', $ => {
