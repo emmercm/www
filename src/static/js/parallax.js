@@ -1,18 +1,17 @@
 /**
- * Handle tags with data-parallax-* attributes.
+ * Handle tags with data-parallax attribute.
  */
 
 $(document).ready(function () {
     $("[data-parallax][data-parallax!='']").each(function () {
         var $elem = $(this);
         $elem.get(0).style.setProperty('transition', 'none', 'important');
-        var velocity = parseFloat($elem.attr('data-parallax-velocity') || 1.0);
 
         if ($elem.attr('data-parallax') === 'scroll') {
             var position = function () {
-                var viewportMiddle = $(window).scrollTop() + $(window).height() / 2;
-                var documentMiddle = $(document).height() / 2;
-                var backgroundPositionY = 50 + (viewportMiddle - documentMiddle) / 10 * velocity;
+                var hundred = Math.max($(document).height(), $(window).height() * 4) - $(window).height();
+
+                var backgroundPositionY = $(window).scrollTop() / hundred * 100;
                 if (backgroundPositionY < 0) {
                     backgroundPositionY = 0;
                 } else if (backgroundPositionY > 100) {
