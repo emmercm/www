@@ -25,7 +25,6 @@
     "highlight.js": "^10.1.1",
     "jquery": "^3.5.1",
     "jstransformer-handlebars": "^1.1.0",
-    "lozad": "^1.15.0",
     "markdownlint-cli": "^0.23.2",
     "marked": "^1.1.0",
     "metalsmith": "^2.3.0",

@@ -78,7 +78,7 @@ const siteLanguage    = 'en-US';
 const siteName        = 'Christian Emmer';
 const siteURL         = process.env.NETLIFY && process.env.CONTEXT !== 'production' ? process.env.DEPLOY_PRIME_URL : (process.env.URL || 'https://emmer.dev');
 const siteEmail       = 'emmercm@gmail.com';
-const siteDescription = 'Software engineering tech lead with ' + moment().diff('2012-01-16', 'years') + '+ years of experience developing full-stack solutions in PHP, Go, Node.js, and Python.';
+const siteDescription = 'Software engineer with ' + moment().diff('2012-01-16', 'years') + '+ years of experience developing full-stack solutions in PHP, Go, Node.js, and Python.';
 const siteLogo        = '**/prologo1/logo3_Gray_Lighter.svg';
 const twitterHandle   = '@emmercm';
 
@@ -719,8 +719,7 @@ tracer(Metalsmith(__dirname))
         'static/js/vendor': [
             // Un-minified files that can be concatenated
             './node_modules/jquery/dist/jquery.slim.js',
-            './node_modules/bootstrap/dist/js/bootstrap.js',
-            './node_modules/lozad/dist/lozad.js'
+            './node_modules/bootstrap/dist/js/bootstrap.js'
         ],
         'static/webfonts': [
             './node_modules/@fortawesome/fontawesome-pro/webfonts/*'
@@ -882,12 +881,6 @@ tracer(Metalsmith(__dirname))
      *     ALTER & COMPRESS HTML     *
      *                               *
      *********************************/
-
-    // Process lazy image loading
-    .use(jquery('**/*.html', $ => {
-        // TODO: Convert img[src]:not([data-src]) below-the-fold images to be lazy loaded
-        $('img[data-src][data-src!=""]').addClass('lozad');
-    }))
 
     // Fix Cheerio-mangled attribute values
     // .use(jquery('**/*.html', $ => {

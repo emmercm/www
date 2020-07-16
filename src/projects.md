@@ -25,6 +25,10 @@ All images have:
 
 A collection of images with [libtorrent](https://www.libtorrent.org/) compiled, including Python bindings, to be used as a base image for applications such as [qBittorrent](https://github.com/emmercm/docker-qbittorrent) and [FlexGet](https://github.com/emmercm/docker-qbittorrent).
 
+Related blog articles:
+
+- [Reducing Docker Layers](/blog/reducing-docker-layers)
+
 ### [qBittorrent](https://github.com/emmercm/docker-qbittorrent)
 
 A collection of images with a headless version of [qBittorrent](https://www.qbittorrent.org/) (`qbittorrent-nox`) compiled and the web UI exposed.

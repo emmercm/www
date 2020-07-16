@@ -1,4 +1,4 @@
-<div class="m-5 br-2 shadow">
+<div class="mx-0 my-4 mx-sm-4 my-sm-5 mx-md-5 br-2 shadow">
     <!-- Because of course "files" isn't exposed as metadata, we have to find files via collections -->
     {{#each (unique_by (flat (array_values collections)) "path")}}
         {{#eq path ../path}}
