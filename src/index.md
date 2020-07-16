@@ -10,7 +10,7 @@ pageContainer: false
 <section class="d-flex flex-column position-relative text-center w-100 vh-100 navbar-nspacer text-shadow-sm">
     <div class="container my-auto p-4">
         <h1 class="display-1">{{ sitename }}</h1>
-        <h2>Software Engineering Tech Lead</h2>
+        <h2>Software Engineer</h2>
         <p class="h1 mt-5">
             {{#each icons.header}}
                 <a href="{{link}}" {{#if title}}title="{{title}}"{{/if}} class="text-dark text-decoration-none">

@@ -29,7 +29,7 @@
         <h3>Article Tags</h3>
         <ul class="fa-ul ml-1 pl-0 text-md-truncate">
             {{#each (sort (unique (flat (pluck collections.blog "tags"))))}}
-                <li class="my-2 d-inline-block d-md-block {{#unless @last}}mr-2 mr-md-0{{/unless}}">
+                <li class="my-2 d-inline-block d-md-block {{#unless @last}}mr-3 mr-md-0{{/unless}}">
                     <span class="fa-li"></span>
                     <i class="{{get "icon" (get this ../blog_tags)}} fa-fw mr-1"></i>
                     {{#eq (segments ../paths.dir -1 undefined) this}}

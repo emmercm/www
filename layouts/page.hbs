@@ -43,10 +43,18 @@
         <link rel="alternate" type="application/rss+xml" href="/blog/rss.xml">
     {{/eq}}
 
+    <!-- https://csswizardry.com/2020/05/the-fastest-google-fonts/ -->
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Montserrat:wght@600&family=Open+Sans:ital,wght@0,400;0,700;1,400&display=swap">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Montserrat:wght@600&family=Open+Sans:ital,wght@0,400;0,700;1,400&display=swap" media="print" onload="this.media='all'">
+    <noscript>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Montserrat:wght@600&family=Open+Sans:ital,wght@0,400;0,700;1,400&display=swap">
+    </noscript>
+
     <link rel="stylesheet" href="**/styles*.css">
 </head>
 
-<body class="d-flex flex-column h-100 bg-secondary bg-trianglify" data-parallax="scroll" data-parallax-velocity="0.25">
+<body class="d-flex flex-column h-100 bg-secondary bg-trianglify" data-parallax="scroll">
 <nav class="navbar navbar-expand-md navbar-dark clearfix bg-dark px-3 px-md-4 shadow">
     <div class="container-xl px-0">
         <div class="d-flex justify-content-between align-items-center flex-nowrap w-100">
@@ -81,9 +89,13 @@
     </div>
 </nav>
 
+<div class="progress position-fixed w-100 br-0 bg-transparent" style="height: 4px;">
+    <div id="page-progress" class="progress-bar bg-primary"></div>
+</div>
+
 <main>
     {{#if pageContainer}}
-        <div class="{{#if pageSize}}container-{{pageSize}} mw-{{pageSize}}-{{pageSize}}{{else}}container-md mw-md-md{{/if}} px-0 pt-4 pt-md-5 pt-xl-6 {{#and (inArray collection "blog") (gt collections.blog.length 2)}}pb-3{{else}}pb-4 pb-md-5 pb-xl-6{{/and}} markdown">
+        <div class="{{#if pageSize}}container-{{pageSize}} mw-{{pageSize}}-{{pageSize}}{{else}}container-md mw-md-md{{/if}} px-0 pt-4 pt-md-5 pt-xl-6 {{#inArray collection "blog"}}pb-3{{else}}pb-4 pb-md-5 pb-xl-6{{/inArray}} markdown" {{#inArray collection "blog"}}data-page-progress="page-progress"{{/inArray}}>
             {{#if pageHeader}}
                 <div id="metadata" class="brt-{{#if pageSize}}{{pageSize}}{{else}}md{{/if}}-1 pt-4 px-4 pt-md-5 px-md-5 bg-light">
                     <h1>{{ title }}</h1>
@@ -156,7 +168,7 @@
             {{/if}}
         </div>
 
-        {{#and (inArray collection "blog") (gt collections.blog.length 2)}}
+        {{#and (inArray collection "blog") (gte collections.blog.length 6)}}
             <div class="container-xl pb-3 pb-lg-5 pb-xl-6 markdown">
                 {{>blog_list_horizontal data=related.blog}}
             </div>
@@ -169,7 +181,7 @@
 <footer class="footer mt-auto bg-dark text-light shadow">
     <div class="container-xl">
         <div class="row row-cols-1">
-            <div class="col p-3 p-md-4">
+            <div class="col p-4">
                 <div class="d-flex justify-content-between align-items-center">
                     <div class="text-center">&copy; {{ year }} {{ sitename }}</div>
                     <div class="d-flex">
