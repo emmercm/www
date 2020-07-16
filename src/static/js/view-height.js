@@ -18,8 +18,9 @@ function viewHeight() {
     var newOrientation = $(window).height() > $(window).width() ? 'portrait' : 'landscape';
 
     // Fire if: is desktop, or mobile orientation has changed
-    if (!isMobile() || orientation !== newOrientation) {
-        document.documentElement.style.setProperty('--vh', (window.innerHeight * 0.01) + 'px');
+    if (!isMobile() || newOrientation !== orientation) {
+        alert((window.innerHeight / 100) + 'px');
+        document.documentElement.style.setProperty('--vh', (window.innerHeight / 100) + 'px');
         orientation = newOrientation;
     }
 }
