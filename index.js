@@ -343,22 +343,31 @@ tracer(Metalsmith(__dirname))
     }))
 
     // Find images for pages
-    .use((files, metalsmith, done) => defaultValues([{
-        pattern: '**/*.@(html|md)',
-        defaults: {
-            image: file => {
-                const basename = file.path
-                    .replace(/\/index\.[a-z]+$/, '')
-                    .split('/').pop()
-                    .replace(/\.[a-z]+$/, '');
-                return (Object.keys(files)
-                    .filter(minimatch.filter(`static/img/{**/,}${basename}.*`))
-                    .find(e => true) || '')
-                    .replace(/^([^/])/, '/$1')
-                    .replace(/\.[a-z]+$/, '');
+    .use((files, metalsmith, done) => defaultValues([
+        {
+            pattern: '**/*.@(html|md)',
+            defaults: {
+                image: file => {
+                    const basename = file.path
+                        .replace(/\/index\.[a-z]+$/, '')
+                        .split('/').pop()
+                        .replace(/\.[a-z]+$/, '');
+                    const path = (Object.keys(files)
+                        .filter(minimatch.filter(`static/img/{**/,}${basename}.*`))
+                        .find(e => true) || '')
+                        .replace(/^([^/])/, '/$1')
+                        .replace(/\.[a-z]+$/, '');
+                    return path ? `${path}.*` : null;
+                }
+            }
+        },
+        {
+            pattern: '**/*.@(html|md)',
+            defaults: {
+                thumb: file => file.image ? file.image.replace(/(\.[^\.]+)$/, '-thumb.*') : null
             }
         }
-    }])(files, metalsmith, done))
+    ])(files, metalsmith, done))
 
     // Render blog article partials (same as below) first so excerpts can be parsed before being referenced on other pages
     .use(branch('blog/*/*.md')
@@ -859,9 +868,9 @@ tracer(Metalsmith(__dirname))
                 };
                 // TODO: change this to '.og-image'
                 //  https://github.com/vitaliy-bobrov/metalsmith-twitter-card/issues/3
-                if(file.image) {
+                if(file.image && file.image.indexOf('://') === -1) {
                     meta.image = Object.keys(files)
-                        .filter(minimatch.filter(`${file.image.replace(/^\/+/, '')}.*`))
+                        .filter(minimatch.filter(file.image.replace(/^\/+/, '')))
                         .find(e => true);
                 }
                 return meta;
