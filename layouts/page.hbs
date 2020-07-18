@@ -154,8 +154,8 @@
                         {{#if tags}}
                             <span>Tags:</span>
                             {{#each tags}}
-                                <h5 class="my-0 ml-2">
-                                    <a href="/blog/tag/{{this}}" title="{{this}}" class="badge badge-{{get "color" (get this ../blog_tags)}}">{{ this }}</a>
+                                <h5 class="my-0 ml-2 mw-100">
+                                    <a href="/blog/tag/{{this}}" title="{{this}}" class="badge badge-{{get "color" (get this ../blog_tags)}} mw-100 text-break text-wrap">{{ this }}</a>
                                 </h5>
                             {{/each}}
                         {{/if}}
