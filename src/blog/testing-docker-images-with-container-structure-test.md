@@ -1,35 +1,36 @@
 ---
 
 title: Testing Docker Images with Container Structure Test
-date: 2030-01-01
+date: 2020-07-18T17:42:00
+imageCredit: 'Photo by <a href="https://unsplash.com/@hdbernd">Bernd Dittrich</a> on <a href="https://unsplash.com/photos/El7nMmPZWCQ">Unsplash</a>'
 tags:
 - docker
 - testing
 
 ---
 
-Just because a Docker image builds successfully doesn't mean it will perform as expected. Google's [container structure test](https://github.com/GoogleContainerTools/container-structure-test) tool helps you check images to make sure they're working as intended.
+Just because a Docker image builds successfully doesn't mean it will perform as expected. Google's [container Structure Test](https://github.com/GoogleContainerTools/container-structure-test) tool helps you check images to make sure they're working as intended.
 
-Container structure test can be thought of as unit tests for your Docker images. Unit tests (and integration tests) help ensure your code is behaving as expected given various inputs. The same can be done with your Docker images. There are things that can go wrong with an image build, so images should be tested just like code is.
+Container Structure Test can be thought of as **unit tests for your Docker images**. Unit tests (and integration tests) help ensure your code is behaving as expected given various inputs; the same can be done with your Docker images. There are things that can go wrong with an image build, so images should be tested just like code is.
 
-Container structure test can be configured to test a few different things:
+Container Structure Test can be configured to test a few different things:
 
-- The output and exit code of commands
+- The stdout, stderr, and exit code of commands
 - The existence of a file, along with its ownership and permissions
 - The contents of a file, using regular expressions
-- Metadata of the container such as: labels, entry point, command, exposed ports, and the working directory
+- Metadata of the image such as: labels, entry point, command, exposed ports, and the working directory
 
 ## Why test a built image?
 
-One reason is to make sure the image **contains all the files it needs** to run. If you have non-deterministic instructions such as `COPY . ./` which depend heavily on the build context, it may succeed but not copy something important such as a configuration file. Or if you have a `CMD` such as `CMD ["node", "index.js"]` it would probably be a good idea to make sure `index.js` exists.
+One reason is to make sure the image **contains all the files it needs** to run. If you have non-deterministic instructions such as `COPY . ./` that depend heavily on the build context, they may succeed but not copy something important such as a configuration file. Or if you have a `CMD` such as `CMD ["node", "index.js"]` it would probably be a good idea to make sure `index.js` exists.
 
 Another reason is to ensure there's **no immediate runtime errors**. Just because your image successfully built a C/C++/Go/etc. binary doesn't mean it won't immediately crash on execution. There might be some shared libraries or a configuration file missing, or an issue with opening files or network sockets.
 
-One last non-obvious reason to verify your images is it can **enable automatic CI/CD**. If you use tools such as [Renovate](https://renovate.whitesourcesoftware.com/), [Dependabot](https://dependabot.com/), or [Greenkeeper](https://greenkeeper.io/) to manage dependency updates, you could add container structure test to your CI and have those tools auto-merge their pull requests, kicking off your CD without any human intervention.
+One last non-obvious reason to verify your images is it can **enable automatic CI/CD**. If you use tools such as [Renovate](https://renovate.whitesourcesoftware.com/), [Dependabot](https://dependabot.com/), or [Greenkeeper](https://greenkeeper.io/) to manage dependency updates, you could add Container Structure Test to your CI and have those tools auto-merge their pull requests, safely kicking off your CD without any human intervention.
 
 ## Testing `golang:latest`
 
-To give a quick example of how to set up a container structure test [config file](https://github.com/GoogleContainerTools/container-structure-test#setup), we'll test the base image `golang:1.14.6` (`latest` as of writing).
+To give a quick example of how to set up a Container Structure Test [config file](https://github.com/GoogleContainerTools/container-structure-test#setup), we'll test the base image `golang:1.14.6` (`latest` as of writing).
 
 Create a file `config.yaml` and fill it in like this:
 
@@ -44,7 +45,6 @@ metadataTest:
   exposedPorts: []
   volumes: []
   entrypoint: []
-  cmd: ["bash"]
 
 fileExistenceTests:
   # Main binary exists
@@ -70,7 +70,7 @@ commandTests:
     teardown: [["rm", "main.go"]]
 ```
 
-And then after [installing container structure test](https://github.com/GoogleContainerTools/container-structure-test#installation), run the command:
+And then after [installing Container Structure Test](https://github.com/GoogleContainerTools/container-structure-test#installation), run the command:
 
 ```bash
 $ container-structure-test test --image golang:1.14.6 --config config.yaml
@@ -106,17 +106,17 @@ Total tests: 4
 PASS
 ```
 
-This is just a quick example of how to test some important parts of an image, see the full container structure test [README](https://github.com/GoogleContainerTools/container-structure-test#setup) for all options available.
+This is just a quick example of how to test some important parts of an image, see the full Container Structure Test [README](https://github.com/GoogleContainerTools/container-structure-test#setup) for all available options.
 
 ## Real world examples
 
-I use container structure test with all of my public Docker Hub images, here's some real world reasons why:
+I use Container Structure Test with all of [my public Docker Hub images](https://hub.docker.com/u/emmercm), here's some real world reasons why:
 
 ### [`emmercm/libtorrent`](https://github.com/emmercm/docker-libtorrent)
 
 [libtorrent](https://www.libtorrent.org/) is a C++ BitTorrent library used by a number of clients such as [Deluge](https://deluge-torrent.org/) and [qBittorrent](https://www.qbittorrent.org/). It has a long enough build time on its own such that it was worth turning into a base image.
 
-The [container structure test config](https://github.com/emmercm/docker-qbittorrent/blob/master/4.2/container-structure-test.yml) makes sure:
+The [Container Structure Test config](https://github.com/emmercm/docker-qbittorrent/blob/master/4.2/container-structure-test.yml) makes sure:
 
 - Both the shared and static versions of the library were built and exist in the right location (critical file existence check)
 - Both the Python 2 and 3 bindings work and are able to print their version information (runtime error check)
@@ -125,11 +125,11 @@ The [container structure test config](https://github.com/emmercm/docker-qbittorr
 
 [qBittorrent](https://www.qbittorrent.org/) is a BitTorrent client built on [libtorrent](https://www.libtorrent.org/). There is no official image for qBittorrent and there are very few actively maintained community versions with complete documentation.
 
-The [container structure test config](https://github.com/emmercm/docker-qbittorrent/blob/master/4.2/container-structure-test.yml) makes sure:
+The [Container Structure Test config](https://github.com/emmercm/docker-qbittorrent/blob/master/4.2/container-structure-test.yml) makes sure:
 
 - The `ENTRYPOINT` shell script executes correctly with a dummy command (`echo "ok"`) (runtime error check)
-- The main binary can be found in the `$PATH` (critical file existence check)
-- The main binary echoes its version successfully (runtime error check)
+- The main, built binary can be found in `$PATH` (critical file existence check)
+- The main, built binary echoes its version successfully (runtime error check)
 - The `ENTRYPOINT` shell script executes correctly with the primary `CMD` (runtime error check)
 
 ## Conclusion
