@@ -250,11 +250,13 @@ tracer(Metalsmith(__dirname))
         Object.keys(files)
             .filter(filename => files[filename].image && files[filename].image.indexOf('unsplash.com') !== -1)
             .forEach(filename => {
+                const original = files[filename].image;
                 files[filename].image = files[filename].image
                     .replace(/unsplash\.com\/photos\/([^\/]+)/, 'source.unsplash.com/$1')
                     .replace(/source\.unsplash\.com\/([^\/]+).*/, `source.unsplash.com/$1/${blogImageWidth}x${blogImageHeight}`);
                 files[filename].thumb = files[filename].image
                     .replace(/source\.unsplash\.com\/([^\/]+).*/, `source.unsplash.com/$1/${blogImageThumbWidth}x${blogImageThumbHeight}`);
+                files[filename].imageCredit = files[filename].imageCredit || `Photo on <a href="${original}">Unsplash</a>`;
             });
         done();
     })
