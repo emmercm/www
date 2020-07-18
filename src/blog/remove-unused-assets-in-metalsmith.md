@@ -1,6 +1,7 @@
 ---
 
 title: Remove Unused Assets in Metalsmith
+image: https://unsplash.com/photos/VE9DQ7zm22Y
 imageCredit: Photo by <a href="https://unsplash.com/@rocinante_11">Mick Haupt</a> on <a href="https://unsplash.com/photos/VE9DQ7zm22Y">Unsplash</a>
 date: 2020-05-19T18:22:00
 tags:
@@ -12,7 +13,7 @@ Have assets in your source directory that are never used by your output? Save so
 
 Removing static assets (images, CSS, JavaScript, documents/PDFs, etc.) at the end of your build pipeline reduces the amount of content that has to be written to disk and then eventually uploaded to a web server. Not removing these assets probably doesn't hurt your build time as much as running other plugins, but it's an easy optimization to take.
 
-See "[Minify Files in Metalsmith](/blog/minify-files-in-metalsmith)" on reducing the size of assets that are used in your final build output.  
+See "[Minify Files in Metalsmith](/blog/minify-files-in-metalsmith)" on reducing the size of assets that are used in your final build output.
 
 ## Project setup
 

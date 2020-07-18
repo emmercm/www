@@ -1,6 +1,7 @@
 ---
 
 title: Tunneling a Database Connection with Docker Compose
+image: https://unsplash.com/photos/CD4WHrWio6Q
 imageCredit: 'Photo by <a href="https://unsplash.com/@danieljerez">Daniel Jerez</a> on <a href="https://unsplash.com/photos/CD4WHrWio6Q">Unsplash</a>'
 date: 2019-08-07T23:57:00
 tags:

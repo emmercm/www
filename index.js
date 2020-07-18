@@ -245,6 +245,20 @@ tracer(Metalsmith(__dirname))
      *                        *
      **************************/
 
+    // Transform Unsplash image pages into CDN URLs
+    .use((files, metalsmith, done) => {
+        Object.keys(files)
+            .filter(filename => files[filename].image && files[filename].image.indexOf('unsplash.com') !== -1)
+            .forEach(filename => {
+                files[filename].image = files[filename].image
+                    .replace(/unsplash\.com\/photos\/([^\/]+)/, `source.unsplash.com/$1`)
+                    .replace(/source\.unsplash\.com\/([^\/]+).*/, `source.unsplash.com/$1/${blogImageWidth}x${blogImageHeight}`);
+                files[filename].thumb = files[filename].image
+                    .replace(/source\.unsplash\.com\/([^\/]+).*/, `source.unsplash.com/$1/${blogImageThumbWidth}x${blogImageThumbHeight}`);
+            });
+        done();
+    })
+
     // Create static/img/blog/default.*
     .use(include({
         'static/img/blog': [

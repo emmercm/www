@@ -1,6 +1,7 @@
 ---
 
 title: Adding a Favicon in Metalsmith
+image: https://unsplash.com/photos/mE4Q1WHerkc
 imageCredit: 'Photo by <a href="https://unsplash.com/@rezarp">Reza Rostampisheh</a> on <a href="https://unsplash.com/photos/mE4Q1WHerkc">Unsplash</a>'
 date: 2020-02-18T01:51:00
 tags:
