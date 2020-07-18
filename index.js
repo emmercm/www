@@ -251,7 +251,7 @@ tracer(Metalsmith(__dirname))
             .filter(filename => files[filename].image && files[filename].image.indexOf('unsplash.com') !== -1)
             .forEach(filename => {
                 files[filename].image = files[filename].image
-                    .replace(/unsplash\.com\/photos\/([^\/]+)/, `source.unsplash.com/$1`)
+                    .replace(/unsplash\.com\/photos\/([^\/]+)/, 'source.unsplash.com/$1')
                     .replace(/source\.unsplash\.com\/([^\/]+).*/, `source.unsplash.com/$1/${blogImageWidth}x${blogImageHeight}`);
                 files[filename].thumb = files[filename].image
                     .replace(/source\.unsplash\.com\/([^\/]+).*/, `source.unsplash.com/$1/${blogImageThumbWidth}x${blogImageThumbHeight}`);
@@ -276,14 +276,14 @@ tracer(Metalsmith(__dirname))
     .use(ignore(['static/img/blog/*.@(psd|xcf)']))
 
     // Process large blog images (sharp.strategy.attention)
-    .use(blogImage('static/img/blog/!(*-thumb).*', blogImageWidth, blogImageHeight, 17, prodBuild))
+    .use(blogImage('static/img/blog/!(*-thumb).*', blogImageWidth, blogImageHeight, prodBuild))
 
     // Process small blog images (sharp.gravity.center)
     .use(copy({
         pattern: 'static/img/blog/*',
         transform: filename => filename.replace(/\.([^.]+)$/, '-thumb.$1')
     }))
-    .use(blogImage('static/img/blog/*-thumb.*', blogImageThumbWidth, blogImageThumbHeight, 0, prodBuild))
+    .use(blogImage('static/img/blog/*-thumb.*', blogImageThumbWidth, blogImageThumbHeight, prodBuild))
 
     /***********************
      *                     *
