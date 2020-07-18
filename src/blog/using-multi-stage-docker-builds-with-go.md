@@ -1,6 +1,7 @@
 ---
 
 title: Using Multi-Stage Docker Builds with Go
+image: https://unsplash.com/photos/AKJ7gq-n4zE
 imageCredit: 'Photo by <a href="https://unsplash.com/@markusspiske">Markus Spiske</a> on <a href="https://unsplash.com/photos/AKJ7gq-n4zE">Unsplash</a>'
 date: 2020-06-04T22:26:00
 tags:

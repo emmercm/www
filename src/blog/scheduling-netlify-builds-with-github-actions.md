@@ -1,6 +1,7 @@
 ---
 
 title: Scheduling Netlify Builds with GitHub Actions
+image: https://unsplash.com/photos/7oh6dJVhurM
 imageCredit: 'Photo by <a href="https://unsplash.com/@bbsody">Maxim Melnikov</a> on <a href="https://unsplash.com/photos/7oh6dJVhurM">Unsplash</a>'
 date: 2020-04-25T00:06:00
 tags:

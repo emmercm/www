@@ -245,6 +245,20 @@ tracer(Metalsmith(__dirname))
      *                        *
      **************************/
 
+    // Transform Unsplash image pages into CDN URLs
+    .use((files, metalsmith, done) => {
+        Object.keys(files)
+            .filter(filename => files[filename].image && files[filename].image.indexOf('unsplash.com') !== -1)
+            .forEach(filename => {
+                files[filename].image = files[filename].image
+                    .replace(/unsplash\.com\/photos\/([^\/]+)/, 'source.unsplash.com/$1')
+                    .replace(/source\.unsplash\.com\/([^\/]+).*/, `source.unsplash.com/$1/${blogImageWidth}x${blogImageHeight}`);
+                files[filename].thumb = files[filename].image
+                    .replace(/source\.unsplash\.com\/([^\/]+).*/, `source.unsplash.com/$1/${blogImageThumbWidth}x${blogImageThumbHeight}`);
+            });
+        done();
+    })
+
     // Create static/img/blog/default.*
     .use(include({
         'static/img/blog': [
@@ -262,14 +276,14 @@ tracer(Metalsmith(__dirname))
     .use(ignore(['static/img/blog/*.@(psd|xcf)']))
 
     // Process large blog images (sharp.strategy.attention)
-    .use(blogImage('static/img/blog/!(*-thumb).*', blogImageWidth, blogImageHeight, 17, prodBuild))
+    .use(blogImage('static/img/blog/!(*-thumb).*', blogImageWidth, blogImageHeight, prodBuild))
 
     // Process small blog images (sharp.gravity.center)
     .use(copy({
         pattern: 'static/img/blog/*',
         transform: filename => filename.replace(/\.([^.]+)$/, '-thumb.$1')
     }))
-    .use(blogImage('static/img/blog/*-thumb.*', blogImageThumbWidth, blogImageThumbHeight, 0, prodBuild))
+    .use(blogImage('static/img/blog/*-thumb.*', blogImageThumbWidth, blogImageThumbHeight, prodBuild))
 
     /***********************
      *                     *
@@ -343,22 +357,31 @@ tracer(Metalsmith(__dirname))
     }))
 
     // Find images for pages
-    .use((files, metalsmith, done) => defaultValues([{
-        pattern: '**/*.@(html|md)',
-        defaults: {
-            image: file => {
-                const basename = file.path
-                    .replace(/\/index\.[a-z]+$/, '')
-                    .split('/').pop()
-                    .replace(/\.[a-z]+$/, '');
-                return (Object.keys(files)
-                    .filter(minimatch.filter(`static/img/{**/,}${basename}.*`))
-                    .find(e => true) || '')
-                    .replace(/^([^/])/, '/$1')
-                    .replace(/\.[a-z]+$/, '');
+    .use((files, metalsmith, done) => defaultValues([
+        {
+            pattern: '**/*.@(html|md)',
+            defaults: {
+                image: file => {
+                    const basename = file.path
+                        .replace(/\/index\.[a-z]+$/, '')
+                        .split('/').pop()
+                        .replace(/\.[a-z]+$/, '');
+                    const path = (Object.keys(files)
+                        .filter(minimatch.filter(`static/img/{**/,}${basename}.*`))
+                        .find(e => true) || '')
+                        .replace(/^([^/])/, '/$1')
+                        .replace(/\.[a-z]+$/, '');
+                    return path ? `${path}.*` : null;
+                }
+            }
+        },
+        {
+            pattern: '**/*.@(html|md)',
+            defaults: {
+                thumb: file => file.image ? file.image.replace(/(\.[^\.]+)$/, '-thumb.*') : null
             }
         }
-    }])(files, metalsmith, done))
+    ])(files, metalsmith, done))
 
     // Render blog article partials (same as below) first so excerpts can be parsed before being referenced on other pages
     .use(branch('blog/*/*.md')
@@ -859,9 +882,9 @@ tracer(Metalsmith(__dirname))
                 };
                 // TODO: change this to '.og-image'
                 //  https://github.com/vitaliy-bobrov/metalsmith-twitter-card/issues/3
-                if(file.image) {
+                if(file.image && file.image.indexOf('://') === -1) {
                     meta.image = Object.keys(files)
-                        .filter(minimatch.filter(`${file.image.replace(/^\/+/, '')}.*`))
+                        .filter(minimatch.filter(file.image.replace(/^\/+/, '')))
                         .find(e => true);
                 }
                 return meta;
