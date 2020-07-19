@@ -1,7 +1,7 @@
 ---
 
 title: Keep npm Packages Updated with Renovate
-date: 2030-01-01
+date: 2020-07-19T21:00:00
 tags:
 - node.js
 - ci-cd
