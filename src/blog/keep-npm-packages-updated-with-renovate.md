@@ -12,7 +12,7 @@ It's important to keep your [npm](https://www.npmjs.com/) packages updated for [
 
 ## Renovate
 
-[Renovate](https://renovate.whitesourcesoftware.com/) is a [completely free](https://renovate.whitesourcesoftware.com/blog/renovate-is-now-part-of-whitesource/), open source tool to **automate dependency updates** across many tools and languages. With Renovate, you can either install into GitHub or GitLab as an app, or self-host. You commit a config file [in your repository](https://docs.renovatebot.com/configuration-options/) alongside the rest of your code, and Renovate will use it every time it runs.
+[Renovate](https://renovate.whitesourcesoftware.com/) is a [completely free](https://renovate.whitesourcesoftware.com/blog/renovate-is-now-part-of-whitesource/), open source tool to **automate dependency updates** across many tools and languages. With Renovate, you can either install it into GitHub or GitLab as an app, or self-host. You commit a config file [in your repository](https://docs.renovatebot.com/configuration-options/) alongside the rest of your code, and Renovate will use it every time it runs.
 
 There are competing tools such as [Dependabot](https://dependabot.com/) ([acquired by GitHub](https://dependabot.com/blog/hello-github/)) or [Snyk](https://snyk.io/blog/keep-your-dependencies-up-to-date-enable-auto-upgrades-with-snyk/) that do similar things, but I have really appreciated the deep customization Renovate offers.
 
@@ -20,11 +20,11 @@ There are competing tools such as [Dependabot](https://dependabot.com/) ([acquir
 
 npm packages are a great tool to speed up development, but they're also a **large source of vulnerabilities**. Vulnerabilities such as [prototype pollution](https://www.npmjs.com/advisories/782), [regex denial of service](https://www.npmjs.com/advisories/118), and [remote code execution](https://www.npmjs.com/advisories/1538) can be common in npm packages. Maintainers of popular packages tend to do a good job releasing updates when a vulnerability is found, so keeping your dependencies up-to-date is important.
 
-Note: even with automatic npm updates, there's **no guarantee the package maintainer will keep _their_ dependencies updated**, which is why it's important to only use libraries that are actively maintained and preferably have more than one contributor - but you'll need to use your best judgement as there may not be very many options. Snyk has a good article on [maintaining npm dependencies](https://snyk.io/blog/how-to-maintain-npm-dependencies-in-your-project/).
+Even with automatic npm updates, there's **no guarantee the package maintainer will keep _their_ dependencies updated**, which is why it's important to only use libraries that are actively maintained, and preferably have more than one contributor - but you'll need to use your best judgement as there may not be very many options. Snyk has a good article on [maintaining npm dependencies](https://snyk.io/blog/how-to-maintain-npm-dependencies-in-your-project/).
 
 ## Renovate as an app
 
-The easiest way to use Renovate is to install the [GitHub](https://docs.renovatebot.com/install-github-app/) or [GitLab](https://docs.renovatebot.com/install-gitlab-app/) app and give it access to your repositories. From there, it will automatically open an [onboarding pull request](https://docs.renovatebot.com/configure-renovate/) that adds a `renovate.json` config file, and the pull request description describes what will happen when it is merged. You can edit that `renovate.json` and the pull request description will live update with what will happen.
+The easiest way to use Renovate is to install the [GitHub](https://docs.renovatebot.com/install-github-app/) or [GitLab](https://docs.renovatebot.com/install-gitlab-app/) app and give it access to your repositories. From there, it will automatically open an [onboarding pull request](https://docs.renovatebot.com/configure-renovate/) that adds a `renovate.json` config file, and the pull request description will describe what will happen when it is merged. You can edit that `renovate.json` and the pull request description will automatically update with the new effects.
 
 ## Default Renovate config
 
@@ -109,7 +109,7 @@ Here's my recommended config for Node.js/npm. It's in JSON5 syntax to help expla
 }
 ```
 
-If you trust in your CI/CD, you could even have pull requests auto-merge when they pass CI:
+If you have high confidence in your CI/CD, you could even have pull requests auto-merge when they pass CI:
 
 ```json
 {
@@ -121,7 +121,7 @@ If you trust in your CI/CD, you could even have pull requests auto-merge when th
 
 Configurations like these are never a one-size-fits-all situation, so here's some other options to think about.
 
-If you need to access private npm registries, you'll need to create an `.npmrc` file that uses environment variables, or use the `npmrc` option - and you'll need to provide your token(s) in an encrypted format (see the [documentation](https://docs.renovatebot.com/private-modules/)):
+If you need to access **private npm registries**, you'll need to create an `.npmrc` file that uses environment variables, or use the `npmrc` option - and you'll need to provide your token(s) in an encrypted format (see the [documentation](https://docs.renovatebot.com/private-modules/)):
 
 ```json
 {
@@ -132,7 +132,7 @@ If you need to access private npm registries, you'll need to create an `.npmrc` 
 }
 ```
 
-If your dependencies can be split into "front-end" and "back-end" you might want to group update pull requests in the same way:
+If your dependencies can be split into **"front-end" and "back-end"** you might want to group update pull requests in the same way:
 
 ```json5
 {
@@ -152,39 +152,35 @@ If your dependencies can be split into "front-end" and "back-end" you might want
 }
 ```
 
-If you mix multiple different languages in your repository you might want to group update pull requests by language:
+If you mix **multiple different languages** in your repository you might want to group update pull requests by language:
 
 ```json
 {
-  "circleci": {
-    "minor": {
+  "separateMajorMinor": true,
+  "separateMinorPatch": false,
+
+  "packageRules": [
+    {
+      "managers": ["circleci"],
+      "updateTypes": ["minor", "patch"],
       "groupName": "CircleCI"
     },
-    "patch": {
-      "groupName": "CircleCI (Patch)"
-    }
-  },
-
-  "dockerfile": {
-    "minor": {
+    {
+      "managers": ["dockerfile"],
+      "updateTypes": ["minor", "patch"],
       "groupName": "Dockerfile"
     },
-    "patch": {
-      "groupName": "Dockerfile (Patch)"
+    {
+      "languages": ["js"],
+      "updateTypes": ["minor", "patch"],
+      "groupName": "JavaScript"
     }
-  },
-
-  "js": {
-    "minor": {
-      "groupName": "JavaScript Packages"
-    },
-    "patch": {
-      "groupName": "JavaScript Packages (Patch)"
-    }
-  }
+  ]
 }
 ```
 
 ## Conclusion
 
 Stay safe, keep your dependencies updated!
+
+Be smart, do it automatically!
