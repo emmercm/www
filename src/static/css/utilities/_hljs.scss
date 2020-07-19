@@ -3,9 +3,11 @@
 $hljs-color: $code-color;
 
 .hljs-attribute,
+.hljs-built_in,
 .hljs-keyword,
 .hljs-meta,
 .hljs-name,
+.hljs-section,
 .hljs-selector-tag,
 .hljs-strong,
 .hljs-title {
@@ -27,9 +29,12 @@ $hljs-color: $code-color;
 
 .hljs-attr,
 .hljs-attribute,
+.hljs-built_in,
 .hljs-keyword,
+//.hljs-literal,
 .hljs-meta,
 .hljs-name,
+.hljs-section,
 .hljs-selector-tag,
 .hljs-template-variable,
 .hljs-title {
