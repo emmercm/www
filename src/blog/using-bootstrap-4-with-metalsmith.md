@@ -65,12 +65,12 @@ Now that we have all those plugins installed and files created let's start filli
 Set up your `index.js` file like this:
 
 ```javascript
-const Metalsmith       = require('metalsmith');
-const sass             = require('metalsmith-sass');
-const autoprefixer     = require('metalsmith-autoprefixer');
-const include          = require('metalsmith-include-files');
-const markdown         = require('metalsmith-markdown');
-const layouts          = require('metalsmith-layouts');
+const Metalsmith   = require('metalsmith');
+const sass         = require('metalsmith-sass');
+const autoprefixer = require('metalsmith-autoprefixer');
+const include      = require('metalsmith-include-files');
+const markdown     = require('metalsmith-markdown');
+const layouts      = require('metalsmith-layouts');
 
 Metalsmith(__dirname)
     .source('./src')          // source directory for the pipeline

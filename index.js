@@ -103,7 +103,7 @@ markdownRenderer.heading = (text, level, raw) => {
         </h${level}>`;
 };
 markdownRenderer.code = (_code, infostring, escaped) => {
-    const _highlight = (code, lang) => highlight.getLanguage(lang) ? highlight.highlight(lang, code).value : highlight.highlightAuto(code).value;
+    const _highlight = (code, lang) => highlight.getLanguage(lang) ? highlight.highlight(lang, code, true).value : highlight.highlightAuto(code).value;
     // Fix https://github.com/segmentio/metalsmith-markdown/issues/48
     _code = _code.replace(new RegExp(`^[ ]{${_code.search(/\S/)}}`, 'gm'), '');
     // v1.1.0
