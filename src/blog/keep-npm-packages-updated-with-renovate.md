@@ -55,6 +55,8 @@ Here's my recommended config for Node.js/npm. It's in JSON5 syntax to help expla
 
 ```json5
 {
+  /***** General settings *****/
+
   // Use recommended defaults
   "extends": [
     "config:base"
@@ -72,12 +74,14 @@ Here's my recommended config for Node.js/npm. It's in JSON5 syntax to help expla
   // Add your custom labels to pull requests
   "labels": ["ready for review"],
 
-  // When updating, bump version ranges (e.g. ^0.1.3 -> ^0.1.4)
-  "rangeStrategy": "bump",
-
   // Avoid updating to unstable versions
   "ignoreUnstable": true,
   "stabilityDays": 7,
+
+  /***** Node.js settings *****/
+
+  // When updating, bump version ranges (e.g. ^0.1.3 -> ^0.1.4)
+  "rangeStrategy": "bump",
 
   // Keep package-lock.json updated, similar to `npm audit fix`
   "lockFileMaintenance": {
