@@ -28,7 +28,7 @@ The easiest way to use Renovate is to install the [GitHub](https://docs.renovate
 
 ## Default Renovate config
 
-Renovate offers many options, and I recommend you read through them all - but they can be overwhelming, and some people may just want some sane defaults. Thankfully there's a [base config](https://docs.renovatebot.com/presets-config/#configbase) that the onboarding pull request uses:
+Renovate offers [many options](https://docs.renovatebot.com/configuration-options/), and I recommend you read through them all - but they can be overwhelming, and some people may just want some sane defaults. Thankfully there's a [base config](https://docs.renovatebot.com/presets-config/#configbase) that the onboarding pull request uses:
 
 ```json
 {
@@ -123,7 +123,7 @@ If you have high confidence in your CI/CD, you could even have pull requests aut
 
 ### Other options
 
-Configurations like these are never a one-size-fits-all situation, so here's some other options to think about.
+Configurations like these are never a one-size-fits-all situation, so here are some other options to think about.
 
 If you need to access **private npm registries**, you'll need to create an `.npmrc` file that uses environment variables, or use the `npmrc` option - and you'll need to provide your token(s) in an encrypted format (see the [documentation](https://docs.renovatebot.com/private-modules/)):
 

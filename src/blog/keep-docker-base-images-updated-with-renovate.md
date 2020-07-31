@@ -14,13 +14,13 @@ Just like with libraries used in code, keeping your Docker base images up to dat
 
 All images, especially base images, have a number of potentially vulnerable areas:
 
-- Large images in general have more surface area for vulnerabilities
-- Running as the default (root) user, potentially having elevated access on the host machine
-- Poorly configured defaults
-- Vulnerable bundled system libraries
-- Having a package repository tightly coupled with the base image version, where packages for old base images never get updated ([Alpine Linux](https://alpinelinux.org/))
+- Large images, in general, have a larger surface area for vulnerabilities
+- Running as the default user (root) can give the container elevated access on the host machine
+- Poorly configured defaults can expose sensitive information
+- Bundled system libraries could have known vulnerabilities
+- In images such as [Alpine Linux](https://alpinelinux.org/), versions of packages available in the package repository are tightly coupled with the image version, so old images don't get updated packages
 
-Plus, if you're using a base language image such as `golang:1.14` or `node:14.7`, keeping it up to date means you'll have access to all the latest and greatest language features.
+Plus, if you're using a language base image such as `golang:1.14` or `node:14.7`, keeping it up to date means you'll have access to all the latest and greatest language features.
 
 ## Renovate
 
@@ -44,9 +44,9 @@ For me, the killer features of Renovate for Docker are really:
 
 ## Pinning Docker image digests
 
-Digest pinning a deep enough topic that it deserves its own discussion. The Renovate docs have a whole section on [digest pinning](https://docs.renovatebot.com/docker/#digest-pinning), but I'll do my best to summarize it here.
+Digest pinning is a deep enough topic that it deserves its own explanation here. The Renovate docs have a whole section on [digest pinning](https://docs.renovatebot.com/docker/#digest-pinning), but I'll do my best to summarize it.
 
-With most package repositories (npm, PyPI, etc.) versions are immutable, meaning you can't publish the same version twice (e.g. `v1.0.0`). npm will let you "un-publish" a version within 72 hours of being published, but you still can't make a fix and re-publish that same version, you have to publish a new one.
+With most package repositories (npm, PyPI, etc.) versions are immutable, meaning you can't publish the same version twice (e.g. `v1.0.0`). npm will let you "un-publish" a version within 72 hours of being published, but you can't make a fix and re-publish that same version, you have to publish a new one.
 
 **Docker tags are not immutable.** You can publish the same tag (e.g. `node:14.7.0`) over and over and over, which leads to unreproducible builds. Docker images have a "digest hash," computed from its configuration and the hashes of its layers, which is the most exact way you can reference an image. So while `node:14.7.0` can change, `node:14.7.0@sha256:521df806339e2e60dfdee6e00e75656e69798c141bd2cff88c0c9a9c50ad4de5` can't.
 
@@ -58,7 +58,7 @@ The easiest way to use Renovate is to install the [GitHub](https://docs.renovate
 
 ## Default Renovate config
 
-Renovate offers many options, and I recommend you read through them all - but they can be overwhelming, and some people may just want some sane defaults. Thankfully there's a [base config](https://docs.renovatebot.com/presets-config/#configbase) that the onboarding pull request uses:
+Renovate offers [many options](https://docs.renovatebot.com/configuration-options/), and I recommend you read through them all - but they can be overwhelming, and some people may just want some sane defaults. Thankfully there's a [base config](https://docs.renovatebot.com/presets-config/#configbase) that the onboarding pull request uses:
 
 ```json
 {
@@ -68,13 +68,14 @@ Renovate offers many options, and I recommend you read through them all - but th
 }
 ```
 
-The only thing I'd recommend as a "must change" is [choosing a schedule](https://docs.renovatebot.com/presets-schedule/) such as "weekly" or "monthly":
+The things I'd recommend as "must changes" are: [choosing a schedule](https://docs.renovatebot.com/presets-schedule/) such as "weekly" or "monthly", and enabling [pinning of Docker digests](https://docs.renovatebot.com/docker/#digest-pinning):
 
 ```json
 {
   "extends": [
     "config:base",
-    "schedule:monthly"
+    "schedule:monthly",
+    "docker:pinDigests"
   ]
 }
 ```
@@ -136,9 +137,9 @@ If you have high confidence in your CI/CD, you could even have pull requests aut
 
 ### Other options
 
-Configurations like these are never a one-size-fits-all situation, so here's some other options to think about.
+Configurations like these are never a one-size-fits-all situation, so here are some other options to think about.
 
-You might want to ignore Docker updates in certain directories, such as images used by your CI/CD:
+You might want to **ignore Docker updates in certain directories**, such as images used by your CI/CD:
 
 ```json
 {
@@ -152,7 +153,7 @@ You might want to ignore Docker updates in certain directories, such as images u
 }
 ```
 
-Maybe for some reason you want to pin the major and minor versions of some base images:
+Maybe for some reason you want to **pin the major and minor versions** of some base images:
 
 ```json
 {
