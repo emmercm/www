@@ -7,7 +7,7 @@ tags:
 
 ---
 
-Restarting resources such as deployments in Kubernetes is a fairly common task, and starting with Kubernetes v1.15 there's any easy command for it.
+Restarting resources such as deployments in Kubernetes is a fairly common task, and starting with Kubernetes v1.15 there's an easy command for it.
 
 _Kubernetes v1.15 was released on Jun 19, 2019. See "[Restarting Deployments in Kubernetes Before v1.15](/blog/restarting-deployments-in-kubernetes-before-v1.15)" for the older method._
 
