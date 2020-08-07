@@ -52,6 +52,8 @@ With most package repositories (npm, PyPI, etc.) versions are immutable, meaning
 
 Reproducible builds are a whole discussion on their own, but suffice it to say that they're what you should aim for.
 
+The Renovate blog has a [good article](https://renovate.whitesourcesoftware.com/blog/overcoming-dockers-mutable-image-tags/) about how [yarn](https://yarnpkg.com/) was broken in the official Node.js Docker images when existing tags were re-published. Pinning the image digest of that base image would have protected developers from the error.
+
 ## Renovate as an app
 
 The easiest way to use Renovate is to install the [GitHub](https://docs.renovatebot.com/install-github-app/) or [GitLab](https://docs.renovatebot.com/install-gitlab-app/) app and give it access to your repositories. From there, it will automatically open an [onboarding pull request](https://docs.renovatebot.com/configure-renovate/) that adds a `renovate.json` config file, and the pull request description will describe what will happen when it is merged. You can edit that `renovate.json` and the pull request description will automatically update with the new effects.
