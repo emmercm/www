@@ -48,7 +48,7 @@ Digest pinning is a deep enough topic that it deserves its own explanation here.
 
 With most package repositories (npm, PyPI, etc.) versions are immutable, meaning you can't publish the same version twice (e.g. `v1.0.0`). npm will let you "un-publish" a version within 72 hours of being published, but you can't make a fix and re-publish that same version, you have to publish a new one.
 
-**Docker tags are not immutable.** You can publish the same tag (e.g. `node:14.7.0`) over and over and over, which leads to unreproducible builds. Docker images have a "digest hash," computed from its configuration and the hashes of its layers, which is the most exact way you can reference an image. So while `node:14.7.0` can change, `node:14.7.0@sha256:521df806339e2e60dfdee6e00e75656e69798c141bd2cff88c0c9a9c50ad4de5` can't.
+**Docker tags are not immutable.** You can publish the same tag (e.g. `node:14.7.0`) over and over and over, which leads to unreproducible builds. Docker images have a "digest," a hash computed from its manifest, and digests are the most exact way you can reference an image. So while `node:14.7.0` can change, `node:14.7.0@sha256:521df806339e2e60dfdee6e00e75656e69798c141bd2cff88c0c9a9c50ad4de5` can't. See "[What is a Docker Digest?](/blog/what-is-a-docker-digest)" for more information on how digests are calculated.
 
 Reproducible builds are a whole discussion on their own, but suffice it to say that they're what you should aim for.
 
