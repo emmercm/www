@@ -17,7 +17,7 @@ As a quick primer, Docker image identifiers are in the form `NAME[:TAG][@DIGEST]
 
 - `NAME` being the project or repository name, containing: lowercase letters, digits, periods, underscores, and hyphens
 - `TAG` being the specific version of the image, containing: lowercase and uppercase letters, digits, underscores, periods, and hyphens
-- `DIGEST` being a hash of a specific manifest, regardless of tag
+- `DIGEST` being a hash of a specific manifest, regardless of any tags
 
 Examples of valid image identifiers:
 
@@ -32,7 +32,7 @@ Examples of valid image identifiers:
 
 ## Mutable image tags
 
-Docker image tags are mutable by design, that's how tags such as `node:latest` or `golang:alpine` are able to stay updated. This could be confusing where someone might expect `node:14` to change over time, but might expect something tagged very specifically such as `14.7.0-alpine3.11` to not change.
+Docker image tags are mutable by design, that's how tags such as `node:latest` and `golang:alpine` are able to stay updated. This could be confusing where someone might expect `node:14` to change over time, but might expect something tagged very specifically such as `14.7.0-alpine3.11` to not change.
 
 The Renovate blog has a [good article](https://renovate.whitesourcesoftware.com/blog/overcoming-dockers-mutable-image-tags/) about how [yarn](https://yarnpkg.com/) was broken in the official Node.js Docker images when existing tags were re-published.
 
@@ -79,16 +79,18 @@ $ skopeo inspect --raw docker://node:14.7.0 | jq .
 }
 ```
 
-That's the manifest returned by Docker Hub, and thankfully we didn't need to pull the full image to get that. Note how it has an array of `manifets`, this is a "manifest list" produced by a multi-architecture build, we'll talk more about those later.
+That's the manifest returned by the container registry (Docker Hub), and with `skopeo` we didn't need to pull the full image to get that. Note how it has an array of "manifests" - this is a "manifest list" produced by a multi-architecture build, we'll talk more about those later.
 
-Finding the repository digest is as simple as computing the hash of that output:
+Finding the repository digest is as simple as computing the hash of that manifest:
 
 ```bash
 $ skopeo inspect --raw docker://node:14.7.0 | shasum --algorithm 256 | awk '{print $1}'
 94a00394bc5a8ef503fb59db0a7d0ae9e1119866e8aee8ba40cd864cea69ea1a
 ```
 
-That means in order to refer to this exact image, we would put this in a Dockerfile:
+This manifest digest is a sort of "[merkle tree](https://en.wikipedia.org/wiki/Merkle_tree)" in that it's hash of its children's hashes - the platform-specific digests.
+
+In order to refer to this exact image, we would put this in a Dockerfile:
 
 ```dockerfile
 FROM node:14.7.0@sha256:94a00394bc5a8ef503fb59db0a7d0ae9e1119866e8aee8ba40cd864cea69ea1a
@@ -126,7 +128,7 @@ See my other article "[Keep Docker Base Images Updated with Renovate](/blog/keep
 
 ## Manifest lists
 
-In the above `node:14.7.0` example, we were returned a list of manifests when asking the container registry for the raw manifest. This lets developers publish multiple platforms for the same image tag, and it's done with the commands `docker manifest` or `docker buildx` (both experimental as of writing). This is fairly common with "library" base images, such as `node` and `ubuntu`:
+In the above `node:14.7.0` example, we were returned a "manifest list" when asking the container registry for the raw manifest. Manifest lists let developers publish multiple platforms for the same image tag, and it's done with the commands `docker manifest` or `docker buildx` (both experimental as of writing). This is fairly common with "library" base images, such as `node` and `ubuntu`:
 
 ```bash
 $ skopeo inspect --raw docker://ubuntu:20.04 | jq .
@@ -185,7 +187,9 @@ $ skopeo inspect --raw docker://ubuntu:20.04 | jq .
 }
 ```
 
-If we request the manifest for a specific platform we get more specific information about its layers:
+## Platform-specific manifests
+
+If we request the manifest for a specific platform (`linux/amd64`), we get more specific information about its layers:
 
 ```bash
 $ skopeo inspect --raw docker://ubuntu@sha256:60f560e52264ed1cb7829a0d59b1ee7740d7580e0eb293aca2d722136edb1e24 | jq .
@@ -229,6 +233,10 @@ $ skopeo inspect --raw docker://ubuntu@sha256:60f560e52264ed1cb7829a0d59b1ee7740
 60f560e52264ed1cb7829a0d59b1ee7740d7580e0eb293aca2d722136edb1e24
 ```
 
+Note how the computed hash matches the image identifier.
+
+Just like with the manifest list digest above, this platform-specific digest is also a sort of "[merkle tree](https://en.wikipedia.org/wiki/Merkle_tree)" - this time the child hashes are layer digests.
+
 You shouldn't use platform-specific digests in your Dockerfiles as they're less portable, you should stick with the manifest list digest:
 
 ```dockerfile
@@ -241,7 +249,7 @@ Docker Hub has pages for platform-specific digests ([`ubuntu:20.04@sha256:60f560
 
 ## Bash function
 
-Here's a bash function from [my dotfiles](https://github.com/emmercm/dotfiles) you can put into your `.bash_profile`, `.profile`, or `.bashrc` (whichever is appropriate):
+Here's a bash function from [my dotfiles](https://github.com/emmercm/dotfiles) you can put into your `.bashrc`, `.zshrc`, or whatever is appropriate for your shell:
 
 ```bash
 # Get the digest hash of a Docker image
