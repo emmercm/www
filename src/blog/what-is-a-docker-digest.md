@@ -1,7 +1,7 @@
 ---
 
 title: What is a Docker Digest?
-date: 2030-01-01
+date: 2020-08-09T18:46:00
 image: https://unsplash.com/photos/3tAUxQfglbE
 imageCredit: Photo by <a href="https://unsplash.com/@daniel_von_appen">Daniel von Appen</a> on <a href="https://unsplash.com/photos/3tAUxQfglbE">Unsplash</a>
 tags:
@@ -19,22 +19,24 @@ As a quick primer, Docker image identifiers are in the form `NAME[:TAG][@DIGEST]
 - `TAG` being the specific version of the image, containing: lowercase and uppercase letters, digits, underscores, periods, and hyphens
 - `DIGEST` being a hash of a specific manifest, regardless of any tags
 
+_Only images that use a [manifest v2 schema 2](https://docs.docker.com/registry/spec/manifest-v2-2/) format (released in v1.10.0, 2016) (v2 schema 1 [deprecated](https://docs.docker.com/engine/deprecated/#pushing-and-pulling-with-image-manifest-v2-schema-1) in v19.03.0, 2019) [have a content-addressable digest](https://docs.docker.com/engine/reference/commandline/images/#list-image-digests)._
+
 Examples of valid image identifiers:
 
 - `node`
-- `node@sha256:94a00394bc5a8ef503fb59db0a7d0ae9e1119866e8aee8ba40cd864cea69ea1a`
+- `node@sha256:94a00394bc5a8ef503fb59db0a7d0ae9e1119866e8aee8ba40cd864cea69ea1a` (you don't need a tag with a digest)
 - `node:latest`
 - `node:stretch`
 - `node:14`
 - `node:14.7`
 - `node:14.7.0`
-- `node:14.7.0@sha256:94a00394bc5a8ef503fb59db0a7d0ae9e1119866e8aee8ba40cd864cea69ea1a`
+- `node:14.7.0@sha256:94a00394bc5a8ef503fb59db0a7d0ae9e1119866e8aee8ba40cd864cea69ea1a` (you can still specify a tag with a digest for readability, but it's ignored)
 
 ## Mutable image tags
 
-Docker image tags are mutable by design, that's how tags such as `node:latest` and `golang:alpine` are able to stay updated. This could be confusing where someone might expect `node:14` to change over time, but might expect something tagged very specifically such as `14.7.0-alpine3.11` to not change.
+Docker image tags are mutable by design, meaning they can be changed or _mutated_ over time, that's how tags such as `node:latest` and `golang:alpine` are able to stay updated. This could be confusing where someone might expect a loose version such as `node:14` to change over time, but might expect a much more specific version such as `14.7.0-alpine3.11` to not change.
 
-The Renovate blog has a [good article](https://renovate.whitesourcesoftware.com/blog/overcoming-dockers-mutable-image-tags/) about how [yarn](https://yarnpkg.com/) was broken in the official Node.js Docker images when existing tags were re-published.
+The Renovate blog has a [good article](https://renovate.whitesourcesoftware.com/blog/overcoming-dockers-mutable-image-tags/) about how [yarn](https://yarnpkg.com/) was broken in the official Node.js Docker images when existing tags were re-published. Just because an image tag might look like a semver that doesn't make it immutable.
 
 ## Immutable digests
 
@@ -79,7 +81,7 @@ $ skopeo inspect --raw docker://node:14.7.0 | jq .
 }
 ```
 
-That's the manifest returned by the container registry (Docker Hub), and with `skopeo` we didn't need to pull the full image to get that. Note how it has an array of "manifests" - this is a "manifest list" produced by a multi-architecture build, we'll talk more about those later.
+That's the manifest returned by the container registry (Docker Hub), and with `skopeo` we didn't need to pull the full image to get that. Note how it has an array of "manifests" - this is a "fat manifest" or "manifest list" produced by a multi-architecture build, we'll talk more about those later.
 
 Finding the repository digest is as simple as computing the hash of that manifest:
 
@@ -88,9 +90,9 @@ $ skopeo inspect --raw docker://node:14.7.0 | shasum --algorithm 256 | awk '{pri
 94a00394bc5a8ef503fb59db0a7d0ae9e1119866e8aee8ba40cd864cea69ea1a
 ```
 
-This manifest digest is a sort of "[merkle tree](https://en.wikipedia.org/wiki/Merkle_tree)" in that it's hash of its children's hashes - the platform-specific digests.
+This manifest digest is a sort of "[merkle tree](https://en.wikipedia.org/wiki/Merkle_tree)" in that it's a hash of its children's hashes - the platform-specific digests.
 
-In order to refer to this exact image, we would put this in a Dockerfile:
+In order to refer to this exact image, we would put this in a Dockerfile (remember the tag here is ignored, it's just for readability):
 
 ```dockerfile
 FROM node:14.7.0@sha256:94a00394bc5a8ef503fb59db0a7d0ae9e1119866e8aee8ba40cd864cea69ea1a
@@ -128,7 +130,11 @@ See my other article "[Keep Docker Base Images Updated with Renovate](/blog/keep
 
 ## Manifest lists
 
-In the above `node:14.7.0` example, we were returned a "manifest list" when asking the container registry for the raw manifest. Manifest lists let developers publish multiple platforms for the same image tag, and it's done with the commands `docker manifest` or `docker buildx` (both experimental as of writing). This is fairly common with "library" base images, such as `node` and `ubuntu`:
+In the above `node:14.7.0` example, we were returned a "manifest list" when asking the container registry for the raw manifest. Manifest lists let developers publish multiple platforms for the same image tag, and it's done with the commands [`docker manifest`](https://docs.docker.com/engine/reference/commandline/manifest/) or [`docker buildx`](https://docs.docker.com/engine/reference/commandline/buildx/) (both experimental as of writing).
+
+_Manifest lists were added with the [manifest v2 schema 2](https://docs.docker.com/registry/spec/manifest-v2-2/) format mentioned above._
+
+Manifest lists are fairly common with "library" base images, such as `node` and `ubuntu`:
 
 ```bash
 $ skopeo inspect --raw docker://ubuntu:20.04 | jq .
