@@ -58,7 +58,7 @@ RUN apk --update add --no-cache git && \
 
 ## Example output
 
-Taking the above example and removing the ignored rules, here's the example output:
+Taking the above example and removing the ignored rules:
 
 ```dockerfile
 FROM alpine:latest
@@ -67,6 +67,8 @@ RUN apk --update add --no-cache git && \
     cd "$(mktemp -d)" && \
     git pull "https://github.com/hadolint/hadolint.git"
 ```
+
+Here's the example output:
 
 ```bash
 $ docker run --rm --interactive hadolint/hadolint < Dockerfile
