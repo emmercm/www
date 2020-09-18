@@ -63,7 +63,7 @@ require('handlebars-helpers')({
 const highlight       = require('highlight.js');
 const marked          = require('marked');
 const minimatch       = require('minimatch');
-const moment          = require('moment');
+const {DateTime}      = require('luxon');
 const transliteration = require('transliteration');
 
 const path = require('path');
@@ -78,7 +78,7 @@ const siteLanguage    = 'en-US';
 const siteName        = 'Christian Emmer';
 const siteURL         = process.env.NETLIFY && process.env.CONTEXT !== 'production' ? process.env.DEPLOY_PRIME_URL : (process.env.URL || 'https://emmer.dev');
 const siteEmail       = 'emmercm@gmail.com';
-const siteDescription = 'Software engineer with ' + moment().diff('2012-01-16', 'years') + '+ years of experience developing full-stack solutions in PHP, Go, Node.js, and Python.';
+const siteDescription = 'Software engineer with ' + Math.floor(DateTime.local().diff(DateTime.fromISO('2012-01-16'), 'years').years) + '+ years of experience developing full-stack solutions in PHP, Go, Node.js, and Python.';
 const siteLogo        = '**/prologo1/logo3_Gray_Lighter.svg';
 const twitterHandle   = '@emmercm';
 
@@ -306,9 +306,9 @@ tracer(Metalsmith(__dirname))
         pattern: '*/**/*.md',
         settings: {
             sortBy: (a, b) => {
-                if (moment(a.date).isAfter(b.date)) {
+                if (DateTime.fromJSDate(a.date) > DateTime.fromJSDate(b.date)) {
                     return 1;
-                } else if (moment(a.date).isBefore(b.date)) {
+                } else if (DateTime.fromJSDate(a.date) < DateTime.fromJSDate(b.date)) {
                     return -1;
                 }
                 return 0;
@@ -450,9 +450,9 @@ tracer(Metalsmith(__dirname))
             collection: 'blog/tag/{tag}',
             settings: {
                 sortBy: (a, b) => {
-                    if (moment(a.date).isAfter(b.date)) {
+                    if (DateTime.fromJSDate(a.date) > DateTime.fromJSDate(b.date)) {
                         return 1;
-                    } else if (moment(a.date).isBefore(b.date)) {
+                    } else if (DateTime.fromJSDate(a.date) < DateTime.fromJSDate(b.date)) {
                         return -1;
                     }
                     return 0;

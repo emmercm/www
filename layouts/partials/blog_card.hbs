@@ -5,7 +5,7 @@
                 <a href="{{data.paths.href}}" title="{{data.title}}" class="text-dark">{{ data.title }}</a>
             </p>
             <p class="text-muted">
-                {{moment data.date "MMM D, YYYY"}} &middot; {{data.readingTime}}
+                {{luxon data.date "MMM d, yyyy"}} &middot; {{data.readingTime}}
             </p>
             {{#and excerpt data.excerpt}}
                 <p>{{{sanitize data.excerpt}}}</p>
