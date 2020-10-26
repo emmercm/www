@@ -1,0 +1,59 @@
+- title: Development
+  icons:
+    - link: https://github.com/emmercm
+      title: GitHub
+      icon: fab fa-github
+
+    - link: https://www.npmjs.com/~emmercm
+      title: npm
+      icon: fab fa-npm
+
+    - link: https://hub.docker.com/u/emmercm
+      title: Docker Hub
+      icon: fab fa-docker
+
+- title: Social
+  icons:
+    - link: https://twitter.com/emmercm
+      title: Twitter
+      icon: fab fa-twitter
+
+    - link: https://www.instagram.com/emmercm/
+      title: Instagram
+      icon: fab fa-instagram
+
+    - link: https://www.linkedin.com/in/emmercm/
+      title: LinkedIn
+      icon: fab fa-linkedin-in
+
+- title: Music
+  icons:
+    - link: https://open.spotify.com/user/tsukasax
+      title: Spotify
+      icon: fab fa-spotify
+
+    - link: https://www.last.fm/user/MimiruX
+      title: Last.fm
+      icon: fab fa-lastfm
+
+    - link: https://www.discogs.com/user/emmercm/collection
+      title: Discogs
+      icon: fas fa-record-vinyl
+
+- title: Gaming
+  icons:
+    - link: https://steamcommunity.com/id/emmercm/
+      title: Steam
+      icon: fab fa-steam
+
+    - title: "Discord: emmercm#5912"
+      icon: fab fa-discord
+
+    - title: "Nintendo Switch:"
+      icon: far fa-gamepad-alt
+
+#    - title: "Battle.net: MimiruX#1213"
+#      icon: far fa-snowflake
+
+#    - title: "Origin: TsukasaX"
+#      icon: fas fa-hurricane
