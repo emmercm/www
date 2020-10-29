@@ -17,12 +17,12 @@
     "start": "node index.js"
   },
   "dependencies": {
-    "@fortawesome/fontawesome-pro": "^5.14.0",
-    "bootstrap": "^4.5.2",
+    "@fortawesome/fontawesome-pro": "^5.15.1",
+    "bootstrap": "^4.5.3",
     "handlebars": "^4.7.6",
     "handlebars-helpers": "^0.10.0",
     "he": "^1.2.0",
-    "highlight.js": "^10.1.2",
+    "highlight.js": "^10.3.2",
     "jquery": "^3.5.1",
     "jstransformer-handlebars": "^1.1.0",
     "luxon": "^1.25.0",
