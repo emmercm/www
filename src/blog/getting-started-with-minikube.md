@@ -42,7 +42,7 @@ $ minikube start
 🏄  Done! kubectl is now configured to use "minikube" by default
 ```
 
-This will create a `kubectl` configuration file at `~/.kube/config` so no additional environment setup is necessary.
+This will create a `kubectl` configuration file at `~/.kube/config` so no additional environment setup should be necessary.
 
 We can verify `minikube` started correctly with some more commands (ignoring the specific IPs and ports):
 
