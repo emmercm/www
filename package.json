@@ -18,6 +18,7 @@
   },
   "dependencies": {
     "@fortawesome/fontawesome-pro": "^5.15.1",
+    "async": "^3.2.0",
     "bootstrap": "^4.5.3",
     "handlebars": "^4.7.6",
     "handlebars-helpers": "^0.10.0",
@@ -82,6 +83,8 @@
     "metalsmith-uncss-2": "^0.2.0",
     "metalsmith-validate": "^0.1.5",
     "minimatch": "^3.0.4",
-    "transliteration": "^2.2.0"
+    "node-fetch": "^2.6.1",
+    "transliteration": "^2.2.0",
+    "unsplash-js": "^6.3.0"
   }
 }
