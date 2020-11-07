@@ -2,7 +2,6 @@
 
 title: Linting Metalsmith Output HTML
 image: https://unsplash.com/photos/FPmNbH093vE
-imageCredit: Photo by <a href="https://unsplash.com/@michealcopley03">Michael C</a> on <a href="https://unsplash.com/photos/FPmNbH093vE">Unsplash</a>
 date: 2019-12-08T19:19:00
 tags:
 - metalsmith

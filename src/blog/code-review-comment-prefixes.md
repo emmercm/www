@@ -2,7 +2,6 @@
 
 title: Code Review Comment Prefixes
 image: https://unsplash.com/photos/8JFMYz-a8Xo
-imageCredit: Photo by <a href="https://unsplash.com/@giuliamay">Giulia May</a> on <a href="https://unsplash.com/photos/8JFMYz-a8Xo">Unsplash</a>
 date: 2020-11-06T21:32:00
 tags:
 - career
