@@ -138,9 +138,7 @@
                 </div>
                 {{#if image}}
                     <div class="pt-5 bg-light">
-                        {{#if imageUrl}}<a href="{{imageUrl}}">{{/if}}
-                            <img src="{{image}}" alt="{{sanitize title}}" class="w-100 og-image">
-                        {{#if imageUrl}}</a>{{/if}}
+                        <img src="{{image}}" alt="{{sanitize title}}" class="w-100 og-image">
                         {{#if imageCredit}}
                             <p class="mt-3 text-center font-italic">{{{ imageCredit }}}</p>
                         {{/if}}

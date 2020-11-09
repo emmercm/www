@@ -260,18 +260,21 @@ tracer(Metalsmith(__dirname))
         const htmlFiles = Object.keys(files)
             .filter(filename => files[filename].image && files[filename].image.indexOf('unsplash.com') !== -1);
         async.eachLimit(htmlFiles, 5, async filename => {
+            const original = files[filename].image;
             const photoId = files[filename].image
                 .replace(/.*unsplash\.com\/photos\/([^\/?]+).*/, '$1')
                 .replace(/.*source\.unsplash\.com\/([^\/?]+).*/, '$1');
-
-            files[filename].imageUrl = files[filename].image;
-            files[filename].image = `https://source.unsplash.com/${photoId}/${blogImageWidth}x${blogImageHeight}`;
-            files[filename].thumb = `https://source.unsplash.com/${photoId}/${blogImageThumbWidth}x${blogImageThumbHeight}`;
             if (prodBuild) {
                 const photo = await unsplash.photos.getPhoto(photoId).then(toJson);
-                files[filename].imageCredit = `Photo by <a href="${photo.user.links.html}">${photo.user.name}</a> on <a href="${photo.links.html}">Unsplash</a>`;
+                const imgixParameters = '&fm=jpg&q=80&cs=srgb&fit=crop&crop=entropy';
+                files[filename].image = `${photo.urls.raw}${imgixParameters}&w=${blogImageWidth}&h=${blogImageHeight}`;
+                files[filename].thumb = `${photo.urls.raw}${imgixParameters}&w=${blogImageThumbWidth}&h=${blogImageThumbHeight}`;
+                const utmParameters = '?utm_source=emmer-dev&utm_medium=referral';
+                files[filename].imageCredit = `Photo by <a href="${photo.user.links.html}${utmParameters}">${photo.user.name}</a> on <a href="${photo.links.html}${utmParameters}">Unsplash</a>`;
             } else {
-                files[filename].imageCredit = `Photo on <a href="${files[filename].imageUrl}">Unsplash</a>`
+                files[filename].image = `https://source.unsplash.com/${photoId}/${blogImageWidth}x${blogImageHeight}`;
+                files[filename].thumb = `https://source.unsplash.com/${photoId}/${blogImageThumbWidth}x${blogImageThumbHeight}`;
+                files[filename].imageCredit = `Photo on <a href="${original}">Unsplash</a>`
             }
         }, (err) => {
             done();
