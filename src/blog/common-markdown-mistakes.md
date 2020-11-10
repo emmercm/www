@@ -1,12 +1,11 @@
 ---
 
 title: Common Markdown Mistakes
-image:
-date: 2030-01-01
+date: 2020-11-10T02:12:00
 
 ---
 
-Markdown is a simple and flexible format for writing structured documents and it's also very forgiving with syntax errors. Here's a list of common markdown mistakes and how to fix them.
+Markdown provides simple syntax for writing structure documents, but most written markdown would not pass a linter check. Here's a list of 11 common syntax mistakes and how to fix them.
 
 <!-- markdownlint-disable MD001 -->
 
@@ -14,7 +13,7 @@ Markdown is a simple and flexible format for writing structured documents and it
 
 ##### **Missing empty lines surrounding blocks**
 
-This is probably the largest mistake people make. Blocks of content such as headers, paragraph, lists, and code blocks should have empty lines surrounding them:
+This is probably the most common mistake people make. Blocks of content such as headers, paragraph, lists, and code should have empty lines surrounding them:
 
 Incorrect:
 
@@ -41,7 +40,7 @@ This paragraph has empty lines surrounding it
 
 ##### **Missing empty lines between paragraphs**
 
-Like mentioned above, blocks of content need empty lines surrounding them, but that's especially true with paragraphs. Many markdown renderers won't separate paragraphs unless there's an empty line between them.
+Blocks of content need empty lines surrounding them, but it's especially important with paragraphs. Many markdown renderers won't separate paragraphs unless there's an empty line between them.
 
 Incorrect:
 
@@ -60,7 +59,7 @@ This is the second paragraph
 
 ##### **Too many empty lines surrounding blocks**
 
-Blocks of content need empty lines surrounding them, but only one, even if having more generally doesn't affect rendering.
+Blocks of content need empty lines surrounding them, but only one, even if having more usually doesn't affect rendering.
 
 Incorrect:
 
@@ -71,8 +70,8 @@ Incorrect:
 Paragraph
 
 
-- List
-- List
+- List item
+- List item
 ```
 
 Correct:
@@ -82,13 +81,33 @@ Correct:
 
 Paragraph
 
-- List
-- List
+- List item
+- List item
+```
+
+##### **No space after header declarations**
+
+Without a space after the #'s in your header, markdown renderers may interpret the line as a paragraph rather than a header.
+
+Incorrect:
+
+```markdown
+#This is a header?
+
+This is a paragraph
+```
+
+Correct:
+
+```markdown
+# This is a header!
+
+This is a paragraph
 ```
 
 ##### **Leading and trailing whitespace**
 
-Markdown uses some [whitespace as syntax](https://en.wikipedia.org/wiki/Whitespace_character#Programming_languages), so extra whitespace could throw off your formatting. Or at best it's just unnecessary information.
+Markdown uses some [whitespace as syntax](https://en.wikipedia.org/wiki/Whitespace_character#Programming_languages), so extra whitespace could throw off your formatting. Or at best it's just unnecessary characters.
 
 Incorrect:
 
@@ -110,7 +129,7 @@ Paragraph
 
 ##### **Inconsistent indentation**
 
-Like mentioned above, because markdown uses some whitespace as syntax, mistakes such as inconsistent indentation can throw off rendering.
+Because markdown uses some whitespace as syntax, mistakes such as inconsistent indentation can throw off rendering.
 
 Incorrect:
 
@@ -140,11 +159,11 @@ Correct:
 11. Eleventh item
 ```
 
-## Ordering and progression
+## Ordering and incrementing
 
-##### **Incorrect header progression**
+##### **Incorrect header incrementing**
 
-Heading levels should follow numerical progression (h1, h2, h3, etc.). There are times when someone might want to ignore this rule for stylistic reasons, but it is technically incorrect.
+Heading levels should only increment one level at a time (h1, h2, h3, etc.). There are times when someone might want to ignore this rule for stylistic reasons, but it is technically incorrect.
 
 Incorrect:
 
@@ -170,9 +189,9 @@ Correct:
 # Heading 1
 ```
 
-##### **Incorrect ordered list progression**
+##### **Incorrect ordered list prefix incrementing**
 
-Markdown renderers are especially forgiving about this rule, but ordered lists should either be written with correctly increasing numbers, or with all 1's.
+Markdown renderers are especially forgiving about this rule, but ordered lists should either be written with prefixes that increment one at a time, or prefixes of all 1's.
 
 Incorrect:
 
@@ -246,7 +265,7 @@ This is the second paragraph
 
 ##### **Using "bare" URLs**
 
-Just like websites wouldn't list out an entire URL without some hyperlink text, URLs shouldn't be written out in markdown, especially because renderers may treat them as content and not links.
+Just like websites wouldn't list out an entire URL without hyperlink text, URLs shouldn't be written out in markdown, especially because renderers may treat them as content and not automatically hyperlink them.
 
 Incorrect:
 
@@ -259,3 +278,13 @@ Correct:
 ```markdown
 [Reddit](https://www.reddit.com/)
 ```
+
+## Summary
+
+Different markdown specs have different syntax rules, so these rules may not be 100% universal, but should fit for most specs.
+
+Check out some of these different specs:
+
+- [GitHub Flavored Markdown](https://github.github.com/gfm/)
+- [CommonMark](https://spec.commonmark.org/current/)
+- [Markdown Extra](https://michelf.ca/projects/php-markdown/extra/)
