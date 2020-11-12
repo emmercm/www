@@ -1,17 +1,17 @@
 ---
 
-title: Faking a Sequence in MySQL
-date: 2030-01-01
+title: Faking Sequences in MySQL
+date: 2020-11-12T03:21:00
 tags:
 - databases
 
 ---
 
-MySQL doesn't have a concept of custom sequences that other databases do such as PostgreSQL, but it can be faked with a table.
+MySQL doesn't have a concept of custom sequences that other databases such as PostgreSQL do, but they can be faked with a table and some clever queries.
 
 Sequences are great because they let you rely on the ACID properties of databases to generate unique numbers, usually used in ID columns in tables. When you request the "next value" from a sequence, internally it will increment and return you the new value.
 
-MySQL supports auto-incrementing keys, but only one column in a table can have the `AUTO_INCREMENT` attribute. There exists esoteric use cases where you might want to have more than one with auto-incrementing behavior. This behavior can be achieved with a special table and the `last_insert_id()` function.
+MySQL supports auto-incrementing keys, but only one column in a table can have the [`AUTO_INCREMENT`](https://dev.mysql.com/doc/refman/8.0/en/example-auto-increment.html) attribute. There exists esoteric use cases where you might want to have more than one column with auto-incrementing behavior. This behavior can be achieved with a special table and the [`last_insert_id()`](https://dev.mysql.com/doc/refman/8.0/en/information-functions.html#function_last-insert-id) function.
 
 ## Setup
 
@@ -26,11 +26,16 @@ Then, let's create our sequences table:
 ```sql
 CREATE TABLE sequences
 (
-    name    VARCHAR(255)    NOT NULL,
-    currval BIGINT UNSIGNED NOT NULL DEFAULT 1,
+    name      VARCHAR(255)      NOT NULL,
+    currval   BIGINT UNSIGNED   NOT NULL DEFAULT 0,
+    increment SMALLINT UNSIGNED NOT NULL DEFAULT 1,
     PRIMARY KEY (name)
 );
 ```
+
+- `name` being how we'll reference created sequences
+- `currval` to hold the most recently generated value
+- `increment` to define a custom increment value
 
 ## Creating and deleting sequences
 
@@ -41,7 +46,7 @@ INSERT INTO sequences (name)
 VALUES ('secondary_id');
 ```
 
-To delete a sequence, you simply `DELETE` it from the table:
+To delete a sequence, we'll simply `DELETE` it from the table:
 
 ```sql
 DELETE
@@ -51,7 +56,7 @@ WHERE name = 'secondary_id';
 
 ## Getting the current value in a sequence
 
-Knowing what the "current" (previously obtained) value in a sequence is as easy as `SELECT`ing from the table:
+Knowing what the "current" (previously obtained) value in a sequence is as easy as `SELECT`ing it from the table:
 
 ```sql
 SELECT currval
@@ -61,11 +66,11 @@ WHERE name = 'secondary_id';
 
 ## Getting the next value in a sequence
 
-Here's where the real magic happens. The most common use case with sequences is to request the "next" unused value, and with MySQL we have to do it in two statements within the same connection:
+Here's where the real magic happens. The most common use case with sequences is to request the "next" unused value, and with MySQL we have to do it in two statements within the same database connection:
 
 ```sql
 UPDATE sequences
-SET currval = last_insert_id(currval + 1)
+SET currval = last_insert_id(currval + increment)
 WHERE name = 'secondary_id';
 
 SELECT last_insert_id() AS currval;
@@ -73,7 +78,7 @@ SELECT last_insert_id() AS currval;
 
 Because MySQL doesn't have a `RETURNING` statement that other databases such as PostgreSQL do, we have to make use of manually setting our "last insert ID" by calling `last_insert_id()` with an argument.
 
-Normally `last_insert_id()` without an argument will return us the last `AUTO_INCREMENT` ID inserted, but we can actually set it ourselves and then request it immediately following in the same database connection.
+Normally `last_insert_id()` without an argument will return the last `AUTO_INCREMENT` ID inserted in the same connection, but we can actually set it ourselves and then request it immediately following in the same database connection.
 
 `last_insert_id()` is connection-dependent, so it's important to request it with the same connection and store it immediately so it's not lost. This is actually a good thing, it means concurrent writes from different clients won't cause issues.
 
@@ -93,7 +98,7 @@ CREATE TABLE users
 INSERT INTO sequences (name, currval) VALUE ('users.secondary_id', 1000);
 
 UPDATE sequences
-SET currval = last_insert_id(currval + 1)
+SET currval = last_insert_id(currval + increment)
 WHERE name = 'users.secondary_id';
 
 INSERT INTO users (secondary_id, name) VALUE (last_insert_id(), 'Larry Ellison');
@@ -102,7 +107,7 @@ SELECT *
 FROM users;
 ```
 
-If everything went well at the end, you should have the table contents:
+If everything went well, at the end you should have the table contents:
 
 ```text
 +----+--------------+---------------+
