@@ -8,7 +8,7 @@ tags:
 ---
 
 MySQL's [`UUID()`](https://dev.mysql.com/doc/refman/8.0/en/miscellaneous-functions.html#function_uuid) function generates [v1 UUIDs](https://en.wikipedia.org/wiki/Universally_unique_identifier#Version_1_(date-time_and_MAC_address)), which have a time component that make them unevenly distributed over short periods of time.
-We can define our own function to generate [v4 UUIDs](https://en.wikipedia.org/wiki/Universally_unique_identifier#Version_4_(random)), which are random and therefore always evenly distributed.
+We can define our own function to generate [v4 UUIDs](https://en.wikipedia.org/wiki/Universally_unique_identifier#Version_4_(random)), which are random and therefore more evenly distributed.
 
 Check out "[Why You Should Use UUIDs for Your Primary Keys](/blog/why-you-should-use-uuids-for-your-primary-keys)" for a reason to use UUIDs in databases.
 
@@ -38,7 +38,7 @@ BEGIN
 END;
 ```
 
-Here's a version without variables, to remove any overhead they might have:
+Here's a version without variables, to remove any overhead they might add:
 
 ```sql
 CREATE FUNCTION uuid_v4() RETURNS CHAR(36)
@@ -51,7 +51,7 @@ BEGIN
 END;
 ```
 
-This uses [`RANDOM_BYTES()`](https://dev.mysql.com/doc/refman/8.0/en/encryption-functions.html#function_random-bytes) instead of [`RAND()`](https://dev.mysql.com/doc/refman/8.0/en/mathematical-functions.html#function_rand), because the former is non-deterministic and is more cryptographically secure, resulting in fewer UUID collisions in the end.
+This uses [`RANDOM_BYTES()`](https://dev.mysql.com/doc/refman/8.0/en/encryption-functions.html#function_random-bytes) instead of [`RAND()`](https://dev.mysql.com/doc/refman/8.0/en/mathematical-functions.html#function_rand) because the former is non-deterministic and therefore more cryptographically secure, resulting in fewer UUID collisions in the end.
 
 [`RANDOM_BYTES()`](https://dev.mysql.com/doc/refman/8.0/en/encryption-functions.html#function_random-bytes) was introduced in MySQL v5.6.17 (2014), and is currently not available in MariaDB.
 
