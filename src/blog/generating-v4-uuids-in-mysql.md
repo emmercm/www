@@ -43,11 +43,13 @@ Here's a version without variables, to remove any overhead they might add:
 ```sql
 CREATE FUNCTION uuid_v4() RETURNS CHAR(36)
 BEGIN
-    RETURN LOWER(CONCAT(HEX(RANDOM_BYTES(4)),
-                        '-', HEX(RANDOM_BYTES(2)),
-                        '-4', SUBSTR(HEX(RANDOM_BYTES(2)), 2, 3),
-                        '-', HEX(FLOOR(ASCII(RANDOM_BYTES(1)) / 64) + 8), SUBSTR(HEX(RANDOM_BYTES(2)), 2, 3),
-                        '-', hex(RANDOM_BYTES(6))));
+    RETURN LOWER(CONCAT(
+            HEX(RANDOM_BYTES(4)),
+            '-', HEX(RANDOM_BYTES(2)),
+            '-4', SUBSTR(HEX(RANDOM_BYTES(2)), 2, 3),
+            '-', HEX(FLOOR(ASCII(RANDOM_BYTES(1)) / 64) + 8), SUBSTR(HEX(RANDOM_BYTES(2)), 2, 3),
+            '-', hex(RANDOM_BYTES(6))
+        ));
 END;
 ```
 
