@@ -59,7 +59,7 @@ This uses [`RANDOM_BYTES()`](https://dev.mysql.com/doc/refman/8.0/en/encryption-
 
 ## Putting it all together
 
-Here's an example where a table `users` uses UUIDs for its primary key:
+Here's an example where a table `users` uses UUIDs for its primary key. Using `CHAR(36)` simplifies this example, but see "[Making UUIDs More Performant in MySQL](/blog/making-uuids-more-performant-in-mysql)" for why you don't want to use it for performance reasons.
 
 ```sql
 CREATE TABLE users
@@ -72,7 +72,7 @@ CREATE TABLE users
 INSERT INTO users (id, name) VALUE (uuid_v4(), 'Bill Gates');
 
 SELECT *
-FROM users
+FROM users;
 ```
 
 If everything went well, at the end you should have table contents similar to:
