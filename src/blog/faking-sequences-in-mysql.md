@@ -18,7 +18,7 @@ MySQL supports auto-incrementing keys, but only one column in a table can have t
 First, let's start up a MySQL server instance with Docker. For ease of example we'll use the `root` user, but you'll want to think twice about doing this in production.
 
 ```bash
-docker run --env MYSQL_ROOT_PASSWORD=password --detach mysql:8
+docker run --env MYSQL_ROOT_PASSWORD=password --publish 3306:3306 --detach mysql:8
 ```
 
 Then, let's create our sequences table:
@@ -84,7 +84,7 @@ Normally `last_insert_id()` without an argument will return the last `AUTO_INCRE
 
 ## Putting it all together
 
-Here's an example where a table `users` has a secondary ID column that we want to have auto-incrementing behavior, but the table already has `AUTO_INCREMENT` on the primary key.
+Here's an example where a table `users` has a secondary ID column that we want to have auto-incrementing behavior, but the table already has `AUTO_INCREMENT` on the primary key:
 
 ```sql
 CREATE TABLE users
