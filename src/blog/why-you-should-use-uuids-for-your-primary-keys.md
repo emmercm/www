@@ -26,7 +26,7 @@ You can tell they're v1 from the leading "1" in the `11ea` group.
 Most common relational databases (ignoring SQLite) have support for UUIDs:
 
 - MySQL:
-  - v4.1.2 (2004) introduced `UUID()` to generate v1 UUID strings (see "[Generating v4 UUIDs in MySQL](/blog/generating-v4-uuids-in-mysql)" for v4)
+  - v4.1.2 (2004) introduced `UUID()` to generate v1 UUID strings (see "[Generating v4 UUIDs in MySQL](/blog/generating-v4-uuids-in-mysql)" for v4 UUIDs)
   - v5.1.20 (2007) introduced `UUID_SHORT()` to generate v1 UUID integers
   - v8.0.0 (2016) introduced `UUID_TO_BIN()`, `BIN_TO_UUID()`, and `IS_UUID()`
 - MariaDB:
