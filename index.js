@@ -1,5 +1,7 @@
 'use strict';
 
+const path = require('path');
+
 const Metalsmith = require('metalsmith');
 const tracer     = require('metalsmith-tracer');
 const msIf       = require('metalsmith-if');
@@ -54,19 +56,27 @@ const linter           = require('metalsmith-html-linter');
 const linkcheck        = require('metalsmith-linkcheck');
 const robots           = require('metalsmith-robots');
 
-// Register Handlebars helper libraries
-const Handlebars = require('handlebars');
-require('handlebars-helpers')({
-    handlebars: Handlebars
-});
-
+const async           = require('async');
 const highlight       = require('highlight.js');
 const marked          = require('marked');
 const minimatch       = require('minimatch');
 const {DateTime}      = require('luxon');
 const transliteration = require('transliteration');
 
-const path = require('path');
+// Register Handlebars helper libraries
+const Handlebars = require('handlebars');
+require('handlebars-helpers')({
+    handlebars: Handlebars
+});
+
+// Set up Unsplash SDK
+global.fetch   = require('node-fetch');
+const Unsplash = require('unsplash-js').default;
+const toJson   = require('unsplash-js').toJson;
+const unsplash = new Unsplash({
+    accessKey: process.env.UNSPLASH_ACCESS_KEY,
+    secret: process.env.UNSPLASH_SECRET_KEY
+});
 
 const { blogImage } = require('./lib/sharp');
 
@@ -247,18 +257,28 @@ tracer(Metalsmith(__dirname))
 
     // Transform Unsplash image pages into CDN URLs
     .use((files, metalsmith, done) => {
-        Object.keys(files)
-            .filter(filename => files[filename].image && files[filename].image.indexOf('unsplash.com') !== -1)
-            .forEach(filename => {
-                const original = files[filename].image;
-                files[filename].image = files[filename].image
-                    .replace(/unsplash\.com\/photos\/([^\/]+)/, 'source.unsplash.com/$1')
-                    .replace(/source\.unsplash\.com\/([^\/]+).*/, `source.unsplash.com/$1/${blogImageWidth}x${blogImageHeight}`);
-                files[filename].thumb = files[filename].image
-                    .replace(/source\.unsplash\.com\/([^\/]+).*/, `source.unsplash.com/$1/${blogImageThumbWidth}x${blogImageThumbHeight}`);
-                files[filename].imageCredit = files[filename].imageCredit || `Photo on <a href="${original}">Unsplash</a>`;
-            });
-        done();
+        const htmlFiles = Object.keys(files)
+            .filter(filename => files[filename].image && files[filename].image.indexOf('unsplash.com') !== -1);
+        async.eachLimit(htmlFiles, 5, async filename => {
+            const original = files[filename].image;
+            const photoId = files[filename].image
+                .replace(/.*unsplash\.com\/photos\/([^\/?]+).*/, '$1')
+                .replace(/.*source\.unsplash\.com\/([^\/?]+).*/, '$1');
+            if (prodBuild) {
+                const photo = await unsplash.photos.getPhoto(photoId).then(toJson);
+                const imgixParameters = '&fm=jpg&q=80&cs=srgb&fit=crop&crop=entropy';
+                files[filename].image = `${photo.urls.raw}${imgixParameters}&w=${blogImageWidth}&h=${blogImageHeight}`;
+                files[filename].thumb = `${photo.urls.raw}${imgixParameters}&w=${blogImageThumbWidth}&h=${blogImageThumbHeight}`;
+                const utmParameters = '?utm_source=emmer-dev&utm_medium=referral';
+                files[filename].imageCredit = `Photo by <a href="${photo.user.links.html}${utmParameters}">${photo.user.name}</a> on <a href="${photo.links.html}${utmParameters}">Unsplash</a>`;
+            } else {
+                files[filename].image = `https://source.unsplash.com/${photoId}/${blogImageWidth}x${blogImageHeight}`;
+                files[filename].thumb = `https://source.unsplash.com/${photoId}/${blogImageThumbWidth}x${blogImageThumbHeight}`;
+                files[filename].imageCredit = `Photo on <a href="${original}">Unsplash</a>`
+            }
+        }, (err) => {
+            done();
+        });
     })
 
     // Create static/img/blog/default.*

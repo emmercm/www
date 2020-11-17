@@ -3,7 +3,6 @@
 title: Linting Dockerfiles with Hadolint
 date: 2020-08-10T21:34:00
 image: https://unsplash.com/photos/rdfxX3iCnz0
-imageCredit: Photo by <a href="https://unsplash.com/@onlyrnc">Rob Coates</a> on <a href="https://unsplash.com/photos/rdfxX3iCnz0">Unsplash</a>
 tags:
 - ci-cd
 - docker

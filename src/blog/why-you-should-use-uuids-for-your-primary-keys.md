@@ -26,16 +26,16 @@ You can tell they're v1 from the leading "1" in the `11ea` group.
 Most common relational databases (ignoring SQLite) have support for UUIDs:
 
 - MySQL:
-  - v4.1.2 (2004) introduced `UUID()` to generate v1 UUID strings.
-  - v5.1.20 (2007) introduced `UUID_SHORT()` to generate v1 UUID integers.
-  - v8.0.0 (2016) introduced `UUID_TO_BIN()`, `BIN_TO_UUID()`, and `IS_UUID()`.
+  - v4.1.2 (2004) introduced `UUID()` to generate v1 UUID strings (see "[Generating v4 UUIDs in MySQL](/blog/generating-v4-uuids-in-mysql)" for v4 UUIDs)
+  - v5.1.20 (2007) introduced `UUID_SHORT()` to generate v1 UUID integers
+  - v8.0.0 (2016) introduced `UUID_TO_BIN()`, `BIN_TO_UUID()`, and `IS_UUID()`
 - MariaDB:
-  - The earliest version of MariaDB is v5.1.38 (2010) which is based on MySQL v5.1.38 which supported `UUID()` and `UUID_SHORT()`.
+  - The earliest version of MariaDB is v5.1.38 (2010) which is based on MySQL v5.1.38 which supported `UUID()` and `UUID_SHORT()`
 - Postgres:
-  - v8.3.0 (2008) added support for `UUID` data type.
-  - v8.3.0 (2008) introduced the `uuid-ossp` module and its functions such as `uuid_generate_v1()` and `uuid_generate_v4()`.
+  - v8.3.0 (2008) added support for `UUID` data type
+  - v8.3.0 (2008) introduced the `uuid-ossp` module and its functions such as `uuid_generate_v1()` and `uuid_generate_v4()`
 - Oracle:
-  - v10.1 (2003) added support for `SYS_GUID()` which is close enough.
+  - v10.1 (2003) added support for `SYS_GUID()` which is close enough
 
 ## Reasons to use UUIDs for primary keys
 

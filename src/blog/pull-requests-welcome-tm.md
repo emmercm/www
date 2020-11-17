@@ -2,7 +2,6 @@
 
 title: Pull Requests Welcome™
 image: https://unsplash.com/photos/lD-xTvjCgJo
-imageCredit: 'Photo by <a href="https://unsplash.com/@janicetea">j</a> on <a href="https://unsplash.com/photos/lD-xTvjCgJo">Unsplash</a>'
 date: 2020-02-15 16:25:00
 tags:
 - career
