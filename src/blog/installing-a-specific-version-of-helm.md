@@ -12,14 +12,14 @@ tags:
 If you've ever seen a `helm` CLI error such as:
 
 ```bash
-Error: incompatible versions client[v2.17.0] server[v2.13.1]
+Error: incompatible versions client[v2.14.0] server[v2.13.1]
 ```
 
 then you've encountered this specific problem, but there are other reasons you may need or want an older version of `helm`.
 
 ## The commands
 
-First, you'll want to uninstall any existing version of `helm` you have - through `brew`, `choco`, `apt`, `snap`, or any other source. That'll make sure you don't have multiple copies of `helm` in your `PATH`.
+First, you'll want to uninstall any existing version of `helm` you have - through `brew`, `choco`, `apt`, `snap`, or any other source. That will help ensure that you don't have multiple copies of `helm` in your `PATH`.
 
 Then, find out what version you want, such as `2.13.1` from above, and run the commands:
 
@@ -47,9 +47,9 @@ Accepted cli arguments are:
 
 That's it, that's the entire instructions. If you're interested in reproducing the "incompatible versions" error yourself, read on ahead.
 
-## Reproducing the error
+## Reproducing the incompatible version error
 
-All the CLI output here is from a computer running macOS Catalina, so your output may vary.
+_Note: all the CLI output here is from a computer running macOS Catalina, so your output may vary._
 
 First, check out "[Getting Started With minikube](/blog/getting-started-with-minikube)" to get `minikube` up and running on your system.
 
@@ -141,7 +141,7 @@ $ helm list
 Error: incompatible versions client[v2.14.0] server[v2.13.1]
 ```
 
-And if we switch our `helm` version to the Tiller version in cluster, it'll work again:
+And if we switch our `helm` version to the Tiller version in cluster it'll work again:
 
 ```bash
 $ ./get_helm.sh -v v2.13.1
