@@ -85,6 +85,6 @@
     "minimatch": "^3.0.4",
     "node-fetch": "^2.6.1",
     "transliteration": "^2.2.0",
-    "unsplash-js": "^6.3.0"
+    "unsplash-js": "^7.0.0"
   }
 }
