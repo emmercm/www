@@ -24,7 +24,7 @@ To keep this article short and to the point we're not going to set up a full web
 
 Starting with an empty project, install some Metalsmith packages:
 
-```bash
+```shell
 npm install --save metalsmith metalsmith-ignore metalsmith-include-files
 ```
 
@@ -103,7 +103,7 @@ google-site-verification: google0123456789abcdef.html
 
 Run the build command like normal:
 
-```bash
+```shell
 node index
 ```
 

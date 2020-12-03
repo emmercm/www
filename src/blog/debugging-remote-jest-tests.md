@@ -86,7 +86,7 @@ Now let's walk through each of those debug commands.
 
 #### `test-debug`
 
-```bash
+```shell
 node --inspect-brk=0.0.0.0 ./node_modules/jest/bin/jest.js
 ```
 
@@ -98,7 +98,7 @@ To break down each part of the command:
 
 #### `test-watch-debug`
 
-```bash
+```shell
 node --inspect-brk=0.0.0.0 ./node_modules/jest/bin/jest.js --watchAll --runInBand
 ```
 
@@ -124,7 +124,7 @@ After creating those 5 files you will end up with the directory tree:
 
 First, build the container and tag it as `sum`:
 
-```bash
+```shell
 docker build -t sum .
 ```
 
@@ -134,7 +134,7 @@ Then we'll walk through the different Docker commands that change depending on w
 
 To run `test-debug` we have a fairly short command:
 
-```bash
+```shell
 docker run -p 9229:9229 sum npm run test-debug
 ```
 
@@ -149,7 +149,7 @@ This will start the container and wait for a debugger to be attached on port 922
 
 The `--watchAll` flag for Jest requires some additional Docker flags:
 
-```bash
+```shell
 docker run -it -v "$(pwd):/usr/src/app" -p 9229:9229 sum npm run test-watch-debug
 ```
 

@@ -17,7 +17,7 @@ MySQL supports auto-incrementing keys, but only one column in a table can have t
 
 First, let's start up a MySQL server instance with Docker. For ease of example we'll use the `root` user, but you'll want to think twice about doing this in production.
 
-```bash
+```shell
 docker run --env MYSQL_ROOT_PASSWORD=password --publish 3306:3306 --detach mysql:8
 ```
 

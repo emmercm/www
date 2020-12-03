@@ -60,7 +60,7 @@ Go ahead and make a new directory for your project and a `src/` directory under 
 
 The full instructions for installation are on [GitHub](https://github.com/nvm-sh/nvm#installation-and-update), but in general it is as simple as:
 
-```bash
+```shell
 curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.34.0/install.sh | bash
 ```
 
@@ -72,7 +72,7 @@ lts/*
 
 And then running the command:
 
-```bash
+```shell
 nvm install
 ```
 
@@ -88,7 +88,7 @@ Now our directory tree will look like:
 
 `npm` or "Node Package Manager" is a tool to install Node.js packages and is the recommended way to install Metalsmith. To set up our project run the command:
 
-```bash
+```shell
 npm init
 ```
 
@@ -105,7 +105,7 @@ And follow the prompts. Hitting the enter key for all prompts is fine for now if
 
 From the root of our project run the command:
 
-```bash
+```shell
 npm install --save metalsmith
 ```
 
@@ -139,7 +139,7 @@ Metalsmith(__dirname)
 
 And then run the command:
 
-```bash
+```shell
 node index
 ```
 
@@ -163,7 +163,7 @@ You might have noticed after the `node index` command above it didn't actually c
 
 And then try the command again:
 
-```bash
+```shell
 node index
 ```
 
@@ -189,7 +189,7 @@ We're not living in 1999 anymore and we have the power of HTML templating system
 
 Let's install both the layouts plugin as well as Handlebars like we did with Metalsmith:
 
-```bash
+```shell
 npm install --save metalsmith-layouts jstransformer-handlebars
 ```
 
@@ -239,7 +239,7 @@ Now that we've moved the structural HTML from `src/index.html` to `layouts/page.
 
 Then build:
 
-```bash
+```shell
 node index
 ```
 
@@ -284,7 +284,7 @@ It's more common to use Markdown instead of HTML as an input source in Metalsmit
 
 Markdown conversion requires another plugin:
 
-```bash
+```shell
 npm install --save metalsmith-markdown
 ```
 
@@ -322,7 +322,7 @@ This is a paragraph.
 
 And build:
 
-```bash
+```shell
 node index
 ```
 
@@ -400,7 +400,7 @@ Where anything between the `---`'s is parsed as YAML and is made available to th
 
 And after building:
 
-```bash
+```shell
 node index
 ```
 
@@ -435,7 +435,7 @@ This is a sample website built with Metalsmith.
 
 Which after build:
 
-```bash
+```shell
 node index
 ```
 
@@ -482,7 +482,7 @@ Good development practices encourage splitting up code into smaller pieces that 
 
 To make our lives easier let's install another plugin:
 
-```bash
+```shell
 npm install --save metalsmith-discover-partials
 ```
 
@@ -535,7 +535,7 @@ And we can reference it by its filename base in `layouts/page.hbs` like this:
 
 And after one last build:
 
-```bash
+```shell
 node index
 ```
 

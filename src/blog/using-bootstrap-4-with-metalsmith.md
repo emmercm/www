@@ -18,7 +18,7 @@ This guide assumes some base understanding of Metalsmith, see "[Starting a Metal
 
 Starting with an empty project, install some Metalsmith plugins:
 
-```bash
+```shell
 npm install --save metalsmith metalsmith-layouts jstransformer-handlebars metalsmith-markdown metalsmith-sass metalsmith-autoprefixer metalsmith-include-files
 ```
 
@@ -29,7 +29,7 @@ npm install --save metalsmith metalsmith-layouts jstransformer-handlebars metals
 
 And then install [jQuery](https://jquery.com/) and [Bootstrap](https://getbootstrap.com/):
 
-```bash
+```shell
 npm install --save jquery bootstrap
 ```
 

@@ -18,7 +18,7 @@ To keep this article short and to the point we're not going to set up a full web
 
 Starting with an empty project, install some Metalsmith packages:
 
-```bash
+```shell
 npm install --save metalsmith metalsmith-favicons metalsmith-layouts jstransformer-handlebars
 ```
 
@@ -123,7 +123,7 @@ Note this does a lot more than just generate a single `favicon.ico` or `favicon.
 
 Run the build command like normal:
 
-```bash
+```shell
 node index
 ```
 

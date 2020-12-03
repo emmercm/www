@@ -41,7 +41,7 @@ The Renovate blog has a [good article](https://renovate.whitesourcesoftware.com/
 
 Docker digests are simply just a hash of a manifest file. Because the [`docker manifest`](https://docs.docker.com/engine/reference/commandline/manifest/) command is still experimental as of writing, we'll use the tool [`skopeo`](https://github.com/containers/skopeo) to look at the contents of the repository manifest:
 
-```bash
+```shell
 $ skopeo inspect --raw docker://node:14.7.0 | jq .
 {
   "manifests": [
@@ -84,7 +84,7 @@ That's the manifest returned by the container registry (Docker Hub), and with `s
 
 Finding the repository digest is as simple as computing the hash of that manifest:
 
-```bash
+```shell
 $ skopeo inspect --raw docker://node:14.7.0 | shasum --algorithm 256 | awk '{print $1}'
 94a00394bc5a8ef503fb59db0a7d0ae9e1119866e8aee8ba40cd864cea69ea1a
 ```
@@ -101,7 +101,7 @@ RUN node --version
 
 This same hash can be seen in a few other places:
 
-```bash
+```shell
 $ docker pull node:14.7.0
 14.7.0: Pulling from library/node
 419e7ae5bb1e: Pull complete
@@ -135,7 +135,7 @@ _Manifest lists were added with the [manifest v2 schema 2](https://docs.docker.c
 
 Manifest lists are fairly common with "library" base images, such as `node` and `ubuntu`:
 
-```bash
+```shell
 $ skopeo inspect --raw docker://ubuntu:20.04 | jq .
 {
   "manifests": [
@@ -196,7 +196,7 @@ $ skopeo inspect --raw docker://ubuntu:20.04 | jq .
 
 If we request the manifest for a specific platform (`linux/amd64`), we get more specific information about its layers:
 
-```bash
+```shell
 $ skopeo inspect --raw docker://ubuntu@sha256:60f560e52264ed1cb7829a0d59b1ee7740d7580e0eb293aca2d722136edb1e24 | jq .
 {
   "schemaVersion": 2,
@@ -233,7 +233,7 @@ $ skopeo inspect --raw docker://ubuntu@sha256:60f560e52264ed1cb7829a0d59b1ee7740
 
 The same rule applies for calculating the digest, it's a hash of the manifest:
 
-```bash
+```shell
 $ skopeo inspect --raw docker://ubuntu@sha256:60f560e52264ed1cb7829a0d59b1ee7740d7580e0eb293aca2d722136edb1e24 | shasum --algorithm 256 | awk '{print $1}'
 60f560e52264ed1cb7829a0d59b1ee7740d7580e0eb293aca2d722136edb1e24
 ```
@@ -256,7 +256,7 @@ Docker Hub has pages for platform-specific digests ([`ubuntu:20.04@sha256:60f560
 
 Here's a bash function from [my dotfiles](https://github.com/emmercm/dotfiles) you can put into your `.bashrc`, `.zshrc`, or whatever is appropriate for your shell:
 
-```bash
+```shell
 # Get the digest hash of a Docker image
 # @param {string} $1 name[:tag][@digest]
 ddigest() {
@@ -271,7 +271,7 @@ ddigest() {
 
 It can be used like this:
 
-```bash
+```shell
 $ ddigest node:14.7.0
 sha256:94a00394bc5a8ef503fb59db0a7d0ae9e1119866e8aee8ba40cd864cea69ea1a
 

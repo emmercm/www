@@ -18,7 +18,7 @@ To keep this article short and to the point we're not going to set up a full web
 
 Starting with an empty project, install some Metalsmith packages:
 
-```bash
+```shell
 npm install --save metalsmith metalsmith-include-files
 ```
 
@@ -27,7 +27,7 @@ npm install --save metalsmith metalsmith-include-files
 
 And then install Font Awesome:
 
-```bash
+```shell
 npm install --save @fortawesome/fontawesome-free
 ```
 
@@ -112,7 +112,7 @@ Then fill in your `src/index.html` like this:
 
 Run the build command like normal:
 
-```bash
+```shell
 node index
 ```
 
