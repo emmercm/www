@@ -21,12 +21,12 @@ To keep this article short and to the point we're not going to set up a full web
 Starting with an empty project, install some Metalsmith packages:
 
 ```bash
-npm install --save metalsmith metalsmith-uglify metalsmith-uncss-2 metalsmith-clean-css metalsmith-renamer metalsmith-html-minifier
+npm install --save metalsmith metalsmith-uglify metalsmith-css-unused metalsmith-clean-css metalsmith-renamer metalsmith-html-minifier
 ```
 
 - [`metalsmith`](https://www.npmjs.com/package/metalsmith) for the base project.
 - [`metalsmith-uglify`](https://www.npmjs.com/package/metalsmith-uglify) to minify JavaScript files.
-- [`metalsmith-uncss-2`](https://www.npmjs.com/package/metalsmith-uncss-2) to remove unused CSS rules.
+- [`metalsmith-css-unused`](https://www.npmjs.com/package/metalsmith-css-unused) to remove unused CSS rules.
 - [`metalsmith-clean-css`](https://www.npmjs.com/package/metalsmith-clean-css) to minify CSS files.
 - [`metalsmith-renamer`](https://www.npmjs.com/package/metalsmith-renamer) to rename minified CSS files.
 - [`metalsmith-html-minifier`](https://www.npmjs.com/package/metalsmith-html-minifier) to minify HTML files.
@@ -81,7 +81,7 @@ Set up your `index.js` file like this:
 ```javascript
 const Metalsmith   = require('metalsmith');
 const uglify       = require('metalsmith-uglify');
-const uncss        = require('metalsmith-uncss-2');
+const cssUnused    = require('metalsmith-css-unused');
 const cleanCSS     = require('metalsmith-clean-css');
 const renamer      = require('metalsmith-renamer');
 const htmlMinifier = require('metalsmith-html-minifier');
@@ -94,7 +94,7 @@ Metalsmith(__dirname)
             sourceMap: false
         }
     }))
-    .use(uncss({             // remove unused CSS rules and combine files
+    .use(cssUnused({         // remove unused CSS rules and combine files
         output: 'static/css/styles.css'
     }))
     .use(cleanCSS({          // minify CSS files

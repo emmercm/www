@@ -45,9 +45,9 @@ const beautify         = require('metalsmith-beautify');
 const concat           = require('metalsmith-concat');
 const glob             = require('metalsmith-html-glob');
 const relative         = require('metalsmith-html-relative');
-const unused           = require('metalsmith-html-unused');
+const htmlUnused       = require('metalsmith-html-unused');
 const uglify           = require('metalsmith-uglify');
-const uncss            = require('metalsmith-uncss-2');
+const cssUnused        = require('metalsmith-css-unused');
 const cleanCSS         = require('metalsmith-clean-css');
 const htmlMinifier     = require('metalsmith-html-minifier');
 const sri              = require('metalsmith-html-sri');
@@ -461,6 +461,7 @@ tracer(Metalsmith(__dirname))
         // TODO: metalsmith-tag-collections
 
         const minimatch = require('minimatch');
+        // TODO: install this
         const collections = require('metalsmith-collections');
 
         const options = {
@@ -810,13 +811,13 @@ tracer(Metalsmith(__dirname))
     })))
 
     // Prod: trim CSS
-    .use(msIf(prodBuild, uncss({
+    .use(msIf(prodBuild, cssUnused({
         output: 'static/css/styles.css',
-        uncss: {
-            ignore: [
+        purgecss: {
+            safelist: [
                 // Bootstrap 4 JavaScript
                 // /\.carousel-.+/,
-                '.collapse', '.collapsing', '.collapsed',
+                'collapse', 'collapsing', 'collapsed',
                 // /\.modal-.+/,
                 /.*\.show/, /.*\.fade/
             ]
@@ -859,7 +860,7 @@ tracer(Metalsmith(__dirname))
 
     // Remove unused files
     // TODO: Remove unused images before metalsmith-sharp?
-    .use(unused({
+    .use(htmlUnused({
         pattern: '**/*.@('
             + [
                 'css', 'js',
