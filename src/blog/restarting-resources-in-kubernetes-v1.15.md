@@ -32,7 +32,7 @@ According to the [changelog](https://github.com/kubernetes/kubernetes/tree/maste
 
 Here's a quick example of how to restart a deployment named `api`:
 
-```bash
+```shell
 $ kubectl rollout restart deployment/api
 deployment.extensions/api restarted
 ```

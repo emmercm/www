@@ -94,7 +94,7 @@ Because your image will inherit all the layers (and size) of your base image, it
 
 For example, a lightweight image such as [Alpine Linux](https://hub.docker.com/_/alpine) has very few layers (1):
 
-```bash
+```shell
 $ docker pull alpine:3.12.0
 3.12.0: Pulling from library/alpine
 df20fa9351a1: Pull complete
@@ -108,7 +108,7 @@ sha256:50644c29ef5a27c9a40c393a73ece2479de78325cae7d762ef3cdc19bf42dd0a
 
 While a heavy image such as [Ubuntu](https://hub.docker.com/_/ubuntu) has more layers (4):
 
-```bash
+```shell
 $ docker pull ubuntu:20.04
 20.04: Pulling from library/ubuntu
 a4a2a29f9ba4: Pull complete
