@@ -810,8 +810,8 @@ tracer(Metalsmith(__dirname))
         }
     })))
 
-    // Prod: trim CSS
-    .use(msIf(prodBuild, cssUnused({
+    // Remove unused CSS
+    .use(cssUnused({
         output: 'static/css/styles.css',
         purgecss: {
             safelist: [
@@ -822,7 +822,7 @@ tracer(Metalsmith(__dirname))
                 /.*\.show/, /.*\.fade/
             ]
         }
-    })))
+    }))
 
     // Prod: minify CSS
     .use(msIf(prodBuild, cleanCSS({
