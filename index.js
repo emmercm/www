@@ -71,9 +71,8 @@ require('handlebars-helpers')({
 
 // Set up Unsplash SDK
 global.fetch   = require('node-fetch');
-const Unsplash = require('unsplash-js').default;
-const toJson   = require('unsplash-js').toJson;
-const unsplash = new Unsplash({
+const Unsplash = require('unsplash-js');
+const unsplash = Unsplash.createApi({
     accessKey: process.env.UNSPLASH_ACCESS_KEY,
     secret: process.env.UNSPLASH_SECRET_KEY
 });
@@ -88,7 +87,7 @@ const siteLanguage    = 'en-US';
 const siteName        = 'Christian Emmer';
 const siteURL         = process.env.NETLIFY && process.env.CONTEXT !== 'production' ? process.env.DEPLOY_PRIME_URL : (process.env.URL || 'https://emmer.dev');
 const siteEmail       = 'emmercm@gmail.com';
-const siteDescription = 'Software engineer with ' + Math.floor(DateTime.local().diff(DateTime.fromISO('2012-01-16'), 'years').years) + '+ years of experience developing full-stack solutions in PHP, Go, Node.js, and Python.';
+const siteDescription = 'Software engineer with ' + Math.floor(DateTime.local().diff(DateTime.fromISO('2012-01-16'), 'years').years) + '+ years of experience developing full-stack solutions in PHP, Go, Node.js, Java, and Python.';
 const siteLogo        = '**/prologo1/logo3_Gray_Lighter.svg';
 const twitterHandle   = '@emmercm';
 
@@ -265,7 +264,7 @@ tracer(Metalsmith(__dirname))
                 .replace(/.*unsplash\.com\/photos\/([^\/?]+).*/, '$1')
                 .replace(/.*source\.unsplash\.com\/([^\/?]+).*/, '$1');
             if (prodBuild) {
-                const photo = await unsplash.photos.getPhoto(photoId).then(toJson);
+                const photo = (await unsplash.photos.get({ photoId })).response;
                 const imgixParameters = '&fm=jpg&q=80&cs=srgb&fit=crop&crop=entropy';
                 files[filename].image = `${photo.urls.raw}${imgixParameters}&w=${blogImageWidth}&h=${blogImageHeight}`;
                 files[filename].thumb = `${photo.urls.raw}${imgixParameters}&w=${blogImageThumbWidth}&h=${blogImageThumbHeight}`;
@@ -277,7 +276,7 @@ tracer(Metalsmith(__dirname))
                 files[filename].imageCredit = `Photo on <a href="${original}">Unsplash</a>`
             }
         }, (err) => {
-            done();
+            done(err);
         });
     })
 
