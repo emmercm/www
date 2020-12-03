@@ -19,7 +19,7 @@ To keep this article short and to the point we're not going to set up a full web
 
 Starting with an empty project, install some Metalsmith packages:
 
-```shell
+```bash
 npm install --save metalsmith metalsmith-formatcheck metalsmith-linkcheck
 ```
 
@@ -94,7 +94,7 @@ Lorem ipsum dolor sit amet, consectetur adipiscing elit.
 
 Run the build command like normal:
 
-```shell
+```bash
 node index
 ```
 

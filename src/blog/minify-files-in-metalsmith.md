@@ -20,7 +20,7 @@ To keep this article short and to the point we're not going to set up a full web
 
 Starting with an empty project, install some Metalsmith packages:
 
-```shell
+```bash
 npm install --save metalsmith metalsmith-uglify metalsmith-uncss-2 metalsmith-clean-css metalsmith-renamer metalsmith-html-minifier
 ```
 
@@ -142,7 +142,7 @@ This will (in order):
 
 Run the build command like normal:
 
-```shell
+```bash
 node index
 ```
 

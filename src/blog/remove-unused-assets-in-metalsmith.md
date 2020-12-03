@@ -22,7 +22,7 @@ To keep this article short and to the point we're not going to set up a full web
 
 Starting with an empty project, install some Metalsmith packages:
 
-```shell
+```bash
 npm install --save metalsmith metalsmith-html-unused
 ```
 
@@ -103,7 +103,7 @@ See the [`metalsmith-html-unused` options](https://www.npmjs.com/package/metalsm
 
 Run the build command like normal:
 
-```shell
+```bash
 node index
 ```
 

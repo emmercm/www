@@ -17,7 +17,7 @@ Linters don't just enforce style guidelines, they also catch potential issues. [
 
 Assuming you already have Docker installed because we're talking about Dockerfiles, the easiest way to run `hadolint` is with Docker:
 
-```shell
+```bash
 docker run --rm --interactive hadolint/hadolint < Dockerfile
 ```
 

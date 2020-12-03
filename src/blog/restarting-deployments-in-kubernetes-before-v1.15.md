@@ -27,19 +27,19 @@ One way of doing this is by adding/setting an environment variable such as `LAST
 
 First, let's get the first container name in the pod template (replacing `<DEPLOYMENT>` with your deployment name):
 
-```shell
+```bash
 kubectl get deployment --output=jsonpath="{.spec.template.spec.containers[*].name}" "<DEPLOYMENT>" | tr -s '[[:space:]]' '\n' | head -1
 ```
 
 Then we can patch the deployment to cause a rollout like this (still replacing `<DEPLOYMENT>` with your deployment name, and now also `<CONTAINER>` with the container name you just found):
 
-```shell
+```bash
 kubectl patch deployment "<DEPLOYMENT>" --patch="{\"spec\":{\"template\":{\"spec\":{\"containers\":[{\"name\":\"<CONTAINER>\",\"env\":[{\"name\":\"LAST_MANUAL_RESTART\",\"value\":\"$(date +%s)\"}]}]}}}}"
 ```
 
 You can string those together and make yourself an alias such as:
 
-```shell
+```bash
 # Reboot a Kubernetes deployment
 # @param {string} $1 Deployment name
 kreboot() {

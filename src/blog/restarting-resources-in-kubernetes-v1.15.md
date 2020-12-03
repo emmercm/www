@@ -20,7 +20,7 @@ There's a bunch of reasons why you'd want to restart a resource in Kubernetes:
 
 Thankfully there's an easy command to restart different types of resources:
 
-```shell
+```bash
 kubectl rollout restart <resource>
 ```
 

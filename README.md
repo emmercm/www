@@ -4,13 +4,13 @@
 
 This website is built with [Node.js](https://nodejs.org), with the specific version managed by [`nvm`](https://github.com/nvm-sh/nvm):
 
-```shell
+```bash
 nvm use
 ```
 
 and its dependencies are managed by [`npm`](https://www.npmjs.com/):
 
-```shell
+```bash
 npm install
 ```
 
@@ -18,7 +18,7 @@ npm install
 
 This website is built with [Node.js](https://nodejs.org):
 
-```shell
+```bash
 node index
 ```
 
