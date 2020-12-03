@@ -16,7 +16,7 @@ career:
 ci-cd:
   title: CI/CD
   icon: fad fa-code-merge
-  color: secondary
+  color: yellow
 
 databases:
   title: Databases

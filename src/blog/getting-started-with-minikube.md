@@ -9,9 +9,11 @@ tags:
 
 `minikube` is a tool for running a Kubernetes clusters for local development, and the setup of it is super simple.
 
+## Install and run
+
 We'll be using [Docker](https://www.docker.com/) to run `minikube`, so make sure that's [installed](https://www.docker.com/get-started).
 
-Follow the `minikube` [installation instructions](https://minikube.sigs.k8s.io/docs/start/) for your OS, or if you're on macOS you can easily install it with [Homebrew](https://brew.sh/):
+Follow the `minikube` [installation instructions](https://minikube.sigs.k8s.io/docs/start/) for your OS, or if you're on macOS, you can easily install it with [Homebrew](https://brew.sh/):
 
 ```bash
 brew install minikube
