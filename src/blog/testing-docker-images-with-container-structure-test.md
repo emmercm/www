@@ -72,7 +72,7 @@ commandTests:
 
 And then after [installing Container Structure Test](https://github.com/GoogleContainerTools/container-structure-test#installation), run the command:
 
-```bash
+```shell
 $ container-structure-test test --image golang:1.14.6 --config config.yaml
 
 ====================================

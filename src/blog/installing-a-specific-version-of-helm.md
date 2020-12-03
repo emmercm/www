@@ -11,7 +11,7 @@ tags:
 
 If you've ever seen a `helm` CLI error such as:
 
-```bash
+```text
 Error: incompatible versions client[v2.14.0] server[v2.13.1]
 ```
 
@@ -31,7 +31,7 @@ chmod +x get_helm.sh
 
 The "v" in front of the version is important, without you'll get an error similar to:
 
-```bash
+```shell
 $ ./get_helm.sh -v 2.13.1
 Helm 2.13.1 is available. Changing from version v2.17.0.
 Downloading https://get.helm.sh/helm-2.13.1-darwin-amd64.tar.gz
@@ -55,7 +55,7 @@ First, check out "[Getting Started With minikube](/blog/getting-started-with-min
 
 Then, we're going to install the old v2.13.1 version of Helm from above:
 
-```bash
+```shell
 $ curl -fsSL -o get_helm.sh https://raw.githubusercontent.com/helm/helm/master/scripts/get
 
 $ chmod +x get_helm.sh
@@ -73,7 +73,7 @@ Error: could not find tiller
 
 In order to install and use an old version of Tiller, we need to use an old version of Kubernetes with `minikube`:
 
-```bash
+```shell
 $ minikube start --kubernetes-version=1.14.9
 😄  minikube v1.14.2 on Darwin 10.15.7
 ✨  Automatically selected the docker driver
@@ -96,7 +96,7 @@ $ minikube start --kubernetes-version=1.14.9
 
 Then using `helm`, we're going to install Tiller into our cluster:
 
-```bash
+```shell
 $ helm init
 Creating /Users/<username>/.helm
 Creating /Users/<username>/.helm/repository
@@ -120,7 +120,7 @@ Happy Helming!
 
 We can verify the version of Tiller in the cluster with `helm`:
 
-```bash
+```shell
 $ helm version
 Client: &version.Version{SemVer:"v2.13.1", GitCommit:"618447cbf203d147601b4b9bd7f8c37a5d39fbb4", GitTreeState:"clean"}
 Server: &version.Version{SemVer:"v2.13.1", GitCommit:"618447cbf203d147601b4b9bd7f8c37a5d39fbb4", GitTreeState:"clean"}
@@ -128,7 +128,7 @@ Server: &version.Version{SemVer:"v2.13.1", GitCommit:"618447cbf203d147601b4b9bd7
 
 Then using a newer version of `helm` we can see the "incompatible versions" error:
 
-```bash
+```shell
 $ ./get_helm.sh -v v2.14.0
 Helm v2.14.0 is available. Changing from version v2.13.1.
 Downloading https://get.helm.sh/helm-v2.14.0-darwin-amd64.tar.gz
@@ -143,7 +143,7 @@ Error: incompatible versions client[v2.14.0] server[v2.13.1]
 
 And if we switch our `helm` version to the Tiller version in cluster it'll work again:
 
-```bash
+```shell
 $ ./get_helm.sh -v v2.13.1
 Helm v2.13.1 is available. Changing from version v2.14.0.
 Downloading https://get.helm.sh/helm-v2.13.1-darwin-amd64.tar.gz

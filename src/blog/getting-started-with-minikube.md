@@ -19,7 +19,7 @@ brew install minikube
 
 Afterwards, we can verify everything is installed correctly with a few commands (ignoring the specific versions):
 
-```bash
+```shell
 $ minikube version
 minikube version: v1.14.2
 commit: 2c82918e2347188e21c4e44c8056fc80408bce10
@@ -30,7 +30,7 @@ Client Version: version.Info{Major:"1", Minor:"18", GitVersion:"v1.18.8", GitCom
 
 Then we'll go ahead and start `minikube`:
 
-```bash
+```shell
 $ minikube start
 😄  minikube v1.14.2 on Darwin 10.15.7
 ✨  Automatically selected the docker driver
@@ -46,7 +46,7 @@ This will create a `kubectl` configuration file at `~/.kube/config` so no additi
 
 We can verify `minikube` started correctly with some more commands (ignoring the specific IPs and ports):
 
-```bash
+```shell
 $ minikube status
 minikube
 type: Control Plane
@@ -85,7 +85,7 @@ That tells us the cluster is up and running and `kubectl` is able to interact wi
 
 We can get a nice web interface with the command:
 
-```bash
+```shell
 $ minikube dashboard
 🔌  Enabling dashboard ...
 🤔  Verifying dashboard health ...
@@ -104,7 +104,7 @@ This is not a complete guide on Kubernetes, and as such we won't cover what reso
 
 First, we'll create a _deployment_ which will implicitly create a _replica set_ and a _pod_ for us:
 
-```bash
+```shell
 $ kubectl create deployment echoserver --image=k8s.gcr.io/echoserver:1.10
 deployment.apps/echoserver created
 
@@ -123,7 +123,7 @@ echoserver-9d94d584f-d8rx6   1/1     Running   0          29s
 
 By default the pod is only accessible from inside the cluster, so we need to expose it as a _service_:
 
-```bash
+```shell
 $ kubectl expose deployment echoserver --type=LoadBalancer --port=8080
 service/echoserver exposed
 
@@ -137,7 +137,7 @@ But because we're running `minikube` in Docker, and our Docker container doesn't
 
 One way to access the service is to have `minikube` open it in our web browser:
 
-```bash
+```shell
 $ minikube service echoserver
 |-----------|------------|-------------|---------------------------|
 | NAMESPACE |    NAME    | TARGET PORT |            URL            |
@@ -157,12 +157,12 @@ Which will open a web page that echoes our HTTP GET request back to us.
 
 Another way we can access the service is to tunnel/port-forward into the cluster with either `minikube` or `kubectl`:
 
-```bash
+```shell
 $ minikube tunnel
 🏃  Starting tunnel for service echoserver.
 ```
 
-```bash
+```shell
 $ kubectl port-forward service/echoserver 8080
 Forwarding from 127.0.0.1:8080 -> 8080
 Forwarding from [::1]:8080 -> 8080
@@ -170,7 +170,7 @@ Forwarding from [::1]:8080 -> 8080
 
 And then in a separate window we can now access our service:
 
-```bash
+```shell
 $ curl localhost:8080
 Hostname: echoserver-9d94d584f-d8rx6
 
