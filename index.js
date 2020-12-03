@@ -71,9 +71,8 @@ require('handlebars-helpers')({
 
 // Set up Unsplash SDK
 global.fetch   = require('node-fetch');
-const Unsplash = require('unsplash-js').default;
-const toJson   = require('unsplash-js').toJson;
-const unsplash = new Unsplash({
+const Unsplash = require('unsplash-js');
+const unsplash = Unsplash.createApi({
     accessKey: process.env.UNSPLASH_ACCESS_KEY,
     secret: process.env.UNSPLASH_SECRET_KEY
 });
@@ -265,7 +264,7 @@ tracer(Metalsmith(__dirname))
                 .replace(/.*unsplash\.com\/photos\/([^\/?]+).*/, '$1')
                 .replace(/.*source\.unsplash\.com\/([^\/?]+).*/, '$1');
             if (prodBuild) {
-                const photo = await unsplash.photos.getPhoto(photoId).then(toJson);
+                const photo = (await unsplash.photos.get({ photoId })).response;
                 const imgixParameters = '&fm=jpg&q=80&cs=srgb&fit=crop&crop=entropy';
                 files[filename].image = `${photo.urls.raw}${imgixParameters}&w=${blogImageWidth}&h=${blogImageHeight}`;
                 files[filename].thumb = `${photo.urls.raw}${imgixParameters}&w=${blogImageThumbWidth}&h=${blogImageThumbHeight}`;
@@ -277,7 +276,7 @@ tracer(Metalsmith(__dirname))
                 files[filename].imageCredit = `Photo on <a href="${original}">Unsplash</a>`
             }
         }, (err) => {
-            done();
+            done(err);
         });
     })
 
