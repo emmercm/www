@@ -803,12 +803,12 @@ tracer(Metalsmith(__dirname))
      ******************************/
 
     // Prod: minify JavaScript
-    .use(msIf(prodBuild, uglify({
-        removeOriginal: true,
-        uglify: {
-            sourceMap: false
-        }
-    })))
+    // .use(msIf(prodBuild, uglify({
+    //     removeOriginal: true,
+    //     uglify: {
+    //         sourceMap: false
+    //     }
+    // })))
 
     // Remove unused CSS
     .use(cssUnused({
