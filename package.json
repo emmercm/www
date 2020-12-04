@@ -27,7 +27,7 @@
     "handlebars": "^4.7.6",
     "handlebars-helpers": "^0.10.0",
     "he": "^1.2.0",
-    "highlight.js": "^10.4.0",
+    "highlight.js": "^10.4.1",
     "jquery": "^3.5.1",
     "jstransformer-handlebars": "^1.1.0",
     "luxon": "^1.25.0",
@@ -72,7 +72,7 @@
     "metalsmith-pagination": "^1.5.0",
     "metalsmith-paths": "^3.0.1",
     "metalsmith-reading-time": "^0.0.2",
-    "metalsmith-renamer": "^0.5.52",
+    "metalsmith-renamer": "^0.5.53",
     "metalsmith-robots": "^1.1.0",
     "metalsmith-sass": "^1.7.0",
     "metalsmith-sharp": "^3.0.0",
@@ -80,11 +80,11 @@
     "metalsmith-tracer": "^0.3.5",
     "metalsmith-twitter-card": "1.0.4",
     "metalsmith-uglify": "^2.3.4",
-    "metalsmith-css-unused": "^0.3.0",
+    "metalsmith-css-unused": "^0.3.1",
     "metalsmith-validate": "^0.1.5",
     "minimatch": "^3.0.4",
     "node-fetch": "^2.6.1",
     "transliteration": "^2.2.0",
-    "unsplash-js": "^7.0.0"
+    "unsplash-js": "^7.0.1"
   }
 }
