@@ -33,6 +33,11 @@ fontawesome:
   icon: fab fa-font-awesome
   color: fontawesome
 
+git:
+  title: Git
+  icon: fab fa-git-alt
+  color: git
+
 github:
   title: GitHub
   icon: fab fa-github
