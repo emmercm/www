@@ -33,7 +33,7 @@ func main() {
 
 And assuming you have Go installed locally, running the file will produce the expected output:
 
-```bash
+```shell
 $ go run main.go
 hello world
 ```
@@ -55,7 +55,7 @@ CMD ["app"]
 
 Build the image and tag it as `example`:
 
-```bash
+```shell
 $ docker build -t example .
 ...
 Successfully tagged example:latest
@@ -63,14 +63,14 @@ Successfully tagged example:latest
 
 And then running the container will produce the expected output:
 
-```bash
+```shell
 $ docker run example
 hello world
 ```
 
 But let's check out the size of the final image we built:
 
-```bash
+```shell
 $ docker image ls example
 REPOSITORY          TAG                 IMAGE ID            CREATED             SIZE
 example             latest              9bc90e495f18        9 seconds ago       372MB
@@ -78,7 +78,7 @@ example             latest              9bc90e495f18        9 seconds ago       
 
 **372MB!** That's astronomically large for such a small application. That's because the base image is so large due to all the Go binaries and libraries:
 
-```bash
+```shell
 $ docker run golang:1.14.4-alpine sh -c "du -sh /usr/local/go/*"
 56.0K   /usr/local/go/AUTHORS
 4.0K    /usr/local/go/CONTRIBUTING.md
@@ -102,7 +102,7 @@ $ docker run golang:1.14.4-alpine sh -c "du -sh /usr/local/go/*"
 
 Let's find out how many layers our image has:
 
-```bash
+```shell
 $ docker inspect example --format '{{range .RootFS.Layers}}{{println .}}{{end}}'
 sha256:50644c29ef5a27c9a40c393a73ece2479de78325cae7d762ef3cdc19bf42dd0a
 sha256:0f7493e3a35bab1679e587b41b353b041dca1e7043be230670969703f28a1d83
@@ -140,7 +140,7 @@ CMD ["app"]
 
 Build the image like before:
 
-```bash
+```shell
 $ docker build -t example .
 ...
 Successfully tagged example:latest
@@ -148,14 +148,14 @@ Successfully tagged example:latest
 
 Make sure it has the same output:
 
-```bash
+```shell
 $ docker run example
 hello world
 ```
 
 And look at the space-saving magic:
 
-```bash
+```shell
 $ docker image ls example
 REPOSITORY          TAG                 IMAGE ID            CREATED              SIZE
 example             latest              ecd4076f7d37        About a minute ago   7.64MB
@@ -165,7 +165,7 @@ example             latest              ecd4076f7d37        About a minute ago  
 
 What about how many layers that is:
 
-```bash
+```shell
 $ docker inspect example --format '{{range .RootFS.Layers}}{{println .}}{{end}}'
 sha256:50644c29ef5a27c9a40c393a73ece2479de78325cae7d762ef3cdc19bf42dd0a
 sha256:0c2a04464c15287d9674ad2bccdcc5b1e15e05eb53e465595da78856468f1c5e

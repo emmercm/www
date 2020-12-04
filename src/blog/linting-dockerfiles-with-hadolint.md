@@ -69,7 +69,7 @@ RUN apk --update add --no-cache git && \
 
 Here's the example output:
 
-```bash
+```shell
 $ docker run --rm --interactive hadolint/hadolint < Dockerfile
 /dev/stdin:1 DL3007 Using latest is prone to errors if the image will ever update. Pin the version explicitly to a release tag
 /dev/stdin:3 DL3003 Use WORKDIR to switch to a directory

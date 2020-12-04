@@ -51,6 +51,15 @@ All plugins have:
 
 A plugin to find related files within collections, such as related blog articles.
 
+### [metalsmith-css-unused](https://github.com/emmercm/metalsmith-css-unused)
+
+A plugin to remove unused CSS rules.
+
+Related blog articles:
+
+- [Using Font Awesome with Metalsmith](/blog/using-font-awesome-with-metalsmith)
+- [Minify Files in Metalsmith](/blog/minify-files-in-metalsmith)
+
 ### [metalsmith-htaccess](https://github.com/emmercm/metalsmith-htaccess)
 
 A plugin to create an `.htaccess` Apache HTTP Server (`httpd`) [configuration file](https://httpd.apache.org/docs/current/howto/htaccess.html).
@@ -100,15 +109,6 @@ A Metalsmith plugin to estimate pages' reading times, similar to Medium.
 ### [metalsmith-tracer](https://github.com/emmercm/metalsmith-tracer)
 
 A tool to automatically trace and measure Metalsmith build time.
-
-### [metalsmith-uncss-2](https://github.com/emmercm/metalsmith-uncss-2)
-
-A plugin to run the [UnCSS](https://github.com/uncss/uncss) unused CSS remover on source files.
-
-Related blog articles:
-
-- [Using Font Awesome with Metalsmith](/blog/using-font-awesome-with-metalsmith)
-- [Minify Files in Metalsmith](/blog/minify-files-in-metalsmith)
 
 ## <i class="fab fa-raspberry-pi"></i> Raspberry Pi Tools
 
