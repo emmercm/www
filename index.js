@@ -812,7 +812,6 @@ tracer(Metalsmith(__dirname))
 
     // Remove unused CSS
     .use(cssUnused({
-        output: 'static/css/styles.css',
         purgecss: {
             safelist: [
                 // Bootstrap 4 JavaScript

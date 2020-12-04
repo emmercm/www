@@ -94,9 +94,7 @@ Metalsmith(__dirname)
             sourceMap: false
         }
     }))
-    .use(cssUnused({         // remove unused CSS rules and combine files
-        output: 'static/css/styles.css'
-    }))
+    .use(cssUnused())        // remove unused CSS rules and combine files
     .use(cleanCSS({          // minify CSS files
         cleanCSS: {
             rebase: false
@@ -132,7 +130,7 @@ Metalsmith(__dirname)
 This will (in order):
 
 - Minify all `/.js$/` (and not `/.min.js$/`) JavaScript files and change their extension to `.min.js`.
-- Concatenate all `**/*.css` files into `static/css/styles.css` and remove unused CSS rules (based on the contents of all `**/*.html` HTML files).
+- Remove unused CSS rules from all `**/*.css` files, based on the contents of all `**/*.html` HTML files.
 - Minify `static/css/styles.css` in-place without rebasing URLs.
 - Change the extension of all `**/*.css` (just `static/css/styles.css`) to `.min.css`.
 - Minify all `**/*.html` files in-place, including in-line CSS and JavaScript.
