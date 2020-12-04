@@ -1,23 +1,24 @@
 ---
 
 title: Undoing a Git Commit
-date: 2030-01-01
+date: 2020-12-04T03:22:00
 tags:
 - git
+- github
 
 ---
 
 Complicated Git operations are hard to remember and are full of landmines - here's a short guide on how to undo any Git commit.
 
-Why would you want to undo a commit? There's a number of reasons:
+First, why would you want to undo a commit? There are a number of reasons:
 
 - Fixing a typo in a commit message
-- Adding additional changes to a commit
+- Adding additional changes forgotten in a commit
 - Removing committed secrets
 
 ## Example project
 
-Here's an example project with its commits:
+Here's an example project with 3 commits since cloning:
 
 ```shell
 $ git reflog
@@ -27,7 +28,7 @@ f62390c HEAD@{2}: commit: Good commit
 338de59 HEAD@{3}: clone: from https://github.com/emmercm/undoing-a-git-commit.git
 ```
 
-There is a bad commit that hasn't been pushed yet, and a questionable commit that has been pushed.
+There is a bad commit that hasn't been pushed yet, and a questionable commit that _has_ been pushed.
 
 We'll refer to this project in the scenarios below.
 
@@ -35,7 +36,7 @@ We'll refer to this project in the scenarios below.
 
 It's important for us to figure what the last "good" commit is, because we will undo all the changes after it. Knowing which commit is "good" in the example project is trivial, but it may not be for your project.
 
-`git log` and `git reflog` are your primary tools here, and assuming you have verbose commit messages it shouldn't be too difficult to figure out what the last "good" commit in your project is.
+[`git log`](https://git-scm.com/docs/git-log) and [`git reflog`](https://git-scm.com/docs/git-reflog) are your primary tools here, and assuming you have verbose commit messages it shouldn't be too difficult to figure out what the last "good" commit in your project is.
 
 From the example project, the shortened hash `f62390c` is the last definitively "good" commit, and we're unsure if `5fde797` is "good" or not.
 
@@ -73,8 +74,6 @@ In both strategies, the `--soft` flag signals that we want to leave files in the
 
 ## Scenario 2: the commit has been pushed
 
-This is the more difficult and dangerous scenario
-
 From the above example project, let's say we find the "questionable" commit to be "bad" - this makes `f62390c` the last known "good" commit. There are two steps to undo all changes after `f62390c`...
 
 Undoing the commits locally:
@@ -92,9 +91,9 @@ f62390c (HEAD -> main) HEAD@{3}: commit: Good commit
 
 Undoing the commits on the remote repository.
 
-Warnings:
+**Warnings:**
 
-- History rewriting has the potential of being destructive - make a local backup of your project folder, along with`.git`, so you can recover from any incorrect commands.
+- History rewriting has the potential of being destructive - make a local backup of your project folder, along with its `.git` folder, so you can recover from any incorrect commands.
 - Other people who have cloned or forked your repository will not have their copy fixed with `git pull`, they will also need to do some manual work (not covered here).
 
 ```shell
@@ -117,7 +116,7 @@ The solutions offered in the above scenarios have the potential to go wrong - if
 
 ## Alternative 2: using `git revert`
 
-Similarly to making a new commit by hand, `git revert` adds a new commit that undoes all changes from a certain commit:
+Similarly to making a new commit by hand, [`git revert`](https://git-scm.com/docs/git-revert) adds a new commit that undoes all changes from a certain commit, such as removing the file named `bad` added in the "bad" commit:
 
 ```shell
 $ git revert 4614585
