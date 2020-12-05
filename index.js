@@ -282,10 +282,10 @@ tracer(Metalsmith(__dirname))
     })
 
     // Process background images
-    .use(backgroundImage(siteBackground, 1200, prodBuild))
-    .use(backgroundImage(siteBackground, 992, prodBuild))
-    .use(backgroundImage(siteBackground, 768, prodBuild))
-    .use(backgroundImage(siteBackground, 576, prodBuild))
+    .use(backgroundImage(siteBackground, 1024, prodBuild)) // catch all
+    .use(backgroundImage(siteBackground, 926, prodBuild)) // iPhone 12 Pro Max
+    .use(backgroundImage(siteBackground, 896, prodBuild)) // iPhone 11 Pro Max, XR, XS Max
+    .use(backgroundImage(siteBackground, 736, prodBuild)) // iPhone 8 Plus, 7 Plus, 6/S Plus
 
     // Create static/img/blog/default.*
     .use(include({

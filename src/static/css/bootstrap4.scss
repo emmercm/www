@@ -237,21 +237,21 @@ h1, h2, h3, h4, h5, h6,
   @media (min-aspect-ratio: 1/1) {  // wide
     background-size: 150% auto;
   }
-  @media only screen and (orientation: landscape) and (max-device-width: 1200px),
-         only screen and (orientation: portrait) and (max-device-height: 1200px) {
-    background-image: url('../img/trianglify-1200.jpg');
+  @media only screen and (orientation: landscape) and (max-device-width: 1024px),
+         only screen and (orientation: portrait) and (max-device-height: 1024px) {
+    background-image: url('../img/trianglify-1024.jpg');
   }
-  @media only screen and (orientation: landscape) and (max-device-width: 992px),
-         only screen and (orientation: portrait) and (max-device-height: 992px) {
-    background-image: url('../img/trianglify-992.jpg');
+  @media only screen and (orientation: landscape) and (max-device-width: 926px),
+         only screen and (orientation: portrait) and (max-device-height: 926px) {
+    background-image: url('../img/trianglify-926.jpg');
   }
-  @media only screen and (orientation: landscape) and (max-device-width: 768px),
-         only screen and (orientation: portrait) and (max-device-height: 768px) {
-    background-image: url('../img/trianglify-768.jpg');
+  @media only screen and (orientation: landscape) and (max-device-width: 896px),
+         only screen and (orientation: portrait) and (max-device-height: 896px) {
+    background-image: url('../img/trianglify-896.jpg');
   }
-  @media only screen and (orientation: landscape) and (max-device-width: 576px),
-         only screen and (orientation: portrait) and (max-device-height: 576px) {
-    background-image: url('../img/trianglify-576.jpg');
+  @media only screen and (orientation: landscape) and (max-device-width: 736px),
+         only screen and (orientation: portrait) and (max-device-height: 736px) {
+    background-image: url('../img/trianglify-736.jpg');
   }
 }
 
