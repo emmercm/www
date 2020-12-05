@@ -8,7 +8,7 @@ tags:
 
 ---
 
-Complicated Git operations are hard to remember and are full of landmines - here's a short guide on how to undo any Git commit.
+Complicated Git commands are hard to remember and are full of landmines - here's a short guide on how to undo any Git commit.
 
 First, why would you want to undo a commit? There are a number of reasons:
 

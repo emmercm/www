@@ -237,6 +237,7 @@ h1, h2, h3, h4, h5, h6,
   @media (min-aspect-ratio: 1/1) {  // wide
     background-size: 150% auto;
   }
+  // The background performs VERY poorly on mobile, at least Firefox ~v83 - use rasterized versions instead
   @media only screen and (orientation: landscape) and (max-device-width: 1024px),
          only screen and (orientation: portrait) and (max-device-height: 1024px) {
     background-image: url('../img/trianglify-1024.jpg');
