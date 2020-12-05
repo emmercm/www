@@ -233,8 +233,25 @@ h1, h2, h3, h4, h5, h6,
   background-position: center center;
   background-repeat: no-repeat;
   background-attachment: fixed;
+  background-size: auto 150%;
   @media (min-aspect-ratio: 1/1) {  // wide
-    background-size: 100% auto;
+    background-size: 150% auto;
+  }
+  @media only screen and (orientation: landscape) and (max-device-width: 1200px),
+         only screen and (orientation: portrait) and (max-device-height: 1200px) {
+    background-image: url('../img/trianglify-1200.jpg');
+  }
+  @media only screen and (orientation: landscape) and (max-device-width: 992px),
+         only screen and (orientation: portrait) and (max-device-height: 992px) {
+    background-image: url('../img/trianglify-992.jpg');
+  }
+  @media only screen and (orientation: landscape) and (max-device-width: 768px),
+         only screen and (orientation: portrait) and (max-device-height: 768px) {
+    background-image: url('../img/trianglify-768.jpg');
+  }
+  @media only screen and (orientation: landscape) and (max-device-width: 576px),
+         only screen and (orientation: portrait) and (max-device-height: 576px) {
+    background-image: url('../img/trianglify-576.jpg');
   }
 }
 

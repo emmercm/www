@@ -77,7 +77,7 @@ const unsplash = Unsplash.createApi({
     secret: process.env.UNSPLASH_SECRET_KEY
 });
 
-const { blogImage } = require('./lib/sharp');
+const { blogImage, backgroundImage } = require('./lib/sharp');
 
 const prodBuild = (process.env.NODE_ENV || 'development').toLowerCase() === 'production';
 const prodDeploy = process.env.NETLIFY && process.env.CONTEXT === 'production';
@@ -89,6 +89,7 @@ const siteURL         = process.env.NETLIFY && process.env.CONTEXT !== 'producti
 const siteEmail       = 'emmercm@gmail.com';
 const siteDescription = 'Software engineer with ' + Math.floor(DateTime.local().diff(DateTime.fromISO('2012-01-16'), 'years').years) + '+ years of experience developing full-stack solutions in PHP, Go, Node.js, Java, and Python.';
 const siteLogo        = '**/prologo1/logo3_Gray_Lighter.svg';
+const siteBackground  = '**/trianglify.svg';
 const twitterHandle   = '@emmercm';
 
 // x2 for retina displays
@@ -280,6 +281,12 @@ tracer(Metalsmith(__dirname))
         });
     })
 
+    // Process background images
+    .use(backgroundImage(siteBackground, 1200, prodBuild))
+    .use(backgroundImage(siteBackground, 992, prodBuild))
+    .use(backgroundImage(siteBackground, 768, prodBuild))
+    .use(backgroundImage(siteBackground, 576, prodBuild))
+
     // Create static/img/blog/default.*
     .use(include({
         'static/img/blog': [
@@ -296,7 +303,7 @@ tracer(Metalsmith(__dirname))
     // Ignore files that can't be processed
     .use(ignore(['static/img/blog/*.@(psd|xcf)']))
 
-    // Process large blog images (sharp.strategy.attention)
+    // Process large blog images
     .use(blogImage('static/img/blog/!(*-thumb).*', blogImageWidth, blogImageHeight, prodBuild))
 
     // Process small blog images (sharp.gravity.center)
