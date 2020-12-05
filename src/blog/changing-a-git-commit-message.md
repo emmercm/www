@@ -8,11 +8,11 @@ tags:
 
 ---
 
-The Git commands to change a commit message are very situational - here's a short guide on all of them.
+The Git commands to change a commit message are situational - here's a short guide to all of them.
 
 ## Example project
 
-Starting from an empty repository that was freshly cloned, let's create ourselves an example situation with a few commit message mistakes:
+Starting from an empty repository that was freshly cloned, let's create an example situation with a few commit message mistakes:
 
 ```shell
 $ touch index.html && git add .
@@ -44,7 +44,7 @@ bd9d97a (HEAD -> master) Updated stylesheet
 4dc005b (origin/master) Aded homepage
 ```
 
-There are three situations here:
+There are three scenarios to correct here:
 
 - The last commit has an incorrect message, and it is _not_ pushed
 - The middle commit has a misspelling, and it is _not_ pushed
@@ -77,7 +77,7 @@ Updated stylesheet
 #
 ```
 
-Make the intended update, such as correcting the commit message to "Added JavaScript", then save and exit the editor. This will rewrite the commit, evident by the different commit hash:
+We didn't update the stylesheet in this commit, we added some JavaScript. Change the commit message to "Added JavaScript", then save and exit the editor. This will rewrite the commit, as evidenced by the different commit hash:
 
 ```shell
 $ git log --oneline
@@ -86,11 +86,11 @@ $ git log --oneline
 4dc005b (origin/master) Aded homepage
 ```
 
-Because the remote origin doesn't know about this commit yet, we don't need to do any additional work.
+Because the remote repository doesn't know about this commit yet, we don't need to do any additional work.
 
 ## Scenario 2: changing an older commit
 
-To fix the spelling mistake in the middle commit we need to use the "interactive rebase" command, looking back 2 commits:
+To fix the spelling mistake in the middle commit, we need to use the "[interactive rebase](https://git-scm.com/book/en/v2/Git-Tools-Rewriting-History)" command, looking back 2 commits:
 
 ```bash
 git rebase -i HEAD~2
@@ -134,7 +134,7 @@ Added stilesheet
 #
 ```
 
-And like the above "amend" command, we'll make the intended update such as correcting the spelling to "Added stylesheet", then saving and exiting the editor. This will rewrite the commit and all commits after it, evident by the different commit hashes:
+Correcting the spelling to "Added stylesheet", then save and exit the editor. This will rewrite the commit and all commits after it, as evidenced by the different commit hashes:
 
 ```shell
 $ git log --oneline
@@ -143,11 +143,11 @@ $ git log --oneline
 4dc005b (origin/master) Aded homepage
 ```
 
-And again because the remote origin doesn't know about this commit yet, we don't need to do any additional work.
+And again because the remote repository doesn't know about this commit yet, we don't need to do any additional work.
 
 ## Scenario 3: changing a commit that has been pushed
 
-In the first two scenarios we corrected commits that haven't been pushed yet, only making changes to our local repository. To correct the misspelling in the very first commit message, we'll again use the "interactive rebase" command, but we'll also need to "force push" the branch to the remote origin afterwards.
+In the first two scenarios we corrected commits that haven't been pushed yet, only making changes to our local repository. To correct the misspelling in the very first commit message, we'll again use the "[interactive rebase](https://git-scm.com/book/en/v2/Git-Tools-Rewriting-History)" command, but we'll also need to "force push" the branch to the remote repository afterwards.
 
 **Warnings:**
 
@@ -204,7 +204,7 @@ Aded homepage
 #
 ```
 
-Change "Aded" to "Added", then save and exit the editor. This will rewrite the first commit and all commits after it, as evident by the different commit hashes:
+Change "Aded" to "Added", then save and exit the editor. This will rewrite the first commit and all commits after it, as evidenced by the different commit hashes:
 
 ```shell
 $ git log --oneline
@@ -213,7 +213,7 @@ a336c67 (HEAD -> master) Added JavaScript
 137cf38 Added homepage
 ```
 
-Note that `origin/master` has disappeared, indicating our local repository has completely strayed from remote.
+Note that `origin/master` has disappeared, indicating our local repository has completely diverged from remote.
 
 Because we've edited a commit that was already pushed, we need to "force push" our local branch, overwriting the remote repository history:
 
