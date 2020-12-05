@@ -875,7 +875,7 @@ tracer(Metalsmith(__dirname))
                 'doc', 'docx', 'pdf', 'ppt', 'pptx', 'xls', 'xlsx'
             ].join('|')
             + ')',
-        ignore: '**/trianglify.svg'
+        ignore: siteBackground.replace(/\.[^\.]+$/, '') + '*'
     }))
 
     /***************************
