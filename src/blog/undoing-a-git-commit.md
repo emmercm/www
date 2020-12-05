@@ -12,9 +12,9 @@ Complicated Git commands are hard to remember and are full of landmines - here's
 
 First, why would you want to undo a commit? There are a number of reasons:
 
-- Fixing a typo in a commit message
 - Adding additional changes forgotten in a commit
 - Removing committed secrets
+- Fixing a typo in a commit message (though there are [better ways](/blog/changing-a-git-commit-message))
 
 ## Example project
 
