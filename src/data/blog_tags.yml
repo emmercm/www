@@ -16,7 +16,7 @@ career:
 ci-cd:
   title: CI/CD
   icon: fad fa-code-merge
-  color: secondary
+  color: yellow
 
 databases:
   title: Databases
@@ -32,6 +32,11 @@ fontawesome:
   title: Font Awesome
   icon: fab fa-font-awesome
   color: fontawesome
+
+git:
+  title: Git
+  icon: fab fa-git-alt
+  color: git
 
 github:
   title: GitHub

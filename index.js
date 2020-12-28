@@ -10,7 +10,7 @@ const env              = require('metalsmith-env');
 const buildinfo        = require('metalsmith-build-info');
 const metaDirectory    = require('metalsmith-metadata-directory');
 const gravatar         = require('metalsmith-gravatar');
-const drafts           = require('metalsmith-drafts');
+const drafts           = require('@metalsmith/drafts');
 const validate         = require('metalsmith-validate');
 const dataLoader       = require('metalsmith-data-loader');
 const sass             = require('metalsmith-sass');
@@ -23,15 +23,15 @@ const discoverHelpers  = require('metalsmith-discover-helpers');
 const discoverPartials = require('metalsmith-discover-partials');
 const collect          = require('metalsmith-auto-collections');
 const collectionMeta   = require('metalsmith-collection-metadata');
-const permalinks       = require('metalsmith-permalinks');
+const permalinks       = require('@metalsmith/permalinks');
 const paths            = require('metalsmith-paths');
 const branch           = require('metalsmith-branch');
 const readingTime      = require('metalsmith-reading-time');
 const pagination       = require('metalsmith-pagination')
 const jsonld           = require('./lib/metalsmith-jsonld');
-const defaultValues    = require('metalsmith-default-values');
+const defaultValues    = require('@metalsmith/default-values');
 const hbtmd            = require('./lib/metalsmith-hbt-md');
-const markdown         = require('metalsmith-markdown');
+const markdown         = require('@metalsmith/markdown');
 const excerpts         = require('./lib/metalsmith-excerpts');
 const except           = require('metalsmith-except');
 const feed             = require('metalsmith-feed');
@@ -45,9 +45,9 @@ const beautify         = require('metalsmith-beautify');
 const concat           = require('metalsmith-concat');
 const glob             = require('metalsmith-html-glob');
 const relative         = require('metalsmith-html-relative');
-const unused           = require('metalsmith-html-unused');
+const htmlUnused       = require('metalsmith-html-unused');
 const uglify           = require('metalsmith-uglify');
-const uncss            = require('metalsmith-uncss-2');
+const cssUnused        = require('metalsmith-css-unused');
 const cleanCSS         = require('metalsmith-clean-css');
 const htmlMinifier     = require('metalsmith-html-minifier');
 const sri              = require('metalsmith-html-sri');
@@ -71,14 +71,13 @@ require('handlebars-helpers')({
 
 // Set up Unsplash SDK
 global.fetch   = require('node-fetch');
-const Unsplash = require('unsplash-js').default;
-const toJson   = require('unsplash-js').toJson;
-const unsplash = new Unsplash({
+const Unsplash = require('unsplash-js');
+const unsplash = Unsplash.createApi({
     accessKey: process.env.UNSPLASH_ACCESS_KEY,
     secret: process.env.UNSPLASH_SECRET_KEY
 });
 
-const { blogImage } = require('./lib/sharp');
+const { blogImage, backgroundImage } = require('./lib/sharp');
 
 const prodBuild = (process.env.NODE_ENV || 'development').toLowerCase() === 'production';
 const prodDeploy = process.env.NETLIFY && process.env.CONTEXT === 'production';
@@ -88,8 +87,9 @@ const siteLanguage    = 'en-US';
 const siteName        = 'Christian Emmer';
 const siteURL         = process.env.NETLIFY && process.env.CONTEXT !== 'production' ? process.env.DEPLOY_PRIME_URL : (process.env.URL || 'https://emmer.dev');
 const siteEmail       = 'emmercm@gmail.com';
-const siteDescription = 'Software engineer with ' + Math.floor(DateTime.local().diff(DateTime.fromISO('2012-01-16'), 'years').years) + '+ years of experience developing full-stack solutions in PHP, Go, Node.js, and Python.';
+const siteDescription = 'Software engineer with ' + Math.floor(DateTime.local().diff(DateTime.fromISO('2012-01-16'), 'years').years) + '+ years of experience developing full-stack solutions in PHP, Go, Node.js, Java, and Python.';
 const siteLogo        = '**/prologo1/logo3_Gray_Lighter.svg';
+const siteBackground  = '**/trianglify.svg';
 const twitterHandle   = '@emmercm';
 
 // x2 for retina displays
@@ -265,7 +265,7 @@ tracer(Metalsmith(__dirname))
                 .replace(/.*unsplash\.com\/photos\/([^\/?]+).*/, '$1')
                 .replace(/.*source\.unsplash\.com\/([^\/?]+).*/, '$1');
             if (prodBuild) {
-                const photo = await unsplash.photos.getPhoto(photoId).then(toJson);
+                const photo = (await unsplash.photos.get({ photoId })).response;
                 const imgixParameters = '&fm=jpg&q=80&cs=srgb&fit=crop&crop=entropy';
                 files[filename].image = `${photo.urls.raw}${imgixParameters}&w=${blogImageWidth}&h=${blogImageHeight}`;
                 files[filename].thumb = `${photo.urls.raw}${imgixParameters}&w=${blogImageThumbWidth}&h=${blogImageThumbHeight}`;
@@ -277,9 +277,15 @@ tracer(Metalsmith(__dirname))
                 files[filename].imageCredit = `Photo on <a href="${original}">Unsplash</a>`
             }
         }, (err) => {
-            done();
+            done(err);
         });
     })
+
+    // Process background images
+    .use(backgroundImage(siteBackground, 1024, prodBuild)) // catch all
+    .use(backgroundImage(siteBackground, 926, prodBuild)) // iPhone 12 Pro Max
+    .use(backgroundImage(siteBackground, 896, prodBuild)) // iPhone 11 Pro Max, XR, XS Max
+    .use(backgroundImage(siteBackground, 736, prodBuild)) // iPhone 8 Plus, 7 Plus, 6/S Plus
 
     // Create static/img/blog/default.*
     .use(include({
@@ -297,7 +303,7 @@ tracer(Metalsmith(__dirname))
     // Ignore files that can't be processed
     .use(ignore(['static/img/blog/*.@(psd|xcf)']))
 
-    // Process large blog images (sharp.strategy.attention)
+    // Process large blog images
     .use(blogImage('static/img/blog/!(*-thumb).*', blogImageWidth, blogImageHeight, prodBuild))
 
     // Process small blog images (sharp.gravity.center)
@@ -462,6 +468,7 @@ tracer(Metalsmith(__dirname))
         // TODO: metalsmith-tag-collections
 
         const minimatch = require('minimatch');
+        // TODO: install this
         const collections = require('metalsmith-collections');
 
         const options = {
@@ -803,26 +810,25 @@ tracer(Metalsmith(__dirname))
      ******************************/
 
     // Prod: minify JavaScript
-    .use(msIf(prodBuild, uglify({
-        removeOriginal: true,
-        uglify: {
-            sourceMap: false
-        }
-    })))
+    // .use(msIf(prodBuild, uglify({
+    //     removeOriginal: true,
+    //     uglify: {
+    //         sourceMap: false
+    //     }
+    // })))
 
-    // Prod: trim CSS
-    .use(msIf(prodBuild, uncss({
-        output: 'static/css/styles.css',
-        uncss: {
-            ignore: [
+    // Remove unused CSS
+    .use(cssUnused({
+        purgecss: {
+            safelist: [
                 // Bootstrap 4 JavaScript
                 // /\.carousel-.+/,
-                '.collapse', '.collapsing', '.collapsed',
+                'collapse', 'collapsing', 'collapsed',
                 // /\.modal-.+/,
                 /.*\.show/, /.*\.fade/
             ]
         }
-    })))
+    }))
 
     // Prod: minify CSS
     .use(msIf(prodBuild, cleanCSS({
@@ -860,7 +866,7 @@ tracer(Metalsmith(__dirname))
 
     // Remove unused files
     // TODO: Remove unused images before metalsmith-sharp?
-    .use(unused({
+    .use(htmlUnused({
         pattern: '**/*.@('
             + [
                 'css', 'js',
@@ -869,7 +875,7 @@ tracer(Metalsmith(__dirname))
                 'doc', 'docx', 'pdf', 'ppt', 'pptx', 'xls', 'xlsx'
             ].join('|')
             + ')',
-        ignore: '**/trianglify.svg'
+        ignore: siteBackground.replace(/\.[^\.]+$/, '') + '*'
     }))
 
     /***************************

@@ -124,6 +124,7 @@ $theme-colors: map-merge($theme-colors, (
   "bootstrap": #533B78,
   "docker": #2396ED,
   "fontawesome": #339AF0,
+  "git": #F03C2E,
   "github": #222222,
   "go": #00ACD7,
   "kubernetes": #316CE6,
@@ -232,8 +233,26 @@ h1, h2, h3, h4, h5, h6,
   background-position: center center;
   background-repeat: no-repeat;
   background-attachment: fixed;
+  background-size: auto 150%;
   @media (min-aspect-ratio: 1/1) {  // wide
-    background-size: 100% auto;
+    background-size: 150% auto;
+  }
+  // The background performs VERY poorly on mobile, at least Firefox ~v83 - use rasterized versions instead
+  @media only screen and (orientation: landscape) and (max-device-width: 1024px),
+         only screen and (orientation: portrait) and (max-device-height: 1024px) {
+    background-image: url('../img/trianglify-1024.jpg');
+  }
+  @media only screen and (orientation: landscape) and (max-device-width: 926px),
+         only screen and (orientation: portrait) and (max-device-height: 926px) {
+    background-image: url('../img/trianglify-926.jpg');
+  }
+  @media only screen and (orientation: landscape) and (max-device-width: 896px),
+         only screen and (orientation: portrait) and (max-device-height: 896px) {
+    background-image: url('../img/trianglify-896.jpg');
+  }
+  @media only screen and (orientation: landscape) and (max-device-width: 736px),
+         only screen and (orientation: portrait) and (max-device-height: 736px) {
+    background-image: url('../img/trianglify-736.jpg');
   }
 }
 

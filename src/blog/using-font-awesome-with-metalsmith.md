@@ -45,7 +45,7 @@ But there's also a number of reasons to not use a CDN:
 - After a one time package install it allows for entirely offline builds.
 - It allows you to control server caching of the static assets.
 - Combining the Font Awesome CSS together with the rest of your CSS using a plugin such as `metalsmith-concat` reduces the network calls the browser needs to make.
-- Trimming unused CSS rules with a plugin such as `metalsmith-uncss-2` reduces the size of CSS files the browser needs to fetch.
+- Trimming unused CSS rules with a plugin such as `metalsmith-css-unused` reduces the size of CSS files the browser needs to fetch.
 
 ### Source file structure
 
