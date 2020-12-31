@@ -20,12 +20,12 @@ To keep this article short and to the point we're not going to set up a full web
 Starting with an empty project, install some Metalsmith packages:
 
 ```bash
-npm install --save metalsmith metalsmith-formatcheck metalsmith-linkcheck
+npm install --save metalsmith metalsmith-formatcheck metalsmith-link-checker
 ```
 
 - [`metalsmith`](https://www.npmjs.com/package/metalsmith) for the base project.
 - [`metalsmith-formatcheck`](https://www.npmjs.com/package/metalsmith-formatcheck) to lint our HTML with [`html-validator`](https://www.npmjs.com/package/html-validator) which uses [Nu Html Checker](https://validator.w3.org/nu/).
-- [`metalsmith-linkcheck`](https://www.npmjs.com/package/metalsmith-linkcheck) to check for any broken links or images.
+- [`metalsmith-link-checker`](https://www.npmjs.com/package/metalsmith-link-checker) to check for any broken links or images.
 
 ### Source file structure
 
@@ -45,7 +45,7 @@ Set up your `index.js` file like this:
 ```javascript
 const Metalsmith  = require('metalsmith');
 const formatcheck = require('metalsmith-formatcheck');
-const linkcheck   = require('metalsmith-linkcheck');
+const linkChecker   = require('metalsmith-link-checker');
 
 Metalsmith(__dirname)
     .source('./src')         // source directory for the pipeline
@@ -53,9 +53,7 @@ Metalsmith(__dirname)
         failErrors: true,
         failWarnings: true
     }))
-    .use(linkcheck({         // ensure no broken links (requires internet connection)
-        failMissing: true
-    }))
+    .use(linkChecker())      // ensure no broken links (requires internet connection)
     .destination('./build')  // destination directory of the pipeline
     .clean(true)             // clean the destination directory before build
     .build(function (err) {  // execute the build
@@ -114,7 +112,7 @@ We can break the HTML linter in a few different ways:
 
 Making any of those changes and then building will fail with a non-zero exit code and leave you with an empty `build` output directory.
 
-### `metalsmith-linkcheck`
+### `metalsmith-link-checker`
 
 We can cause broken links in a couple different ways:
 
