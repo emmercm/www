@@ -102,6 +102,14 @@ Related blog articles:
 - [Using Font Awesome with Metalsmith](/blog/using-font-awesome-with-metalsmith)
 - [Adding a Google Site Ownership Verification File in Metalsmith](/blog/adding-a-google-site-ownership-verification-file-in-metalsmith)
 
+### [metalsmith-link-checker](https://github.com/emmercm/metalsmith-link-checker)
+
+A Metalsmith plugin to automatically check for broken links.
+
+Related blog articles:
+
+- [Linting Metalsmith Output HTML](/blog/linting-metalsmith-output-html)
+
 ### [metalsmith-reading-time](https://github.com/emmercm/metalsmith-reading-time)
 
 A Metalsmith plugin to estimate pages' reading times, similar to Medium.

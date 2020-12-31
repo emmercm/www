@@ -53,7 +53,7 @@ const htmlMinifier     = require('metalsmith-html-minifier');
 const sri              = require('metalsmith-html-sri');
 const sitemap          = require('metalsmith-sitemap');
 const linter           = require('metalsmith-html-linter');
-const linkcheck        = require('metalsmith-linkcheck');
+const linkChecker      = require('metalsmith-link-checker');
 const robots           = require('metalsmith-robots');
 
 const async           = require('async');
@@ -996,11 +996,11 @@ tracer(Metalsmith(__dirname))
     }))
 
     // Ensure no broken links
-    .use(msIf(prodBuild, include({
-        '': ['./src/links_ignore.json']
-    })))
-    .use(msIf(prodBuild, linkcheck({
-        failMissing: true
+    .use(msIf(prodBuild, linkChecker({
+        ignore: [
+            'fonts.gstatic.com$',
+            'pixabay.com'
+        ]
     })))
 
     /***********************
