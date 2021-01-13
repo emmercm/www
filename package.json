@@ -27,7 +27,7 @@
     "handlebars": "^4.7.6",
     "handlebars-helpers": "^0.10.0",
     "he": "^1.2.0",
-    "highlight.js": "^10.4.1",
+    "highlight.js": "^10.5.0",
     "jquery": "^3.5.1",
     "jstransformer-handlebars": "^1.1.0",
     "luxon": "^1.25.0",
