@@ -51,7 +51,7 @@ There are tradeoffs when using strategies to reduce layers in your images, and n
 
 - Reduced cache-ability, especially when building repeatedly locally.
 - Chaining `RUN` instructions probably means `COPY` and `ADD` instructions come first, reducing the ability to use the [build cache](https://docs.docker.com/develop/develop-images/dockerfile_best-practices/#leverage-build-cache) for `RUN`.
-- Chaining `RUN` instructions can reduce readability (paraphrase of [`docker-libtorrent`'s Dockerfile](https://github.com/emmercm/docker-libtorrent/blob/master/1.2/Dockerfile)):
+- Chaining `RUN` instructions can reduce readability (paraphrase of `docker-libtorrent` v1.2.11's [Dockerfile](https://github.com/emmercm/docker-libtorrent/blob/d367f9eae4239710f62493d6ed3a5e876470f94c/1.2/Dockerfile)):
 
     ```dockerfile
     RUN set -euo pipefail && \
