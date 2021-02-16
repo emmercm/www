@@ -1,7 +1,7 @@
 ---
 
 title: Publishing Docker Images with CircleCI
-date: 2021-02-06T04:39
+date: 2021-02-06T04:39:00
 tags:
 - docker
 
@@ -19,7 +19,7 @@ We'll touch on the second part here, the CI/CD pipeline for Docker images.
 
 ## About CircleCI
 
-TODO
+[CircleCI](https://circleci.com/) is a generalized CI/CD tool similar to [Jenkins](https://www.jenkins.io/), [Travis CI](https://travis-ci.org/), and [GitHub Actions](https://github.com/features/actions). As of writing, it is the CI/CD tool that I have most of my personal projects using due to familiarity.
 
 ### CircleCI Terminology
 
@@ -79,13 +79,13 @@ jobs:
           command: docker build --tag helloworld .
 ```
 
-By default CircleCI will execute our pipeline on every code push, so once these files are committed and pushed, CircleCI will run `docker build` and on every subsequent push. The pipeline should finish in under 30 seconds, and if we see that succeed in the CircleCI UI then we know the image built successfully.
+By default, CircleCI will execute our pipeline on every code push, so once these files are committed and pushed CircleCI will run `docker build`, and continue to on every subsequent push. The pipeline should finish in under 30 seconds, and if we see that succeed in the CircleCI UI then we know the image built successfully.
 
 ## Publishing the image
 
 Building the Docker image is great, but that image artifact disappeared when the job finished. In order to save our work we'll want to publish the image - what this post is all about!
 
-First, we'll want to set an image name to publish under. To keep things easier to read, I will collapse parts of the file that haven't changed.
+First, we'll want to set an image name to publish under. To keep things easier to read, I will collapse parts of the Dockerfile that haven't changed.
 
 ```yaml
 version: 2.1
@@ -105,7 +105,7 @@ jobs:
     # Use docker-publisher from above as the Docker container to run this job in
     executor: docker-publisher
 
-    # steps: ...
+    # steps: (collapsed)
 ```
 
 Replace `<username>` with your own Docker Hub username.
@@ -115,13 +115,17 @@ To save the output of the build to be used later, we'll save it to the workflow'
 ```yaml
 version: 2.1
 
-# executors: ...
+# executors: (collapsed)
 
 jobs:
   build:
     executor: docker-publisher
     steps:
-      # - checkout, setup_remote_docker, run ...
+      - checkout
+      - setup_remote_docker
+      - run:
+          name: Build Docker image
+          command: docker build --tag helloworld .
 
       # Archive and persist the Docker image
       - run:
@@ -142,10 +146,10 @@ Now we're ready to add a job to log in to Docker Hub and push the image:
 ```yaml
 version: 2.1
 
-# executors: ..
+# executors: (collapsed)
 
 jobs:
-  # build: ...
+  # build: (collapsed)
 
   push:
     # Use docker-publisher from above as the Docker container to run this job in
@@ -244,11 +248,11 @@ workflows:
               only: main
 ```
 
-Upon pushing that change CircleCI will publish a public image named `helloworld` with a single take `latest` under your account. The whole pipeline should take less than 60 seconds.
+Upon pushing that change, CircleCI will publish a public image named `helloworld` with a single tag `latest` under your account. The whole pipeline should take less than 60 seconds.
 
 ## Bonus: testing the image
 
-I've previously talked about [testing Docker images with Container Structure Test](/blog/testing-docker-images-with-container-structure-test), a great tool from Google to unit test your docker images - and it's very easy to add to our CircleCI pipeline.
+I've previously talked about [testing Docker images with Container Structure Test](/blog/testing-docker-images-with-container-structure-test), a great tool from Google to test your built docker images - and it's very easy to add to our CircleCI pipeline.
 
 First, make a `container-structure-test.yml`:
 
@@ -264,14 +268,14 @@ commandTests:
     exitCode: 0
 ```
 
-This isn't a very valuable test because it replaces all the functionality of the Dockerfile, allowing for the two get out of sync, but it will work well enough to show the CircleCI config.
+This isn't a very valuable test because it replaces all the functionality of the Dockerfile, allowing for the two get out of sync - but it will work well enough to show the CircleCI config.
 
 To run Container Structure Test in our CircleCI pipeline, add a step just after `docker build`:
 
 ```yaml
 version: 2.1
 
-# executors: ...
+# executors: (collapsed)
 jobs:
   build:
     executor: docker-publisher
@@ -287,14 +291,15 @@ jobs:
             apk add --no-cache curl > /dev/null
             curl -LO https://storage.googleapis.com/container-structure-test/latest/container-structure-test-linux-amd64 && chmod +x container-structure-test-linux-amd64 && mv container-structure-test-linux-amd64 /usr/local/bin/container-structure-test
             container-structure-test test --config container-structure-test.yml --image "${IMAGE_TAG}"
-      # - run, persist_to_workspace ...
+      # - run (collapsed)
+      # - persist_to_workspace (collapsed)
 
-  # push: ...
+  # push: (collapsed)
 
-# workflows: ...
+# workflows: (collapsed)
 ```
 
-If Container Structure doesn't pass, it will exit with a non-zero exit code, which will fail the step and the entire job.
+If Container Structure Test doesn't pass, it will exit with a non-zero exit code, which will fail the step and the entire job.
 
 ## Bonus: linting the Dockerfile
 
@@ -305,7 +310,7 @@ To run Hadolint, add a step just before `docker build`:
 ```yaml
 version: 2.1
 
-# executors: ...
+# executors: (collapsed)
 
 jobs:
   build:
@@ -319,13 +324,12 @@ jobs:
       - run:
           name: Build Docker image
           command: docker build --tag "${IMAGE_TAG}" .
-      # - run, persist_to_workspace ...
+      # - run (collapsed)
+      # - persist_to_workspace (collapsed)
 
-  # push: ...
+  # push: (collapsed)
 
-# workflows: ...
+# workflows: (collapsed)
 ```
 
----
-
-[https://medium.com/@_oleksii_/set-up-automated-builds-using-github-and-docker-hub-12c3e0f18eba](https://medium.com/@_oleksii_/set-up-automated-builds-using-github-and-docker-hub-12c3e0f18eba)
+If Hadolint doesn't pass, it will exit with a non-zero exit code, which will fail the step and the entire job.
