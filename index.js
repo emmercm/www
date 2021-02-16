@@ -810,15 +810,15 @@ tracer(Metalsmith(__dirname))
      ******************************/
 
     // Prod: minify JavaScript
-    // .use(msIf(prodBuild, uglify({
-    //     removeOriginal: true,
-    //     uglify: {
-    //         sourceMap: false
-    //     }
-    // })))
+    .use(msIf(prodBuild, uglify({
+        removeOriginal: true,
+        uglify: {
+            sourceMap: false
+        }
+    })))
 
     // Remove unused CSS
-    .use(cssUnused({
+    .use(msIf(prodBuild, cssUnused({
         purgecss: {
             safelist: [
                 // Bootstrap 4 JavaScript
@@ -828,7 +828,7 @@ tracer(Metalsmith(__dirname))
                 /.*\.show/, /.*\.fade/
             ]
         }
-    }))
+    })))
 
     // Prod: minify CSS
     .use(msIf(prodBuild, cleanCSS({
