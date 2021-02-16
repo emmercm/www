@@ -107,6 +107,8 @@ workflows:
       - lint
 ```
 
+See "[Publishing Docker Images with CircleCI](/blog/publishing-docker-images-with-circleci)" for a more complete guide on using CircleCI to publish Docker images.
+
 ## Conclusion
 
 Linters are a great tool to prevent team arguments over style, but they're a great tool for preventing potential errors - start using `hadolint` with your Dockerfiles today!
