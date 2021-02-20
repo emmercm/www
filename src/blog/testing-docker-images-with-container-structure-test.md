@@ -4,6 +4,7 @@ title: Testing Docker Images with Container Structure Test
 date: 2020-07-18T17:42:00
 image: https://unsplash.com/photos/El7nMmPZWCQ
 tags:
+- ci-cd
 - docker
 - testing
 
