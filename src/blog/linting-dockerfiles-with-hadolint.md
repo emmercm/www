@@ -101,7 +101,7 @@ jobs:
           command: docker run --rm --interactive hadolint/hadolint < Dockerfile
 
 workflows:
-  version: 2.1
+  version: 2
   test:
     jobs:
       - lint

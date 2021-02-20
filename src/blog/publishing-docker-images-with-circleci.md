@@ -3,11 +3,12 @@
 title: Publishing Docker Images with CircleCI
 date: 2021-02-16T04:39:00
 tags:
+- ci-cd
 - docker
 
 ---
 
-[Docker Hub](https://docs.docker.com/docker-hub/builds/), [AWS CodeBuild](https://aws.amazon.com/blogs/devops/build-a-continuous-delivery-pipeline-for-your-container-images-with-amazon-ecr-as-source/), and other cloud services offer ways to automate Docker image builds - but sometimes you need finer control over things such as linting, tagging and testing. A more generalized CI/CD tool such as [CircleCI](https://circleci.com/) can provide that.
+Publishing Docker images is a common CI/CD task, and the flexibility [CircleCI](https://circleci.com/) offers makes it a great tool for the job.
 
 ## Motivation
 
@@ -44,7 +45,7 @@ For this project you will need a few things:
 Let's make a simple hello world Dockerfile:
 
 ```dockerfile
-FROM alpine:3.13.1
+FROM alpine:3.13.2
 CMD ["echo", "Hello world!"]
 ```
 
@@ -53,9 +54,9 @@ This can be tested with a command such as:
 ```shell
 $ docker build --tag helloworld . && docker run helloworld
 Hello world!
-````
+```
 
-Then we'll create the beginnings of our `.circleci/config.yml` file:
+Then we'll create the beginnings of our [CircleCI config](https://circleci.com/docs/2.0/configuration-reference/) at the default location `.circleci/config.yml`:
 
 ```yaml
 version: 2.1
@@ -79,13 +80,13 @@ jobs:
           command: docker build --tag helloworld .
 ```
 
-By default, CircleCI will execute our pipeline on every code push, so once these files are committed and pushed CircleCI will run `docker build`, and continue to on every subsequent push. The pipeline should finish in under 30 seconds, and if we see that succeed in the CircleCI UI then we know the image built successfully.
+By default, CircleCI will execute the pipeline on every code push, so once these files are committed and pushed, CircleCI will run `docker build` and continue to on every subsequent push. The pipeline should finish in under 30 seconds, and if we see that succeed in the CircleCI UI then we know the image built successfully.
 
 ## Publishing the image
 
 Building the Docker image is great, but that image artifact disappeared when the job finished. In order to save our work we'll want to publish the image - what this post is all about!
 
-First, we'll want to set an image name to publish under. To keep things easier to read, I will collapse parts of the Dockerfile that haven't changed.
+First, we'll want to set an image name to publish under. To keep things easier to read, I will collapse some parts of the Dockerfile that haven't changed.
 
 ```yaml
 version: 2.1
@@ -105,7 +106,13 @@ jobs:
     # Use docker-publisher from above as the Docker container to run this job in
     executor: docker-publisher
 
-    # steps: (collapsed)
+    steps:
+      - checkout
+      - setup_remote_docker
+      - run:
+          name: Build Docker image
+          # Tag using the image tag above
+          command: docker build --tag "${IMAGE_TAG}" .
 ```
 
 Replace `<username>` with your own Docker Hub username.
@@ -175,7 +182,7 @@ jobs:
 
 # Run the two different jobs as a sequenced workflow
 workflows:
-  version: 2.1
+  version: 2
   build-push:
     jobs:
       # Run the build first
@@ -236,7 +243,7 @@ jobs:
             docker push "${IMAGE_TAG}"
 
 workflows:
-  version: 2.1
+  version: 2
   build-push:
     jobs:
       - build
@@ -248,7 +255,7 @@ workflows:
               only: main
 ```
 
-Upon pushing that change, CircleCI will publish a public image named `helloworld` with a single tag `latest` under your account. The whole pipeline should take less than 60 seconds.
+Upon pushing that change, CircleCI will publish a public image named `helloworld` with a single tag `latest` under your Docker Hub account. The whole pipeline should take less than 60 seconds.
 
 ## Bonus: testing the image
 
@@ -285,6 +292,7 @@ jobs:
       - run:
           name: Build Docker image
           command: docker build --tag "${IMAGE_TAG}" .
+      # Run Container Structure Test against the built image
       - run:
           name: Test Docker image
           command: |
@@ -318,6 +326,7 @@ jobs:
     steps:
       - checkout
       - setup_remote_docker
+      # Lint the Dockerfile
       - run:
           name: Lint Dockerfile
           command: docker run --rm --interactive hadolint/hadolint < Dockerfile
@@ -333,3 +342,7 @@ jobs:
 ```
 
 If Hadolint doesn't pass, it will exit with a non-zero exit code, which will fail the step and the entire job.
+
+## Other CI/CD tools
+
+If CircleCI isn't the right tool for you, check out how to accomplish this same pipeline using [GitHub Actions](/blog/publishing-docker-images-with-github-actions).
