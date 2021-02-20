@@ -999,7 +999,9 @@ tracer(Metalsmith(__dirname))
     .use(msIf(prodBuild, linkChecker({
         ignore: [
             'fonts.gstatic.com$',
-            'pixabay.com'
+            'pixabay.com',
+            // Temporary?
+            'https://about.sourcegraph.com/handbook/engineering/code_reviews#what-makes-an-effective-code-review'
         ]
     })))
 
