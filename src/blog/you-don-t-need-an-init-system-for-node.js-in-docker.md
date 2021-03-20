@@ -12,11 +12,11 @@ But you do need to think about how your application handles exit signals.
 
 ## The misinformation
 
-The current (Nov 2, 2020) version of the Docker and Node.js [best practices](https://github.com/nodejs/docker-node/blob/747216238b68525f68f176959b00af5968260b9c/docs/BestPractices.md) is incorrect:
+The current (Nov 2, 2020) version of the Docker and Node.js [best practices](https://github.com/nodejs/docker-node/blob/747216238b68525f68f176959b00af5968260b9c/docs/BestPractices.md) has some misinformation:
 
 > Node.js was not designed to run as PID 1 which leads to unexpected behaviour when running inside of Docker. For example, a Node.js process running as PID 1 will not respond to `SIGINT` (`CTRL-C`) and similar signals.
 
-Node.js can respond to those signals, but numerous blog posts would have you believe otherwise.
+Node.js _can_ respond to those signals, but numerous blog posts would have you believe otherwise.
 
 Here's an example application:
 
@@ -35,7 +35,7 @@ setTimeout(function() {
 }, 60 * 1000);
 ```
 
-If you run that with `node index.js` and press `CTRL-C` the expected log will print, and it will exit.
+If you run that with `node index.js` and press `CTRL-C`, the expected log will print, and it will exit.
 
 If you run it in the most stripped-down Dockerfile you can, it will still exhibit the same behavior:
 
@@ -47,7 +47,7 @@ COPY index.js ./
 CMD ["node", "index.js"]
 ```
 
-So what gives?
+So why do so many people say otherwise?
 
 ## `process.exit()` isn't graceful
 
@@ -59,11 +59,13 @@ From the Node.js [documentation](https://nodejs.org/api/process.html#process_pro
 
 Those asynchronous I/O operations could be network connections which won't be closed gracefully, possibly resulting in exceptions in connected clients.
 
+So let's talk about one of the most common Node.js networking use cases.
+
 ## Express doesn't trap exit signals
 
 I think this is the main reason people want to use an init system with Node.js, because running an Express server in Docker is such a common use case.
 
-If we use the Express [hello world](https://expressjs.com/en/starter/hello-world.html) example for our application, it won't respond to `CTRL-C` like we want:
+If we use the Express [hello world](https://expressjs.com/en/starter/hello-world.html) example for our application, it won't respond to `CTRL-C` and stop like we want:
 
 ```javascript
 const express = require('express');
@@ -129,9 +131,9 @@ process.on('SIGTERM', shutdown);
 
 ## `npm` doesn't forward signals
 
-One piece of advice you'll find in articles suggesting an init system is to not use `npm start` as your Dockerfile `CMD`, and this still holds true - `npm` isn't an init system and it doesn't forward exit signals to the `node` process, so none of the handlers we wrote above will work.
+One piece of advice you'll find in articles suggesting you use an init system is to not use `npm start` as your Dockerfile `CMD`, and this still holds true - `npm` isn't an init system and it doesn't forward exit signals to the `node` process, so none of the handlers we wrote above will work.
 
-You might be tricked by `npm` stopping with `CTRL-C` in Docker, but that isn't the same as the `node` process responding to an exit signal gracefully.
+You might be tricked by `npm` stopping the `node` process with `CTRL-C` in Docker, but that isn't the same as the `node` process responding to an exit signal gracefully.
 
 ## Conclusion
 
