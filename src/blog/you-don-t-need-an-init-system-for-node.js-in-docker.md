@@ -10,6 +10,14 @@ tags:
 
 But you do need to think about how your application handles exit signals.
 
+## What is an init system
+
+This topic is deep enough to warrant its own post, but here is a short explanation:
+
+The Dockerfile `CMD` becomes PID 1 in the running container, and as a result it is treated differently by the kernel when it comes to process signals - if the process hasn't registered a handler for a specific signal, the kernel will ignore the signal entirely rather than falling back to a default behavior. This can be a problem with the `SIGTERM` signal in particular, leaving processes running in the background.
+
+Another reason to have an init system is to prevent orphaned child processes when the main process exits or dies, but this isn't a problem with single-threaded applications like Node.js.
+
 ## The misinformation
 
 The current (Nov 2, 2020) version of the Docker and Node.js [best practices](https://github.com/nodejs/docker-node/blob/747216238b68525f68f176959b00af5968260b9c/docs/BestPractices.md) has some misinformation:
