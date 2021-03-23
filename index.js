@@ -448,12 +448,11 @@ tracer(Metalsmith(__dirname))
                     files[filename].contents = Buffer.from(
                         files[filename].contents.toString()
                             // Lines that contain blog links
-                            // .replace(/^(.*?\[[^\[]+\]\(\/?blog\/.*?\).*?)$/gm, val => {
                             .replace(/^(.*?href="\/?blog\/.*?".*?)$/gm, val => {
                                 // Each blog link
-                                // /\[[^\[]+\]\((\/?blog\/.*?)\)/g.exec(val).slice(1)
                                 /href="(\/?blog\/.*?)"/g.exec(val).slice(1)
                                     // Append the partial to the end
+                                    // TODO: place the crosspost after any <pre> immediately following
                                     .forEach(match => val = `${val}\n\n{{>blog_crosspost path="${match.replace(/^\/+|\/+$/g, '')}"}}`)
                                 return val;
                             })
