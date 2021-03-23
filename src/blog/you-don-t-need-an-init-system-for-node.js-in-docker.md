@@ -139,9 +139,25 @@ process.on('SIGTERM', shutdown);
 
 ## `npm` doesn't forward signals
 
-One piece of advice you'll find in articles suggesting you use an init system is to not use `npm start` as your Dockerfile `CMD`, and this still holds true - `npm` isn't an init system and it doesn't forward exit signals to the `node` process, so none of the handlers we wrote above will work.
+One piece of advice you'll find in articles suggesting you use an init system is to not use `npm start` as your Dockerfile `CMD`, and this still holds true - `npm` isn't an init system, and it doesn't forward exit signals to the `node` process, so none of the handlers we wrote above will work.
 
 You might be tricked by `npm` stopping the `node` process with `CTRL-C` in Docker, but that isn't the same as the `node` process responding to an exit signal gracefully.
+
+## Don't use the shell form of `CMD`
+
+For reasons talked about in "[Docker Shell vs. Exec Form](/blog/docker-shell-vs.-exec-form)", make sure you don't use the shell form of `CMD` (or `ENTRYPOINT`) as it may also not forward signals:
+
+```dockerfile
+FROM node:lts
+
+COPY index.js ./
+
+# Correct
+CMD ["node", "index.js"]
+
+# Incorrect
+CMD node index.js
+```
 
 ## Conclusion
 
