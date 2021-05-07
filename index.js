@@ -267,7 +267,7 @@ tracer(Metalsmith(__dirname))
             if (prodBuild) {
                 const photo = (await unsplash.photos.get({ photoId })).response;
                 if (!photo.urls) {
-                    console.log(photo);
+                    console.log(photoId, photo);
                 }
                 const imgixParameters = '&fm=jpg&q=80&cs=srgb&fit=crop&crop=entropy';
                 files[filename].image = `${photo.urls.raw}${imgixParameters}&w=${blogImageWidth}&h=${blogImageHeight}`;
