@@ -265,9 +265,11 @@ tracer(Metalsmith(__dirname))
                 .replace(/.*unsplash\.com\/photos\/([^\/?]+).*/, '$1')
                 .replace(/.*source\.unsplash\.com\/([^\/?]+).*/, '$1');
             if (prodBuild) {
-                const photo = (await unsplash.photos.get({ photoId })).response;
-                if (!photo.urls) {
-                    console.log(photoId, photo);
+                let photo;
+                try {
+                    photo = (await unsplash.photos.get({photoId})).response;
+                } catch (e) {
+                    done(`Failed to download ${original}: ${e}`);
                 }
                 const imgixParameters = '&fm=jpg&q=80&cs=srgb&fit=crop&crop=entropy';
                 files[filename].image = `${photo.urls.raw}${imgixParameters}&w=${blogImageWidth}&h=${blogImageHeight}`;
