@@ -265,19 +265,11 @@ tracer(Metalsmith(__dirname))
                 .replace(/.*unsplash\.com\/photos\/([^\/?]+).*/, '$1')
                 .replace(/.*source\.unsplash\.com\/([^\/?]+).*/, '$1');
             if (prodBuild) {
-                let photo;
-                try {
-                    photo = (await unsplash.photos.get({photoId})).response;
-                } catch (e) {
-                    done(`Failed to download ${original}: ${e}`);
-                    return;
+                const result = (await unsplash.photos.get({photoId}));
+                if (result.errors) {
+                    throw `Failed to fetch ${original}: ${result.errors.join(', ')}`;
                 }
-                if (!photo) {
-                    console.log(`Bad response for ${original}`);
-                }
-                if (!photo.urls) {
-                    console.log(`No URLs for ${original}: ${photo}`);
-                }
+                const photo = result.response;
                 const imgixParameters = '&fm=jpg&q=80&cs=srgb&fit=crop&crop=entropy';
                 files[filename].image = `${photo.urls.raw}${imgixParameters}&w=${blogImageWidth}&h=${blogImageHeight}`;
                 files[filename].thumb = `${photo.urls.raw}${imgixParameters}&w=${blogImageThumbWidth}&h=${blogImageThumbHeight}`;
@@ -1000,11 +992,7 @@ tracer(Metalsmith(__dirname))
      *********************/
 
     // Lint HTML
-    .use(linter({
-        htmllint: {
-            'img-req-src': false // because of lazy loading
-        }
-    }))
+    .use(linter())
 
     // Ensure no broken links
     .use(msIf(prodBuild, linkChecker({
@@ -1012,7 +1000,7 @@ tracer(Metalsmith(__dirname))
             'fonts.gstatic.com$',
             'pixabay.com',
             // Temporary?
-            'https://about.sourcegraph.com/handbook/engineering/code_reviews#what-makes-an-effective-code-review'
+            'https://www.discogs.com/user/emmercm/collection'
         ]
     })))
 
