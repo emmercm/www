@@ -767,7 +767,9 @@ tracer(Metalsmith(__dirname))
     .use(include({
         'static/css': [
             // Un-minified files that will get combined into one file
+            './node_modules/@fortawesome/fontawesome-pro/css/fontawesome.css',
             './node_modules/@fortawesome/fontawesome-pro/css/brands.css',
+            './node_modules/@fortawesome/fontawesome-pro/css/light.css',
             './node_modules/@fortawesome/fontawesome-pro/css/regular.css'
         ],
         'static/js/vendor': [
