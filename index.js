@@ -270,6 +270,10 @@ tracer(Metalsmith(__dirname))
                     photo = (await unsplash.photos.get({photoId})).response;
                 } catch (e) {
                     done(`Failed to download ${original}: ${e}`);
+                    return;
+                }
+                if (!photo.urls) {
+                    console.log(`No URLs for ${original}: ${photo}`);
                 }
                 const imgixParameters = '&fm=jpg&q=80&cs=srgb&fit=crop&crop=entropy';
                 files[filename].image = `${photo.urls.raw}${imgixParameters}&w=${blogImageWidth}&h=${blogImageHeight}`;
