@@ -56,7 +56,7 @@
     "metalsmith-gravatar": "^0.1.0",
     "metalsmith-hbt-md": "^1.0.1",
     "metalsmith-html-glob": "^0.4.2",
-    "metalsmith-html-linter": "^0.3.3",
+    "metalsmith-html-linter": "^0.4.0",
     "metalsmith-html-minifier": "^4.0.1",
     "metalsmith-html-relative": "^0.3.3",
     "metalsmith-html-sri": "^0.3.1",
