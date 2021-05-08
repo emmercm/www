@@ -101,7 +101,7 @@
                     <h1>{{ title }}</h1>
                     <div class="media d-flex justify-content-between align-items-center">
                         <div class="d-flex align-items-center">
-                            <img src="{{gravatar.main}}?r=g&d=mp&s=112" class="mr-3 rounded-circle img-thumbnail bg-dark border-0" style="width:56px;" alt="{{sitename}}">
+                            {{>gravatar size=56 class="mr-3 rounded-circle img-thumbnail bg-dark border-0"}}
                             <div class="media-body">
                                 <div>{{ sitename }}</div>
                                 <div class="text-muted">{{luxon this.date "MMM d, yyyy"}} &middot; {{readingTime}}</div>
