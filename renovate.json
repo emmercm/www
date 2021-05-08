@@ -27,5 +27,6 @@
     },
     { "packageNames": ["metalsmith-renamer"], "allowedVersions": "!/^0.5.0$/" },
     { "packageNames": ["metalsmith-twitter-card"], "allowedVersions": "!/^1.0.[5689]$/"}
-  ]
+  ],
+  "transitiveRemediation": true
 }
