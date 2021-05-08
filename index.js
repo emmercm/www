@@ -272,6 +272,9 @@ tracer(Metalsmith(__dirname))
                     done(`Failed to download ${original}: ${e}`);
                     return;
                 }
+                if (!photo) {
+                    console.log(`Bad response for ${original}`);
+                }
                 if (!photo.urls) {
                     console.log(`No URLs for ${original}: ${photo}`);
                 }
