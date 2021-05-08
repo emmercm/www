@@ -2,7 +2,7 @@
 
 title: What is a Docker Digest?
 date: 2020-08-09T18:46:00
-image: https://unsplash.com/photos/3tAUxQfglbE
+image: https://unsplash.com/photos/bv6svakgbGM
 tags:
 - docker
 
