@@ -38,7 +38,7 @@
 
     - link: https://www.discogs.com/user/emmercm/collection
       title: Discogs
-      icon: fas fa-record-vinyl
+      icon: far fa-record-vinyl
 
 - title: Gaming
   icons:
@@ -56,4 +56,4 @@
 #      icon: far fa-snowflake
 
 #    - title: "Origin: TsukasaX"
-#      icon: fas fa-hurricane
+#      icon: far fa-hurricane
