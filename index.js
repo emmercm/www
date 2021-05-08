@@ -307,14 +307,12 @@ tracer(Metalsmith(__dirname))
     // Ignore files that can't be processed
     .use(ignore(['static/img/blog/*.@(psd|xcf)']))
 
-    // Process large blog images
-    .use(blogImage('static/img/blog/!(*-thumb).*', blogImageWidth, blogImageHeight, prodBuild))
-
-    // Process small blog images (sharp.gravity.center)
+    // Process blog images
     .use(copy({
         pattern: 'static/img/blog/*',
         transform: filename => filename.replace(/\.([^.]+)$/, '-thumb.$1')
     }))
+    .use(blogImage('static/img/blog/!(*-thumb).*', blogImageWidth, blogImageHeight, prodBuild))
     .use(blogImage('static/img/blog/*-thumb.*', blogImageThumbWidth, blogImageThumbHeight, prodBuild))
 
     /***********************
