@@ -5,7 +5,7 @@
 This website is built with [Node.js](https://nodejs.org), with the specific version managed by [`nvm`](https://github.com/nvm-sh/nvm):
 
 ```bash
-nvm use
+nvm install && nvm use
 ```
 
 and its dependencies are managed by [`npm`](https://www.npmjs.com/):
