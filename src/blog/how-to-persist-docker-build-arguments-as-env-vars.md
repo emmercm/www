@@ -7,7 +7,7 @@ tags:
 
 ---
 
-Values from the Docker [`ARG` instruction](https://docs.docker.com/engine/reference/builder/#arg) aren't persisted in built images, so here's a quick tip on how to achieve that!
+Values from the Docker [`ARG` instruction](https://docs.docker.com/engine/reference/builder/#arg) aren't persisted in built images, so here's a quick tip on how to persist them!
 
 ## Use cases
 
@@ -32,7 +32,7 @@ RUN npm install --global npm-check-updates@${NCU_VERSION} && \
 
 ## The problem
 
-To prove that `ARG` values aren't persisted in built images, let's take the following Dockerfile and build and run it:
+To prove that `ARG` values aren't persisted in built images, let's take the following Dockerfile and then build and run it:
 
 ```dockerfile
 FROM node:lts-alpine
@@ -48,15 +48,15 @@ When we build it, we'll get output similar to:
 
 ```shell
 $ docker build --tag arg .
-#5 [2/2] RUN echo NODE_ENV=development
-#5 sha256:d6cb91e153d8eae5f90b7584d24260c818276a3bc2b7969338851035d5e1f5aa
-#5 0.204 NODE_ENV=development
-#5 DONE 0.2s
+[2/2] RUN echo NODE_ENV=development
+sha256:d6cb91e153d8eae5f90b7584d24260c818276a3bc2b7969338851035d5e1f5aa
+0.204 NODE_ENV=development
+DONE 0.2s
 ```
 
-Which has the `RUN echo` output we would expect, but if we run that image:
+Which has the `RUN` output we would expect, but if we run that image:
 
-```dockerfile
+```shell
 $ docker run arg
 NODE_ENV=
 ```
@@ -65,7 +65,7 @@ We see the environment variable is unset.
 
 ## The solution
 
-The solution is pretty simple: `ARG` values aren't persisted, but `ENV` values are, so let's make an `ENV` out of an `ARG`:
+The solution is pretty simple - `ARG` values aren't persisted, but `ENV` values [are](https://docs.docker.com/engine/reference/builder/#env), so let's make an `ENV` out of an `ARG`:
 
 ```dockerfile
 FROM node:lts-alpine
@@ -78,17 +78,17 @@ RUN echo NODE_ENV=${NODE_ENV}
 CMD echo NODE_ENV=${NODE_ENV}
 ```
 
-When we build this version, we'll still get the `RUN echo` output we would expect:
+When we build this version, we'll still get the `RUN` output we would expect:
 
 ```shell
 $ docker build --tag arg .
-#5 [2/2] RUN echo NODE_ENV=development
-#5 sha256:d6cb91e153d8eae5f90b7584d24260c818276a3bc2b7969338851035d5e1f5aa
-#5 0.225 NODE_ENV=development
-#5 DONE 0.2s
+[2/2] RUN echo NODE_ENV=development
+sha256:d6cb91e153d8eae5f90b7584d24260c818276a3bc2b7969338851035d5e1f5aa
+0.225 NODE_ENV=development
+DONE 0.2s
 ```
 
-And now when we run the image we'll also get the `CMD echo` output we're hoping for:
+And now when we run the image we'll also get the `CMD` output we're hoping for:
 
 ```shell
 $ docker run arg
@@ -99,10 +99,10 @@ And to prove it actually persists CLI build arguments, let's run:
 
 ```shell
 $ docker build --build-arg NODE_ENV=production --tag arg .
-#5 [2/2] RUN echo NODE_ENV=production
-#5 sha256:0191c73e7ca9c7db7e8d83e4c4eecc5dc3c54a040eebb326bac1a7faa1c93a3d
-#5 0.213 NODE_ENV=production
-#5 DONE 0.2s
+[2/2] RUN echo NODE_ENV=production
+sha256:0191c73e7ca9c7db7e8d83e4c4eecc5dc3c54a040eebb326bac1a7faa1c93a3d
+0.213 NODE_ENV=production
+DONE 0.2s
 
 $ docker run arg
 NODE_ENV=production
@@ -112,7 +112,7 @@ And we can see it's working!
 
 ## Real world example
 
-I ran across a use case for this trick while I was developing a [Flexget Docker image](https://github.com/emmercm/docker-flexget). Flexget is a Python project that's installed via `pip`, and I wanted the image to automatically update Flexget to the latest patch version on startup. Because I wanted to pin the major and minor version of Flexget, I needed to persist the version in the built image, and for that I needed `ENV`.
+I ran across a use case for this trick while I was developing a Flexget [Docker image](https://github.com/emmercm/docker-flexget). Flexget is a Python project that's installed via `pip`, and I wanted the image to automatically update Flexget to the latest patch version on startup. Because I wanted to pin the major and minor version of Flexget, I needed to persist the version in the built image, and for that I needed `ENV`.
 
 The full Dockerfile can be found [here](https://github.com/emmercm/docker-flexget/blob/70e0fdcf5d296767381dd883f131f98af8eb3aa8/3.1/Dockerfile), but here's a slimmed-down, slightly modified version to demonstrate this use case:
 
@@ -132,9 +132,9 @@ CMD pip install flexget~=${FLEXGET_VERSION} && \
 
 ```shell
 $ docker build --tag flexget .
-#6 78.18 3.1.135
-#6 78.18 You are on the latest release.
-#6 DONE 78.5s
+78.18 3.1.135
+78.18 You are on the latest release.
+DONE 78.5s
 
 $ docker run flexget
 Requirement already satisfied: flexget~=3.1.135 in /usr/local/lib/python3.9/site-packages (3.1.135)
