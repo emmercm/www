@@ -1,7 +1,7 @@
 ---
 
 title: How to Persist Docker Build Arguments as Env Vars
-date: 2021-08-22
+date: 2021-08-23T03:18:00
 tags:
 - docker
 
