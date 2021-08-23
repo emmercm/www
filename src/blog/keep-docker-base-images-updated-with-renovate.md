@@ -56,7 +56,7 @@ The Renovate blog has a [good article](https://renovate.whitesourcesoftware.com/
 
 ## Renovate as an app
 
-The easiest way to use Renovate is to install the [GitHub](https://docs.renovatebot.com/install-github-app/) or [GitLab](https://docs.renovatebot.com/install-gitlab-app/) app and give it access to your repositories. From there, it will automatically open an [onboarding pull request](https://docs.renovatebot.com/configure-renovate/) that adds a `renovate.json` config file, and the pull request description will describe what will happen when it is merged. You can edit that `renovate.json` and the pull request description will automatically update with the new effects.
+The easiest way to use Renovate is to install the [GitHub](https://docs.renovatebot.com/getting-started/installing-onboarding/#hosted-githubcom-app) or [GitLab](https://docs.renovatebot.com/getting-started/installing-onboarding/#hosted-gitlabcom-app) app and give it access to your repositories. From there, it will automatically open an [onboarding pull request](https://docs.renovatebot.com/configuration-options/) that adds a `renovate.json` config file, and the pull request description will describe what will happen when it is merged. You can edit that `renovate.json` and the pull request description will automatically update with the new effects.
 
 ## Default Renovate config
 

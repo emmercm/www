@@ -24,7 +24,7 @@ Even with automatic npm updates, there's **no guarantee the package maintainer w
 
 ## Renovate as an app
 
-The easiest way to use Renovate is to install the [GitHub](https://docs.renovatebot.com/install-github-app/) or [GitLab](https://docs.renovatebot.com/install-gitlab-app/) app and give it access to your repositories. From there, it will automatically open an [onboarding pull request](https://docs.renovatebot.com/configure-renovate/) that adds a `renovate.json` config file, and the pull request description will describe what will happen when it is merged. You can edit that `renovate.json` and the pull request description will automatically update with the new effects.
+The easiest way to use Renovate is to install the [GitHub](https://docs.renovatebot.com/getting-started/installing-onboarding/#hosted-githubcom-app) or [GitLab](https://docs.renovatebot.com/getting-started/installing-onboarding/#hosted-gitlabcom-app) app and give it access to your repositories. From there, it will automatically open an [onboarding pull request](https://docs.renovatebot.com/configuration-options/) that adds a `renovate.json` config file, and the pull request description will describe what will happen when it is merged. You can edit that `renovate.json` and the pull request description will automatically update with the new effects.
 
 ## Default Renovate config
 
@@ -125,7 +125,7 @@ If you have high confidence in your CI/CD, you could even have pull requests aut
 
 Configurations like these are never a one-size-fits-all situation, so here are some other options to think about.
 
-If you need to access **private npm registries**, you'll need to create an `.npmrc` file that uses environment variables, or use the `npmrc` option - and you'll need to provide your token(s) in an encrypted format (see the [documentation](https://docs.renovatebot.com/private-modules/)):
+If you need to access **private npm registries**, you'll need to create an `.npmrc` file that uses environment variables, or use the `npmrc` option - and you'll need to provide your token(s) in an encrypted format (see the [documentation](https://docs.renovatebot.com/getting-started/private-packages/)):
 
 ```json
 {
