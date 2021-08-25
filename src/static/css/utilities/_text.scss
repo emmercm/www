@@ -2,9 +2,9 @@
   @include media-breakpoint-up($breakpoint) {
     $infix: breakpoint-infix($breakpoint, $grid-breakpoints);
     @if $infix != "" {
+      // Extend some existing classes for breakpoints
 
       // Alignment
-      .text#{$infix}-justify  { text-align: justify !important; }
       .text#{$infix}-wrap     { white-space: normal !important; }
       .text#{$infix}-nowrap   { white-space: nowrap !important; }
       .text#{$infix}-truncate { @include text-truncate(); }

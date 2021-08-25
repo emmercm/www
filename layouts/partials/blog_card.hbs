@@ -1,8 +1,8 @@
 <div class="d-flex flex-column h-100 {{#if bg}}bg-{{bg}}{{else}}bg-light{{/if}} br-2 overflow-hidden">
-    <div class="row no-gutters h-100">
+    <div class="row g-0 h-100">
         <div class="col-{{#if data.image}}9{{else}}12{{/if}} d-flex flex-column p-3">
-            <p class="mb-1 font-weight-bold">
-                <a href="{{data.paths.href}}" title="{{data.title}}" class="text-dark">{{ data.title }}</a>
+            <p class="mb-1 fw-bold">
+                <a href="{{data.paths.href}}" title="{{data.title}}" class="link-dark">{{ data.title }}</a>
             </p>
             <p class="text-muted">
                 {{luxon data.date "MMM d, yyyy"}} &middot; {{data.readingTime}}
@@ -14,15 +14,15 @@
                 <div class="d-flex flex-wrap m-n1 mt-auto">
                     {{#each (sort data.tags)}}
                         <h5 class="m-1 mw-100">
-                            <a href="/blog/tag/{{this}}" title="{{this}}" class="badge badge-{{get "color" (get this ../blog_tags)}} mw-100 text-break text-wrap">{{ this }}</a>
+                            <a href="/blog/tag/{{this}}" title="{{this}}" class="badge link-white bg-{{get "color" (get this ../blog_tags)}} mw-100 text-break text-wrap">{{ this }}</a>
                         </h5>
                     {{/each}}
                 </div>
             {{/and}}
         </div>
         {{#if data.image}}
-            <a href="{{data.paths.href}}" title="{{data.title}}" class="col-3 d-flex justify-content-center align-items-center overflow-hidden">
-                <img src="{{data.thumb}}" alt="{{sanitize data.title}}" class="fill position-absolute">
+            <a href="{{data.paths.href}}" title="{{data.title}}" class="col-3 d-flex flex-shrink-0 justify-content-center align-items-center overflow-hidden">
+                <img src="{{data.thumb}}" alt="{{sanitize data.title}}" class="fill">
             </a>
         {{/if}}
     </div>

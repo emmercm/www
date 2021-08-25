@@ -758,6 +758,7 @@ tracer(Metalsmith(__dirname))
     }))
 
     // Change all links with a protocol (external) to be target="_blank"
+    // TODO: Add an external link favicon?
     .use(jquery('**/*.html', $ => {
         $('a[href*="://"]').attr('target', '_blank');
         $('a[target="_blank"]').attr('rel', 'noopener');

@@ -33,7 +33,7 @@
         border-top-left-radius: $length;
         border-top-right-radius: $length;
       }
-      .brr#{$infix}-#{$size} {
+      .bre#{$infix}-#{$size} {
         border-top-right-radius: $length;
         border-bottom-right-radius: $length;
       }
@@ -41,7 +41,7 @@
         border-bottom-right-radius: $length;
         border-bottom-left-radius: $length;
       }
-      .brl#{$infix}-#{$size} {
+      .brs#{$infix}-#{$size} {
         border-bottom-left-radius: $length;
         border-top-left-radius: $length;
       }
