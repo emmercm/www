@@ -190,12 +190,10 @@ $pagination-disabled-border-color: $pagination-border-color;
 
 $navbar-height: 64px;
 
-@import "utilities/background";
 @import "utilities/borders";
 @import "utilities/code";
 @import "utilities/hljs";
 @import "utilities/markdown";
-@import "utilities/opacity";
 @import "utilities/position";
 @import "utilities/sizes";
 @import "utilities/spacing";
