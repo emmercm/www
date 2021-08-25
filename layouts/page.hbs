@@ -59,7 +59,7 @@
     <div class="container-xl px-0">
         <div class="d-flex justify-content-between align-items-center flex-nowrap w-100">
             <a href="/" title="Home" class="navbar-brand text-truncate" >
-                <img src="{{sitelogo}}" alt="Logo" class="mr-2">
+                <img src="{{sitelogo}}" alt="Logo" class="me-2">
                 <span class="align-middle">{{ sitename }}</span>
             </a>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -68,7 +68,7 @@
         </div>
 
         <div class="collapse navbar-collapse mt-2 mt-md-0 pt-2 pt-md-0 border-top border-md-0 border-light" id="navbarSupportedContent">
-            <ul class="navbar-nav d-flex align-items-center ml-auto">
+            <ul class="navbar-nav d-flex align-items-center ms-auto">
                 {{#each menu.header}}
                     <li class="nav-item{{#eq (segments ../paths.dir 0 1) link}} active{{/eq}} my-1 my-md-0">
                         <a href="/{{link}}" title="{{title}}" class="nav-link nav-link-underline">{{title}}</a>
@@ -101,7 +101,7 @@
                     <h1>{{ title }}</h1>
                     <div class="media d-flex justify-content-between align-items-center">
                         <div class="d-flex align-items-center">
-                            <img src="{{gravatar.main}}?r=g&d=mp&s=112" class="mr-3 rounded-circle img-thumbnail bg-dark border-0" style="width:56px;" alt="{{sitename}}">
+                            <img src="{{gravatar.main}}?r=g&d=mp&s=112" class="me-3 rounded-circle img-thumbnail bg-dark border-0" style="width:56px;" alt="{{sitename}}">
                             <div class="media-body">
                                 <div>{{ sitename }}</div>
                                 <div class="text-muted">{{luxon this.date "MMM d, yyyy"}} &middot; {{readingTime}}</div>
@@ -109,25 +109,25 @@
                         </div>
                         <div class="d-flex flex-nowrap">
                             <!-- TODO: "Fanboy's Social Blocking List" may block some of these -->
-                            <a href="https://twitter.com/intent/tweet?url={{{encodeURI siteurl}}}{{{encodeURI paths.href}}}&text={{{encodeURI (concat title " by " twitterhandle)}}}" title="Share on Twitter" class="text-dark">
+                            <a href="https://twitter.com/intent/tweet?url={{{encodeURI siteurl}}}{{{encodeURI paths.href}}}&text={{{encodeURI (concat title " by " twitterhandle)}}}" title="Share on Twitter" class="link-dark">
                                 <span class="fa-stack align-top">
                                     <i class="fal fa-circle fa-stack-2x"></i>
                                     <i class="fab fa-twitter fa-stack-1x"></i>
                                 </span>
                             </a>
-                            <a href="https://www.linkedin.com/shareArticle?url={{{encodeURI siteurl}}}{{{encodeURI paths.href}}}&mini=true&title={{{encodeURI title}}}&summary={{{encodeURI excerpt}}}&source={{{encodeURI sitename}}}" title="Share on LinkedIn" class="text-dark">
+                            <a href="https://www.linkedin.com/shareArticle?url={{{encodeURI siteurl}}}{{{encodeURI paths.href}}}&mini=true&title={{{encodeURI title}}}&summary={{{encodeURI excerpt}}}&source={{{encodeURI sitename}}}" title="Share on LinkedIn" class="link-dark">
                                 <span class="fa-stack align-top">
                                     <i class="fal fa-circle fa-stack-2x"></i>
                                     <i class="fab fa-linkedin-in fa-stack-1x"></i>
                                 </span>
                             </a>
-                            <!--<a href="https://www.facebook.com/sharer.php?u={{{encodeURI siteurl}}}{{{encodeURI paths.href}}}" title="Share on Facebook" class="text-dark">
+                            <!--<a href="https://www.facebook.com/sharer.php?u={{{encodeURI siteurl}}}{{{encodeURI paths.href}}}" title="Share on Facebook" class="link-dark">
                                 <span class="fa-stack align-top">
                                     <i class="fal fa-circle fa-stack-2x"></i>
                                     <i class="fab fa-facebook-f fa-stack-1x"></i>
                                 </span>
                             </a>-->
-                            <a href="/blog/rss.xml" title="RSS Feed" class="d-none d-md-inline text-dark">
+                            <a href="/blog/rss.xml" title="RSS Feed" class="d-none d-md-inline link-dark">
                                 <span class="fa-stack align-top">
                                     <i class="fal fa-circle fa-stack-2x"></i>
                                     <i class="fas fa-rss fa-stack-1x"></i>
@@ -154,8 +154,8 @@
                         {{#if tags}}
                             <span>Tags:</span>
                             {{#each tags}}
-                                <h5 class="my-0 ml-2 mw-100">
-                                    <a href="/blog/tag/{{this}}" title="{{this}}" class="badge badge-{{get "color" (get this ../blog_tags)}} mw-100 text-break text-wrap">{{ this }}</a>
+                                <h5 class="my-0 ms-2 mw-100">
+                                    <a href="/blog/tag/{{this}}" title="{{this}}" class="badge link-white bg-{{get "color" (get this ../blog_tags)}} mw-100 text-break text-wrap">{{ this }}</a>
                                 </h5>
                             {{/each}}
                         {{/if}}
@@ -186,7 +186,7 @@
                     <div class="text-center">&copy; {{ year }} {{ sitename }}</div>
                     <div class="d-flex">
                         {{#each icons.footer}}
-                            <a href="{{link}}" title="{{title}}" class="text-decoration-none mx-1">
+                            <a href="{{link}}" title="{{title}}" class="mx-1">
                                 <span class="fa-stack align-top">
                                     <i class="fal fa-circle fa-stack-2x"></i>
                                     <i class="{{icon}} fa-stack-1x"></i>

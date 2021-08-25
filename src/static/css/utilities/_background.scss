@@ -3,7 +3,12 @@
     background-color: rgba($value, 0) !important;
   }
 
-  @each $size, $length in $sizes {
+  @each $size, $length in (
+    25: 25%,
+    50: 50%,
+    75: 75%,
+    100: 100%
+  ) {
     @if type-of($size) == 'number' {
       .bg-#{$color}-#{$size} {
         background-color: rgba($value, $size / 100) !important;

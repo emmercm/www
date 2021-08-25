@@ -1,10 +1,10 @@
+@import '../../../node_modules/bootstrap/scss/functions';
+
 /**
  *
- * DEFAULTS
+ * DEFAULTS (COPY & PASTED)
  *
  */
-
-@import '../../../node_modules/bootstrap/scss/functions';
 
 $white:    #fff !default;
 $gray-100: #f8f9fa !default;
@@ -28,29 +28,37 @@ $grays: (
   "700": $gray-700,
   "800": $gray-800,
   "900": $gray-900
-);
+) !default;
 
-$blue:   #007bff !default;
-$indigo: #6610f2 !default;
-$purple: #6f42c1 !default;
-$pink:   #e83e8c !default;
-$red:    #dc3545 !default;
-$orange: #fd7e14 !default;
-$yellow: #ffc107 !default;
-$green:  #28a745 !default;
-$teal:   #20c997 !default;
-$cyan:   #17a2b8 !default;
+$blue:    #0d6efd !default;
+$indigo:  #6610f2 !default;
+$purple:  #6f42c1 !default;
+$pink:    #d63384 !default;
+$red:     #dc3545 !default;
+$orange:  #fd7e14 !default;
+$yellow:  #ffc107 !default;
+$green:   #198754 !default;
+$teal:    #20c997 !default;
+$cyan:    #0dcaf0 !default;
 
-$primary:   $blue !default;
-$secondary: $gray-600 !default;
-$success:   $green !default;
-$info:      $cyan !default;
-$warning:   $yellow !default;
-$danger:    $red !default;
-$light:     $gray-100 !default;
-$dark:      $gray-800 !default;
+$primary:       $blue !default;
+$secondary:     $gray-600 !default;
+$success:       $green !default;
+$info:          $cyan !default;
+$warning:       $yellow !default;
+$danger:        $red !default;
+$light:         $gray-100 !default;
+$dark:          $gray-900 !default;
 
-$spacer: 1rem;
+$spacer: 1rem !default;
+$spacers: (
+  0: 0,
+  1: $spacer * .25,
+  2: $spacer * .5,
+  3: $spacer,
+  4: $spacer * 1.5,
+  5: $spacer * 3,
+) !default;
 
 /**
  *
@@ -58,11 +66,7 @@ $spacer: 1rem;
  *
  */
 
-$enable-print-styles:          false;
-$enable-responsive-font-sizes: true;
-
-$transition-base: all .15s ease-in-out;
-
+$link-decoration:       none;
 $link-hover-decoration: none;
 
 // Colors
@@ -80,19 +84,20 @@ $teal:   darken($teal,   15%);
 $cyan:   darken($cyan,   15%);
 
 $colors: (
-  "blue":      $blue,
-  "indigo":    $indigo,
-  "purple":    $purple,
-  "pink":      $pink,
-  "red":       $red,
-  "orange":    $orange,
-  "yellow":    $yellow,
-  "green":     $green,
-  "teal":      $teal,
-  "cyan":      $cyan,
-  "white":     $white,
-  "gray":      $gray-600,
-);
+  "blue":       $blue,
+  "indigo":     $indigo,
+  "purple":     $purple,
+  "pink":       $pink,
+  "red":        $red,
+  "orange":     $orange,
+  "yellow":     $yellow,
+  "green":      $green,
+  "teal":       $teal,
+  "cyan":       $cyan,
+  "white":      $white,
+  "gray":       $gray-600,
+  "gray-dark":  $gray-800
+) !default;
 
 // Default theme colors
 $primary:   $orange;
@@ -134,9 +139,8 @@ $theme-colors: map-merge($theme-colors, (
 
 $headings-color: $dark;
 
-$link-color:                              $primary;
-$link-hover-color:                        darken($link-color, 5%);
-$emphasized-link-hover-darken-percentage: 5%;
+$link-color:       $primary; // default
+$link-hover-color: darken($link-color, 5%);
 
 $code-color: $gray-900;
 $code-bg:    $gray-500;
@@ -152,18 +156,18 @@ $navbar-dark-brand-color:          $navbar-dark-color;
 $navbar-dark-brand-hover-color:    $navbar-dark-active-color;
 
 // Add more spacer sizes
-$spacers: (
+$spacers: map-merge($spacers, (
   6: ($spacer * 4.5)
-);
+));
 
-$headings-margin-bottom: $spacer;
+$headings-margin-bottom: $spacer; // larger
 
 // Vertical length of 0, darker
 $box-shadow-sm: 0 0 .25rem rgba($black, .15);
 $box-shadow:    0 0 1rem rgba($black, .3);
 $box-shadow-lg: 0 0 3rem rgba($black, .35);
 
-$badge-font-weight: normal;
+$badge-font-weight: normal; // not bold
 
 $pagination-color:                 $primary;
 $pagination-bg:                    darken($light, 10%);
@@ -179,6 +183,8 @@ $pagination-disabled-bg:           $pagination-bg;
 $pagination-disabled-border-color: $pagination-border-color;
 
 @import '../../../node_modules/bootstrap/scss/bootstrap';
+
+// TODO: underline on link hover, maybe only when not link-dark?
 
 
 
@@ -340,7 +346,8 @@ h1, h2, h3, h4, h5, h6,
   color: $navbar-dark-color;
   a {
     color: $navbar-dark-color;
-    @include hover-focus {
+    &:hover,
+    &:focus {
       color: $navbar-dark-hover-color;
     }
     &.disabled {
