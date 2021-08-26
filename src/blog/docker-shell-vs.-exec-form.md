@@ -4,6 +4,7 @@ title: Docker Shell vs. Exec Form
 date: 2021-03-23T01:18:00
 tags:
 - docker
+- shell
 
 ---
 
