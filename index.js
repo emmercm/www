@@ -113,7 +113,10 @@ markdownRenderer.heading = (text, level, raw) => {
         </h${level}>`;
 };
 markdownRenderer.code = (_code, infostring, escaped) => {
-    const _highlight = (code, lang) => highlight.getLanguage(lang) ? highlight.highlight(lang, code, true).value : highlight.highlightAuto(code).value;
+    const _highlight = (code, language) => highlight.getLanguage(language) ? highlight.highlight(code, {
+        language,
+        ignoreIllegals: true
+    }).value : highlight.highlightAuto(code).value;
     // Fix https://github.com/segmentio/metalsmith-markdown/issues/48
     _code = _code.replace(new RegExp(`^[ ]{${_code.search(/\S/)}}`, 'gm'), '');
     // v1.1.0
@@ -753,6 +756,7 @@ tracer(Metalsmith(__dirname))
     }))
 
     // Change all links with a protocol (external) to be target="_blank"
+    // TODO: Add an external link favicon?
     .use(jquery('**/*.html', $ => {
         $('a[href*="://"]').attr('target', '_blank');
         $('a[target="_blank"]').attr('rel', 'noopener');

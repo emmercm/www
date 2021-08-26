@@ -9,19 +9,19 @@
         <div class="d-flex justify-content-center">
             <a href="/{{pagination.previous.path}}" title="Newer" class="btn {{#eq pagination.index 0}}btn-outline-secondary disabled{{else}}btn-outline-dark{{/eq}} br-max">Newer</a>
             {{#forEach pagination.pages}}
-                <a href="/{{get "path" (itemAt ../pagination.pages (subtract index 1))}}" title="Page {{index}}" class="btn {{#eq ../pagination.index (subtract index 1)}}btn-outline-primary disabled{{else}}btn-outline-dark{{/eq}} br-max ml-2">{{ index }}</a>
+                <a href="/{{get "path" (itemAt ../pagination.pages (subtract index 1))}}" title="Page {{index}}" class="btn {{#eq ../pagination.index (subtract index 1)}}btn-outline-primary disabled{{else}}btn-outline-dark{{/eq}} br-max ms-2">{{ index }}</a>
             {{/forEach}}
-            <a href="/{{pagination.next.path}}" title="Older" class="btn {{#eq pagination.index (subtract pagination.pages.length 1)}}btn-outline-secondary disabled{{else}}btn-outline-dark{{/eq}} br-max ml-2">Older</a>
+            <a href="/{{pagination.next.path}}" title="Older" class="btn {{#eq pagination.index (subtract pagination.pages.length 1)}}btn-outline-secondary disabled{{else}}btn-outline-dark{{/eq}} br-max ms-2">Older</a>
         </div>
     </div>
 
-    <div class="col-12 col-md-3 pl-md-5 pt-5 pt-md-0">
+    <div class="col-12 col-md-3 ps-md-5 pt-5 pt-md-0">
         <h3>Article Tags</h3>
 
         <div class="d-flex flex-wrap">
             {{#each (sort (unique (flat (pluck collections.blog "tags"))))}}
                 <h5 class="m-1 mw-100">
-                    <a href="/blog/tag/{{this}}" title="{{this}}" class="badge badge-{{get "color" (get this ../blog_tags)}} mw-100 text-break text-wrap">{{ this }}</a>
+                    <a href="/blog/tag/{{this}}" title="{{this}}" class="badge link-white bg-{{get "color" (get this ../blog_tags)}} mw-100 text-break text-wrap">{{ this }}</a>
                 </h5>
             {{/each}}
         </div>

@@ -12,7 +12,7 @@
         .#{$abbrev}#{$infix}-#{$size} {
           #{$prop}: $length !important;
         }
-        @if $size != 0 {
+        @if $enable-negative-margins and $size != 0 {
           .#{$abbrev}#{$infix}-n#{$size} {
             #{$prop}: -$length !important;
           }

@@ -13,8 +13,8 @@ pageContainer: false
     {{#each links}}
         <h5 class="mt-4 mb-2">{{ title }}</h5>
         {{#each icons}}
-            <div class="py-2">{{#if link}}<a href="{{link}}" title="{{title}}" class="text-dark">{{/if}}
-                <div class="row d-flex justify-content-between align-items-center no-gutters bg-light br-2 py-2">
+            <div class="py-2">{{#if link}}<a href="{{link}}" title="{{title}}" class="link-dark">{{/if}}
+                <div class="row d-flex justify-content-between align-items-center g-0 bg-light br-2 py-2">
                     <div class="col-1">
                         <h2>
                             <i class="{{icon}}"></i>
@@ -23,7 +23,7 @@ pageContainer: false
                     <div class="col-10">
                         <h6>{{ title }}</h6>
                     </div>
-                    <div class="col-1 text-right pr-3">
+                    <div class="col-1 text-end pe-3">
                         {{#if link}}
                             <i class="far fa-external-link"></i>
                         {{/if}}
