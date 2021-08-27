@@ -1,15 +1,15 @@
 ---
 
 title: Reliably Finding Files in $PATH
-date: 2021-08-26T21:47:00
+date: 2021-08-27T20:10:00
 tags:
 - shell
 
 ---
 
-Most built-in commands to find the first file in `$PATH` don't work quite as desired, or are shell-specific.
+Most built-in commands commonly used to find files in `$PATH` don't always work quite as expected, or are shell-specific.
 
-Jump to the bottom for a function definition that looks for files in `$PATH` and is shell-agnostic, or keep reading for a full explanation of why some built-in commands don't work as desired.
+Jump to the bottom of the article for a function definition that looks for files in `$PATH` and is shell-agnostic, or keep reading for a full explanation of why some built-in commands don't work as desired.
 
 ## The use case
 
@@ -22,7 +22,7 @@ Cannot connect to the Docker daemon at unix:///var/run/docker.sock. Is the docke
 
 I wanted to create a function in my dotfiles to override the `docker` command, and that function would ensure Docker Desktop is running before executing the `docker` command. But I had an issue with finding the actual location of the `docker` executable once it was obscured by the function.
 
-This article catalogs my findings while trying to solve this use case.
+This article catalogs my findings while trying to solve that use case.
 
 ## The problem with `which`
 
@@ -100,7 +100,7 @@ bash: whence: command not found
 
 ## The solution
 
-The solution is fairly straightforward - if we want to find files in `$PATH`, then let's write a function to look in `$PATH` and only `$PATH`. Here's a shell-agnostic function dubbed `pinpoint` that's easy to add in dotfiles:
+The solution is fairly straightforward - if we want to find files in `$PATH`, then let's write a function to look in `$PATH` and only `$PATH`. Here's a shell-agnostic function dubbed `pinpoint` that's easy to add to dotfiles:
 
 ```shell
 pinpoint() {
@@ -145,3 +145,5 @@ $ foo() { echo "bar" }
 $ pinpoint foo || echo "not in path"
 not in path
 ```
+
+Happy searching!
