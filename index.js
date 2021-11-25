@@ -1002,6 +1002,7 @@ tracer(Metalsmith(__dirname))
     .use(msIf(prodBuild, linkChecker({
         ignore: [
             'fonts.gstatic.com$',
+            'support.google.com', // links like https://support.google.com/webmasters/answer/9008080 will 404
             'pixabay.com',
             // Temporary?
             'https://www.discogs.com/user/emmercm/collection'
