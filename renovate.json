@@ -3,7 +3,7 @@
     "config:base",
     "schedule:monthly"
   ],
-  "timezone": "America/Detroit",
+  "timezone": "America/Los_Angeles",
   "vulnerabilityAlerts": {
     "labels": ["security"],
     "schedule": "at any time"
