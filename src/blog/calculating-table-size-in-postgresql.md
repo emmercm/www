@@ -1,0 +1,58 @@
+---
+
+title: Calculating Table Size in PostgreSQL
+date: 2021-11-26T23:17:00
+tags:
+- databases
+
+---
+
+Knowing how much disk space individual tables take up is important for DB maintenance and debugging, and it can be accomplished with a single query in PostgreSQL.
+
+First the query, then we'll explain parts of it:
+
+```sql
+SELECT n.nspname                                     AS schema_name
+     , c.relname                                     AS table_name
+     , PG_SIZE_PRETTY(PG_TOTAL_RELATION_SIZE(c.oid)) AS total_size
+     , PG_SIZE_PRETTY(PG_TABLE_SIZE(c.oid))          AS table_size
+     , PG_SIZE_PRETTY(PG_INDEXES_SIZE(c.oid))        AS index_size
+FROM pg_class c
+         INNER JOIN pg_namespace n ON n.oid = c.relnamespace
+WHERE c.relkind IN ('r', 'm')
+  AND n.nspname NOT IN ('pg_catalog', 'information_schema')
+  AND n.nspname NOT LIKE 'pg_toast%'
+ORDER BY 1, 2;
+```
+
+Column explanations:
+
+- `total_size` is the total disk space used by the table, including its [TOAST](https://www.postgresql.org/docs/current/storage-toast.html) data and indexes
+- `table_size` is the disk space used by the table and its [TOAST](https://www.postgresql.org/docs/current/storage-toast.html) data
+- `index_size` is the disk space used by the table's indexes
+
+Tables used (from the `pg_catalog` schema):
+
+- `pg_class` catalogs tables and table-like objects (indexes, sequences, views, materialized views, composite types, and TOAST tables)
+- `pg_namespace` catalogs namespaces (schemas)
+
+## Finding the largest tables
+
+It's fairly easy to modify the above query to order by the largest total size:
+
+```sql
+SELECT n.nspname                                     AS schema_name
+     , c.relname                                     AS table_name
+     , PG_SIZE_PRETTY(PG_TOTAL_RELATION_SIZE(c.oid)) AS total_size
+     , PG_SIZE_PRETTY(PG_TABLE_SIZE(c.oid))          AS table_size
+     , PG_SIZE_PRETTY(PG_INDEXES_SIZE(c.oid))        AS index_size
+FROM pg_class c
+         INNER JOIN pg_namespace n ON n.oid = c.relnamespace
+WHERE c.relkind IN ('r', 'm')
+  AND n.nspname NOT IN ('pg_catalog', 'information_schema')
+  AND n.nspname NOT LIKE 'pg_toast%'
+ORDER BY PG_TOTAL_RELATION_SIZE(c.oid) DESC
+LIMIT 10;
+```
+
+This could be used to help debug a DB running out of space, or similar administrative tasks.
