@@ -31,11 +31,11 @@ Column explanations:
 - `table_size` is the disk space used by the table and its [TOAST](https://www.postgresql.org/docs/current/storage-toast.html) data
 - `index_size` is the disk space used by the table's indexes
 
-Tables used (from the `pg_catalog` schema):
+Tables used (from the [`pg_catalog`](https://www.postgresql.org/docs/current/catalogs-overview.html) schema):
 
-- `pg_class`: catalogs tables and table-like objects (indexes, sequences, views, materialized views, composite types, and TOAST tables)
+- [`pg_class`](https://www.postgresql.org/docs/current/catalog-pg-class.html): catalogs tables and table-like objects (indexes, sequences, views, materialized views, composite types, and TOAST tables)
   - `pg_class.relkind`: `r` is ordinary tables and `m` is materialized views - this excludes indexes (`i`), sequences (`S`), views (`v`), composite types (`c`), TOAST tables (`t`), and foreign tables (`f`)
-- `pg_namespace`: catalogs namespaces (schemas)
+- [`pg_namespace`](https://www.postgresql.org/docs/current/catalog-pg-namespace.html): catalogs namespaces (schemas)
 
 ## Finding the largest tables
 
