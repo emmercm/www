@@ -14,9 +14,9 @@ First the query, then we'll explain parts of it:
 ```sql
 SELECT n.nspname                                     AS schema_name
      , c.relname                                     AS table_name
-     , PG_SIZE_PRETTY(PG_TOTAL_RELATION_SIZE(c.oid)) AS total_size
-     , PG_SIZE_PRETTY(PG_TABLE_SIZE(c.oid))          AS table_size
-     , PG_SIZE_PRETTY(PG_INDEXES_SIZE(c.oid))        AS index_size
+     , pg_size_pretty(pg_total_relation_size(c.oid)) AS total_size
+     , pg_size_pretty(pg_table_size(c.oid))          AS table_size
+     , pg_size_pretty(pg_indexes_size(c.oid))        AS index_size
 FROM pg_class c
          INNER JOIN pg_namespace n ON n.oid = c.relnamespace
 WHERE c.relkind IN ('r', 'm')
@@ -44,15 +44,15 @@ It's fairly easy to modify the above query to order by the largest total size:
 ```sql
 SELECT n.nspname                                     AS schema_name
      , c.relname                                     AS table_name
-     , PG_SIZE_PRETTY(PG_TOTAL_RELATION_SIZE(c.oid)) AS total_size
-     , PG_SIZE_PRETTY(PG_TABLE_SIZE(c.oid))          AS table_size
-     , PG_SIZE_PRETTY(PG_INDEXES_SIZE(c.oid))        AS index_size
+     , pg_size_pretty(pg_total_relation_size(c.oid)) AS total_size
+     , pg_size_pretty(pg_table_size(c.oid))          AS table_size
+     , pg_size_pretty(pg_indexes_size(c.oid))        AS index_size
 FROM pg_class c
          INNER JOIN pg_namespace n ON n.oid = c.relnamespace
 WHERE c.relkind IN ('r', 'm')
   AND n.nspname NOT IN ('pg_catalog', 'information_schema')
   AND n.nspname NOT LIKE 'pg_toast%'
-ORDER BY PG_TOTAL_RELATION_SIZE(c.oid) DESC
+ORDER BY pg_total_relation_size(c.oid) DESC
 LIMIT 10;
 ```
 
