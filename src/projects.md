@@ -60,7 +60,7 @@ Related blog articles:
 - [Using Font Awesome with Metalsmith](/blog/using-font-awesome-with-metalsmith)
 - [Minify Files in Metalsmith](/blog/minify-files-in-metalsmith)
 
-### [metalsmith-github-profile](https://github.com/emmercm/metalsmith-github-profile])
+### [metalsmith-github-profile](https://github.com/emmercm/metalsmith-github-profile)
 
 A plugin to pull in GitHub profile information as metadata.
 
