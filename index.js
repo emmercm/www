@@ -9,6 +9,7 @@ const msIf       = require('metalsmith-if');
 const env              = require('metalsmith-env');
 const buildinfo        = require('metalsmith-build-info');
 const metaDirectory    = require('metalsmith-metadata-directory');
+const githubProfile    = require('metalsmith-github-profile');
 const gravatar         = require('metalsmith-gravatar');
 const drafts           = require('@metalsmith/drafts');
 const validate         = require('metalsmith-validate');
@@ -91,6 +92,7 @@ const siteDescription = 'Software engineer with ' + Math.floor(DateTime.local().
 const siteLogo        = '**/prologo1/logo3_Gray_Lighter.svg';
 const siteBackground  = '**/trianglify.svg';
 const twitterHandle   = '@emmercm';
+const githubHandle    = 'emmercm';
 
 // x2 for retina displays
 const blogImageWidth  = 768 * 2;
@@ -183,6 +185,11 @@ tracer(Metalsmith(__dirname))
     // Load metadata files
     .use(metaDirectory({
         directory: "./src/data/*.yml"
+    }))
+
+    // Load GitHub information
+    .use(githubProfile({
+        username: githubHandle
     }))
 
     // Load Gravatar URL
@@ -655,10 +662,10 @@ tracer(Metalsmith(__dirname))
                 '@id': `${siteURL}/#person`,
                 name: siteName,
                 description: siteDescription,
-                image: `${metalsmith.metadata().gravatar.main}?s=512`, // metalsmith-gravatar
+                image: `${metalsmith.metadata().gravatar.main}?s=512`,
                 url: siteURL,
                 sameAs: [
-                    'https://github.com/emmercm',
+                    metalsmith.metadata().github.profile.user.html_url,
                     'https://twitter.com/emmercm',
                     'https://www.linkedin.com/in/emmercm/'
                 ]
