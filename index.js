@@ -1008,11 +1008,15 @@ tracer(Metalsmith(__dirname))
     // Ensure no broken links
     .use(msIf(prodBuild, linkChecker({
         ignore: [
-            'fonts.gstatic.com$',
-            'support.google.com', // links like https://support.google.com/webmasters/answer/9008080 will 404
+            // Anti-bot 403
             'pixabay.com',
-            // Temporary?
-            'https://www.discogs.com/user/emmercm/collection'
+            // Anti-bot 404
+            'fonts.gstatic.com$',
+            'support.google.com',
+            // Anti-bot 429 rate limiting
+            'linkedin.com/shareArticle',
+            // Temporary
+            'metalsmith.io'
         ]
     })))
 
