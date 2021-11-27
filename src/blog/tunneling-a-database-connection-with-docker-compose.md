@@ -85,7 +85,7 @@ And then `ubuntu@52.0.0.0` is the username and IP of the bastion host running an
 
 This same solution should work just fine for other services hosted on different ports:
 
-- Postgres (5432)
+- PostgreSQL (5432)
 - MongoDB (27017)
 - Redis (6379)
 - Memcached (11211)
