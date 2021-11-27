@@ -20,17 +20,17 @@ WHERE state != 'idle'
 ORDER BY 1 DESC, backend_start;
 ```
 
-The `pg_stat_activity` view will return one row per server process and each row will have information about the PID, user, query, and more.
+The [`pg_stat_activity`](https://www.postgresql.org/docs/current/monitoring-stats.html#MONITORING-PG-STAT-ACTIVITY-VIEW) view will return one row per server process, and each row will have information about the PID, user, query, and more.
 
-Conditions:
+`WHERE` conditions:
 
 - `state != 'idle'` will filter out open connections that aren't executing anything - you might want to include these if you're debugging connection issues
-- `pid != pg_backend_pid()` will filter out this query from the results
-- Optional: `AND datname = current_database()` will filter to only the current database, which may be the only database your user has access to
+- `pid != pg_backend_pid()` will filter out this [`pg_stat_activity`](https://www.postgresql.org/docs/current/monitoring-stats.html#MONITORING-PG-STAT-ACTIVITY-VIEW) query from the results
+- Optional: `datname = current_database()` will filter to only the current database, which may be the only database your active user has permissions to
 
 ## Killing a single query
 
-The `pg_terminate_backend()` function is used to both terminate a query and kill the connection, given a PID from the above query:
+The [`pg_terminate_backend()`](https://www.postgresql.org/docs/current/functions-admin.html#FUNCTIONS-ADMIN-SIGNAL) function is used to both terminate a query and kill the connection, given a PID from the above query:
 
 ```sql
 SELECT pg_terminate_backend(:pid)
@@ -40,7 +40,7 @@ WHERE pid != pg_backend_pid();
 
 ## Killing every query & connection
 
-We can use results from the `pg_stat_activity` view to feed into `pg_terminate_backend()`:
+We can use results from the [`pg_stat_activity`](https://www.postgresql.org/docs/current/monitoring-stats.html#MONITORING-PG-STAT-ACTIVITY-VIEW) view as the parameter to [`pg_terminate_backend()`](https://www.postgresql.org/docs/current/functions-admin.html#FUNCTIONS-ADMIN-SIGNAL):
 
 ```sql
 SELECT pg_terminate_backend(pid)
