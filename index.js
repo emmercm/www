@@ -916,11 +916,11 @@ tracer(Metalsmith(__dirname))
                     // TODO: get rid of .replace()s
                     //  https://github.com/vitaliy-bobrov/metalsmith-twitter-card/issues/2
                     title: file.pageTitle
-                        .replace(/\./g, '&#46;')
-                        .replace(/#/g, '&#35;'),
+                        .replace(/^\./, '&#46;')
+                        .replace(/^#/, '&#35;'),
                     description: file.pageDescription
-                        .replace(/\./g, '&#46;')
-                        .replace(/#/g, '&#35;')
+                        .replace(/^\./, '&#46;')
+                        .replace(/^#/, '&#35;')
                 };
                 // TODO: change this to '.og-image'
                 //  https://github.com/vitaliy-bobrov/metalsmith-twitter-card/issues/3

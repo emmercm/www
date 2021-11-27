@@ -1,7 +1,7 @@
 [build]
-command = "npm test && npm start"
-publish = "build/"
+  command = "npm test && npm start"
+  publish = "build/"
 
 [build.environment]
-NODE_ENV = "production"
-TZ = "America/Detroit"
+  NODE_ENV = "production"
+  TZ = "America/Los_Angeles"
