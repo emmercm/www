@@ -28,6 +28,8 @@ The [`pg_stat_activity`](https://www.postgresql.org/docs/current/monitoring-stat
 - `pid != pg_backend_pid()` will filter out this `pg_stat_activity` query from the results
 - Optional: `datname = current_database()` will filter to only the current database, which may be the only database your active user has permissions to
 
+_See "[Finding Long-Running Queries in MySQL](/blog/finding-long-running-queries-in-mysql)" for the MySQL version of this query._
+
 ## Killing a single connection
 
 The [`pg_terminate_backend()`](https://www.postgresql.org/docs/current/functions-admin.html#FUNCTIONS-ADMIN-SIGNAL) function is used to both terminate a query and kill the connection, given a PID from the above query:

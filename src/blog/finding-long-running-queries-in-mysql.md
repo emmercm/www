@@ -34,6 +34,8 @@ The [`performance_schema.threads`](https://dev.mysql.com/doc/refman/8.0/en/perfo
 
 _Note: your user will need the [`PROCESS`](https://dev.mysql.com/doc/refman/8.0/en/privileges-provided.html#priv_process) privilege to access this table._
 
+_See "[Finding Long-Running Queries in PostgreSQL](/blog/finding-long-running-queries-in-postgresql)" for the PostgreSQL version of this query._
+
 ## Why not `processlist`?
 
 These two statements are equivalent, the only difference is the length of data returned in the `info` column:
