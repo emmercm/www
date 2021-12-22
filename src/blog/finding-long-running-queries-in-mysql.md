@@ -27,12 +27,12 @@ The [`performance_schema.threads`](https://dev.mysql.com/doc/refman/8.0/en/perfo
 
 `WHERE` conditions:
 
-- `type = 'FOREGROUND'` will filter to only user connection threads and exclude internal server activity
+- `type = 'FOREGROUND'` will filter to only user connection threads and will exclude internal server activity
 - `processlist_command != 'Sleep'` will filter out threads that aren't executing anything - you might want to include these if you're debugging connection issues
 - `processlist_command != 'Daemon'` will filter out the MySQL daemon thread
-- `processlist_id != connection_id()` will filter out this [`performance_schema.threads`](https://dev.mysql.com/doc/refman/8.0/en/performance-schema-threads-table.html) query from the results
+- `processlist_id != connection_id()` will filter out this `performance_schema.threads` query from the results
 
-Note: your user will need the [`PROCESS`](https://dev.mysql.com/doc/refman/8.0/en/privileges-provided.html#priv_process) privilege to access this table.
+_Note: your user will need the [`PROCESS`](https://dev.mysql.com/doc/refman/8.0/en/privileges-provided.html#priv_process) privilege to access this table._
 
 ## Why not `processlist`?
 
@@ -42,9 +42,7 @@ These two statements are equivalent, the only difference is the length of data r
 -- `info` returns up to 64KB
 SELECT *
 FROM information_schema.processlist;
-```
 
-```sql
 -- `info` returns up to `max_allowed_packet` characters
 SHOW FULL PROCESSLIST;
 ```
@@ -57,7 +55,7 @@ From the documentation on the [`performance_schema_show_processlist`](https://de
 
 > The default implementation \[of the `SHOW PROCESS` statement\] iterates across active threads from within the thread manager while holding a global mutex. This has negative performance consequences, particularly on busy systems.
 
-This global mutex means no threads can be removed or added while this statement is executing. For that reason it's recommended to use `performance_schema.threads`.
+This global mutex means no threads can be added or removed while the statement is executing. For that reason it's recommended to use `performance_schema.threads`.
 
 ## Killing a single connection
 
@@ -74,13 +72,13 @@ KILL CONNECTION 1234;
 KILL QUERY 1234;
 ```
 
-The `performance_schema.threads` query above has a column with this command per thread.
+The `performance_schema.threads` query above builds this statement per row.
 
-Note: your user will need either the [`CONNECTION_ADMIN`](https://dev.mysql.com/doc/refman/8.0/en/privileges-provided.html#priv_connection-admin) or the [`SUPER`](https://dev.mysql.com/doc/refman/8.0/en/privileges-provided.html#priv_super) privilege to execute these statements.
+_Note: your user will need either the [`CONNECTION_ADMIN`](https://dev.mysql.com/doc/refman/8.0/en/privileges-provided.html#priv_connection-admin) or the [`SUPER`](https://dev.mysql.com/doc/refman/8.0/en/privileges-provided.html#priv_super) (deprecated) privilege to execute these statements._
 
 ## Killing every query & connection
 
-There isn't a way to kill multiple connections with one statement in MySQL. But we can use the individual `KILL` statements returned by the `performance_schema.threads` query above and execute them sequentially:
+There isn't a way to kill multiple connections with one statement in MySQL, but we can use the individual `KILL` statements returned by the `performance_schema.threads` query above and execute them sequentially:
 
 ```sql
 KILL 1234;
@@ -100,4 +98,4 @@ CALL mysql.rds_kill(1234);
 CALL mysql.rds_kill_query(1234);
 ```
 
-The `performance_schema.threads` query above has a column with this command per thread.
+The `performance_schema.threads` query above builds this statement per row.
