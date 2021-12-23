@@ -1014,6 +1014,7 @@ tracer(Metalsmith(__dirname))
             'fonts.gstatic.com$',
             'support.google.com',
             // Anti-bot 429 rate limiting
+            'github.com',
             'linkedin.com/shareArticle',
             // Temporary
             'metalsmith.io'
