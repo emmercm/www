@@ -14,6 +14,10 @@
 
 - title: Social
   icons:
+    # - link: https://www.facebook.com/emmercm/
+    #   title: Facebook
+    #   icon: fab fa-facebook
+
     - link: https://twitter.com/emmercm
       title: Twitter
       icon: fab fa-twitter
@@ -52,8 +56,26 @@
     - title: "Nintendo Switch: SW-6392-7076-9514"
       icon: far fa-gamepad-alt
 
-#    - title: "Battle.net: emmercm#1853"
-#      icon: far fa-snowflake
+    # - title: "Battle.net: emmercm#1853"
+    #   icon: far fa-snowflake
 
-#    - title: "Origin: TsukasaX"
-#      icon: fas fa-hurricane
+    # - title: "Origin: TsukasaX"
+    #   icon: fas fa-hurricane
+
+    # - link: https://www.twitch.tv/emmercm
+    #   title: Twitch
+    #   icon: fab fa-twitch
+
+- title: Miscellaneous
+  icons:
+    # - link: https://www.meetup.com/members/191693369/
+    #   title: Meetup
+    #   icon: fab fa-meetup
+
+    # - link: https://www.strava.com/athletes/5684847
+    #   title: Strava
+    #   icon: fab fa-strava
+
+    - link: https://untappd.com/user/emmercm
+      title: Untappd
+      icon: fab fa-untappd

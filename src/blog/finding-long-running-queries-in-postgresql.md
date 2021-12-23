@@ -25,17 +25,20 @@ The [`pg_stat_activity`](https://www.postgresql.org/docs/current/monitoring-stat
 `WHERE` conditions:
 
 - `state != 'idle'` will filter out open connections that aren't executing anything - you might want to include these if you're debugging connection issues
-- `pid != pg_backend_pid()` will filter out this [`pg_stat_activity`](https://www.postgresql.org/docs/current/monitoring-stats.html#MONITORING-PG-STAT-ACTIVITY-VIEW) query from the results
+- `pid != pg_backend_pid()` will filter out this `pg_stat_activity` query from the results
 - Optional: `datname = current_database()` will filter to only the current database, which may be the only database your active user has permissions to
 
-## Killing a single query
+_See "[Finding Long-Running Queries in MySQL](/blog/finding-long-running-queries-in-mysql)" for the MySQL version of this query._
+
+## Killing a single connection
 
 The [`pg_terminate_backend()`](https://www.postgresql.org/docs/current/functions-admin.html#FUNCTIONS-ADMIN-SIGNAL) function is used to both terminate a query and kill the connection, given a PID from the above query:
 
 ```sql
-SELECT pg_terminate_backend(:pid)
+SELECT pg_terminate_backend(pid)
 FROM pg_stat_activity
-WHERE pid != pg_backend_pid();
+WHERE pid = :pid
+  AND pid != pg_backend_pid();
 ```
 
 ## Killing every query & connection
