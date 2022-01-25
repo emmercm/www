@@ -5,6 +5,7 @@
   ],
   "timezone": "America/Los_Angeles",
   "vulnerabilityAlerts": {
+    "groupName": "Security",
     "labels": ["security"],
     "schedule": "at any time"
   },
