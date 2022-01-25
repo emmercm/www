@@ -85,6 +85,7 @@
     "metalsmith-validate": "^0.1.5",
     "minimatch": "^3.0.4",
     "node-fetch": "^2.6.6",
+    "node-sass": "^7.0.1",
     "transliteration": "^2.2.0",
     "unsplash-js": "^7.0.15"
   }
