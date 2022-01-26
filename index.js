@@ -18,7 +18,7 @@ const sass             = require('metalsmith-sass');
 const autoprefixer     = require('metalsmith-autoprefixer');
 const include          = require('metalsmith-include-files');
 const renamer          = require('metalsmith-renamer');
-const ignore           = require('metalsmith-ignore');
+const remove           = require('@metalsmith/remove');
 const copy             = require('metalsmith-copy');
 const discoverHelpers  = require('metalsmith-discover-helpers');
 const discoverPartials = require('metalsmith-discover-partials');
@@ -315,7 +315,7 @@ tracer(Metalsmith(__dirname))
     }))
 
     // Ignore files that can't be processed
-    .use(ignore(['static/img/blog/*.@(psd|xcf)']))
+    .use(remove(['static/img/blog/*.@(psd|xcf)']))
 
     // Process large blog images
     .use(blogImage('static/img/blog/!(*-thumb).*', blogImageWidth, blogImageHeight, prodBuild))
@@ -985,7 +985,7 @@ tracer(Metalsmith(__dirname))
      ****************************/
 
     // Ignore non-HTML pages that will get included again later
-    .use(ignore([
+    .use(remove([
         '**/google{*/,}*.html'
     ]))
 
