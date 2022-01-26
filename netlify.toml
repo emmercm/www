@@ -5,3 +5,4 @@
 [build.environment]
   NODE_ENV = "production"
   TZ = "America/Los_Angeles"
+  PYTHON_VERSION = "3.6" # for sharp/libvips
