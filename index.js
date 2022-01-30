@@ -763,10 +763,17 @@ tracer(Metalsmith(__dirname))
     }))
 
     // Change all links with a protocol (external) to be target="_blank"
-    // TODO: Add an external link favicon?
     .use(jquery('**/*.html', $ => {
         $('a[href*="://"]').attr('target', '_blank');
-        $('a[target="_blank"]').attr('rel', 'noopener');
+        $('a[target="_blank"]').each((i, elem) => {
+            $(elem).attr('rel', 'noopener');
+            const icon = '<i class="far fa-external-link fa-xs align-middle"></i>';
+            if($(elem).children().length === 0) {
+                $(elem).html(`<span class="align-middle">${$(elem).html()}</span> ${icon}`);
+            } else if($(elem).children().length === 1 && $(elem).children().first().prop('tagName') === 'CODE') {
+                $(icon).insertAfter($(elem).children().first().addClass('align-middle'));
+            }
+        });
     }))
 
     /**********************************
