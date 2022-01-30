@@ -21,7 +21,7 @@ We'll touch on the second part here, the CI/CD workflow for Docker images.
 
 ## About GitHub Actions
 
-GitHub Actions left beta about a [year ago](https://github.blog/changelog/2020-03-24-github-actions-api-is-now-generally-available/), and has been growing in popularity as a replacement for other CI/CD services in part to its tight integration with GitHub repositories.
+GitHub Actions left beta about a [year ago](https://github.blog/changelog/github-actions-api-is-now-generally-available/), and has been growing in popularity as a replacement for other CI/CD services in part to its tight integration with GitHub repositories.
 
 As of writing, the Actions free plan offers **unlimited build minutes for public repositories**, 2,000 build minutes per month for private repositories, and 20 concurrent jobs - much more than other freemium services.
 

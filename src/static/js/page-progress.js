@@ -16,7 +16,7 @@ $(document).ready(function () {
 
             var zero = $elem.offset().top + parseInt($elem.css('padding-top'));
             // TODO: Not quite right, but good enough
-            var hundred = $elem.offset().top + $elem.height() - $(window).height();
+            var hundred = Math.max($elem.offset().top + $elem.height() - $(window).height(), 0);
 
             var progress = ($(window).scrollTop() - zero) / hundred * 100;
             if (progress < 0) {

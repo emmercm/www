@@ -35,7 +35,7 @@ pageContainer: false
     <div class="container mw-md-md my-6 mx-auto">
         <h2>
             <i class="far fa-map-marker-alt"></i>
-            Detroit, MI
+            {{ github.profile.user.location }}
         </h2>
         <br>
         <h4>

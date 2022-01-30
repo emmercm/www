@@ -110,6 +110,10 @@ NODE_ENV=production
 
 And we can see it's working!
 
+## Dangers of persistence
+
+There are values you don't want to persist in Docker images, mainly secrets. You might need `$NPM_TOKEN` to install private npm packages, or a GitHub personal access token to clone private GitHub repositories. These are sensitive secrets and you don't want to accidentally publish them in your final image.
+
 ## Real world example
 
 I ran across a use case for this trick while I was developing a Flexget [Docker image](https://github.com/emmercm/docker-flexget). Flexget is a Python project that's installed via `pip`, and I wanted the image to automatically update Flexget to the latest patch version on startup. Because I wanted to pin the major and minor version of Flexget, I needed to persist the version in the built image, and for that I needed `ENV`.

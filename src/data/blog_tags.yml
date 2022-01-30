@@ -1,8 +1,3 @@
-bash:
-  title: Bash
-  icon: fad fa-terminal
-  color: dark
-
 bootstrap:
   title: Bootstrap
   icon: fab fa-bootstrap
@@ -67,6 +62,11 @@ node.js:
   title: Node.js
   icon: fab fa-node-js
   color: node
+
+shell:
+  title: Shell
+  icon: fas fa-terminal
+  color: dark
 
 testing:
   title: Testing

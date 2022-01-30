@@ -9,6 +9,7 @@ const msIf       = require('metalsmith-if');
 const env              = require('metalsmith-env');
 const buildinfo        = require('metalsmith-build-info');
 const metaDirectory    = require('metalsmith-metadata-directory');
+const githubProfile    = require('metalsmith-github-profile');
 const gravatar         = require('metalsmith-gravatar');
 const drafts           = require('@metalsmith/drafts');
 const validate         = require('metalsmith-validate');
@@ -17,7 +18,7 @@ const sass             = require('metalsmith-sass');
 const autoprefixer     = require('metalsmith-autoprefixer');
 const include          = require('metalsmith-include-files');
 const renamer          = require('metalsmith-renamer');
-const ignore           = require('metalsmith-ignore');
+const remove           = require('@metalsmith/remove');
 const copy             = require('metalsmith-copy');
 const discoverHelpers  = require('metalsmith-discover-helpers');
 const discoverPartials = require('metalsmith-discover-partials');
@@ -91,6 +92,7 @@ const siteDescription = 'Software engineer with ' + Math.floor(DateTime.local().
 const siteLogo        = '**/prologo1/logo3_Gray_Lighter.svg';
 const siteBackground  = '**/trianglify.svg';
 const twitterHandle   = '@emmercm';
+const githubHandle    = 'emmercm';
 
 // x2 for retina displays
 const blogImageWidth  = 768 * 2;
@@ -183,6 +185,11 @@ tracer(Metalsmith(__dirname))
     // Load metadata files
     .use(metaDirectory({
         directory: "./src/data/*.yml"
+    }))
+
+    // Load GitHub information
+    .use(githubProfile({
+        username: githubHandle
     }))
 
     // Load Gravatar URL
@@ -308,7 +315,7 @@ tracer(Metalsmith(__dirname))
     }))
 
     // Ignore files that can't be processed
-    .use(ignore(['static/img/blog/*.@(psd|xcf)']))
+    .use(remove(['static/img/blog/*.@(psd|xcf)']))
 
     // Process blog images
     .use(copy({
@@ -653,10 +660,10 @@ tracer(Metalsmith(__dirname))
                 '@id': `${siteURL}/#person`,
                 name: siteName,
                 description: siteDescription,
-                image: `${metalsmith.metadata().gravatar.main}?s=512`, // metalsmith-gravatar
+                image: `${metalsmith.metadata().gravatar.main}?s=512`,
                 url: siteURL,
                 sameAs: [
-                    'https://github.com/emmercm',
+                    metalsmith.metadata().github.profile.user.html_url,
                     'https://twitter.com/emmercm',
                     'https://www.linkedin.com/in/emmercm/'
                 ]
@@ -910,11 +917,11 @@ tracer(Metalsmith(__dirname))
                     // TODO: get rid of .replace()s
                     //  https://github.com/vitaliy-bobrov/metalsmith-twitter-card/issues/2
                     title: file.pageTitle
-                        .replace(/\./g, '&#46;')
-                        .replace(/#/g, '&#35;'),
+                        .replace(/^\./, '&#46;')
+                        .replace(/^#/, '&#35;'),
                     description: file.pageDescription
-                        .replace(/\./g, '&#46;')
-                        .replace(/#/g, '&#35;')
+                        .replace(/^\./, '&#46;')
+                        .replace(/^#/, '&#35;')
                 };
                 // TODO: change this to '.og-image'
                 //  https://github.com/vitaliy-bobrov/metalsmith-twitter-card/issues/3
@@ -979,7 +986,7 @@ tracer(Metalsmith(__dirname))
      ****************************/
 
     // Ignore non-HTML pages that will get included again later
-    .use(ignore([
+    .use(remove([
         '**/google{*/,}*.html'
     ]))
 
@@ -1002,10 +1009,16 @@ tracer(Metalsmith(__dirname))
     // Ensure no broken links
     .use(msIf(prodBuild, linkChecker({
         ignore: [
-            'fonts.gstatic.com$',
+            // Anti-bot 403
             'pixabay.com',
-            // Temporary?
-            'https://www.discogs.com/user/emmercm/collection'
+            // Anti-bot 404
+            'fonts.gstatic.com$',
+            'support.google.com',
+            // Anti-bot 429 rate limiting
+            'github.com',
+            'linkedin.com/shareArticle',
+            // Temporary
+            'metalsmith.io'
         ]
     })))
 

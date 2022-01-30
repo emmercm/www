@@ -21,7 +21,7 @@ Netlify has a feature called [Build Hooks](https://docs.netlify.com/configure-bu
 
 ## GitHub Actions
 
-GitHub Actions left beta relatively recently on [Mar 24, 2020](https://github.blog/changelog/2020-03-24-github-actions-api-is-now-generally-available/) and is a promising alternative to other CI/CD services such as [Jenkins](https://www.jenkins.io/) and [CircleCI](https://circleci.com/). It's not as mature as other options out there, but it's likely to get there with the power of [Microsoft behind them](https://blogs.microsoft.com/blog/2018/10/26/microsoft-completes-github-acquisition/).
+GitHub Actions left beta relatively recently on [Mar 24, 2020](https://github.blog/changelog/github-actions-api-is-now-generally-available/) and is a promising alternative to other CI/CD services such as [Jenkins](https://www.jenkins.io/) and [CircleCI](https://circleci.com/). It's not as mature as other options out there, but it's likely to get there with the power of [Microsoft behind them](https://blogs.microsoft.com/blog/2018/10/26/microsoft-completes-github-acquisition/).
 
 ## Setup
 

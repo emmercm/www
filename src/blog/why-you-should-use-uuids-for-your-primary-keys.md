@@ -31,7 +31,7 @@ Most common relational databases (ignoring SQLite) have support for UUIDs:
   - v8.0.0 (2016) introduced `UUID_TO_BIN()`, `BIN_TO_UUID()`, and `IS_UUID()`
 - MariaDB:
   - The earliest version of MariaDB is v5.1.38 (2010) which is based on MySQL v5.1.38 which supported `UUID()` and `UUID_SHORT()`
-- Postgres:
+- PostgreSQL:
   - v8.3.0 (2008) added support for `UUID` data type
   - v8.3.0 (2008) introduced the `uuid-ossp` module and its functions such as `uuid_generate_v1()` and `uuid_generate_v4()`
 - Oracle:

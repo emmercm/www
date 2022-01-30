@@ -60,6 +60,10 @@ Related blog articles:
 - [Using Font Awesome with Metalsmith](/blog/using-font-awesome-with-metalsmith)
 - [Minify Files in Metalsmith](/blog/minify-files-in-metalsmith)
 
+### [metalsmith-github-profile](https://github.com/emmercm/metalsmith-github-profile)
+
+A plugin to pull in GitHub profile information as metadata.
+
 ### [metalsmith-htaccess](https://github.com/emmercm/metalsmith-htaccess)
 
 A plugin to create an `.htaccess` Apache HTTP Server (`httpd`) [configuration file](https://httpd.apache.org/docs/current/howto/htaccess.html).
@@ -140,6 +144,10 @@ A script to build and install the [Backports Project](https://backports.wiki.ker
 
 A script to build and install a Realtek RTL8812AU WiFi driver from source.
 
+### [rpi-cast](https://github.com/emmercm/rpi-cast)
+
+A tool to automatically cast audio input from a Raspberry Pi.
+
 ## <i class="far fa-robot"></i> FIRST Robotics Competition
 
 I have developed a number of applications for use in the [FIRST Robotics Competition](https://www.firstinspires.org/robotics/frc), a worldwide STEM competition for high school students.
@@ -152,6 +160,10 @@ Built with unreliable client connections as a primary concern, the app makes use
 
 ### [SharkCV](https://github.com/hammerhead226/SharkCV)
 
-A Python and OpenCV\-based vision processing framework designed to run on a coprocessor. Used by the [Hammerheads (226)](http://hammerhead226.org/) in the 2016 competition season.
+A Python and OpenCV-based vision processing framework designed to run on a coprocessor. Used by the [Hammerheads (226)](http://hammerhead226.org/) in the 2016 competition season.
 
 Similar to the [GRIP](https://wpiroboticsprojects.github.io/GRIP) and [Limelight](https://limelightvision.io/) software, SharkCV was designed to abstract away most of the OpenCV complexity so configuration can be fast and easy. Unlike other hardware solutions, SharkCV running on a coprocessor such as a Raspberry Pi gives many different options for both input and output sources.
+
+### [docker-cheesy-parts](https://github.com/Troy-Argonauts/docker-cheesy-parts)
+
+A Docker image packaging for the popular parts management web app [Cheesy Parts](https://github.com/Team254/cheesy-parts), complete with deployment scripts to host a copy on [Heroku](https://www.heroku.com/).
