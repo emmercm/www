@@ -76,7 +76,7 @@
     "metalsmith-reading-time": "^0.0.5",
     "metalsmith-renamer": "^0.5.158",
     "metalsmith-robots": "^1.1.0",
-    "metalsmith-sass": "^1.7.0",
+    "metalsmith-sass": "^2.0.0",
     "metalsmith-sharp": "^3.0.0",
     "metalsmith-sitemap": "^1.2.2",
     "metalsmith-tracer": "^0.3.11",
