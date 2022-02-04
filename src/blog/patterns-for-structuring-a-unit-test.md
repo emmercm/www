@@ -2,7 +2,7 @@
 
 title: Patterns for Structuring a Unit Test
 image: https://unsplash.com/photos/8-P12w-Ntwg
-date: 2022-02-04T05:17:00
+date: 2022-02-04T05:31:00
 tags:
 - testing
 
@@ -138,9 +138,9 @@ test(() => {
 console.log('All tests passed!');
 ```
 
-Notice how each of these scenarios only has one "when". If we limit ourselves to only one behavior under test, we're forced to have a clearer purpose for the test.
+Notice how each of these scenarios have only one "when". If we limit ourselves to only one behavior under test, we're forced to have a clearer purpose for the test.
 
-There's a secondary benefit that all of a domain's acceptance criteria lives forever in the code's tests, creating a living documentation. It can be hard to know what the intended behavior of some systems are, but if the behavior is spelled out in specific language in tests then it should help alleviate some confusion.
+There's a secondary benefit to writing tests this way - all of a domain's acceptance criteria lives forever in the code's tests, creating living documentation. It can be hard to know what the intended behavior of some systems is, but if the behavior is spelled out in specific language in tests then it should help alleviate some confusion.
 
 The _given-when-then_ test style can be used with any testing framework, but there are some that explicitly encourage it with BDD: [Cucumber](https://cucumber.io/), [JBehave](https://cucumber.io/), and [SpecFlow](https://specflow.org/) to name a few.
 
@@ -155,6 +155,8 @@ The three parts to an _arrange-act-assert_ test are:
 - **Assert** the expected results
 
 The main value loss with using _arrange-act-assert_ is it tends to describe technical behavior and test internal state while _given-when-then_ encourages testing of functional behavior. Otherwise, there isn't a significant difference other than three "A" words are harder to distinguish at a glance.
+
+_Arrange-act-assert_ should follow the same rules as _given-when-then_ such as only testing one behavior at a time, or only having one "act" expression.
 
 I have seen a lot of _arrange-act-assert_ articles encourage mocking during "arrange" which can lead to the fallacy of testing _implementation_ rather than _behavior_. The debate of spies vs. mocks is too large to cover here.
 
