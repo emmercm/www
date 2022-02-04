@@ -2,7 +2,7 @@
 
 title: Patterns for Structuring a Unit Test
 image: https://unsplash.com/photos/8-P12w-Ntwg
-date: 2022-02-04T05:05:00
+date: 2022-02-04T05:17:00
 tags:
 - testing
 
@@ -140,6 +140,8 @@ console.log('All tests passed!');
 
 Notice how each of these scenarios only has one "when". If we limit ourselves to only one behavior under test, we're forced to have a clearer purpose for the test.
 
+There's a secondary benefit that all of a domain's acceptance criteria lives forever in the code's tests, creating a living documentation. It can be hard to know what the intended behavior of some systems are, but if the behavior is spelled out in specific language in tests then it should help alleviate some confusion.
+
 The _given-when-then_ test style can be used with any testing framework, but there are some that explicitly encourage it with BDD: [Cucumber](https://cucumber.io/), [JBehave](https://cucumber.io/), and [SpecFlow](https://specflow.org/) to name a few.
 
 ## Arrange-act-assert
@@ -161,3 +163,7 @@ I have seen a lot of _arrange-act-assert_ articles encourage mocking during "arr
 Known as the "four-phase test", _setup-exercise-verify-teardown_ is nearly the same as _arrange-act-assert_ other than it explicitly calls out a "teardown" phase to reset the [system-under-test](https://en.wikipedia.org/wiki/System_under_test) to its pre-setup state.
 
 If we try our best to create a [test pyramid](https://martinfowler.com/articles/practical-test-pyramid.html) where we have noticeably more unit tests than integration tests, or if we apply the principles of [hexagonal architecture](https://en.wikipedia.org/wiki/Hexagonal_architecture_(software)) and use test doubles for our repositories, then the "teardown" step shouldn't be needed in most cases.
+
+## Summary
+
+Overall, the goal of these patterns is to help you write more readable and maintainable tests, one of the most important goals with software engineering. Each pattern was established at a different time and came from a different school of thought, but all have the same objectives.
