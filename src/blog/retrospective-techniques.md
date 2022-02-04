@@ -2,7 +2,7 @@
 
 title: Retrospective Techniques
 image: https://unsplash.com/photos/B-7sTUA2RFY
-date: 2022-02-04T23:03:00
+date: 2022-02-04T23:43:00
 tags:
 - career
 
@@ -10,21 +10,21 @@ tags:
 
 Retrospectives need to be productive and engaging or participants will quickly tune them out. Here are some techniques to hold more interesting retros.
 
-A [retrospective (retro)](https://www.agilealliance.org/glossary/heartbeatretro) is a regular cadence meeting to analyze the actions and outcomes of a team since the last meeting to help drive continuous improvement. Retros happen most often at the end of Scrum Sprints, but they can be just as effective at the end of projects or events where more than one team might be included.
+A [retrospective (retro)](https://www.agilealliance.org/glossary/heartbeatretro) is a meeting with a regular cadence to analyze the actions and outcomes of a team since the last meeting. The goal of a retro is to help drive continuous improvement. Retros happen most often at the end of Scrum Sprints, but they can be just as effective at the end of projects or events where more than one team might be involved.
 
 Most retros use some kind of physical or virtual wall, such as a dry-erase board, where participants write on sticky notes and place them on the wall in groups, typically in vertical swim lanes. This article assumes you have participated in a retro before or are at least familiar with the practice.
 
-It's always worth repeating that it's important to keep retros blameless, the discussion should focus on processes and outcomes, not individuals.
+It's always worth repeating that it is important to keep retros blameless - the discussion should focus on processes and outcomes, not individuals.
 
 ## What went well, to improve, action items
 
-One of the more popular retro techniques because of its simplicity, the three categories are:
+This is one of the more popular retro techniques because of its simplicity. Its three categories are:
 
-- 👍 **What went well**: what helped us achieve its outcomes? What accomplishments or successes are we proud of?
+- 👍 **What went well**: what helped us achieve our goals? What accomplishments or successes are we proud of?
 
-  There could be some difference in opinion here, and those items can turn into action items. One person might think of a task as a success, while another thinks there's still room for improvement.
+  There could be some difference in opinion here, and those items can turn into action items. One person might think of a task as a success, while another might think there's still room for improvement. This is also a great time to recognize other team members!
 
-- 💭 **To improve**: what can we iterate on to help achieve our outcomes?
+- 💭 **To improve**: what can we iterate on to help achieve our goals?
 
   Every item here should produce at least one action item. I prefer to stay away from the negative "what went wrong" phrasing.
 
@@ -32,11 +32,13 @@ One of the more popular retro techniques because of its simplicity, the three ca
 
   These should be followed-up on at the next retro.
 
-This type of retro is designed to help focus on positives and prompt gratitude, as well as put a positive spin on negatives and create actionable tasks out of them.
+This type of retro is designed to help focus on positives and prompt gratitude, as well as put a positive spin on negatives by creating actionable tasks out of them.
+
+By keeping the number of categories small, this technique tends to be lighter-weight.
 
 ## Start, stop, continue
 
-This retro technique specifically focuses on actions and has three parts:
+This retro technique specifically focuses on actions in three parts:
 
 - ▶️ **Start**️: what might have a positive impact that we could start doing?
 
@@ -48,15 +50,15 @@ This retro technique specifically focuses on actions and has three parts:
 
 - 🔁 **Continue**: what is working well that isn't common practice yet that we should continue doing?
 
-  This could also include practices that haven't been in effect long enough to evaluate yet.
+  It's good to reflect on what practices have been helpful. This could also include practices that haven't been in effect long enough to evaluate yet.
 
 These categories help focus the discussion on practical ideas to help improve the team and its processes.
 
-An alternative ordering to _start, stop, continue_ that might make more chronological sense is _continue, stop, start_. This ordering could help create more "start" action items after discussing the other categories first, and it helps set the tone of the meeting with positives first.
+An alternative ordering to _start, stop, continue_ that might make more chronological sense is _continue, stop, start_. This ordering could help create more "start" action items after discussing the other categories first, and it helps set the tone of the meeting with positives at the start.
 
-### Starfish
+## Starfish
 
-The starfish retrospective is an extended version of `start, stop, continue` that reorganizes and adds two sections:
+The starfish retrospective is an extended and re-ordered version of _start, stop, continue_ by [Patrick Kua](https://www.thekua.com/rant/2006/03/the-retrospective-starfish/) that adds two new sections:
 
 - 🔁 **Keep doing**: same as "continue", but focused on practices that are widely adopted
 - ⬇️ **Less of**️: practices or processes that need refining or are only sometimes helpful.
@@ -84,11 +86,11 @@ Known as the 4L's, this technique developed by [Mary Gorman and Ellen Gottesdien
 
 - 😞 **Lacked**: what was missing, or what was unclear?
 
-  Items could range from lack of guidance, lack of a productivity tool, people resourcing, or missing processes.
+  Items could range from lack of guidance, a desired productivity tool, people resourcing, or missing processes.
 
 - 💭 **Longed for**: what did the team wish existed?
 
-  This difference between "longed for" and "lacked" is that this category is more aspirational, items here might not exist or be possible just yet, but are still worth discussing.
+  The difference between "longed for" and "lacked" is that this category is more aspirational, items here might not exist or be possible just yet, but are still worth discussing.
 
 This format is great because it starts off with two positive categories and ends with two that can be turned into action items.
 
@@ -97,7 +99,7 @@ This format is great because it starts off with two positive categories and ends
 Based on team emotions, _mad, sad, glad_ helps get a pulse on the team's morale and job satisfaction. Here are the three parts:
 
 - 😡 **Mad**: what is making you frustrated or annoyed? What is stopping you from doing your best work?
-- 😔 **Sad**: what is making you feel disappointed? What do you wish could be improved?
+- 😔 **Sad**: what is making you disappointed? What do you wish could be improved?
 - 😀 **Glad**: what is making you happy, excited, or proud? What have you enjoyed?
 
 This type of retro gives team members a space of psychological safety to open up and share. Consider using this technique after a high-stress project or event so team members can feel heard. It's important to stay blameless in all retros, but especially when sharing "mads" here.
@@ -108,7 +110,7 @@ Action items may come out of this type of retro, but in general it tends to be m
 
 ## Sailboat
 
-Imagine a picture of a sailboat with _wind_ at its back headed toward an _island_, but it has dropped _anchor_ and there are _rocks_ dangerously close to your path. Your team is in the boat trying to make it safely ashore, and these are the four forces on you:
+Imagine a picture of a sailboat with _wind_ in its sails headed toward an _island_, but it has dropped _anchor_ and there are _rocks_ dangerously close to your path. Your team is in the boat trying to make it safely ashore, and these are the four forces on you:
 
 - 🏝 **Island**: the teams goals, these should already be well-defined.
 - 💨 **Wind**: forces that are helping the team towards its goals.
@@ -117,11 +119,11 @@ Imagine a picture of a sailboat with _wind_ at its back headed toward an _island
 
 - ⚓️ **Anchor**️: forces that are keeping the team from reaching its goals.
 
-  Risks such as workstream bottlenecks, projects with a lot of unknowns, inexperience with a technology
+  Forces such as workstream bottlenecks, projects with a lot of unknowns, inexperience with a technology, and dependence on another team can all slow you down.
 
 - 🪨 **Rocks**: potential risks on the horizon for the team.
 
-  These could be short-term or long-term risks, but it's important to identify them as such and discuss. If you don't steer around these rocks you may need to face them for a long time!
+  These could be short-term or long-term risks, but it's important to categorize and discuss them. If you don't steer around these rocks you may need to face them for a long time!
 
 You can also add a "sun" to the diagram for forces that are making the team happy, adding a mix of positive emotions that are different from "wind" forces.
 
