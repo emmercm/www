@@ -33,7 +33,7 @@
     "jquery": "^3.6.0",
     "jstransformer-handlebars": "^1.2.0",
     "luxon": "^2.3.0",
-    "markdownlint-cli": "^0.30.0",
+    "markdownlint-cli": "^0.31.0",
     "marked": "^4.0.12",
     "metalsmith": "^2.4.1",
     "metalsmith-auto-collections": "^0.2.0",
