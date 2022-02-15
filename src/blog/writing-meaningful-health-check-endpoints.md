@@ -1,7 +1,8 @@
 ---
 
 title: Writing Meaningful Health Check Endpoints
-date: 2030-01-01
+image: https://unsplash.com/photos/zaXryNGMSfs
+date: 2022-02-15T02:33:00
 tags:
 - kubernetes
 - microservices
