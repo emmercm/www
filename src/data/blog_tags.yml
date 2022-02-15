@@ -40,7 +40,7 @@ github:
 
 go:
   title: Go
-  icon: fad fa-code
+  icon: far fa-brackets-curly
   color: go
 
 kubernetes:
@@ -48,15 +48,15 @@ kubernetes:
   icon: far fa-dharmachakra
   color: kubernetes
 
-life:
-  title: Life
-  icon: fad fa-hand-holding-seedling
-  color: life
-
 metalsmith:
   title: Metalsmith
   icon: fad fa-browser
   color: metalsmith
+
+microservices:
+  title: Microservices
+  icon: far fa-brackets-curly
+  color: indigo
 
 node.js:
   title: Node.js

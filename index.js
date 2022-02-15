@@ -188,9 +188,9 @@ tracer(Metalsmith(__dirname))
     }))
 
     // Load GitHub information
-    .use(githubProfile({
+    .use(msIf(prodBuild, githubProfile({
         username: githubHandle
-    }))
+    })))
 
     // Load Gravatar URL
     .use(gravatar({
