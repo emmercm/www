@@ -675,10 +675,10 @@ tracer(Metalsmith(__dirname))
                 image: `${metalsmith.metadata().gravatar.main}?s=512`,
                 url: siteURL,
                 sameAs: [
-                    metalsmith.metadata().github.profile.user.html_url,
+                    metalsmith.metadata().github ? metalsmith.metadata().github.profile.user.html_url : null,
                     'https://twitter.com/emmercm',
                     'https://www.linkedin.com/in/emmercm/'
-                ]
+                ].filter(url=>url)
             }
         ],
         collections: {

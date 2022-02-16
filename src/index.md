@@ -33,11 +33,13 @@ pageContainer: false
     </div>
     <div style="height:128px; max-height:20vw;">&nbsp;</div> <!-- 256px/2 Gravatar spacer -->
     <div class="container mw-md-md my-6 mx-auto">
-        <h2>
-            <i class="far fa-map-marker-alt"></i>
-            {{ github.profile.user.location }}
-        </h2>
-        <br>
+        {{#if github.profile.user.location}}
+            <h2>
+                <i class="far fa-map-marker-alt"></i>
+                {{ github.profile.user.location }}
+            </h2>
+            <br>
+        {{/if}}
         <h4>
             {{ sitedescription }}
             Skilled at distributed architecture and technical project management.
