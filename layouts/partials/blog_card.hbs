@@ -22,7 +22,7 @@
         </div>
         {{#if data.image}}
             <a href="{{data.paths.href}}" title="{{data.title}}" class="col-3 d-flex flex-shrink-0 justify-content-center align-items-center overflow-hidden">
-                <img src="{{data.thumb}}" alt="{{sanitize data.title}}" class="fill">
+                <img {{#if data.thumbSet}}srcset="{{data.thumbSet}}"{{/if}} src="{{data.thumb}}" alt="{{sanitize data.title}}" class="fill">
             </a>
         {{/if}}
     </div>

@@ -94,11 +94,19 @@ const siteBackground  = '**/trianglify.svg';
 const twitterHandle   = '@emmercm';
 const githubHandle    = 'emmercm';
 
-// x2 for retina displays
-const blogImageWidth  = 768 * 2;
-const blogImageHeight = Math.floor(blogImageWidth / 2);
-const blogImageThumbWidth  = 126 * 2;
-const blogImageThumbHeight = blogImageThumbWidth;
+const blogImageSizes = [
+    [768,768/2], // default: full width
+    [1536,1536/2], // full width retina
+    [414,414/2], // mobile
+    [360,360/2], // mobile
+];
+const blogImageThumbSizes = [
+    [159,159], // default: card two line title
+    [318,318], // card two line title retina
+    [135,135], // card single line title
+    [222,222], // index retina
+    [111,111], // index
+];
 
 const markdownRenderer = new marked.Renderer();
 markdownRenderer.heading = (text, level, raw) => {
@@ -274,22 +282,25 @@ tracer(Metalsmith(__dirname))
             const photoId = files[filename].image
                 .replace(/.*unsplash\.com\/photos\/([^\/?]+).*/, '$1')
                 .replace(/.*source\.unsplash\.com\/([^\/?]+).*/, '$1');
+            let imageUrlGenerator;
             if (prodBuild) {
                 const result = (await unsplash.photos.get({photoId}));
                 if (result.errors) {
                     throw `Failed to fetch ${original}: ${result.errors.join(', ')}`;
                 }
                 const photo = result.response;
-                const imgixParameters = '&fm=jpg&q=80&cs=srgb&fit=crop&crop=entropy';
-                files[filename].image = `${photo.urls.raw}${imgixParameters}&w=${blogImageWidth}&h=${blogImageHeight}`;
-                files[filename].thumb = `${photo.urls.raw}${imgixParameters}&w=${blogImageThumbWidth}&h=${blogImageThumbHeight}`;
+                const imgixParameters = '&auto=format&q=80&cs=srgb&fit=crop&crop=entropy';
+                imageUrlGenerator = (width, height) => `${photo.urls.raw}${imgixParameters}&w=${width}&h=${height}`;
                 const utmParameters = '?utm_source=emmer-dev&utm_medium=referral';
                 files[filename].imageCredit = `Photo by <a href="${photo.user.links.html}${utmParameters}">${photo.user.name}</a> on <a href="${photo.links.html}${utmParameters}">Unsplash</a>`;
             } else {
-                files[filename].image = `https://source.unsplash.com/${photoId}/${blogImageWidth}x${blogImageHeight}`;
-                files[filename].thumb = `https://source.unsplash.com/${photoId}/${blogImageThumbWidth}x${blogImageThumbHeight}`;
+                imageUrlGenerator = (width, height) => `https://source.unsplash.com/${photoId}/${width}x${height}`;
                 files[filename].imageCredit = `Photo on <a href="${original}">Unsplash</a>`
             }
+            files[filename].image = imageUrlGenerator(blogImageSizes[0][0], blogImageSizes[0][1]);
+            files[filename].imageSet = blogImageSizes.slice(1).map(resolution=>`${imageUrlGenerator(resolution[0], resolution[1])} ${resolution[0]}w`).join(', ');
+            files[filename].thumb = imageUrlGenerator(blogImageThumbSizes[0][0], blogImageThumbSizes[0][1]);
+            files[filename].thumbSet = blogImageThumbSizes.slice(1).map(resolution=>`${imageUrlGenerator(resolution[0], resolution[1])} ${resolution[0]}w`).join(', ');
         }, (err) => {
             done(err);
         });
@@ -322,8 +333,9 @@ tracer(Metalsmith(__dirname))
         pattern: 'static/img/blog/*',
         transform: filename => filename.replace(/\.([^.]+)$/, '-thumb.$1')
     }))
-    .use(blogImage('static/img/blog/!(*-thumb).*', blogImageWidth, blogImageHeight, prodBuild))
-    .use(blogImage('static/img/blog/*-thumb.*', blogImageThumbWidth, blogImageThumbHeight, prodBuild))
+    // TODO(cemmer): responsive image sizes
+    .use(blogImage('static/img/blog/!(*-thumb).*', blogImageSizes[0][0]*2, blogImageSizes[0][1]*2, prodBuild))
+    .use(blogImage('static/img/blog/*-thumb.*', blogImageThumbSizes[0][0]*2, blogImageThumbSizes[0][1]*2, prodBuild))
 
     /***********************
      *                     *

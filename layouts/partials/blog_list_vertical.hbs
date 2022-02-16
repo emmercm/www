@@ -14,7 +14,7 @@
             <div class="col-3 col-md-2">
                 {{#if image}}
                     <a href="{{paths.href}}" title="{{title}}">
-                        <img src="{{thumb}}" alt="{{sanitize title}}" class="w-100">
+                        <img {{#if thumbSet}}srcset="{{thumbSet}}"{{/if}} src="{{thumb}}" alt="{{sanitize title}}" class="w-100">
                     </a>
                 {{/if}}
                 {{#if tags}}
