@@ -298,9 +298,13 @@ tracer(Metalsmith(__dirname))
                 files[filename].imageCredit = `Photo on <a href="${original}">Unsplash</a>`
             }
             files[filename].image = imageUrlGenerator(blogImageSizes[0][0], blogImageSizes[0][1]);
-            files[filename].imageSet = blogImageSizes.slice(1).map(resolution=>`${imageUrlGenerator(resolution[0], resolution[1])} ${resolution[0]}w`).join(', ');
+            files[filename].imageSet = blogImageSizes.slice(1)
+                .sort((res1, res2) => res2[0] - res1[0])
+                .map(resolution=>`${imageUrlGenerator(resolution[0], resolution[1])} ${resolution[0]}w`).join(', ');
             files[filename].thumb = imageUrlGenerator(blogImageThumbSizes[0][0], blogImageThumbSizes[0][1]);
-            files[filename].thumbSet = blogImageThumbSizes.slice(1).map(resolution=>`${imageUrlGenerator(resolution[0], resolution[1])} ${resolution[0]}w`).join(', ');
+            files[filename].thumbSet = blogImageThumbSizes.slice(1)
+                .sort((res1, res2) => res2[0] - res1[0])
+                .map(resolution=>`${imageUrlGenerator(resolution[0], resolution[1])} ${resolution[0]}w`).join(', ');
         }, (err) => {
             done(err);
         });
