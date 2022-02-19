@@ -1,6 +1,9 @@
+<!--
+    Note: this is using art direction because Google Lighthouse / PageSpeed
+    Insights doesn't respect <img srcset=""> even if that is more appropriate
+-->
 <picture>
     <source srcset="{{gravatar.main}}?r=g&d=mp&s={{multiply size 2}}" media="(min-width:{{multiply size 2}}px)">
-    <source srcset="{{gravatar.main}}?r=g&d=mp&s=197" media="(min-width:197px)">
-    <source srcset="{{gravatar.main}}?r=g&d=mp&s=170" media="(min-width:170px)">
+    <source srcset="{{gravatar.main}}?r=g&d=mp&s={{floor (multiply size 0.8)}}" media="(min-width:{{floor (multiply size 0.8)}}px)">
     <img src="{{gravatar.main}}?r=g&d=mp&s={{size}}" alt="{{sitename}}" class="{{class}}" width="{{size}}" height="{{size}}">
 </picture>
