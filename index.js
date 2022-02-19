@@ -297,6 +297,7 @@ tracer(Metalsmith(__dirname))
                 imageUrlGenerator = (width, height) => `https://source.unsplash.com/${photoId}/${width}x${height}`;
                 files[filename].imageCredit = `Photo on <a href="${original}">Unsplash</a>`
             }
+            // TODO(cemmer): <picture> these
             files[filename].image = imageUrlGenerator(blogImageSizes[0][0], blogImageSizes[0][1]);
             files[filename].imageSet = blogImageSizes.slice(1)
                 .sort((res1, res2) => res2[0] - res1[0])
@@ -311,6 +312,7 @@ tracer(Metalsmith(__dirname))
     })
 
     // Process background images
+    // TODO(cemmer): webp formats
     .use(backgroundImage(siteBackground, 1024, prodBuild)) // catch all
     .use(backgroundImage(siteBackground, 926, prodBuild)) // iPhone 12 Pro Max
     .use(backgroundImage(siteBackground, 896, prodBuild)) // iPhone 11 Pro Max, XR, XS Max
