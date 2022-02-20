@@ -12,9 +12,11 @@
             </div>
 
             <div class="col-3 col-md-2">
-                {{#if image}}
+                {{#if thumb}}
                     <a href="{{paths.href}}" title="{{title}}">
-                        <img {{#if thumbSet}}srcset="{{thumbSet}}"{{/if}} src="{{thumb}}" alt="{{sanitize title}}" class="w-100">
+                        <picture>
+                            {{{ data.thumbSources }}}<img src="{{thumb}}" alt="{{sanitize title}}" class="w-100">
+                        </picture>
                     </a>
                 {{/if}}
                 {{#if tags}}
