@@ -24,7 +24,7 @@ Service orchestrators and monitors (e.g. the Kubernetes [kubelet](https://kubern
 
 Polling a health check endpoint is a form of _black box monitoring_ where the requester has no visibility into the internals of the service, it only knows if it received a success or error response.
 
-_For the purpose of this article we'll treat service liveness and readiness as the same thing, but know that they are separate and may require different health check endpoints._
+_For the purpose of this article we'll treat liveness and readiness probes as the same thing, but see "[Types of Probes in Kubernetes](/blog/types-of-probes-in-kubernetes)" for an explanation of the differences and why you may want separate health check endpoints for each._
 
 ## Having no health check is bad
 
@@ -96,8 +96,9 @@ Here's an example response you could use:
 
 Here are some deeper considerations when designing your health check endpoints:
 
+- **Availability**: if you have your health check depend on a database, it could have similar availability problems that depending on external services have (laid out above), your service orchestrator could determine all instances to be unhealthy and then there won't be any to handle any traffic
 - **Authentication**: if your service requires authentication you may need to exclude the health check endpoint so your service orchestrator can work.
-- **Availability**: you likely don't want to expose your internal state via publicly available health check endpoints unless you rely on a synthetics SaaS vendor, and if you do then you probably want authentication.
+- **Security**: you likely don't want to expose your internal state via publicly available health check endpoints unless you rely on a synthetics SaaS vendor, and if you do then you probably want authentication.
 - **Throughput**: the health check may be called very frequently so service instances can fail and recover fast, you may need to consider this.
 - **Response time**: you'll want to be mindful that the health check doesn't take too long to calculate and respond, service orchestrators may have a request timeout such as Kubernetes' default of 1 second.
 - **Caching**: it could be expensive to calculate a holistic status of a service, you could potentially cache some parts of the health check in-memory.
