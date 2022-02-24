@@ -14,8 +14,8 @@ const gravatar         = require('metalsmith-gravatar');
 const drafts           = require('@metalsmith/drafts');
 const validate         = require('metalsmith-validate');
 const dataLoader       = require('metalsmith-data-loader');
-const sass             = require('metalsmith-sass');
-const autoprefixer     = require('metalsmith-autoprefixer');
+const sass             = require('@metalsmith/sass');
+const postcss          = require('@metalsmith/postcss');
 const include          = require('metalsmith-include-files');
 const renamer          = require('metalsmith-renamer');
 const remove           = require('@metalsmith/remove');
@@ -38,7 +38,7 @@ const except           = require('metalsmith-except');
 const feed             = require('metalsmith-feed');
 const related          = require('metalsmith-collections-related');
 const favicons         = require('metalsmith-favicons');
-const layouts          = require('metalsmith-layouts');
+const layouts          = require('@metalsmith/layouts');
 const jquery           = require('metalsmith-jquery');
 const openGraph        = require('metalsmith-open-graph');
 const twitterCard      = require('metalsmith-twitter-card');
@@ -49,7 +49,6 @@ const relative         = require('metalsmith-html-relative');
 const htmlUnused       = require('metalsmith-html-unused');
 const uglify           = require('metalsmith-uglify');
 const cssUnused        = require('metalsmith-css-unused');
-const cleanCSS         = require('metalsmith-clean-css');
 const htmlMinifier     = require('metalsmith-html-minifier');
 const sri              = require('metalsmith-html-sri');
 const sitemap          = require('metalsmith-sitemap');
@@ -253,11 +252,15 @@ tracer(Metalsmith(__dirname))
 
     // Compile Sass files
     .use(sass({
-        outputStyle: 'expanded'
+        style: 'expanded'
     }))
 
     // Run autoprefixer on CSS files
-    .use(autoprefixer())
+    .use(postcss({
+        plugins: {
+            'autoprefixer': {}
+        }
+    }))
 
     /**************************
      *                        *
@@ -481,8 +484,7 @@ tracer(Metalsmith(__dirname))
         // TODO: metalsmith-tag-collections
 
         const minimatch = require('minimatch');
-        // TODO: install this
-        const collections = require('metalsmith-collections');
+        const collections = require('@metalsmith/collections');
 
         const options = {
             pattern: 'blog/**',
@@ -845,9 +847,9 @@ tracer(Metalsmith(__dirname))
     })))
 
     // Prod: minify CSS
-    .use(msIf(prodBuild, cleanCSS({
-        cleanCSS: {
-            rebase: false
+    .use(msIf(prodBuild, postcss({
+        plugins: {
+            'cssnano': {}
         }
     })))
     .use(msIf(prodBuild, renamer({
