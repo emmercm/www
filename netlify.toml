@@ -1,6 +1,7 @@
 [build]
   command = "npm test && npm start"
   publish = "build/"
+  ignore = "node ignore_build.js"
 
 [build.environment]
   # FONTAWESOME_TOKEN
