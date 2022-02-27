@@ -15,7 +15,7 @@ pageContainer: false
             {{#each icons.header}}
                 <a href="{{link}}" {{#if title}}title="{{title}}"{{/if}} class="link-dark">
                     <span class="fa-stack align-top">
-                        <i class="fal fa-circle fa-stack-2x"></i>
+                        <i class="fa-light fa-circle fa-stack-2x"></i>
                         <i class="{{icon}} fa-stack-1x"></i>
                     </span>
                 </a>
@@ -35,7 +35,7 @@ pageContainer: false
     <div class="container mw-md-md my-6 mx-auto">
         {{#if github.profile.user.location}}
             <h2>
-                <i class="far fa-map-marker-alt"></i>
+                <i class="fa-regular fa-location-dot"></i>
                 {{ github.profile.user.location }}
             </h2>
             <br>
