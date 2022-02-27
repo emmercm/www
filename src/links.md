@@ -8,7 +8,7 @@ pageContainer: false
 ---
 
 <div class="container mw-md py-5 w-100 text-center">
-    <img src="{{gravatar.main}}?r=g&d=mp&s=256" alt="{{sitename}}" class="mw-50 rounded-circle img-thumbnail bg-dark border-dark og-image" style="width:128px;">
+    {{>gravatar size=128 class="mw-50 rounded-circle img-thumbnail bg-dark border-dark og-image"}}
     <h4 class="mt-4">{{ sitename }}</h4>
     {{#each links}}
         <h5 class="mt-4 mb-2">{{ title }}</h5>

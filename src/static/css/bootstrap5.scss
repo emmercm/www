@@ -1,3 +1,5 @@
+@use "sass:math";
+
 @import '../../../node_modules/bootstrap/scss/functions';
 
 /**
@@ -286,7 +288,7 @@ h1, h2, h3, h4, h5, h6,
     & + .m-#{$size},
     & + .my-#{$size},
     & + .mt-#{$size} {
-      margin-top: $navbar-height/16px + $length !important;
+      margin-top: math.div($navbar-height, 16px) + $length !important;
     }
   }
 }
@@ -303,7 +305,7 @@ h1, h2, h3, h4, h5, h6,
       @include media-breakpoint-up($next) {
         .navbar-nav {
           .nav-link {
-            margin: 0 $navbar-nav-link-padding-x/2;
+            margin: 0 math.div($navbar-nav-link-padding-x, 2);
           }
         }
       }

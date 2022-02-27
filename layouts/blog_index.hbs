@@ -1,16 +1,6 @@
 <div class="row">
     <div class="col-12 col-md-9">
-        <div class="d-flex justify-content-between align-items-center mb-4 mb-md-5 pb-3 border-bottom border-secondary">
-            <h1 class="m-0">Recent Articles{{#if title}} - {{title}}{{/if}}</h1>
-            <h5 class="m-0">
-                <a href="/blog/rss.xml" title="RSS Feed" class="link-dark">
-                    <span class="fa-stack align-top">
-                        <i class="fal fa-circle fa-stack-2x"></i>
-                        <i class="fas fa-rss fa-stack-1x"></i>
-                    </span>
-                </a>
-            </h5>
-        </div>
+        <h1 class="mt-0 mb-4 mb-md-5 pb-3 border-bottom border-secondary">Recent Articles{{#if title}} - {{title}}{{/if}}</h1>
 
         {{>blog_list_vertical data=pagination.files}}
 
@@ -27,18 +17,20 @@
 
     <div class="col-12 col-md-3 ps-md-5 pt-5 pt-md-0">
         <h3>Article Tags</h3>
-        <ul class="fa-ul ms-1 ps-0 text-md-truncate">
+
+        <div class="d-flex flex-wrap">
             {{#each (sort (unique (flat (pluck collections.blog "tags"))))}}
-                <li class="my-2 d-inline-block d-md-block {{#unless @last}}me-3 me-md-0{{/unless}}">
-                    <span class="fa-li"></span>
-                    <i class="{{get "icon" (get this ../blog_tags)}} fa-fw me-1"></i>
-                    {{#eq (segments ../paths.dir -1 undefined) this}}
-                        <b>{{ this }}</b>
-                    {{else}}
-                        <a href="/blog/tag/{{this}}" title="{{this}}">{{ this }}</a>
-                    {{/eq}}
-                </li>
+                <span class="m-1 mw-100 fs-5">
+                    <a href="/blog/tag/{{this}}" title="{{this}}" class="badge link-white bg-{{get "color" (get this ../blog_tags)}} mw-100 text-break text-wrap">{{ this }}</a>
+                </span>
             {{/each}}
-        </ul>
+        </div>
+
+        <h6>
+            <a href="/blog/rss.xml" class="text-dark">
+                <i class="far fa-rss mr-1"></i>
+                RSS Feed
+            </a>
+        </h6>
     </div>
 </div>

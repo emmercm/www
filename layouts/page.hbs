@@ -59,7 +59,7 @@
     <div class="container-xl px-0">
         <div class="d-flex justify-content-between align-items-center flex-nowrap w-100">
             <a href="/" title="Home" class="navbar-brand text-truncate" >
-                <img src="{{sitelogo}}" alt="Logo" class="me-2">
+                <img src="{{sitelogo}}" alt="Logo" width="38" height="38" class="me-2">
                 <span class="align-middle">{{ sitename }}</span>
             </a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -101,7 +101,7 @@
                     <h1>{{ title }}</h1>
                     <div class="media d-flex justify-content-between align-items-center">
                         <div class="d-flex align-items-center">
-                            <img src="{{gravatar.main}}?r=g&d=mp&s=112" class="me-3 rounded-circle img-thumbnail bg-dark border-0" style="width:56px;" alt="{{sitename}}">
+                            {{>gravatar size=56 class="me-3 rounded-circle img-thumbnail bg-dark border-0"}}
                             <div class="media-body">
                                 <div>{{ sitename }}</div>
                                 <div class="text-muted">{{luxon this.date "MMM d, yyyy"}} &middot; {{readingTime}}</div>
@@ -130,7 +130,7 @@
                             <a href="/blog/rss.xml" title="RSS Feed" class="d-none d-md-inline link-dark">
                                 <span class="fa-stack align-top">
                                     <i class="fal fa-circle fa-stack-2x"></i>
-                                    <i class="fas fa-rss fa-stack-1x"></i>
+                                    <i class="far fa-rss fa-stack-1x"></i>
                                 </span>
                             </a>
                         </div>
@@ -138,7 +138,10 @@
                 </div>
                 {{#if image}}
                     <div class="pt-5 bg-light">
-                        <img src="{{image}}" alt="{{sanitize title}}" class="w-100 og-image">
+                        <picture>
+                            {{{ imageSources }}}
+                            <img src="{{image}}" alt="{{sanitize title}}" class="w-100 og-image">
+                        </picture>
                         {{#if imageCredit}}
                             <p class="mt-3 text-center font-italic">{{{ imageCredit }}}</p>
                         {{/if}}
@@ -154,9 +157,9 @@
                         {{#if tags}}
                             <span>Tags:</span>
                             {{#each tags}}
-                                <h5 class="my-0 ms-2 mw-100">
+                                <span class="my-0 ms-2 mw-100 fs-5">
                                     <a href="/blog/tag/{{this}}" title="{{this}}" class="badge link-white bg-{{get "color" (get this ../blog_tags)}} mw-100 text-break text-wrap">{{ this }}</a>
-                                </h5>
+                                </span>
                             {{/each}}
                         {{/if}}
                     </div>
