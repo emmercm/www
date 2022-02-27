@@ -758,6 +758,22 @@ tracer(Metalsmith(__dirname))
     }))
 
     // Prod: add favicons and icons
+    // .use(msIf(prodBuild, sharp({
+    //     src: siteLogo,
+    //     namingPattern: '{dir}{name}-padded{ext}',
+    //     moveFile: false,
+    //     methods: [{
+    //         name: 'extend',
+    //         args: metadata => {
+    //             return [{
+    //                 top: metadata.height * 0.25,
+    //                 bottom: metadata.height * 0.25,
+    //                 left: metadata.width * 0.25,
+    //                 right: metadata.width * 0.25
+    //             }];
+    //         }
+    //     }]
+    // })))
     .use(msIf(prodBuild, favicons({
         src: siteLogo,
         dest: '.',
@@ -765,10 +781,13 @@ tracer(Metalsmith(__dirname))
         appDescription: siteDescription,
         developerName: siteName,
         developerURL: siteURL,
+        theme_color: '#343a40', // $dark
         start_url: siteURL,
+        // manifestMaskable: siteLogo.replace(/(\.[^.]+)$/, '-padded$1'),
         icons: {
             android: true,
             appleIcon: true,
+            appleStartup: true,
             favicons: true,
             windows: true
         }
