@@ -1064,6 +1064,11 @@ tracer(Metalsmith(__dirname))
         disallow: prodDeploy ? [] : ['/'],
         sitemap: `${siteURL}/sitemap.xml`
     }))
+    .use((files, metalsmith, done) => {
+        // https://github.com/woodyrew/metalsmith-robots/issues/3
+        files['robots.txt'].contents = Buffer.from(files['robots.txt'].contents.toString().replace(/^Disallow: ([^*/])/m, 'Disallow /$1'));
+        done();
+    })
 
     // Set destination directory
     .destination('./build')
