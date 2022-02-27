@@ -13,9 +13,9 @@
             {{#and tags data.tags}}
                 <div class="d-flex flex-wrap m-n1 mt-auto">
                     {{#each (sort data.tags)}}
-                        <h5 class="m-1 mw-100">
+                        <span class="m-1 mw-100 fs-5">
                             <a href="/blog/tag/{{this}}" title="{{this}}" class="badge link-white bg-{{get "color" (get this ../blog_tags)}} mw-100 text-break text-wrap">{{ this }}</a>
-                        </h5>
+                        </span>
                     {{/each}}
                 </div>
             {{/and}}
