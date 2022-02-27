@@ -1,3 +1,5 @@
+@use "sass:math";
+
 .markdown {
   h1, .h1 {
     margin-top: $h1-font-size * 1.5;
@@ -60,7 +62,7 @@
   }
 
   blockquote {
-    padding: $spacer/2 $spacer;
+    padding: math.div($spacer, 2) $spacer;
     border-left: $border-width*4 solid lighten(if($headings-color, $headings-color, $body-color), 35%);
     font-style: italic;
   }
