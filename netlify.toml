@@ -1,25 +1,25 @@
 [build]
-  command = "npm test && npm start"
-  publish = "build/"
+command = "npm test && npm start"
+publish = "build/"
 
 [build.environment]
-  # FONTAWESOME_TOKEN
-  # UNSPLASH_ACCESS_KEY
-  # UNSPLASH_SECRET_KEY
-  NODE_ENV = "production"
-  TZ = "America/Los_Angeles"
+# FONTAWESOME_TOKEN
+# UNSPLASH_ACCESS_KEY
+# UNSPLASH_SECRET_KEY
+NODE_ENV = "production"
+TZ = "America/Los_Angeles"
 
 [build.processing]
-  # Site settings > Build & deploy > Post processing > Asset Optimization
-  skip_processing = false
+# Site settings > Build & deploy > Post processing > Asset Optimization
+skip_processing = false
 
 [[context.production.plugins]]
-  package = "netlify-plugin-submit-sitemap"
+package = "netlify-plugin-submit-sitemap"
 
 [[context.deploy-preview.plugins]]
-  package = "@netlify/plugin-lighthouse"
+package = "@netlify/plugin-lighthouse"
   [plugins.inputs]
     output_path = "lighthouse/index.html"
-    [[audits]]
-      path = "blog/starting-a-metalsmith-project"
-      output_path = "lighthouse/blog.html"
+  [[plugins.inputs.audits]]
+    path = "blog/starting-a-metalsmith-project"
+    output_path = "lighthouse/blog.html"
