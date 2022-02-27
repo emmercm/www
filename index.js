@@ -301,6 +301,7 @@ tracer(Metalsmith(__dirname))
                 files[filename].imageCredit = `Photo on <a href="${original}">Unsplash</a>`
             }
             files[filename].image = imageUrlGenerator(blogImageSizes[0][0], blogImageSizes[0][1]);
+            // TODO(cemmer): double check this is semantically right
             files[filename].imageSources = blogImageSizes.slice(1)
                 .sort((res1, res2) => res2[0] - res1[0])
                 .map(resolution => `<source srcset="${imageUrlGenerator(resolution[0], resolution[1])}" media="(min-width:${resolution[0]}px)">`).join('');
@@ -758,6 +759,22 @@ tracer(Metalsmith(__dirname))
     }))
 
     // Prod: add favicons and icons
+    // .use(msIf(prodBuild, sharp({
+    //     src: siteLogo,
+    //     namingPattern: '{dir}{name}-padded{ext}',
+    //     moveFile: false,
+    //     methods: [{
+    //         name: 'extend',
+    //         args: metadata => {
+    //             return [{
+    //                 top: metadata.height * 0.25,
+    //                 bottom: metadata.height * 0.25,
+    //                 left: metadata.width * 0.25,
+    //                 right: metadata.width * 0.25
+    //             }];
+    //         }
+    //     }]
+    // })))
     .use(msIf(prodBuild, favicons({
         src: siteLogo,
         dest: '.',
@@ -765,10 +782,13 @@ tracer(Metalsmith(__dirname))
         appDescription: siteDescription,
         developerName: siteName,
         developerURL: siteURL,
+        theme_color: '#343a40', // $dark
         start_url: siteURL,
+        // manifestMaskable: siteLogo.replace(/(\.[^.]+)$/, '-padded$1'),
         icons: {
             android: true,
             appleIcon: true,
+            appleStartup: true,
             favicons: true,
             windows: true
         }
@@ -811,7 +831,9 @@ tracer(Metalsmith(__dirname))
         ],
         'static/js/vendor': [
             // Un-minified files that can be concatenated
+            // TODO(cemmer): rewrite local JS to eliminate jQuery
             './node_modules/jquery/dist/jquery.slim.js',
+            // TODO(cemmer): only grab the needed module files (requires a bundler?)
             './node_modules/bootstrap/dist/js/bootstrap.js'
         ],
         'static/webfonts': [
@@ -1044,7 +1066,7 @@ tracer(Metalsmith(__dirname))
             'github.com',
             'linkedin.com/shareArticle',
             // Temporary
-            'metalsmith.io'
+            'validator.w3.org/nu'
         ]
     })))
 
@@ -1064,6 +1086,11 @@ tracer(Metalsmith(__dirname))
         disallow: prodDeploy ? [] : ['/'],
         sitemap: `${siteURL}/sitemap.xml`
     }))
+    .use((files, metalsmith, done) => {
+        // https://github.com/woodyrew/metalsmith-robots/issues/3
+        files['robots.txt'].contents = Buffer.from(files['robots.txt'].contents.toString().replace(/^Disallow: ([^*/])/m, 'Disallow: /$1'));
+        done();
+    })
 
     // Set destination directory
     .destination('./build')

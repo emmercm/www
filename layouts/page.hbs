@@ -157,9 +157,9 @@
                         {{#if tags}}
                             <span>Tags:</span>
                             {{#each tags}}
-                                <h5 class="my-0 ms-2 mw-100">
+                                <span class="my-0 ms-2 mw-100 fs-5">
                                     <a href="/blog/tag/{{this}}" title="{{this}}" class="badge link-white bg-{{get "color" (get this ../blog_tags)}} mw-100 text-break text-wrap">{{ this }}</a>
-                                </h5>
+                                </span>
                             {{/each}}
                         {{/if}}
                     </div>
