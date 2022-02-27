@@ -18,8 +18,10 @@
 
 [[context.deploy-preview.plugins]]
   package = "@netlify/plugin-lighthouse"
+
   [plugins.inputs]
     output_path = "lighthouse/index.html"
+
   [[plugins.inputs.audits]]
     path = "blog/starting-a-metalsmith-project"
     output_path = "lighthouse/blog.html"
