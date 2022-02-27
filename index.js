@@ -1044,7 +1044,7 @@ tracer(Metalsmith(__dirname))
             'github.com',
             'linkedin.com/shareArticle',
             // Temporary
-            'metalsmith.io'
+            'validator.w3.org/nu'
         ]
     })))
 
