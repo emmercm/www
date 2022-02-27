@@ -301,6 +301,7 @@ tracer(Metalsmith(__dirname))
                 files[filename].imageCredit = `Photo on <a href="${original}">Unsplash</a>`
             }
             files[filename].image = imageUrlGenerator(blogImageSizes[0][0], blogImageSizes[0][1]);
+            // TODO(cemmer): double check this is semantically right
             files[filename].imageSources = blogImageSizes.slice(1)
                 .sort((res1, res2) => res2[0] - res1[0])
                 .map(resolution => `<source srcset="${imageUrlGenerator(resolution[0], resolution[1])}" media="(min-width:${resolution[0]}px)">`).join('');
@@ -831,6 +832,7 @@ tracer(Metalsmith(__dirname))
         'static/js/vendor': [
             // Un-minified files that can be concatenated
             './node_modules/jquery/dist/jquery.slim.js',
+            // TODO(cemmer): only grab the needed module files
             './node_modules/bootstrap/dist/js/bootstrap.js'
         ],
         'static/webfonts': [
