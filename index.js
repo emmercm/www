@@ -831,8 +831,9 @@ tracer(Metalsmith(__dirname))
         ],
         'static/js/vendor': [
             // Un-minified files that can be concatenated
+            // TODO(cemmer): rewrite local JS to eliminate jQuery
             './node_modules/jquery/dist/jquery.slim.js',
-            // TODO(cemmer): only grab the needed module files
+            // TODO(cemmer): only grab the needed module files (requires a bundler?)
             './node_modules/bootstrap/dist/js/bootstrap.js'
         ],
         'static/webfonts': [
