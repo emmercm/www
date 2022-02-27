@@ -1066,7 +1066,7 @@ tracer(Metalsmith(__dirname))
     }))
     .use((files, metalsmith, done) => {
         // https://github.com/woodyrew/metalsmith-robots/issues/3
-        files['robots.txt'].contents = Buffer.from(files['robots.txt'].contents.toString().replace(/^Disallow: ([^*/])/m, 'Disallow /$1'));
+        files['robots.txt'].contents = Buffer.from(files['robots.txt'].contents.toString().replace(/^Disallow: ([^*/])/m, 'Disallow: /$1'));
         done();
     })
 
