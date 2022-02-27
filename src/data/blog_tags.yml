@@ -50,7 +50,7 @@ kubernetes:
 
 metalsmith:
   title: Metalsmith
-  icon: fa-solid fa-browser
+  icon: fa-regular fa-m
   color: metalsmith
 
 microservices:
