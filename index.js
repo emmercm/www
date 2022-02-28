@@ -116,7 +116,7 @@ markdownRenderer.heading = (text, level, raw) => {
     const slug = transliteration.slugify(title);
     return `<h${level} id="${slug}">
         <a href="#${slug}" title="${title}" class="link" aria-hidden="true">
-            <i class="far fa-link"></i>
+            <i class="fa-regular fa-link"></i>
         </a>
         ${text}
         </h${level}>`;
@@ -806,11 +806,11 @@ tracer(Metalsmith(__dirname))
         $('a[href*="://"]').attr('target', '_blank');
         $('a[target="_blank"]').each((i, elem) => {
             $(elem).attr('rel', 'noopener');
-            const icon = '<i class="far fa-external-link fa-xs align-middle"></i>';
+            const icon = '<i class="fa-regular fa-external-link fa-xs"></i>';
             if($(elem).children().length === 0) {
-                $(elem).html(`<span class="align-middle">${$(elem).html()}</span> ${icon}`);
+                $(elem).html(`${$(elem).html()} ${icon}`);
             } else if($(elem).children().length === 1 && $(elem).children().first().prop('tagName') === 'CODE') {
-                $(icon).insertAfter($(elem).children().first().addClass('align-middle'));
+                $(icon).insertAfter($(elem).children().first());
             }
         });
     }))

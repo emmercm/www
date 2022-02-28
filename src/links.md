@@ -25,7 +25,7 @@ pageContainer: false
                     </div>
                     <div class="col-1 text-end pe-3">
                         {{#if link}}
-                            <i class="far fa-external-link"></i>
+                            <i class="fa-regular fa-arrow-up-right-from-square"></i>
                         {{/if}}
                     </div>
                 </div>
