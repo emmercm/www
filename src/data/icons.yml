@@ -2,21 +2,21 @@
 header:
   - link: https://github.com/emmercm
     title: GitHub
-    icon: fab fa-github
+    icon: fa-brands fa-github
 
   - link: https://twitter.com/emmercm
     title: Twitter
-    icon: fab fa-twitter
+    icon: fa-brands fa-twitter
 
   - link: https://www.linkedin.com/in/emmercm/
     title: LinkedIn
-    icon: fab fa-linkedin-in
+    icon: fa-brands fa-linkedin-in
 
 footer:
   - link: /sitemap.xml
     title: Sitemap
-    icon: far fa-sitemap
+    icon: fa-regular fa-sitemap
 
   - link: https://github.com/emmercm/www
     title: Website Source
-    icon: fas fa-code
+    icon: fa-regular fa-code

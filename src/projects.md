@@ -10,7 +10,7 @@ priority: 0.8
 
 {{ description }}
 
-## <i class="fab fa-docker"></i> Docker Images
+## <i class="fa-brands fa-docker"></i> Docker Images
 
 I have published a number of public Docker images to [Docker Hub](https://hub.docker.com/u/emmercm).
 
@@ -37,7 +37,7 @@ A collection of images with a headless version of [qBittorrent](https://www.qbit
 
 A collection of images with [FlexGet](https://flexget.com/) installed and the web UI exposed.
 
-## <i class="fab fa-node-js"></i> Metalsmith Plugins
+## <i class="fa-brands fa-node-js"></i> Metalsmith Plugins
 
 I have published a number of plugins for [Metalsmith](https://metalsmith.io/), a plugin-based static site generator originally from [Segment](https://segment.com/), to [npm](https://www.npmjs.com/settings/emmercm/packages).
 
@@ -122,7 +122,7 @@ A Metalsmith plugin to estimate pages' reading times, similar to Medium.
 
 A tool to automatically trace and measure Metalsmith build time.
 
-## <i class="fab fa-raspberry-pi"></i> Raspberry Pi Tools
+## <i class="fa-brands fa-raspberry-pi"></i> Raspberry Pi Tools
 
 I have written a number of Bash scripts for Raspberry Pi to automate building and installing kernels and drivers from source.
 
@@ -148,7 +148,7 @@ A script to build and install a Realtek RTL8812AU WiFi driver from source.
 
 A tool to automatically cast audio input from a Raspberry Pi.
 
-## <i class="far fa-robot"></i> FIRST Robotics Competition
+## <i class="fa-regular fa-robot"></i> FIRST Robotics Competition
 
 I have developed a number of applications for use in the [FIRST Robotics Competition](https://www.firstinspires.org/robotics/frc), a worldwide STEM competition for high school students.
 
