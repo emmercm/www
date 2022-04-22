@@ -1068,6 +1068,7 @@ tracer(Metalsmith(path.resolve()))
             // Anti-bot 404
             'fonts.gstatic.com$',
             'support.google.com',
+            'twitter.com',
             // Anti-bot 429 rate limiting
             'github.com',
             'linkedin.com/shareArticle',
