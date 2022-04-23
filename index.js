@@ -1076,7 +1076,7 @@ tracer(Metalsmith(path.resolve()))
             'github.com',
             'linkedin.com/shareArticle',
             // Temporary
-            'validator.w3.org/nu'
+            'renovatebot.com'
         ]
     })))
 
