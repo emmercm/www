@@ -32,6 +32,7 @@ import pagination       from 'metalsmith-pagination';
 import jsonld           from './lib/metalsmith-jsonld.js';
 import defaultValues    from '@metalsmith/default-values';
 import hbtmd            from './lib/metalsmith-hbt-md.js';
+import mermaid          from 'metalsmith-mermaid';
 import markdown         from '@metalsmith/markdown';
 import excerpts         from './lib/metalsmith-excerpts.js';
 import except           from 'metalsmith-except';
@@ -42,7 +43,6 @@ import layouts          from '@metalsmith/layouts';
 import jquery           from 'metalsmith-jquery';
 import openGraph        from 'metalsmith-open-graph';
 import twitterCard      from 'metalsmith-twitter-card';
-import beautify         from 'metalsmith-beautify';
 import concat           from 'metalsmith-concat';
 import glob             from 'metalsmith-html-glob';
 import relative         from 'metalsmith-html-relative';
@@ -457,6 +457,7 @@ tracer(Metalsmith(path.resolve()))
     .use(branch('blog/*/*.md')
         // Render the files
         .use(hbtmd(Handlebars))
+        .use(mermaid())
         .use(markdown({
             renderer: markdownRenderer
         }))
@@ -755,6 +756,7 @@ tracer(Metalsmith(path.resolve()))
     .use(hbtmd(Handlebars))
 
     // Convert markdown to HTML
+    .use(mermaid())
     .use(markdown({
         renderer: markdownRenderer
     }))
@@ -852,9 +854,6 @@ tracer(Metalsmith(path.resolve()))
      *     EXPAND AND CONCATENATE OUTPUT     *
      *                                       *
      *****************************************/
-
-    // Prod: expand HTML, CSS, and JavaScript
-    .use(msIf(prodBuild, beautify()))
 
     // Concatenate all un-minified JS (non-vendor first so they appear last)
     .use(concat({
@@ -1073,7 +1072,7 @@ tracer(Metalsmith(path.resolve()))
             'github.com',
             'linkedin.com/shareArticle',
             // Temporary
-            'validator.w3.org/nu'
+            'renovatebot.com'
         ]
     })))
 

@@ -80,4 +80,16 @@
       }
     }
   }
+
+  svg.mermaid {
+    .label text,
+    .label,
+    span {
+      color: $body-color !important;
+    }
+
+    .edgeLabel {
+      background-color: $light !important;
+    }
+  }
 }

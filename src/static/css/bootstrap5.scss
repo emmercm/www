@@ -134,9 +134,13 @@ $theme-colors: map-merge($theme-colors, (
   "git": #F03C2E,
   "github": #222222,
   "go": #00ACD7,
+  "gremlin": #0E6103FF,
+  "java": #F89917,
   "kubernetes": #316CE6,
   "metalsmith": #262727,
-  "node": #679E63
+  "mysql": #2C7493,
+  "node": #679E63,
+  "postgres": #336791
 ));
 
 $headings-color: $dark;
