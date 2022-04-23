@@ -857,7 +857,11 @@ tracer(Metalsmith(path.resolve()))
      *****************************************/
 
     // Prod: expand HTML, CSS, and JavaScript
-    .use(msIf(prodBuild, beautify()))
+    .use(msIf(prodBuild, beautify({
+        html: {
+            css: false
+        }
+    })))
 
     // Concatenate all un-minified JS (non-vendor first so they appear last)
     .use(concat({
