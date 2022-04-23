@@ -108,15 +108,24 @@ Related blog articles:
 
 ### [metalsmith-link-checker](https://github.com/emmercm/metalsmith-link-checker)
 
-A Metalsmith plugin to automatically check for broken links.
+A plugin to automatically check for broken links.
 
 Related blog articles:
 
 - [Linting Metalsmith Output HTML](/blog/linting-metalsmith-output-html)
 
+### [metalsmith-mermaid](https://github.com/emmercm/metalsmith-mermaid)
+
+A plugin to render [Mermaid](https://mermaid-js.github.io/mermaid/#/) diagrams written in plaintext to SVG, example:
+
+```mermaid
+flowchart LR
+  A[/This/]-->|is|B{{rendered}}-->|with|C[\Mermaid\]
+```
+
 ### [metalsmith-reading-time](https://github.com/emmercm/metalsmith-reading-time)
 
-A Metalsmith plugin to estimate pages' reading times, similar to Medium.
+A plugin to estimate pages' reading times, similar to Medium.
 
 ### [metalsmith-tracer](https://github.com/emmercm/metalsmith-tracer)
 

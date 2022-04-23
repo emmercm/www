@@ -32,6 +32,7 @@ import pagination       from 'metalsmith-pagination';
 import jsonld           from './lib/metalsmith-jsonld.js';
 import defaultValues    from '@metalsmith/default-values';
 import hbtmd            from './lib/metalsmith-hbt-md.js';
+import mermaid          from 'metalsmith-mermaid';
 import markdown         from '@metalsmith/markdown';
 import excerpts         from './lib/metalsmith-excerpts.js';
 import except           from 'metalsmith-except';
@@ -457,6 +458,7 @@ tracer(Metalsmith(path.resolve()))
     .use(branch('blog/*/*.md')
         // Render the files
         .use(hbtmd(Handlebars))
+        .use(mermaid())
         .use(markdown({
             renderer: markdownRenderer
         }))
@@ -755,6 +757,7 @@ tracer(Metalsmith(path.resolve()))
     .use(hbtmd(Handlebars))
 
     // Convert markdown to HTML
+    .use(mermaid())
     .use(markdown({
         renderer: markdownRenderer
     }))
