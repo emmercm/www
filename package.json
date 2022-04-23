@@ -44,7 +44,6 @@
     "marked": "^4.0.12",
     "metalsmith": "^2.4.2",
     "metalsmith-auto-collections": "^0.2.0",
-    "metalsmith-beautify": "^0.2.0",
     "metalsmith-branch": "^0.0.5",
     "metalsmith-build-info": "^1.0.1",
     "metalsmith-collection-metadata": "^1.0.0",

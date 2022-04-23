@@ -43,7 +43,6 @@ import layouts          from '@metalsmith/layouts';
 import jquery           from 'metalsmith-jquery';
 import openGraph        from 'metalsmith-open-graph';
 import twitterCard      from 'metalsmith-twitter-card';
-import beautify         from 'metalsmith-beautify';
 import concat           from 'metalsmith-concat';
 import glob             from 'metalsmith-html-glob';
 import relative         from 'metalsmith-html-relative';
@@ -855,13 +854,6 @@ tracer(Metalsmith(path.resolve()))
      *     EXPAND AND CONCATENATE OUTPUT     *
      *                                       *
      *****************************************/
-
-    // Prod: expand HTML, CSS, and JavaScript
-    .use(msIf(prodBuild, beautify({
-        html: {
-            css: false
-        }
-    })))
 
     // Concatenate all un-minified JS (non-vendor first so they appear last)
     .use(concat({
