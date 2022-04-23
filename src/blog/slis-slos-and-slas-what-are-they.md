@@ -1,7 +1,7 @@
 ---
 
 title: 'SLIs, SLOs, and SLAs: What Are They?'
-image: https://unsplash.com/photos/MHIw0nSxCR4
+image: https://unsplash.com/photos/0aqJNZ5tVBc
 date: 2020-05-11T18:03:00
 tags:
 - career

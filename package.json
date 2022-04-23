@@ -7,6 +7,7 @@
     "url": "https://github.com/emmercm/www/issues"
   },
   "author": "Christian Emmer",
+  "type": "module",
   "main": "index.js",
   "repository": {
     "type": "git",
@@ -91,5 +92,8 @@
     "postcss": "^8.4.6",
     "transliteration": "^2.2.0",
     "unsplash-js": "^7.0.15"
+  },
+  "engines": {
+    "node": "^12.20.0 || ^14.13.1 || >=16.0.0"
   }
 }
