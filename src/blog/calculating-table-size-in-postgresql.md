@@ -4,6 +4,7 @@ title: Calculating Table Size in PostgreSQL
 date: 2021-11-26T23:17:00
 tags:
 - databases
+- postgres
 
 ---
 
