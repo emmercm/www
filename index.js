@@ -814,11 +814,10 @@ tracer(Metalsmith(path.resolve()))
         $('a[href*="://"]').attr('target', '_blank');
         $('a[target="_blank"]').each((i, elem) => {
             $(elem).attr('rel', 'noopener');
-            const icon = '<i class="fa-regular fa-external-link fa-xs"></i>';
-            if($(elem).children().length === 0) {
-                $(elem).html(`${$(elem).html()} ${icon}`);
-            } else if($(elem).children().length === 1 && $(elem).children().first().prop('tagName') === 'CODE') {
-                $(icon).insertAfter($(elem).children().first());
+            if($(elem).children().length === 0 ||
+                ($(elem).children().length === 1 && $(elem).children().first().prop('tagName') === 'CODE')) {
+                    const immediateText = $(elem).contents().not($(elem).children()).text();
+                    $(elem).html(`${$(elem).html()}${immediateText ? ' ' : ''}<i class="fa-regular fa-external-link fa-xs"></i>`);
             }
         });
     }))
