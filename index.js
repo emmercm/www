@@ -308,11 +308,11 @@ tracer(Metalsmith(path.resolve()))
             }
             files[filename].image = imageUrlGenerator(blogImageSizes[0][0], blogImageSizes[0][1]);
             // TODO(cemmer): double check this is semantically right
-            files[filename].imageSources = blogImageSizes.slice(1)
+            files[filename].imageSources = blogImageSizes
                 .sort((res1, res2) => res2[0] - res1[0])
                 .map(resolution => `<source srcset="${imageUrlGenerator(resolution[0], resolution[1])}" media="(min-width:${resolution[0]}px)">`).join('');
             files[filename].thumb = imageUrlGenerator(blogImageThumbSizes[0][0], blogImageThumbSizes[0][1]);
-            files[filename].thumbSources = blogImageThumbSizes.slice(1)
+            files[filename].thumbSources = blogImageThumbSizes
                 .sort((res1, res2) => res2[0] - res1[0])
                 .map(resolution => `<source srcset="${imageUrlGenerator(resolution[0], resolution[1])}" media="(min-width:${resolution[0]}px)">`).join('');
         }, (err) => {
