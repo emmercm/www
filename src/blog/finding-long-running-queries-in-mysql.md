@@ -4,6 +4,7 @@ title: Finding Long-Running Queries in MySQL
 date: 2021-12-22T20:40:00
 tags:
 - databases
+- mysql
 
 ---
 

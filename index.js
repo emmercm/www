@@ -308,11 +308,11 @@ tracer(Metalsmith(path.resolve()))
             }
             files[filename].image = imageUrlGenerator(blogImageSizes[0][0], blogImageSizes[0][1]);
             // TODO(cemmer): double check this is semantically right
-            files[filename].imageSources = blogImageSizes.slice(1)
+            files[filename].imageSources = blogImageSizes
                 .sort((res1, res2) => res2[0] - res1[0])
                 .map(resolution => `<source srcset="${imageUrlGenerator(resolution[0], resolution[1])}" media="(min-width:${resolution[0]}px)">`).join('');
             files[filename].thumb = imageUrlGenerator(blogImageThumbSizes[0][0], blogImageThumbSizes[0][1]);
-            files[filename].thumbSources = blogImageThumbSizes.slice(1)
+            files[filename].thumbSources = blogImageThumbSizes
                 .sort((res1, res2) => res2[0] - res1[0])
                 .map(resolution => `<source srcset="${imageUrlGenerator(resolution[0], resolution[1])}" media="(min-width:${resolution[0]}px)">`).join('');
         }, (err) => {
@@ -814,11 +814,10 @@ tracer(Metalsmith(path.resolve()))
         $('a[href*="://"]').attr('target', '_blank');
         $('a[target="_blank"]').each((i, elem) => {
             $(elem).attr('rel', 'noopener');
-            const icon = '<i class="fa-regular fa-external-link fa-xs"></i>';
-            if($(elem).children().length === 0) {
-                $(elem).html(`${$(elem).html()} ${icon}`);
-            } else if($(elem).children().length === 1 && $(elem).children().first().prop('tagName') === 'CODE') {
-                $(icon).insertAfter($(elem).children().first());
+            if($(elem).children().length === 0 ||
+                ($(elem).children().length === 1 && $(elem).children().first().prop('tagName') === 'CODE')) {
+                    const immediateText = $(elem).contents().not($(elem).children()).text();
+                    $(elem).html(`${$(elem).html()}${immediateText ? ' ' : ''}<i class="fa-regular fa-external-link fa-xs"></i>`);
             }
         });
     }))

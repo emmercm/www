@@ -4,6 +4,7 @@ title: Making UUIDs More Performant in MySQL
 date: 2020-11-14T19:46:00
 tags:
 - databases
+- mysql
 
 ---
 

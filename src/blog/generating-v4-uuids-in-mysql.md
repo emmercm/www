@@ -4,6 +4,7 @@ title: Generating v4 UUIDs in MySQL
 date: 2020-11-13T22:43:00
 tags:
 - databases
+- mysql
 
 ---
 

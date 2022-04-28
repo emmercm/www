@@ -4,6 +4,7 @@ title: Faking Sequences in MySQL
 date: 2020-11-12T03:21:00
 tags:
 - databases
+- mysql
 
 ---
 
