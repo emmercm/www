@@ -143,6 +143,9 @@ $theme-colors: map-merge($theme-colors, (
   "postgres": #336791
 ));
 
+$table-bg-scale: -60%;
+$table-variants: map-loop($theme-colors, shift-color, "$value", $table-bg-scale);
+
 $headings-color: $dark;
 
 $link-color:       $primary; // default

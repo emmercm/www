@@ -127,6 +127,15 @@ markdownRenderer.heading = (text, level, raw) => {
         ${text}
         </h${level}>`;
 };
+markdownRenderer.table = (header, body) => {
+    if (body) {
+        body = `<tbody>${body}</tbody>`;
+    }
+    return `<table class="table table-bordered border-dark table-striped">
+        <thead class="table-dark">${header}</thead>
+        ${body}
+        </table>`;
+};
 markdownRenderer.code = (_code, infostring, escaped) => {
     const _highlight = (code, language) => highlight.getLanguage(language) ? highlight.highlight(code, {
         language,

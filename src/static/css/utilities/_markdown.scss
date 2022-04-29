@@ -88,8 +88,11 @@
       color: $body-color !important;
     }
 
-    .edgeLabel {
+    .edgeLabel,
+    .relationshipLabelBox {
       background-color: $light !important;
+      fill: $light !important;
+      opacity: 1 !important;
     }
   }
 }
