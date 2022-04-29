@@ -1,7 +1,7 @@
 ---
 
 title: Inner vs. Outer Joins
-date: 2022-04-29T23:09:00
+date: 2022-04-29T23:18:00
 tags:
 - databases
 
@@ -13,9 +13,9 @@ Across a few different companies now I've seen developers use outer joins, speci
 
 ## The differences
 
-_**Inner joins**_ are used to find the commonality between two or more tables. When an inner join is used, results will only be returned when matches are found between the two tables. This is the default type of join for most databases and is the join that people will want to use the gross majority of the time.
+**Inner joins** are used to find the commonality between two or more tables. When an inner join is used, results will only be returned when matches are found between the two tables. This is the default type of join for most databases and is the join that people will want to use the gross majority of the time.
 
-_**Outer joins**_ are used to optionally join two or more tables together. Depending on the direction used ("left" or "right"), one of the tables will have all of its results returned even if there are no matches in the other table. This has very specific use cases and should not be used by default.
+**Outer joins** are used to optionally join two or more tables together. Depending on the direction used ("left" or "right"), one of the tables will have all of its results returned even if there are no matches in the other table. This has very specific use cases and should not be used by default.
 
 ## Outer joins aren't commutative
 
@@ -80,7 +80,7 @@ You will get the 3 expected `orders` rows along with the associated customer's n
 | 2   | Dora | 27.20 |
 | 3   | Dora | 92.17 |
 
-But if you swap the places of those two tables you get different results:
+But if you swap the order of those two tables you get different results:
 
 ```sql
 SELECT o.id
@@ -97,7 +97,7 @@ LEFT OUTER JOIN orders o ON o.customer_id = c.id;
 | 3      | Dora   | 92.17  |
 | (null) | Isabel | (null) |
 
-_Why is that?_ It's because "outer" joins do not require matches between the two tables. The direction of the outer join ("left" or "right") determines which table will have all of its rows returned, and which table will have rows optionally matched.
+_Why is that?_ It's because "outer" joins do not _require_ matches between the two tables. The direction of the outer join ("left" or "right") determines which table will have all of its rows returned, and which table will have rows optionally matched.
 
 In the last query above, the `customers` table is on the "left" and because we used a `LEFT OUTER JOIN` we will have every row from that table returned. The `orders` table is on the "right" so it will be _optionally_ joined to `customers`.
 
@@ -204,7 +204,7 @@ WHERE cr.reward_level = 1;
 
 **When optional/nullable results are acceptable or expected.**
 
-There is no restriction in our database that every customer must have a reward level. We might have a use case for querying every customer in the database, also including reward level if it exists.
+There is no restriction in our database that every customer must have a reward level. We might have a use case for querying every customer in the database, also including their reward level, if it exists.
 
 If we add a fourth customer Lloyd, but we don't give him a reward level, here would be our results:
 
@@ -225,24 +225,24 @@ LEFT JOIN customer_rewards cr ON cr.customer_id = c.id;
 
 **When a category/grouping is well-defined but related data is sparse.**
 
-If add a new table `countries` which contains the five most populous countries in North America:
+If we add a new table `countries` which contains the five most populous countries in North America:
 
-| id  | name          |
-|-----|---------------|
-| 1   | United States |
-| 2   | Mexico        |
-| 3   | Canada        |
-| 4   | Guatemala     |
-| 5   | Cuba          |
+| countries: id | name          |
+|---------------|---------------|
+| 1             | United States |
+| 2             | Mexico        |
+| 3             | Canada        |
+| 4             | Guatemala     |
+| 5             | Cuba          |
 
 And assign each of our customers a country:
 
-| id  | name   | country_id        |
-|-----|--------|-------------------|
-| 1   | Isabel | 2 (Mexico)        |
-| 2   | Roy    | 1 (United States) |
-| 3   | Dora   | 3 (Canada)        |
-| 4   | Lloyd  | 1 (United States) |
+| customers: id | name   | country_id        |
+|---------------|--------|-------------------|
+| 1             | Isabel | 2 (Mexico)        |
+| 2             | Roy    | 1 (United States) |
+| 3             | Dora   | 3 (Canada)        |
+| 4             | Lloyd  | 1 (United States) |
 
 We can find how many customers we have in every country, even if there are none in the country:
 
@@ -278,14 +278,6 @@ SELECT * FROM orders o RIGHT JOIN customers c ON o.customer_id = c.id;
 SELECT * FROM orders o RIGHT OUTER JOIN customers c ON o.customer_id = c.id;
 ```
 
----
+## Summary
 
-CREATE TABLE customers (id SERIAL PRIMARY KEY, name VARCHAR NOT NULL);
-CREATE TABLE orders (id SERIAL PRIMARY KEY, customer_id INT NOT NULL REFERENCES customers(id), total NUMERIC);
-CREATE TABLE customer_rewards (id SERIAL PRIMARY KEY, customer_id INT NOT NULL REFERENCES customers(id), reward_level INT NOT NULL);
-CREATE TABLE countries (id SERIAL PRIMARY KEY, name VARCHAR NOT NULL);
-
-INSERT INTO customers (name) VALUES ('Isabel'), ('Roy'), ('Dora');
-INSERT INTO orders (customer_id, total) VALUES (2, 51.26), (3, 27.20), (3, 92.17);
-INSERT INTO customer_rewards (customer_id, reward_level) VALUES (1, 1), (2, 1), (3, 2);
-INSERT INTO countries (name) VALUES ('United States'), ('Mexico'), ('Canada'), ('Guatemala'), ('Cuba');
+There are other types of joins such as "cross" joins and "full outer" joins that we didn't cover here, but hopefully this helps clarify when and where you would want to use an outer join over an inner join.
