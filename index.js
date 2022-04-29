@@ -1071,7 +1071,6 @@ tracer(Metalsmith(path.resolve()))
             'github.com',
             'linkedin.com/shareArticle',
             // Temporary
-            'renovatebot.com'
         ]
     })))
 
