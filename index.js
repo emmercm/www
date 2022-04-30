@@ -1031,6 +1031,8 @@ tracer(Metalsmith(path.resolve()))
         minifierOptions: {
             // Fix metalsmith-html-minifier defaults
             removeAttributeQuotes: false,
+            // Fix html-minifier defaults
+            decodeEntities: true, // needed for double quotes inside attribute values
             // Additional minification rules
             minifyCSS: true,
             minifyJS: true,
