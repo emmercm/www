@@ -63,7 +63,7 @@ Most common relational databases (ignoring SQLite) have support for UUIDs:
 
 ## Reasons to not use UUIDs for primary keys
 
-UUIDs aren't a magic bullet, there's trade-offs, and it's important to understand them.
+UUIDs aren't a magic bullet, there are trade-offs, and it's important to understand them.
 
 1. **UUIDs are larger.**
 

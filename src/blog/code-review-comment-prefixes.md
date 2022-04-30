@@ -19,9 +19,7 @@ On the extreme end, some comments could be interpreted as _hostile_, depending o
 
 Something I've seen work effectively is to _prefix_ code review comments with a word or two to declare the intention and to set the tone. Below are some suggested prefixes, in increasing order of severity.
 
-<!-- markdownlint-disable MD001 -->
-
-##### **Props/praise:**
+### Props/praise
 
 For when you want to thank someone for their work. Maybe it pays down tech debt, makes other developers' lives better, or taught you something.
 
@@ -31,7 +29,7 @@ For when you want to thank someone for their work. Maybe it pays down tech debt,
 
 Comments like these help set a positive tone of the review.
 
-##### **Question:**
+### Question
 
 This is to ask for clarification on something - code organization, architecture paradigm, business logic, overall goal - something. Questions don't ask for changes, but the answer to questions may inform future suggestions or blocking comments.
 
@@ -43,7 +41,7 @@ This is to ask for clarification on something - code organization, architecture 
 
 Try to avoid the word "why" as it sounds accusatory.
 
-##### **Nit/nitpick/opinion:**
+### Nit/nitpick/opinion
 
 An unimportant, potentially opinionated comment that doesn't have to be addressed in order for the entire change to receive approval. This prefix indicates possible [bike-shedding](https://en.wikipedia.org/wiki/Law_of_triviality) to the author, so it can help keep them focused on other, larger feedback.
 
@@ -53,7 +51,7 @@ An unimportant, potentially opinionated comment that doesn't have to be addresse
 
 > Nit: this test could be split up into multiple tests, that way each test has only one responsibility.
 
-##### **Suggestion/FYI:**
+### Suggestion/FYI
 
 A less opinionated comment offering an alternative solution, or pointing the author to some information that might be unknown.
 
@@ -63,7 +61,7 @@ A less opinionated comment offering an alternative solution, or pointing the aut
 
 > Suggestion: using a guard clause here could help reduce nested conditionals.
 
-##### **Convention:**
+### Convention
 
 Pointing out code that doesn't conform to organizational standards. Ideally this would be enforced automatically with a linter or some other tool.
 
@@ -71,7 +69,7 @@ Pointing out code that doesn't conform to organizational standards. Ideally this
 
 > Convention: we follow PHP PSR-2 code style, the opening curly brace should be on the next line.
 
-##### **Blocking:**
+### Blocking
 
 The only type of comment that should cause "request changes". This is to call out architecture, performance, security, or other major issues.
 

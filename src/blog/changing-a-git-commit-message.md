@@ -149,7 +149,7 @@ And again because the remote repository doesn't know about this commit yet, we d
 
 In the first two scenarios we corrected commits that haven't been pushed yet, only making changes to our local repository. To correct the misspelling in the very first commit message, we'll again use the "[interactive rebase](https://git-scm.com/book/en/v2/Git-Tools-Rewriting-History)" command, but we'll also need to "force push" the branch to the remote repository afterwards.
 
-**Warnings:**
+**Warnings**:
 
 - History rewriting has the potential of being destructive - make a local backup of your project folder, along with its `.git` folder, so you can recover from any incorrect commands.
 - Other people who have cloned or forked your repository will not have their copy fixed with `git pull`, they will also need to do some manual work (not covered here).

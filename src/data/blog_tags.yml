@@ -43,6 +43,16 @@ go:
   icon: fa-regular fa-brackets-curly
   color: go
 
+gremlin:
+  title: Gremlin
+  icon:
+  color: gremlin
+
+java:
+  title: Java
+  icon: fa-brands fa-java
+  color: java
+
 kubernetes:
   title: Kubernetes
   icon: fa-regular fa-dharmachakra
@@ -58,10 +68,20 @@ microservices:
   icon: fa-regular fa-brackets-curly
   color: indigo
 
+mysql:
+  title: MySQL
+  icon: fa-regular fa-dolphin
+  color: mysql
+
 node.js:
   title: Node.js
   icon: fa-brands fa-node-js
   color: node
+
+postgres:
+  title: PostgreSQL
+  icon: fa-regular fa-elephant
+  color: postgres
 
 shell:
   title: Shell

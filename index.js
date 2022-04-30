@@ -1,83 +1,89 @@
 'use strict';
 
-const path = require('path');
+import path from 'path';
 
-const Metalsmith = require('metalsmith');
-const tracer     = require('metalsmith-tracer');
-const msIf       = require('metalsmith-if');
+import Metalsmith from 'metalsmith';
+import tracer     from 'metalsmith-tracer';
+import msIf       from 'metalsmith-if';
 
-const env              = require('metalsmith-env');
-const buildinfo        = require('metalsmith-build-info');
-const metaDirectory    = require('metalsmith-metadata-directory');
-const githubProfile    = require('metalsmith-github-profile');
-const gravatar         = require('metalsmith-gravatar');
-const drafts           = require('@metalsmith/drafts');
-const validate         = require('metalsmith-validate');
-const dataLoader       = require('metalsmith-data-loader');
-const sass             = require('@metalsmith/sass');
-const postcss          = require('@metalsmith/postcss');
-const include          = require('metalsmith-include-files');
-const renamer          = require('metalsmith-renamer');
-const remove           = require('@metalsmith/remove');
-const copy             = require('metalsmith-copy');
-const discoverHelpers  = require('metalsmith-discover-helpers');
-const discoverPartials = require('metalsmith-discover-partials');
-const collect          = require('metalsmith-auto-collections');
-const collectionMeta   = require('metalsmith-collection-metadata');
-const permalinks       = require('@metalsmith/permalinks');
-const paths            = require('metalsmith-paths');
-const branch           = require('metalsmith-branch');
-const readingTime      = require('metalsmith-reading-time');
-const pagination       = require('metalsmith-pagination')
-const jsonld           = require('./lib/metalsmith-jsonld');
-const defaultValues    = require('@metalsmith/default-values');
-const hbtmd            = require('./lib/metalsmith-hbt-md');
-const markdown         = require('@metalsmith/markdown');
-const excerpts         = require('./lib/metalsmith-excerpts');
-const except           = require('metalsmith-except');
-const feed             = require('metalsmith-feed');
-const related          = require('metalsmith-collections-related');
-const favicons         = require('metalsmith-favicons');
-const layouts          = require('@metalsmith/layouts');
-const jquery           = require('metalsmith-jquery');
-const openGraph        = require('metalsmith-open-graph');
-const twitterCard      = require('metalsmith-twitter-card');
-const beautify         = require('metalsmith-beautify');
-const concat           = require('metalsmith-concat');
-const glob             = require('metalsmith-html-glob');
-const relative         = require('metalsmith-html-relative');
-const htmlUnused       = require('metalsmith-html-unused');
-const uglify           = require('metalsmith-uglify');
-const cssUnused        = require('metalsmith-css-unused');
-const htmlMinifier     = require('metalsmith-html-minifier');
-const sri              = require('metalsmith-html-sri');
-const sitemap          = require('metalsmith-sitemap');
-const linter           = require('metalsmith-html-linter');
-const linkChecker      = require('metalsmith-link-checker');
-const robots           = require('metalsmith-robots');
+import env              from 'metalsmith-env';
+import buildinfo        from 'metalsmith-build-info';
+import metaDirectory    from 'metalsmith-metadata-directory';
+import githubProfile    from 'metalsmith-github-profile';
+import gravatar         from 'metalsmith-gravatar';
+import drafts           from '@metalsmith/drafts';
+import validate         from 'metalsmith-validate';
+import dataLoader       from 'metalsmith-data-loader';
+import sass             from '@metalsmith/sass';
+import postcss          from '@metalsmith/postcss';
+import include          from 'metalsmith-include-files';
+import renamer          from 'metalsmith-renamer';
+import remove           from '@metalsmith/remove';
+import copy             from 'metalsmith-copy';
+import discoverHelpers  from 'metalsmith-discover-helpers';
+import discoverPartials from 'metalsmith-discover-partials';
+import collect          from 'metalsmith-auto-collections';
+import collectionMeta   from 'metalsmith-collection-metadata';
+import permalinks       from '@metalsmith/permalinks';
+import paths            from 'metalsmith-paths';
+import branch           from 'metalsmith-branch';
+import readingTime      from 'metalsmith-reading-time';
+import pagination       from 'metalsmith-pagination';
+import jsonld           from './lib/metalsmith-jsonld.js';
+import defaultValues    from '@metalsmith/default-values';
+import hbtmd            from './lib/metalsmith-hbt-md.js';
+import mermaid          from 'metalsmith-mermaid';
+import markdown         from '@metalsmith/markdown';
+import excerpts         from './lib/metalsmith-excerpts.js';
+import except           from 'metalsmith-except';
+import feed             from 'metalsmith-feed';
+import related          from 'metalsmith-collections-related';
+import favicons         from 'metalsmith-favicons';
+import layouts          from '@metalsmith/layouts';
+import jquery           from 'metalsmith-jquery';
+import openGraph        from 'metalsmith-open-graph';
+import twitterCard      from 'metalsmith-twitter-card';
+import concat           from 'metalsmith-concat';
+import glob             from 'metalsmith-html-glob';
+import relative         from 'metalsmith-html-relative';
+import htmlUnused       from 'metalsmith-html-unused';
+import uglify           from 'metalsmith-uglify';
+import cssUnused        from 'metalsmith-css-unused';
+import htmlMinifier     from 'metalsmith-html-minifier';
+import sri              from 'metalsmith-html-sri';
+import sitemap          from 'metalsmith-sitemap';
+import linter           from 'metalsmith-html-linter';
+import linkChecker      from 'metalsmith-link-checker';
+import robots           from 'metalsmith-robots';
 
-const async           = require('async');
-const highlight       = require('highlight.js');
-const marked          = require('marked');
-const minimatch       = require('minimatch');
-const {DateTime}      = require('luxon');
-const transliteration = require('transliteration');
+import collections from '@metalsmith/collections';
+
+import async           from 'async';
+import highlight       from 'highlight.js';
+import {marked}        from 'marked';
+import minimatch       from 'minimatch';
+import {DateTime}      from 'luxon';
+import transliteration from 'transliteration';
 
 // Register Handlebars helper libraries
-const Handlebars = require('handlebars');
-require('handlebars-helpers')({
+import Handlebars from 'handlebars';
+import helpers from 'handlebars-helpers';
+helpers({
     handlebars: Handlebars
 });
 
 // Set up Unsplash SDK
-global.fetch   = require('node-fetch');
-const Unsplash = require('unsplash-js');
+import fetch from 'node-fetch';
+if (!globalThis.fetch) {
+    globalThis.fetch = fetch;
+}
+import Unsplash from 'unsplash-js';
 const unsplash = Unsplash.createApi({
     accessKey: process.env.UNSPLASH_ACCESS_KEY,
     secret: process.env.UNSPLASH_SECRET_KEY
 });
 
-const { blogImage, backgroundImage } = require('./lib/sharp');
+import { blogImage, backgroundImage } from './lib/sharp.js';
 
 const prodBuild = (process.env.NODE_ENV || 'development').toLowerCase() === 'production';
 const prodDeploy = process.env.NETLIFY && process.env.CONTEXT === 'production';
@@ -120,6 +126,15 @@ markdownRenderer.heading = (text, level, raw) => {
         </a>
         ${text}
         </h${level}>`;
+};
+markdownRenderer.table = (header, body) => {
+    if (body) {
+        body = `<tbody>${body}</tbody>`;
+    }
+    return `<table class="table table-bordered border-dark table-striped">
+        <thead class="table-dark">${header}</thead>
+        ${body}
+        </table>`;
 };
 markdownRenderer.code = (_code, infostring, escaped) => {
     const _highlight = (code, language) => highlight.getLanguage(language) ? highlight.highlight(code, {
@@ -165,7 +180,7 @@ markdownRenderer.code = (_code, infostring, escaped) => {
     return `<pre><code class="language-${escape(lang, true)}">${escaped ? _code : escape(_code, true)}</code></pre>\n`;
 };
 
-tracer(Metalsmith(__dirname))
+tracer(Metalsmith(path.resolve()))
     /***********************
      *                     *
      *     SETUP INPUT     *
@@ -302,11 +317,11 @@ tracer(Metalsmith(__dirname))
             }
             files[filename].image = imageUrlGenerator(blogImageSizes[0][0], blogImageSizes[0][1]);
             // TODO(cemmer): double check this is semantically right
-            files[filename].imageSources = blogImageSizes.slice(1)
+            files[filename].imageSources = blogImageSizes
                 .sort((res1, res2) => res2[0] - res1[0])
                 .map(resolution => `<source srcset="${imageUrlGenerator(resolution[0], resolution[1])}" media="(min-width:${resolution[0]}px)">`).join('');
             files[filename].thumb = imageUrlGenerator(blogImageThumbSizes[0][0], blogImageThumbSizes[0][1]);
-            files[filename].thumbSources = blogImageThumbSizes.slice(1)
+            files[filename].thumbSources = blogImageThumbSizes
                 .sort((res1, res2) => res2[0] - res1[0])
                 .map(resolution => `<source srcset="${imageUrlGenerator(resolution[0], resolution[1])}" media="(min-width:${resolution[0]}px)">`).join('');
         }, (err) => {
@@ -353,7 +368,10 @@ tracer(Metalsmith(__dirname))
      ***********************/
 
     // Find Handlebars helpers
-    .use(discoverHelpers())
+    .use(discoverHelpers({
+        directory: 'helpers',
+        pattern: /\.c?js$/
+    }))
 
     // Find Handlebars partials
     .use(discoverPartials({
@@ -448,6 +466,7 @@ tracer(Metalsmith(__dirname))
     .use(branch('blog/*/*.md')
         // Render the files
         .use(hbtmd(Handlebars))
+        .use(mermaid())
         .use(markdown({
             renderer: markdownRenderer
         }))
@@ -498,9 +517,6 @@ tracer(Metalsmith(__dirname))
 
     .use((files, metalsmith, done) => {
         // TODO: metalsmith-tag-collections
-
-        const minimatch = require('minimatch');
-        const collections = require('@metalsmith/collections');
 
         const options = {
             pattern: 'blog/**',
@@ -749,6 +765,7 @@ tracer(Metalsmith(__dirname))
     .use(hbtmd(Handlebars))
 
     // Convert markdown to HTML
+    .use(mermaid())
     .use(markdown({
         renderer: markdownRenderer
     }))
@@ -806,11 +823,10 @@ tracer(Metalsmith(__dirname))
         $('a[href*="://"]').attr('target', '_blank');
         $('a[target="_blank"]').each((i, elem) => {
             $(elem).attr('rel', 'noopener');
-            const icon = '<i class="fa-regular fa-external-link fa-xs"></i>';
-            if($(elem).children().length === 0) {
-                $(elem).html(`${$(elem).html()} ${icon}`);
-            } else if($(elem).children().length === 1 && $(elem).children().first().prop('tagName') === 'CODE') {
-                $(icon).insertAfter($(elem).children().first());
+            if($(elem).children().length === 0 ||
+                ($(elem).children().length === 1 && $(elem).children().first().prop('tagName') === 'CODE')) {
+                    const immediateText = $(elem).contents().not($(elem).children()).text();
+                    $(elem).html(`${$(elem).html()}${immediateText ? ' ' : ''}<i class="fa-regular fa-external-link fa-xs"></i>`);
             }
         });
     }))
@@ -846,9 +862,6 @@ tracer(Metalsmith(__dirname))
      *     EXPAND AND CONCATENATE OUTPUT     *
      *                                       *
      *****************************************/
-
-    // Prod: expand HTML, CSS, and JavaScript
-    .use(msIf(prodBuild, beautify()))
 
     // Concatenate all un-minified JS (non-vendor first so they appear last)
     .use(concat({
@@ -1018,6 +1031,8 @@ tracer(Metalsmith(__dirname))
         minifierOptions: {
             // Fix metalsmith-html-minifier defaults
             removeAttributeQuotes: false,
+            // Fix html-minifier defaults
+            decodeEntities: true, // needed for double quotes inside attribute values
             // Additional minification rules
             minifyCSS: true,
             minifyJS: true,
@@ -1062,11 +1077,11 @@ tracer(Metalsmith(__dirname))
             // Anti-bot 404
             'fonts.gstatic.com$',
             'support.google.com',
+            'twitter.com',
             // Anti-bot 429 rate limiting
             'github.com',
             'linkedin.com/shareArticle',
             // Temporary
-            'validator.w3.org/nu'
         ]
     })))
 
