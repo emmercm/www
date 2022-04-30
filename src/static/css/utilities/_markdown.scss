@@ -72,8 +72,8 @@
     padding-left: $ul-padding;
   }
   li {
-    margin-top: map_get($spacers, 0);
-    margin-bottom: map_get($spacers, 0);
+    margin-top: map-get($spacers, 0);
+    margin-bottom: map-get($spacers, 0);
     & > pre {
       @media (min-width: map-get($grid-breakpoints, "md")) {
         margin-right: $ul-padding;
@@ -81,13 +81,33 @@
     }
   }
 
-  svg.mermaid {
+  .bg-light svg.mermaid {
     .label text,
     .label,
     span {
       color: $body-color !important;
     }
 
+    // @mixin table-variant
+    $table-background: map-get($table-variants, 'dark');
+    $table-color: color-contrast(opaque($body-bg, $table-background));
+    $table-striped-bg: mix($table-color, $table-background, percentage($table-striped-bg-factor));
+
+    // erDiagram
+    .entityBox {
+      fill: $table-background !important;
+      stroke: mix($table-color, $table-background, percentage($table-border-factor)) !important;
+    }
+    .attributeBoxOdd {
+      fill: $light !important;
+      stroke: $dark !important;
+    }
+    .attributeBoxEven {
+      fill: darken($light, $table-striped-bg-factor * 100) !important;
+      stroke: $dark !important;
+    }
+
+    // Get rid of colored rectangles behind line labels
     .edgeLabel,
     .relationshipLabelBox {
       background-color: $light !important;
