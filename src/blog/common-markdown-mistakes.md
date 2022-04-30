@@ -241,7 +241,7 @@ console.log("Hello world!");
 
 ##### **Using HTML tags**
 
-Most markdown renderers will interpret HTML tags as syntax rather than content, so using unescaped HTML tags could give unexpected results. When using HTML tags for formatting, try to see if there's native markdown syntax to achieve the same thing instead.
+Most markdown renderers will interpret HTML tags as syntax rather than content, so using unescaped HTML tags could give unexpected results. When using HTML tags for formatting, try to see if there's a native Markdown syntax to achieve the same thing instead.
 
 Incorrect:
 

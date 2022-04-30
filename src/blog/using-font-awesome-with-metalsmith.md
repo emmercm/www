@@ -33,13 +33,13 @@ npm install --save @fortawesome/fontawesome-free
 
 ### Why not use a CDN?
 
-This is a pretty obvious question, and a completely valid one. There's a lot of advantages to using a CDN:
+This is a pretty obvious question, and a completely valid one. There are a lot of advantages to using a CDN:
 
 - Edge servers closer to the visitor decrease download times.
 - Reduced bandwidth costs on your primary server.
 - Visitors may already have the assets cached from visiting a different site.
 
-But there's also a number of reasons to not use a CDN:
+But there are also a number of reasons to not use a CDN:
 
 - Having fixed package versions allows for reproducible builds.
 - After a one time package install it allows for entirely offline builds.

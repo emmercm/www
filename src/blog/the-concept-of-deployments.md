@@ -33,7 +33,7 @@ First, if you have tests for your code, make sure those are passing. I consider 
 
 And then second, have others reviewed it? The more eyes on the code the better - everyone brings a different way of thinking and a different set of skills.
 
-Depending on the development environments available to you it's also a good idea to test your code in a prod-like or staging environment. This will help highlight any errors in the code or deployment itself. This also allows stakeholders to make sure your changes meet their acceptance criteria.
+Depending on the development environments available to you, it's also a good idea to test your code in a prod-like or staging environment. This will help highlight any errors in the code or deployment itself. This also allows stakeholders to make sure your changes meet their acceptance criteria.
 
 Depending on your organization's structure you may want a QA engineer to test your changes as well. They have the skills and training to look for issues that others might miss.
 
@@ -67,7 +67,7 @@ An often forgotten step of deployment is ensuring the code deployed is actually 
 
 > It works on both my machine and in staging, shouldn't it work in production? Why do I need to check?
 
-There's always differences in environments, and differences like higher load at scale can make code behave differently.
+There are always differences in environments, and differences like higher load at scale can make code behave differently.
 
 You should also check the code is working before communicating it's live to others, it's pretty embarrassing when someone else catches your mistakes.
 
@@ -101,7 +101,7 @@ Be mindful of any extra steps such as reversing database migrations if required.
 
 ### Then revert out the bad code
 
-Immediately after deploying the old version you need to revert the bad code out. I consider this non-optional. This is to protect the next person who deploys the same codebase from including the bad code again in their deploy.
+Immediately after deploying the old version you need to revert the bad code out. I consider this non-optional. This is to protect the next person who deploys the same codebase from including the bad code again in their deployment.
 
 In GitHub, at the bottom of pull request pages there exists a "revert" button on the same line as the merge status - this can create a new revert pull request for you.
 
@@ -109,4 +109,4 @@ After the bad code has been reverted out of the branch only then is it safe to s
 
 ## Conclusion
 
-Every developer breaks production at least a couple times in their career, but hopefully it's treated as a learning moment rather than a time to place blame. Keep in mind all the questions posed here and it's likely you'll make fewer mistakes. Eventually deployments will become second nature!
+Every developer breaks production at least a couple of times in their career, but hopefully it's treated as a learning moment rather than a time to place blame. If you keep in mind all the questions posed here it's likely you'll make fewer mistakes. Eventually deployments will become second nature!

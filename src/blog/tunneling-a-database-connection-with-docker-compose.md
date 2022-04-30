@@ -13,7 +13,7 @@ I recently had the need to tunnel a database connection from a local Docker cont
 
 ## First Option: Tunnel from the Host
 
-Because containers are [intended to be ephemeral](https://docs.docker.com/develop/develop-images/dockerfile_best-practices/#create-ephemeral-containers) an obvious solution is to open a long-running tunnel on the host machine:
+Because containers are [intended to be ephemeral](https://docs.docker.com/develop/develop-images/dockerfile_best-practices/#create-ephemeral-containers), an obvious solution is to open a long-running tunnel on the host machine:
 
 ```bash
 ssh -nNT -L 3306:dev-mysql.abcd1234.us-east-1.rds.amazonaws.com:3306 ubuntu@52.0.0.0
