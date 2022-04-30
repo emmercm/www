@@ -60,6 +60,8 @@ gremlin>
 
 This will open an interactive Gremlin console that you can exit from at any time with the `:exit` command.  The container won't maintain state between sessions, so you can always exit and open a new session for a fresh set of data.
 
+_My recommendation is to change the [`tinkerpop/gremlin-console` tag](https://hub.docker.com/r/tinkerpop/gremlin-console/tags) from `latest` to whatever version your server is compatible with, such as `tinkerpop/gremlin-console:3.4.1`._
+
 Let's create a graph, and then create a "traversal source" that uses that graph:
 
 ```shell
