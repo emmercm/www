@@ -53,7 +53,7 @@ local-mysql
 
 I don't trust myself to remember to stop and remove detached Docker containers when I'm done, so here is a single command that will start and stop everything:
 
-```shell
+```bash
 CONTAINER_ID=$(docker run --env MYSQL_ROOT_PASSWORD=mysecretpassword --detach mysql:latest) &&
   docker exec "${CONTAINER_ID}" mysqladmin ping --wait --silent &&
   docker exec --interactive --tty "${CONTAINER_ID}" mysql --password=mysecretpassword &&

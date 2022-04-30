@@ -102,7 +102,7 @@ bash: whence: command not found
 
 The solution is fairly straightforward - if we want to find files in `$PATH`, then let's write a function to look in `$PATH` and only `$PATH`. Here's a shell-agnostic function dubbed `pinpoint` that's easy to add to dotfiles:
 
-```shell
+```bash
 pinpoint() {
     while read -r DIR; do
         if [[ -f "${DIR}/$1" ]]; then
