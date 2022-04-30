@@ -27,7 +27,7 @@ There are some other ways to [install](https://github.com/hadolint/hadolint#inst
 
 ## Configuration
 
-There's really only two things you can configure about `hadolint`:
+There are really only two things you can configure about `hadolint`:
 
 - What `hadolint` and ShellCheck rules to ignore
 - What container registries are "trusted"

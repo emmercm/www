@@ -12,7 +12,7 @@ The `RUN`, `ENTRYPOINT`, and `CMD`, instructions all have two different forms th
 
 ## The two forms
 
-1. **Shell form:**
+1. **Shell form**:
 
     Commands are written without `[]` brackets and are run by the container's shell, such as `/bin/sh -c`. Example:
 
@@ -28,7 +28,7 @@ The `RUN`, `ENTRYPOINT`, and `CMD`, instructions all have two different forms th
 
     Depending on the shell, commands will execute as child processes of the shell, which has some potentially negative consequences at the cost of some features, described below.
 
-2. **Exec form:**
+2. **Exec form**:
 
     Commands are written with `[]` brackets and are run directly, not through a shell. Example:
 

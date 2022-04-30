@@ -91,7 +91,7 @@ f62390c (HEAD -> main) HEAD@{3}: commit: Good commit
 
 Undoing the commits on the remote repository.
 
-**Warnings:**
+**Warnings**:
 
 - History rewriting has the potential of being destructive - make a local backup of your project folder, along with its `.git` folder, so you can recover from any incorrect commands.
 - Other people who have cloned or forked your repository will not have their copy fixed with `git pull`, they will also need to do some manual work (not covered here).

@@ -11,7 +11,7 @@ Restarting resources such as deployments in Kubernetes is a fairly common task, 
 
 _Kubernetes v1.15 was released on Jun 19, 2019. See "[Restarting Deployments in Kubernetes Before v1.15](/blog/restarting-deployments-in-kubernetes-before-v1.15)" for the older method._
 
-There's a bunch of reasons why you'd want to restart a resource in Kubernetes:
+There are a bunch of reasons why you'd want to restart a resource in Kubernetes:
 
 - The code running in a pod is in a "hung" state and liveness probes don't exist or aren't ejecting it.
 - A config map has changed and a deployment restart is needed for it to be applied.

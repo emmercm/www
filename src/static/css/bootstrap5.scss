@@ -145,6 +145,7 @@ $theme-colors: map-merge($theme-colors, (
 
 $table-bg-scale: -60%;
 $table-variants: map-loop($theme-colors, shift-color, "$value", $table-bg-scale);
+$table-striped-order: even;
 
 $headings-color: $dark;
 
