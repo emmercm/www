@@ -104,7 +104,7 @@
                             {{>gravatar size=56 class="me-3 rounded-circle img-thumbnail bg-dark border-0"}}
                             <div class="media-body">
                                 <div>{{ sitename }}</div>
-                                <div class="text-muted">{{luxon this.date "MMM d, yyyy"}} &middot; {{readingTime}}</div>
+                                <div class="text-muted"><span title="{{luxon this.date "fff"}}">{{luxon this.date "DD"}}</span> &middot; {{readingTime}}</div>
                             </div>
                         </div>
                         <div class="d-flex flex-nowrap">
