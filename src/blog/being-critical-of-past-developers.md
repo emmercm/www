@@ -14,7 +14,9 @@ Something I touched on a little in "[Pull Requests Welcome™](/blog/pull-reques
 
 ## Having empathy
 
-We probably don't know what pressures those people were under, what was being demanded of them, what political games were being played, what kind of tooling they had available to them, or even what was going on in their personal life at the time.
+We probably don't know what pressures those people were under, what was being demanded of them, what political games were being played, what kind of tooling they had available to them, or even what was going on in their personal lives at the time.
+
+See "[Avoiding Blanket Statements](/blog/avoiding-blanket-statements/)" on why statements that assume negative intent can be hurtful to others, and what techniques can be used instead.
 
 Just think about all the times you've read your own, old code and thought "what was I thinking?" It's probably because you've grown as a developer - something that's expected, almost required of us. So we can make a safe assumption that the original developer has also grown, at least some, and maybe they also would write the same code differently now.
 
