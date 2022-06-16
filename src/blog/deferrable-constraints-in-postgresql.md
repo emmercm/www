@@ -1,8 +1,9 @@
 ---
 
 title: Deferrable Constraints in PostgreSQL
-date: 2022-05-26T23:48:00
+date: 2022-06-16T01:19:00
 tags:
+- databases
 - postgres
 
 ---
@@ -66,7 +67,7 @@ And we can see that indeed the unique constraint is `NOT DEFERRABLE` (`deferrabl
 When a constraint is `DEFERRED` it is not validated until transaction commit. A constraint can be `DEFERRED` two different ways:
 
 - The constraint can be created as `DEFERRABLE INITIALLY DEFERRED` which will set the constraint to `DEFERRED` by default
-- The constraint can be temporarily `DEFERRED` with `SET CONSTRAINTS <name> DEFERRED;`, but only if it is `DEFERRABLE`
+- The constraint can be temporarily `DEFERRED` with `SET CONSTRAINTS <name> DEFERRED;` or `SET CONSTRAINTS ALL DEFERRED;`, but only if it is `DEFERRABLE`
 
 ## Changing the constraint
 
@@ -113,7 +114,7 @@ Under the [`ALTER TABLE` documentation](https://www.postgresql.org/docs/current/
 
 > `ALTER CONSTRAINT constraint_name [ DEFERRABLE | NOT DEFERRABLE ] [ INITIALLY DEFERRED | INITIALLY IMMEDIATE ]`
 
-This gives us three different combination of settings we can create constraints with:
+This gives us three different combinations of settings we can create constraints with:
 
 1. **`NOT DEFERRABLE [INITIALLY IMMEDIATE]` (default)**
 
@@ -149,39 +150,44 @@ In addition to the above example where a unique column might have a conflict dur
 
 - **Creating a circular reference between two tables.**
 
-    I think this is a terrible idea and that you shouldn't do it, but maybe you have a good reason. Here are some inserts in a transaction that only work because the foreign key constraints are deferred:
+    I think this is a terrible idea and that you shouldn't do it, but maybe you have a valid use case or you inherited the situation. Here are some inserts in a transaction that only work because the foreign key constraints are initially deferred:
 
     ```sql
     CREATE TABLE manufacturers
     (
-        name            VARCHAR PRIMARY KEY,
-        latest_phone_id VARCHAR NOT NULL
+        name                VARCHAR PRIMARY KEY,
+        flagship_phone_name VARCHAR NOT NULL
     );
 
     CREATE TABLE phones
     (
-        model             VARCHAR PRIMARY KEY,
-        manufacturer_name VARCHAR NOT NULL REFERENCES manufacturers (name) DEFERRABLE INITIALLY DEFERRED,
-        name              VARCHAR NOT NULL
+        name              VARCHAR PRIMARY KEY,
+        manufacturer_name VARCHAR NOT NULL REFERENCES manufacturers (name) DEFERRABLE INITIALLY DEFERRED
     );
 
     ALTER TABLE manufacturers
-        ADD CONSTRAINT manufacturers_latest_phone_id_fkey FOREIGN KEY (latest_phone_id) REFERENCES phones (model) DEFERRABLE INITIALLY DEFERRED;
+        ADD CONSTRAINT manufacturers_latest_phone_id_fkey FOREIGN KEY (flagship_phone_name) REFERENCES phones (name) DEFERRABLE INITIALLY DEFERRED;
 
     BEGIN;
 
-    INSERT INTO manufacturers (name, latest_phone_id)
-    VALUES ('Google', 'GF5KQ')
-         , ('Apple', 'A2484')
-         , ('Samsung', 'SM-S908U');
+    INSERT INTO manufacturers (name, flagship_phone_name)
+    VALUES ('Google', 'Pixel 6 Pro')
+         , ('Apple', 'iPhone 13 Pro Max')
+         , ('Samsung', 'Galaxy S22 Ultra');
 
-    INSERT INTO phones (model, manufacturer_name, name)
-    VALUES ('GR1YH', 'Google', 'Pixel 6')
-         , ('GF5KQ', 'Google', 'Pixel 6 Pro')
-         , ('A2483', 'Apple', 'iPhone 13 Pro')
-         , ('A2484', 'Apple', 'iPhone 13 Pro Max')
-         , ('SM-S901U', 'Samsung', 'Galaxy S22')
-         , ('SM-S908U', 'Samsung', 'Galaxy S22 Ultra');
+    INSERT INTO phones (manufacturer_name, name)
+    VALUES ('Google', 'Pixel 6')
+         , ('Google', 'Pixel 6 Pro')
+         , ('Apple', 'iPhone 13 Pro')
+         , ('Apple', 'iPhone 13 Pro Max')
+         , ('Samsung', 'Galaxy S22')
+         , ('Samsung', 'Galaxy S22 Ultra');
 
     COMMIT;
     ```
+
+## Performance considerations
+
+Deferrable constraints seem great, why aren't they the default? Or why shouldn't I make all of my constraints as `INITIALLY DEFERRED`? There are a few reasons:
+
+**Deferrable unique indexes allow a moment in time when there are duplicate values.** This negatively affects what optimizations the query planner can make, as it can no longer know the uniqueness constraint is satisfied at absolutely every point in time. Joe Nelson has a more complete explanation in his [blog post](https://begriffs.com/posts/2017-08-27-deferrable-sql-constraints.html#query-planner-performance-penalty).
