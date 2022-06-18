@@ -1,7 +1,7 @@
 ---
 
 title: Deferrable Constraints in PostgreSQL
-date: 2022-06-16T01:19:00
+date: 2022-06-17T04:51:00
 tags:
 - databases
 - postgres
@@ -33,7 +33,7 @@ SET number = number + 1;
 -- DETAIL:  Key (number)=(2) already exists.
 ```
 
-## `IMMEDIATE` vs. `DEFERRED`
+## Immediate vs. deferred
 
 [Constraints](https://www.postgresql.org/docs/current/ddl-constraints.html) are `NOT DEFERRABLE INITIALLY IMMEDIATE` by default in PostgreSQL.
 
@@ -148,43 +148,43 @@ This gives us three different combinations of settings we can create constraints
 
 In addition to the above example where a unique column might have a conflict during a transaction but not at the end, some other use cases for deferrable constraints are:
 
-- **Creating a circular reference between two tables.**
+**Creating a circular reference between two tables.**
 
-    I think this is a terrible idea and that you shouldn't do it, but maybe you have a valid use case or you inherited the situation. Here are some inserts in a transaction that only work because the foreign key constraints are initially deferred:
+I think this is a terrible idea and that you shouldn't do it, but maybe you have a valid use case or you inherited the situation. Here are some inserts in a transaction that only work because the foreign key constraints are initially deferred:
 
-    ```sql
-    CREATE TABLE manufacturers
-    (
-        name                VARCHAR PRIMARY KEY,
-        flagship_phone_name VARCHAR NOT NULL
-    );
+```sql
+CREATE TABLE manufacturers
+(
+    name                VARCHAR PRIMARY KEY,
+    flagship_phone_name VARCHAR NOT NULL
+);
 
-    CREATE TABLE phones
-    (
-        name              VARCHAR PRIMARY KEY,
-        manufacturer_name VARCHAR NOT NULL REFERENCES manufacturers (name) DEFERRABLE INITIALLY DEFERRED
-    );
+CREATE TABLE phones
+(
+    name              VARCHAR PRIMARY KEY,
+    manufacturer_name VARCHAR NOT NULL REFERENCES manufacturers (name) DEFERRABLE INITIALLY DEFERRED
+);
 
-    ALTER TABLE manufacturers
-        ADD CONSTRAINT manufacturers_latest_phone_id_fkey FOREIGN KEY (flagship_phone_name) REFERENCES phones (name) DEFERRABLE INITIALLY DEFERRED;
+ALTER TABLE manufacturers
+    ADD CONSTRAINT manufacturers_latest_phone_id_fkey FOREIGN KEY (flagship_phone_name) REFERENCES phones (name) DEFERRABLE INITIALLY DEFERRED;
 
-    BEGIN;
+BEGIN;
 
-    INSERT INTO manufacturers (name, flagship_phone_name)
-    VALUES ('Google', 'Pixel 6 Pro')
-         , ('Apple', 'iPhone 13 Pro Max')
-         , ('Samsung', 'Galaxy S22 Ultra');
+INSERT INTO manufacturers (name, flagship_phone_name)
+VALUES ('Google', 'Pixel 6 Pro')
+     , ('Apple', 'iPhone 13 Pro Max')
+     , ('Samsung', 'Galaxy S22 Ultra');
 
-    INSERT INTO phones (manufacturer_name, name)
-    VALUES ('Google', 'Pixel 6')
-         , ('Google', 'Pixel 6 Pro')
-         , ('Apple', 'iPhone 13 Pro')
-         , ('Apple', 'iPhone 13 Pro Max')
-         , ('Samsung', 'Galaxy S22')
-         , ('Samsung', 'Galaxy S22 Ultra');
+INSERT INTO phones (manufacturer_name, name)
+VALUES ('Google', 'Pixel 6')
+     , ('Google', 'Pixel 6 Pro')
+     , ('Apple', 'iPhone 13 Pro')
+     , ('Apple', 'iPhone 13 Pro Max')
+     , ('Samsung', 'Galaxy S22')
+     , ('Samsung', 'Galaxy S22 Ultra');
 
-    COMMIT;
-    ```
+COMMIT;
+```
 
 ## Performance considerations
 
