@@ -37,12 +37,12 @@ The earliest version of MariaDB is v5.1.38 (2010) which is based on MySQL v5.1.3
 
 **PostgreSQL:**
 
-- v8.3.0 (2008) added support for `UUID` data type
+- v8.3.0 (2008) added support for the `UUID` data type
 - v8.3.0 (2008) introduced the `uuid-ossp` module and its functions such as `uuid_generate_v1()` and `uuid_generate_v4()`
 
 **Oracle:**
 
-- v10.1 (2003) added support for `SYS_GUID()` which is close enough
+v10.1 (2003) introduced `SYS_GUID()` which is close enough
 
 ## Reasons to use UUIDs for primary keys
 
@@ -80,11 +80,11 @@ UUIDs aren't a magic bullet, there are trade-offs, and it's important to underst
 
     There might be a reason why you need to know what order rows were inserted in, preferably in a way that doesn't change. You could accomplish this with a `created_at` or similar date & time column, but that isn't ideal, and many rows may share the same value.
 
-    Another issue is if your UUID primary key is clustered (InnoDB) there's cost with row re-ordering when inserting random UUIDs.
+    Another issue is if your UUID primary key is clustered (such as with MySQL's InnoDB) there is a cost to row re-ordering when inserting random UUIDs.
 
 3. **UUIDs might sort slower.**
 
-    If your UUIDs are being stored as strings they are likely to sort much slower than auto-incrementing IDs.
+    If your UUIDs are being stored as strings they are likely to sort much slower than auto-incrementing IDs. See "[Making UUIDs More Performant in MySQL](/blog/making-uuids-more-performant-in-mysql)" for a workaround.
 
 ## Conclusion
 

@@ -16,10 +16,13 @@ MySQL supports auto-incrementing keys, but only one column in a table can have t
 
 ## Setup
 
-First, let's start up a MySQL server instance with Docker. For ease of example we'll use the `root` user, but you'll want to think twice about doing this in production.
+First, let's start up a MySQL server instance with Docker. We'll use the command from "[Creating a MySQL Playground](/blog/creating-a-mysql-playground)":
 
 ```bash
-docker run --env MYSQL_ROOT_PASSWORD=password --publish 3306:3306 --detach mysql:8
+CONTAINER_ID=$(docker run --env MYSQL_ROOT_PASSWORD=mysecretpassword --detach mysql:8) &&
+  docker exec "${CONTAINER_ID}" mysqladmin ping --wait &&
+  docker exec --interactive --tty "${CONTAINER_ID}" mysql --password=mysecretpassword &&
+  docker rm --force --volumes "${CONTAINER_ID}" > /dev/null
 ```
 
 Then, let's create our sequences table:
