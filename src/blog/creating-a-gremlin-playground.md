@@ -4,6 +4,7 @@ title: Creating a Gremlin Playground
 date: 2022-04-22T23:16:00
 tags:
 - databases
+- gremlin
 
 ---
 
