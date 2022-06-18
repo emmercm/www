@@ -1,16 +1,16 @@
 ---
 
-title: Examining Locks in MySQL
-date: 2022-06-18T04:00:00
+title: Investigating Locks in MySQL
+date: 2022-06-18T04:08:00
 tags:
 - databases
 - mysql
 
 ---
 
-Locking is an important part of an ACID-compliant database, but excessive locks can lead to performance degradation.
+Locking is an important part of an ACID-compliant database, but excessive locks can lead to performance degradation.  Here are some strategies for investigating locks.
 
-A major cause of [long-running queries in MySQL](/blog/finding-long-running-queries-in-mysql) that might lead to timeouts or other issues are various types of locks. After finding that you have a large number of threads, or threads that are lasting longer than expected, the next thing to investigate is locks.
+A major cause of [long-running queries](/blog/finding-long-running-queries-in-mysql) that might lead to timeouts or other issues are various types of locks. After finding that you have a large number of threads, or threads that are lasting longer than expected, the next thing to investigate is locks.
 
 ## InnoDB table and row locks
 
@@ -83,8 +83,6 @@ ORDER BY requesting_trx_wait_sec DESC
        , block.trx_id
        , req.trx_id;
 ```
-
-_Note: your user will need the [`PROCESS`](https://dev.mysql.com/doc/refman/8.0/en/privileges-provided.html#priv_process) privilege to access `information_schema.innodb_*` tables._
 
 ## InnoDB deadlocks
 
