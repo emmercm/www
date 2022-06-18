@@ -1,7 +1,7 @@
 ---
 
 title: Investigating Locks in MySQL
-date: 2022-06-18T04:08:00
+date: 2022-06-18T04:43:00
 tags:
 - databases
 - mysql
@@ -11,6 +11,16 @@ tags:
 Locking is an important part of an ACID-compliant database, but excessive locks can lead to performance degradation.  Here are some strategies for investigating locks.
 
 A major cause of [long-running queries](/blog/finding-long-running-queries-in-mysql) that might lead to timeouts or other issues are various types of locks. After finding that you have a large number of threads, or threads that are lasting longer than expected, the next thing to investigate is locks.
+
+## A crash course on locks
+
+MySQL (and most relational databases) have a few different types of locks to limit concurrent access from different sessions, protecting schema and data integrity. In MySQL, specifically:
+
+- **Table locks** on either base tables or views limit what sessions can read from or write to the table. If a table has a _read_ lock then no session can write to the table until the lock is released, but any session can read the table. If a table has a _write_ lock then only the session holding the lock can read from or write to the table.
+- **Row locks** on individual rows limit what sessions can read or update those rows.
+- **Metadata locks** on objects (schemas, tables, triggers, etc.) limit what sessions can alter the metadata of the database object.
+
+This is not an exhaustive list, but it gives us enough information for the sections below.
 
 ## InnoDB table and row locks
 
@@ -28,9 +38,10 @@ WHERE table_type = 'BASE TABLE'
 ORDER BY table_name;
 ```
 
-Here is a query to see both requested and locks held by InnoDB transactions:
+Here is a query to see both requested locks and locks held by InnoDB transactions:
 
 ```sql
+-- MySQL <8.0.1 (2017)
 SELECT l.lock_type
      , l.lock_table
      , l.lock_index
@@ -56,8 +67,8 @@ _Note: your user will need the [`PROCESS`](https://dev.mysql.com/doc/refman/8.0/
 
 Some important columns to pay attention to:
 
-- **`lock_type`**: the type of the lock, `RECORD` (row) or `TABLE`
-- **`lock_table`**: the table that is locked, or contains the locked rows
+- **`lock_type`**: the type of the lock: `RECORD` (row) or `TABLE`
+- **`lock_table`**: the table that is locked, or the table that contains the locked rows
 - **`lock_index`**: the name of the index if `lock_type = 'RECORD'`
 - **`lock_mode`**: the mode(s) of the lock: `S`/`SHARED`, `X`/`EXCLUSIVE`, `IS`/`INTENTION_SHARED`, `IX`/`INTENTION_EXCLUSIVE`, `GAP`, `AUTO_INC`, and `UNKNOWN`
 - **`trx_length_sec`**: how long since the transaction started
@@ -68,6 +79,7 @@ Some important columns to pay attention to:
 If `trx_wait_started IS NOT NULL` then that transaction is being blocked by locks held by other transactions. Here is a query to see what queries are blocking others:
 
 ```sql
+-- MySQL <8.0.1 (2017)
 SELECT block.trx_id                                            AS blocking_trx_id
      , block.trx_query                                         AS blocking_trx_query
      , time_to_sec(timediff(now(), req.trx_wait_started))      AS requesting_trx_wait_sec
@@ -90,7 +102,7 @@ From the [MySQL documentation](https://dev.mysql.com/doc/refman/8.0/en/innodb-de
 
 > A deadlock is a situation where different transactions are unable to proceed because each holds a lock that the other needs. Because both transactions are waiting for a resource to become available, neither ever release the locks it holds.
 
-By default, InnoDB can detect deadlocks, and it will automatically roll back transactions to break the deadlock. InnoDB prefers rolling back small transactions, determined by number of rows affected.
+By default, InnoDB can detect deadlocks and will automatically roll back transactions to break the deadlock. InnoDB prefers rolling back small transactions, determined by number of rows affected.
 
 This command will dump a very long status of the entire InnoDB engine, and it includes information about the last deadlock detected:
 
@@ -102,13 +114,13 @@ _Note: your user will need the [`PROCESS`](https://dev.mysql.com/doc/refman/8.0/
 
 A small amount of deadlocks usually isn't dangerous, and they might be somewhat expected in high-volume databases. Applications should be written to retry transactions that were rolled back due to a deadlock.
 
-_Deadlocks become dangerous when they happen so frequently that certain transactions can't execute at all._
+**Deadlocks become dangerous when they happen so frequently that certain transactions can't execute at all.**
 
 See this MySQL documentation page on [minimizing and handling deadlocks](https://dev.mysql.com/doc/refman/8.0/en/innodb-deadlocks-handling.html).
 
 ## Metadata locks
 
-Metadata locks are primarily used to enqueue metadata changes (schema changes, schema renames, etc.) after active transactions complete.
+Metadata locks are primarily used to enqueue metadata changes (schema changes, object renames, etc.) after active transactions complete.
 
 From the MySQL documentation on [metadata locking](https://dev.mysql.com/doc/refman/8.0/en/metadata-locking.html):
 
@@ -147,4 +159,4 @@ ORDER BY t.processlist_time DESC;
 
 _Note: your user will need the [`PROCESS`](https://dev.mysql.com/doc/refman/8.0/en/privileges-provided.html#priv_process) privilege to see threads for other users._
 
-It's expected to see a lot of metadata locks, that's not necessarily indicative of any issues. It's also expected to see multiple metadata locks per thread ID where the lock type or locked objects are different.
+It's normal to see a lot of metadata locks, that's not necessarily indicative of any issue. It's also normal to see multiple metadata locks per thread ID where the lock type or locked objects are different.
