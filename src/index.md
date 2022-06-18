@@ -33,18 +33,19 @@ pageContainer: false
     </div>
     <div style="height:128px; max-height:20vw;">&nbsp;</div> <!-- 256px/2 Gravatar spacer -->
     <div class="container mw-md-md my-6 mx-auto">
-        {{#if github.profile.user.location}}
-            <span class="fs-2">
-                <i class="fa-regular fa-location-dot"></i>
+        <div class="fs-2 mb-3">
+            <i class="fa-regular fa-location-dot"></i>
+            {{#if github.profile.user.location}}
                 {{ github.profile.user.location }}
-            </span>
-            <br>
-        {{/if}}
-        <span class="fs-4">
+            {{else}}
+                Somewhere, USA
+            {{/if}}
+        </div>
+        <div class="fs-4">
             {{ sitedescription }}
             Skilled at distributed architecture and technical project management.
             Passionate about quality, mentoring, and leading by example.
-        </span>
+        </div>
     </div>
 </section>
 
