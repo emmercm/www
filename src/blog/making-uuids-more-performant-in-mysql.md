@@ -46,7 +46,7 @@ SELECT UNHEX(REPLACE("f7c26694-aac6-4333-91c9-72c4441430e2", "-", "")) AS unhex_
 +------------------------------------+
 ```
 
-MySQL v8.0.0 (2016) added the function [`UUID_TO_BIN()`](https://dev.mysql.com/doc/refman/8.0/en/miscellaneous-functions.html#function_uuid-to-bin) which does the same thing:
+[MySQL v8.0.0 (2016)](https://dev.mysql.com/doc/relnotes/mysql/8.0/en/news-8-0-0.html#mysqld-8-0-0-feature) added the function [`UUID_TO_BIN()`](https://dev.mysql.com/doc/refman/8.0/en/miscellaneous-functions.html#function_uuid-to-bin) which does the same thing:
 
 ```sql
 SELECT uuid_to_bin("f7c26694-aac6-4333-91c9-72c4441430e2") AS uuid_bin;

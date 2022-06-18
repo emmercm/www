@@ -23,25 +23,48 @@
         {{{ this }}}
     {{/each}}
     <meta name="robots" content="index,follow">
-    <!-- metalsmith-open-graph -->
+
+    <!-- metalsmith-open-graph (https://ogp.me/) -->
+    <!-- (more properties will be added by the plugin) -->
     <meta property="og:url" content="{{siteurl}}{{paths.href}}">
-    <!-- metalsmith-twitter-card -->
+    {{#eq (segments paths.dir 0 1) "blog"}}
+        {{#if this.date}}
+            <meta property="article:published_time" content="{{luxon this.date}}">
+            {{#if this.updated}}
+                <meta property="article:modified_time" content="{{luxon this.updated}}">
+            {{/if}}
+        {{/if}}
+        <meta property="article:author" content="{{sitename}}">
+        {{#if tags}}
+            {{#each tags}}
+                <meta property="article:tag" content="{{this}}">
+            {{/each}}
+        {{/if}}
+    {{/eq}}
+
+    <!-- metalsmith-twitter-card (https://developer.twitter.com/en/docs/twitter-for-websites/cards/overview/summary) -->
+    <!-- (more properties will be added by the plugin) -->
+    {{#eq (segments paths.dir 0 1) "blog"}}
+        <meta name="twitter:label1" value="Reading time">
+        <meta name="twitter:data1" value="{{readingTime}}">
+    {{/eq}}
+
+    <!-- metalsmith-jsonld (https://json-ld.org/) -->
     {{#if jsonld}}
         {{{ jsonld }}}
     {{/if}}
 
-    <!-- META TAGS FOR BLOG PAGES -->
-    {{#if readingTime}}
-        <meta name="twitter:label1" value="Reading time">
-        <meta name="twitter:data1" value="{{readingTime}}">
-    {{/if}}
-    <!-- <meta property="article:author" content="{{siteurl}}"> -->
-    {{#if this.date}}
-        <meta property="article:published_time" content="{{luxon this.date}}">
-    {{/if}}
+    <!-- metalsmith-feed -->
     {{#eq (segments paths.dir 0 1) "blog"}}
         <link rel="alternate" type="application/rss+xml" href="/blog/rss.xml">
     {{/eq}}
+
+    {{#if pagination.previous}}
+        <link rel="prev" href="/{{pagination.previous.path}}">
+    {{/if}}
+    {{#if pagination.next}}
+        <link rel="next" href="/{{pagination.next.path}}">
+    {{/if}}
 
     <!-- https://csswizardry.com/2020/05/the-fastest-google-fonts/ -->
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>

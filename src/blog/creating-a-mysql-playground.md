@@ -55,9 +55,9 @@ I don't trust myself to remember to stop and remove detached Docker containers w
 
 ```bash
 CONTAINER_ID=$(docker run --env MYSQL_ROOT_PASSWORD=mysecretpassword --detach mysql:latest) &&
-  docker exec "${CONTAINER_ID}" mysqladmin ping --wait --silent &&
+  docker exec "${CONTAINER_ID}" mysqladmin ping --wait &&
   docker exec --interactive --tty "${CONTAINER_ID}" mysql --password=mysecretpassword &&
-  docker rm --force --volumes "${CONTAINER_ID}"
+  docker rm --force --volumes "${CONTAINER_ID}" > /dev/null
 ```
 
 This starts the server without a name and instead uses the SHA-256-like container ID to:

@@ -962,10 +962,16 @@ tracer(Metalsmith(path.resolve()))
 
     // Add Facebook OpenGraph meta tags
     .use(openGraph({
-        // TODO: figure out sitetype:'article' for blog pages
+        pattern: '**/*.html',
         sitename: siteName,
         siteurl: siteURL,
-        pattern: '**/*.html',
+        image: '.og-image'
+    }))
+    .use(openGraph({
+        pattern: 'blog/!([0-9]*)/index.html',
+        sitetype: 'article',
+        sitename: siteName,
+        siteurl: siteURL,
         image: '.og-image'
     }))
 
