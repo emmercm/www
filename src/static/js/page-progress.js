@@ -15,7 +15,7 @@ $(document).ready(function () {
             // TODO: https://alligator.io/js/progress-bar-javascript-css-variables/ ?
 
             var zero = $elem.offset().top + parseInt($elem.css('padding-top'));
-            // TODO: Not quite right, but good enough
+            // Not quite right, but good enough
             var hundred = Math.max($elem.offset().top + $elem.height() - $(window).height(), 0);
 
             var progress = ($(window).scrollTop() - zero) / hundred * 100;

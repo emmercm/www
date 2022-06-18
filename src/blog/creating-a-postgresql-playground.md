@@ -47,7 +47,7 @@ I don't trust myself to remember to stop and remove detached Docker containers w
 CONTAINER_ID=$(docker run --env POSTGRES_PASSWORD=mysecretpassword --detach postgres:latest) &&
   until docker exec "${CONTAINER_ID}" pg_isready ; do sleep 1 ; done &&
   docker exec --interactive --tty "${CONTAINER_ID}" psql --username postgres &&
-  docker rm --force --volumes "${CONTAINER_ID}"
+  docker rm --force --volumes "${CONTAINER_ID}" > /dev/null
 ```
 
 This starts the server without a name and instead uses the SHA-256-like container ID to:
