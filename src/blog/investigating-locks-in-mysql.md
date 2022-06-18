@@ -2,7 +2,7 @@
 
 title: Investigating Locks in MySQL
 date: 2022-06-18T04:43:00
-updated: 2022-06-18T20:43:00
+updated: 2022-06-18T20:54:00
 tags:
 - databases
 - mysql
@@ -18,11 +18,11 @@ A major cause of [long-running queries](/blog/finding-long-running-queries-in-my
 MySQL (and most relational databases) have a few different types of locks to limit concurrent access from different sessions, protecting schema and data integrity. In MySQL, specifically:
 
 - **Table locks** on either base tables or views limit what sessions can read from or write to the table.
-- **Row locks** on individual rows limit what sessions can read or update those rows.  If a row has a _read_ (or "shared") lock then no session can modify the row until the lock is released, but any session can read the row. If a row has a _write_ (or "exclusive") lock then only the session holding the lock can modify the row.
+- **Row locks** on individual rows limit what sessions can read or update those rows.  If a row has a _read_ or a "shared" lock then no session can modify the row until the lock is released, but any session can read the row. If a row has a _write_ or an "exclusive" lock then only the session holding the lock can modify the row.
 
-    Standard `SELECT ... FROM` statements do not obtain row read locks unless the transaction isolation level is set to `SERIALIZABLE`. That means a row write lock won't prevent reads from other sessions.
+    Standard `SELECT ... FROM` statements do not need to obtain row read locks unless the transaction isolation level is set to `SERIALIZABLE`. That means a row write lock won't prevent row reads from other sessions.
 
-    If a statement that modifies rows (e.g. `UPDATE` or `DELETE`) has no suitable index, then InnoDB will obtain a write lock on every row in the table.
+    If a statement that modifies rows (e.g. `UPDATE` or `DELETE`) has no suitable index, then InnoDB will obtain a write lock on _every_ row in the table.
 
 - **Metadata locks** on objects (schemas, tables, triggers, etc.) limit what sessions can alter the metadata of the database object.
 
@@ -90,7 +90,7 @@ Some key things to look for:
     SHOW VARIABLES WHERE variable_name = 'innodb_lock_wait_timeout';
     ```
 
-- A buildup of many concurrent writes to the same tables might indicate a buildup of locks needed by your transaction isolation level. For example, gap and next-key locks in `REPEATABLE READ` and above.
+- A buildup of many concurrent writes to the same tables might indicate a buildup of write locks needed by your transaction isolation level. For example, gap and next-key locks in `REPEATABLE READ` and above.
 
 If `trx_wait_started IS NOT NULL` then that transaction is being blocked by locks held by other transactions. Here is a query to see what queries are blocking others:
 
@@ -120,7 +120,7 @@ From the [MySQL documentation](https://dev.mysql.com/doc/refman/8.0/en/innodb-de
 
 By default, InnoDB can detect deadlocks and will automatically roll back transactions to break the deadlock. InnoDB prefers rolling back small transactions, determined by number of rows affected.
 
-This command will dump a very long status of the entire InnoDB engine which includes information about the last two deadlocks detected, but it only includes the last statement in the two transactions:
+This command will dump a very long status of the entire InnoDB engine which includes information about the last two deadlocks detected, but it only shows the last statement in the two transactions:
 
 ```sql
 SHOW ENGINE INNODB STATUS;
@@ -128,7 +128,7 @@ SHOW ENGINE INNODB STATUS;
 
 _Note: your user will need the [`PROCESS`](https://dev.mysql.com/doc/refman/8.0/en/privileges-provided.html#priv_process) privilege to execute this statement._
 
-To see the other statements in the transaction, grab the thread ID and query the [`performance_schema.events_statements_history`](https://dev.mysql.com/doc/refman/8.0/en/performance-schema-events-statements-history-table.html) table. The table is typically auto-sized, so it has a limit to how many statements are kept.
+To see the other statements in the transaction, find the thread ID and query the [`performance_schema.events_statements_history`](https://dev.mysql.com/doc/refman/8.0/en/performance-schema-events-statements-history-table.html) table. The table is typically auto-sized, so it has a limit to how many statements are kept.
 
 ```sql
 SELECT *
@@ -137,7 +137,7 @@ WHERE thread_id = :threadId
 ORDER BY thread_id, event_id;
 ```
 
-A small amount of deadlocks usually isn't dangerous, and they might be somewhat expected in high-throughput databases. Applications should be written to retry transactions that were rolled back due to a deadlock.
+A small amount of deadlocks usually isn't dangerous and is somewhat expected in high-throughput databases. Applications should be written to retry transactions that were rolled back due to a deadlock.
 
 **Deadlocks become dangerous when they happen so frequently that certain transactions can't execute at all.**
 
@@ -186,8 +186,10 @@ _Note: your user will need the [`PROCESS`](https://dev.mysql.com/doc/refman/8.0/
 
 It's normal to see a lot of metadata locks, that's not necessarily indicative of any issue. It's also normal to see multiple metadata locks per thread ID where the lock type or locked objects are different.
 
-**Metadata locks can become a problem when write locks (which are [higher priority than read locks](https://dev.mysql.com/doc/refman/8.0/en/metadata-locking.html)) cause normally parallelized reads to wait.** Consider this priority order:
+**Metadata locks can become a problem when write locks (which are [higher priority than read locks](https://dev.mysql.com/doc/refman/8.0/en/metadata-locking.html)) cause normally parallelized reads to wait.**
 
-1. An excessively long `SELECT` has a metadata read lock (e.g. `SHARED_READ`) on a table
+Consider this priority order:
+
+1. An excessively long `SELECT ... FROM` has a metadata read lock (e.g. `SHARED_READ`) on a table
 2. A schema change is waiting to acquire a write lock (e.g. `INTENTION_EXCLUSIVE`) on the table
-3. Some number of other `SELECT` queries on the table, possibly short ones, are all waiting for the schema change to complete first
+3. Some number of other `SELECT ... FROM` queries on the table, possibly short ones, are all waiting for the schema change to complete first
