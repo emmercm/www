@@ -2,6 +2,7 @@
 
 title: Finding Long-Running Queries in MySQL
 date: 2021-12-22T20:40:00
+updated: 2022-06-18T04:08:00
 tags:
 - databases
 - mysql
@@ -26,7 +27,14 @@ ORDER BY processlist_time DESC;
 
 The [`performance_schema.threads`](https://dev.mysql.com/doc/refman/8.0/en/performance-schema-threads-table.html) table will return one row per server thread, and each row will have information about the thread ID, user, query, and more.
 
-`WHERE` conditions:
+Some important columns to pay attention to:
+
+- `processlist_user`: what user is executing the query, this might be helpful with identifying a culprit in a monolithic database
+- `processlist_time`: the time in seconds that the thread has been in its current state
+- `processlist_state`: the [thread state](https://dev.mysql.com/doc/refman/8.0/en/general-thread-states.html)
+- `processlist_info`: the statement the thread is executing
+
+And an explanation of the `WHERE` conditions:
 
 - `type = 'FOREGROUND'` will filter to only user connection threads and will exclude internal server activity
 - `processlist_command != 'Sleep'` will filter out threads that aren't executing anything - you might want to include these if you're debugging connection issues
@@ -36,6 +44,8 @@ The [`performance_schema.threads`](https://dev.mysql.com/doc/refman/8.0/en/perfo
 _Note: your user will need the [`PROCESS`](https://dev.mysql.com/doc/refman/8.0/en/privileges-provided.html#priv_process) privilege to access this table._
 
 _See "[Finding Long-Running Queries in PostgreSQL](/blog/finding-long-running-queries-in-postgresql)" for the PostgreSQL version of this query._
+
+If you find yourself with an unexpectedly large amount of threads, you may need to [investigate locks](/blog/investigating-locks-in-mysql) happening in your database.
 
 ## Why not `processlist`?
 
@@ -50,9 +60,9 @@ FROM information_schema.processlist;
 SHOW FULL PROCESSLIST;
 ```
 
-Neither statement requires the [`PROCESS`](https://dev.mysql.com/doc/refman/8.0/en/privileges-provided.html#priv_process) privilege that `performance_schema.threads` does, but without it, you'll only get results for your user's queries.
+_Note: your user will need the [`PROCESS`](https://dev.mysql.com/doc/refman/8.0/en/privileges-provided.html#priv_process) privilege to see threads for other users._
 
-But in MySQL versions before v8.0.22 (October 10, 2020), as well as v8.0 servers running without the [`performance_schema_show_processlist`](https://dev.mysql.com/doc/refman/8.0/en/performance-schema-system-variables.html#sysvar_performance_schema_show_processlist) system variable enabled, these are locking operations.
+But in MySQL versions before [v8.0.22 (2020)](https://dev.mysql.com/doc/relnotes/mysql/8.0/en/news-8-0-22.html#mysqld-8-0-22-performance-schema), as well as v8.0 servers running without the [`performance_schema_show_processlist`](https://dev.mysql.com/doc/refman/8.0/en/performance-schema-system-variables.html#sysvar_performance_schema_show_processlist) system variable enabled, these are locking operations.
 
 From the documentation on the [`performance_schema_show_processlist`](https://dev.mysql.com/doc/refman/8.0/en/performance-schema-system-variables.html#sysvar_performance_schema_show_processlist) system variable:
 
