@@ -1,7 +1,7 @@
 ---
 
 title: Deferrable Constraints in PostgreSQL
-date: 2022-06-19T18:48:00
+date: 2022-06-20T16:14:00
 tags:
 - databases
 - postgres
@@ -10,11 +10,10 @@ tags:
 
 Constraints in PostgreSQL are validated immediately row-by-row by default, which might be confusing when updating multiple values in columns that have a uniqueness constraint.
 
-Consider this contrived scenario of one table with one column that has a uniqueness constraint:
+Consider this contrived scenario of one table with one column that has a unique constraint:
 
 ```sql
-CREATE TABLE numbers
-(
+CREATE TABLE numbers (
     number INT,
     UNIQUE (number)
 );
@@ -29,6 +28,7 @@ If we try to update every row in the table, incrementing the value by 1, we run 
 ```sql
 UPDATE numbers
 SET number = number + 1;
+
 -- ERROR:  duplicate key value violates unique constraint "numbers_number_key"
 -- DETAIL:  Key (number)=(2) already exists.
 ```
@@ -67,13 +67,25 @@ And we can see that indeed the unique constraint is `NOT DEFERRABLE` (`deferrabl
 When a constraint is `DEFERRED` it is not validated until the transaction commits. A constraint can be `DEFERRED` two different ways:
 
 - The constraint can be created as `INITIALLY DEFERRED` which will set the constraint to `DEFERRED` by default.
-- The constraint can be temporarily `DEFERRED` with one of these statements, but only if it is `DEFERRABLE`:
+- The constraint can be temporarily `DEFERRED` if it is `DEFERRABLE` with one of these statements:
 
     ```sql
     SET CONSTRAINTS numbers_number_key DEFERRED;
 
     SET CONSTRAINTS ALL DEFERRED;
     ```
+
+✅ The following types of constraints can be deferred:
+
+- [`PRIMARY KEY`](https://www.postgresql.org/docs/current/ddl-constraints.html#DDL-CONSTRAINTS-PRIMARY-KEYS) (but I wouldn't do it, see performance considerations below)
+- [`UNIQUE`](https://www.postgresql.org/docs/current/ddl-constraints.html#DDL-CONSTRAINTS-UNIQUE-CONSTRAINTS)
+- [`REFERENCES`](https://www.postgresql.org/docs/current/ddl-constraints.html#DDL-CONSTRAINTS-FK) (foreign key)
+- [`EXCLUDE`](https://www.postgresql.org/docs/current/ddl-constraints.html#DDL-CONSTRAINTS-EXCLUSION)
+
+❌ The following types of constraints can't be deferred, which means PostgreSQL differs from the SQL standard:
+
+- [`NOT NULL`](https://www.postgresql.org/docs/current/ddl-constraints.html#id-1.5.4.6.6)
+- [`CHECK`](https://www.postgresql.org/docs/current/ddl-constraints.html#DDL-CONSTRAINTS-CHECK-CONSTRAINTS)
 
 ## Changing the constraint
 
@@ -82,6 +94,7 @@ When a constraint is `DEFERRED` it is not validated until the transaction commit
 ```sql
 ALTER TABLE numbers
     ALTER CONSTRAINT numbers_number_key DEFERRABLE;
+
 -- ERROR:  constraint "numbers_number_key" of relation "numbers" is not a foreign key constraint
 ```
 
@@ -129,8 +142,7 @@ This gives us three different combinations of settings we can create constraints
 2. **`DEFERRABLE [INITIALLY IMMEDIATE]`**
 
     ```sql
-    CREATE TABLE numbers
-    (
+    CREATE TABLE numbers (
         number INT,
         UNIQUE (number) DEFERRABLE INITIALLY IMMEDIATE
     );
@@ -141,8 +153,7 @@ This gives us three different combinations of settings we can create constraints
 3. **`[DEFERRABLE] INITIALLY DEFERRED`**
 
     ```sql
-    CREATE TABLE numbers
-    (
+    CREATE TABLE numbers (
         number INT,
         UNIQUE (number) DEFERRABLE INITIALLY DEFERRED
     );
@@ -161,8 +172,7 @@ One reason to have a unique constraint on a single numeric column like we have a
 Re-ordering of items here is only possible because of deferred constraints:
 
 ```sql
-CREATE TABLE todo_items
-(
+CREATE TABLE todo_items (
     id       SERIAL PRIMARY KEY,
     task     VARCHAR NOT NULL,
     priority INTEGER NOT NULL,
@@ -175,7 +185,6 @@ VALUES ('Clean the bathroom', 1)
      , ('Go grocery shopping', 2);
 
 -- Swap the order of the two to-do items
-
 BEGIN;
 UPDATE todo_items SET priority = 2 WHERE task = 'Clean the bathroom';
 UPDATE todo_items SET priority = 1 WHERE task = 'Go grocery shopping';
@@ -184,17 +193,15 @@ COMMIT;
 
 ### Creating a circular reference between two tables
 
-I think this is a terrible idea and that you shouldn't do it, but maybe you have a valid use case or you inherited the situation. Here are some inserts in a transaction that only work because the foreign key constraints are deferred:
+I think this is a terrible idea and that you shouldn't do it because of the problems it causes, but maybe you have a valid use case or you inherited the situation. Here are some inserts in a transaction that only work because the foreign key constraints are deferred:
 
 ```sql
-CREATE TABLE manufacturers
-(
+CREATE TABLE manufacturers (
     name                VARCHAR PRIMARY KEY,
     flagship_phone_name VARCHAR NOT NULL
 );
 
-CREATE TABLE phones
-(
+CREATE TABLE phones (
     name              VARCHAR PRIMARY KEY,
     manufacturer_name VARCHAR NOT NULL REFERENCES manufacturers (name) DEFERRABLE INITIALLY DEFERRED
 );
@@ -233,14 +240,12 @@ In this case it might make sense to use `DEFERRABLE INITIALLY IMMEDIATE` constra
 Here is an example that only works because the foreign key constraint is deferred:
 
 ```sql
-CREATE TABLE authors
-(
+CREATE TABLE authors (
     id   SERIAL PRIMARY KEY,
     name VARCHAR NOT NULL
 );
 
-CREATE TABLE books
-(
+CREATE TABLE books (
     id        SERIAL PRIMARY KEY,
     author_id INTEGER NOT NULL REFERENCES authors (id) DEFERRABLE INITIALLY DEFERRED,
     title     VARCHAR NOT NULL
@@ -270,30 +275,28 @@ Just remember to reset the "start" value of your primary key sequences after a d
 Rather than using the potentially dangerous `ON DELETE CASCADE`, you can use deferrable constraints to let you delete rows from a series of tables in a forgiving order. This could be useful when tearing down stubbed data in an integration test.
 
 ```sql
-CREATE TABLE countries
-(
-iso2 CHAR(2) PRIMARY KEY,
-name VARCHAR NOT NULL
+CREATE TABLE countries (
+    iso2 CHAR(2) PRIMARY KEY,
+    name VARCHAR NOT NULL
 );
 
-CREATE TABLE cities
-(
-id           SERIAL PRIMARY KEY,
-country_iso2 CHAR(2) NOT NULL REFERENCES countries (iso2) DEFERRABLE INITIALLY DEFERRED,
-name         VARCHAR NOT NULL
+CREATE TABLE cities (
+    id           SERIAL PRIMARY KEY,
+    country_iso2 CHAR(2) NOT NULL REFERENCES countries (iso2) DEFERRABLE INITIALLY DEFERRED,
+    name         VARCHAR NOT NULL
 );
 
 -- Insert some rows with references
 
 INSERT INTO countries (iso2, name)
 VALUES ('IS', 'Iceland')
-, ('NZ', 'New Zealand');
+     , ('NZ', 'New Zealand');
 
 INSERT INTO cities (country_iso2, name)
 VALUES ('IS', 'Reykjavík')
-, ('IS', 'Akureyri')
-, ('NZ', 'Christchurch')
-, ('NZ', 'Queenstown');
+     , ('IS', 'Akureyri')
+     , ('NZ', 'Christchurch')
+     , ('NZ', 'Queenstown');
 
 -- Delete some rows in an order that temporarily violates the foreign key constraint
 
@@ -305,7 +308,7 @@ COMMIT;
 
 ## Performance considerations
 
-Deferrable constraints seem great, why aren't they the default? Or why shouldn't I make all of my constraints as `INITIALLY DEFERRED`? There are a few reasons:
+Deferrable constraints seem great, why aren't they the default? Or, why shouldn't I make all of my constraints as `INITIALLY DEFERRED`? There are a few reasons:
 
 **Deferrable unique indexes allow a moment in time when there are duplicate values.** This negatively affects what optimizations the query planner can make, as it can no longer know the uniqueness constraint is satisfied at absolutely every point in time. Joe Nelson has a more complete explanation in his [blog post](https://begriffs.com/posts/2017-08-27-deferrable-sql-constraints.html#query-planner-performance-penalty).
 
