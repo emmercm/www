@@ -1,7 +1,7 @@
 ---
 
 title: Deferrable Constraints in PostgreSQL
-date: 2022-06-20T16:14:00
+date: 2022-06-21T02:06:00
 tags:
 - databases
 - postgres
@@ -10,7 +10,7 @@ tags:
 
 Constraints in PostgreSQL are validated immediately row-by-row by default, which might be confusing when updating multiple values in columns that have a uniqueness constraint.
 
-Consider this contrived scenario of one table with one column that has a unique constraint:
+Consider this contrived scenario of one table with one column that has a unique constraint (and index):
 
 ```sql
 CREATE TABLE numbers (
@@ -77,12 +77,12 @@ When a constraint is `DEFERRED` it is not validated until the transaction commit
 
 ✅ The following types of constraints can be deferred:
 
-- [`PRIMARY KEY`](https://www.postgresql.org/docs/current/ddl-constraints.html#DDL-CONSTRAINTS-PRIMARY-KEYS) (but I wouldn't do it, see performance considerations below)
+- [`PRIMARY KEY`](https://www.postgresql.org/docs/current/ddl-constraints.html#DDL-CONSTRAINTS-PRIMARY-KEYS) (but I wouldn't do it, see the performance considerations below)
 - [`UNIQUE`](https://www.postgresql.org/docs/current/ddl-constraints.html#DDL-CONSTRAINTS-UNIQUE-CONSTRAINTS)
 - [`REFERENCES`](https://www.postgresql.org/docs/current/ddl-constraints.html#DDL-CONSTRAINTS-FK) (foreign key)
 - [`EXCLUDE`](https://www.postgresql.org/docs/current/ddl-constraints.html#DDL-CONSTRAINTS-EXCLUSION)
 
-❌ The following types of constraints can't be deferred, which means PostgreSQL differs from the SQL standard:
+❌ The following types of constraints can't be deferred, which means PostgreSQL deviates from the SQL standard some:
 
 - [`NOT NULL`](https://www.postgresql.org/docs/current/ddl-constraints.html#id-1.5.4.6.6)
 - [`CHECK`](https://www.postgresql.org/docs/current/ddl-constraints.html#DDL-CONSTRAINTS-CHECK-CONSTRAINTS)
@@ -108,6 +108,14 @@ Which means we have to drop the constraint entirely and recreate it, but thankfu
 ALTER TABLE numbers
     DROP CONSTRAINT numbers_number_key,
     ADD CONSTRAINT numbers_number_key UNIQUE (number) DEFERRABLE INITIALLY DEFERRED;
+```
+
+And if we run the above `pg_constraint` query we can see the change take place:
+
+```text
+ schema |  table  |     constraint     | deferrable | deferred
+--------+---------+--------------------+------------+----------
+ public | numbers | numbers_number_key | t          | t
 ```
 
 And if we try that `UPDATE` statement again we can see it now succeeds:
@@ -165,7 +173,7 @@ This gives us three different combinations of settings we can create constraints
 
 There are quite a few reasons why you might want deferrable constraints, but not all the reasons follow traditional best practices.
 
-### Position / weight / priority columns
+### 1. Position / weight / priority columns
 
 One reason to have a unique constraint on a single numeric column like we have above is so those rows can remember a human-sorted order. Imagine a to-do list application where you can drag and drop items, prioritizing them by due date or importance.
 
@@ -191,9 +199,9 @@ UPDATE todo_items SET priority = 1 WHERE task = 'Go grocery shopping';
 COMMIT;
 ```
 
-### Creating a circular reference between two tables
+### 2. Creating a circular reference between two tables
 
-I think this is a terrible idea and that you shouldn't do it because of the problems it causes, but maybe you have a valid use case or you inherited the situation. Here are some inserts in a transaction that only work because the foreign key constraints are deferred:
+I think this is a terrible idea and that you shouldn't do it because of the problems it can cause, but maybe you have a valid use case, or you inherited the situation. Here are some inserts in a transaction that only work because the foreign key constraints are deferred:
 
 ```sql
 CREATE TABLE manufacturers (
@@ -231,7 +239,7 @@ VALUES ('Google', 'Pixel 6')
 COMMIT;
 ```
 
-### Data ingestion, or manual data restore
+### 3. Data ingestion or manual data restore
 
 If you have a data file of SQL statements that aren't in an order that satisfies constraints (e.g. a plaintext [`pg_dump`](https://www.postgresql.org/docs/current/app-pgdump.html) output), it might make sense to defer all constraints in your transaction.
 
@@ -259,7 +267,7 @@ INSERT INTO books
 VALUES (1, 1, 'All Summer in a Day')
      , (2, 1, 'The Martian Chronicles')
      , (3, 2, 'Starship Troopers')
-     , (4, 2, 'Stranger in a Strange Land');
+     , (4, 2, 'Podkayne of Mars');
 
 INSERT INTO authors
 VALUES (1, 'Ray Bradbury')
@@ -270,9 +278,9 @@ COMMIT;
 
 Just remember to reset the "start" value of your primary key sequences after a data load like that.
 
-### Deleting some rows out of order
+### 4. Deleting some rows out of order
 
-Rather than using the potentially dangerous `ON DELETE CASCADE`, you can use deferrable constraints to let you delete rows from a series of tables in a forgiving order. This could be useful when tearing down stubbed data in an integration test.
+Rather than using the potentially dangerous [`REFERENCES ... ON DELETE CASCADE`](https://www.postgresql.org/docs/current/ddl-constraints.html#DDL-CONSTRAINTS-FK), you can use deferrable constraints to let you delete rows from a series of tables in a forgiving order. This could be useful when tearing down stubbed data in an integration test.
 
 ```sql
 CREATE TABLE countries (
@@ -308,8 +316,10 @@ COMMIT;
 
 ## Performance considerations
 
-Deferrable constraints seem great, why aren't they the default? Or, why shouldn't I make all of my constraints as `INITIALLY DEFERRED`? There are a few reasons:
+Deferrable constraints seem great, why aren't they the default? Or, why shouldn't I create all of my constraints as `INITIALLY DEFERRED`? The main reason is:
 
-**Deferrable unique indexes allow a moment in time when there are duplicate values.** This negatively affects what optimizations the query planner can make, as it can no longer know the uniqueness constraint is satisfied at absolutely every point in time. Joe Nelson has a more complete explanation in his [blog post](https://begriffs.com/posts/2017-08-27-deferrable-sql-constraints.html#query-planner-performance-penalty).
+**Deferrable unique indexes allow a moment in time in which there are duplicate values, reducing some optimizations the query planner can take.**
 
-This [Hashrocket article](https://hashrocket.com/blog/posts/deferring-database-constraints) talks about a unique column used for sorting items, and that's the exact use I have which led me down this rabbit hole. In this case the position / weight / priority column won't be joined on so it won't take this optimization hit.
+The query planner can no longer know that the uniqueness constraint is satisfied at absolutely every point in time in a transaction. This can have a negative impact when joining on the unique fields or when doing a `WHERE <unique_field> IN (...)` subquery. Joe Nelson has a more complete explanation in his [blog post](https://begriffs.com/posts/2017-08-27-deferrable-sql-constraints.html#query-planner-performance-penalty).
+
+This [Hashrocket article](https://hashrocket.com/blog/posts/deferring-database-constraints) talks about a unique column used for sorting items, and that's the exact use case I had above which led me down this deep dive. In this case, the position / weight / priority column won't be joined on, so it won't take this optimization hit.
