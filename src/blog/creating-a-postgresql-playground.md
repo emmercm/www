@@ -1,9 +1,11 @@
 ---
 
-title: Creating a PostgreSQL Playground
+title: Creating a PostgreSQL Playground in Docker
 date: 2022-04-27T22:30:00
+permalink: blog/creating-a-postgresql-playground
 tags:
 - databases
+- docker
 - postgres
 
 ---
