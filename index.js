@@ -141,8 +141,6 @@ markdownRenderer.code = (_code, infostring, escaped) => {
         language,
         ignoreIllegals: true
     }).value : highlight.highlightAuto(code).value;
-    // Fix https://github.com/segmentio/metalsmith-markdown/issues/48
-    _code = _code.replace(new RegExp(`^[ ]{${_code.search(/\S/)}}`, 'gm'), '');
     // v1.1.0
     const escapeTest = /[&<>"']/;
     const escapeReplace = /[&<>"']/g;
