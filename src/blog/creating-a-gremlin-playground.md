@@ -1,9 +1,11 @@
 ---
 
-title: Creating a Gremlin Playground
+title: Creating a Gremlin Playground in Docker
 date: 2022-04-22T23:16:00
+permalink: blog/creating-a-gremlin-playground
 tags:
 - databases
+- docker
 - gremlin
 
 ---

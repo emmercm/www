@@ -9,7 +9,7 @@ tags:
 
 ---
 
-Locking is an important part of an ACID-compliant database, but excessive locks can lead to performance degradation.  Here are some strategies for investigating locks.
+Locking is an important part of an ACID-compliant database, but excessive locks can lead to performance degradation.  Here are some strategies for investigating locks in MySQL.
 
 A major cause of [long-running queries](/blog/finding-long-running-queries-in-mysql) that might lead to timeouts or other issues are various types of locks. After finding that you have a large number of threads, or threads that are lasting longer than expected, the next thing to investigate is locks.
 

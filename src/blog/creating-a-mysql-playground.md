@@ -1,9 +1,11 @@
 ---
 
-title: Creating a MySQL Playground
+title: Creating a MySQL Playground in Docker
 date: 2022-04-27T23:26:00
+permalink: blog/creating-a-mysql-playground
 tags:
 - databases
+- docker
 - mysql
 
 ---
