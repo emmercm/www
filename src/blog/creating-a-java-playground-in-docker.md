@@ -1,7 +1,7 @@
 ---
 
 title: Creating a Java Playground in Docker
-date: 2022-07-03T16:25:00
+date: 2022-07-03T17:07:00
 tags:
 - docker
 - java
@@ -36,7 +36,7 @@ INFO: Created user preferences directory.
 jshell>
 ```
 
-_My recommendation is to change the [`openjdk` tag](https://hub.docker.com/_/openjdk?tab=tags) from `latest` to whatever major version want, such as `openjdk:11`._
+_My recommendation is to change the [`openjdk` tag](https://hub.docker.com/_/openjdk?tab=tags) from `latest` to whatever major version you want, such as `openjdk:11`._
 
 Because every TUI and interactive shell needs a unique exit command, the command in JShell is `/exit`. When you exit the JShell session it will stop the Docker container.
 
@@ -49,7 +49,7 @@ $1 ==> "18.0.1.1"
 
 ## Working with old JDK versions
 
-JShell was included with [JDK 9 (2017)](https://docs.oracle.com/javase/9/whatsnew/toc.htm) and onward. For a similar experience with JDK versions 5 through 8 (though OpenJDK only started at 6), you can use [BeanShell](https://github.com/beanshell/beanshell):
+JShell is included with [JDK 9 (2017)](https://docs.oracle.com/javase/9/whatsnew/toc.htm) and onward. For a similar experience with JDK versions 5 through 8 (though OpenJDK only started at 6), you can use [BeanShell](https://github.com/beanshell/beanshell):
 
 ```shell
 $ docker run --interactive --tty openjdk:8 bash -c "wget --quiet https://github.com/beanshell/beanshell/releases/download/2.1.0/bsh-2.1.0.jar && java -cp bsh-*.jar bsh.Interpreter"
@@ -57,7 +57,7 @@ BeanShell 2.1.0 - https://github.com/beanshell/beanshell
 bsh %
 ```
 
-BeanShell will exit with a `CTRL-C` keypress.
+BeanShell will exit with a typical `CTRL-C` keypress.
 
 And similar to JShell, you can check the JDK version with:
 
@@ -65,6 +65,22 @@ And similar to JShell, you can check the JDK version with:
 bsh % System.getProperty("java.version");
 <1.8.0_332>
 ```
+
+## Dotfile alias
+
+We can tie all of the above logic together into a nice Bash function we can add to our dotfiles:
+
+```bash
+djava() {
+    if [[ -z "$1" || "${1:-}" -ge 9 ]]; then
+        docker run --interactive --tty "openjdk:${1:-latest}" jshell
+    else
+        docker run --interactive --tty "openjdk:$1" bash -c "wget --quiet https://github.com/beanshell/beanshell/releases/download/2.1.0/bsh-2.1.0.jar && java -cp bsh-*.jar bsh.Interpreter"
+    fi
+}
+```
+
+You can find it in [mine](https://github.com/emmercm/dotfiles/blob/72019c371f3797d4bbaf1718331220a99f359c43/.20_docker.bash#L71-L83).
 
 ## Testing some code
 
