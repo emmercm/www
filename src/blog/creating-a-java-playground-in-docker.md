@@ -1,7 +1,7 @@
 ---
 
 title: Creating a Java Playground in Docker
-date: 2030-01-01
+date: 2022-07-03T16:25:00
 tags:
 - docker
 - java
@@ -28,14 +28,7 @@ The [OpenJDK image](https://hub.docker.com/_/openjdk) for [Docker](https://www.d
 
 ```shell
 $ docker run --interactive --tty openjdk:latest jshell
-Unable to find image 'openjdk:latest' locally
-latest: Pulling from library/openjdk
-5f160c0f6cac: Pull complete
-fb499df0377a: Pull complete
-373b9e2b6c72: Pull complete
-Digest: sha256:fe7336430f035011a70c69cfb82760efbe0ae9b0707e1e86c8796c1702bd2ba6
-Status: Downloaded newer image for openjdk:latest
-Jun 21, 2022 2:59:21 AM java.util.prefs.FileSystemPreferences$1 run
+Jul 03, 2022 3:53:40 PM java.util.prefs.FileSystemPreferences$1 run
 INFO: Created user preferences directory.
 |  Welcome to JShell -- Version 18.0.1.1
 |  For an introduction type: /help intro
@@ -45,10 +38,69 @@ jshell>
 
 _My recommendation is to change the [`openjdk` tag](https://hub.docker.com/_/openjdk?tab=tags) from `latest` to whatever major version want, such as `openjdk:11`._
 
-Because every TUI and shell needs a unique exit command, the command in JShell is `/exit`. When you exit the JShell session it will stop the Docker container.
+Because every TUI and interactive shell needs a unique exit command, the command in JShell is `/exit`. When you exit the JShell session it will stop the Docker container.
+
+To double-check what JDK version is being used, you can run:
+
+```shell
+jshell> System.getProperty("java.version");
+$1 ==> "18.0.1.1"
+```
 
 ## Working with old JDK versions
 
-JShell was included with [JDK 9 (2017)](https://docs.oracle.com/javase/9/whatsnew/toc.htm) and onward. If you want to use JShell with an older version of the JDK ...
+JShell was included with [JDK 9 (2017)](https://docs.oracle.com/javase/9/whatsnew/toc.htm) and onward. For a similar experience with JDK versions 5 through 8 (though OpenJDK only started at 6), you can use [BeanShell](https://github.com/beanshell/beanshell):
+
+```shell
+$ docker run --interactive --tty openjdk:8 bash -c "wget --quiet https://github.com/beanshell/beanshell/releases/download/2.1.0/bsh-2.1.0.jar && java -cp bsh-*.jar bsh.Interpreter"
+BeanShell 2.1.0 - https://github.com/beanshell/beanshell
+bsh %
+```
+
+BeanShell will exit with a `CTRL-C` keypress.
+
+And similar to JShell, you can check the JDK version with:
+
+```shell
+bsh % System.getProperty("java.version");
+<1.8.0_332>
+```
 
 ## Testing some code
+
+Let's run some code to see what the output is:
+
+```shell
+jshell> Stream.of(1,2,3,4,5).reduce(0, (a,b) -> a+b);
+$1 ==> 15
+
+
+jshell> double calculateHypotenuse(double a, double b) { return Math.sqrt(a*a+b*b);}
+|  created method calculateHypotenuse(double,double)
+
+jshell> calculateHypotenuse(3,4);
+$3 ==> 5.0
+
+
+jshell> 10 / 0;
+|  Exception java.lang.ArithmeticException: / by zero
+|        at (#4:1)
+
+
+jshell> IntStream.rangeClosed(0, 10).mapToObj(
+   ...>         i -> i % 3 == 0 ?
+   ...>                 (i % 5 == 0 ? "FizzBuzz" : "Fizz") :
+   ...>                 (i % 5 == 0 ? "Buzz" : i))
+   ...>         .forEach(System.out::println);
+FizzBuzz
+1
+2
+Fizz
+4
+Buzz
+Fizz
+7
+8
+Fizz
+Buzz
+```
