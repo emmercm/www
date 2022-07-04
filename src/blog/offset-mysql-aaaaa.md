@@ -8,9 +8,11 @@ tags:
 
 ---
 
-TODO
+Large limit offsets degrade the performance of most databases, but it is especially egregious in MySQL.
 
-Let's create a simple table and fill it with 10,000,000 rows of non-trivial size:
+## The problem, with a clustered index
+
+To illustrate the problem, let's create a simple table and fill it with 1,000,000 rows of non-trivial size:
 
 ```sql
 CREATE TABLE messages
@@ -21,74 +23,144 @@ CREATE TABLE messages
 
 INSERT INTO messages (message)
 SELECT 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer aliquam ornare velit, auctor tempus erat ultrices ut. Phasellus ac nibh ante. Morbi consectetur, lorem in pulvinar tincidunt, augue est cursus ipsum, sed dapibus neque sapien id libero. Donec id felis sem. Morbi quis mi turpis. Nam viverra felis ac ex convallis, in congue nunc ultrices. Curabitur rutrum, lorem sit amet vulputate ultricies, velit odio ultrices dui, sed volutpat lorem felis vitae nibh. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae; Aenean orci mi, consectetur sed turpis sed, consequat tempor nisi. Cras id venenatis mi. Sed cursus in eros sit amet interdum.'
-FROM (SELECT a.n + b.n * 10 + c.n * 100 + d.n * 1000 + e.n * 10000 + f.n * 100000 + g.n * 1000000 + 1 AS n
+FROM (SELECT 1
       FROM (SELECT 0 AS n UNION SELECT 1 UNION SELECT 2 UNION SELECT 3 UNION SELECT 4 UNION SELECT 5 UNION SELECT 6 UNION SELECT 7 UNION SELECT 8 UNION SELECT 9) a
          , (SELECT 0 AS n UNION SELECT 1 UNION SELECT 2 UNION SELECT 3 UNION SELECT 4 UNION SELECT 5 UNION SELECT 6 UNION SELECT 7 UNION SELECT 8 UNION SELECT 9) b
          , (SELECT 0 AS n UNION SELECT 1 UNION SELECT 2 UNION SELECT 3 UNION SELECT 4 UNION SELECT 5 UNION SELECT 6 UNION SELECT 7 UNION SELECT 8 UNION SELECT 9) c
          , (SELECT 0 AS n UNION SELECT 1 UNION SELECT 2 UNION SELECT 3 UNION SELECT 4 UNION SELECT 5 UNION SELECT 6 UNION SELECT 7 UNION SELECT 8 UNION SELECT 9) d
          , (SELECT 0 AS n UNION SELECT 1 UNION SELECT 2 UNION SELECT 3 UNION SELECT 4 UNION SELECT 5 UNION SELECT 6 UNION SELECT 7 UNION SELECT 8 UNION SELECT 9) e
-         , (SELECT 0 AS n UNION SELECT 1 UNION SELECT 2 UNION SELECT 3 UNION SELECT 4 UNION SELECT 5 UNION SELECT 6 UNION SELECT 7 UNION SELECT 8 UNION SELECT 9) f
-         , (SELECT 0 AS n UNION SELECT 1 UNION SELECT 2 UNION SELECT 3 UNION SELECT 4 UNION SELECT 5 UNION SELECT 6 UNION SELECT 7 UNION SELECT 8 UNION SELECT 9) g) temp;
+         , (SELECT 0 AS n UNION SELECT 1 UNION SELECT 2 UNION SELECT 3 UNION SELECT 4 UNION SELECT 5 UNION SELECT 6 UNION SELECT 7 UNION SELECT 8 UNION SELECT 9) f) temp;
 ```
 
-The table ended up with about 7.29GB of data:
+Because `id` is the primary key, it becomes the table's [clustered index](https://dev.mysql.com/doc/refman/8.0/en/innodb-index-types.html). In general, the clustered index controls the physical ordering of rows on disk, and querying against it can provide some disk I/O optimization.
+
+The table ended up with about 760MB of data:
 
 ```shell
-mysql> SELECT round((data_length + index_length) / 1024 / 1024 / 1024, 2) AS `Size (GB)`
+mysql> SELECT round((data_length + index_length) / 1024 / 1024) AS `Size (MB)`
 FROM information_schema.tables
 WHERE table_name = 'messages';
 
 +-----------+
-| Size (GB) |
+| Size (MB) |
 +-----------+
-|      7.29 |
+|       760 |
 +-----------+
+1 row in set (0.00 sec)
 ```
 
-_We need a table of some significant size like this in order to illustrate the performance degradation of `OFFSET`. Having a table with only a single numeric primary key column won't highlight the issues as well._
+_Note: we need a table of some significant size like this in order to illustrate the performance degradation of `OFFSET`. Having a table with only a single numeric primary key column won't highlight the issues as well._
 
-Now let's measure how long it takes to select 10 rows at a time at various offsets:
+Now let's measure how long it takes to select a single row at a time at various offsets:
 
 ```shell
-mysql> SELECT * FROM messages LIMIT 10;
-10 rows in set (0.00 sec)
+mysql> SELECT * FROM messages ORDER BY id LIMIT 1;
+1 row in set (0.00 sec)
 
-mysql> SELECT * FROM messages LIMIT 10 OFFSET 10;
-10 rows in set (0.00 sec)
+mysql> SELECT * FROM messages ORDER BY id LIMIT 1 OFFSET 10;
+1 row in set (0.00 sec)
 
-mysql> SELECT * FROM messages LIMIT 10 OFFSET 100;
-10 rows in set (0.00 sec)
+mysql> SELECT * FROM messages ORDER BY id LIMIT 1 OFFSET 100;
+1 row in set (0.00 sec)
 
-mysql> SELECT * FROM messages LIMIT 10 OFFSET 1000;
-10 rows in set (0.01 sec)
+mysql> SELECT * FROM messages ORDER BY id LIMIT 1 OFFSET 1000;
+1 row in set (0.01 sec)
 
-mysql> SELECT * FROM messages LIMIT 10 OFFSET 10000;
-10 rows in set (0.05 sec)
+mysql> SELECT * FROM messages ORDER BY id LIMIT 1 OFFSET 10000;
+1 row in set (0.06 sec)
 
-mysql> SELECT * FROM messages LIMIT 10 OFFSET 100000;
-10 rows in set (0.83 sec)
+mysql> SELECT * FROM messages ORDER BY id LIMIT 1 OFFSET 100000;
+1 row in set (0.67 sec)
 
-mysql> SELECT * FROM messages LIMIT 10 OFFSET 1000000;
-10 rows in set (8.41 sec)
-
-mysql> SELECT * FROM messages LIMIT 10 OFFSET 9999000;
-10 rows in set (1 min 22.06 sec)
+mysql> SELECT * FROM messages ORDER BY id LIMIT 1 OFFSET 999999;
+1 row in set (6.49 sec)
 ```
 
-_Your timings may vary, but they should have a similar exponential growth. Both MySQL 5.7 and 8.0 exhibit this behavior._
+_Note: your timings may vary, but they should have a similar exponential growth. Both MySQL 5.7 and 8.0 exhibit this same behavior._
 
-All the offsets up through 10,000 are negligible, but once we get close to 100,000 the performance penalty becomes clear.
+The difference in query time with offsets up through 10,000 is negligible, but once we get close to 100,000 the performance penalty becomes clear.
 
-This begs the question: why would you ever query with an offset of 1,000,000 or more? A few reasons:
+## The problem, with a secondary index
 
-- Websites that display paginated data from large data set:
-  - Search engine results from billions of crawled web pages
-  - Product results from a very large product catalog
-  - User list for a social website
-- Processing every item in a collection in batches:
-  - Sending emails to every registered user, 1,000 at a time
+But what happens if we create that same table with an extra column that has a secondary index, and then fill that column with random numbers that won't match the clustered index's ordering:
 
-TODO
+```sql
+CREATE TABLE messages
+(
+    id      SERIAL PRIMARY KEY,
+    message TEXT NOT NULL,
+    weight  INT  NOT NULL,
+    INDEX (weight)
+);
+
+INSERT INTO messages (message, weight)
+SELECT 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer aliquam ornare velit, auctor tempus erat ultrices ut. Phasellus ac nibh ante. Morbi consectetur, lorem in pulvinar tincidunt, augue est cursus ipsum, sed dapibus neque sapien id libero. Donec id felis sem. Morbi quis mi turpis. Nam viverra felis ac ex convallis, in congue nunc ultrices. Curabitur rutrum, lorem sit amet vulputate ultricies, velit odio ultrices dui, sed volutpat lorem felis vitae nibh. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae; Aenean orci mi, consectetur sed turpis sed, consequat tempor nisi. Cras id venenatis mi. Sed cursus in eros sit amet interdum.'
+     , rand() * 2147483647
+FROM (SELECT 1
+      FROM (SELECT 0 AS n UNION SELECT 1 UNION SELECT 2 UNION SELECT 3 UNION SELECT 4 UNION SELECT 5 UNION SELECT 6 UNION SELECT 7 UNION SELECT 8 UNION SELECT 9) a
+         , (SELECT 0 AS n UNION SELECT 1 UNION SELECT 2 UNION SELECT 3 UNION SELECT 4 UNION SELECT 5 UNION SELECT 6 UNION SELECT 7 UNION SELECT 8 UNION SELECT 9) b
+         , (SELECT 0 AS n UNION SELECT 1 UNION SELECT 2 UNION SELECT 3 UNION SELECT 4 UNION SELECT 5 UNION SELECT 6 UNION SELECT 7 UNION SELECT 8 UNION SELECT 9) c
+         , (SELECT 0 AS n UNION SELECT 1 UNION SELECT 2 UNION SELECT 3 UNION SELECT 4 UNION SELECT 5 UNION SELECT 6 UNION SELECT 7 UNION SELECT 8 UNION SELECT 9) d
+         , (SELECT 0 AS n UNION SELECT 1 UNION SELECT 2 UNION SELECT 3 UNION SELECT 4 UNION SELECT 5 UNION SELECT 6 UNION SELECT 7 UNION SELECT 8 UNION SELECT 9) e
+         , (SELECT 0 AS n UNION SELECT 1 UNION SELECT 2 UNION SELECT 3 UNION SELECT 4 UNION SELECT 5 UNION SELECT 6 UNION SELECT 7 UNION SELECT 8 UNION SELECT 9) f) temp;
+```
+
+And then run those same performance tests when ordering by the secondary index:
+
+```shell
+mysql> SELECT * FROM messages ORDER BY weight LIMIT 1;
+1 row in set (0.00 sec)
+
+mysql> SELECT * FROM messages ORDER BY weight LIMIT 1 OFFSET 10;
+1 row in set (0.00 sec)
+
+mysql> SELECT * FROM messages ORDER BY weight LIMIT 1 OFFSET 100;
+1 row in set (0.00 sec)
+
+mysql> SELECT * FROM messages ORDER BY weight LIMIT 1 OFFSET 1000;
+1 row in set (0.03 sec)
+
+mysql> SELECT * FROM messages ORDER BY weight LIMIT 1 OFFSET 10000;
+1 row in set (0.25 sec)
+
+mysql> SELECT * FROM messages ORDER BY weight LIMIT 1 OFFSET 100000;
+1 row in set (10.41 sec)
+
+mysql> SELECT * FROM messages ORDER BY weight LIMIT 1 OFFSET 999999;
+1 row in set (13.70 sec)
+```
+
+The performance hit is even worse. Finding the last row in the list takes more than double the time.
+
+## The use cases
+
+This begs the question, though: why would you ever query with an offset of 100,000 or more? Here are a few use cases:
+
+**Websites that allow paginating of a large data set:**
+
+- Search engine results from billions of crawled web pages
+- Product search results from a very large product catalog
+- List of users for a social website, ordered by some ranking
+
+**Processing every item in a large set in batches:**
+
+- Sending emails to every registered user, 1,000 at a time
+- TODO
+
+And most of those use cases are probably ordering by a secondary index and not the clustered index.
+
+None of these query patterns pose problems when first getting started with an empty database, they only become a problem when the data set becomes large. But the available solutions aren't difficult, so you should think about them from the start.
+
+## The explanation
+
+MySQL's official documentation doesn't have much on the topic, but MariaDB's page on [Pagination Optimization](https://mariadb.com/kb/en/pagination-optimization/) has a little:
+
+> MariaDB has to find all \[OFFSET+LIMIT\] rows, step over the first \[OFFSET\], then deliver the \[LIMIT\] for that distant page.
+
+> The goal is to touch only the relevant rows, not all the rows leading up to the desired rows.
+
+## The solutions
+
 
 ## PostgreSQL
 
@@ -108,43 +180,15 @@ SELECT 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer aliquam
 FROM generate_series(1, 10000000);
 ```
 
-And then use `psql` with timing on, we can see the 1,000,000 row offset isn't great, but
+We can see the 1,000,000 row offset isn't great, but it's far better than MySQL:
 
 ```shell
 postgres=# \timing
 Timing is on.
 
-postgres=# SELECT id FROM messages LIMIT 10;
- id
-----
-  1
-  2
-  3
-  4
-  5
-  6
-  7
-  8
-  9
- 10
-(10 rows)
-
+postgres=# SELECT * FROM messages LIMIT 10;
 Time: 2.835 ms
 
-postgres=# SELECT id FROM messages LIMIT 10 OFFSET 1000000;
-   id
----------
- 1000001
- 1000002
- 1000003
- 1000004
- 1000005
- 1000006
- 1000007
- 1000008
- 1000009
- 1000010
-(10 rows)
-
+postgres=# SELECT * FROM messages LIMIT 10 OFFSET 1000000;
 Time: 418.463 ms
 ```
