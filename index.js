@@ -33,6 +33,7 @@ import jsonld           from './lib/metalsmith-jsonld.js';
 import defaultValues    from '@metalsmith/default-values';
 import hbtmd            from './lib/metalsmith-hbt-md.js';
 import mermaid          from 'metalsmith-mermaid';
+import vega             from 'metalsmith-vega';
 import markdown         from '@metalsmith/markdown';
 import excerpts         from './lib/metalsmith-excerpts.js';
 import except           from 'metalsmith-except';
@@ -112,6 +113,20 @@ const blogImageThumbSizes = [
     [222,222], // index retina
     [111,111], // index
 ];
+
+const vegaOptions = {
+    vegaLite: {
+        background: 'transparent',
+        padding: 0,
+        view: {
+            width: 500,
+            height: 500/2
+        }
+    },
+    vega: {
+        autosize: 'pad'
+    }
+};
 
 const markdownRenderer = new marked.Renderer();
 markdownRenderer.heading = (text, level, raw) => {
@@ -465,6 +480,7 @@ tracer(Metalsmith(path.resolve()))
         // Render the files
         .use(hbtmd(Handlebars))
         .use(mermaid())
+        .use(vega(vegaOptions))
         .use(markdown({
             renderer: markdownRenderer
         }))
@@ -764,6 +780,7 @@ tracer(Metalsmith(path.resolve()))
 
     // Convert markdown to HTML
     .use(mermaid())
+    .use(vega(vegaOptions))
     .use(markdown({
         renderer: markdownRenderer
     }))

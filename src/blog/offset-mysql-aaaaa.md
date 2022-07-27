@@ -32,7 +32,7 @@ FROM (SELECT 1
          , (SELECT 0 AS n UNION SELECT 1 UNION SELECT 2 UNION SELECT 3 UNION SELECT 4 UNION SELECT 5 UNION SELECT 6 UNION SELECT 7 UNION SELECT 8 UNION SELECT 9) f) temp;
 ```
 
-Because `id` is the primary key, it becomes the table's [clustered index](https://dev.mysql.com/doc/refman/8.0/en/innodb-index-types.html). In general, the clustered index controls the physical ordering of rows on disk, and querying against it can provide some disk I/O optimization.
+Because `id` is the primary key, it becomes the InnoDB table's [clustered index](https://dev.mysql.com/doc/refman/8.0/en/innodb-index-types.html). In general, the clustered index controls the physical ordering of rows on disk, and querying against it can provide some disk I/O optimization.
 
 The table ended up with about 760MB of data:
 
@@ -76,7 +76,29 @@ mysql> SELECT * FROM messages ORDER BY id LIMIT 1 OFFSET 999999;
 1 row in set (6.49 sec)
 ```
 
-_Note: your timings may vary, but they should have a similar exponential growth. Both MySQL 5.7 and 8.0 exhibit this same behavior._
+```vega-lite
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "data": {
+    "values": [
+      {"x":0, "y":0},
+      {"x":10, "y":0},
+      {"x":100, "y":0},
+      {"x":1000, "y":0.03},
+      {"x":10000, "y":0.25},
+      {"x":100000, "y":10.41},
+      {"x":999999, "y":13.70}
+    ]
+  },
+  "mark": "line",
+  "encoding": {
+    "x": {"field": "x"},
+    "y": {"field": "y", "type":"temporal"}
+  }
+}
+```
+
+_Note: your timings may vary, but they should have a similar exponential growth. As of writing, all modern versions of MySQL exhibit this behavior._
 
 The difference in query time with offsets up through 10,000 is negligible, but once we get close to 100,000 the performance penalty becomes clear.
 
@@ -130,7 +152,58 @@ mysql> SELECT * FROM messages ORDER BY weight LIMIT 1 OFFSET 999999;
 1 row in set (13.70 sec)
 ```
 
-The performance hit is even worse. Finding the last row in the list takes more than double the time.
+```vega-lite
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "mark": "line",
+  "data": {
+    "values": [
+      {"x":0, "y":0},
+      {"x":10, "y":0},
+      {"x":100, "y":0},
+      {"x":1000, "y":30},
+      {"x":10000, "y":250},
+      {"x":100000, "y":10410},
+      {"x":999999, "y":13700}
+    ],
+    "format": {
+      "parse": {
+        "y": "number"
+      }
+    }
+  },
+  "encoding": {
+    "x": {
+      "field": "x",
+      "title": "OFFSET",
+      "type": "quantitative"
+    },
+    "y": {
+      "field": "y",
+      "title": "Time (sec)",
+      "type": "temporal",
+      "timeUnit": "secondsmilliseconds",
+      "axis": {
+        "tickCount": "second",
+        "tickMinStep": 400,
+        "format": "%S"
+      }
+    }
+  }
+}
+```
+
+The performance hit is even worse. Finding the last row in the table takes more than double the time when compared to the clustered index.
+
+## The explanation
+
+MySQL's official documentation doesn't have much on the topic, but MariaDB's page on [Pagination Optimization](https://mariadb.com/kb/en/pagination-optimization/) has a little:
+
+> MariaDB has to find all \[OFFSET+LIMIT\] rows, step over the first \[OFFSET\], then deliver the \[LIMIT\] for that distant page.
+
+> The goal is to touch only the relevant rows, not all the rows leading up to the desired rows.
+
+TODO
 
 ## The use cases
 
@@ -140,7 +213,7 @@ This begs the question, though: why would you ever query with an offset of 100,0
 
 - Search engine results from billions of crawled web pages
 - Product search results from a very large product catalog
-- List of users for a social website, ordered by some ranking
+- Displaying a list of some users for a social website, ordered by some ranking
 
 **Processing every item in a large set in batches:**
 
@@ -151,16 +224,11 @@ And most of those use cases are probably ordering by a secondary index and not t
 
 None of these query patterns pose problems when first getting started with an empty database, they only become a problem when the data set becomes large. But the available solutions aren't difficult, so you should think about them from the start.
 
-## The explanation
-
-MySQL's official documentation doesn't have much on the topic, but MariaDB's page on [Pagination Optimization](https://mariadb.com/kb/en/pagination-optimization/) has a little:
-
-> MariaDB has to find all \[OFFSET+LIMIT\] rows, step over the first \[OFFSET\], then deliver the \[LIMIT\] for that distant page.
-
-> The goal is to touch only the relevant rows, not all the rows leading up to the desired rows.
-
 ## The solutions
 
+"cursor-based pagination" id>10, id>20, etc - requires unique column
+
+"seek method" or "keyset pagination" , where you do `(created_on, id) < ('2019-10-02 21:00:00.0', 4951)` - can you in MySQL, or just Postgres? [https://vladmihalcea.com/sql-seek-keyset-pagination/](https://vladmihalcea.com/sql-seek-keyset-pagination/)
 
 ## PostgreSQL
 
@@ -177,7 +245,7 @@ CREATE TABLE messages
 
 INSERT INTO messages (message)
 SELECT 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer aliquam ornare velit, auctor tempus erat ultrices ut. Phasellus ac nibh ante. Morbi consectetur, lorem in pulvinar tincidunt, augue est cursus ipsum, sed dapibus neque sapien id libero. Donec id felis sem. Morbi quis mi turpis. Nam viverra felis ac ex convallis, in congue nunc ultrices. Curabitur rutrum, lorem sit amet vulputate ultricies, velit odio ultrices dui, sed volutpat lorem felis vitae nibh. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae; Aenean orci mi, consectetur sed turpis sed, consequat tempor nisi. Cras id venenatis mi. Sed cursus in eros sit amet interdum.'
-FROM generate_series(1, 10000000);
+FROM generate_series(1, 1000000);
 ```
 
 We can see the 1,000,000 row offset isn't great, but it's far better than MySQL:
@@ -186,9 +254,12 @@ We can see the 1,000,000 row offset isn't great, but it's far better than MySQL:
 postgres=# \timing
 Timing is on.
 
-postgres=# SELECT * FROM messages LIMIT 10;
-Time: 2.835 ms
+postgres=# SELECT * FROM messages LIMIT 1;
+Time: 0.801 ms
 
-postgres=# SELECT * FROM messages LIMIT 10 OFFSET 1000000;
-Time: 418.463 ms
+postgres=# SELECT * FROM messages LIMIT 1 OFFSET 10000;
+Time: 3.086 ms
+
+postgres=# SELECT * FROM messages LIMIT 1 OFFSET 999999;
+Time: 235.581 ms
 ```
