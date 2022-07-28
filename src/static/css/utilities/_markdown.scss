@@ -117,7 +117,7 @@
       }
     }
 
-    svg.marks { // TODO(cemmer): change to .vega
+    svg.vega {
       width: 100%;
       height: auto;
 
@@ -125,14 +125,19 @@
         fill: $body-color;
       }
 
+      .background {
+        stroke: none;
+      }
+
       // Axis lines
-      .role-axis-domain line {
+      .role-axis-domain line,
+      .role-axis-grid line:first-of-type {
         stroke: $dark;
       }
 
       // Grid lines
-      .role-frame path,
-      .role-axis-grid line {
+      //.role-frame path,
+      .role-axis-grid line:not(:first-of-type) {
         stroke: mix($light, $dark, 75%);
       }
 
@@ -141,8 +146,26 @@
         stroke: mix($light, $dark);
       }
 
-      .role-mark path {
-        stroke: $primary;
+      // Lines
+      .mark-group > g {
+        &:first-of-type .mark-line path {
+          stroke: $primary;
+        }
+        &:not(:first-of-type) .mark-line path {
+          stroke: $secondary;
+        }
+      }
+
+      // Line dots
+      .mark-symbol.role-mark path {
+        &:first-of-type {
+          stroke: $primary;
+          fill: $primary;
+        }
+        &:not(:first-of-type) {
+          stroke: $secondary;
+          fill: $secondary;
+        }
       }
     }
   }
