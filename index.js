@@ -115,16 +115,10 @@ const blogImageThumbSizes = [
 ];
 
 const vegaOptions = {
-    vegaLite: {
-        background: 'transparent',
-        padding: 0,
-        view: {
-            width: 500,
-            height: 500/2
-        }
-    },
     vega: {
-        autosize: 'pad'
+        background: 'transparent',
+        width: 500,
+        height: 500/2
     }
 };
 

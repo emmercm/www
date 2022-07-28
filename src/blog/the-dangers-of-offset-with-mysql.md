@@ -1,7 +1,7 @@
 ---
 
 title: The Dangers of OFFSET With MySQL
-date: 2022-07-28T04:48:00
+date: 2022-07-28T23:36:00
 tags:
 - databases
 - mysql
@@ -146,7 +146,7 @@ The difference in query time with offsets up through 10,000 is negligible, but o
 
 ## The problem, with a secondary index
 
-What happens if we create that same table with an extra column that has a secondary index, and then fill that column with random numbers that won't match the clustered index's ordering:
+What happens if we create that same table with an extra column that has a [secondary index](https://dev.mysql.com/doc/refman/8.0/en/innodb-index-types.html), and then fill that column with random numbers that won't match the clustered index's ordering:
 
 ```sql
 CREATE TABLE messages
@@ -169,7 +169,7 @@ FROM (SELECT 1
          , (SELECT 0 AS n UNION SELECT 1 UNION SELECT 2 UNION SELECT 3 UNION SELECT 4 UNION SELECT 5 UNION SELECT 6 UNION SELECT 7 UNION SELECT 8 UNION SELECT 9) f) temp;
 ```
 
-And then run those same performance tests when ordering by the secondary index:
+And then run those same performance tests against the secondary index (by using it as our `ORDER BY`):
 
 ```shell
 mysql> SELECT * FROM messages ORDER BY weight LIMIT 1;
@@ -288,12 +288,13 @@ This begs the question: why would you ever query with an offset of 100,000 or mo
 - Product search results from a very large product catalog
 - Displaying a list of some users for a social website, ordered by some ranking
 
-**Processing every item in a large set in batches:**
+**Processing every item in a large set, either individually or in batches:**
 
-- Sending emails to every registered user, 1,000 at a time
-- TODO
+- Sending an email to every registered user
+- Back-filling every row in a table with some information
+- Calling some external RPC for every row in a table
 
-Most of those use cases are probably ordering by a secondary index and not the clustered index.
+The pagination use cases are likely ordering by a secondary index, but even ordering by the clustered index will cause performance issues like we saw above.
 
 None of these query patterns pose problems when first getting started with an empty database, they only become a problem when the data set becomes large. But the available solutions aren't difficult, so you should think about them from the start.
 
@@ -301,11 +302,9 @@ _Note: it's worth stating that if you're ordering by a non-monotonically-increas
 
 ## Solution 1: cursor-based pagination
 
-**Cursor-based pagination / the "seek" method / keyset pagination.**
+Cursor-based pagination, the "seek" method, keyset pagination - call it what you want, the idea is that you use the results from one query to help fetch the next or previous page. With this method we lose the ability to seek to arbitrary pages in our dataset, but that's likely acceptable for the real world use cases above.
 
-Call it what you want, the idea is that you use the results from one query to help fetch the next or previous page. With this method we lose the ability to seek to arbitrary pages in our dataset, but that's likely acceptable for the real world use cases above.
-
-Let's query for the first page of results from the second `messages` table with the secondary index from above, but the `weight` column isn't unique, and we need to ensure deterministic ordering, so we have to have a secondary ordering by the `id` column:
+Let's query for the first page of results from the second `messages` table with the secondary index from above - but the `weight` column isn't unique, and we need to ensure deterministic ordering, so we have to have a secondary ordering by the `id` column:
 
 ```shell
 mysql> SELECT id
@@ -361,7 +360,7 @@ mysql> SELECT id
 
 And if we wanted to go back a page then we can use the first result from that second page:
 
-```sql
+```shell
 mysql> SELECT id
             , weight
        FROM messages
@@ -387,7 +386,7 @@ mysql> SELECT id
 10 rows in set (0.00 sec)
 ```
 
-This method would also work well for dates, such as fetching a page of users by their registration date.
+This method would also work well for date columns, such as fetching a page of users by their registration date.
 
 There are a few limits to this method, however:
 
@@ -403,18 +402,18 @@ From the official MySQL documentation on [secondary indexes](https://dev.mysql.c
 
 > In InnoDB, each record in a secondary index contains the primary key columns for the row, as well as the columns specified for the secondary index. InnoDB uses this primary key value to search for the row in the clustered index.
 
-In other words, we could say that every secondary index is a "spanning" index that includes the primary key, similar to [multiple-column indexes](https://dev.mysql.com/doc/refman/8.0/en/innodb-index-types.html).
+In other words, every secondary index in InnoDB is a ["covering" index](https://dev.mysql.com/doc/refman/8.0/en/glossary.html#glos_covering_index) that includes the primary key, similar to [multiple-column indexes](https://dev.mysql.com/doc/refman/8.0/en/innodb-index-types.html).
 
-So when we order by the `weight` secondary index, MySQL will first use that to look up the primary key, and will then use the primary key to fetch the row.
+So when we order by the `weight` secondary index, MySQL will first use the secondary index to look up the primary key, and will then look up the primary key in the clustered index in order to fetch the row.
 
-The only reason the high-offset queries above are slow is that we are requesting columns that require MySQL to fetch the entire row. If we only wanted the primary key then the lookup is much faster:
+The only reason the high-offset queries above are slow is that we are requesting columns that require MySQL to fetch the entire row. If we only wanted the primary key then the lookup is much faster because the query is only returning columns "covered" in the index:
 
 ```shell
 mysql> SELECT id FROM messages ORDER BY weight LIMIT 1 OFFSET 999999;
 1 row in set (0.14 sec)
 ```
 
-With a clever join to a subquery we can get MySQL to fetch only our result rows and _not_ all the rows preceding it:
+We can construct a subquery that only hits the secondary index to find our desired rows, and then use the results of that to hit the clustered index and fetch the rows. This stops MySQL from fetching thousands of rows it will discard:
 
 ```shell
 mysql> SELECT * FROM messages ORDER BY weight LIMIT 1 OFFSET 100000;
