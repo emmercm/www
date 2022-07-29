@@ -1,8 +1,28 @@
 [build]
   command = "npm test && npm start"
   publish = "build/"
+  ignore = "node ignore_build.js"
 
 [build.environment]
+  # FONTAWESOME_TOKEN
+  # UNSPLASH_ACCESS_KEY
+  # UNSPLASH_SECRET_KEY
   NODE_ENV = "production"
   TZ = "America/Los_Angeles"
   PYTHON_VERSION = "3.7" # for sharp/libvips
+
+[build.processing]
+  # Site settings > Build & deploy > Post processing > Asset Optimization
+  skip_processing = false
+
+[[context.production.plugins]]
+  package = "netlify-plugin-submit-sitemap"
+
+[[context.deploy-preview.plugins]]
+  package = "@netlify/plugin-lighthouse"
+  [[context.deploy-preview.plugins.inputs.audits]]
+    path = ""
+    output_path = "lighthouse.html"
+  [[context.deploy-preview.plugins.inputs.audits]]
+    path = "blog/starting-a-metalsmith-project"
+    output_path = "lighthouse.html"

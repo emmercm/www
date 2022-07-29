@@ -1,84 +1,90 @@
 'use strict';
 
-const path = require('path');
+import path from 'path';
 
-const Metalsmith = require('metalsmith');
-const tracer     = require('metalsmith-tracer');
-const msIf       = require('metalsmith-if');
+import Metalsmith from 'metalsmith';
+import tracer     from 'metalsmith-tracer';
+import msIf       from 'metalsmith-if';
 
-const env              = require('metalsmith-env');
-const buildinfo        = require('metalsmith-build-info');
-const metaDirectory    = require('metalsmith-metadata-directory');
-const githubProfile    = require('metalsmith-github-profile');
-const gravatar         = require('metalsmith-gravatar');
-const drafts           = require('@metalsmith/drafts');
-const validate         = require('metalsmith-validate');
-const dataLoader       = require('metalsmith-data-loader');
-const sass             = require('metalsmith-sass');
-const autoprefixer     = require('metalsmith-autoprefixer');
-const include          = require('metalsmith-include-files');
-const renamer          = require('metalsmith-renamer');
-const ignore           = require('metalsmith-ignore');
-const copy             = require('metalsmith-copy');
-const discoverHelpers  = require('metalsmith-discover-helpers');
-const discoverPartials = require('metalsmith-discover-partials');
-const collect          = require('metalsmith-auto-collections');
-const collectionMeta   = require('metalsmith-collection-metadata');
-const permalinks       = require('@metalsmith/permalinks');
-const paths            = require('metalsmith-paths');
-const branch           = require('metalsmith-branch');
-const readingTime      = require('metalsmith-reading-time');
-const pagination       = require('metalsmith-pagination')
-const jsonld           = require('./lib/metalsmith-jsonld');
-const defaultValues    = require('@metalsmith/default-values');
-const hbtmd            = require('./lib/metalsmith-hbt-md');
-const markdown         = require('@metalsmith/markdown');
-const excerpts         = require('./lib/metalsmith-excerpts');
-const except           = require('metalsmith-except');
-const feed             = require('metalsmith-feed');
-const related          = require('metalsmith-collections-related');
-const favicons         = require('metalsmith-favicons');
-const layouts          = require('metalsmith-layouts');
-const jquery           = require('metalsmith-jquery');
-const openGraph        = require('metalsmith-open-graph');
-const twitterCard      = require('metalsmith-twitter-card');
-const beautify         = require('metalsmith-beautify');
-const concat           = require('metalsmith-concat');
-const glob             = require('metalsmith-html-glob');
-const relative         = require('metalsmith-html-relative');
-const htmlUnused       = require('metalsmith-html-unused');
-const uglify           = require('metalsmith-uglify');
-const cssUnused        = require('metalsmith-css-unused');
-const cleanCSS         = require('metalsmith-clean-css');
-const htmlMinifier     = require('metalsmith-html-minifier');
-const sri              = require('metalsmith-html-sri');
-const sitemap          = require('metalsmith-sitemap');
-const linter           = require('metalsmith-html-linter');
-const linkChecker      = require('metalsmith-link-checker');
-const robots           = require('metalsmith-robots');
+import env              from 'metalsmith-env';
+import buildinfo        from 'metalsmith-build-info';
+import metaDirectory    from 'metalsmith-metadata-directory';
+import githubProfile    from 'metalsmith-github-profile';
+import gravatar         from 'metalsmith-gravatar';
+import drafts           from '@metalsmith/drafts';
+import validate         from 'metalsmith-validate';
+import dataLoader       from 'metalsmith-data-loader';
+import sass             from '@metalsmith/sass';
+import postcss          from '@metalsmith/postcss';
+import include          from 'metalsmith-include-files';
+import renamer          from 'metalsmith-renamer';
+import remove           from '@metalsmith/remove';
+import copy             from 'metalsmith-copy';
+import discoverHelpers  from 'metalsmith-discover-helpers';
+import discoverPartials from 'metalsmith-discover-partials';
+import collect          from 'metalsmith-auto-collections';
+import collectionMeta   from 'metalsmith-collection-metadata';
+import permalinks       from '@metalsmith/permalinks';
+import paths            from 'metalsmith-paths';
+import branch           from 'metalsmith-branch';
+import readingTime      from 'metalsmith-reading-time';
+import pagination       from 'metalsmith-pagination';
+import jsonld           from './lib/metalsmith-jsonld.js';
+import defaultValues    from '@metalsmith/default-values';
+import hbtmd            from './lib/metalsmith-hbt-md.js';
+import mermaid          from 'metalsmith-mermaid';
+import vega             from 'metalsmith-vega';
+import markdown         from '@metalsmith/markdown';
+import excerpts         from './lib/metalsmith-excerpts.js';
+import except           from 'metalsmith-except';
+import feed             from 'metalsmith-feed';
+import related          from 'metalsmith-collections-related';
+import favicons         from 'metalsmith-favicons';
+import layouts          from '@metalsmith/layouts';
+import jquery           from 'metalsmith-jquery';
+import openGraph        from 'metalsmith-open-graph';
+import twitterCard      from 'metalsmith-twitter-card';
+import concat           from 'metalsmith-concat';
+import glob             from 'metalsmith-html-glob';
+import relative         from 'metalsmith-html-relative';
+import htmlUnused       from 'metalsmith-html-unused';
+import uglify           from 'metalsmith-uglify';
+import cssUnused        from 'metalsmith-css-unused';
+import htmlMinifier     from 'metalsmith-html-minifier';
+import sri              from 'metalsmith-html-sri';
+import sitemap          from 'metalsmith-sitemap';
+import linter           from 'metalsmith-html-linter';
+import linkChecker      from 'metalsmith-link-checker';
+import robots           from 'metalsmith-robots';
 
-const async           = require('async');
-const highlight       = require('highlight.js');
-const marked          = require('marked');
-const minimatch       = require('minimatch');
-const {DateTime}      = require('luxon');
-const transliteration = require('transliteration');
+import collections from '@metalsmith/collections';
+
+import async           from 'async';
+import highlight       from 'highlight.js';
+import {marked}        from 'marked';
+import minimatch       from 'minimatch';
+import {DateTime}      from 'luxon';
+import transliteration from 'transliteration';
 
 // Register Handlebars helper libraries
-const Handlebars = require('handlebars');
-require('handlebars-helpers')({
+import Handlebars from 'handlebars';
+import helpers from 'handlebars-helpers';
+helpers({
     handlebars: Handlebars
 });
 
 // Set up Unsplash SDK
-global.fetch   = require('node-fetch');
-const Unsplash = require('unsplash-js');
+import fetch from 'node-fetch';
+if (!globalThis.fetch) {
+    globalThis.fetch = fetch;
+}
+import Unsplash from 'unsplash-js';
 const unsplash = Unsplash.createApi({
     accessKey: process.env.UNSPLASH_ACCESS_KEY,
     secret: process.env.UNSPLASH_SECRET_KEY
 });
 
-const { blogImage, backgroundImage } = require('./lib/sharp');
+import { blogImage, backgroundImage } from './lib/sharp.js';
 
 const prodBuild = (process.env.NODE_ENV || 'development').toLowerCase() === 'production';
 const prodDeploy = process.env.NETLIFY && process.env.CONTEXT === 'production';
@@ -88,17 +94,33 @@ const siteLanguage    = 'en-US';
 const siteName        = 'Christian Emmer';
 const siteURL         = process.env.NETLIFY && process.env.CONTEXT !== 'production' ? process.env.DEPLOY_PRIME_URL : (process.env.URL || 'https://emmer.dev');
 const siteEmail       = 'emmercm@gmail.com';
-const siteDescription = 'Software engineer with ' + Math.floor(DateTime.local().diff(DateTime.fromISO('2012-01-16'), 'years').years) + '+ years of experience developing full-stack solutions in PHP, Go, Node.js, Java, and Python.';
+const siteDescription = 'Software engineer with ' + Math.floor(DateTime.local().diff(DateTime.fromISO('2012-01-16'), 'years').years) + '+ years of experience developing full-stack solutions in JavaScript, PHP, Go, Java, and Python.';
 const siteLogo        = '**/prologo1/logo3_Gray_Lighter.svg';
 const siteBackground  = '**/trianglify.svg';
 const twitterHandle   = '@emmercm';
 const githubHandle    = 'emmercm';
 
-// x2 for retina displays
-const blogImageWidth  = 768 * 2;
-const blogImageHeight = Math.floor(blogImageWidth / 2);
-const blogImageThumbWidth  = 126 * 2;
-const blogImageThumbHeight = blogImageThumbWidth;
+const blogImageSizes = [
+    [768,768/2], // default: full width
+    [1536,1536/2], // full width retina
+    [414,414/2], // mobile
+    [360,360/2], // mobile
+];
+const blogImageThumbSizes = [
+    [159,159], // default: card two line title
+    [318,318], // card two line title retina
+    [135,135], // card single line title
+    [222,222], // index retina
+    [111,111], // index
+];
+
+const vegaOptions = {
+    vega: {
+        background: 'transparent',
+        width: 500,
+        height: 500/2
+    }
+};
 
 const markdownRenderer = new marked.Renderer();
 markdownRenderer.heading = (text, level, raw) => {
@@ -109,18 +131,25 @@ markdownRenderer.heading = (text, level, raw) => {
     const slug = transliteration.slugify(title);
     return `<h${level} id="${slug}">
         <a href="#${slug}" title="${title}" class="link" aria-hidden="true">
-            <i class="far fa-link"></i>
+            <i class="fa-regular fa-link"></i>
         </a>
         ${text}
         </h${level}>`;
+};
+markdownRenderer.table = (header, body) => {
+    if (body) {
+        body = `<tbody>${body}</tbody>`;
+    }
+    return `<table class="table table-bordered border-dark table-striped">
+        <thead class="table-dark">${header}</thead>
+        ${body}
+        </table>`;
 };
 markdownRenderer.code = (_code, infostring, escaped) => {
     const _highlight = (code, language) => highlight.getLanguage(language) ? highlight.highlight(code, {
         language,
         ignoreIllegals: true
     }).value : highlight.highlightAuto(code).value;
-    // Fix https://github.com/segmentio/metalsmith-markdown/issues/48
-    _code = _code.replace(new RegExp(`^[ ]{${_code.search(/\S/)}}`, 'gm'), '');
     // v1.1.0
     const escapeTest = /[&<>"']/;
     const escapeReplace = /[&<>"']/g;
@@ -158,7 +187,7 @@ markdownRenderer.code = (_code, infostring, escaped) => {
     return `<pre><code class="language-${escape(lang, true)}">${escaped ? _code : escape(_code, true)}</code></pre>\n`;
 };
 
-tracer(Metalsmith(__dirname))
+tracer(Metalsmith(path.resolve()))
     /***********************
      *                     *
      *     SETUP INPUT     *
@@ -188,9 +217,13 @@ tracer(Metalsmith(__dirname))
     }))
 
     // Load GitHub information
-    .use(githubProfile({
-        username: githubHandle
-    }))
+    .use(msIf(prodBuild, githubProfile({
+        username: githubHandle,
+        authorization: {
+            username: githubHandle,
+            token: process.env.GITHUB_PERSONAL_ACCESS_TOKEN
+        }
+    })))
 
     // Load Gravatar URL
     .use(gravatar({
@@ -253,11 +286,15 @@ tracer(Metalsmith(__dirname))
 
     // Compile Sass files
     .use(sass({
-        outputStyle: 'expanded'
+        style: 'expanded'
     }))
 
     // Run autoprefixer on CSS files
-    .use(autoprefixer())
+    .use(postcss({
+        plugins: {
+            'autoprefixer': {}
+        }
+    }))
 
     /**************************
      *                        *
@@ -274,28 +311,37 @@ tracer(Metalsmith(__dirname))
             const photoId = files[filename].image
                 .replace(/.*unsplash\.com\/photos\/([^\/?]+).*/, '$1')
                 .replace(/.*source\.unsplash\.com\/([^\/?]+).*/, '$1');
+            let imageUrlGenerator;
             if (prodBuild) {
                 const result = (await unsplash.photos.get({photoId}));
                 if (result.errors) {
                     throw `Failed to fetch ${original}: ${result.errors.join(', ')}`;
                 }
                 const photo = result.response;
-                const imgixParameters = '&fm=jpg&q=80&cs=srgb&fit=crop&crop=entropy';
-                files[filename].image = `${photo.urls.raw}${imgixParameters}&w=${blogImageWidth}&h=${blogImageHeight}`;
-                files[filename].thumb = `${photo.urls.raw}${imgixParameters}&w=${blogImageThumbWidth}&h=${blogImageThumbHeight}`;
+                const imgixParameters = '&auto=format&q=80&cs=srgb&fit=crop&crop=entropy';
+                imageUrlGenerator = (width, height) => `${photo.urls.raw}${imgixParameters}&w=${width}&h=${height}`;
                 const utmParameters = '?utm_source=emmer-dev&utm_medium=referral';
                 files[filename].imageCredit = `Photo by <a href="${photo.user.links.html}${utmParameters}">${photo.user.name}</a> on <a href="${photo.links.html}${utmParameters}">Unsplash</a>`;
             } else {
-                files[filename].image = `https://source.unsplash.com/${photoId}/${blogImageWidth}x${blogImageHeight}`;
-                files[filename].thumb = `https://source.unsplash.com/${photoId}/${blogImageThumbWidth}x${blogImageThumbHeight}`;
+                imageUrlGenerator = (width, height) => `https://source.unsplash.com/${photoId}/${width}x${height}`;
                 files[filename].imageCredit = `Photo on <a href="${original}">Unsplash</a>`
             }
+            files[filename].image = imageUrlGenerator(blogImageSizes[0][0], blogImageSizes[0][1]);
+            // TODO(cemmer): double check this is semantically right
+            files[filename].imageSources = blogImageSizes
+                .sort((res1, res2) => res2[0] - res1[0])
+                .map(resolution => `<source srcset="${imageUrlGenerator(resolution[0], resolution[1])}" media="(min-width:${resolution[0]}px)">`).join('');
+            files[filename].thumb = imageUrlGenerator(blogImageThumbSizes[0][0], blogImageThumbSizes[0][1]);
+            files[filename].thumbSources = blogImageThumbSizes
+                .sort((res1, res2) => res2[0] - res1[0])
+                .map(resolution => `<source srcset="${imageUrlGenerator(resolution[0], resolution[1])}" media="(min-width:${resolution[0]}px)">`).join('');
         }, (err) => {
             done(err);
         });
     })
 
     // Process background images
+    // TODO(cemmer): webp formats
     .use(backgroundImage(siteBackground, 1024, prodBuild)) // catch all
     .use(backgroundImage(siteBackground, 926, prodBuild)) // iPhone 12 Pro Max
     .use(backgroundImage(siteBackground, 896, prodBuild)) // iPhone 11 Pro Max, XR, XS Max
@@ -315,17 +361,16 @@ tracer(Metalsmith(__dirname))
     }))
 
     // Ignore files that can't be processed
-    .use(ignore(['static/img/blog/*.@(psd|xcf)']))
+    .use(remove(['static/img/blog/*.@(psd|xcf)']))
 
-    // Process large blog images
-    .use(blogImage('static/img/blog/!(*-thumb).*', blogImageWidth, blogImageHeight, prodBuild))
-
-    // Process small blog images (sharp.gravity.center)
+    // Process blog images
     .use(copy({
         pattern: 'static/img/blog/*',
         transform: filename => filename.replace(/\.([^.]+)$/, '-thumb.$1')
     }))
-    .use(blogImage('static/img/blog/*-thumb.*', blogImageThumbWidth, blogImageThumbHeight, prodBuild))
+    // TODO(cemmer): responsive image sizes
+    .use(blogImage('static/img/blog/!(*-thumb).*', blogImageSizes[0][0]*2, blogImageSizes[0][1]*2, prodBuild))
+    .use(blogImage('static/img/blog/*-thumb.*', blogImageThumbSizes[0][0]*2, blogImageThumbSizes[0][1]*2, prodBuild))
 
     /***********************
      *                     *
@@ -334,7 +379,10 @@ tracer(Metalsmith(__dirname))
      ***********************/
 
     // Find Handlebars helpers
-    .use(discoverHelpers())
+    .use(discoverHelpers({
+        directory: 'helpers',
+        pattern: /\.c?js$/
+    }))
 
     // Find Handlebars partials
     .use(discoverPartials({
@@ -410,7 +458,7 @@ tracer(Metalsmith(__dirname))
                         .replace(/\.[a-z]+$/, '');
                     const path = (Object.keys(files)
                         .filter(minimatch.filter(`static/img/{**/,}${basename}.*`))
-                        .find(e => true) || '')
+                        .find(() => true) || '')
                         .replace(/^([^/])/, '/$1')
                         .replace(/\.[a-z]+$/, '');
                     return path ? `${path}.*` : null;
@@ -429,6 +477,8 @@ tracer(Metalsmith(__dirname))
     .use(branch('blog/*/*.md')
         // Render the files
         .use(hbtmd(Handlebars))
+        .use(mermaid())
+        .use(vega(vegaOptions))
         .use(markdown({
             renderer: markdownRenderer
         }))
@@ -479,10 +529,6 @@ tracer(Metalsmith(__dirname))
 
     .use((files, metalsmith, done) => {
         // TODO: metalsmith-tag-collections
-
-        const minimatch = require('minimatch');
-        // TODO: install this
-        const collections = require('metalsmith-collections');
 
         const options = {
             pattern: 'blog/**',
@@ -665,10 +711,10 @@ tracer(Metalsmith(__dirname))
                 image: `${metalsmith.metadata().gravatar.main}?s=512`,
                 url: siteURL,
                 sameAs: [
-                    metalsmith.metadata().github.profile.user.html_url,
+                    metalsmith.metadata().github ? metalsmith.metadata().github.profile.user.html_url : null,
                     'https://twitter.com/emmercm',
                     'https://www.linkedin.com/in/emmercm/'
-                ]
+                ].filter(url=>url)
             }
         ],
         collections: {
@@ -731,6 +777,8 @@ tracer(Metalsmith(__dirname))
     .use(hbtmd(Handlebars))
 
     // Convert markdown to HTML
+    .use(mermaid())
+    .use(vega(vegaOptions))
     .use(markdown({
         renderer: markdownRenderer
     }))
@@ -741,6 +789,22 @@ tracer(Metalsmith(__dirname))
     }))
 
     // Prod: add favicons and icons
+    // .use(msIf(prodBuild, sharp({
+    //     src: siteLogo,
+    //     namingPattern: '{dir}{name}-padded{ext}',
+    //     moveFile: false,
+    //     methods: [{
+    //         name: 'extend',
+    //         args: metadata => {
+    //             return [{
+    //                 top: metadata.height * 0.25,
+    //                 bottom: metadata.height * 0.25,
+    //                 left: metadata.width * 0.25,
+    //                 right: metadata.width * 0.25
+    //             }];
+    //         }
+    //     }]
+    // })))
     .use(msIf(prodBuild, favicons({
         src: siteLogo,
         dest: '.',
@@ -748,10 +812,13 @@ tracer(Metalsmith(__dirname))
         appDescription: siteDescription,
         developerName: siteName,
         developerURL: siteURL,
+        theme_color: '#343a40', // $dark
         start_url: siteURL,
+        // manifestMaskable: siteLogo.replace(/(\.[^.]+)$/, '-padded$1'),
         icons: {
             android: true,
             appleIcon: true,
+            appleStartup: true,
             favicons: true,
             windows: true
         }
@@ -765,10 +832,16 @@ tracer(Metalsmith(__dirname))
     }))
 
     // Change all links with a protocol (external) to be target="_blank"
-    // TODO: Add an external link favicon?
     .use(jquery('**/*.html', $ => {
         $('a[href*="://"]').attr('target', '_blank');
-        $('a[target="_blank"]').attr('rel', 'noopener');
+        $('a[target="_blank"]').each((i, elem) => {
+            $(elem).attr('rel', 'noopener');
+            if($(elem).children().length === 0 ||
+                ($(elem).children().length === 1 && $(elem).children().first().prop('tagName') === 'CODE')) {
+                    const immediateText = $(elem).contents().not($(elem).children()).text();
+                    $(elem).html(`${$(elem).html()}${immediateText ? ' ' : ''}<i class="fa-regular fa-external-link fa-xs"></i>`);
+            }
+        });
     }))
 
     /**********************************
@@ -780,11 +853,16 @@ tracer(Metalsmith(__dirname))
     .use(include({
         'static/css': [
             // Un-minified files that will get combined into one file
-            './node_modules/@fortawesome/fontawesome-pro/css/all.css'
+            './node_modules/@fortawesome/fontawesome-pro/css/fontawesome.css',
+            './node_modules/@fortawesome/fontawesome-pro/css/brands.css',
+            './node_modules/@fortawesome/fontawesome-pro/css/light.css',
+            './node_modules/@fortawesome/fontawesome-pro/css/regular.css'
         ],
         'static/js/vendor': [
             // Un-minified files that can be concatenated
+            // TODO(cemmer): rewrite local JS to eliminate jQuery
             './node_modules/jquery/dist/jquery.slim.js',
+            // TODO(cemmer): only grab the needed module files (requires a bundler?)
             './node_modules/bootstrap/dist/js/bootstrap.js'
         ],
         'static/webfonts': [
@@ -797,9 +875,6 @@ tracer(Metalsmith(__dirname))
      *     EXPAND AND CONCATENATE OUTPUT     *
      *                                       *
      *****************************************/
-
-    // Prod: expand HTML, CSS, and JavaScript
-    .use(msIf(prodBuild, beautify()))
 
     // Concatenate all un-minified JS (non-vendor first so they appear last)
     .use(concat({
@@ -845,9 +920,9 @@ tracer(Metalsmith(__dirname))
     })))
 
     // Prod: minify CSS
-    .use(msIf(prodBuild, cleanCSS({
-        cleanCSS: {
-            rebase: false
+    .use(msIf(prodBuild, postcss({
+        plugins: {
+            'cssnano': {}
         }
     })))
     .use(msIf(prodBuild, renamer({
@@ -900,10 +975,16 @@ tracer(Metalsmith(__dirname))
 
     // Add Facebook OpenGraph meta tags
     .use(openGraph({
-        // TODO: figure out sitetype:'article' for blog pages
+        pattern: '**/*.html',
         sitename: siteName,
         siteurl: siteURL,
-        pattern: '**/*.html',
+        image: '.og-image'
+    }))
+    .use(openGraph({
+        pattern: 'blog/!([0-9]*)/index.html',
+        sitetype: 'article',
+        sitename: siteName,
+        siteurl: siteURL,
         image: '.og-image'
     }))
 
@@ -969,6 +1050,8 @@ tracer(Metalsmith(__dirname))
         minifierOptions: {
             // Fix metalsmith-html-minifier defaults
             removeAttributeQuotes: false,
+            // Fix html-minifier defaults
+            decodeEntities: true, // needed for double quotes inside attribute values
             // Additional minification rules
             minifyCSS: true,
             minifyJS: true,
@@ -985,7 +1068,7 @@ tracer(Metalsmith(__dirname))
      ****************************/
 
     // Ignore non-HTML pages that will get included again later
-    .use(ignore([
+    .use(remove([
         '**/google{*/,}*.html'
     ]))
 
@@ -1013,11 +1096,11 @@ tracer(Metalsmith(__dirname))
             // Anti-bot 404
             'fonts.gstatic.com$',
             'support.google.com',
+            'twitter.com',
             // Anti-bot 429 rate limiting
             'github.com',
             'linkedin.com/shareArticle',
             // Temporary
-            'metalsmith.io'
         ]
     })))
 
@@ -1037,6 +1120,11 @@ tracer(Metalsmith(__dirname))
         disallow: prodDeploy ? [] : ['/'],
         sitemap: `${siteURL}/sitemap.xml`
     }))
+    .use((files, metalsmith, done) => {
+        // https://github.com/woodyrew/metalsmith-robots/issues/3
+        files['robots.txt'].contents = Buffer.from(files['robots.txt'].contents.toString().replace(/^Disallow: ([^*/])/m, 'Disallow: /$1'));
+        done();
+    })
 
     // Set destination directory
     .destination('./build')

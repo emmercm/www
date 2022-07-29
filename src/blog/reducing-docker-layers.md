@@ -27,7 +27,7 @@ Note that your image will inherit all the layers of its base image, as well any 
 
 There are tradeoffs when using strategies to reduce layers in your images, and not all of them are desirable. For example, you may value build time over fewer layers, especially when building repeatedly locally with only minor changes. Here's a list of some pros and cons:
 
-**Pros of reducing layers:**
+**Pros of reducing layers**:
 
 - Fewer layers to publish or download, likely reducing image size.
 - Chaining `RUN` instructions reduces cache-ability for non-deterministic commands such as [`apt-get update`](https://docs.docker.com/develop/develop-images/dockerfile_best-practices/#apt-get):
@@ -47,7 +47,7 @@ There are tradeoffs when using strategies to reduce layers in your images, and n
         make
     ```
 
-**Cons of reducing layers:**
+**Cons of reducing layers**:
 
 - Reduced cache-ability, especially when building repeatedly locally.
 - Chaining `RUN` instructions probably means `COPY` and `ADD` instructions come first, reducing the ability to use the [build cache](https://docs.docker.com/develop/develop-images/dockerfile_best-practices/#leverage-build-cache) for `RUN`.
@@ -65,7 +65,7 @@ There are tradeoffs when using strategies to reduce layers in your images, and n
 
 ## Strategies to reduce layers
 
-Remember from above - there's only 3 instructions that cause layers - so here are some strategies for reducing those specific instructions.
+Remember from above - there are only 3 instructions that cause layers - so here are some strategies for reducing those specific instructions.
 
 ### Use multi-stage builds
 

@@ -15,7 +15,7 @@ pageContainer: false
             {{#each icons.header}}
                 <a href="{{link}}" {{#if title}}title="{{title}}"{{/if}} class="link-dark">
                     <span class="fa-stack align-top">
-                        <i class="fal fa-circle fa-stack-2x"></i>
+                        <i class="fa-light fa-circle fa-stack-2x"></i>
                         <i class="{{icon}} fa-stack-1x"></i>
                     </span>
                 </a>
@@ -28,21 +28,24 @@ pageContainer: false
 <section id="summary" class="d-flex flex-column text-center w-100 bg-light">
     <div class="position-absolute w-100 text-center" style="transform:translate(0%,-50%)">
         <a href="#" onclick="scrollToCenter('#summary'); return false;">
-            <img src="{{gravatar.main}}?r=g&d=mp&s=512" alt="{{sitename}}" class="mw-50 rounded-circle img-thumbnail bg-dark border-dark og-image" style="width:256px;">
+            {{>gravatar size=256 class="mw-50 rounded-circle img-thumbnail bg-dark border-dark og-image"}}
         </a>
     </div>
     <div style="height:128px; max-height:20vw;">&nbsp;</div> <!-- 256px/2 Gravatar spacer -->
     <div class="container mw-md-md my-6 mx-auto">
-        <h2>
-            <i class="far fa-map-marker-alt"></i>
-            {{ github.profile.user.location }}
-        </h2>
-        <br>
-        <h4>
+        <div class="fs-2 mb-3">
+            <i class="fa-regular fa-location-dot"></i>
+            {{#if github.profile.user.location}}
+                {{ github.profile.user.location }}
+            {{else}}
+                Somewhere, USA
+            {{/if}}
+        </div>
+        <div class="fs-4">
             {{ sitedescription }}
             Skilled at distributed architecture and technical project management.
             Passionate about quality, mentoring, and leading by example.
-        </h4>
+        </div>
     </div>
 </section>
 

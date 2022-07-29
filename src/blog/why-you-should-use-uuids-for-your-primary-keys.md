@@ -25,17 +25,24 @@ You can tell they're v1 from the leading "1" in the `11ea` group.
 
 Most common relational databases (ignoring SQLite) have support for UUIDs:
 
-- MySQL:
-  - v4.1.2 (2004) introduced `UUID()` to generate v1 UUID strings (see "[Generating v4 UUIDs in MySQL](/blog/generating-v4-uuids-in-mysql)" for v4 UUIDs)
-  - v5.1.20 (2007) introduced `UUID_SHORT()` to generate v1 UUID integers
-  - v8.0.0 (2016) introduced `UUID_TO_BIN()`, `BIN_TO_UUID()`, and `IS_UUID()`
-- MariaDB:
-  - The earliest version of MariaDB is v5.1.38 (2010) which is based on MySQL v5.1.38 which supported `UUID()` and `UUID_SHORT()`
-- PostgreSQL:
-  - v8.3.0 (2008) added support for `UUID` data type
-  - v8.3.0 (2008) introduced the `uuid-ossp` module and its functions such as `uuid_generate_v1()` and `uuid_generate_v4()`
-- Oracle:
-  - v10.1 (2003) added support for `SYS_GUID()` which is close enough
+**MySQL:**
+
+- [v4.1.2 (2004)](https://web.archive.org/web/20150318151009/http://dev.mysql.com/doc/refman/4.1/en/news-4-1-2.html) introduced `UUID()` to generate v1 UUID strings (see "[Generating v4 UUIDs in MySQL](/blog/generating-v4-uuids-in-mysql)" for v4 UUIDs)
+- [v5.1.20 (2007)](https://web.archive.org/web/20150925051852/http://dev.mysql.com/doc/relnotes/mysql/5.1/en/news-5-1-20.html) introduced `UUID_SHORT()` to generate half-sized v1 UUID integers
+- [v8.0.0 (2016)](https://dev.mysql.com/doc/relnotes/mysql/8.0/en/news-8-0-0.html#mysqld-8-0-0-feature) introduced `UUID_TO_BIN()`, `BIN_TO_UUID()`, and `IS_UUID()`
+
+**MariaDB:**
+
+The earliest version of MariaDB is v5.1.38 (2010) which is based on MySQL v5.1.38 which supported `UUID()` and `UUID_SHORT()`
+
+**PostgreSQL:**
+
+- v8.3.0 (2008) added support for the `UUID` data type
+- v8.3.0 (2008) introduced the `uuid-ossp` module and its functions such as `uuid_generate_v1()` and `uuid_generate_v4()`
+
+**Oracle:**
+
+v10.1 (2003) introduced `SYS_GUID()` which is close enough
 
 ## Reasons to use UUIDs for primary keys
 
@@ -63,7 +70,7 @@ Most common relational databases (ignoring SQLite) have support for UUIDs:
 
 ## Reasons to not use UUIDs for primary keys
 
-UUIDs aren't a magic bullet, there's trade-offs, and it's important to understand them.
+UUIDs aren't a magic bullet, there are trade-offs, and it's important to understand them.
 
 1. **UUIDs are larger.**
 
@@ -73,11 +80,11 @@ UUIDs aren't a magic bullet, there's trade-offs, and it's important to understan
 
     There might be a reason why you need to know what order rows were inserted in, preferably in a way that doesn't change. You could accomplish this with a `created_at` or similar date & time column, but that isn't ideal, and many rows may share the same value.
 
-    Another issue is if your UUID primary key is clustered (InnoDB) there's cost with row re-ordering when inserting random UUIDs.
+    Another issue is if your UUID primary key is clustered (such as with MySQL's InnoDB) there is a cost to row re-ordering when inserting random UUIDs.
 
 3. **UUIDs might sort slower.**
 
-    If your UUIDs are being stored as strings they are likely to sort much slower than auto-incrementing IDs.
+    If your UUIDs are being stored as strings they are likely to sort much slower than auto-incrementing IDs. See "[Making UUIDs More Performant in MySQL](/blog/making-uuids-more-performant-in-mysql)" for a workaround.
 
 ## Conclusion
 

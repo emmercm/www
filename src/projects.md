@@ -10,7 +10,7 @@ priority: 0.8
 
 {{ description }}
 
-## <i class="fab fa-docker"></i> Docker Images
+## <i class="fa-brands fa-docker"></i> Docker Images
 
 I have published a number of public Docker images to [Docker Hub](https://hub.docker.com/u/emmercm).
 
@@ -37,7 +37,7 @@ A collection of images with a headless version of [qBittorrent](https://www.qbit
 
 A collection of images with [FlexGet](https://flexget.com/) installed and the web UI exposed.
 
-## <i class="fab fa-node-js"></i> Metalsmith Plugins
+## <i class="fa-brands fa-node-js"></i> Metalsmith Plugins
 
 I have published a number of plugins for [Metalsmith](https://metalsmith.io/), a plugin-based static site generator originally from [Segment](https://segment.com/), to [npm](https://www.npmjs.com/settings/emmercm/packages).
 
@@ -108,21 +108,71 @@ Related blog articles:
 
 ### [metalsmith-link-checker](https://github.com/emmercm/metalsmith-link-checker)
 
-A Metalsmith plugin to automatically check for broken links.
+A plugin to automatically check for broken links.
 
 Related blog articles:
 
 - [Linting Metalsmith Output HTML](/blog/linting-metalsmith-output-html)
 
+### [metalsmith-mermaid](https://github.com/emmercm/metalsmith-mermaid)
+
+A plugin to render [Mermaid](https://mermaid-js.github.io/mermaid/#/) diagrams to in-line SVG, example:
+
+```mermaid
+flowchart LR
+  A[/This/]-->|is|B{{rendered}}-->|with|C[\Mermaid\]
+```
+
 ### [metalsmith-reading-time](https://github.com/emmercm/metalsmith-reading-time)
 
-A Metalsmith plugin to estimate pages' reading times, similar to Medium.
+A plugin to estimate pages' reading times, similar to Medium.
 
 ### [metalsmith-tracer](https://github.com/emmercm/metalsmith-tracer)
 
 A tool to automatically trace and measure Metalsmith build time.
 
-## <i class="fab fa-raspberry-pi"></i> Raspberry Pi Tools
+### [metalsmith-vega](https://github.com/emmercm/metalsmith-vega)
+
+A plugin to render [Vega](https://vega.github.io/vega/) visualizations to in-line SVG, [example](https://vega.github.io/vega-lite/examples/arc_pie_pyramid.html):
+
+```vega-lite
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "description": "Reproducing http://robslink.com/SAS/democd91/pyramid_pie.htm",
+  "width": 250,
+  "height": 250,
+  "data": {
+    "values": [
+      {"category": "Sky", "value": 75, "order": 3},
+      {"category": "Shady side of a pyramid", "value": 10, "order": 1},
+      {"category": "Sunny side of a pyramid", "value": 15, "order": 2}
+    ]
+  },
+  "mark": "arc",
+  "encoding": {
+    "theta": {
+      "field": "value", "type": "quantitative",
+      "scale": {"range": [2.35619449, 8.639379797]},
+      "stack": true
+    },
+    "color": {
+      "field": "category", "type": "nominal",
+      "scale": {
+        "domain": ["Sky", "Shady side of a pyramid", "Sunny side of a pyramid"],
+        "range": ["#416D9D", "#674028", "#DEAC58"]
+      },
+      "legend": {
+        "orient": "right",
+        "title": null,
+        "labelLimit": 999
+      }
+    },
+    "order": {"field":"order"}
+  }
+}
+```
+
+## <i class="fa-brands fa-raspberry-pi"></i> Raspberry Pi Tools
 
 I have written a number of Bash scripts for Raspberry Pi to automate building and installing kernels and drivers from source.
 
@@ -148,7 +198,7 @@ A script to build and install a Realtek RTL8812AU WiFi driver from source.
 
 A tool to automatically cast audio input from a Raspberry Pi.
 
-## <i class="far fa-robot"></i> FIRST Robotics Competition
+## <i class="fa-regular fa-robot"></i> FIRST Robotics Competition
 
 I have developed a number of applications for use in the [FIRST Robotics Competition](https://www.firstinspires.org/robotics/frc), a worldwide STEM competition for high school students.
 

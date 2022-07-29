@@ -4,6 +4,7 @@ title: Generating v4 UUIDs in MySQL
 date: 2020-11-13T22:43:00
 tags:
 - databases
+- mysql
 
 ---
 
@@ -55,11 +56,11 @@ END;
 
 This uses [`RANDOM_BYTES()`](https://dev.mysql.com/doc/refman/8.0/en/encryption-functions.html#function_random-bytes) instead of [`RAND()`](https://dev.mysql.com/doc/refman/8.0/en/mathematical-functions.html#function_rand) because the former is non-deterministic and therefore more cryptographically secure, resulting in fewer UUID collisions in the end.
 
-[`RANDOM_BYTES()`](https://dev.mysql.com/doc/refman/8.0/en/encryption-functions.html#function_random-bytes) was introduced in MySQL v5.6.17 (2014), and is currently not available in MariaDB.
+[`RANDOM_BYTES()`](https://dev.mysql.com/doc/refman/8.0/en/encryption-functions.html#function_random-bytes) was introduced in [MySQL v5.6.17 (2014)](https://dev.mysql.com/doc/relnotes/mysql/5.6/en/news-5-6-17.html#mysqld-5-6-17-feature), and is currently not available in MariaDB.
 
 ## Putting it all together
 
-Here's an example where a table `users` uses UUIDs for its primary key. Using `CHAR(36)` simplifies this example, but see "[Making UUIDs More Performant in MySQL](/blog/making-uuids-more-performant-in-mysql)" for why you don't want to use it for performance reasons.
+Here's an example where a table `users` uses UUIDs for its primary key. Using `CHAR(36)` simplifies this example, but see "[Making UUIDs More Performant in MySQL](/blog/making-uuids-more-performant-in-mysql)" for why you don't want to use strings for performance reasons.
 
 ```sql
 CREATE TABLE users

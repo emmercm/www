@@ -2,80 +2,80 @@
   icons:
     - link: https://github.com/emmercm
       title: GitHub
-      icon: fab fa-github
+      icon: fa-brands fa-github
 
     - link: https://www.npmjs.com/~emmercm
       title: npm
-      icon: fab fa-npm
+      icon: fa-brands fa-npm
 
     - link: https://hub.docker.com/u/emmercm
       title: Docker Hub
-      icon: fab fa-docker
+      icon: fa-brands fa-docker
 
 - title: Social
   icons:
     # - link: https://www.facebook.com/emmercm/
     #   title: Facebook
-    #   icon: fab fa-facebook
+    #   icon: fa-brands fa-facebook
 
     - link: https://twitter.com/emmercm
       title: Twitter
-      icon: fab fa-twitter
+      icon: fa-brands fa-twitter
 
     - link: https://www.instagram.com/emmercm/
       title: Instagram
-      icon: fab fa-instagram
+      icon: fa-brands fa-instagram
 
     - link: https://www.linkedin.com/in/emmercm/
       title: LinkedIn
-      icon: fab fa-linkedin-in
+      icon: fa-brands fa-linkedin-in
 
 - title: Music
   icons:
     - link: https://open.spotify.com/user/tsukasax
       title: Spotify
-      icon: fab fa-spotify
+      icon: fa-brands fa-spotify
 
     - link: https://www.last.fm/user/MimiruX
       title: Last.fm
-      icon: fab fa-lastfm
+      icon: fa-brands fa-lastfm
 
     - link: https://www.discogs.com/user/emmercm/collection
       title: Discogs
-      icon: fas fa-record-vinyl
+      icon: fa-regular fa-record-vinyl
 
 - title: Gaming
   icons:
     - link: https://steamcommunity.com/id/emmercm/
       title: Steam
-      icon: fab fa-steam
+      icon: fa-brands fa-steam
 
     - title: "Discord: emmercm#5912"
-      icon: fab fa-discord
+      icon: fa-brands fa-discord
 
     - title: "Nintendo Switch: SW-6392-7076-9514"
-      icon: far fa-gamepad-alt
+      icon: fa-regular fa-gamepad-alt
 
     # - title: "Battle.net: emmercm#1853"
-    #   icon: far fa-snowflake
+    #   icon: fa-brands fa-battle-net
 
     # - title: "Origin: TsukasaX"
-    #   icon: fas fa-hurricane
+    #   icon: fa-regular fa-hurricane
 
     # - link: https://www.twitch.tv/emmercm
     #   title: Twitch
-    #   icon: fab fa-twitch
+    #   icon: fa-brands fa-twitch
 
 - title: Miscellaneous
   icons:
     # - link: https://www.meetup.com/members/191693369/
     #   title: Meetup
-    #   icon: fab fa-meetup
+    #   icon: fa-brands fa-meetup
 
     # - link: https://www.strava.com/athletes/5684847
     #   title: Strava
-    #   icon: fab fa-strava
+    #   icon: fa-brands fa-strava
 
     - link: https://untappd.com/user/emmercm
       title: Untappd
-      icon: fab fa-untappd
+      icon: fa-brands fa-untappd

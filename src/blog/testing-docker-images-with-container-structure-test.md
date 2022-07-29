@@ -25,7 +25,7 @@ Container Structure Test can be configured to test a few different things:
 
 One reason is to make sure the image **contains all the files it needs** to run. If you have non-deterministic instructions such as `COPY . ./` that depend heavily on the build context, they may succeed but not copy something important such as a configuration file. Or if you have a `CMD` such as `CMD ["node", "index.js"]` it would probably be a good idea to make sure `index.js` exists.
 
-Another reason is to ensure there's **no immediate runtime errors**. Just because your image successfully built a C/C++/Go/etc. binary doesn't mean it won't immediately crash on execution. There might be some shared libraries or a configuration file missing, or an issue with opening files or network sockets.
+Another reason is to ensure there are **no immediate runtime errors**. Just because your image successfully built a C/C++/Go/etc. binary doesn't mean it won't immediately crash on execution. There might be some shared libraries or a configuration file missing, or an issue with opening files or network sockets.
 
 One last non-obvious reason to verify your images is it can **enable automatic CI/CD**. If you use tools such as [Renovate](https://renovate.whitesourcesoftware.com/), [Dependabot](https://dependabot.com/), or [Snyk](https://snyk.io/blog/keep-your-dependencies-up-to-date-enable-auto-upgrades-with-snyk/) to manage dependency updates, you could add Container Structure Test to your CI and have those tools auto-merge their pull requests, safely kicking off your CD without any human intervention.
 

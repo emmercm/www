@@ -13,16 +13,18 @@
             {{#and tags data.tags}}
                 <div class="d-flex flex-wrap m-n1 mt-auto">
                     {{#each (sort data.tags)}}
-                        <h5 class="m-1 mw-100">
+                        <span class="m-1 mw-100 fs-5">
                             <a href="/blog/tag/{{this}}" title="{{this}}" class="badge link-white bg-{{get "color" (get this ../blog_tags)}} mw-100 text-break text-wrap">{{ this }}</a>
-                        </h5>
+                        </span>
                     {{/each}}
                 </div>
             {{/and}}
         </div>
-        {{#if data.image}}
+        {{#if data.thumb}}
             <a href="{{data.paths.href}}" title="{{data.title}}" class="col-3 d-flex flex-shrink-0 justify-content-center align-items-center overflow-hidden">
-                <img src="{{data.thumb}}" alt="{{sanitize data.title}}" class="fill">
+                <picture class="fill">
+                    {{{ data.thumbSources }}}<img src="{{data.thumb}}" alt="{{sanitize data.title}}" class="fill">
+                </picture>
             </a>
         {{/if}}
     </div>

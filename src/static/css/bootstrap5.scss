@@ -1,3 +1,5 @@
+@use "sass:math";
+
 @import '../../../node_modules/bootstrap/scss/functions';
 
 /**
@@ -132,10 +134,18 @@ $theme-colors: map-merge($theme-colors, (
   "git": #F03C2E,
   "github": #222222,
   "go": #00ACD7,
+  "gremlin": #67B643,
+  "java": #FFA518,
   "kubernetes": #316CE6,
   "metalsmith": #262727,
-  "node": #679E63
+  "mysql": #2C7493,
+  "node": #679E63,
+  "postgres": #336791
 ));
+
+$table-bg-scale: -60%;
+$table-variants: map-loop($theme-colors, shift-color, "$value", $table-bg-scale);
+$table-striped-order: even;
 
 $headings-color: $dark;
 
@@ -286,7 +296,7 @@ h1, h2, h3, h4, h5, h6,
     & + .m-#{$size},
     & + .my-#{$size},
     & + .mt-#{$size} {
-      margin-top: $navbar-height/16px + $length !important;
+      margin-top: math.div($navbar-height, 16px) + $length !important;
     }
   }
 }
@@ -303,7 +313,7 @@ h1, h2, h3, h4, h5, h6,
       @include media-breakpoint-up($next) {
         .navbar-nav {
           .nav-link {
-            margin: 0 $navbar-nav-link-padding-x/2;
+            margin: 0 math.div($navbar-nav-link-padding-x, 2);
           }
         }
       }

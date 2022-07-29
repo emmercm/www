@@ -1,3 +1,5 @@
+@use "sass:math";
+
 .markdown {
   h1, .h1 {
     margin-top: $h1-font-size * 1.5;
@@ -42,7 +44,7 @@
     .link {
       float: left;
       margin-left: $font-size-base * -1.5;
-      padding-right: $font-size-base * 0.5;
+      // padding-right: $font-size-base * 0.5;
       line-height: 1;
       & > * {
         opacity: 0;
@@ -60,7 +62,7 @@
   }
 
   blockquote {
-    padding: $spacer/2 $spacer;
+    padding: math.div($spacer, 2) $spacer;
     border-left: $border-width*4 solid lighten(if($headings-color, $headings-color, $body-color), 35%);
     font-style: italic;
   }
@@ -70,11 +72,100 @@
     padding-left: $ul-padding;
   }
   li {
-    margin-top: map_get($spacers, 0);
-    margin-bottom: map_get($spacers, 0);
+    margin-top: map-get($spacers, 0);
+    margin-bottom: map-get($spacers, 0);
     & > pre {
       @media (min-width: map-get($grid-breakpoints, "md")) {
         margin-right: $ul-padding;
+      }
+    }
+  }
+
+  .bg-light {
+    svg.mermaid {
+      .label text,
+      .label,
+      span {
+        color: $body-color !important;
+      }
+
+      // @mixin table-variant
+      $table-background: map-get($table-variants, 'dark');
+      $table-color: color-contrast(opaque($body-bg, $table-background));
+      $table-striped-bg: mix($table-color, $table-background, percentage($table-striped-bg-factor));
+
+      // erDiagram
+      .entityBox {
+        fill: $table-background !important;
+        stroke: mix($table-color, $table-background, percentage($table-border-factor)) !important;
+      }
+      .attributeBoxOdd {
+        fill: $light !important;
+        stroke: $dark !important;
+      }
+      .attributeBoxEven {
+        fill: darken($light, $table-striped-bg-factor * 100) !important;
+        stroke: $dark !important;
+      }
+
+      // Get rid of colored rectangles behind line labels
+      .edgeLabel,
+      .relationshipLabelBox {
+        background-color: $light !important;
+        fill: $light !important;
+        opacity: 1 !important;
+      }
+    }
+
+    svg.vega {
+      width: 100%;
+      height: auto;
+
+      text {
+        fill: $body-color;
+      }
+
+      .background {
+        stroke: none;
+      }
+
+      // Axis lines
+      .role-axis-domain line,
+      .role-axis-grid line:first-of-type {
+        stroke: $dark;
+      }
+
+      // Grid lines
+      //.role-frame path,
+      .role-axis-grid line:not(:first-of-type) {
+        stroke: mix($light, $dark, 75%);
+      }
+
+      // Grid ticks
+      .role-axis-tick line {
+        stroke: mix($light, $dark);
+      }
+
+      // Lines
+      .mark-group > g {
+        &:first-of-type .mark-line path {
+          stroke: $primary;
+        }
+        &:not(:first-of-type) .mark-line path {
+          stroke: $secondary;
+        }
+      }
+
+      // Line dots
+      .mark-symbol.role-mark path {
+        &:first-of-type {
+          stroke: $primary;
+          fill: $primary;
+        }
+        &:not(:first-of-type) {
+          stroke: $secondary;
+          fill: $secondary;
+        }
       }
     }
   }

@@ -111,7 +111,7 @@ Then look in `build/static` and see that none of the "unused" assets are there.
 
 ## Uses
 
-As stated in the intro, there's a number of reasons why you might want to remove unused files:
+As stated in the intro, there are a number of reasons why you might want to remove unused files:
 
 - It reduces the total size of files that will be uploaded.
 - Could remove old versions of files/documents that shouldn't be available anymore.
