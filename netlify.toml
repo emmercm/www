@@ -9,6 +9,7 @@
   # UNSPLASH_SECRET_KEY
   NODE_ENV = "production"
   TZ = "America/Los_Angeles"
+  PYTHON_VERSION = "3.7" # for sharp/libvips
 
 [build.processing]
   # Site settings > Build & deploy > Post processing > Asset Optimization
