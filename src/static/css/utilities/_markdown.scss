@@ -81,38 +81,92 @@
     }
   }
 
-  .bg-light svg.mermaid {
-    .label text,
-    .label,
-    span {
-      color: $body-color !important;
+  .bg-light {
+    svg.mermaid {
+      .label text,
+      .label,
+      span {
+        color: $body-color !important;
+      }
+
+      // @mixin table-variant
+      $table-background: map-get($table-variants, 'dark');
+      $table-color: color-contrast(opaque($body-bg, $table-background));
+      $table-striped-bg: mix($table-color, $table-background, percentage($table-striped-bg-factor));
+
+      // erDiagram
+      .entityBox {
+        fill: $table-background !important;
+        stroke: mix($table-color, $table-background, percentage($table-border-factor)) !important;
+      }
+      .attributeBoxOdd {
+        fill: $light !important;
+        stroke: $dark !important;
+      }
+      .attributeBoxEven {
+        fill: darken($light, $table-striped-bg-factor * 100) !important;
+        stroke: $dark !important;
+      }
+
+      // Get rid of colored rectangles behind line labels
+      .edgeLabel,
+      .relationshipLabelBox {
+        background-color: $light !important;
+        fill: $light !important;
+        opacity: 1 !important;
+      }
     }
 
-    // @mixin table-variant
-    $table-background: map-get($table-variants, 'dark');
-    $table-color: color-contrast(opaque($body-bg, $table-background));
-    $table-striped-bg: mix($table-color, $table-background, percentage($table-striped-bg-factor));
+    svg.vega {
+      width: 100%;
+      height: auto;
 
-    // erDiagram
-    .entityBox {
-      fill: $table-background !important;
-      stroke: mix($table-color, $table-background, percentage($table-border-factor)) !important;
-    }
-    .attributeBoxOdd {
-      fill: $light !important;
-      stroke: $dark !important;
-    }
-    .attributeBoxEven {
-      fill: darken($light, $table-striped-bg-factor * 100) !important;
-      stroke: $dark !important;
-    }
+      text {
+        fill: $body-color;
+      }
 
-    // Get rid of colored rectangles behind line labels
-    .edgeLabel,
-    .relationshipLabelBox {
-      background-color: $light !important;
-      fill: $light !important;
-      opacity: 1 !important;
+      .background {
+        stroke: none;
+      }
+
+      // Axis lines
+      .role-axis-domain line,
+      .role-axis-grid line:first-of-type {
+        stroke: $dark;
+      }
+
+      // Grid lines
+      //.role-frame path,
+      .role-axis-grid line:not(:first-of-type) {
+        stroke: mix($light, $dark, 75%);
+      }
+
+      // Grid ticks
+      .role-axis-tick line {
+        stroke: mix($light, $dark);
+      }
+
+      // Lines
+      .mark-group > g {
+        &:first-of-type .mark-line path {
+          stroke: $primary;
+        }
+        &:not(:first-of-type) .mark-line path {
+          stroke: $secondary;
+        }
+      }
+
+      // Line dots
+      .mark-symbol.role-mark path {
+        &:first-of-type {
+          stroke: $primary;
+          fill: $primary;
+        }
+        &:not(:first-of-type) {
+          stroke: $secondary;
+          fill: $secondary;
+        }
+      }
     }
   }
 }

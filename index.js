@@ -33,6 +33,7 @@ import jsonld           from './lib/metalsmith-jsonld.js';
 import defaultValues    from '@metalsmith/default-values';
 import hbtmd            from './lib/metalsmith-hbt-md.js';
 import mermaid          from 'metalsmith-mermaid';
+import vega             from 'metalsmith-vega';
 import markdown         from '@metalsmith/markdown';
 import excerpts         from './lib/metalsmith-excerpts.js';
 import except           from 'metalsmith-except';
@@ -112,6 +113,14 @@ const blogImageThumbSizes = [
     [222,222], // index retina
     [111,111], // index
 ];
+
+const vegaOptions = {
+    vega: {
+        background: 'transparent',
+        width: 500,
+        height: 500/2
+    }
+};
 
 const markdownRenderer = new marked.Renderer();
 markdownRenderer.heading = (text, level, raw) => {
@@ -209,7 +218,11 @@ tracer(Metalsmith(path.resolve()))
 
     // Load GitHub information
     .use(msIf(prodBuild, githubProfile({
-        username: githubHandle
+        username: githubHandle,
+        authorization: {
+            username: githubHandle,
+            token: process.env.GITHUB_PERSONAL_ACCESS_TOKEN
+        }
     })))
 
     // Load Gravatar URL
@@ -465,6 +478,7 @@ tracer(Metalsmith(path.resolve()))
         // Render the files
         .use(hbtmd(Handlebars))
         .use(mermaid())
+        .use(vega(vegaOptions))
         .use(markdown({
             renderer: markdownRenderer
         }))
@@ -764,6 +778,7 @@ tracer(Metalsmith(path.resolve()))
 
     // Convert markdown to HTML
     .use(mermaid())
+    .use(vega(vegaOptions))
     .use(markdown({
         renderer: markdownRenderer
     }))
