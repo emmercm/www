@@ -218,7 +218,11 @@ tracer(Metalsmith(path.resolve()))
 
     // Load GitHub information
     .use(msIf(prodBuild, githubProfile({
-        username: githubHandle
+        username: githubHandle,
+        authorization: {
+            username: githubHandle,
+            token: process.env.GITHUB_PERSONAL_ACCESS_TOKEN
+        }
     })))
 
     // Load Gravatar URL

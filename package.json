@@ -58,7 +58,7 @@
     "metalsmith-except": "^0.1.1",
     "metalsmith-favicons": "^1.0.0",
     "metalsmith-feed": "^1.0.0",
-    "metalsmith-github-profile": "0.0.1",
+    "metalsmith-github-profile": "^0.1.0",
     "metalsmith-gravatar": "^0.1.0",
     "metalsmith-hbt-md": "^1.0.1",
     "metalsmith-html-glob": "^0.4.4",
