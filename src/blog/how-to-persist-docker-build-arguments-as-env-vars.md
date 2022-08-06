@@ -1,7 +1,8 @@
 ---
 
-title: How to Persist Docker Build Arguments as Env Vars
+title: How to Persist Docker Build Arguments as Environment Variables
 date: 2021-08-23T03:18:00
+permalink: blog/how-to-persist-docker-build-arguments-as-env-vars
 tags:
 - docker
 

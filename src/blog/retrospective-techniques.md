@@ -4,6 +4,7 @@ title: Retrospective Techniques
 image: https://unsplash.com/photos/B-7sTUA2RFY
 date: 2022-02-04T23:43:00
 tags:
+- agile
 - career
 
 ---
