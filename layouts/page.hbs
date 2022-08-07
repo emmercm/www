@@ -178,7 +178,7 @@
                 <div class="d-flex justify-content-between brb-{{#if pageSize}}{{pageSize}}{{else}}md{{/if}}-1 pb-4 px-4 pb-md-5 px-md-5 bg-light">
                     <div class="d-flex align-items-center flex-wrap">
                         {{#if tags}}
-                            <span>Tags:</span>
+                            <i class="fa-regular fa-tags"></i>
                             {{#each tags}}
                                 <span class="my-0 ms-2 mw-100 fs-5">
                                     <a href="/blog/tag/{{this}}" title="{{this}}" class="badge link-white bg-{{get "color" (get this ../blog_tags)}} mw-100 text-break text-wrap">{{ this }}</a>
