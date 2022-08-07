@@ -1,23 +1,23 @@
 ---
 
 title: Building Team Connection with Personal Fist to Five
-image: https://unsplash.com/photos/egbB-zLBeDo
-date: 2022-08-07T19:30:00
+image: https://unsplash.com/photos/zC97zwviFLk
+date: 2022-08-07T20:01:00
 tags:
 - agile
 - opinion
 
 ---
 
-Fist to five is a technique for gauging consensus on a topic, but it can also be used to build connection.
+Fist to five is a technique for gauging consensus on a prompt, but it can also be used to build personal connections.
 
 ## Classic fist to five
 
-Typically fist of five is used to gauge consensus, support, or excitement on a prompt. A facilitator will give a prompt such as:
+Typically fist to five is used to gauge consensus, support, or excitement on a prompt. A facilitator will give a prompt such as:
 
 > Out of the three architectural approaches presented, I plan on implementing #2.
 
-And then at the same time all team members give an answer by holding up a number of fingers:
+And then at the same time all team members give their opinion by holding up a number of fingers:
 
 - Zero (closed fist): absolutely not, I will veto/block this
 - One: I have major concerns or issues
@@ -38,35 +38,51 @@ Each team member can choose how personal or detailed they want to get with their
 
 Answers can range from:
 
-> One: I uncovered a lot of additional work on my primary project that is likely to impact the deadline, and I'm feeling a lot of external pressure.
+One:
 
-> One: I had to cancel personal plans this weekend because of an unexpected family emergency.
+> I uncovered a lot of additional work on my primary project that is likely to impact the deadline, and I'm feeling a lot of external pressure.
 
-> Two: I can tell that I'm coming down with a cold, and it's really taking the wind out of my sails.
+> I had to cancel personal plans this weekend because of an unexpected family emergency.
 
-> Three: I faced a lot of blockers getting my work done this week, and even though I'm happy the work is done I felt like it took much longer than it needed to.
+Two:
 
-> Three: work was fine this week, but I'm stressed out from hosting my family.
+> This week was one work emergency after another. I turned them into meaningful documentation, but I'm glad the week is over.
 
-> Four: I had a productive week with minimal frustrations and I felt I produced quality work.
+> I can tell that I'm coming down with a cold, and it's really taking the wind out of my sails.
 
-> Four: work was fine this week, but I'm proud of the rock climbing route I solved that I've been working on.
+Three:
 
-> Five: I solved a long-standing issue this week, and I'm really proud of the debugging and problem-solving that it took.
+> I faced a lot of blockers getting my work done this week, and even though I'm happy the work is done I felt like it took much longer than it needed to.
 
-> Five: work was good this week, but I'm really excited to try a new restaurant I've been looking forward to this weekend.
+> Work was fine this week, but I'm stressed out from hosting my family.
+
+Four:
+
+> I had a productive week with minimal frustrations and I felt I produced quality work.
+
+> Work was fine this week, but I'm proud of the rock climbing route I solved that I've been working on.
+
+Five:
+
+> I solved a long-standing issue this week, and I'm really proud of the debugging and problem-solving that it took.
+
+> Work was good this week, but I'm really excited to try a new restaurant I've been looking forward to this weekend.
 
 There is no guidance on what a one means and what a five means. There isn't a standard that must be understood by everyone in order to reach a consensus. The goal is to share and hear wins from your colleagues, but also bring some compassion by sharing and hearing challenges people are facing.
 
-Team member's updates can be exclusively about their job, but I've found that colleagues have enjoyed connecting with each other by sharing some about their personal life.
+Team member's updates can be exclusively about their job, but I've found that colleagues have enjoyed connecting with each other by sharing some about their personal life. I personally find greater job satisfaction when I have a personal connection with my colleagues.
 
-This ceremony is not right for every team, however. Some reasons could be:
+Like a lot of people, I have been working remotely since March 2020. In late 2020 I changed jobs and still have never met some of my colleagues in person. Team processes that invite meaningful connection have made me feel isolated.
 
-- Lack of psychological safety
-- Personality differences that make some team members uncomfortable discussion emotions
-- Cultural differences between near and far-shore teams
+If your team really latches onto this ceremony, you could also consider trying a more emotional [retrospective technique](/blog/retrospective-techniques) such as "mad, sad, glad."
+
+## Not for everyone
+
+This ceremony is not right for every team, however. Some reasons could include:
+
+- General lack of psychological safety
+- Personality differences that make some team members uncomfortable discussing emotions
+- Cultural differences
 - Age differences leading to different life circumstances
 
 Only you can know if your team would enjoy this ceremony, and it should only be held as long as everyone is still enjoying it.
-
-If your team really latches onto this ceremony, you could also consider trying a more emotional [retrospective technique](/blog/retrospective-techniques/#mad-sad-glad) such as mad, sad, glad.
