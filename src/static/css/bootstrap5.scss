@@ -128,6 +128,7 @@ $theme-colors: (
 $theme-colors: map-merge($theme-colors, $grays);
 $theme-colors: map-merge($theme-colors, $colors);
 $theme-colors: map-merge($theme-colors, (
+  "agile": #FFAB00, // https://atlassian.design/foundations/color "golden state"
   "bootstrap": #533B78,
   "docker": #2396ED,
   "fontawesome": #339AF0,
@@ -140,6 +141,7 @@ $theme-colors: map-merge($theme-colors, (
   "metalsmith": #262727,
   "mysql": #2C7493,
   "node": #679E63,
+  "opinion": #B44C43,
   "postgres": #336791
 ));
 
