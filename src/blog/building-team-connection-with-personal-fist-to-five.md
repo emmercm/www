@@ -72,7 +72,7 @@ There is no guidance on what a one means and what a five means. There isn't a st
 
 Team member's updates can be exclusively about their job, but I've found that colleagues have enjoyed connecting with each other by sharing some about their personal life. I personally find greater job satisfaction when I have a personal connection with my colleagues.
 
-Like a lot of people, I have been working remotely since March 2020. In late 2020 I changed jobs and still have never met some of my colleagues in person. Team processes that invite meaningful connection have made me feel isolated.
+Like a lot of people, I have been working remotely since March 2020. In late 2020 I changed jobs and still have never met some of my colleagues in person. Team processes that invite meaningful connection have made me feel less isolated.
 
 If your team really latches onto this ceremony, you could also consider trying a more emotional [retrospective technique](/blog/retrospective-techniques) such as "mad, sad, glad."
 
