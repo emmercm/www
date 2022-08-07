@@ -2,16 +2,16 @@
 
 title: Building Team Connection with Personal Fist to Five
 image: https://unsplash.com/photos/zC97zwviFLk
-date: 2022-08-07T20:01:00
+date: 2022-08-07T20:13:00
 tags:
 - agile
 - opinion
 
 ---
 
-Fist to five is a technique for gauging consensus on a prompt, but it can also be used to build personal connections.
+Fist to five is a technique for gauging consensus on a prompt, but it can also be used to build connections within teams.
 
-## Classic fist to five
+## Traditional fist to five
 
 Typically fist to five is used to gauge consensus, support, or excitement on a prompt. A facilitator will give a prompt such as:
 
@@ -46,13 +46,13 @@ One:
 
 Two:
 
-> This week was one work emergency after another. I turned them into meaningful documentation, but I'm glad the week is over.
+> This week was one work emergency after another. I turned the learnings into meaningful documentation, but I'm glad this week is over.
 
 > I can tell that I'm coming down with a cold, and it's really taking the wind out of my sails.
 
 Three:
 
-> I faced a lot of blockers getting my work done this week, and even though I'm happy the work is done I felt like it took much longer than it needed to.
+> I faced a lot of blockers getting my work done this week, and even though I'm happy the work is done, I felt like it took much longer than it needed to.
 
 > Work was fine this week, but I'm stressed out from hosting my family.
 
@@ -60,7 +60,7 @@ Four:
 
 > I had a productive week with minimal frustrations and I felt I produced quality work.
 
-> Work was fine this week, but I'm proud of the rock climbing route I solved that I've been working on.
+> Work was fine this week, but I'm quite proud of the rock climbing route I solved that I've been working on.
 
 Five:
 
