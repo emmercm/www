@@ -122,13 +122,25 @@ const vegaOptions = {
     }
 };
 
+const slugify = (source) => {
+    let slug = transliteration.slugify(source);
+
+    // linthtml id-class-no-ad (E010)
+    const bannedWords = ['ad', 'banner', 'social'];
+    bannedWords.forEach(bannedWord => {
+        slug = slug.replace(new RegExp(`^${bannedWord}-|-${bannedWord}-|-${bannedWord}$`, 'g'), '');
+    });
+
+    return slug;
+};
+
 const markdownRenderer = new marked.Renderer();
 markdownRenderer.heading = (text, level, raw) => {
     const title = raw
         .replace(/<\/?[^>]+>/g, '')
         .replace(/"/g, '')
         .trim();
-    const slug = transliteration.slugify(title);
+    const slug = slugify(title);
     return `<h${level} id="${slug}">
         <a href="#${slug}" title="${title}" class="link" aria-hidden="true">
             <i class="fa-regular fa-link"></i>
@@ -423,7 +435,7 @@ tracer(Metalsmith(path.resolve()))
     // Move pages to separate index.html inside folders
     .use(permalinks({
         relative: false,
-        slug: transliteration.slugify,
+        slug: slugify,
         linksets: [
             {
                 match: { collection: 'blog' },
