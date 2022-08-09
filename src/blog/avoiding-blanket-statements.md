@@ -5,6 +5,7 @@ date: 2022-05-06T20:33:00
 image: https://unsplash.com/photos/hCb3lIB8L8E
 tags:
 - career
+- opinion
 
 ---
 
