@@ -4,6 +4,7 @@ title: Why You Should Use UUIDs for Your Primary Keys
 date: 2020-01-31T05:03:00
 tags:
 - databases
+- opinion
 
 ---
 

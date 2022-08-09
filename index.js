@@ -122,13 +122,25 @@ const vegaOptions = {
     }
 };
 
+const slugify = (source) => {
+    let slug = transliteration.slugify(source);
+
+    // linthtml id-class-no-ad (E010)
+    const bannedWords = ['ad', 'banner', 'social'];
+    bannedWords.forEach(bannedWord => {
+        slug = slug.replace(new RegExp(`^${bannedWord}-|-${bannedWord}-|-${bannedWord}$`, 'g'), '');
+    });
+
+    return slug;
+};
+
 const markdownRenderer = new marked.Renderer();
 markdownRenderer.heading = (text, level, raw) => {
     const title = raw
         .replace(/<\/?[^>]+>/g, '')
         .replace(/"/g, '')
         .trim();
-    const slug = transliteration.slugify(title);
+    const slug = slugify(title);
     return `<h${level} id="${slug}">
         <a href="#${slug}" title="${title}" class="link" aria-hidden="true">
             <i class="fa-regular fa-link"></i>
@@ -423,7 +435,7 @@ tracer(Metalsmith(path.resolve()))
     // Move pages to separate index.html inside folders
     .use(permalinks({
         relative: false,
-        slug: transliteration.slugify,
+        slug: slugify,
         linksets: [
             {
                 match: { collection: 'blog' },
@@ -933,13 +945,13 @@ tracer(Metalsmith(path.resolve()))
     })))
 
     // Add subresource integrity attributes (after minification) (can require internet connection)
-    .use(sri({
+    .use(msIf(prodBuild, sri({
         ignoreResources: [
             'fonts.googleapis.com/css',
             'googletagmanager.com/gtag/js',
             'platform.twitter.com/widgets.js'
         ]
-    }))
+    })))
 
     /************************************
      *                                  *
@@ -955,7 +967,7 @@ tracer(Metalsmith(path.resolve()))
 
     // Remove unused files
     // TODO: Remove unused images before metalsmith-sharp?
-    .use(htmlUnused({
+    .use(msIf(prodBuild, htmlUnused({
         pattern: '**/*.@('
             + [
                 'css', 'js',
@@ -965,7 +977,7 @@ tracer(Metalsmith(path.resolve()))
             ].join('|')
             + ')',
         ignore: siteBackground.replace(/\.[^\.]+$/, '') + '*'
-    }))
+    })))
 
     /***************************
      *                         *
@@ -974,19 +986,19 @@ tracer(Metalsmith(path.resolve()))
      ***************************/
 
     // Add Facebook OpenGraph meta tags
-    .use(openGraph({
+    .use(msIf(prodBuild, openGraph({
         pattern: '**/*.html',
         sitename: siteName,
         siteurl: siteURL,
         image: '.og-image'
-    }))
-    .use(openGraph({
+    })))
+    .use(msIf(prodBuild, openGraph({
         pattern: 'blog/!([0-9]*)/index.html',
         sitetype: 'article',
         sitename: siteName,
         siteurl: siteURL,
         image: '.og-image'
-    }))
+    })))
 
     // Add Twitter meta
     .use((files, metalsmith, done) => defaultValues([{
@@ -1086,7 +1098,7 @@ tracer(Metalsmith(path.resolve()))
      *********************/
 
     // Lint HTML
-    .use(linter())
+    .use(msIf(prodBuild, linter()))
 
     // Ensure no broken links
     .use(msIf(prodBuild, linkChecker({
@@ -1100,6 +1112,8 @@ tracer(Metalsmith(path.resolve()))
             // Anti-bot 429 rate limiting
             'github.com',
             'linkedin.com/shareArticle',
+            // Anti-bot timeouts
+            'usnews.com'
             // Temporary
         ]
     })))
