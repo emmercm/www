@@ -47,8 +47,8 @@ The `RUN`, `ENTRYPOINT`, and `CMD`, instructions all have two different forms th
 These are the recommended forms to use for each instruction:
 
 - `RUN`: shell form, because of the shell features described [below](#shell-features)
-- `ENTRYPOINT`: exec form, because of the signal trapping described [below](#signal-trapping-forwarding)
-- `CMD`: exec form, because of the signal trapping described [below](#signal-trapping-forwarding)
+- `ENTRYPOINT`: exec form, because of the signal trapping described [below](#signal-trapping-forwarding) <!-- markdownlint-disable-line MD051 -->
+- `CMD`: exec form, because of the signal trapping described [below](#signal-trapping-forwarding) <!-- markdownlint-disable-line MD051 -->
 
 The general idea is to use the exec form unless you need shell features - and if you need shell features in the `ENTRYPOINT` or `CMD`, then consider writing a shell script and executing it with the exec form.
 
