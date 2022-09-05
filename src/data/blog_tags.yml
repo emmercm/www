@@ -1,3 +1,8 @@
+agile:
+  title: Agile
+  icon: fa-solid fa-note-sticky
+  color: agile
+
 bootstrap:
   title: Bootstrap
   icon: fa-brands fa-bootstrap
@@ -77,6 +82,11 @@ node.js:
   title: Node.js
   icon: fa-brands fa-node-js
   color: node
+
+opinion:
+  title: Opinion
+  icon: fa-regular fa-comment
+  color: opinion
 
 postgres:
   title: PostgreSQL
