@@ -2,6 +2,7 @@
 
 title: Calculating Table Size in PostgreSQL
 date: 2021-11-26T23:17:00
+updated: 2022-09-15T22:01:00
 tags:
 - databases
 - postgres
@@ -19,7 +20,7 @@ SELECT n.nspname                                     AS schema_name
      , pg_size_pretty(pg_table_size(c.oid))          AS table_size
      , pg_size_pretty(pg_indexes_size(c.oid))        AS index_size
 FROM pg_class c
-         INNER JOIN pg_namespace n ON n.oid = c.relnamespace
+INNER JOIN pg_namespace n ON n.oid = c.relnamespace
 WHERE c.relkind IN ('r', 'm')
   AND n.nspname NOT IN ('pg_catalog', 'information_schema')
   AND n.nspname NOT LIKE 'pg_toast%'
@@ -38,6 +39,8 @@ Tables used (from the [`pg_catalog`](https://www.postgresql.org/docs/current/cat
   - `pg_class.relkind`: `r` is ordinary tables and `m` is materialized views - this excludes indexes (`i`), sequences (`S`), views (`v`), composite types (`c`), TOAST tables (`t`), and foreign tables (`f`)
 - [`pg_namespace`](https://www.postgresql.org/docs/current/catalog-pg-namespace.html): catalogs namespaces (schemas)
 
+_See "[Calculating Table Size in MySQL](/blog/calculating-table-size-in-mysql)" for the MySQL version of this query._
+
 ## Finding the largest tables
 
 It's fairly easy to modify the above query to order by the largest total size:
@@ -49,7 +52,7 @@ SELECT n.nspname                                     AS schema_name
      , pg_size_pretty(pg_table_size(c.oid))          AS table_size
      , pg_size_pretty(pg_indexes_size(c.oid))        AS index_size
 FROM pg_class c
-         INNER JOIN pg_namespace n ON n.oid = c.relnamespace
+INNER JOIN pg_namespace n ON n.oid = c.relnamespace
 WHERE c.relkind IN ('r', 'm')
   AND n.nspname NOT IN ('pg_catalog', 'information_schema')
   AND n.nspname NOT LIKE 'pg_toast%'
@@ -58,3 +61,22 @@ LIMIT 10;
 ```
 
 This could be used to help debug a DB running out of space, or similar administrative tasks.
+
+## Finding the largest schemas
+
+If you aggregate by `nspname` you can find which schemas are the largest:
+
+```sql
+SELECT n.nspname                                          AS schema_name
+     , pg_size_pretty(sum(pg_total_relation_size(c.oid))) AS total_size
+     , pg_size_pretty(sum(pg_table_size(c.oid)))          AS table_size
+     , pg_size_pretty(sum(pg_indexes_size(c.oid)))        AS index_size
+FROM pg_class c
+INNER JOIN pg_namespace n ON n.oid = c.relnamespace
+WHERE c.relkind IN ('r', 'm')
+  AND n.nspname NOT IN ('pg_catalog', 'information_schema')
+  AND n.nspname NOT LIKE 'pg_toast%'
+GROUP BY n.nspname
+ORDER BY sum(pg_total_relation_size(c.oid)) DESC
+LIMIT 10;
+```
