@@ -58,3 +58,22 @@ LIMIT 10;
 ```
 
 This could be used to help debug a DB running out of space, or similar administrative tasks.
+
+## Finding the largest schemas
+
+If you aggregate by `nspname` you can find which schemas are the largest:
+
+```sql
+SELECT n.nspname                                          AS schema_name
+     , pg_size_pretty(sum(pg_total_relation_size(c.oid))) AS total_size
+     , pg_size_pretty(sum(pg_table_size(c.oid)))          AS table_size
+     , pg_size_pretty(sum(pg_indexes_size(c.oid)))        AS index_size
+FROM pg_class c
+INNER JOIN pg_namespace n ON n.oid = c.relnamespace
+WHERE c.relkind IN ('r', 'm')
+  AND n.nspname NOT IN ('pg_catalog', 'information_schema')
+  AND n.nspname NOT LIKE 'pg_toast%'
+GROUP BY n.nspname
+ORDER BY sum(pg_total_relation_size(c.oid)) DESC
+LIMIT 10;
+```
