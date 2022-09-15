@@ -19,7 +19,7 @@ SELECT n.nspname                                     AS schema_name
      , pg_size_pretty(pg_table_size(c.oid))          AS table_size
      , pg_size_pretty(pg_indexes_size(c.oid))        AS index_size
 FROM pg_class c
-         INNER JOIN pg_namespace n ON n.oid = c.relnamespace
+INNER JOIN pg_namespace n ON n.oid = c.relnamespace
 WHERE c.relkind IN ('r', 'm')
   AND n.nspname NOT IN ('pg_catalog', 'information_schema')
   AND n.nspname NOT LIKE 'pg_toast%'
@@ -49,7 +49,7 @@ SELECT n.nspname                                     AS schema_name
      , pg_size_pretty(pg_table_size(c.oid))          AS table_size
      , pg_size_pretty(pg_indexes_size(c.oid))        AS index_size
 FROM pg_class c
-         INNER JOIN pg_namespace n ON n.oid = c.relnamespace
+INNER JOIN pg_namespace n ON n.oid = c.relnamespace
 WHERE c.relkind IN ('r', 'm')
   AND n.nspname NOT IN ('pg_catalog', 'information_schema')
   AND n.nspname NOT LIKE 'pg_toast%'

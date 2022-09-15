@@ -49,8 +49,8 @@ SELECT ns.nspname        AS schema
      , con.condeferrable AS "deferrable"
      , con.condeferred   AS deferred
 FROM pg_constraint con
-         INNER JOIN pg_class class ON class.oid = con.conrelid
-         INNER JOIN pg_namespace ns ON ns.oid = class.relnamespace
+INNER JOIN pg_class class ON class.oid = con.conrelid
+INNER JOIN pg_namespace ns ON ns.oid = class.relnamespace
 WHERE con.contype IN ('p', 'u')
   AND ns.nspname != 'pg_catalog'
 ORDER BY 1, 2, 3;
