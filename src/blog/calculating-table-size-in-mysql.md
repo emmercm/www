@@ -33,6 +33,8 @@ The [`information_schema.tables`](https://dev.mysql.com/doc/refman/8.0/en/inform
 
 By default, table stats have a cache of 24 hours, but they updated with the [`ANALYZE TABLE ...`](https://dev.mysql.com/doc/refman/8.0/en/analyze-table.html) statement.
 
+_See "[Calculating Table Size in PostgreSQL](/blog/calculating-table-size-in-postgresql)" for the PostgreSQL version of this query._
+
 ## Finding the largest tables
 
 It's fairly easy to modify the above query to order by the largest total size:
