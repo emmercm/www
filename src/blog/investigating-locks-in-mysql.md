@@ -62,8 +62,8 @@ SELECT l.lock_type
      , concat('KILL ', t.processlist_id, ';')                 AS kill_command
      , concat('CALL mysql.rds_kill(', t.processlist_id, ');') AS rds_kill_command
 FROM information_schema.innodb_locks l
-         INNER JOIN information_schema.innodb_trx trx ON trx.trx_id = l.lock_trx_id
-         INNER JOIN performance_schema.threads t ON t.thread_id = trx.trx_mysql_thread_id
+INNER JOIN information_schema.innodb_trx trx ON trx.trx_id = l.lock_trx_id
+INNER JOIN performance_schema.threads t ON t.thread_id = trx.trx_mysql_thread_id
 ORDER BY trx.trx_wait_started IS NOT NULL
        , trx.trx_wait_started
        , trx_length_sec DESC;
@@ -104,9 +104,9 @@ SELECT block.trx_id                                            AS blocking_trx_i
      , concat('KILL ', bt.processlist_id, ';')                 AS kill_command
      , concat('CALL mysql.rds_kill(', bt.processlist_id, ');') AS rds_kill_command
 FROM information_schema.innodb_lock_waits lw
-         INNER JOIN information_schema.innodb_trx block ON block.trx_id = lw.blocking_trx_id
-         INNER JOIN performance_schema.threads bt ON bt.thread_id = block.trx_mysql_thread_id
-         INNER JOIN information_schema.innodb_trx req ON req.trx_id = lw.requesting_trx_id
+INNER JOIN information_schema.innodb_trx block ON block.trx_id = lw.blocking_trx_id
+INNER JOIN performance_schema.threads bt ON bt.thread_id = block.trx_mysql_thread_id
+INNER JOIN information_schema.innodb_trx req ON req.trx_id = lw.requesting_trx_id
 ORDER BY requesting_trx_wait_sec DESC
        , block.trx_id
        , req.trx_id;
@@ -174,7 +174,7 @@ SELECT ml.object_type
      , concat('KILL ', t.processlist_id, ';')                 AS kill_command
      , concat('CALL mysql.rds_kill(', t.processlist_id, ');') AS rds_kill_command
 FROM performance_schema.metadata_locks ml
-         INNER JOIN performance_schema.threads t ON t.thread_id = ml.owner_thread_id
+INNER JOIN performance_schema.threads t ON t.thread_id = ml.owner_thread_id
 WHERE t.type = 'FOREGROUND'
   AND t.processlist_command != 'Sleep'
   AND t.processlist_command != 'Daemon'
