@@ -1111,6 +1111,7 @@ tracer(Metalsmith(path.resolve()))
             'twitter.com',
             // Anti-bot 429 rate limiting
             'github.com',
+            'instagram.com',
             'linkedin.com/shareArticle',
             // Anti-bot timeouts
             'usnews.com'
