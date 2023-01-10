@@ -76,7 +76,7 @@
     "metalsmith-metadata-directory": "^1.2.3",
     "metalsmith-open-graph": "^0.0.4",
     "metalsmith-pagination": "^1.5.0",
-    "metalsmith-paths": "^3.0.1",
+    "metalsmith-paths": "^4.0.1",
     "metalsmith-reading-time": "^0.2.0",
     "metalsmith-renamer": "^0.5.209",
     "metalsmith-robots": "^1.1.0",
