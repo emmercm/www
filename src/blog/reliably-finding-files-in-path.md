@@ -21,7 +21,7 @@ $ docker ps
 Cannot connect to the Docker daemon at unix:///var/run/docker.sock. Is the docker daemon running?
 ```
 
-I wanted to create a function in my dotfiles to override the `docker` command, and that function would ensure Docker Desktop is running before executing the `docker` command. But I had an issue with finding the actual location of the `docker` executable once it was shadowed by the function. See "[Creating Before & After Hooks for Unix Commands](/blog/creating-before-after-hooks-for-unix-commands)" for how you can intercept commands like this.
+I wanted to create a function in my dotfiles to override the `docker` command, and that function would ensure Docker Desktop is running before executing the `docker` command. But I had an issue with finding the actual location of the `docker` executable once it was shadowed by the function. See "[Automatically Execute Code Before & After Unix Commands](/blog/automatically-execute-code-before-after-unix-commands)" for how you can intercept commands like this.
 
 ## The problem with `which`
 
