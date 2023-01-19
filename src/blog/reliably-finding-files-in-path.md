@@ -2,6 +2,7 @@
 
 title: Reliably Finding Files in $PATH
 date: 2021-08-27T20:10:00
+updated: 2023-01-19T19:21:00
 tags:
 - shell
 
@@ -20,7 +21,7 @@ $ docker ps
 Cannot connect to the Docker daemon at unix:///var/run/docker.sock. Is the docker daemon running?
 ```
 
-I wanted to create a function in my dotfiles to override the `docker` command, and that function would ensure Docker Desktop is running before executing the `docker` command. But I had an issue with finding the actual location of the `docker` executable once it was obscured by the function.
+I wanted to create a function in my dotfiles to override the `docker` command, and that function would ensure Docker Desktop is running before executing the `docker` command. But I had an issue with finding the actual location of the `docker` executable once it was shadowed by the function.
 
 This article catalogs my findings while trying to solve that use case.
 
@@ -98,9 +99,43 @@ $ whence -p cat
 bash: whence: command not found
 ```
 
-## The solution
+## The built-in solution
 
-The solution is fairly straightforward - if we want to find files in `$PATH`, then let's write a function to look in `$PATH` and only `$PATH`. Here's a shell-agnostic function dubbed `pinpoint` that's easy to add to dotfiles:
+If all you want to do is execute a command, bypassing any aliases or functions that might be shadowing it, then `command` is probably what you want.
+
+Here's an example of `command` bypassing an alias:
+
+```shell
+$ echo goodbye
+goodbye
+
+$ alias echo="echo hello"
+
+$ echo goodbye
+hello goodbye
+
+$ command echo goodbye
+goodbye
+```
+
+And an example of `command` bypassing a function:
+
+```shell
+$ echo hello
+hello
+
+$ echo() { command echo "before" "$@" "after" }
+
+$ echo hello
+before hello after
+
+$ command echo hello
+hello
+```
+
+## The custom solution
+
+If you need functionality similar to `which` to get the _path_ of an executable, we can write a function to search in `$PATH` explicitly. Here's a shell-agnostic function dubbed `pinpoint` that's easy to add to dotfiles:
 
 ```bash
 pinpoint() {
@@ -144,6 +179,12 @@ $ foo() { echo "bar" }
 
 $ pinpoint foo || echo "not in path"
 not in path
+```
+
+Again, this custom function is best used for when you need the _path_ of an executable, either for further manipulation or later use. Here is a concrete example to set `$EDITOR` with a full executable path to rid yourself of vi/vim:
+
+```shell
+export EDITOR=$(pinpoint nano)
 ```
 
 Happy searching!
