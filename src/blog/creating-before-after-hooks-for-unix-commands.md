@@ -1,7 +1,7 @@
 ---
 
 title: Creating Before & After Hooks for Unix Commands
-date: 2023-01-19T21:18:00
+date: 2023-01-19T21:50:00
 tags:
 - shell
 
@@ -11,7 +11,7 @@ It can be helpful to run some code automatically before or after calling a comma
 
 ## A use case
 
-I have run into a few situations where I would like some setup or cleanup code to execute before a command executes. A concrete example I talked about in "[Reliably Finding Files in $PATH](/blog/reliably-finding-files-in-path)" is wanting to ensure Docker Desktop is actually running before the `docker` CLI command is executed.
+I have run into a few situations where I would like some code to automatically execute before or after a certain command executes. A concrete example I talked about in "[Reliably Finding Files in $PATH](/blog/reliably-finding-files-in-path)" is wanting to ensure [Docker Desktop](https://docs.docker.com/desktop/) is actually running before the `docker` CLI command is executed.
 
 I wanted the order of operations to be:
 
@@ -21,7 +21,7 @@ I wanted the order of operations to be:
 
 ## Bash function shadowing
 
-The term "shadowing" refers to naming a Bash alias or function the same as an existing executable, taking precedent over the executable.
+The term "shadowing" refers to naming a Bash alias or function the same as an existing command, taking precedent over the command.
 
 Here is an example of alias shadowing:
 
@@ -61,7 +61,7 @@ blocked!
 
 ## The `$@` special parameter
 
-First we need a quick explanation of the `$@` special parameter. When used, `$@` expands to the positional parameters passed to a script file or function. To prevent undesired word splitting, `$@` should usually be wrapped with double quotes.
+First, we need a quick explanation of the `$@` special parameter. When used, `$@` expands to the positional parameters passed to a script file or function. To prevent undesired word splitting, `$@` should usually be wrapped with double quotes.
 
 Here is an example function that echoes its parameters:
 
@@ -77,7 +77,7 @@ foo bar fizz buzz
 
 ## The solution
 
-The above example where a function shadowed an executable hinted at our solution. Even though we shadowed the `echo` executable, we were still able to reference the executable with `command`, ignoring any alias or function shadows. Without `command` we would have created a circular reference.
+The above example where a function shadowed `echo` hinted at our solution. Even though we shadowed the `echo` executable, we were still able to reference the executable with `command`, ignoring any alias or function shadows. Without `command` we would have created a circular reference.
 
 We can add more commands inside our custom `echo` function to extend its functionality:
 
@@ -99,15 +99,32 @@ foo bar fizz buzz
 after!
 ```
 
+Some commands such as `cd` are not an executable. For those commands you should substitute `command` with `builtin`, like so:
+
+```shell
+$ cd() {
+  echo 'before!'
+  builtin cd "${1:-${HOME}}"
+  echo 'after!'
+}
+
+$ cd /
+before!
+after!
+
+$ pwd
+/
+```
+
 ## Examples
 
 Using a Bash function, we can "lazy load" the Node.js version manager [`nvm`](https://github.com/nvm-sh/nvm), speeding up our shell startup time:
 
-```shell
+```bash
 nvm() {
   # We only need to load `nvm` once, so we can stop this function
   #   from being run again by "unsetting" it, un-shadowing the
-  #   `nvm` executable.
+  #   `nvm` function.
   unset -f "nvm"
 
   # Load nvm
@@ -122,10 +139,10 @@ nvm() {
 
 Using a Bash function, we can automatically load environment variables when we `cd` to a directory with an `.env` file:
 
-```shell
+```bash
 cd() {
   # Execute the original intended command.
-  # We can't use `command` because `cd` is a built-in, not an executable.
+  # We must use `builtin` because `cd` is a built-in, not an executable.
   builtin cd "${1:-${HOME}}"
 
   # Load the environment variables in a .env file, if it exists.

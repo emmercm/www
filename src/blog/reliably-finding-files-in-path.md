@@ -2,7 +2,7 @@
 
 title: Reliably Finding Files in $PATH
 date: 2021-08-27T20:10:00
-updated: 2023-01-19T19:21:00
+updated: 2023-01-19T21:53:00
 tags:
 - shell
 
@@ -14,16 +14,14 @@ Jump to the bottom of the article for a function definition that looks for files
 
 ## The use case
 
-I tend to not leave Docker running on my MacBook, it tends to eat battery and slow down every other process including web browsing. Because of that, I'm also tired of seeing:
+I tend to not leave [Docker Desktop](https://docs.docker.com/desktop/) running on my MacBook, it tends to eat battery and slow down every other process including web browsing. Because of that, I'm also tired of seeing:
 
 ```shell
 $ docker ps
 Cannot connect to the Docker daemon at unix:///var/run/docker.sock. Is the docker daemon running?
 ```
 
-I wanted to create a function in my dotfiles to override the `docker` command, and that function would ensure Docker Desktop is running before executing the `docker` command. But I had an issue with finding the actual location of the `docker` executable once it was shadowed by the function.
-
-This article catalogs my findings while trying to solve that use case.
+I wanted to create a function in my dotfiles to override the `docker` command, and that function would ensure Docker Desktop is running before executing the `docker` command. But I had an issue with finding the actual location of the `docker` executable once it was shadowed by the function. See "[Creating Before & After Hooks for Unix Commands](/blog/creating-before-after-hooks-for-unix-commands)" for how you can intercept commands like this.
 
 ## The problem with `which`
 
