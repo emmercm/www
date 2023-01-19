@@ -1105,6 +1105,7 @@ tracer(Metalsmith(path.resolve()))
         ignore: [
             // Anti-bot 403
             'pixabay.com',
+            'mysql.com',
             // Anti-bot 404
             'fonts.gstatic.com$',
             'support.google.com',
