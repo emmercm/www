@@ -1,6 +1,6 @@
 ---
 
-title: Creating Before & After Hooks for Unix Commands
+title: Automatically Execute Code Before & After Unix Commands
 date: 2023-01-19T21:50:00
 tags:
 - shell
@@ -115,6 +115,8 @@ after!
 $ pwd
 /
 ```
+
+To make your custom functions persist between console sessions, add them to your `~/.bashrc`, `~/.zshrc`, or whatever is appropriate for your shell. You can see a number of examples in [my dotfiles](https://github.com/emmercm/dotfiles).
 
 ## Examples
 
