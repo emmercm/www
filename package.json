@@ -87,7 +87,7 @@
     "metalsmith-uglify": "^2.4.1",
     "metalsmith-validate": "^0.1.5",
     "metalsmith-vega": "^0.0.4",
-    "minimatch": "^5.1.0",
+    "minimatch": "^6.2.0",
     "node-fetch": "^3.2.10",
     "node-sass": "^8.0.0",
     "postcss": "^8.4.18",
