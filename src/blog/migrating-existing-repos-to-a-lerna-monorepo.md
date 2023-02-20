@@ -1,18 +1,30 @@
 ---
 
 title: Migrating Existing Repos to a Lerna Monorepo
-date: 2030-02-20T23:02:00
+date: 2030-02-20T23:35:00
 tags:
 - node.js
 - git
 
 ---
 
-As of writing, I maintain 15 [Metalsmith plugins](https://www.npmjs.com/settings/emmercm/packages), and it has become a pain to manage all of them.
+As of writing, I maintain [15 Metalsmith plugins](https://www.npmjs.com/settings/emmercm/packages), and it has become a pain to manage all of them independently.
 
-[Metalsmith](https://metalsmith.io/) is a plugin-based static site generator that I've been using since early 2019. Hype had already died down for the project, and as a result many plugins were already abandoned, but it fit my needs perfectly and I learned how to write and publish my own plugins that I needed. [My articles](/blog/tag/metalsmith/) on Metalsmith were some of the earliest ones I wrote for this blog, and Metalsmith is still what powers it. [Kevin Van Lierde](https://github.com/webketje) has undertaken the monumental task of reviving the project, which continues to encourage me to maintain my plugins.
+[Metalsmith](https://metalsmith.io/) is a plugin-based static site generator that I've been using since early 2019. Hype had already died down for the project when I started using it, and as a result many plugins were already abandoned - but Metalsmith fit my needs perfectly and I learned how to write and publish my own plugins that I needed. [My articles](/blog/tag/metalsmith/) on Metalsmith were some of the earliest ones I wrote for this blog, and Metalsmith is still what powers it. [Kevin Van Lierde](https://github.com/webketje) has undertaken the monumental task of reviving the project, which continues to encourage me to maintain my plugins.
 
-But 15 different GitHub repositories, that have 15 different [CircleCI](https://circleci.com/) projects, has been a lot to maintain. Motivated by CircleCI's [holiday 2022-2023 incident](https://circleci.com/blog/jan-4-2023-incident-report), I wanted to consolidate the management of these repositories.
+But 15 different GitHub repositories that have 15 different [CircleCI](https://circleci.com/) projects has been a lot to maintain. Motivated by CircleCI's [holiday 2022-2023 security incident](https://circleci.com/blog/jan-4-2023-incident-report), I wanted to consolidate the management of these repositories.
+
+## Existing pain points
+
+With 15 repositories there are 15 distinct copies of:
+
+- READMEs with very similar [shields.io](https://shields.io/) badges
+- Duplicate CI/CD testing and publishing workflows, with duplicate npm secrets
+- Duplicate [Renovate](https://www.mend.io/free-developer-tools/renovate/) configs
+- Duplicate [EditorConfig](https://editorconfig.org/) files
+- Duplicate [ESLint config](https://eslint.org/docs/latest/use/configure/configuration-files) files
+
+And it means making uniform changes such as adopting Metalsmith [v2.4's `Metalsmith.match()`](https://metalsmith.io/news/2022-01-31/metalsmith-2.4-released/) across 15 different repositories takes hours.
 
 ## Available options
 
@@ -24,7 +36,7 @@ Cursory research led to a few different monorepo options:
 
 My requirements for any monorepo migration was:
 
-1. Git history from the previous repositories needs to be preserved. I have years of history in each repository that I don't want squashed.
+1. Preserving git history from the previous repositories. I have years of history in each repository that I don't want squashed.
 2. [Renovate](/blog/keep-npm-packages-updated-with-renovate/) needs to keep working on autopilot (after some tweaking, of course).
 3. A CI/CD system needs to be able to keep publishing npm packages individually on autopilot, to dovetail with Renovate.
 
@@ -45,26 +57,26 @@ First step was to make the new GitHub repository, [emmercm/metalsmith-plugins](h
 Next, we're going to need a temporary workspace for us to check out clean versions of every repository:
 
 ```shell
-cd $(mktemp -d)
-git clone https://github.com/emmercm/metalsmith-plugins.git
-git clone https://github.com/emmercm/metalsmith-collections-related.git
-git clone https://github.com/emmercm/metalsmith-css-unused.git
-git clone https://github.com/emmercm/metalsmith-github-profile.git
-git clone https://github.com/emmercm/metalsmith-htaccess.git
-git clone https://github.com/emmercm/metalsmith-html-glob.git
-git clone https://github.com/emmercm/metalsmith-html-linter.git
-git clone https://github.com/emmercm/metalsmith-html-relative.git
-git clone https://github.com/emmercm/metalsmith-html-sri.git
-git clone https://github.com/emmercm/metalsmith-html-unused.git
-git clone https://github.com/emmercm/metalsmith-include-files.git
-git clone https://github.com/emmercm/metalsmith-link-checker.git
-git clone https://github.com/emmercm/metalsmith-mermaid.git
-git clone https://github.com/emmercm/metalsmith-reading-time.git
-git clone https://github.com/emmercm/metalsmith-tracer.git
-git clone https://github.com/emmercm/metalsmith-vega.git
+$ cd $(mktemp -d)
+$ git clone https://github.com/emmercm/metalsmith-plugins.git
+$ git clone https://github.com/emmercm/metalsmith-collections-related.git
+$ git clone https://github.com/emmercm/metalsmith-css-unused.git
+$ git clone https://github.com/emmercm/metalsmith-github-profile.git
+$ git clone https://github.com/emmercm/metalsmith-htaccess.git
+$ git clone https://github.com/emmercm/metalsmith-html-glob.git
+$ git clone https://github.com/emmercm/metalsmith-html-linter.git
+$ git clone https://github.com/emmercm/metalsmith-html-relative.git
+$ git clone https://github.com/emmercm/metalsmith-html-sri.git
+$ git clone https://github.com/emmercm/metalsmith-html-unused.git
+$ git clone https://github.com/emmercm/metalsmith-include-files.git
+$ git clone https://github.com/emmercm/metalsmith-link-checker.git
+$ git clone https://github.com/emmercm/metalsmith-mermaid.git
+$ git clone https://github.com/emmercm/metalsmith-reading-time.git
+$ git clone https://github.com/emmercm/metalsmith-tracer.git
+$ git clone https://github.com/emmercm/metalsmith-vega.git
 ```
 
-We'll do a typical Lerna initialize, with independent versions for each package:
+We'll do a typical [Lerna initialize](https://lerna.js.org/docs/getting-started), with independent versions for each package:
 
 ```shell
 $ cd metalsmith-plugins
@@ -82,7 +94,7 @@ $ git add .
 $ git commit -m "npx lerna@latest init"
 ```
 
-And then start a multi-minute process of importing all the repositories:
+And then start the long process of importing all the repositories:
 
 ```shell
 $ find .. -type d -mindepth 1 -maxdepth 1 ! -name 'metalsmith-plugins' -exec npx lerna@latest import '{}' --preserve-commit --yes \;
@@ -131,24 +143,24 @@ be3bdc7 renovate[bot]   Wed Feb 1 10:03:37 2023 +0000   Update dependency deepme
 Lerna uses [npm workspaces](https://docs.npmjs.com/cli/v7/using-npm/workspaces) by default, which was added in npm v7 (Node.js v15). npm v7 uses `lockfileVersion` 2, so let's go ahead and upgrade some old `package-lock.json`s:
 
 ```shell
-nvm use 16
-grep -l '"lockfileVersion": 1' packages/*/package-lock.json | while read line; do npm install --prefix "$(dirname "${line}")"; done
+$ nvm use 16
+$ grep -l '"lockfileVersion": 1' packages/*/package-lock.json | while read line; do npm install --prefix "$(dirname "${line}")"; done
 ```
 
 And finally, we'll install every package's dependencies:
 
 ```shell
-npm install
+$ npm install
 ```
 
 ## Lerna setup
 
-Lerna uses [npm workspaces](https://docs.npmjs.com/cli/v7/using-npm/workspaces) by default, so some duplicate packages are going to share the same `node_modules` folder in the root of the repository. In some of my `package.json` `scripts` I was referencing some binaries locally, such as `./node_modules/.bin/jest`, so we need to fix that:
+Lerna uses [npm workspaces](https://docs.npmjs.com/cli/v7/using-npm/workspaces) by default, so npm packages shared among Lerna packages are going to share the same `node_modules` folder in the root of the repository. In some of my `package.json` `scripts` I was referencing some binaries locally, such as `./node_modules/.bin/jest`, so we need to fix that:
 
 ```shell
-sed -i 's;./node_modules/.bin/\([^/]*\);../../node_modules/.bin/\1;' packages/*/package.json
-git add .
-git commit -m "Fix binary locations"
+$ sed -i 's;./node_modules/.bin/\([^/]*\);../../node_modules/.bin/\1;' packages/*/package.json
+$ git add .
+$ git commit -m "Fix binary locations"
 ```
 
 We can tell Lerna it can cache some idempotent npm `scripts` commands, commands whose output only changes if the input files change:
@@ -268,3 +280,5 @@ At this point we're ready to delete the temporary directory we've been working i
 4. Create a GitHub Actions [workflow](https://github.com/emmercm/metalsmith-plugins/blob/main/.github/workflows/publish.yml) for automated npm publishing
 5. Update the old GitHub repositories' READMEs with a link to the new repository, and mark the repositories as archived
 6. Write a new Renovate config
+
+Then, in the future, it should be much easier to update many plugins at once!
