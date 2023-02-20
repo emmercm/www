@@ -863,23 +863,25 @@ tracer(Metalsmith(path.resolve()))
      **********************************/
 
     .use(include({
-        'static/css': [
-            // Un-minified files that will get combined into one file
-            './node_modules/@fortawesome/fontawesome-pro/css/fontawesome.css',
-            './node_modules/@fortawesome/fontawesome-pro/css/brands.css',
-            './node_modules/@fortawesome/fontawesome-pro/css/light.css',
-            './node_modules/@fortawesome/fontawesome-pro/css/regular.css'
-        ],
-        'static/js/vendor': [
-            // Un-minified files that can be concatenated
-            // TODO(cemmer): rewrite local JS to eliminate jQuery
-            './node_modules/jquery/dist/jquery.slim.js',
-            // TODO(cemmer): only grab the needed module files (requires a bundler?)
-            './node_modules/bootstrap/dist/js/bootstrap.js'
-        ],
-        'static/webfonts': [
-            './node_modules/@fortawesome/fontawesome-pro/webfonts/*'
-        ]
+        directories: {
+            'static/css': [
+                // Un-minified files that will get combined into one file
+                './node_modules/@fortawesome/fontawesome-pro/css/fontawesome.css',
+                './node_modules/@fortawesome/fontawesome-pro/css/brands.css',
+                './node_modules/@fortawesome/fontawesome-pro/css/light.css',
+                './node_modules/@fortawesome/fontawesome-pro/css/regular.css'
+            ],
+            'static/js/vendor': [
+                // Un-minified files that can be concatenated
+                // TODO(cemmer): rewrite local JS to eliminate jQuery
+                './node_modules/jquery/dist/jquery.slim.js',
+                // TODO(cemmer): only grab the needed module files (requires a bundler?)
+                './node_modules/bootstrap/dist/js/bootstrap.js'
+            ],
+            'static/webfonts': [
+                './node_modules/@fortawesome/fontawesome-pro/webfonts/*'
+            ]
+        }
     }))
 
     /*****************************************
