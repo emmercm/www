@@ -88,6 +88,7 @@
     "metalsmith-validate": "^0.1.5",
     "metalsmith-vega": "^0.0.5",
     "minimatch": "^5.1.6",
+    "netlify-plugin-cache": "^1.0.3",
     "node-fetch": "^3.3.0",
     "node-sass": "^8.0.0",
     "postcss": "^8.4.21",

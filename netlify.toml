@@ -15,6 +15,12 @@
   # Site settings > Build & deploy > Post processing > Asset Optimization
   skip_processing = false
 
+[[plugins]]
+  # https://www.zachleat.com/web/chromium-missing/
+  package = "netlify-plugin-cache"
+    [plugins.inputs]
+    paths = [".cache/puppeteer"]
+
 [[context.production.plugins]]
   package = "netlify-plugin-submit-sitemap"
 
