@@ -1,7 +1,7 @@
 [build]
   command = "npm test && npm start"
   publish = "build/"
-  ignore = "node ignore_build.js"
+  ignore = "node netlify-ignore-build.js"
 
 [build.environment]
   # FONTAWESOME_TOKEN
@@ -18,8 +18,6 @@
 [[plugins]]
   # https://www.zachleat.com/web/chromium-missing/
   package = "netlify-plugin-cache"
-    [plugins.inputs]
-    paths = [".cache/puppeteer"]
 
 [[context.production.plugins]]
   package = "netlify-plugin-submit-sitemap"
