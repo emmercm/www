@@ -280,7 +280,9 @@ tracer(Metalsmith(path.resolve()))
                 title: true,
                 date: {
                     exists: true,
-                    pattern: value => value && value.getTime()
+                    pattern: value => value
+                        && value.getTime()
+                        && (value.getTime() - new Date()) < 24 * 60 * 60 * 1000 // not more than 1 day in the future
                 }
             }
         }
