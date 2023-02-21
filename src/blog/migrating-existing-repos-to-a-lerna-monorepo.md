@@ -12,7 +12,7 @@ As of writing, I maintain [15 Metalsmith plugins](https://www.npmjs.com/settings
 
 [Metalsmith](https://metalsmith.io/) is a plugin-based static site generator that I've been using since early 2019. Hype had already died down for the project when I started using it, and as a result many plugins were already abandoned - but Metalsmith fit my needs perfectly and I learned how to write and publish my own plugins that I needed. [My articles](/blog/tag/metalsmith/) on Metalsmith were some of the earliest ones I wrote for this blog, and Metalsmith is still what powers it. [Kevin Van Lierde](https://github.com/webketje) has undertaken the monumental task of reviving the project, which continues to encourage me to maintain my plugins.
 
-But 15 different GitHub repositories that have 15 different [CircleCI](https://circleci.com/) projects has been a lot to maintain. Motivated by CircleCI's [holiday 2022-2023 security incident](https://circleci.com/blog/jan-4-2023-incident-report), I wanted to consolidate the management of these repositories.
+But 15 different GitHub repositories that have 15 different [CircleCI](https://circleci.com/) projects has been a lot to maintain. Motivated by [CircleCI's holiday 2022-2023 security incident](https://circleci.com/blog/jan-4-2023-incident-report), I wanted to consolidate the management of these repositories.
 
 ## Existing pain points
 
@@ -20,11 +20,11 @@ With 15 repositories there are 15 distinct copies of:
 
 - READMEs with very similar [shields.io](https://shields.io/) badges
 - Duplicate CI/CD testing and publishing workflows, with duplicate npm secrets
-- Duplicate [Renovate](https://www.mend.io/free-developer-tools/renovate/) configs
+- Duplicate [Renovate](https://www.mend.io/free-developer-tools/renovate/) config files
 - Duplicate [EditorConfig](https://editorconfig.org/) files
 - Duplicate [ESLint config](https://eslint.org/docs/latest/use/configure/configuration-files) files
 
-And it means making uniform changes such as adopting Metalsmith [v2.4's `Metalsmith.match()`](https://metalsmith.io/news/2022-01-31/metalsmith-2.4-released/) across 15 different repositories takes hours.
+and it means making uniform changes such as adopting Metalsmith [v2.4's `Metalsmith.match()`](https://metalsmith.io/news/2022-01-31/metalsmith-2.4-released/) across 15 different repositories takes hours.
 
 ## Available options
 
