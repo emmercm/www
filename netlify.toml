@@ -25,7 +25,7 @@
   package = "netlify-plugin-submit-sitemap"
 
 [[context.deploy-preview.plugins]]
-  package = "@netlify/plugin-lighthouse@4.0.7"
+  package = "@netlify/plugin-lighthouse"
   [[context.deploy-preview.plugins.inputs.audits]]
     path = ""
     output_path = "lighthouse.html"
