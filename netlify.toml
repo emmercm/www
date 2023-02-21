@@ -18,6 +18,8 @@
 [[plugins]]
   # https://www.zachleat.com/web/chromium-missing/
   package = "netlify-plugin-cache"
+    [plugins.inputs]
+    paths = ["/opt/buildhome/.cache/puppeteer"]
 
 [[context.production.plugins]]
   package = "netlify-plugin-submit-sitemap"
