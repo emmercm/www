@@ -185,7 +185,8 @@ markdownRenderer.code = (_code, infostring, escaped) => {
         }
         return html;
     };
-    const lang = (infostring || '').match(/\S*/)[0];
+    const lang = (infostring || '').match(/\S*/)[0]
+        .replace('json5', 'json');
     if (_highlight) {
         const out = _highlight(_code, lang);
         if (out != null && out !== _code) {

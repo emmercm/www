@@ -276,7 +276,7 @@ At this point we're ready to delete the temporary directory we've been working i
 
 1. Write a proper [README](https://github.com/emmercm/metalsmith-plugins/blob/main/README.md)
 2. Create a GitHub Actions [workflow](https://github.com/emmercm/metalsmith-plugins/blob/main/.github/workflows/test.yml) for automated testing
-3. Create a GitHub Actions [workflow](https://github.com/emmercm/metalsmith-plugins/blob/main/.github/workflows/codecov.yml) for automated Codecov reporting
+3. Create a GitHub Actions [workflow](https://github.com/emmercm/metalsmith-plugins/blob/main/.github/workflows/codecov.yml) for automated [Codecov reporting](/blog/reporting-lerna-monorepo-test-coverage-to-codecov)
 4. Create a GitHub Actions [workflow](https://github.com/emmercm/metalsmith-plugins/blob/main/.github/workflows/publish.yml) for automated npm publishing
 5. Update the old GitHub repositories' READMEs with a link to the new repository, and mark the repositories as archived
 6. Write a new Renovate config
