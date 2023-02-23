@@ -1,16 +1,18 @@
 ---
 
 title: Installing npm Packages From GitHub
-date: 2023-02-23T23:28:00
+date: 2023-02-23T23:36:00
 tags:
 - github
 - node.js
 
 ---
 
-Installing packages from GitHub is a great way to test before publishing them.
+Installing packages from GitHub is a great way to test them before publishing.
 
 If you publish some public npm packages that you make use of in other projects, it can be helpful to exercise them in a real-world scenario before publishing them. Recently I ran into an issue where a Metalsmith plugin of mine [stopped working](https://github.com/emmercm/metalsmith-plugins/pull/15) in my website build, but was passing all of its unit tests. I wanted to make sure that any fix I released actually fixed the problem so that I didn't publish another broken version.
+
+Depending on where the `package.json` is located in the package you're trying to install, there are two different solutions.
 
 ## 1. `package.json` is at the repository root
 
