@@ -131,7 +131,7 @@ const slugify = (source) => {
         slug = slug.replace(new RegExp(`^${bannedWord}-|-${bannedWord}-|-${bannedWord}$`, 'g'), '');
     });
 
-    return slug;
+    return slug.trim();
 };
 
 const markdownRenderer = new marked.Renderer();
@@ -139,6 +139,8 @@ markdownRenderer.heading = (text, level, raw) => {
     const title = raw
         .replace(/<\/?[^>]+>/g, '')
         .replace(/"/g, '')
+        // linthtml attr-no-unsafe-char (E004)
+        .replace(/[^\x00-\x7F]/g, '')
         .trim();
     const slug = slugify(title);
     return `<h${level} id="${slug}">
