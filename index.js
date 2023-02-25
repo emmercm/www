@@ -655,7 +655,7 @@ tracer(Metalsmith(path.resolve()))
                     pageSize: 'lg',
                     pageTitle: `Blog${tagTitle ? ` - ${tagTitle}` : ''} | ${siteName}`,
                     title: tagTitle,
-                    description: `A collection of personal blog articles${tagTitle ? `on ${tagTitle}` : ''}.`
+                    description: `A collection of personal blog articles${tagTitle ? ` on ${tagTitle}` : ''}.`
                 },
                 layout: 'blog_index.hbs'
             };
