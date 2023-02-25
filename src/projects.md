@@ -10,6 +10,26 @@ priority: 0.8
 
 {{ description }}
 
+## <i class="fa-regular fa-joystick"></i> igir
+
+[`igir`](https://github.com/emmercm/igir) is a platform-independent video game ROM collection manager to help filter, sort, patch, and archive ROM collections. It combines all the best features from other ROM managers together into a neat, intuitive CLI package.
+
+## <i class="fa-brands fa-node-js"></i> Metalsmith Plugins
+
+I have published a number of plugins for [Metalsmith](https://metalsmith.io/), a plugin-based static site generator originally from [Segment](https://segment.com/), to [npm](https://www.npmjs.com/settings/emmercm/packages).
+
+All the plugins are managed under one [Lerna](https://lerna.js.org/) monorepo at [metalsmith-plugins](https://github.com/emmercm/metalsmith-plugins).
+
+Related blog posts:
+
+- [Adding a Google Site Ownership Verification File in Metalsmith](/blog/adding-a-google-site-ownership-verification-file-in-metalsmith)
+- [Linting Metalsmith Output HTML](/blog/linting-metalsmith-output-html)
+- [Minify Files in Metalsmith](/blog/minify-files-in-metalsmith)
+- [Remove Unused Assets in Metalsmith](/blog/remove-unused-assets-in-metalsmith)
+- [Using Bootstrap 4 with Metalsmith](/blog/using-bootstrap-4-with-metalsmith)
+- [Using Font Awesome with Metalsmith](/blog/using-font-awesome-with-metalsmith)
+- [Using Relative Links in Metalsmith](/blog/using-relative-links-in-metalsmith)
+
 ## <i class="fa-brands fa-docker"></i> Docker Images
 
 I have published a number of public Docker images to [Docker Hub](https://hub.docker.com/u/emmercm).
@@ -36,141 +56,6 @@ A collection of images with a headless version of [qBittorrent](https://www.qbit
 ### [FlexGet](https://github.com/emmercm/docker-flexget)
 
 A collection of images with [FlexGet](https://flexget.com/) installed and the web UI exposed.
-
-## <i class="fa-brands fa-node-js"></i> Metalsmith Plugins
-
-I have published a number of plugins for [Metalsmith](https://metalsmith.io/), a plugin-based static site generator originally from [Segment](https://segment.com/), to [npm](https://www.npmjs.com/settings/emmercm/packages).
-
-All plugins have:
-
-- High test coverage using [Jest](https://jestjs.io/).
-- Dependencies kept up-to-date by [Renovate](https://renovatebot.com/), with automatic pull request merges.
-- CI/CD using [Circle CI](https://circleci.com/) for automatic testing and publishing to [npm](https://www.npmjs.com/settings/emmercm/packages).
-
-### [metalsmith-collections-related](https://github.com/emmercm/metalsmith-collections-related)
-
-A plugin to find related files within collections, such as related blog articles.
-
-### [metalsmith-css-unused](https://github.com/emmercm/metalsmith-css-unused)
-
-A plugin to remove unused CSS rules.
-
-Related blog articles:
-
-- [Using Font Awesome with Metalsmith](/blog/using-font-awesome-with-metalsmith)
-- [Minify Files in Metalsmith](/blog/minify-files-in-metalsmith)
-
-### [metalsmith-github-profile](https://github.com/emmercm/metalsmith-github-profile)
-
-A plugin to pull in GitHub profile information as metadata.
-
-### [metalsmith-htaccess](https://github.com/emmercm/metalsmith-htaccess)
-
-A plugin to create an `.htaccess` Apache HTTP Server (`httpd`) [configuration file](https://httpd.apache.org/docs/current/howto/htaccess.html).
-
-### [metalsmith-html-glob](https://github.com/emmercm/metalsmith-html-glob)
-
-A plugin to process glob patterns (e.g. `<script src="**/*.js">`) in HTML tags.
-
-### [metalsmith-html-linter](https://github.com/emmercm/metalsmith-html-linter)
-
-A plugin to lint HTML files.
-
-### [metalsmith-html-relative](https://github.com/emmercm/metalsmith-html-relative)
-
-A plugin to make local paths relative (e.g. `<a href="../index.html">`) in HTML tags.
-
-Related blog articles:
-
-- [Using Relative Links in Metalsmith](/blog/using-relative-links-in-metalsmith)
-
-### [metalsmith-html-sri](https://github.com/emmercm/metalsmith-html-sri)
-
-A plugin to add [subresource integrity](https://developer.mozilla.org/en-US/docs/Web/Security/Subresource_Integrity) attributes (e.g. `<script src="..." integrity="sha384-sc7RxY9...">`) to HTML tags.
-
-### [metalsmith-html-unused](https://github.com/emmercm/metalsmith-html-unused)
-
-A plugin to remove resources (`.css`, `.js`, `.png`, etc.) that aren't referenced by any HTML file.
-
-Related blog articles:
-
-- [Remove Unused Assets in Metalsmith](/blog/remove-unused-assets-in-metalsmith)
-
-### [metalsmith-include-files](https://github.com/emmercm/metalsmith-include-files)
-
-A plugin to include files outside of the source directory.
-
-Related blog articles:
-
-- [Using Bootstrap 4 with Metalsmith](/blog/using-bootstrap-4-with-metalsmith)
-- [Using Font Awesome with Metalsmith](/blog/using-font-awesome-with-metalsmith)
-- [Adding a Google Site Ownership Verification File in Metalsmith](/blog/adding-a-google-site-ownership-verification-file-in-metalsmith)
-
-### [metalsmith-link-checker](https://github.com/emmercm/metalsmith-link-checker)
-
-A plugin to automatically check for broken links.
-
-Related blog articles:
-
-- [Linting Metalsmith Output HTML](/blog/linting-metalsmith-output-html)
-
-### [metalsmith-mermaid](https://github.com/emmercm/metalsmith-mermaid)
-
-A plugin to render [Mermaid](https://mermaid-js.github.io/mermaid/#/) diagrams to in-line SVG, example:
-
-```mermaid
-flowchart LR
-  A[/This/]-->|is|B{{rendered}}-->|with|C[\Mermaid\]
-```
-
-### [metalsmith-reading-time](https://github.com/emmercm/metalsmith-reading-time)
-
-A plugin to estimate pages' reading times, similar to Medium.
-
-### [metalsmith-tracer](https://github.com/emmercm/metalsmith-tracer)
-
-A tool to automatically trace and measure Metalsmith build time.
-
-### [metalsmith-vega](https://github.com/emmercm/metalsmith-vega)
-
-A plugin to render [Vega](https://vega.github.io/vega/) visualizations to in-line SVG, [example](https://vega.github.io/vega-lite/examples/arc_pie_pyramid.html):
-
-```vega-lite
-{
-  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
-  "description": "Reproducing http://robslink.com/SAS/democd91/pyramid_pie.htm",
-  "width": 250,
-  "height": 250,
-  "data": {
-    "values": [
-      {"category": "Sky", "value": 75, "order": 3},
-      {"category": "Shady side of a pyramid", "value": 10, "order": 1},
-      {"category": "Sunny side of a pyramid", "value": 15, "order": 2}
-    ]
-  },
-  "mark": "arc",
-  "encoding": {
-    "theta": {
-      "field": "value", "type": "quantitative",
-      "scale": {"range": [2.35619449, 8.639379797]},
-      "stack": true
-    },
-    "color": {
-      "field": "category", "type": "nominal",
-      "scale": {
-        "domain": ["Sky", "Shady side of a pyramid", "Sunny side of a pyramid"],
-        "range": ["#416D9D", "#674028", "#DEAC58"]
-      },
-      "legend": {
-        "orient": "right",
-        "title": null,
-        "labelLimit": 999
-      }
-    },
-    "order": {"field":"order"}
-  }
-}
-```
 
 ## <i class="fa-brands fa-raspberry-pi"></i> Raspberry Pi Tools
 

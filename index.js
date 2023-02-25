@@ -131,7 +131,7 @@ const slugify = (source) => {
         slug = slug.replace(new RegExp(`^${bannedWord}-|-${bannedWord}-|-${bannedWord}$`, 'g'), '');
     });
 
-    return slug;
+    return slug.trim();
 };
 
 const markdownRenderer = new marked.Renderer();
@@ -139,6 +139,8 @@ markdownRenderer.heading = (text, level, raw) => {
     const title = raw
         .replace(/<\/?[^>]+>/g, '')
         .replace(/"/g, '')
+        // linthtml attr-no-unsafe-char (E004)
+        .replace(/[^\x00-\x7F]/g, '')
         .trim();
     const slug = slugify(title);
     return `<h${level} id="${slug}">
@@ -641,7 +643,7 @@ tracer(Metalsmith(path.resolve()))
         const options = Object.keys(collections).reduce((acc, val) => {
             const tag = val.split('/').length > 1 ? val.split('/').pop() : null;
             const blogTags = metalsmith.metadata().blog_tags;
-            const title = blogTags[tag] ? blogTags[tag].title : null;
+            const tagTitle = blogTags[tag] ? blogTags[tag].title : null;
             acc[`collections['${val}']`] = {
                 perPage: 12,
                 first: path.join(val, 'index.html'),
@@ -651,8 +653,9 @@ tracer(Metalsmith(path.resolve()))
                     collection: [],
                     priority: 0.9,
                     pageSize: 'lg',
-                    pageTitle: `Blog${title ? ` - ${title}` : ''} | ${siteName}`,
-                    title
+                    pageTitle: `Blog${tagTitle ? ` - ${tagTitle}` : ''} | ${siteName}`,
+                    title: tagTitle,
+                    description: `A collection of personal blog articles${tagTitle ? ` on ${tagTitle}` : ''}.`
                 },
                 layout: 'blog_index.hbs'
             };
