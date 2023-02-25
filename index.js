@@ -643,7 +643,7 @@ tracer(Metalsmith(path.resolve()))
         const options = Object.keys(collections).reduce((acc, val) => {
             const tag = val.split('/').length > 1 ? val.split('/').pop() : null;
             const blogTags = metalsmith.metadata().blog_tags;
-            const title = blogTags[tag] ? blogTags[tag].title : null;
+            const tagTitle = blogTags[tag] ? blogTags[tag].title : null;
             acc[`collections['${val}']`] = {
                 perPage: 12,
                 first: path.join(val, 'index.html'),
@@ -653,8 +653,9 @@ tracer(Metalsmith(path.resolve()))
                     collection: [],
                     priority: 0.9,
                     pageSize: 'lg',
-                    pageTitle: `Blog${title ? ` - ${title}` : ''} | ${siteName}`,
-                    title
+                    pageTitle: `Blog${tagTitle ? ` - ${tagTitle}` : ''} | ${siteName}`,
+                    title: tagTitle,
+                    description: `A collection of personal blog articles${tagTitle ? `on ${tagTitle}` : ''}.`
                 },
                 layout: 'blog_index.hbs'
             };
