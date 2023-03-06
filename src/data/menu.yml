@@ -1,4 +1,7 @@
 header:
+  - link: now
+    title: Now
+
   - link: blog
     title: Blog
 
