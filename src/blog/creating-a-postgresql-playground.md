@@ -1,6 +1,6 @@
 ---
 
-title: Creating a PostgreSQL Playground in Docker
+title: Creating a PostgreSQL REPL Playground in Docker
 date: 2022-04-27T22:30:00
 permalink: blog/creating-a-postgresql-playground
 tags:
@@ -11,6 +11,8 @@ tags:
 ---
 
 It's helpful to have local throwaway environments for rapid development, especially with databases, and creating one for PostgreSQL is a snap with Docker.
+
+REPL is an acronym for "[read-eval-print loop](https://en.wikipedia.org/wiki/Read%E2%80%93eval%E2%80%93print_loop)," a type of interactive shell where users get fast feedback from commands executing one a time.
 
 The two commands you'll need to start a [PostgreSQL](https://www.postgresql.org/) server and then open a console to it are:
 
