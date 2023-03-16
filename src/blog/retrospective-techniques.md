@@ -113,12 +113,12 @@ Action items may come out of this type of retro, but in general it tends to be m
 
 Imagine a picture of a sailboat with _wind_ in its sails headed toward an _island_, but it has dropped _anchor_ and there are _rocks_ dangerously close to your path. Your team is in the boat trying to make it safely ashore, and these are the four forces on you:
 
-- 🏝 **Island**: the teams goals, these should already be well-defined.
+- 🏝 **Island**: the team's goals, these should already be well-defined.
 - 💨 **Wind**: forces that are helping the team towards its goals.
 
   Forces such as strong collaboration, help from another team, a new hire, efficient processes, overcoming an obstacle, and a successful launch can all put wind in your sails.
 
-- ⚓️ **Anchor**️: forces that are keeping the team from reaching its goals.
+- ⚓️ **Anchors**️: forces that are keeping the team from reaching its goals.
 
   Forces such as workstream bottlenecks, projects with a lot of unknowns, inexperience with a technology, and dependence on another team can all slow you down.
 
