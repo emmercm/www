@@ -2,6 +2,7 @@
 
 title: The Dangers of OFFSET With MySQL
 date: 2022-07-28T23:36:00
+updated: 2022-10-05T00:05:00
 tags:
 - databases
 - mysql
@@ -32,7 +33,7 @@ FROM (SELECT 1
          , (SELECT 0 AS n UNION SELECT 1 UNION SELECT 2 UNION SELECT 3 UNION SELECT 4 UNION SELECT 5 UNION SELECT 6 UNION SELECT 7 UNION SELECT 8 UNION SELECT 9) f) temp;
 ```
 
-Because `id` is the primary key, it becomes the InnoDB table's [clustered index](https://dev.mysql.com/doc/refman/8.0/en/innodb-index-types.html). In general, the clustered index controls the physical ordering of rows on disk, and querying against it can provide some disk I/O optimization.
+Because `id` is the primary key it becomes the InnoDB table's [clustered index](https://dev.mysql.com/doc/refman/8.0/en/innodb-index-types.html). Like all other InnoDB [b-tree indexes](https://dev.mysql.com/doc/refman/8.0/en/index-btree-hash.html#btree-index-characteristics), clustered indexes will store values that are close together value-wise on the same page on disk. But clustered indexes are special because they also store the rest of the row's data alongside it in the same page. So when you query a row by its clustered index, InnoDB will look for the b-tree leaf that contains that value, and then it's inexpensive to read the rest of the row data. This helps provide some disk I/O optimization when querying rows in a range because many of them will be stored in the same pages.
 
 The table ended up with about 741MB of data:
 
@@ -402,18 +403,23 @@ From the official MySQL documentation on [secondary indexes](https://dev.mysql.c
 
 > In InnoDB, each record in a secondary index contains the primary key columns for the row, as well as the columns specified for the secondary index. InnoDB uses this primary key value to search for the row in the clustered index.
 
-In other words, every secondary index in InnoDB is a ["covering" index](https://dev.mysql.com/doc/refman/8.0/en/glossary.html#glos_covering_index) that includes the primary key, similar to [multiple-column indexes](https://dev.mysql.com/doc/refman/8.0/en/innodb-index-types.html).
+In other words, every secondary index in InnoDB is a ["covering" index](https://dev.mysql.com/doc/refman/8.0/en/glossary.html#glos_covering_index) that includes the primary key's columns, similar to [multiple-column indexes](https://dev.mysql.com/doc/refman/8.0/en/innodb-index-types.html).
 
-So when we order by the `weight` secondary index, MySQL will first use the secondary index to look up the primary key, and will then look up the primary key in the clustered index in order to fetch the row.
+So when we `ORDER BY weight`, MySQL will:
 
-The only reason the high-offset queries above are slow is that we are requesting columns that require MySQL to fetch the entire row. If we only wanted the primary key then the lookup is much faster because the query is only returning columns "covered" in the index:
+1. Scan the secondary index on `weight` for all values. Those values will be contained in index records that also contain all the values from the row's clustered index columns (just `id` in this case).
+2. Then use the clustered index column values (again, just `id` in this case) to look up the row's data from the clustered index record.
+
+From above, we know that InnoDB will fetch all the column data requested for `OFFSET + LIMIT` rows and then throw away `OFFSET` of those. The reason the high-offset queries above are slow is that the secondary index on `weight` doesn't include all the column data we're requesting, InnoDB has to fetch the rest from the clustered index.
+
+If we only wanted the primary key then the lookup is much faster because the query is only returning columns "covered" in the secondary index:
 
 ```shell
 mysql> SELECT id FROM messages ORDER BY weight LIMIT 1 OFFSET 999999;
 1 row in set (0.14 sec)
 ```
 
-We can construct a subquery that only hits the secondary index to find our desired rows, and then use the results of that to hit the clustered index and fetch the rows. This stops MySQL from fetching thousands of rows it will discard:
+If we move our `OFFSET` clause to a subquery that doesn't need to look up any data in the clustered index then we can reduce the overall work and minimize wasted effort. We can then use the results of that subquery to quickly look up the rows in the clustered index:
 
 ```shell
 mysql> SELECT * FROM messages ORDER BY weight LIMIT 1 OFFSET 100000;
