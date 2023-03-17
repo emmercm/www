@@ -41,7 +41,7 @@ SELECT table_schema
 FROM information_schema.tables
 WHERE table_type = 'BASE TABLE'
   AND table_schema NOT IN ('information_schema', 'performance_schema', 'mysql')
-ORDER BY table_name;
+ORDER BY table_schema, table_name;
 ```
 
 Here is a query to see both requested locks and locks held by InnoDB transactions:

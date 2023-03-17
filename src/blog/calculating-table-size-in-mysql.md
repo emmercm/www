@@ -31,7 +31,7 @@ Column explanations:
 
 The [`information_schema.tables`](https://dev.mysql.com/doc/refman/8.0/en/information-schema-tables-table.html) table catalogs information about tables and views.
 
-By default, table stats have a cache of 24 hours, but they updated with the [`ANALYZE TABLE ...`](https://dev.mysql.com/doc/refman/8.0/en/analyze-table.html) statement.
+By default, InnoDB table stats have a cache of 24 hours, but they updated with the [`ANALYZE TABLE ...`](https://dev.mysql.com/doc/refman/8.0/en/analyze-table.html) statement.
 
 _See "[Calculating Table Size in PostgreSQL](/blog/calculating-table-size-in-postgresql)" for the PostgreSQL version of this query._
 
@@ -67,6 +67,6 @@ FROM information_schema.tables
 WHERE table_type = 'BASE TABLE'
   AND table_schema NOT IN ('information_schema', 'performance_schema', 'mysql')
 GROUP BY table_schema
-ORDER BY sum((data_length + index_length) / (1024 * 1024 * 1024)) DESC
+ORDER BY sum(data_length + index_length) DESC
 LIMIT 10;
 ```

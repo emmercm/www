@@ -254,7 +254,7 @@ Docker Hub has pages for platform-specific digests ([`ubuntu:20.04@sha256:60f560
 
 ## Bash function
 
-Here's a bash function from [my dotfiles](https://github.com/emmercm/dotfiles) you can put into your `.bashrc`, `.zshrc`, or whatever is appropriate for your shell:
+Here's a bash function from [my dotfiles](https://github.com/emmercm/dotfiles) you can put into your `~/.bashrc`, `~/.zshrc`, or whatever is appropriate for your shell:
 
 ```bash
 # Get the digest hash of a Docker image
