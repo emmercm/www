@@ -835,8 +835,11 @@ tracer(Metalsmith(path.resolve()))
         // manifestMaskable: siteLogo.replace(/(\.[^.]+)$/, '-padded$1'),
         icons: {
             android: true,
-            appleIcon: true,
-            appleStartup: true,
+            // Apple icons get rendered with a white background, and because they are listed first
+            //  in HTML, apps such as Slack will choose that icon over the favicon. So don't
+            //  render them.
+            appleIcon: false,
+            appleStartup: false,
             favicons: true,
             windows: true
         }
