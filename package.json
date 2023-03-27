@@ -43,7 +43,6 @@
     "markdownlint-cli": "^0.33.0",
     "marked": "^4.2.12",
     "metalsmith": "^2.5.1",
-    "metalsmith-auto-collections": "^0.2.0",
     "metalsmith-branch": "^0.0.5",
     "metalsmith-build-info": "^1.0.1",
     "metalsmith-collection-metadata": "^1.0.0",

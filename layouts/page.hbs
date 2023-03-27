@@ -118,7 +118,7 @@
 
 <main>
     {{#if pageContainer}}
-        <div class="{{#if pageSize}}container-{{pageSize}} mw-{{pageSize}}-{{pageSize}}{{else}}container-md mw-md-md{{/if}} px-0 pt-4 pt-md-5 pt-xl-6 {{#inArray collection "blog"}}pb-3{{else}}pb-4 pb-md-5 pb-xl-6{{/inArray}} markdown" {{#inArray collection "blog"}}data-page-progress="page-progress"{{/inArray}}>
+        <div class="{{#if pageSize}}container-{{pageSize}} mw-{{pageSize}}-{{pageSize}}{{else}}container-md mw-md-md{{/if}} px-0 pt-4 pt-md-5 pt-xl-6 {{#inArray (arrayify collection) "blog"}}pb-3{{else}}pb-4 pb-md-5 pb-xl-6{{/inArray}} markdown" {{#inArray (arrayify collection) "blog"}}data-page-progress="page-progress"{{/inArray}}>
             {{#if pageHeader}}
                 <div id="metadata" class="brt-{{#if pageSize}}{{pageSize}}{{else}}md{{/if}}-1 pt-4 px-4 pt-md-5 px-md-5 bg-light">
                     <h1>{{ title }}</h1>
@@ -194,7 +194,7 @@
             {{/if}}
         </div>
 
-        {{#and (inArray collection "blog") (gte collections.blog.length 6)}}
+        {{#and (inArray (arrayify collection) "blog") (gte collections.blog.length 6)}}
             <div class="container-xl pb-3 pb-lg-5 pb-xl-6 markdown">
                 {{>blog_list_horizontal data=related.blog}}
             </div>
