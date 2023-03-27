@@ -1,6 +1,6 @@
 ---
 
-title: Creating a Gremlin Playground in Docker
+title: Creating a Gremlin REPL Playground in Docker
 date: 2022-04-22T23:16:00
 permalink: blog/creating-a-gremlin-playground
 tags:
@@ -12,12 +12,14 @@ tags:
 
 Apache TinkerPop's Gremlin graph traversal language can be confusing to learn, but thankfully TinkerPop provides some "toy" graphs perfect to learn with.
 
-First, some terminology:
+REPL is an acronym for "[read-eval-print loop](https://en.wikipedia.org/wiki/Read%E2%80%93eval%E2%80%93print_loop)," a type of interactive shell where users get fast feedback from commands executing one a time.
+
+First, some TinkerPop terminology:
 
 - [Apache TinkerPop](https://tinkerpop.apache.org/) is "an open source Graph Computing Framework"
 - [Gremlin](https://tinkerpop.apache.org/gremlin.html) is the "graph traversal language of Apache TinkerPop"
 
-Apache TinkerPop is an umbrella project which has a number of sub-projects:
+Apache TinkerPop is an umbrella project which has a number of subprojects:
 
 - The Gremlin traversal language
 - The Gremlin CLI console
