@@ -1,6 +1,6 @@
 ---
 
-title: Creating a MySQL Playground in Docker
+title: Creating a MySQL REPL Playground in Docker
 date: 2022-04-27T23:26:00
 permalink: blog/creating-a-mysql-playground
 tags:
@@ -11,6 +11,8 @@ tags:
 ---
 
 It's helpful to have local throwaway environments for rapid development, especially with databases, and creating one for MySQL is a snap with Docker.
+
+REPL is an acronym for "[read-eval-print loop](https://en.wikipedia.org/wiki/Read%E2%80%93eval%E2%80%93print_loop)," a type of interactive shell where users get fast feedback from commands executing one a time.
 
 The two commands you'll need to start a [MySQL](https://www.mysql.com/) server and then open a console to it are:
 

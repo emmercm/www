@@ -22,7 +22,7 @@ import remove           from '@metalsmith/remove';
 import copy             from 'metalsmith-copy';
 import discoverHelpers  from 'metalsmith-discover-helpers';
 import discoverPartials from 'metalsmith-discover-partials';
-import collect          from 'metalsmith-auto-collections';
+import collections      from '@metalsmith/collections';
 import collectionMeta   from 'metalsmith-collection-metadata';
 import permalinks       from '@metalsmith/permalinks';
 import paths            from 'metalsmith-paths';
@@ -56,8 +56,6 @@ import sitemap          from 'metalsmith-sitemap';
 import linter           from 'metalsmith-html-linter';
 import linkChecker      from 'metalsmith-link-checker';
 import robots           from 'metalsmith-robots';
-
-import collections from '@metalsmith/collections';
 
 import async           from 'async';
 import highlight       from 'highlight.js';
@@ -407,9 +405,9 @@ tracer(Metalsmith(path.resolve()))
     }))
 
     // Generate collections of pages from folders - before any markdown conversion, and before permalinks() moves them
-    .use(collect({
-        pattern: '*/**/*.md',
-        settings: {
+    .use(collections({
+        blog: {
+            pattern: 'blog/*.md',
             sortBy: (a, b) => {
                 if (DateTime.fromJSDate(a.date) > DateTime.fromJSDate(b.date)) {
                     return 1;

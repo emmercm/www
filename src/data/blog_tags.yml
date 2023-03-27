@@ -1,104 +1,83 @@
 agile:
   title: Agile
-  icon: fa-solid fa-note-sticky
   color: agile
 
 bootstrap:
   title: Bootstrap
-  icon: fa-brands fa-bootstrap
   color: bootstrap
 
 career:
   title: Career
-  icon: fa-solid fa-briefcase
   color: purple
 
 ci-cd:
   title: CI/CD
-  icon: fa-solid fa-code-merge
   color: yellow
 
 databases:
   title: Databases
-  icon: fa-regular fa-database
   color: gray
 
 docker:
   title: Docker
-  icon: fa-brands fa-docker
   color: docker
 
 fontawesome:
   title: Font Awesome
-  icon: fa-brands fa-font-awesome
   color: fontawesome
 
 git:
   title: Git
-  icon: fa-brands fa-git-alt
   color: git
 
 github:
   title: GitHub
-  icon: fa-brands fa-github
   color: github
 
 go:
   title: Go
-  icon: fa-regular fa-brackets-curly
   color: go
 
 gremlin:
   title: Gremlin
-  icon:
   color: gremlin
 
 java:
   title: Java
-  icon: fa-brands fa-java
   color: java
 
 kubernetes:
   title: Kubernetes
-  icon: fa-regular fa-dharmachakra
   color: kubernetes
 
 metalsmith:
   title: Metalsmith
-  icon: fa-regular fa-m
   color: metalsmith
 
 microservices:
   title: Microservices
-  icon: fa-regular fa-brackets-curly
   color: indigo
 
 mysql:
   title: MySQL
-  icon: fa-regular fa-dolphin
   color: mysql
 
 node.js:
   title: Node.js
-  icon: fa-brands fa-node-js
   color: node
 
 opinion:
   title: Opinion
-  icon: fa-regular fa-comment
   color: opinion
 
 postgres:
   title: PostgreSQL
-  icon: fa-regular fa-elephant
   color: postgres
 
 shell:
   title: Shell
-  icon: fas fa-terminal
   color: dark
 
 testing:
   title: Testing
-  icon: fa-solid fa-vial
   color: pink

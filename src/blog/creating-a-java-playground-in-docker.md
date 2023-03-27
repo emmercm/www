@@ -1,7 +1,8 @@
 ---
 
-title: Creating a Java Playground in Docker
+title: Creating a Java REPL Playground in Docker
 date: 2022-07-03T17:07:00
+permalink: blog/creating-a-java-playground-in-docker
 tags:
 - docker
 - java
@@ -9,6 +10,8 @@ tags:
 ---
 
 It's helpful to have local throwaway environments for testing code snippets, and creating one for Java is a snap with Docker.
+
+REPL is an acronym for "[read-eval-print loop](https://en.wikipedia.org/wiki/Read%E2%80%93eval%E2%80%93print_loop)," a type of interactive shell where users get fast feedback from commands executing one a time.
 
 Java can have an involved and somewhat invasive process to install the JDK, and then there's even more work on top of that to set up an IDE with some decent build tools. Sometimes all you want is some quick feedback on Java syntax and behavior without all the setup.
 
