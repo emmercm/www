@@ -1,7 +1,7 @@
 ---
 
 title: Bash Environment Variable Defaults
-date: 2023-04-03T20:08:00
+date: 2023-04-03T21:52:00
 tags:
 - shell
 
@@ -117,7 +117,7 @@ Even though the two expansions can be used to accomplish a lot of the same goals
     --env MYSQL_ROOT_PASSWORD=mysecretpassword \
     --env MYSQL_DATABASE=${MYSQL_DATABASE:-main} \
     --publish 3306:3306 --detach \
-    mysql:8
+    mysql:latest
 
   # Helper to make the below commands shorter
   # @param {string} $1 DB name
@@ -134,3 +134,35 @@ Even though the two expansions can be used to accomplish a lot of the same goals
   ```
 
 - Grouping all variable defaults at the top of a Bash script helps increase its readability
+
+## Examples
+
+Start a Node.js [Express](https://expressjs.com/) server with a local configuration:
+
+```bash
+#!/usr/bin/env bash
+set -euo pipefail
+
+: "${NODE_ENV:=local}"
+: "${DEBUG:=*}"
+
+NODE_ENV="${NODE_ENV}" DEBUG="${DEBUG}" node app.js
+```
+
+Start a PostgreSQL server in a Docker container:
+
+```bash
+#!/usr/bin/env bash
+set -euo pipefail
+
+: "${POSTGRES_USER:=postgres}
+: "${POSTGRES_PASSWORD:=postgres}
+: "${POSTGRES_DB:=$POSTGRES_USER}"
+
+docker run --name local-postgres \
+  --env POSTGRES_USER="${POSTGRES_USER}" \
+  --env POSTGRES_PASSWORD="${POSTGRES_PASSWORD}" \
+  --env POSTGRES_DB="${POSTGRES_DB}" \
+  --publish 5432:5432 --detach \
+  postgres:latest
+```
