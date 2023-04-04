@@ -2,10 +2,14 @@
 
 title: Common Markdown Mistakes
 date: 2020-11-10T02:12:00
+tags:
+- markdown
 
 ---
 
 Markdown provides simple syntax for writing structure documents, but most written markdown would not pass a linter check. Here's a list of 11 common syntax mistakes and how to fix them.
+
+_See "[Linting Markdown files with markdownlint](/blog/linting-markdown-files-with-markdownlint)" for instructions on a popular tool to check for these mistakes._
 
 <!-- markdownlint-disable MD001 -->
 

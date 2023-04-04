@@ -58,7 +58,7 @@ sample.md:7:1 MD019/no-multiple-space-atx Multiple spaces after hash on atx styl
 
 Linters become a lot more powerful when you add them to your CI pipeline. A linter without enforcement will surely be ignored over time.
 
-Here's a sample of how you could add `markdownlint-cli` to a GitHub Actions `.github/workflows/config.yml` (feel free to change the filename):
+Here's a sample of how you could add `markdownlint-cli` to a GitHub Actions `.github/workflows/test.yml` (feel free to change the filename):
 
 ```yaml
 name: Project CI
