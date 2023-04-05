@@ -50,6 +50,10 @@ kubernetes:
   title: Kubernetes
   color: kubernetes
 
+markdown:
+  title: Markdown
+  color: darker
+
 metalsmith:
   title: Metalsmith
   color: metalsmith

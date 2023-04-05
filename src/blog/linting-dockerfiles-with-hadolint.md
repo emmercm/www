@@ -76,7 +76,7 @@ $ docker run --rm --interactive hadolint/hadolint < Dockerfile
 /dev/stdin:3 DL3018 Pin versions in apk add. Instead of `apk add <package>` use `apk add <package>=<version>`
 ```
 
-## Adding to CI
+## Adding to CircleCI
 
 Linters become a lot more powerful when you add them to your CI pipeline. A linter without enforcement will surely be ignored over time.
 
