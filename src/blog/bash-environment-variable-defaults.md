@@ -1,7 +1,7 @@
 ---
 
 title: Bash Environment Variable Defaults
-date: 2023-04-03T21:52:00
+date: 2023-04-05T21:21:00
 tags:
 - shell
 
@@ -9,7 +9,7 @@ tags:
 
 Bash scripts can set defaults for environment variables that are optionally supplied at execution time.
 
-I was first tipped off to this syntax by [Temporal's](https://temporal.io/) server container [entrypoint](https://github.com/temporalio/docker-builds/blob/7cf2767979265936592641260be57f1b994dfd25/docker/auto-setup.sh). Rather than use CLI arguments that would have to be parsed, the script gets its config from environment variables. This is because it's much easier to manipulate environment variables in Docker.
+I was first tipped off to this syntax by [Temporal's](https://temporal.io/) server container [entrypoint](https://github.com/temporalio/docker-builds/blob/7cf2767979265936592641260be57f1b994dfd25/docker/auto-setup.sh). Rather than use CLI arguments that would have to be parsed, the script gets its config from environment variables. This is because it's much easier to configure and read environment variables than CLI arguments with Docker.
 
 But there is still a lot of value with setting variable defaults even when not using Docker.
 
@@ -88,7 +88,7 @@ default
 
 ## Comparison with `${parameter:-word}`
 
-[`${parameter:-word}`](https://www.gnu.org/savannah-checkouts/gnu/bash/manual/bash.html#index-parameter-expansion) is another shell parameter expansion that could be used to default values. These two lines are semantically equivalent:
+[`${parameter:-word}`](https://www.gnu.org/savannah-checkouts/gnu/bash/manual/bash.html#index-parameter-expansion) is another shell parameter expansion that could be used to default values. These two commands produce the same result:
 
 ```bash
 : ${FOO:=default}
@@ -105,9 +105,9 @@ But it's more common to use `${parameter:-word}` without variable assignment lik
 git merge --no-edit origin/${GIT_TRUNK:-main}
 ```
 
-Even though the two expansions can be used to accomplish a lot of the same goals, you may want to consider preferring `${parameter:=word}` for a few reasons:
+Even though the two expansions can be used to accomplish a lot of the same goals, you probably want to prefer `${parameter:=word}` for a few reasons:
 
-- If you reference the same variable multiple times you only have to default the value once, avoiding error-prone situations such as:
+- If you reference the same variable multiple times, you only have to default the value once, avoiding error-prone situations such as:
 
   ```bash
   #!/usr/bin/env bash
@@ -133,7 +133,7 @@ Even though the two expansions can be used to accomplish a lot of the same goals
   mysql ${MYSQL_DATABASE:-main} "SELECT * FROM users;"
   ```
 
-- Grouping all variable defaults at the top of a Bash script helps increase its readability
+- Grouping all variable defaults at the top of a Bash script helps increase its readability.
 
 ## Examples
 
