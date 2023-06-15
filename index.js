@@ -1115,6 +1115,7 @@ tracer(Metalsmith(path.resolve()))
             // Anti-bot 403
             'pixabay.com',
             'mysql.com',
+            'qbittorrent.org',
             // Anti-bot 404
             'fonts.gstatic.com$',
             'support.google.com',
