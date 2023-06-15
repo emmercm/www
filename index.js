@@ -1113,6 +1113,7 @@ tracer(Metalsmith(path.resolve()))
     .use(msIf(prodBuild, linkChecker({
         ignore: [
             // Anti-bot 403
+            'hackernoon.com',
             'pixabay.com',
             'mysql.com',
             'qbittorrent.org',
