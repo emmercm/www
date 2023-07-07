@@ -60,7 +60,6 @@ import robots           from 'metalsmith-robots';
 import async           from 'async';
 import highlight       from 'highlight.js';
 import {marked}        from 'marked';
-import minimatch       from 'minimatch';
 import {DateTime}      from 'luxon';
 import transliteration from 'transliteration';
 
@@ -471,9 +470,7 @@ tracer(Metalsmith(path.resolve()))
                         .replace(/\/index\.[a-z]+$/, '')
                         .split('/').pop()
                         .replace(/\.[a-z]+$/, '');
-                    const path = (Object.keys(files)
-                        .filter(minimatch.filter(`static/img/{**/,}${basename}.*`))
-                        .find(() => true) || '')
+                    const path = (metalsmith.match(`static/img/{**/,}${basename}.*`, Object.keys(files))[0]|| '')
                         .replace(/^([^/])/, '/$1')
                         .replace(/\.[a-z]+$/, '');
                     return path ? `${path}.*` : null;
@@ -587,8 +584,7 @@ tracer(Metalsmith(path.resolve()))
         //     .reduce((acc, val) => acc.concat(val), []) // .flat()
         //     .filter((value, index, self) => self.indexOf(value) === index);
 
-        Object.keys(files)
-            .filter(minimatch.filter(options.pattern))
+        metalsmith.match(options.pattern, Object.keys(files))
             .forEach((filename) => {
                 const file = files[filename];
 
@@ -1027,9 +1023,7 @@ tracer(Metalsmith(path.resolve()))
                 // TODO: change this to '.og-image'
                 //  https://github.com/vitaliy-bobrov/metalsmith-twitter-card/issues/3
                 if(file.image && file.image.indexOf('://') === -1) {
-                    meta.image = Object.keys(files)
-                        .filter(minimatch.filter(file.image.replace(/^\/+/, '')))
-                        .find(e => true);
+                    meta.image = metalsmith.match(file.image.replace(/^\/+/, ''), Object.keys(files))[0];
                 }
                 return meta;
             }
