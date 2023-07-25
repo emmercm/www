@@ -529,10 +529,11 @@ tracer(Metalsmith(path.resolve()))
                             // Lines that contain blog links
                             .replace(/^(.*?href="\/?blog\/.*?".*?)$/gm, val => {
                                 // Each blog link
-                                /href="(\/?blog\/.*?)"/g.exec(val).slice(1)
+                                [...val.matchAll(/href="(\/?blog\/.*?)"/g)]
+                                    .map(result => result[1])
                                     // Append the partial to the end
                                     // TODO: place the crosspost after any <pre> immediately following
-                                    .forEach(match => val = `${val}\n\n{{>blog_crosspost path="${match.replace(/^\/+|\/+$/g, '')}"}}`)
+                                    .forEach(match => val += `\n\n{{>blog_crosspost path="${match.replace(/^\/+|\/+$/g, '')}"}}`)
                                 return val;
                             })
                     );
