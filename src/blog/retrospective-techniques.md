@@ -11,7 +11,7 @@ tags:
 
 Retrospectives need to be productive and engaging or participants will quickly tune them out. Here are some techniques to hold more interesting retros.
 
-A [retrospective (retro)](https://www.agilealliance.org/glossary/heartbeatretro) is a meeting with a regular cadence to analyze the actions and outcomes of a team since the last meeting. The goal of a retro is to help drive continuous improvement. Retros happen most often at the end of Scrum Sprints, but they can be just as effective at the end of projects or events where more than one team might be involved.
+A [retrospective (retro)](hhttps://www.agilealliance.org/glossary/heartbeat-retrospective/) is a meeting with a regular cadence to analyze the actions and outcomes of a team since the last meeting. The goal of a retro is to help drive continuous improvement. Retros happen most often at the end of Scrum Sprints, but they can be just as effective at the end of projects or events where more than one team might be involved.
 
 Most retros use some kind of physical or virtual wall, such as a dry-erase board, where participants write on sticky notes and place them on the wall in groups, typically in vertical swim lanes. This article assumes you have participated in a retro before or are at least familiar with the practice.
 
