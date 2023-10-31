@@ -1115,6 +1115,7 @@ tracer(Metalsmith(path.resolve()))
         ignore: [
             // Anti-bot 403
             'hackernoon.com',
+            'linux.die.net',
             'pixabay.com',
             'mysql.com',
             'qbittorrent.org',
