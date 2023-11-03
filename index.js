@@ -1128,8 +1128,9 @@ tracer(Metalsmith(path.resolve()))
             'instagram.com',
             'linkedin.com/shareArticle',
             // Anti-bot timeouts
-            'usnews.com'
+            'usnews.com',
             // Temporary
+            'orientdb.org',
         ]
     })))
 

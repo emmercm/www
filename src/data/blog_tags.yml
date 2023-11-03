@@ -82,6 +82,10 @@ shell:
   title: Shell
   color: dark
 
+sre:
+  title: Site Reliability Engineering
+  color: incidentio
+
 testing:
   title: Testing
   color: pink

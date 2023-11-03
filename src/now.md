@@ -2,7 +2,7 @@
 
 title: Now
 description: What's important in my life, now.
-date: 2023-02-25T20:11:00
+date: 2023-11-03T23:48:00
 priority: 0.1
 
 ---
@@ -43,7 +43,7 @@ See my [projects](/projects) page for a complete list.
 
 ## 📚 Reading
 
-- [The Unicorn Project](https://itrevolution.com/product/the-unicorn-project/) by Gene Kim @ Attentive technical book club
+- [The Staff Engineer's Path](https://noidea.dog/staff) by Tanya Reilly @ [Attentive](https://attentivemobile.com) technical book club
 - [First Things First](https://www.goodreads.com/book/show/36071.First_Things_First) by Stephen R. Covey
 - [Staff Engineer](https://staffeng.com/book) by Will Larson
 - Newsletter: [The Pragmatic Engineer](https://www.pragmaticengineer.com/) by Gergely Orosz
