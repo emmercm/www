@@ -43,7 +43,7 @@ See my [projects](/projects) page for a complete list.
 
 ## 📚 Reading
 
-- [The Unicorn Project](https://itrevolution.com/product/the-unicorn-project/) by Gene Kim @ Attentive technical book club
+- [The Unicorn Project](https://itrevolution.com/product/the-unicorn-project/) by Gene Kim @ [Attentive](https://attentivemobile.com) technical book club
 - [First Things First](https://www.goodreads.com/book/show/36071.First_Things_First) by Stephen R. Covey
 - [Staff Engineer](https://staffeng.com/book) by Will Larson
 - Newsletter: [The Pragmatic Engineer](https://www.pragmaticengineer.com/) by Gergely Orosz
