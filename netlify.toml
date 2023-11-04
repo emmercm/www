@@ -9,6 +9,7 @@
   # UNSPLASH_SECRET_KEY
   NODE_ENV = "production"
   TZ = "America/Los_Angeles"
+  NODE_VERSION = "18.18.2"
   PYTHON_VERSION = "3.8" # for sharp/libvips
 
 [build.processing]
