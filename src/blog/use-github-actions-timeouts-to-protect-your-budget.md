@@ -69,6 +69,8 @@ jobs:
       - run: npm test
 ```
 
+_See [`jobs.<job_id>.timeout-minutes`](https://docs.github.com/en/actions/using-workflows/workflow-syntax-for-github-actions#jobsjob_idtimeout-minutes) for the official docs._
+
 Sometimes `npm ci` can take a while, so a timeout of 5 minutes provides a reasonable 3m30s if I estimate `npm test` will take 1m30s.
 
 If I want to get more explicit, timeouts can be set on individual steps:
@@ -100,6 +102,8 @@ jobs:
         # Set a reasonable timeout, 180x shorter than GitHub's default
         timeout-minutes: 2
 ```
+
+_See [`jobs.<job_id>.steps[*].timeout-minutes`](https://docs.github.com/en/actions/using-workflows/workflow-syntax-for-github-actions#jobsjob_idstepstimeout-minutes) for the official docs._
 
 ## Summary
 
