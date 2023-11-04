@@ -60,7 +60,7 @@
     "metalsmith-github-profile": "^1.0.0",
     "metalsmith-gravatar": "^0.1.0",
     "metalsmith-hbt-md": "^1.0.1",
-    "metalsmith-html-glob": "^0.7.0",
+    "metalsmith-html-glob": "^1.0.0",
     "metalsmith-html-linter": "^0.9.0",
     "metalsmith-html-minifier": "^4.0.1",
     "metalsmith-html-relative": "^1.0.0",
