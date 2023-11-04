@@ -32,7 +32,7 @@ Most high-SEO articles about incident response talk about how to establish an in
 
 _Note: I am not a security practitioner. All information contained here is aimed at SREs and engineers that participate in an on-call rotation._
 
-For the past seven years I've worked in the U.S. e-commerce space, which means I haven't had a calm Black Friday is just as long. The companies I've worked at have all implemented some kind of change freeze leading up the Black Friday & Cyber Monday weekend. This creates a natural time for teams to revisit their non-code artifacts such as incident runbooks.
+For the past seven years I've worked in the U.S. e-commerce space, which means I haven't had a calm Black Friday in just as long. The companies I've worked at have all implemented some kind of change freeze leading up the Black Friday & Cyber Monday weekend. This creates a natural time for teams to revisit their non-code artifacts such as incident runbooks.
 
 I've also been on-call quite a bit recently, and I've had to respond to some incidents where the automated alerts linked to inaccurate and non-authoritative runbooks. As part of the follow-ups for those incidents, I offered to hold a lunch-and-learn talk on effective incident runbooks. Here is the result.
 

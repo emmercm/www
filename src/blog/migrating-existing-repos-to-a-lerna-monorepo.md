@@ -37,7 +37,7 @@ Cursory research led to a few different monorepo options:
 My requirements for any monorepo migration was:
 
 1. Preserving git history from the previous repositories. I have years of history in each repository that I don't want squashed.
-2. [Renovate](/blog/keep-npm-packages-updated-with-renovate/) needs to keep working on autopilot (after some tweaking, of course).
+2. [Renovate](/blog/keep-lerna-monorepos-updated-with-renovate) needs to keep working on autopilot (after some tweaking, of course).
 3. A CI/CD system needs to be able to keep publishing npm packages individually on autopilot, to dovetail with Renovate.
 
 None of my plugin repositories have any real number of stars on GitHub, so I wasn't worried about losing those.
@@ -52,7 +52,7 @@ Then, because sometimes Renovate doesn't auto-merge pull requests that it's conf
 
 ## Migrating repositories
 
-First step was to make the new GitHub repository, [emmercm/metalsmith-plugins](https://github.com/emmercm/metalsmith-plugins). I granted [Renovate](https://www.mend.io/free-developer-tools/renovate/) permissions at time of creation.
+The First step was to make the new GitHub repository, [emmercm/metalsmith-plugins](https://github.com/emmercm/metalsmith-plugins). I granted [Renovate](https://www.mend.io/free-developer-tools/renovate/) permissions at time of creation.
 
 Next, we're going to need a temporary workspace for us to check out clean versions of every repository:
 
@@ -279,6 +279,6 @@ At this point we're ready to delete the temporary directory we've been working i
 3. Create a GitHub Actions [workflow](https://github.com/emmercm/metalsmith-plugins/blob/main/.github/workflows/codecov.yml) for automated [Codecov reporting](/blog/reporting-lerna-monorepo-test-coverage-to-codecov)
 4. Create a GitHub Actions [workflow](https://github.com/emmercm/metalsmith-plugins/blob/main/.github/workflows/publish.yml) for automated npm publishing
 5. Update the old GitHub repositories' READMEs with a link to the new repository, and mark the repositories as archived
-6. Write a new Renovate config
+6. Write a new [Renovate config](/blog/keep-lerna-monorepos-updated-with-renovate)
 
 Then, in the future, it should be much easier to update many plugins at once!
