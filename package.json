@@ -49,7 +49,7 @@
     "metalsmith-collections-related": "^1.0.0",
     "metalsmith-concat": "^7.0.3",
     "metalsmith-copy": "^0.4.1",
-    "metalsmith-css-unused": "^0.5.0",
+    "metalsmith-css-unused": "^1.0.0",
     "metalsmith-data-loader": "^1.3.0",
     "metalsmith-discover-helpers": "^0.1.1",
     "metalsmith-discover-partials": "^0.1.2",
