@@ -1,7 +1,7 @@
 ---
 
 title: Use GitHub Actions Timeouts to Protect Your Budget
-date: 2023-11-04T17:13:00
+date: 2023-11-05T15:50:00
 tags:
 - github
 
