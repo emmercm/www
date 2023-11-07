@@ -2,6 +2,10 @@ agile:
   title: Agile
   color: agile
 
+books:
+  title: Books
+  color: goodreads
+
 bootstrap:
   title: Bootstrap
   color: bootstrap
