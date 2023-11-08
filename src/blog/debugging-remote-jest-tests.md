@@ -37,7 +37,7 @@ test('adds 1 + 2 to equal 3', () => {
 
 ### Docker
 
-Loosely following Node's "[Dockerizing a Node.js web app](https://nodejs.org/en/docs/guides/nodejs-docker-webapp/)," create `Dockerfile`:
+Loosely following Node's "[Dockerizing a Node.js web app](https://web.archive.org/web/20231020185953/https://nodejs.org/en/docs/guides/nodejs-docker-webapp/)," create `Dockerfile`:
 
 ```dockerfile
 FROM node:lts
@@ -164,7 +164,7 @@ Try running this command, wait for tests to execute the first time, then change 
 
 It would take too long to list out the instructions for each editor, so here are links to some popular ones:
 
-- [Chrome DevTools 55+](https://nodejs.org/de/docs/guides/debugging-getting-started/#chrome-devtools-55-microsoft-edge)
+- [Chrome DevTools 55+](https://web.archive.org/web/20231016133140/https://nodejs.org/en/docs/guides/debugging-getting-started#inspector-clients)
 - [Visual Studio Code 1.10+](https://code.visualstudio.com/docs/nodejs/nodejs-debugging)
 - [JetBrains WebStorm 2017.1+](https://www.jetbrains.com/help/webstorm/running-and-debugging-node-js.html)
 
