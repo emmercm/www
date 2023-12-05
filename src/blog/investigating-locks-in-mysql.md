@@ -2,7 +2,7 @@
 
 title: Investigating Locks in MySQL
 date: 2022-06-18T04:43:00
-updated: 2022-06-18T20:54:00
+updated: 2023-12-05T17:43:00
 tags:
 - databases
 - mysql
@@ -84,7 +84,7 @@ Some important columns to pay attention to:
 
 Some key things to look for:
 
-- Long-running statements likely indicate resource contention. If a lock is held too long, any other transaction that needs to lock the same index record or table will risk timing out. The default [`innodb_lock_wait_timeout`](https://dev.mysql.com/doc/refman/8.0/en/innodb-parameters.html#sysvar_innodb_lock_wait_timeout) variable value is 50 seconds, but you can check it with this query:
+- Long-running statements likely indicate resource contention. If a lock is held too long then any other transaction that needs to lock the same record, index record, or table will risk timing out. The default [`innodb_lock_wait_timeout`](https://dev.mysql.com/doc/refman/8.0/en/innodb-parameters.html#sysvar_innodb_lock_wait_timeout) variable value is 50 seconds, but you can check it with this query:
 
     ```sql
     SHOW VARIABLES WHERE variable_name = 'innodb_lock_wait_timeout';
