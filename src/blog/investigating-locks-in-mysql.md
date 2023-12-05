@@ -2,7 +2,7 @@
 
 title: Investigating Locks in MySQL
 date: 2022-06-18T04:43:00
-updated: 2023-12-05T17:43:00
+updated: 2023-12-05T20:54:00
 tags:
 - databases
 - mysql
@@ -18,17 +18,17 @@ A major cause of [long-running queries](/blog/finding-long-running-queries-in-my
 MySQL (and most relational databases) have a few different types of locks to limit concurrent access from different sessions, protecting schema and data integrity. In MySQL, specifically:
 
 - **Table locks** on either base tables or views limit what sessions can read from or write to the table.
-- **Row locks** on individual rows limit what sessions can read or update those rows.  If a row has a _read_ or a "shared" lock then no session can modify the row until the lock is released, but any session can read the row. If a row has a _write_ or an "exclusive" lock then only the session holding the lock can modify the row.
+- **Record (or "row") locks** on individual records limit what sessions can read or update those records.  If a record has a "shared" lock (for reading) then no session can modify the record until the lock is released, but any session can read the record. If a record has an "exclusive" lock (for writing) then only the session holding the lock can modify the record.
 
-    Standard `SELECT ... FROM` statements do not need to obtain row read locks unless the transaction isolation level is set to `SERIALIZABLE`. That means a row write lock won't prevent row reads from other sessions.
+    Standard `SELECT ... FROM` statements do not need to obtain any record locks unless the transaction isolation level is set to `SERIALIZABLE`, in which case shared next-key locks are obtained. That means an exclusive record lock (a write) won't prevent record reads from other sessions.
 
-    If a statement that modifies rows (e.g. `UPDATE` or `DELETE`) has no suitable index, then InnoDB will obtain a write lock on _every_ row in the table.
+    If a statement that modifies records (e.g. `UPDATE` or `DELETE`) has no suitable index, then InnoDB will obtain an exclusive lock on _every_ record in the table.
 
 - **Metadata locks** on objects (schemas, tables, triggers, etc.) limit what sessions can alter the metadata of the database object.
 
 This is not an exhaustive list, but it gives us enough information for the sections below.
 
-## InnoDB table and row locks
+## InnoDB table and record locks
 
 You're likely using InnoDB as the engine for your tables as it has been the default since [MySQL v5.5.5 (2010)](https://web.archive.org/web/20190123090733/https://dev.mysql.com/doc/refman/5.5/en/storage-engine-setting.html).
 
@@ -74,7 +74,7 @@ _Note: your user will need the [`PROCESS`](https://dev.mysql.com/doc/refman/8.0/
 Some important columns to pay attention to:
 
 - **`lock_type`**: the type of the lock: `RECORD` (row) or `TABLE`
-- **`lock_table`**: the table that is locked, or the table that contains the locked rows
+- **`lock_table`**: the table that is locked, or the table that contains the locked records
 - **`lock_index`**: the name of the index if `lock_type = 'RECORD'`
 - **`lock_mode`**: the mode(s) of the lock: `S`/`SHARED`, `X`/`EXCLUSIVE`, `IS`/`INTENTION_SHARED`, `IX`/`INTENTION_EXCLUSIVE`, `GAP`, `AUTO_INC`, and `UNKNOWN`
 - **`trx_length_sec`**: how long since the transaction started
@@ -112,13 +112,31 @@ ORDER BY requesting_trx_wait_sec DESC
        , req.trx_id;
 ```
 
-### InnoDB record lock types
+### Common InnoDB lock situations
 
-From the [MySQL documentation](https://dev.mysql.com/doc/refman/8.0/en/innodb-locks-set.html):
+_Note: most of this information is from the [MySQL documentation](https://dev.mysql.com/doc/refman/8.0/en/innodb-locks-set.html)._
 
-> A locking read, an `UPDATE`, or a `DELETE` generally set record locks on every index record that is scanned in the processing of an SQL statement.
+Here are some common locks you may encounter:
 
-TODO
+- `INSERT`
+
+    First sets a table-level exclusive [insert intention (IX) lock](https://dev.mysql.com/doc/refman/8.0/en/innodb-locking.html#innodb-insert-intention-locks) (a unique gap lock where multiple transactions inserting into the same index gap won't block each other if they're inserting at different positions within the gap), then sets an exclusive index record lock on the row being inserted.
+
+    This shouldn't normally be a problem, but deadlocking can occur if two or more transactions are trying to insert the same duplicate key while an exclusive lock is already held on the record.
+
+- `UPDATE ... WHERE ...` and `DELETE ... WHERE ...`
+  - When the `WHERE` is using a unique index (including the clustered primary key index): a single [index record lock](https://dev.mysql.com/doc/refman/8.0/en/innodb-locking.html#innodb-record-locks) is set in that unique index
+  - When the `WHERE` is _not_ using a unique index: an exclusive [next-key lock](https://dev.mysql.com/doc/refman/8.0/en/innodb-locking.html#innodb-next-key-locks) (an exclusive index record lock, plus an exclusive [gap lock](https://dev.mysql.com/doc/refman/8.0/en/innodb-locking.html#innodb-gap-locks) on the gap _before_ the index record when in `SERIALIZABLE` or the default `READ COMMITTED` [transaction isolation level](https://dev.mysql.com/doc/refman/8.0/en/innodb-transaction-isolation-levels.html)) is set on "every record the search encounters" in the non-unique index
+
+    The index record locks will prevent other transactions from updating or deleting those same records, and the possible gap locks will prevent other transactions from inserting into the value gap.
+
+- `UPDATE` that affects the clustered index (primary key)
+
+    Because each secondary index record contains all information in the clustered index record (see the section on deferred joins in "[The Dangers of OFFSET With MySQL](/blog/the-dangers-of-offset-with-mysql/)"), "implicit" locks have to be taken on affected secondary index records.
+
+- `INSERT`, `UPDATE`, and `DELETE` on tables with foreign keys:
+
+    A shared record lock is set on every record in the referenced table (on the referenced table's index that the foreign key uses) to check the constraint. This would block exclusive locks on those records in the other tables, preventing updates and deletions.
 
 ## InnoDB deadlocks
 
