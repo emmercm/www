@@ -30,7 +30,7 @@ This is not an exhaustive list, but it gives us enough information for the secti
 
 ## InnoDB table and row locks
 
-It's highly likely that you're using InnoDB as the engine for your tables as it has been the default since [MySQL v5.5.5 (2010)](https://web.archive.org/web/20190123090733/https://dev.mysql.com/doc/refman/5.5/en/storage-engine-setting.html).
+You're likely using InnoDB as the engine for your tables as it has been the default since [MySQL v5.5.5 (2010)](https://web.archive.org/web/20190123090733/https://dev.mysql.com/doc/refman/5.5/en/storage-engine-setting.html).
 
 You can see what engine each of your tables is using with this query:
 
@@ -84,7 +84,7 @@ Some important columns to pay attention to:
 
 Some key things to look for:
 
-- Long-running statements likely indicate resource contention. If a lock is held too long, any other transaction that needs to lock the same items will risk timing out. The default [`innodb_lock_wait_timeout`](https://dev.mysql.com/doc/refman/8.0/en/innodb-parameters.html#sysvar_innodb_lock_wait_timeout) variable value is 50 seconds, but you can check it with this query:
+- Long-running statements likely indicate resource contention. If a lock is held too long, any other transaction that needs to lock the same index record or table will risk timing out. The default [`innodb_lock_wait_timeout`](https://dev.mysql.com/doc/refman/8.0/en/innodb-parameters.html#sysvar_innodb_lock_wait_timeout) variable value is 50 seconds, but you can check it with this query:
 
     ```sql
     SHOW VARIABLES WHERE variable_name = 'innodb_lock_wait_timeout';
@@ -111,6 +111,14 @@ ORDER BY requesting_trx_wait_sec DESC
        , block.trx_id
        , req.trx_id;
 ```
+
+### InnoDB record lock types
+
+From the [MySQL documentation](https://dev.mysql.com/doc/refman/8.0/en/innodb-locks-set.html):
+
+> A locking read, an `UPDATE`, or a `DELETE` generally set record locks on every index record that is scanned in the processing of an SQL statement.
+
+TODO
 
 ## InnoDB deadlocks
 
@@ -160,6 +168,14 @@ Starting with [MySQL v5.5.3 (2010)](https://web.archive.org/web/20190201033750/h
 And starting with [MySQL v8.0.3 (2017)](https://dev.mysql.com/doc/relnotes/mysql/8.0/en/news-8-0-3.html#mysqld-8-0-3-feature) metadata locks are obtained on sibling tables related by foreign keys:
 
 > MySQL now extends metadata locks, as necessary, to tables that are related by a foreign key constraint. Extending metadata locks prevents conflicting DML and DDL operations from executing concurrently on related tables.
+
+_Note: metadata lock information requires the `wait/lock/metadata/sql/mdl` [instrument](https://dev.mysql.com/doc/refman/8.0/en/performance-schema-startup-configuration.html) to be enabled, which it is by default. You can check the instrument's status with this query:_
+
+```sql
+SELECT *
+FROM performance_schema.setup_instruments
+WHERE name = 'wait/lock/metadata/sql/mdl';
+```
 
 Here is a query to see metadata locks and the queries that cause them:
 
