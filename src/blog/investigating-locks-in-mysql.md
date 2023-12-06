@@ -161,17 +161,17 @@ Here are some common locks you may encounter:
 
     First sets a table-level exclusive [insert intention (IX) lock](https://dev.mysql.com/doc/refman/8.0/en/innodb-locking.html#innodb-insert-intention-locks) (a unique gap lock where multiple transactions inserting into the same index gap won't block each other if they're inserting at different positions within the gap), then sets an exclusive index record lock on the row being inserted. The insert intention lock is held until the end of the transaction.
 
-    This shouldn't normally be a problem, but deadlocking can occur if two or more transactions are trying to insert the same duplicate key while an exclusive lock is already held on the record.
+    This shouldn't _normally_ be a problem, but deadlocking can occur if two or more transactions are trying to insert the same duplicate key while an exclusive lock is already held on that same record.
 
 - `UPDATE ... WHERE ...` and `DELETE ... WHERE ...`
   - When the `WHERE` is using a unique index (including the clustered primary key index): a single [index record lock](https://dev.mysql.com/doc/refman/8.0/en/innodb-locking.html#innodb-record-locks) is set in that unique index
   - When the `WHERE` is _not_ using a unique index: an exclusive [next-key lock](https://dev.mysql.com/doc/refman/8.0/en/innodb-locking.html#innodb-next-key-locks) (an exclusive index record lock, plus an exclusive [gap lock](https://dev.mysql.com/doc/refman/8.0/en/innodb-locking.html#innodb-gap-locks) on the gap _before_ the index record when in `SERIALIZABLE` or the default `READ COMMITTED` [transaction isolation level](https://dev.mysql.com/doc/refman/8.0/en/innodb-transaction-isolation-levels.html)) is set on "every record the search encounters" in the non-unique index
 
-    It doesn't matter if the search is using the clustered index or not, clustered index records still get locked, effectively locking the records:
+  It doesn't matter if the search is using the clustered index or not, clustered index records still get locked, effectively locking the records:
 
-    > If a secondary index is used in a search and the index record locks to be set are exclusive, InnoDB also retrieves the corresponding clustered index records and sets locks on them.
+  > If a secondary index is used in a search and the index record locks to be set are exclusive, InnoDB also retrieves the corresponding clustered index records and sets locks on them.
 
-    The index record locks will prevent other transactions from updating or deleting those same records, and the possible gap locks will prevent other transactions from inserting into the value gap.
+  The index record locks will prevent other transactions from updating or deleting those same records, and the possible gap locks will prevent other transactions from inserting into the value gap.
 
 - `UPDATE` that affects the clustered index (primary key)
 
@@ -179,7 +179,7 @@ Here are some common locks you may encounter:
 
 - `INSERT`, `UPDATE`, and `DELETE` on tables with foreign keys:
 
-    A shared record lock is set on every record in the referenced table (on the referenced table's index that the foreign key uses) to check the constraint. This would block exclusive locks on those records in the other tables, preventing updates and deletions.
+    TODO A shared record lock is set on every referenced record in the referenced table (on the referenced table's index that the foreign key uses) to check the constraint. This would block exclusive locks on those records in the other tables, preventing updates and deletions.
 
 ## InnoDB deadlocks
 
