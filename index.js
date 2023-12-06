@@ -785,7 +785,6 @@ tracer(Metalsmith(path.resolve()))
                     const immediateText = $(elem).contents().not($(elem).children()).text();
                     $(elem).html(`${$(elem).html()}${immediateText ? ' ' : ''}<i class="fa-regular fa-external-link fa-xs"></i>`);
                 }
-            }
         });
     }))
 
