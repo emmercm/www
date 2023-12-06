@@ -554,7 +554,7 @@ tracer(Metalsmith(path.resolve()))
     .use(multiCollections.default({
         pattern: 'blog/**',
         key: 'tags',
-        collection: 'blog/tag/{tag}',
+        collection: 'blog/tag/{val}',
         settings: {
             sortBy: (a, b) => DateTime.fromJSDate(a.date).toMillis() - DateTime.fromJSDate(b.date).toMillis(),
             reverse: true
