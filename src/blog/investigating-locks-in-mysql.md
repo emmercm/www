@@ -67,6 +67,28 @@ INNER JOIN performance_schema.threads t ON t.thread_id = trx.trx_mysql_thread_id
 ORDER BY trx.trx_wait_started IS NOT NULL
        , trx.trx_wait_started
        , trx_length_sec DESC;
+
+
+-- MySQL ≥8.0.1 (2017)
+SELECT dl.lock_type
+     , dl.object_name                                         AS lock_table
+     , dl.index_name                                          AS lock_index
+     , CASE
+           WHEN dl.lock_mode = 'S' THEN 'SHARED'
+           WHEN dl.lock_mode = 'X' THEN 'EXCLUSIVE'
+           WHEN dl.lock_mode = 'IS' THEN 'INTENTION_SHARED'
+           WHEN dl.lock_mode = 'IX' THEN 'INTENTION_EXCLUSIVE'
+           ELSE dl.lock_mode END                              AS lock_mode
+     , time_to_sec(timediff(now(), trx.trx_started))          AS trx_length_sec
+     , trx.*
+     , concat('KILL ', t.processlist_id, ';')                 AS kill_command
+     , concat('CALL mysql.rds_kill(', t.processlist_id, ');') AS rds_kill_command
+FROM performance_schema.data_locks dl
+INNER JOIN information_schema.innodb_trx trx ON trx.trx_id = dl.engine_transaction_id
+INNER JOIN performance_schema.threads t ON t.thread_id = trx.trx_mysql_thread_id
+ORDER BY trx.trx_wait_started IS NOT NULL
+       , trx.trx_wait_started
+       , trx_length_sec DESC;
 ```
 
 _Note: your user will need the [`PROCESS`](https://dev.mysql.com/doc/refman/8.0/en/privileges-provided.html#priv_process) privilege to access `information_schema.innodb_*` tables, and to see threads for other users._
@@ -110,6 +132,23 @@ INNER JOIN information_schema.innodb_trx req ON req.trx_id = lw.requesting_trx_i
 ORDER BY requesting_trx_wait_sec DESC
        , block.trx_id
        , req.trx_id;
+
+
+-- MySQL ≥8.0.1 (2017)
+SELECT block.trx_id                                            AS blocking_trx_id
+     , block.trx_query                                         AS blocking_trx_query
+     , time_to_sec(timediff(now(), req.trx_wait_started))      AS requesting_trx_wait_sec
+     , req.trx_id                                              AS requesting_trx_id
+     , req.trx_query                                           AS requesting_trx_query
+     , concat('KILL ', bt.processlist_id, ';')                 AS kill_command
+     , concat('CALL mysql.rds_kill(', bt.processlist_id, ');') AS rds_kill_command
+FROM performance_schema.data_lock_waits dlw
+INNER JOIN information_schema.innodb_trx block ON block.trx_id = dlw.blocking_engine_transaction_id
+INNER JOIN performance_schema.threads bt ON bt.thread_id = block.trx_mysql_thread_id
+INNER JOIN information_schema.innodb_trx req ON req.trx_id = dlw.requesting_engine_transaction_id
+ORDER BY requesting_trx_wait_sec DESC
+       , block.trx_id
+       , req.trx_id;
 ```
 
 ### Common InnoDB lock situations
@@ -120,13 +159,17 @@ Here are some common locks you may encounter:
 
 - `INSERT`
 
-    First sets a table-level exclusive [insert intention (IX) lock](https://dev.mysql.com/doc/refman/8.0/en/innodb-locking.html#innodb-insert-intention-locks) (a unique gap lock where multiple transactions inserting into the same index gap won't block each other if they're inserting at different positions within the gap), then sets an exclusive index record lock on the row being inserted.
+    First sets a table-level exclusive [insert intention (IX) lock](https://dev.mysql.com/doc/refman/8.0/en/innodb-locking.html#innodb-insert-intention-locks) (a unique gap lock where multiple transactions inserting into the same index gap won't block each other if they're inserting at different positions within the gap), then sets an exclusive index record lock on the row being inserted. The insert intention lock is held until the end of the transaction.
 
     This shouldn't normally be a problem, but deadlocking can occur if two or more transactions are trying to insert the same duplicate key while an exclusive lock is already held on the record.
 
 - `UPDATE ... WHERE ...` and `DELETE ... WHERE ...`
   - When the `WHERE` is using a unique index (including the clustered primary key index): a single [index record lock](https://dev.mysql.com/doc/refman/8.0/en/innodb-locking.html#innodb-record-locks) is set in that unique index
   - When the `WHERE` is _not_ using a unique index: an exclusive [next-key lock](https://dev.mysql.com/doc/refman/8.0/en/innodb-locking.html#innodb-next-key-locks) (an exclusive index record lock, plus an exclusive [gap lock](https://dev.mysql.com/doc/refman/8.0/en/innodb-locking.html#innodb-gap-locks) on the gap _before_ the index record when in `SERIALIZABLE` or the default `READ COMMITTED` [transaction isolation level](https://dev.mysql.com/doc/refman/8.0/en/innodb-transaction-isolation-levels.html)) is set on "every record the search encounters" in the non-unique index
+
+    It doesn't matter if the search is using the clustered index or not, clustered index records still get locked, effectively locking the records:
+ 
+    > If a secondary index is used in a search and the index record locks to be set are exclusive, InnoDB also retrieves the corresponding clustered index records and sets locks on them. 
 
     The index record locks will prevent other transactions from updating or deleting those same records, and the possible gap locks will prevent other transactions from inserting into the value gap.
 
