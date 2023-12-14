@@ -80,6 +80,12 @@
       }
     }
   }
+  li > p {
+    // <li> will have <p> children when it or one of its <li> siblings has a nested <ul>
+    & + ul {
+      margin-bottom: $spacer;
+    }
+  }
 
   .bg-light {
     svg.mermaid {

@@ -6,31 +6,30 @@ import Metalsmith from 'metalsmith';
 import tracer     from 'metalsmith-tracer';
 import msIf       from 'metalsmith-if';
 
-import env              from 'metalsmith-env';
-import buildinfo        from 'metalsmith-build-info';
+// SETUP INPUT
 import metaDirectory    from 'metalsmith-metadata-directory';
 import githubProfile    from 'metalsmith-github-profile';
 import gravatar         from 'metalsmith-gravatar';
+import renamer          from 'metalsmith-renamer';
 import drafts           from '@metalsmith/drafts';
 import validate         from 'metalsmith-validate';
 import dataLoader       from 'metalsmith-data-loader';
+// BUILD CSS
 import sass             from '@metalsmith/sass';
 import postcss          from '@metalsmith/postcss';
+// PROCESS IMAGES
 import include          from 'metalsmith-include-files';
-import renamer          from 'metalsmith-renamer';
 import remove           from '@metalsmith/remove';
 import copy             from 'metalsmith-copy';
+// BUILD PAGES
 import discoverHelpers  from 'metalsmith-discover-helpers';
 import discoverPartials from 'metalsmith-discover-partials';
 import collections      from '@metalsmith/collections';
 import collectionMeta   from 'metalsmith-collection-metadata';
 import permalinks       from '@metalsmith/permalinks';
 import paths            from 'metalsmith-paths';
-import branch           from 'metalsmith-branch';
-import readingTime      from 'metalsmith-reading-time';
-import pagination       from 'metalsmith-pagination';
-import jsonld           from './lib/metalsmith-jsonld.js';
 import defaultValues    from '@metalsmith/default-values';
+import branch           from 'metalsmith-branch';
 import hbtmd            from './lib/metalsmith-hbt-md.js';
 import mermaid          from 'metalsmith-mermaid';
 import vega             from 'metalsmith-vega';
@@ -38,23 +37,36 @@ import markdown         from '@metalsmith/markdown';
 import excerpts         from './lib/metalsmith-excerpts.js';
 import except           from 'metalsmith-except';
 import feed             from 'metalsmith-feed';
+import readingTime      from 'metalsmith-reading-time';
+import multiCollections from 'metalsmith-multi-collections';
+import pagination       from 'metalsmith-pagination';
+import jsonld           from './lib/metalsmith-jsonld.js';
 import related          from 'metalsmith-collections-related';
 import favicons         from 'metalsmith-favicons';
 import layouts          from '@metalsmith/layouts';
 import jquery           from 'metalsmith-jquery';
-import openGraph        from 'metalsmith-open-graph';
-import twitterCard      from 'metalsmith-twitter-card';
+// INCLUDE EXTERNAL FILES
+// EXPAND AND CONCATENATE OUTPUT
 import concat           from 'metalsmith-concat';
+// COMPRESS RESOURCES
+import uglify           from 'metalsmith-uglify';
+import cssUnused        from 'metalsmith-css-unused';
+import sri              from 'metalsmith-html-sri';
+// PROCESS LINKED RESOURCES
 import glob             from 'metalsmith-html-glob';
 import relative         from 'metalsmith-html-relative';
 import htmlUnused       from 'metalsmith-html-unused';
-import uglify           from 'metalsmith-uglify';
-import cssUnused        from 'metalsmith-css-unused';
+// ADD SOCIAL TAGS
+import openGraph        from 'metalsmith-open-graph';
+import twitterCard      from 'metalsmith-twitter-card';
+// ALTER & COMPRESS HTML
 import htmlMinifier     from 'metalsmith-html-minifier';
-import sri              from 'metalsmith-html-sri';
+// GENERATE SITEMAP
 import sitemap          from 'metalsmith-sitemap';
+// RUN TESTS
 import linter           from 'metalsmith-html-linter';
 import linkChecker      from 'metalsmith-link-checker';
+// FINAL BUILD
 import robots           from 'metalsmith-robots';
 
 import async           from 'async';
@@ -95,7 +107,7 @@ const siteEmail       = 'emmercm@gmail.com';
 const siteDescription = 'Software engineer with ' + Math.floor(DateTime.local().diff(DateTime.fromISO('2012-01-16'), 'years').years) + '+ years of experience developing full-stack solutions in JavaScript, PHP, Go, Java, and Python.';
 const siteLogo        = '**/prologo1/logo3_Gray_Lighter.svg';
 const siteBackground  = '**/trianglify.svg';
-const twitterHandle   = '@emmercm';
+const twitterHandle   = 'emmercm';
 const githubHandle    = 'emmercm';
 
 const blogImageSizes = [
@@ -215,14 +227,11 @@ tracer(Metalsmith(path.resolve()))
         siteurl: siteURL,
         sitedescription: siteDescription,
         sitelogo: siteLogo,
-        twitterhandle: twitterHandle
+        twitterhandle: `@${twitterHandle}`
     })
 
     // Add all env vars to global metadata
-    .use(env())
-
-    // Add build info to global metadata
-    .use(buildinfo())
+    .env(process.env)
 
     // Load metadata files
     .use(metaDirectory({
@@ -408,14 +417,7 @@ tracer(Metalsmith(path.resolve()))
     .use(collections({
         blog: {
             pattern: 'blog/*.md',
-            sortBy: (a, b) => {
-                if (DateTime.fromJSDate(a.date) > DateTime.fromJSDate(b.date)) {
-                    return 1;
-                } else if (DateTime.fromJSDate(a.date) < DateTime.fromJSDate(b.date)) {
-                    return -1;
-                }
-                return 0;
-            },
+            sortBy: (a, b) => DateTime.fromJSDate(a.date).toMillis() - DateTime.fromJSDate(b.date).toMillis(),
             reverse: true
         }
     }))
@@ -467,29 +469,34 @@ tracer(Metalsmith(path.resolve()))
             pattern: '**/*.@(html|md)',
             defaults: {
                 image: file => {
-                    const basename = file.path
+                    const basenameWithoutExt = file.path
                         .replace(/\/index\.[a-z]+$/, '')
                         .split('/').pop()
                         .replace(/\.[a-z]+$/, '');
-                    const path = (Object.keys(files)
-                        .filter(minimatch.filter(`static/img/{**/,}${basename}.*`))
-                        .find(() => true) || '')
-                        .replace(/^([^/])/, '/$1')
+                    return metalsmith.match(`static/img/{**/,}${basenameWithoutExt}.*`, Object.keys(files))[0]
+                        ?.replace(/^/, '/');
+                },
+                thumb: file => {
+                    const basenameWithoutExt = file.path
+                        .replace(/\/index\.[a-z]+$/, '')
+                        .split('/').pop()
                         .replace(/\.[a-z]+$/, '');
-                    return path ? `${path}.*` : null;
+                    return metalsmith.match(`static/img/{**/,}${basenameWithoutExt}-thumb.*`, Object.keys(files))[0]
+                        ?.replace(/^/, '/');
                 }
-            }
-        },
-        {
-            pattern: '**/*.@(html|md)',
-            defaults: {
-                thumb: file => file.image ? file.image.replace(/(\.[^\.]+)$/, '-thumb.*') : null
             }
         }
     ])(files, metalsmith, done))
 
     // Render blog article partials (same as below) first so excerpts can be parsed before being referenced on other pages
     .use(branch('blog/*/*.md')
+        // Default some sparse metadata
+        .use(defaultValues([{
+            pattern: '**/*',
+            defaults: {
+                updated: file => file.date
+            }
+        }]))
         // Render the files
         .use(hbtmd(Handlebars))
         .use(mermaid())
@@ -543,100 +550,16 @@ tracer(Metalsmith(path.resolve()))
         .use(hbtmd(Handlebars, { pattern: '**/*' }))
     )
 
-    .use((files, metalsmith, done) => {
-        // TODO: metalsmith-tag-collections
-
-        const options = {
-            pattern: 'blog/**',
-            key: 'tags',
-            collection: 'blog/tag/{tag}',
-            settings: {
-                sortBy: (a, b) => {
-                    if (DateTime.fromJSDate(a.date) > DateTime.fromJSDate(b.date)) {
-                        return 1;
-                    } else if (DateTime.fromJSDate(a.date) < DateTime.fromJSDate(b.date)) {
-                        return -1;
-                    }
-                    return 0;
-                },
-                reverse: true
-            }
-        };
-
-        const collectionsConfig = {};
-
-        // Clear side-effect data from previous metalsmith-colletions
-        // const metadata = metalsmith.metadata();
-        // Object.keys(metadata.collections || {})
-        //     .forEach((collection) => {
-        //         if(metadata[collection]) {
-        //             delete metadata[collection];
-        //         }
-        //
-        //     });
-
-        // const tags = Object.keys(files)
-        //     .filter(minimatch.filter(options.pattern))
-        //     .map((filename) => {
-        //         const file = files[filename];
-        //         if(file[options.key]) {
-        //             const val = file[options.key];
-        //             return Array.isArray(val) ? val : [val];
-        //         }
-        //     })
-        //     .filter((tags) => tags)
-        //     .reduce((acc, val) => acc.concat(val), []) // .flat()
-        //     .filter((value, index, self) => self.indexOf(value) === index);
-
-        Object.keys(files)
-            .filter(minimatch.filter(options.pattern))
-            .forEach((filename) => {
-                const file = files[filename];
-
-                if(file[options.key]) {
-                    const val = file[options.key];
-
-                    (Array.isArray(val) ? val : [val]).forEach((tag) => {
-                        const collection = options.collection.replace('{tag}', tag);
-
-                        // Set the collection in the file's metadata
-                        files[filename].collection = [...(files[filename].collection || []), collection];
-
-                        // Build the settings for metalsmith-collections
-                        collectionsConfig[collection] = options.settings;
-                    });
-                }
-            });
-
-        // Clear side-effect data from previous metalsmith-colletions,
-        //  otherwise we could end up with duplicate pages in collections
-        const metadata = metalsmith.metadata();
-        Object.keys(metadata.collections || {})
-            .forEach((collection) => {
-                if(metadata[collection]) {
-                    delete metadata[collection];
-                }
-            });
-
-        // Snapshot any collections we didn't intend to change
-        //  metalsmith-collections will end up overwriting them and forgetting previous settings
-        const collectionsSnapshot = Object.keys(metadata.collections || [])
-            .filter((collection) => !collectionsConfig[collection])
-            .reduce((acc, val) => ({...acc, [val]: metadata.collections[val]}), {})
-
-        // Run metalsmith-collections
-        collections(collectionsConfig)(files, metalsmith, (...args) => {
-            // Restore collections we didn't intend to change
-            Object.keys(collectionsSnapshot)
-                .forEach((collection) => {
-                    metadata.collections[collection] = collectionsSnapshot[collection];
-                })
-
-            done(...args);
-        });
-    })
-
     // Generate and render paginated blog index partials
+    .use(multiCollections.default({
+        pattern: 'blog/**',
+        key: 'tags',
+        collection: 'blog/tag/{val}',
+        settings: {
+            sortBy: (a, b) => DateTime.fromJSDate(a.date).toMillis() - DateTime.fromJSDate(b.date).toMillis(),
+            reverse: true
+        }
+    }))
     .use((files, metalsmith, done) => {
         const collections = metalsmith.metadata().collections;
         const options = Object.keys(collections).reduce((acc, val) => {
@@ -729,7 +652,7 @@ tracer(Metalsmith(path.resolve()))
                 url: siteURL,
                 sameAs: [
                     metalsmith.metadata().github ? metalsmith.metadata().github.profile.user.html_url : null,
-                    'https://twitter.com/emmercm',
+                    `https://twitter.com/${twitterHandle}`,
                     'https://www.linkedin.com/in/emmercm/'
                 ].filter(url=>url)
             }
@@ -752,11 +675,12 @@ tracer(Metalsmith(path.resolve()))
                     name: 'title',
                     headline: 'title',
                     description: 'excerpt', // metalsmith-excerpts
-                    image: 'image', // TODO: full URL?
+                    image: 'image',
+                    thumbnail: 'thumb',
                     keywords: 'tags',
                     dateCreated: 'date',
                     datePublished: 'date',
-                    dateModified: 'date'
+                    dateModified: 'updated'
                 }
             ]
         }
@@ -860,7 +784,7 @@ tracer(Metalsmith(path.resolve()))
                 ($(elem).children().length === 1 && $(elem).children().first().prop('tagName') === 'CODE')) {
                     const immediateText = $(elem).contents().not($(elem).children()).text();
                     $(elem).html(`${$(elem).html()}${immediateText ? ' ' : ''}<i class="fa-regular fa-external-link fa-xs"></i>`);
-            }
+                }
         });
     }))
 
@@ -1040,8 +964,8 @@ tracer(Metalsmith(path.resolve()))
         // TODO: Homepage entity decoding is screwed up
         siteurl: siteURL,
         card: 'summary_large_image',
-        site: twitterHandle,
-        creator: twitterHandle
+        site: `@${twitterHandle}`,
+        creator: `@${twitterHandle}`
     }))
 
     /*********************************
@@ -1098,7 +1022,7 @@ tracer(Metalsmith(path.resolve()))
     .use(sitemap({
         hostname: siteURL,
         omitIndex: true,
-        modifiedProperty: 'date'
+        modifiedProperty: 'updated'
     }))
 
     /*********************
