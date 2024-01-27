@@ -41,7 +41,7 @@
     "jstransformer-handlebars": "^1.2.0",
     "luxon": "^3.4.4",
     "markdownlint-cli": "^0.37.0",
-    "marked": "^9.1.6",
+    "marked": "^11.2.0",
     "metalsmith": "^2.6.2",
     "metalsmith-branch": "^0.0.5",
     "metalsmith-collection-metadata": "^1.0.0",
