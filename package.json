@@ -45,7 +45,7 @@
     "metalsmith": "^2.6.2",
     "metalsmith-branch": "^0.0.5",
     "metalsmith-collection-metadata": "^1.0.0",
-    "metalsmith-collections-related": "^1.0.0",
+    "metalsmith-collections-related": "^2.0.3",
     "metalsmith-concat": "^7.0.3",
     "metalsmith-copy": "^0.4.1",
     "metalsmith-css-unused": "^1.0.0",
