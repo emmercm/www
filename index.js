@@ -1038,6 +1038,7 @@ tracer(Metalsmith(path.resolve()))
     .use(msIf(prodBuild, linkChecker({
         ignore: [
             // Anti-bot 403
+            'discogs.com',
             'hackernoon.com',
             'linux.die.net',
             'pixabay.com',
