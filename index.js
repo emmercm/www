@@ -106,7 +106,6 @@ const siteURL         = process.env.NETLIFY && process.env.CONTEXT !== 'producti
 const siteEmail       = 'emmercm@gmail.com';
 const siteDescription = 'Software engineer with ' + Math.floor(DateTime.local().diff(DateTime.fromISO('2012-01-16'), 'years').years) + '+ years of experience developing full-stack solutions in JavaScript, PHP, Go, Java, and Python.';
 const siteLogo        = '**/prologo1/logo3_Gray_Lighter.svg';
-const siteBackground  = '**/trianglify.svg';
 const twitterHandle   = 'emmercm';
 const githubHandle    = 'emmercm';
 
@@ -117,11 +116,11 @@ const blogImageSizes = [
     [360,360/2], // mobile
 ];
 const blogImageThumbSizes = [
-    [159,159], // default: card two line title
-    [318,318], // card two line title retina
-    [135,135], // card single line title
-    [222,222], // index retina
-    [111,111], // index
+    [159,159/2], // default: card two line title
+    [318,318/2], // card two line title retina
+    [135,135/2], // card single line title
+    [222,222/2], // index retina
+    [111,111/2], // index
 ];
 
 const vegaOptions = {
@@ -363,13 +362,6 @@ tracer(Metalsmith(path.resolve()))
             done(err);
         });
     })
-
-    // Process background images
-    // TODO(cemmer): webp formats
-    .use(backgroundImage(siteBackground, 1024, prodBuild)) // catch all
-    .use(backgroundImage(siteBackground, 926, prodBuild)) // iPhone 12 Pro Max
-    .use(backgroundImage(siteBackground, 896, prodBuild)) // iPhone 11 Pro Max, XR, XS Max
-    .use(backgroundImage(siteBackground, 736, prodBuild)) // iPhone 8 Plus, 7 Plus, 6/S Plus
 
     // Create static/img/blog/default.*
     .use(include({
@@ -910,7 +902,6 @@ tracer(Metalsmith(path.resolve()))
                 'doc', 'docx', 'pdf', 'ppt', 'pptx', 'xls', 'xlsx'
             ].join('|')
             + ')',
-        ignore: siteBackground.replace(/\.[^\.]+$/, '') + '*'
     })))
 
     /***************************

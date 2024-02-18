@@ -159,15 +159,7 @@ $link-hover-color: darken($link-color, 5%);
 $code-color: $gray-900;
 $code-bg:    $gray-500;
 
-// Use $light as the main color, then derive all others
-$navbar-dark-active-color:         $light;
-$navbar-dark-color:                rgba($navbar-dark-active-color, .75);
-$navbar-dark-hover-color:          rgba($navbar-dark-active-color, 1);
-$navbar-dark-disabled-color:       rgba($navbar-dark-active-color, .50);
-$navbar-dark-toggler-icon-bg:      str-replace(url("data:image/svg+xml,%3csvg viewBox='0 0 30 30' xmlns='http://www.w3.org/2000/svg'%3e%3cpath stroke='#{$navbar-dark-color}' stroke-width='2' stroke-linecap='round' stroke-miterlimit='10' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e"), "#", "%23");
-$navbar-dark-toggler-border-color: rgba($navbar-dark-active-color, .50);
-$navbar-dark-brand-color:          $navbar-dark-color;
-$navbar-dark-brand-hover-color:    $navbar-dark-active-color;
+$enable-negative-margins: true;
 
 // Add more spacer sizes
 $spacers: map-merge($spacers, (
@@ -217,12 +209,16 @@ $navbar-height: 64px;
 
 // Fonts
 
-body {
-  font-family: 'Open Sans', sans-serif;
+.font-family-serif {
+  font-family: "Source Serif 4", Georgia, Cambria, "Times New Roman", Times, serif
+}
+.font-family-sans-serif,
+h1, h2, h3, h4, h5, h6,
+.h1, .h2, .h3, .h4, .h5, .h6 {
+  font-family: $font-family-sans-serif;
 }
 
 .navbar-brand {
-  font-family: 'Montserrat', sans-serif;
   font-weight: 600;
   text-transform: uppercase;
 }
@@ -243,34 +239,6 @@ h1, h2, h3, h4, h5, h6,
   }
   :not(li) > &:last-child {
     margin-bottom: 0;
-  }
-}
-
-.bg-trianglify {
-  background-image: url('../img/trianglify.svg');
-  background-position: center center;
-  background-repeat: no-repeat;
-  background-attachment: fixed;
-  background-size: auto 150%;
-  @media (min-aspect-ratio: 1/1) {  // wide
-    background-size: 150% auto;
-  }
-  // The background performs VERY poorly on mobile, at least Firefox ~v83 - use rasterized versions instead
-  @media only screen and (orientation: landscape) and (max-device-width: 1024px),
-         only screen and (orientation: portrait) and (max-device-height: 1024px) {
-    background-image: url('../img/trianglify-1024.jpg');
-  }
-  @media only screen and (orientation: landscape) and (max-device-width: 926px),
-         only screen and (orientation: portrait) and (max-device-height: 926px) {
-    background-image: url('../img/trianglify-926.jpg');
-  }
-  @media only screen and (orientation: landscape) and (max-device-width: 896px),
-         only screen and (orientation: portrait) and (max-device-height: 896px) {
-    background-image: url('../img/trianglify-896.jpg');
-  }
-  @media only screen and (orientation: landscape) and (max-device-width: 736px),
-         only screen and (orientation: portrait) and (max-device-height: 736px) {
-    background-image: url('../img/trianglify-736.jpg');
   }
 }
 
@@ -324,7 +292,7 @@ h1, h2, h3, h4, h5, h6,
     }
   }
 }
-.navbar-dark {
+.navbar {
   .navbar-nav {
     .nav-link {
       &.nav-link-underline {
@@ -337,7 +305,7 @@ h1, h2, h3, h4, h5, h6,
           left: 0;
           width: 0;
           height: $border-width*2;
-          background: $navbar-dark-active-color;
+          background: $navbar-light-active-color;
         }
       }
     }
@@ -350,20 +318,6 @@ h1, h2, h3, h4, h5, h6,
       &.nav-link-underline::after {
         width: 100%;
       }
-    }
-  }
-}
-
-.footer {
-  color: $navbar-dark-color;
-  a {
-    color: $navbar-dark-color;
-    &:hover,
-    &:focus {
-      color: $navbar-dark-hover-color;
-    }
-    &.disabled {
-      color: $navbar-dark-disabled-color;
     }
   }
 }
@@ -387,7 +341,7 @@ h1, h2, h3, h4, h5, h6,
   width: 3px;
   padding: 10px 15px;
   height: 35px;
-  border: 2px solid $light;
+  border: 2px solid $dark;
   border-radius: 25px;
   opacity: 0.75;
   box-sizing: content-box;
@@ -396,7 +350,7 @@ h1, h2, h3, h4, h5, h6,
   width: 3px;
   height: 10px;
   border-radius: 25%;
-  background-color: $light;
+  background-color: $darker;
   animation-name: scroll;
   animation-duration: 2.2s;
   animation-timing-function: cubic-bezier(.15,.41,.69,.94);

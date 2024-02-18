@@ -1,31 +1,27 @@
-<div class="d-flex flex-column h-100 {{#if bg}}bg-{{bg}}{{else}}bg-light{{/if}} br-2 overflow-hidden">
-    <div class="row g-0 h-100">
-        <div class="col-{{#if data.image}}9{{else}}12{{/if}} d-flex flex-column p-3">
-            <p class="mb-1 fw-bold">
-                <a href="{{data.paths.href}}" title="{{data.title}}" class="link-dark">{{ data.title }}</a>
-            </p>
-            <p class="text-muted">
-                {{luxon data.date "MMM d, yyyy"}} &middot; {{data.readingTime}}
-            </p>
-            {{#and excerpt data.excerpt}}
-                <p>{{{sanitize data.excerpt}}}</p>
-            {{/and}}
-            {{#and tags data.tags}}
-                <div class="d-flex flex-wrap m-n1 mt-auto">
-                    {{#each (sort data.tags)}}
-                        <span class="m-1 mw-100 fs-5">
-                            <a href="/blog/tag/{{this}}" title="{{this}}" class="badge link-white bg-{{get "color" (get this ../blog_tags)}} mw-100 text-break text-wrap">{{ this }}</a>
-                        </span>
-                    {{/each}}
-                </div>
-            {{/and}}
-        </div>
-        {{#if data.thumb}}
-            <a href="{{data.paths.href}}" title="{{data.title}}" class="col-3 d-flex flex-shrink-0 justify-content-center align-items-center overflow-hidden">
-                <picture class="fill">
-                    {{{ data.thumbSources }}}<img src="{{data.thumb}}" alt="{{sanitize data.title}}" class="fill">
-                </picture>
-            </a>
-        {{/if}}
+<div class="d-flex flex-column h-100">
+    {{#if data.thumb}}
+        <a href="{{data.paths.href}}" title="{{data.title}}" class="mb-2">
+            <picture class="fill">
+                {{{ data.thumbSources }}}<img src="{{data.thumb}}" alt="{{sanitize data.title}}" class="fill">
+            </picture>
+        </a>
+    {{/if}}
+    <div class="mb-2 fw-bold">
+        <a href="{{data.paths.href}}" title="{{data.title}}" class="link-dark">{{ data.title }}</a>
     </div>
+    <div class="mt-auto mb-2 text-muted">
+        {{luxon data.date "MMM d, yyyy"}} &middot; {{data.readingTime}}
+    </div>
+    {{#and excerpt data.excerpt}}
+        <p>{{{sanitize data.excerpt}}}</p>
+    {{/and}}
+    {{#and tags data.tags}}
+        <div class="d-flex flex-wrap m-n1">
+            {{#each (sort data.tags)}}
+                <span class="m-1 mw-100 fs-5">
+                    <a href="/blog/tag/{{this}}" title="{{this}}" class="badge link-white bg-{{get "color" (get this ../blog_tags)}} mw-100 text-break text-wrap">{{ this }}</a>
+                </span>
+            {{/each}}
+        </div>
+    {{/and}}
 </div>

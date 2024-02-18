@@ -1,6 +1,6 @@
 <div class="row row-cols-1 {{#gt (length data) 1}}row-cols-sm-2{{/gt}} {{#gt (length data) 2}}row-cols-lg-3{{/gt}} align-items-stretch mx-0">
     {{#each data}}
-        <div class="col p-3">
+        <div class="col px-3 mb-5">
             {{>blog_card data=this blog_tags=../blog_tags excerpt=false}}
         </div>
     {{/each}}

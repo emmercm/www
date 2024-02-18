@@ -68,17 +68,19 @@
 
     <!-- https://csswizardry.com/2020/05/the-fastest-google-fonts/ -->
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Montserrat:wght@600&family=Open+Sans:ital,wght@0,400;0,700;1,400;1,700&display=swap">
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Montserrat:wght@600&family=Open+Sans:ital,wght@0,400;0,700;1,400;1,700&display=swap" media="print" onload="this.media='all'">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300..800&family=Source+Serif+4:ital,opsz,wght@0,8..60,200..900;1,8..60,200..900&display=swap">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300..800&family=Source+Serif+4:ital,opsz,wght@0,8..60,200..900;1,8..60,200..900&display=swap" media="print" onload="this.media='all'">
     <noscript>
-        <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Montserrat:wght@600&family=Open+Sans:ital,wght@0,400;0,700;1,400;1,700&display=swap">
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300..800&family=Source+Serif+4:ital,opsz,wght@0,8..60,200..900;1,8..60,200..900&display=swap">
     </noscript>
 
     <link rel="stylesheet" href="**/styles*.css">
 </head>
 
-<body class="d-flex flex-column h-100 bg-secondary bg-trianglify" data-parallax="scroll">
-<nav class="navbar navbar-expand-md navbar-dark clearfix bg-dark px-3 px-md-4 shadow">
+<body class="d-flex flex-column h-100">
+<nav class="navbar navbar-expand-md clearfix bg-body-tertiary px-3 px-md-4 border-bottom">
     <div class="container-xl px-0">
         <div class="d-flex justify-content-between align-items-center flex-nowrap w-100">
             <a href="/" title="Home" class="navbar-brand text-truncate" >
@@ -118,9 +120,9 @@
 
 <main>
     {{#if pageContainer}}
-        <div class="{{#if pageSize}}container-{{pageSize}} mw-{{pageSize}}-{{pageSize}}{{else}}container-md mw-md-md{{/if}} px-0 pt-4 pt-md-5 pt-xl-6 {{#inArray (arrayify collection) "blog"}}pb-3{{else}}pb-4 pb-md-5 pb-xl-6{{/inArray}} markdown" {{#inArray (arrayify collection) "blog"}}data-page-progress="page-progress"{{/inArray}}>
+        <div class="{{#if pageSize}}container-{{pageSize}} mw-{{pageSize}}-{{pageSize}}{{else}}container-md mw-md-md{{/if}} mt-5 px-0 markdown" {{#inArray (arrayify collection) "blog"}}data-page-progress="page-progress"{{/inArray}}>
             {{#if pageHeader}}
-                <div id="metadata" class="brt-{{#if pageSize}}{{pageSize}}{{else}}md{{/if}}-1 pt-4 px-4 pt-md-5 px-md-5 bg-light">
+                <div id="metadata">
                     <h1>{{ title }}</h1>
                     <div class="media d-flex justify-content-between align-items-center">
                         <div class="d-flex align-items-center">
@@ -131,7 +133,12 @@
                             </div>
                         </div>
                         <div class="d-flex flex-nowrap">
-                            <!-- TODO: "Fanboy's Social Blocking List" may block some of these -->
+                            <!--<button type="button" class="btn btn-link link-dark p-0 border-0" onclick="copy('{{{siteurl}}}{{{paths.href}}}');" data-bs-container="body" data-bs-toggle="popover" data-bs-trigger="focus" data-bs-placement="top" data-bs-content="Link copied!">
+                                <span class="fa-stack align-top">
+                                    <i class="fa-light fa-circle fa-stack-2x"></i>
+                                    <i class="fa-regular fa-link fa-stack-1x"></i>
+                                </span>
+                            </button>-->
                             <a href="https://twitter.com/intent/tweet?url={{{encodeURI siteurl}}}{{{encodeURI paths.href}}}&text={{{encodeURI (concat title " by " twitterhandle)}}}" title="Share on Twitter" class="link-dark">
                                 <span class="fa-stack align-top">
                                     <i class="fa-light fa-circle fa-stack-2x"></i>
@@ -160,7 +167,7 @@
                     </div>
                 </div>
                 {{#if image}}
-                    <div class="pt-5 bg-light">
+                    <div class="mt-5">
                         <picture>
                             {{{ imageSources }}}
                             <img src="{{image}}" alt="{{sanitize title}}" class="w-100 og-image">
@@ -171,11 +178,11 @@
                     </div>
                 {{/if}}
             {{/if}}
-            <div id="contents" class="{{#not pageHeader}}brt-{{#if pageSize}}{{pageSize}}{{else}}md{{/if}}-1{{/not}} {{#not pageFooter}}brb-{{#if pageSize}}{{pageSize}}{{else}}md{{/if}}-1{{/not}} m-collapse p-4 p-md-5 bg-light">
+            <div id="contents" class="my-5 fs-5 font-family-serif">
                 {{{ contents }}}
             </div>
             {{#if pageFooter}}
-                <div class="d-flex justify-content-between brb-{{#if pageSize}}{{pageSize}}{{else}}md{{/if}}-1 pb-4 px-4 pb-md-5 px-md-5 bg-light">
+                <div class="d-flex justify-content-between">
                     <div class="d-flex align-items-center flex-wrap">
                         {{#if tags}}
                             <i class="fa-regular fa-tags"></i>
@@ -195,8 +202,10 @@
         </div>
 
         {{#and (inArray (arrayify collection) "blog") (gte collections.blog.length 6)}}
-            <div class="container-xl pb-3 pb-lg-5 pb-xl-6 markdown">
-                {{>blog_list_horizontal data=related.blog}}
+            <div class="mt-5 pt-5 bg-body-tertiary border-top">
+                <div class="container-md mw-md-lg markdown">
+                    {{>blog_list_horizontal data=related.blog}}
+                </div>
             </div>
         {{/and}}
     {{else}}
@@ -204,7 +213,7 @@
     {{/if}}
 </main>
 
-<footer class="footer mt-auto bg-dark text-light shadow">
+<footer class="footer mt-auto bg-body-tertiary border-top">
     <div class="container-xl">
         <div class="row row-cols-1">
             <div class="col p-4">
@@ -212,7 +221,7 @@
                     <div class="text-center">&copy; {{ year }} {{ sitename }}</div>
                     <div class="d-flex">
                         {{#each icons.footer}}
-                            <a href="{{link}}" title="{{title}}" class="mx-1">
+                            <a href="{{link}}" title="{{title}}" class="nav-link mx-1">
                                 <span class="fa-stack align-top">
                                     <i class="fa-light fa-circle fa-stack-2x"></i>
                                     <i class="{{icon}} fa-stack-1x"></i>

@@ -25,7 +25,7 @@ pageContainer: false
     <div class="mouse-scroll position-absolute r-3 b-3 r-md-5 b-md-5"><div><div></div></div></div>
 </section>
 
-<section id="summary" class="d-flex flex-column text-center w-100 bg-light">
+<section id="summary" class="d-flex flex-column text-center w-100 bg-body-tertiary border-top">
     <div class="position-absolute w-100 text-center" style="transform:translate(0%,-50%)">
         <a href="#" onclick="scrollToCenter('#summary'); return false;">
             {{>gravatar size=256 class="mw-50 rounded-circle img-thumbnail bg-dark border-dark og-image"}}
@@ -49,6 +49,8 @@ pageContainer: false
     </div>
 </section>
 
-{{#if collections.blog}}<section class="container-xl py-3 py-md-4 py-lg-5 markdown">
+{{#if collections.blog}}<div class="pt-5 bg-body-tertiary border-top">
+  <div class="container-md mw-md-lg markdown">
     {{>blog_list_horizontal data=(first collections.blog 6)}}
-</section>{{/if}}
+  </div>
+</div>{{/if}}
