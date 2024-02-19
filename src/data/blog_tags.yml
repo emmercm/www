@@ -54,6 +54,10 @@ kubernetes:
   title: Kubernetes
   color: kubernetes
 
+macos:
+  title: macOS
+  color: dark
+
 markdown:
   title: Markdown
   color: darker
