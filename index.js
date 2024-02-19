@@ -790,22 +790,20 @@ tracer(Metalsmith(path.resolve()))
     .use(include({
         directories: {
             'static/css': [
-                // Un-minified files that will get combined into one file
-                './node_modules/@fortawesome/fontawesome-pro/css/fontawesome.css',
-                './node_modules/@fortawesome/fontawesome-pro/css/brands.css',
-                './node_modules/@fortawesome/fontawesome-pro/css/light.css',
-                './node_modules/@fortawesome/fontawesome-pro/css/regular.css'
+                // ***** Un-minified files that can be concatenated *****
             ],
             'static/js/vendor': [
-                // Un-minified files that can be concatenated
+                // ***** Un-minified files that can be concatenated *****
                 // TODO(cemmer): rewrite local JS to eliminate jQuery
                 './node_modules/jquery/dist/jquery.slim.js',
                 // TODO(cemmer): only grab the needed module files (requires a bundler?)
-                './node_modules/bootstrap/dist/js/bootstrap.js'
+                './node_modules/bootstrap/dist/js/bootstrap.js',
+                './node_modules/@fortawesome/fontawesome-pro/js/fontawesome.js',
+                './node_modules/@fortawesome/fontawesome-pro/js/brands.js',
+                './node_modules/@fortawesome/fontawesome-pro/js/light.js',
+                './node_modules/@fortawesome/fontawesome-pro/js/regular.js',
             ],
-            'static/webfonts': [
-                './node_modules/@fortawesome/fontawesome-pro/webfonts/*'
-            ]
+            'static/webfonts': []
         }
     }))
 
