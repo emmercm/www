@@ -64,8 +64,11 @@
   blockquote {
     margin-left: -$border-width*10 - $border-width*2;
     padding-left: $border-width*10;
-    border-left: $border-width*2 solid var(--#{$prefix}body-color);
+    border-left: $border-width*2 solid var(--#{$prefix}primary);
     font-style: italic;
+  }
+  ul blockquote {
+    margin-left: 0px;
   }
 
   $ul-padding: 1.875em;

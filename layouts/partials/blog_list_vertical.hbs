@@ -1,34 +1,7 @@
 <div>
     {{#each data}}
         <div class="row g-0">
-            <div class="col-9 col-md-10 pe-3 pe-md-4">
-                <h3 class="d-flex align-items-start justify-content-between">
-                    <a href="{{paths.href}}" title="{{title}}" class="link-body-emphasis">{{ title }}</a>
-                </h3>
-                <h5 class="mt-0">
-                    <small class="text-muted">{{luxon this.date "MMM d, yyyy"}} &middot; {{this.readingTime}}</small>
-                </h5>
-                <p class="mt-3">{{{sanitize excerpt}}}</p>
-            </div>
-
-            <div class="col-3 col-md-2">
-                {{#if thumb}}
-                    <a href="{{paths.href}}" title="{{title}}">
-                        <picture>
-                            {{{ data.thumbSources }}}<img src="{{thumb}}" alt="{{sanitize title}}" class="w-100">
-                        </picture>
-                    </a>
-                {{/if}}
-                {{#if tags}}
-                    <div class="d-flex justify-content-center flex-wrap {{#if image}}mt-2{{/if}}">
-                        {{#each (sort tags)}}
-                            <span class="m-1 mw-100 fs-5">
-                                <a href="/blog/tag/{{this}}" title="{{this}}" class="badge link-white bg-{{get "color" (get this ../../blog_tags)}} mw-100 text-break text-wrap">{{ this }}</a>
-                            </span>
-                        {{/each}}
-                    </div>
-                {{/if}}
-            </div>
+            {{>blog_card data=this blog_tags=../blog_tags excerpt=true horizontal=true}}
         </div>
 
         {{#unless @last}}

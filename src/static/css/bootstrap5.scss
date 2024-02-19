@@ -1490,7 +1490,6 @@ $navbar-height: 64px;
 @import "utilities/markdown";
 @import "utilities/position";
 @import "utilities/sizes";
-@import "utilities/spacing";
 @import "utilities/text";
 
 
@@ -1541,20 +1540,6 @@ h1, h2, h3, h4, h5, h6,
 .navbar {
   .navbar-brand img {
     height: $navbar-height - 26px;
-  }
-}
-.navbar-spacer {
-  height: $navbar-height;
-  z-index: -1;
-  & + * {
-    margin-top: $navbar-height !important;
-  }
-  @each $size, $length in $spacers {
-    & + .m-#{$size},
-    & + .my-#{$size},
-    & + .mt-#{$size} {
-      margin-top: math.div($navbar-height, 16px) + $length !important;
-    }
   }
 }
 
