@@ -421,18 +421,10 @@ tracer(Metalsmith(path.resolve()))
         }
     }))
 
-    // Temporarily rename .md to .html for permalinks() and paths()
-    // Use metalsmith-renamer instead of metalsmith-copy because it breaks the reference from collections to files
-    .use(renamer({
-        md: {
-            pattern: '**/*.md',
-            rename: file => file.replace(/\.md$/, '.html')
-        }
-    }))
-
     // Move pages to separate index.html inside folders
     .use(permalinks({
-        relative: false,
+        match: '**/*.md',
+        directoryIndex: 'index.md',
         slug: slugify,
         linksets: [
             {
@@ -445,15 +437,7 @@ tracer(Metalsmith(path.resolve()))
     // Add a "paths" object to each file's metadata - after permalinks() moves them
     .use(paths({
         property: 'paths',
-        directoryIndex: 'index.html'
-    }))
-
-    // Rename .html back to .md for templating
-    .use(renamer({
-        html: {
-            pattern: '**/*.html',
-            rename: file => file.replace(/\.html$/, '.md')
-        }
+        directoryIndex: 'index.md'
     }))
 
     // Find images for pages
