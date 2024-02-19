@@ -48,3 +48,11 @@
     }
   }
 }
+
+.border-body-emphasis {
+  border-color: RGBA(var(--#{$prefix}emphasis-color-rgb), var(--#{$prefix}link-opacity, 1)) if($enable-important-utilities, !important, null);
+}
+
+.border-body-secondary {
+  border-color: rgba(var(--#{$prefix}bs-secondary-bg-rgb), var(--#{$prefix}bs-bg-opacity)) !important;
+}

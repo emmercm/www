@@ -1,19 +1,74 @@
 <!DOCTYPE html>
-<html class="h-100" lang="{{sanitize sitelanguage}}">
+<html class="h-100" lang="{{sanitize sitelanguage}}" data-bs-theme="auto">
 <head>
-    <!-- Google tag (gtag.js) -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-NK4M8WMYHC"></script>
-    <script>
-        window.dataLayer = window.dataLayer || [];
-        function gtag(){dataLayer.push(arguments);}
-        gtag('js', new Date());
-        gtag('config', 'G-NK4M8WMYHC');
-    </script>
-
     <title>{{sanitize pageTitle}}</title>
     <meta charset="{{sanitize sitecharset}}">
     <meta name="viewport" content="width=device-width,minimum-scale=1,initial-scale=1">
     <meta name="referrer" content="unsafe-url">
+
+    <script>
+        // https://getbootstrap.com/docs/5.3/customize/color-modes/#javascript
+        (() => {
+            'use strict'
+            const getStoredTheme = () => localStorage.getItem('theme')
+            const setStoredTheme = theme => localStorage.setItem('theme', theme)
+            const getPreferredTheme = () => {
+                const storedTheme = getStoredTheme()
+                if (storedTheme) {
+                    return storedTheme
+                }
+                return window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light'
+            }
+            const setTheme = theme => {
+                if (theme === 'auto' && window.matchMedia('(prefers-color-scheme: dark)').matches) {
+                    document.documentElement.setAttribute('data-bs-theme', 'dark')
+                } else {
+                    document.documentElement.setAttribute('data-bs-theme', theme)
+                }
+            }
+            setTheme(getPreferredTheme())
+            const showActiveTheme = (theme, focus = false) => {
+                const themeSwitcher = document.querySelector('#bd-theme')
+                if (!themeSwitcher) {
+                    return
+                }
+                const themeSwitcherText = document.querySelector('#bd-theme-text')
+                const activeThemeIcon = document.querySelector('.theme-icon-active use')
+                const btnToActive = document.querySelector(`[data-bs-theme-value="${theme}"]`)
+                const svgOfActiveBtn = btnToActive.querySelector('svg use').getAttribute('href')
+                document.querySelectorAll('[data-bs-theme-value]').forEach(element => {
+                    element.classList.remove('active')
+                    element.setAttribute('aria-pressed', 'false')
+                })
+                btnToActive.classList.add('active')
+                btnToActive.setAttribute('aria-pressed', 'true')
+                activeThemeIcon.setAttribute('href', svgOfActiveBtn)
+                const themeSwitcherLabel = `${themeSwitcherText.textContent} (${btnToActive.dataset.bsThemeValue})`
+                themeSwitcher.setAttribute('aria-label', themeSwitcherLabel)
+                if (focus) {
+                    themeSwitcher.focus()
+                }
+            }
+            window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', () => {
+                const storedTheme = getStoredTheme()
+                if (storedTheme !== 'light' && storedTheme !== 'dark') {
+                    setTheme(getPreferredTheme())
+                }
+            })
+            window.addEventListener('DOMContentLoaded', () => {
+                showActiveTheme(getPreferredTheme())
+                document.querySelectorAll('[data-bs-theme-value]')
+                    .forEach(toggle => {
+                        toggle.addEventListener('click', () => {
+                            const theme = toggle.getAttribute('data-bs-theme-value')
+                            setStoredTheme(theme)
+                            setTheme(theme)
+                            showActiveTheme(theme, true)
+                        })
+                    })
+            })
+        })()
+    </script>
 
     <!-- META TAGS FOR EVERY PAGE -->
     <meta name="title" content="{{sanitize pageTitle}}">
@@ -70,13 +125,22 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300..800&family=Source+Serif+4:ital,opsz,wght@0,8..60,200..900;1,8..60,200..900&display=swap">
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300..800&family=Source+Serif+4:ital,opsz,wght@0,8..60,200..900;1,8..60,200..900&display=swap" media="print" onload="this.media='all'">
+    <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300..800&family=Source+Code+Pro:ital,wght@0,200..900;1,200..900&family=Source+Serif+4:ital,opsz,wght@0,8..60,200..900;1,8..60,200..900&display=swap">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300..800&family=Source+Code+Pro:ital,wght@0,200..900;1,200..900&family=Source+Serif+4:ital,opsz,wght@0,8..60,200..900;1,8..60,200..900&display=swap" media="print" onload="this.media='all'">
     <noscript>
-        <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300..800&family=Source+Serif+4:ital,opsz,wght@0,8..60,200..900;1,8..60,200..900&display=swap">
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300..800&family=Source+Code+Pro:ital,wght@0,200..900;1,200..900&family=Source+Serif+4:ital,opsz,wght@0,8..60,200..900;1,8..60,200..900&display=swap">
     </noscript>
 
     <link rel="stylesheet" href="**/styles*.css">
+
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-NK4M8WMYHC"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'G-NK4M8WMYHC');
+    </script>
 </head>
 
 <body class="d-flex flex-column h-100">
@@ -120,13 +184,13 @@
 
 <main>
     {{#if pageContainer}}
-        <div class="{{#if pageSize}}container-{{pageSize}} mw-{{pageSize}}-{{pageSize}}{{else}}container-md mw-md-md{{/if}} mt-5 px-0 markdown" {{#inArray (arrayify collection) "blog"}}data-page-progress="page-progress"{{/inArray}}>
+        <div class="{{#if pageSize}}container-{{pageSize}} mw-{{pageSize}}-{{pageSize}}{{else}}container-md mw-md-md{{/if}} my-4 my-md-5 px-4 markdown" {{#inArray (arrayify collection) "blog"}}data-page-progress="page-progress"{{/inArray}}>
             {{#if pageHeader}}
-                <div id="metadata">
+                <div id="metadata" class="mb-5 mb-md-5">
                     <h1>{{ title }}</h1>
                     <div class="media d-flex justify-content-between align-items-center">
                         <div class="d-flex align-items-center">
-                            {{>gravatar size=56 class="me-3 rounded-circle img-thumbnail bg-dark border-0"}}
+                            {{>gravatar size=56 class="me-3 rounded-circle img-thumbnail bg-secondary border-0"}}
                             <div class="media-body">
                                 <div>{{ sitename }}</div>
                                 <div class="text-muted"><span title="{{luxon this.date "fff"}}">{{luxon this.date "DD"}}</span> &middot; {{readingTime}}</div>
@@ -139,13 +203,13 @@
                                     <i class="fa-regular fa-link fa-stack-1x"></i>
                                 </span>
                             </button>-->
-                            <a href="https://twitter.com/intent/tweet?url={{{encodeURI siteurl}}}{{{encodeURI paths.href}}}&text={{{encodeURI (concat title " by " twitterhandle)}}}" title="Share on Twitter" class="link-dark">
+                            <a href="https://twitter.com/intent/tweet?url={{{encodeURI siteurl}}}{{{encodeURI paths.href}}}&text={{{encodeURI (concat title " by " twitterhandle)}}}" title="Share on Twitter" class="link-body-emphasis">
                                 <span class="fa-stack align-top">
                                     <i class="fa-light fa-circle fa-stack-2x"></i>
                                     <i class="fa-brands fa-x-twitter fa-stack-1x"></i>
                                 </span>
                             </a>
-                            <a href="https://www.linkedin.com/shareArticle?url={{{encodeURI siteurl}}}{{{encodeURI paths.href}}}&mini=true&title={{{encodeURI title}}}&summary={{{encodeURI excerpt}}}&source={{{encodeURI sitename}}}" title="Share on LinkedIn" class="link-dark">
+                            <a href="https://www.linkedin.com/shareArticle?url={{{encodeURI siteurl}}}{{{encodeURI paths.href}}}&mini=true&title={{{encodeURI title}}}&summary={{{encodeURI excerpt}}}&source={{{encodeURI sitename}}}" title="Share on LinkedIn" class="link-body-emphasis">
                                 <span class="fa-stack align-top">
                                     <i class="fa-light fa-circle fa-stack-2x"></i>
                                     <i class="fa-brands fa-linkedin-in fa-stack-1x"></i>
@@ -157,7 +221,7 @@
                                     <i class="fa-brands fa-facebook-f fa-stack-1x"></i>
                                 </span>
                             </a>-->
-                            <a href="/blog/rss.xml" title="RSS Feed" class="d-none d-md-inline link-dark">
+                            <a href="/blog/rss.xml" title="RSS Feed" class="d-none d-md-inline link-body-emphasis">
                                 <span class="fa-stack align-top">
                                     <i class="fa-light fa-circle fa-stack-2x"></i>
                                     <i class="fa-regular fa-rss fa-stack-1x"></i>
@@ -167,7 +231,7 @@
                     </div>
                 </div>
                 {{#if image}}
-                    <div class="mt-5">
+                    <div class="mb-4 mb-md-5">
                         <picture>
                             {{{ imageSources }}}
                             <img src="{{image}}" alt="{{sanitize title}}" class="w-100 og-image">
@@ -178,16 +242,16 @@
                     </div>
                 {{/if}}
             {{/if}}
-            <div id="contents" class="my-5 fs-5 font-family-serif">
+            <div id="contents" class="fs-5 font-family-serif">
                 {{{ contents }}}
             </div>
             {{#if pageFooter}}
-                <div class="d-flex justify-content-between">
-                    <div class="d-flex align-items-center flex-wrap">
+                <div class="d-flex justify-content-between mt-5">
+                    <div class="d-flex align-items-center flex-wrap fs-5">
                         {{#if tags}}
                             <i class="fa-regular fa-tags"></i>
                             {{#each tags}}
-                                <span class="my-0 ms-2 mw-100 fs-5">
+                                <span class="my-0 ms-2 mw-100">
                                     <a href="/blog/tag/{{this}}" title="{{this}}" class="badge link-white bg-{{get "color" (get this ../blog_tags)}} mw-100 text-break text-wrap">{{ this }}</a>
                                 </span>
                             {{/each}}

@@ -110,17 +110,17 @@ const twitterHandle   = 'emmercm';
 const githubHandle    = 'emmercm';
 
 const blogImageSizes = [
-    [768,768/2], // default: full width
-    [1536,1536/2], // full width retina
+    [720,720/2], // default: full width
+    [1440,1440/2], // full width retina
     [414,414/2], // mobile
     [360,360/2], // mobile
 ];
 const blogImageThumbSizes = [
-    [159,159/2], // default: card two line title
-    [318,318/2], // card two line title retina
-    [135,135/2], // card single line title
-    [222,222/2], // index retina
-    [111,111/2], // index
+    [290,290/2], // default: two rows of three cards
+    [580,580/2], // two rows of three cards, retina
+    [444,444/2], // three rows of two cards
+    [240,240/2], // index retina
+    [120,120/2], // index
 ];
 
 const vegaOptions = {
@@ -154,7 +154,7 @@ markdownRenderer.heading = (text, level, raw) => {
     const slug = slugify(title);
     return `<h${level} id="${slug}">
         <a href="#${slug}" title="${title}" class="link" aria-hidden="true">
-            <i class="fa-regular fa-link"></i>
+            <i class="fa-regular fa-hashtag"></i>
         </a>
         ${text}
         </h${level}>`;
@@ -163,7 +163,7 @@ markdownRenderer.table = (header, body) => {
     if (body) {
         body = `<tbody>${body}</tbody>`;
     }
-    return `<table class="table table-bordered border-dark table-striped">
+    return `<table class="table table-bordered table-striped">
         <thead class="table-dark">${header}</thead>
         ${body}
         </table>`;
@@ -208,7 +208,8 @@ markdownRenderer.code = (_code, infostring, escaped) => {
     if (!lang) {
         return `<pre><code>${escaped ? _code : escape(_code, true)}</code></pre>\n`;
     }
-    return `<pre><code class="language-${escape(lang, true)}">${escaped ? _code : escape(_code, true)}</code></pre>\n`;
+    const escapedLang = escape(lang, true);
+    return `<pre data-lang="${escapedLang}"><code class="language-${escapedLang}">${escaped ? _code : escape(_code, true)}</code></pre>\n`;
 };
 
 tracer(Metalsmith(path.resolve()))

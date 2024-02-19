@@ -1,27 +1,29 @@
-<div class="d-flex flex-column h-100">
+<div class="d-flex {{#if horizontal}}flex-row{{else}}flex-column{{/if}} h-100">
     {{#if data.thumb}}
-        <a href="{{data.paths.href}}" title="{{data.title}}" class="mb-2">
+        <a href="{{data.paths.href}}" title="{{data.title}}" class="{{#if horizontal}}me-3 w-25{{else}}mb-2{{/if}}">
             <picture class="fill">
                 {{{ data.thumbSources }}}<img src="{{data.thumb}}" alt="{{sanitize data.title}}" class="fill">
             </picture>
         </a>
     {{/if}}
-    <div class="mb-2 fw-bold">
-        <a href="{{data.paths.href}}" title="{{data.title}}" class="link-dark">{{ data.title }}</a>
+    <div class="d-flex flex-column h-100 {{#if horizontal}}w-75{{/if}}">
+        <h6 class="mt-0 mb-2 fw-bold">
+            <a href="{{data.paths.href}}" title="{{data.title}}" class="link-body-emphasis">{{ data.title }}</a>
+        </h6>
+        <h6 class="mt-auto mb-2 text-muted">
+            {{luxon data.date "MMM d, yyyy"}} &middot; {{data.readingTime}}
+        </h6>
+        {{#and excerpt data.excerpt}}
+            <p class="fs-6">{{{sanitize data.excerpt}}}</p>
+        {{/and}}
+        {{#and tags data.tags}}
+            <div class="d-flex flex-wrap m-n1">
+                {{#each (sort data.tags)}}
+                    <span class="m-1 mw-100 fs-5">
+                        <a href="/blog/tag/{{this}}" title="{{this}}" class="badge link-white bg-{{get "color" (get this ../blog_tags)}} mw-100 text-break text-wrap">{{ this }}</a>
+                    </span>
+                {{/each}}
+            </div>
+        {{/and}}
     </div>
-    <div class="mt-auto mb-2 text-muted">
-        {{luxon data.date "MMM d, yyyy"}} &middot; {{data.readingTime}}
-    </div>
-    {{#and excerpt data.excerpt}}
-        <p>{{{sanitize data.excerpt}}}</p>
-    {{/and}}
-    {{#and tags data.tags}}
-        <div class="d-flex flex-wrap m-n1">
-            {{#each (sort data.tags)}}
-                <span class="m-1 mw-100 fs-5">
-                    <a href="/blog/tag/{{this}}" title="{{this}}" class="badge link-white bg-{{get "color" (get this ../blog_tags)}} mw-100 text-break text-wrap">{{ this }}</a>
-                </span>
-            {{/each}}
-        </div>
-    {{/and}}
 </div>

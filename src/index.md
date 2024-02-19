@@ -7,13 +7,14 @@ pageContainer: false
 
 ---
 
-<section class="d-flex flex-column position-relative text-center w-100 vh-100 navbar-nspacer text-shadow-sm">
-    <div class="container my-auto p-4">
+<section class="d-flex flex-column position-relative text-center w-100">
+    <div style="height:64px; max-height:10vw;">&nbsp;</div> <!-- 256px/4 Gravatar spacer -->
+    <div class="container-md my-6">
         <h1 class="display-1">{{ sitename }}</h1>
         <h2>Software Engineering Professional</h2>
         <p class="h1 mt-5">
             {{#each icons.header}}
-                <a href="{{link}}" {{#if title}}title="{{title}}"{{/if}} class="link-dark">
+                <a href="{{link}}" {{#if title}}title="{{title}}"{{/if}} class="link-body-emphasis">
                     <span class="fa-stack align-top">
                         <i class="fa-light fa-circle fa-stack-2x"></i>
                         <i class="{{icon}} fa-stack-1x"></i>
@@ -22,17 +23,18 @@ pageContainer: false
             {{/each}}
         </p>
     </div>
-    <div class="mouse-scroll position-absolute r-3 b-3 r-md-5 b-md-5"><div><div></div></div></div>
+    <!-- <div class="mouse-scroll position-absolute r-3 b-3 r-md-5 b-md-5"><div><div></div></div></div> -->
+    <div style="height:128px; max-height:20vw;">&nbsp;</div> <!-- 256px/2 Gravatar spacer -->
 </section>
 
 <section id="summary" class="d-flex flex-column text-center w-100 bg-body-tertiary border-top">
     <div class="position-absolute w-100 text-center" style="transform:translate(0%,-50%)">
         <a href="#" onclick="scrollToCenter('#summary'); return false;">
-            {{>gravatar size=256 class="mw-50 rounded-circle img-thumbnail bg-dark border-dark og-image"}}
+            {{>gravatar size=256 class="mw-50 rounded-circle img-thumbnail bg-border border og-image"}}
         </a>
     </div>
     <div style="height:128px; max-height:20vw;">&nbsp;</div> <!-- 256px/2 Gravatar spacer -->
-    <div class="container mw-md-md my-6 mx-auto">
+    <div class="container-md mw-md-md my-6 mx-auto">
         <div class="fs-2 mb-3">
             <i class="fa-regular fa-location-dot"></i>
             {{#if github.profile.user.location}}

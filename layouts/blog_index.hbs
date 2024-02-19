@@ -7,11 +7,11 @@
         <hr class="my-4 my-md-5">
 
         <div class="d-flex justify-content-center">
-            <a href="/{{pagination.previous.path}}" title="Newer" class="btn {{#eq pagination.index 0}}btn-outline-secondary disabled{{else}}btn-outline-dark{{/eq}} br-max">Newer</a>
+            <a href="/{{pagination.previous.path}}" title="Newer" class="btn {{#eq pagination.index 0}}btn-outline-secondary disabled{{else}}btn-outline-dark{{/eq}} br-max d-none d-md-block">Newer</a>
             {{#forEach pagination.pages}}
                 <a href="/{{get "path" (itemAt ../pagination.pages (subtract index 1))}}" title="Page {{index}}" class="btn {{#eq ../pagination.index (subtract index 1)}}btn-outline-primary disabled{{else}}btn-outline-dark{{/eq}} br-max ms-2">{{ index }}</a>
             {{/forEach}}
-            <a href="/{{pagination.next.path}}" title="Older" class="btn {{#eq pagination.index (subtract pagination.pages.length 1)}}btn-outline-secondary disabled{{else}}btn-outline-dark{{/eq}} br-max ms-2">Older</a>
+            <a href="/{{pagination.next.path}}" title="Older" class="btn {{#eq pagination.index (subtract pagination.pages.length 1)}}btn-outline-secondary disabled{{else}}btn-outline-dark{{/eq}} br-max d-none d-md-block ms-2">Older</a>
         </div>
     </div>
 
@@ -27,7 +27,7 @@
         </div>
 
         <h6>
-            <a href="/blog/rss.xml" class="text-dark">
+            <a href="/blog/rss.xml" class="link-body-emphasis">
                 <i class="fa-regular fa-rss mr-1"></i>
                 RSS Feed
             </a>
