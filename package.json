@@ -25,7 +25,7 @@
     "@metalsmith/excerpts": "^1.5.1",
     "@metalsmith/layouts": "^2.7.0",
     "@metalsmith/markdown": "^1.10.0",
-    "@metalsmith/permalinks": "^2.5.1",
+    "@metalsmith/permalinks": "^3.0.1",
     "@metalsmith/postcss": "^5.4.1",
     "@metalsmith/remove": "^1.4.0",
     "@metalsmith/sass": "^1.8.1",
