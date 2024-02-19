@@ -1,7 +1,7 @@
 <div class="card my-3 my-sm-4">
     <!-- Because of course "files" isn't exposed as metadata, we have to find files via collections -->
-    {{#each (unique_by (flat (array_values collections)) "path")}}
-        {{#eq path ../path}}
+    {{#each (unique_by (flat (array_values collections)) "permalink")}}
+        {{#eq permalink ../path}}
             <div class="card-body">
                 {{>blog_card data=this tags=false horizontal=true}}
             </div>
