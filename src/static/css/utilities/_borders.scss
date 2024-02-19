@@ -48,3 +48,8 @@
     }
   }
 }
+
+
+.border-body-secondary {
+  border-color: rgba(var(--#{$prefix}bs-secondary-bg-rgb), var(--#{$prefix}bs-bg-opacity)) !important;
+}

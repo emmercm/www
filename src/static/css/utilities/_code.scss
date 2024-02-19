@@ -1,11 +1,24 @@
 pre {
   background-color: $code-bg;
-  border: 1px solid darken($code-bg, 1%);
+  // border: 1px solid darken($code-bg, 1%);
   @extend .shadow-sm;
   padding: .75rem 1rem;
 
   :not(li) > &:last-child {
     margin-bottom: 0 !important;
+  }
+}
+
+// Expand code blocks at small screen sizes
+@each $breakpoint in map-keys($grid-breakpoints) {
+  @include media-breakpoint-down($breakpoint) {
+    $infix: breakpoint-infix($breakpoint, $grid-breakpoints);
+    @each $size, $length in $spacers {
+      .container#{$infix}.px-#{$size} #contents > pre {
+        margin-left: -$length;
+        margin-right: -$length;
+      }
+    }
   }
 }
 

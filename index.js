@@ -106,22 +106,21 @@ const siteURL         = process.env.NETLIFY && process.env.CONTEXT !== 'producti
 const siteEmail       = 'emmercm@gmail.com';
 const siteDescription = 'Software engineer with ' + Math.floor(DateTime.local().diff(DateTime.fromISO('2012-01-16'), 'years').years) + '+ years of experience developing full-stack solutions in JavaScript, PHP, Go, Java, and Python.';
 const siteLogo        = '**/prologo1/logo3_Gray_Lighter.svg';
-const siteBackground  = '**/trianglify.svg';
 const twitterHandle   = 'emmercm';
 const githubHandle    = 'emmercm';
 
 const blogImageSizes = [
-    [768,768/2], // default: full width
-    [1536,1536/2], // full width retina
+    [720,720/2], // default: full width
+    [1440,1440/2], // full width retina
     [414,414/2], // mobile
     [360,360/2], // mobile
 ];
 const blogImageThumbSizes = [
-    [159,159], // default: card two line title
-    [318,318], // card two line title retina
-    [135,135], // card single line title
-    [222,222], // index retina
-    [111,111], // index
+    [290,290/2], // default: two rows of three cards
+    [580,580/2], // two rows of three cards, retina
+    [444,444/2], // three rows of two cards
+    [240,240/2], // index retina
+    [120,120/2], // index
 ];
 
 const vegaOptions = {
@@ -155,7 +154,7 @@ markdownRenderer.heading = (text, level, raw) => {
     const slug = slugify(title);
     return `<h${level} id="${slug}">
         <a href="#${slug}" title="${title}" class="link" aria-hidden="true">
-            <i class="fa-regular fa-link"></i>
+            <i class="fa-regular fa-hashtag"></i>
         </a>
         ${text}
         </h${level}>`;
@@ -164,7 +163,7 @@ markdownRenderer.table = (header, body) => {
     if (body) {
         body = `<tbody>${body}</tbody>`;
     }
-    return `<table class="table table-bordered border-dark table-striped">
+    return `<table class="table table-bordered table-striped">
         <thead class="table-dark">${header}</thead>
         ${body}
         </table>`;
@@ -209,7 +208,8 @@ markdownRenderer.code = (_code, infostring, escaped) => {
     if (!lang) {
         return `<pre><code>${escaped ? _code : escape(_code, true)}</code></pre>\n`;
     }
-    return `<pre><code class="language-${escape(lang, true)}">${escaped ? _code : escape(_code, true)}</code></pre>\n`;
+    const escapedLang = escape(lang, true);
+    return `<pre data-lang="${escapedLang}"><code class="language-${escapedLang}">${escaped ? _code : escape(_code, true)}</code></pre>\n`;
 };
 
 tracer(Metalsmith(path.resolve()))
@@ -363,13 +363,6 @@ tracer(Metalsmith(path.resolve()))
             done(err);
         });
     })
-
-    // Process background images
-    // TODO(cemmer): webp formats
-    .use(backgroundImage(siteBackground, 1024, prodBuild)) // catch all
-    .use(backgroundImage(siteBackground, 926, prodBuild)) // iPhone 12 Pro Max
-    .use(backgroundImage(siteBackground, 896, prodBuild)) // iPhone 11 Pro Max, XR, XS Max
-    .use(backgroundImage(siteBackground, 736, prodBuild)) // iPhone 8 Plus, 7 Plus, 6/S Plus
 
     // Create static/img/blog/default.*
     .use(include({
@@ -797,22 +790,20 @@ tracer(Metalsmith(path.resolve()))
     .use(include({
         directories: {
             'static/css': [
-                // Un-minified files that will get combined into one file
-                './node_modules/@fortawesome/fontawesome-pro/css/fontawesome.css',
-                './node_modules/@fortawesome/fontawesome-pro/css/brands.css',
-                './node_modules/@fortawesome/fontawesome-pro/css/light.css',
-                './node_modules/@fortawesome/fontawesome-pro/css/regular.css'
+                // ***** Un-minified files that can be concatenated *****
             ],
             'static/js/vendor': [
-                // Un-minified files that can be concatenated
+                // ***** Un-minified files that can be concatenated *****
                 // TODO(cemmer): rewrite local JS to eliminate jQuery
                 './node_modules/jquery/dist/jquery.slim.js',
                 // TODO(cemmer): only grab the needed module files (requires a bundler?)
-                './node_modules/bootstrap/dist/js/bootstrap.js'
+                './node_modules/bootstrap/dist/js/bootstrap.js',
+                './node_modules/@fortawesome/fontawesome-pro/js/fontawesome.js',
+                './node_modules/@fortawesome/fontawesome-pro/js/brands.js',
+                './node_modules/@fortawesome/fontawesome-pro/js/light.js',
+                './node_modules/@fortawesome/fontawesome-pro/js/regular.js',
             ],
-            'static/webfonts': [
-                './node_modules/@fortawesome/fontawesome-pro/webfonts/*'
-            ]
+            'static/webfonts': []
         }
     }))
 
@@ -910,7 +901,6 @@ tracer(Metalsmith(path.resolve()))
                 'doc', 'docx', 'pdf', 'ppt', 'pptx', 'xls', 'xlsx'
             ].join('|')
             + ')',
-        ignore: siteBackground.replace(/\.[^\.]+$/, '') + '*'
     })))
 
     /***************************
