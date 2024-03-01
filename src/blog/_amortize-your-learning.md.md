@@ -37,7 +37,11 @@ Here are some example how-to topics:
 ## Audience two: your organization
 
 ## Audience three: the public
+
+## Closing thoughts
+
+
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTIxMzIxMTkwMDYsLTExMjkxMTgzNDgsLT
-cwNzcwNjIzNiwzNDk3MDQ0MjAsLTE1MjY5NTc5NzRdfQ==
+eyJoaXN0b3J5IjpbLTI4NTAwNjI5MSwtMTEyOTExODM0OCwtNz
+A3NzA2MjM2LDM0OTcwNDQyMCwtMTUyNjk1Nzk3NF19
 -->
