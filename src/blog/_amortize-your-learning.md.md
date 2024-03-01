@@ -40,13 +40,13 @@ Here are some example how-to topics:
 
 ## Closing thoughts
 
-There's a Ralph Waldo Emerson quote from his "[Compensation](https://en.wikipedia.org/wiki/Compensation_(essay))" essay that gets referenced often when talking about the "pay it forward" movement:
+There's a Ralph Waldo Emerson quote from his essay titled "[Compensation](https://en.wikipedia.org/wiki/Compensation_(essay))" that gets referenced often when talking about the "pay it forward" movement:
 
 > In the order of nature we cannot render benefits to those from whom we receive them, or only seldom. But the benefit we receive must be rendered again, line for line, deed for deed, cent for cent, to somebody. Beware of too much good staying in your hand. It will fast corrupt and worm worms. Pay it away quickly in some sort.
 
-In that paragraph Emerson is talking about paying debts, and in the rest of the essay is about keeping one's life in balance.
+In that paragraph Emerson is talking about paying debts, and in the rest of the essay is about keeping one's life in balance. Not quite the same as writing documentation, 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTE5MDI1MzcwMjQsLTI4NTAwNjI5MSwtMT
-EyOTExODM0OCwtNzA3NzA2MjM2LDM0OTcwNDQyMCwtMTUyNjk1
-Nzk3NF19
+eyJoaXN0b3J5IjpbODExMDc2NTc4LC0xOTAyNTM3MDI0LC0yOD
+UwMDYyOTEsLTExMjkxMTgzNDgsLTcwNzcwNjIzNiwzNDk3MDQ0
+MjAsLTE1MjY5NTc5NzRdfQ==
 -->
