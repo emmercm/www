@@ -5,7 +5,7 @@ draft: true
 
 ---
 
-Internal how-to guides at least
+The time required to learn something new can be large, but you can make that cost worth it by teaching it to others.
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTExMDQ2ODg3NjddfQ==
+eyJoaXN0b3J5IjpbLTg4OTg2MTg2NywtMTEwNDY4ODc2N119
 -->
