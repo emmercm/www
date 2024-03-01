@@ -19,8 +19,14 @@ Here's a situation: your team uses some piece of technology, and let's say it's 
 
 Here's an even more frustrating situation: you've been tasked with modifying an older system that has very little tribal knowledge left at your company. You find some documentation and it looks promising, until you realize it's years out of date. You once again end up doing code archaeology to find what you need. You find it, spend a nightmarish amount of time testing it, and eventually make your change successfully.
 
-What's missing from these two scenarios? _Making the life of the next person better_. You spent significant time gaining a lot of valuable context to accomplish your task - you should share that 
+What's missing from these two scenarios? _Making the life of the next person better_. You spent significant time gaining a lot of valuable context to accomplish your task - you should share that context!
+
+## Audience one: yourself
+
+## Audience two: your organization
+
+## Audience three: the public
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTQ2NzE3NzE1MSwtMTEyOTExODM0OCwtNz
+eyJoaXN0b3J5IjpbMTg0NzI0NDIwMiwtMTEyOTExODM0OCwtNz
 A3NzA2MjM2LDM0OTcwNDQyMCwtMTUyNjk1Nzk3NF19
 -->
