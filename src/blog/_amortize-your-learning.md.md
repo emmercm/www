@@ -44,9 +44,10 @@ There's a Ralph Waldo Emerson quote from his essay titled "[Compensation](https:
 
 > In the order of nature we cannot render benefits to those from whom we receive them, or only seldom. But the benefit we receive must be rendered again, line for line, deed for deed, cent for cent, to somebody. Beware of too much good staying in your hand. It will fast corrupt and worm worms. Pay it away quickly in some sort.
 
-In that paragraph Emerson is talking about paying debts, and in the rest of the essay is about keeping one's life in balance. Not quite the same as writing documentation, TODO
+In that paragraph Emerson is talking about paying debts, and in the rest of the essay is about keeping one's life in balance. It's not quite the same as writing documentation, but I appreciate his opinion
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTIwNzM5NTg1NjQsODExMDc2NTc4LC0xOT
-AyNTM3MDI0LC0yODUwMDYyOTEsLTExMjkxMTgzNDgsLTcwNzcw
-NjIzNiwzNDk3MDQ0MjAsLTE1MjY5NTc5NzRdfQ==
+eyJoaXN0b3J5IjpbMTM1OTQ5MDY0OSwtMjA3Mzk1ODU2NCw4MT
+EwNzY1NzgsLTE5MDI1MzcwMjQsLTI4NTAwNjI5MSwtMTEyOTEx
+ODM0OCwtNzA3NzA2MjM2LDM0OTcwNDQyMCwtMTUyNjk1Nzk3NF
+19
 -->
