@@ -21,6 +21,8 @@ Here's an even more frustrating situation: you've been tasked with modifying an 
 
 What's missing from these two scenarios? _Making the life of the next person better_. You spent significant time gaining a lot of valuable context to accomplish your task - you should share that context!
 
+## Example how-to topics
+
 ## Audience one: yourself
 
 Taking either of the above situations, let's say that you made your change and were able to move on with your life. You get to work on other projects, and life is good. But then business needs change, and you have to revisit your old friend, the poorly-documented system.
@@ -29,6 +31,6 @@ Taking either of the above situations, let's say that you made your change and w
 
 ## Audience three: the public
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTE0Mzg0MTQ2MDksLTExMjkxMTgzNDgsLT
+eyJoaXN0b3J5IjpbLTIwMzM0NjAxODMsLTExMjkxMTgzNDgsLT
 cwNzcwNjIzNiwzNDk3MDQ0MjAsLTE1MjY5NTc5NzRdfQ==
 -->
