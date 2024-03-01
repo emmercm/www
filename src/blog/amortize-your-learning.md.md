@@ -13,10 +13,10 @@ The time required to learn something new can be large, but you can make that cos
 
 I would even go so far as to say that it's your _responsibility_ to make it easier for the next person to learn the same topic.
 
-_Credit to [Tanya Reilly](https://noidea.dog/) and her book The Staff Engineer's Path_
+_Credit to [Tanya Reilly](https://noidea.dog/) and her book [The Staff Engineer's Path](https://noidea.dog/staff) for the idea of this article. Tanya describes amortizing the cost of creating a curriculum by teaching it multiple times_
 
 Here's a situation: your team uses some piece of technology, and let's say it's older or more difficult to find reliable documentation on.
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTEyODk2Mzg0NSwtMTI4MjQwNjY1NCwtMT
-YxODgyNTc4NSwtMTEwNDY4ODc2N119
+eyJoaXN0b3J5IjpbLTE3ODQ4MzcwMzAsLTEyODI0MDY2NTQsLT
+E2MTg4MjU3ODUsLTExMDQ2ODg3NjddfQ==
 -->
