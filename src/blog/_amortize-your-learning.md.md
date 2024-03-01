@@ -40,8 +40,9 @@ Here are some example how-to topics:
 
 ## Closing thoughts
 
-
+There's a
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTI4NTAwNjI5MSwtMTEyOTExODM0OCwtNz
-A3NzA2MjM2LDM0OTcwNDQyMCwtMTUyNjk1Nzk3NF19
+eyJoaXN0b3J5IjpbLTEzNTQyNDg1MjIsLTI4NTAwNjI5MSwtMT
+EyOTExODM0OCwtNzA3NzA2MjM2LDM0OTcwNDQyMCwtMTUyNjk1
+Nzk3NF19
 -->
