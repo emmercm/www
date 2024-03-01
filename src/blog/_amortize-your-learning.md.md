@@ -23,10 +23,12 @@ What's missing from these two scenarios? _Making the life of the next person bet
 
 ## Audience one: yourself
 
+Taking either of the above situations, let's say that you made your change and were able to move on with your life. You get to work on other projects, and life is good. But then business needs change, and you have to revisit your old friend, the poorly-documented system.
+
 ## Audience two: your organization
 
 ## Audience three: the public
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTg0NzI0NDIwMiwtMTEyOTExODM0OCwtNz
-A3NzA2MjM2LDM0OTcwNDQyMCwtMTUyNjk1Nzk3NF19
+eyJoaXN0b3J5IjpbLTE0Mzg0MTQ2MDksLTExMjkxMTgzNDgsLT
+cwNzcwNjIzNiwzNDk3MDQ0MjAsLTE1MjY5NTc5NzRdfQ==
 -->
