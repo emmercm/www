@@ -17,8 +17,8 @@ _Credit to [Tanya Reilly](https://noidea.dog/) and her book [The Staff Engineer'
 
 Here's a situation: your team uses some piece of technology, and let's say it's older or more difficult to find reliable documentation on. You spend multiple days investigating a workaround to an issue or a setting you know you want to change, but can't find anything relevant on the internet. You decide to check out the code yourself, and end up further down the rabbit hole. You eventually find the functionality that you're looking for, and you're able to achieve the desired outcome.
 
-Here's an even more frustrating situation: you've been tasked with modifying an older system that has 
+Here's an even more frustrating situation: you've been tasked with modifying an older system that has very little tribal knowledge left at your company. You find some documentation and it looks promising, until you realize it's years out of date. You once again end up doing code archaeology to find what you need. You find it, 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTE4MjgxMDUxMzAsLTExMjkxMTgzNDgsLT
-cwNzcwNjIzNiwzNDk3MDQ0MjAsLTE1MjY5NTc5NzRdfQ==
+eyJoaXN0b3J5IjpbMTY1MDgzMDMwMSwtMTEyOTExODM0OCwtNz
+A3NzA2MjM2LDM0OTcwNDQyMCwtMTUyNjk1Nzk3NF19
 -->
