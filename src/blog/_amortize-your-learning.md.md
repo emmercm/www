@@ -31,12 +31,13 @@ Don't you wish that past you had left bread crumbs for future you? Your archaeol
 
 Here are some example how-to topics:
 
-- How-to run your service or its tests locally (it might not be straight-forward)
+- How-to run your service or its tests locally - it might not be straight-forward
+- How-to remotely SSH into your service - your team instructions might differ from others
 
 ## Audience two: your organization
 
 ## Audience three: the public
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMjEwNzU0NDUyMCwtMTEyOTExODM0OCwtNz
-A3NzA2MjM2LDM0OTcwNDQyMCwtMTUyNjk1Nzk3NF19
+eyJoaXN0b3J5IjpbLTIxMzIxMTkwMDYsLTExMjkxMTgzNDgsLT
+cwNzcwNjIzNiwzNDk3MDQ0MjAsLTE1MjY5NTc5NzRdfQ==
 -->
