@@ -27,12 +27,12 @@ Taking either of the above situations, let's say that you made your change and w
 
 _But it's been so long that you lost all of your hard-earned context._
 
-Don't you wish that past you had left bread crumbs for future you?
+Don't you wish that past you had left bread crumbs for future you? Your archaeology will likely take less time your second time, but it will still be costly. Spending even ten minutes to have written some documentation could have saved you days of work.
 
 ## Audience two: your organization
 
 ## Audience three: the public
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTM3ODMxNTQwNiwtMTEyOTExODM0OCwtNz
+eyJoaXN0b3J5IjpbLTY0NTMyNjQwOSwtMTEyOTExODM0OCwtNz
 A3NzA2MjM2LDM0OTcwNDQyMCwtMTUyNjk1Nzk3NF19
 -->
