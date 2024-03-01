@@ -21,16 +21,18 @@ Here's an even more frustrating situation: you've been tasked with modifying an 
 
 What's missing from these two scenarios? _Making the life of the next person better_. You spent significant time gaining a lot of valuable context to accomplish your task - you should share that context!
 
-## Example how-to topics
-
 ## Audience one: yourself
 
 Taking either of the above situations, let's say that you made your change and were able to move on with your life. You get to work on other projects, and life is good. But then business needs change, and you have to revisit your old friend, the poorly-documented system.
+
+_But it's been so long that you lost all of your hard-earned context._
+
+Don't you wish that past you had left bread crumbs for future you?
 
 ## Audience two: your organization
 
 ## Audience three: the public
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTIwMzM0NjAxODMsLTExMjkxMTgzNDgsLT
-cwNzcwNjIzNiwzNDk3MDQ0MjAsLTE1MjY5NTc5NzRdfQ==
+eyJoaXN0b3J5IjpbMTM3ODMxNTQwNiwtMTEyOTExODM0OCwtNz
+A3NzA2MjM2LDM0OTcwNDQyMCwtMTUyNjk1Nzk3NF19
 -->
