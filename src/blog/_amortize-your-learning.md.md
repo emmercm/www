@@ -40,9 +40,13 @@ Here are some example how-to topics:
 
 ## Closing thoughts
 
-There's a
+There's a Ralph Waldo Emerson quote from his "[Compensation](https://en.wikipedia.org/wiki/Compensation_(essay))" essay that gets referenced often when talking about the "pay it forward" movement:
+
+> In the order of nature we cannot render benefits to those from whom we receive them, or only seldom. But the benefit we receive must be rendered again, line for line, deed for deed, cent for cent, to somebody. Beware of too much good staying in your hand. It will fast corrupt and worm worms. Pay it away quickly in some sort.
+
+Emerson is talking
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTEzNTQyNDg1MjIsLTI4NTAwNjI5MSwtMT
+eyJoaXN0b3J5IjpbLTIxMTg3NDY1MTIsLTI4NTAwNjI5MSwtMT
 EyOTExODM0OCwtNzA3NzA2MjM2LDM0OTcwNDQyMCwtMTUyNjk1
 Nzk3NF19
 -->
