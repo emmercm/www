@@ -1,0 +1,22 @@
+name: GitHub Blog Drafts Rebaser
+
+on:
+  push:
+    branches:
+      - 'master'
+
+jobs:
+  autoupdate:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - run: |
+          USER_EMAIL="${GITHUB_ACTOR_ID}+${GITHUB_ACTOR}@users.noreply.github.com"
+          git config --global user.email "${USER_EMAIL}"
+
+          USER_NAME="$(gh api "/users/${GITHUB_ACTOR}" | jq .name -r)"
+          git config --global user.name "${USER_NAME}"
+
+          git checkout "emmercm/blog-drafts"
+          git merge --no-edit origin/master
+          git push
