@@ -1,7 +1,11 @@
+---
 
+title: Amortize Your Learning by Writing How-To Guides
+draft: true
 
+---
 
-> Written with [StackEdit](https://stackedit.io/).
+Internal how-to guides at least
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbNzMwOTk4MTE2XX0=
+eyJoaXN0b3J5IjpbLTExMDQ2ODg3NjddfQ==
 -->
