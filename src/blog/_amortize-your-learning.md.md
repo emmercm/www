@@ -48,7 +48,7 @@ Here are some example how-to guides you could write today:
 
 You should be motivated by both helping yourself and your colleagues, but if not, write how-to guides for clout.
 
-Having
+Having an impact beyond your team is a key hallmark of staff+ engineers. What is more "beyond your team" than the public internet?
 I've published [77 blog articles](/blog) over four and a half years. I don't try to have much of a presence online beyond my website and projects
 
 ## Closing thoughts
@@ -59,8 +59,8 @@ There's a Ralph Waldo Emerson quote from his essay titled "[Compensation](https:
 
 In that paragraph Emerson is talking about paying debts, and in the rest of the essay is about keeping one's life in balance. It's not quite the same as writing documentation, but I appreciate his opinion that it's one's responsibility to pass benefits on to others.
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTU3NTc4MDE3OSw2MzQyMzYyOTQsLTE0ND
-c4Mjg0ODgsLTIwNzM5NTg1NjQsODExMDc2NTc4LC0xOTAyNTM3
-MDI0LC0yODUwMDYyOTEsLTExMjkxMTgzNDgsLTcwNzcwNjIzNi
-wzNDk3MDQ0MjAsLTE1MjY5NTc5NzRdfQ==
+eyJoaXN0b3J5IjpbLTY0NDg2ODAsNjM0MjM2Mjk0LC0xNDQ3OD
+I4NDg4LC0yMDczOTU4NTY0LDgxMTA3NjU3OCwtMTkwMjUzNzAy
+NCwtMjg1MDA2MjkxLC0xMTI5MTE4MzQ4LC03MDc3MDYyMzYsMz
+Q5NzA0NDIwLC0xNTI2OTU3OTc0XX0=
 -->
