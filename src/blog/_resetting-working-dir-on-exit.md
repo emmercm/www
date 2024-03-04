@@ -23,7 +23,8 @@ config=$(cat "$(dirname "$0")/config.json")
 
 # Enumerate some local files
 while read -r file; do
-done <<< "$(find "$(dirname "$0")" -maxdepth 1 -type d)"
+	# Do something with the file...
+done <<< "$(find "$(dirname "$0")" -maxdepth 1 -type f)"
 ```
 
 ```bash
@@ -33,5 +34,5 @@ cd "$(dirname "$0")"
 ```
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTAzMzIxOTYzXX0=
+eyJoaXN0b3J5IjpbLTYzNTUxNDAyMF19
 -->
