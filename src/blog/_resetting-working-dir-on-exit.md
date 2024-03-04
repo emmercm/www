@@ -20,6 +20,10 @@ set -euo pipefail
 
 # Load some local config
 config=$(cat "$(dirname "$0")/config.json")
+
+# Enumerate some local files
+while read -r file; do
+done <<< "$(find "$(dirname "$0")" -maxdepth 1 -type d)"
 ```
 
 ```bash
@@ -29,5 +33,5 @@ cd "$(dirname "$0")"
 ```
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbNDk1MzA0NDkxXX0=
+eyJoaXN0b3J5IjpbMTAzMzIxOTYzXX0=
 -->
