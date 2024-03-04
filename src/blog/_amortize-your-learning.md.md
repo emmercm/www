@@ -52,7 +52,7 @@ If in the course of your daily tasks you have learned something generalizable or
 
 I wrote [Bash Environment Variable Defaults](/blog/bash-environment-variable-defaults) because I wanted a "snack" article that was easy to write, and even though it's relatively niche, it's in my top five articles by hits. On the other hand, I wrote [Docker Shell vs. Exec Form](/blog/docker-shell-vs.-exec-form) mostly as an article to support [You Don't Need an Init System for Node.js in Docker](/blog/you-don-t-need-an-init-system-for-node.js-in-docker), but the former gets nearly 10x the hits. There is so much more information for Docker and related technologies that I thought it would get lost in the noise. But you never know what people will find valuable!
 
-There are also selfish reasons to share information publicly, and it's ok to be selfish! Your company may have a public engineering blog that is in constant need of volunteers, 
+There are also selfish reasons to share information publicly, and it's ok to be selfish! Your company may have a public engineering blog that is in constant need of volunteers, and maybe contributing published articles helps you with your next promotion. Or maybe you're ready to move on from your company and you're lo
 
 Having an impact beyond your team is a key hallmark of staff+ engineers. What is more "beyond your team" than the public internet?
 I've published [77 blog articles](/blog) over four and a half years. I don't try to have much of a presence online beyond my website and projects
@@ -65,9 +65,9 @@ There's a Ralph Waldo Emerson quote from his essay titled "[Compensation](https:
 
 In that paragraph Emerson is talking about paying debts, and in the rest of the essay is about keeping one's life in balance. It's not quite the same as writing documentation, but I appreciate his opinion that it's one's responsibility to pass benefits on to others.
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTExMjA4NTk0OTUsLTI1OTQ5ODU3NiwxMz
-gyMDE3NjE3LDYzNDIzNjI5NCwtMTQ0NzgyODQ4OCwtMjA3Mzk1
-ODU2NCw4MTEwNzY1NzgsLTE5MDI1MzcwMjQsLTI4NTAwNjI5MS
-wtMTEyOTExODM0OCwtNzA3NzA2MjM2LDM0OTcwNDQyMCwtMTUy
-Njk1Nzk3NF19
+eyJoaXN0b3J5IjpbNzA1Njg3NDUwLC0yNTk0OTg1NzYsMTM4Mj
+AxNzYxNyw2MzQyMzYyOTQsLTE0NDc4Mjg0ODgsLTIwNzM5NTg1
+NjQsODExMDc2NTc4LC0xOTAyNTM3MDI0LC0yODUwMDYyOTEsLT
+ExMjkxMTgzNDgsLTcwNzcwNjIzNiwzNDk3MDQ0MjAsLTE1MjY5
+NTc5NzRdfQ==
 -->
