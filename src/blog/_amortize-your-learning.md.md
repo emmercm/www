@@ -37,15 +37,12 @@ Again taking either either of the above situations, let's say that it turns out 
 
 All of this advice is doubly important if you work on a team whose customers are other engineers at your company, such as a platform team. You should be prioritizing self-service for them so that you can focus on providing a quality product.
 
-Here are some example how-to guides you could write for your teammates, current and future:
+Here are some example how-to guides you could write today:
 
 - Local development & testing instructions for your services, especially if they differ from your organization's norms
 - Deployment steps for your services, in case there are multiple manual steps that need coordination
 - A list of custom metrics emmitted by your services and what they mean
-
-And here are some example how-to guides you could write for the rest of your organization:
-
-- How to use one of your team's admin tools (and no, strict RPC schemas are not self-descriptive or sufficient)
+- How to use one of your team's admin tools (and no, strict RPC schemas are not self-descriptive)
 
 ## Audience three: the public
 
@@ -57,7 +54,7 @@ There's a Ralph Waldo Emerson quote from his essay titled "[Compensation](https:
 
 In that paragraph Emerson is talking about paying debts, and in the rest of the essay is about keeping one's life in balance. It's not quite the same as writing documentation, but I appreciate his opinion that it's one's responsibility to pass benefits on to others.
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTY1NzE1NDc5LDYzNDIzNjI5NCwtMTQ0Nz
+eyJoaXN0b3J5IjpbNDkxNjkzNjkzLDYzNDIzNjI5NCwtMTQ0Nz
 gyODQ4OCwtMjA3Mzk1ODU2NCw4MTEwNzY1NzgsLTE5MDI1Mzcw
 MjQsLTI4NTAwNjI5MSwtMTEyOTExODM0OCwtNzA3NzA2MjM2LD
 M0OTcwNDQyMCwtMTUyNjk1Nzk3NF19
