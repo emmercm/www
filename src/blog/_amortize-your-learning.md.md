@@ -1,7 +1,7 @@
 ---
 
 title: Amortize Your Learning by Writing How-To Guides
-date: 2024-03-01T18:15:00
+date: 2024-03-04T23:50:00
 image: https://unsplash.com/photos/person-sitting-front-of-laptop-mfB1B1s4sMc
 tags:
 - career
@@ -64,9 +64,9 @@ There's a Ralph Waldo Emerson quote from his essay titled "[Compensation](https:
 In that paragraph, Emerson is talking about paying debts, and the rest of the essay is about keeping one's life in balance. It's not quite the same as writing how-to guides, but I appreciate his opinion that it's one's responsibility to pass benefits on to others.
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbNDc0NjYwOTA0LC00NTU5OTYwNTcsLTI1OT
-Q5ODU3NiwxMzgyMDE3NjE3LDYzNDIzNjI5NCwtMTQ0NzgyODQ4
-OCwtMjA3Mzk1ODU2NCw4MTEwNzY1NzgsLTE5MDI1MzcwMjQsLT
-I4NTAwNjI5MSwtMTEyOTExODM0OCwtNzA3NzA2MjM2LDM0OTcw
-NDQyMCwtMTUyNjk1Nzk3NF19
+eyJoaXN0b3J5IjpbLTEyNjU1MzQ5MDQsLTQ1NTk5NjA1NywtMj
+U5NDk4NTc2LDEzODIwMTc2MTcsNjM0MjM2Mjk0LC0xNDQ3ODI4
+NDg4LC0yMDczOTU4NTY0LDgxMTA3NjU3OCwtMTkwMjUzNzAyNC
+wtMjg1MDA2MjkxLC0xMTI5MTE4MzQ4LC03MDc3MDYyMzYsMzQ5
+NzA0NDIwLC0xNTI2OTU3OTc0XX0=
 -->
