@@ -48,7 +48,7 @@ Here are some example how-to guides you could write today:
 
 You should be motivated by both helping yourself and your colleagues, but if not, write how-to guides for clout.
 
-If in the course of your daily tasks you have learned something generalizable or publicly applicable, blog about it! You would be surprised how helpful it can be to someone else. If the [Reddit blackout of 2023](https://en.wikipedia.org/wiki/2023_Reddit_API_controversy) taught us anything, it's that a lot of valuable knowledge
+If in the course of your daily tasks you have learned something generalizable or publicly applicable, blog about it! You would be surprised how helpful it can be to someone else. If the [Reddit blackout of 2023](https://en.wikipedia.org/wiki/2023_Reddit_API_controversy) taught us anything, it's that a lot of valuable knowledge exists on the internet, and sometimes it's only in one or two Google-crawled places.
 
 For example, I wrote [Docker Shell vs. Exec Form](/blog/docker-shell-vs.-exec-form) mostly as an article to support [You Don't Need an Init System for Node.js in Docker](/blog/you-don-t-need-an-init-system-for-node.js-in-docker), but the former gets nearly 10x the hits. There is so much more information for Docker and related technologies that I thought it would get lost in the noise.
 
@@ -63,9 +63,9 @@ There's a Ralph Waldo Emerson quote from his essay titled "[Compensation](https:
 
 In that paragraph Emerson is talking about paying debts, and in the rest of the essay is about keeping one's life in balance. It's not quite the same as writing documentation, but I appreciate his opinion that it's one's responsibility to pass benefits on to others.
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTMzMzQxNTc3MiwtMjU5NDk4NTc2LDEzOD
-IwMTc2MTcsNjM0MjM2Mjk0LC0xNDQ3ODI4NDg4LC0yMDczOTU4
-NTY0LDgxMTA3NjU3OCwtMTkwMjUzNzAyNCwtMjg1MDA2MjkxLC
-0xMTI5MTE4MzQ4LC03MDc3MDYyMzYsMzQ5NzA0NDIwLC0xNTI2
-OTU3OTc0XX0=
+eyJoaXN0b3J5IjpbLTEwODU4NTUyNzksLTI1OTQ5ODU3NiwxMz
+gyMDE3NjE3LDYzNDIzNjI5NCwtMTQ0NzgyODQ4OCwtMjA3Mzk1
+ODU2NCw4MTEwNzY1NzgsLTE5MDI1MzcwMjQsLTI4NTAwNjI5MS
+wtMTEyOTExODM0OCwtNzA3NzA2MjM2LDM0OTcwNDQyMCwtMTUy
+Njk1Nzk3NF19
 -->
