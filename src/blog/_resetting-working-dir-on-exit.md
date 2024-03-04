@@ -5,7 +5,9 @@ draft: true
 
 ---
 
-Sometimes you need change the working directory in a shell script, 
+Sometimes you need change the working directory in a shell script, so you should take care to reset it back.
+
+Here's an example scenario: you've written a fairly complex
 
 ```bash
 # shellcheck disable=SC2064
@@ -14,5 +16,5 @@ cd  "$(dirname "$0")"
 ```
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMjA2NjQ5MjA3N119
+eyJoaXN0b3J5IjpbMTMwNDEwOTY4Nl19
 -->
