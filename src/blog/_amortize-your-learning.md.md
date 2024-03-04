@@ -35,8 +35,9 @@ If writing documentation for selfish reasons isn't enough motivation, try writin
 
 Again taking either either of the above situations, let's say that it turns out that your team needs to repeat the process somewhat frequently, and you just happened to be the first person tasked with it. If you didn't enjoy the digital archaeology, it's highly likely that your teammates or colleagues won't either. Especially if you found some traps such as config parameters that seem important but don't actually control anything, or worse, parameters that control something unrelated to their name.
 
-Here are some example how-to guides you could write today:
+Here are some example how-to guides you could write for your teammates, current and future:
 
+- Local development & testing instructions for your services, especially if they differ from your organization's norms
 - Deployment steps for your services, in case there are multiple manual steps that need coordination
 - How to use one of your team's admin tools (and no, well-defined RPC schemas are not self-descriptive)
 
@@ -50,8 +51,8 @@ There's a Ralph Waldo Emerson quote from his essay titled "[Compensation](https:
 
 In that paragraph Emerson is talking about paying debts, and in the rest of the essay is about keeping one's life in balance. It's not quite the same as writing documentation, but I appreciate his opinion that it's one's responsibility to pass benefits on to others.
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTEwNTAxODM3MzAsNjM0MjM2Mjk0LC0xND
-Q3ODI4NDg4LC0yMDczOTU4NTY0LDgxMTA3NjU3OCwtMTkwMjUz
-NzAyNCwtMjg1MDA2MjkxLC0xMTI5MTE4MzQ4LC03MDc3MDYyMz
-YsMzQ5NzA0NDIwLC0xNTI2OTU3OTc0XX0=
+eyJoaXN0b3J5IjpbLTg4MzQzMjA1NCw2MzQyMzYyOTQsLTE0ND
+c4Mjg0ODgsLTIwNzM5NTg1NjQsODExMDc2NTc4LC0xOTAyNTM3
+MDI0LC0yODUwMDYyOTEsLTExMjkxMTgzNDgsLTcwNzcwNjIzNi
+wzNDk3MDQ0MjAsLTE1MjY5NTc5NzRdfQ==
 -->
