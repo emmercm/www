@@ -27,12 +27,12 @@ Taking either of the above situations, let's say that you made your change and w
 
 _But it's been so long that you lost all of your hard-earned context._
 
-Don't you wish that past you had left bread crumbs for future you? Your archaeology will likely take less time your second time, but it will still be costly. Spending even ten minutes to have written some documentation could have saved you days of frustration. Be selfish, leave future you some bread crumbs today!
+Don't you wish that past you had left bread crumbs for future you? Archaeology will likely take you less time your second time, but it will still be costly (and likely cause a lot of frustration). Previously spending even ten minutes to have written some documentation could have saved you days of frustration. Be selfish, leave future you some bread crumbs today!
 
 Here are some example how-to topics:
 
 - How-to run your service or its tests locally - it might not be straight-forward
-- How-to remotely SSH into your service - your team instructions might differ from others
+- How-to remotely SSH into your service - your team instructions might differ from others in your organization
 
 ## Audience two: your organization
 
@@ -46,7 +46,7 @@ There's a Ralph Waldo Emerson quote from his essay titled "[Compensation](https:
 
 In that paragraph Emerson is talking about paying debts, and in the rest of the essay is about keeping one's life in balance. It's not quite the same as writing documentation, but I appreciate his opinion that it's one's responsibility to pass benefits on to others.
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMjU0Mzc4Nzc2LC0xNDQ3ODI4NDg4LC0yMD
+eyJoaXN0b3J5IjpbNjM0MjM2Mjk0LC0xNDQ3ODI4NDg4LC0yMD
 czOTU4NTY0LDgxMTA3NjU3OCwtMTkwMjUzNzAyNCwtMjg1MDA2
 MjkxLC0xMTI5MTE4MzQ4LC03MDc3MDYyMzYsMzQ5NzA0NDIwLC
 0xNTI2OTU3OTc0XX0=
