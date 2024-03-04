@@ -9,7 +9,9 @@ A guide to responsible dependency ownership.
 
 Including:
 - Library updates
-- Infrastructure vertupdates (DBs, etc.)
+- Infrastructure version updates (DBs, etc.)
+
+Matt Bertolini's concept of a "treadmill"
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTUzNjc0MjQ3MF19
+eyJoaXN0b3J5IjpbMzg0NjMyNzU1XX0=
 -->
