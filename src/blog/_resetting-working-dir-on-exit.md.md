@@ -80,7 +80,7 @@ done <<< "$(find "$(dirname "$0")" -maxdepth 1 -type f)"
 
 ## Limitations
 
-This one-liner won't work if the script is `SIGKILL`ed rather than `SIGTERM`inated (or other signals). `SIGKILL` must end processes immediately, which means any shutdown hooks like this will be skipped.
+[`trap(1)`](https://man7.org/linux/man-pages/man1/trap.1p.html) doesn't work if the script is `SIGKILL`ed rather than `SIGTERM`inated (or other signals). `SIGKILL` must end processes immediately, which means any shutdown hooks like this will be skipped.
 
 Using this script as an example:
 
@@ -102,5 +102,5 @@ My PID is: 17959
 zsh: killed     ./script.sh
 ```
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbODA3NDgwNDIwXX0=
+eyJoaXN0b3J5IjpbMTYyMzQ5NzMwM119
 -->
