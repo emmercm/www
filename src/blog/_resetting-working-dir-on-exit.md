@@ -31,7 +31,7 @@ All of these are difficult to read because of the quotation and `$(...)` nesting
 
 Wouldn't it be easier to just make an assumption about the working directory? I strongly believe _no_, but we should feel free to change the working directory, _as long as we reset it on exit._ That last part is important, because you may be setting the caller up for confusion or danger.
 
-## The one liner
+## The one-liner
 
 Here's the trick, put this at the top of every script you write, just below the [shebang](https://en.wikipedia.org/wiki/Shebang_(Unix)).
 
@@ -45,8 +45,35 @@ _Note: if you use [ShellCheck](https://github.com/koalaman/shellcheck) to check 
 
 ## Example
 
-Here's the
+Here's the one-liner in action, using the same example from above:
+
+```bash
+#!/usr/bin/env bash
+set -euo pipefail
+
+# shellcheck disable=SC2064
+trap "cd \"${PWD}\"" EXIT
+cd "$(dirname "$0")"
+
+echo "Now I'm safe to reference files in '${PWD}' with relative paths!"
+```
+
+```bash
+#!/usr/bin/env bash
+set -euo pipefail
+
+# Source some local file
+. "$(dirname "$0")/aliases.sh"
+
+# Load some local config
+config=$(cat "$(dirname "$0")/config.json")
+
+# Enumerate some local files
+while read -r file; do
+	# Do something with the file...
+done <<< "$(find "$(dirname "$0")" -maxdepth 1 -type f)"
+```
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMjE0NjU1MTc0OCwyMDkwNDU5MDEzLC0zNT
+eyJoaXN0b3J5IjpbLTQwMjg5NzE1OCwyMDkwNDU5MDEzLC0zNT
 czNzY4NzFdfQ==
 -->
