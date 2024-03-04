@@ -31,14 +31,20 @@ All of these are difficult to read because of the quotation and `$(...)` nesting
 
 Wouldn't it be easier to just make an assumption about the working directory? I strongly believe _no_, but we should feel free to change the working directory, _as long as we reset it on exit._ That last part is important, because you don't know what is going to invoke your script, it could be another script! Then you're setting the caller up for failure.
 
-Here's the trick, put this at the top of every script you write, just below the shebang.
+## The one liner
+
+Here's the trick, put this at the top of every script you write, just below the [shebang](https://en.wikipedia.org/wiki/Shebang_(Unix)).
 
 ```bash
 # shellcheck disable=SC2064
 trap "cd \"${PWD}\"" EXIT
-cd "$(dirname "$0")"
 ```
 
+Now you're safe to [`cd(1)`](https://linux.die.net/man/1/cd) to heart's content!
+
+## Example
+
+Here's the
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTkyODUyOTMwLC0zNTczNzY4NzFdfQ==
+eyJoaXN0b3J5IjpbMjA5MDQ1OTAxMywtMzU3Mzc2ODcxXX0=
 -->
