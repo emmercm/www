@@ -13,16 +13,18 @@ Here's an example scenario: you've written a fairly complex shell script (e.g. i
 
 ```bash
 #!/usr/bin/env bash
+set -euo pipefail
 
-set  -euo  pipefail
+# Load some local config
+config=$(cat "$(dirname "$0")/config.json")
 ```
 
 ```bash
 # shellcheck disable=SC2064
-trap  "cd \"${PWD}\""  EXIT
-cd  "$(dirname "$0")"
+trap "cd \"${PWD}\"" EXIT
+cd "$(dirname "$0")"
 ```
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTIwNzc1ODcxODNdfQ==
+eyJoaXN0b3J5IjpbLTE3OTQ4MzU0ODVdfQ==
 -->
