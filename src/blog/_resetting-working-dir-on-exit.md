@@ -82,8 +82,18 @@ done <<< "$(find "$(dirname "$0")" -maxdepth 1 -type f)"
 
 This one-liner won't work if the script is `SIGKILL`ed rather than `SIGTERM`inated (or other signals). `SIGKILL` must end processes immediately, which means any shutdown hooks like this will be skipped.
 
-Taking
+Using this script as an example:
+
+```bash
+#!/usr/bin/env bash
+set -euo pipefail
+
+trap "echo \"I exited gracefully!\"" EXIT
+
+echo "My PID is: $$"
+kill -s KILL "$$"
+```
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTk5NTUxMjQ2MSwyMDkwNDU5MDEzLC0zNT
+eyJoaXN0b3J5IjpbLTc2MzcyMzA4OSwyMDkwNDU5MDEzLC0zNT
 czNzY4NzFdfQ==
 -->
