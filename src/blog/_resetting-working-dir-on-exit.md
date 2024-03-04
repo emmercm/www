@@ -78,7 +78,7 @@ while read -r file; do
 done <<< "$(find "$(dirname "$0")" -maxdepth 1 -type f)"
 ```
 
-## Limitations & notes
+## Limitations
 
 This one-liner won't work if the script is `SIGKILL`ed rather than `SIGTERM`inated (or other signals). `SIGKILL` must end processes immediately, which means any shutdown hooks like this will be skipped.
 
@@ -93,7 +93,15 @@ trap "echo \"I exited gracefully!\"" EXIT
 echo "My PID is: $$"
 kill -s KILL "$$"
 ```
+
+running it would give an output similar to:
+
+```shell
+$ ./script.sh
+My PID is: 17959
+zsh: killed     ./script.sh
+```
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTc2MzcyMzA4OSwyMDkwNDU5MDEzLC0zNT
-czNzY4NzFdfQ==
+eyJoaXN0b3J5IjpbODA3NDgwNDIwLDIwOTA0NTkwMTMsLTM1Nz
+M3Njg3MV19
 -->
