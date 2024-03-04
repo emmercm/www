@@ -31,7 +31,7 @@ Don't you wish that past you had left bread crumbs for future you? The code arch
 
 ## Audience two: your organization
 
-If writing documentation for selfish reasons isn't enough motivation, try writing it for altruistic reasons.
+If writing how-to guides for selfish reasons isn't enough motivation, try writing it for altruistic reasons.
 
 Again taking either either of the above situations, let's say that it turns out that your team needs to repeat the process somewhat frequently, and you just happened to be the first person tasked with it. If you didn't enjoy the digital archaeology, it's highly likely that your teammates or colleagues won't either. Especially if you found some traps such as config parameters that seem important but don't actually control anything, or worse, parameters that control something unrelated to their name.
 
@@ -60,9 +60,9 @@ There's a Ralph Waldo Emerson quote from his essay titled "[Compensation](https:
 
 > In the order of nature we cannot render benefits to those from whom we receive them, or only seldom. But the benefit we receive must be rendered again, line for line, deed for deed, cent for cent, to somebody. Beware of too much good staying in your hand. It will fast corrupt and worm worms. Pay it away quickly in some sort.
 
-In that paragraph Emerson is talking about paying debts, and in the rest of the essay is about keeping one's life in balance. It's not quite the same as writing documentation, but I appreciate his opinion that it's one's responsibility to pass benefits on to others.
+In that paragraph Emerson is talking about paying debts, and in the rest of the essay is about keeping one's life in balance. It's not quite the same as writing how-to guides, but I appreciate his opinion that it's one's responsibility to pass benefits on to others.
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTE2MzM3OTIxNSwtMjU5NDk4NTc2LDEzOD
+eyJoaXN0b3J5IjpbLTQ1NTk5NjA1NywtMjU5NDk4NTc2LDEzOD
 IwMTc2MTcsNjM0MjM2Mjk0LC0xNDQ3ODI4NDg4LC0yMDczOTU4
 NTY0LDgxMTA3NjU3OCwtMTkwMjUzNzAyNCwtMjg1MDA2MjkxLC
 0xMTI5MTE4MzQ4LC03MDc3MDYyMzYsMzQ5NzA0NDIwLC0xNTI2
