@@ -15,6 +15,9 @@ Here's an example scenario: you've written a fairly complex shell script (e.g. i
 #!/usr/bin/env bash
 set -euo pipefail
 
+# Source some local file
+. "$(dirname "$0")/aliases.sh"
+
 # Load some local config
 config=$(cat "$(dirname "$0")/config.json")
 ```
@@ -26,5 +29,5 @@ cd "$(dirname "$0")"
 ```
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTE3OTQ4MzU0ODVdfQ==
+eyJoaXN0b3J5IjpbNDk1MzA0NDkxXX0=
 -->
