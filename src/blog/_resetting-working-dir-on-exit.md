@@ -29,7 +29,7 @@ done <<< "$(find "$(dirname "$0")" -maxdepth 1 -type f)"
 
 All of these are difficult to read because of the quotation and `$(...)` nesting.
 
-Wouldn't it be easier to just make an assumption about the working directory? I strongly believe _no_, but we should feel free to change the working directory, _as long as we reset it on exit._ That last part is important, because you don't know what is going to invoke your script, it could be another script! Then you're setting the caller up for failure.
+Wouldn't it be easier to just make an assumption about the working directory? I strongly believe _no_, but we should feel free to change the working directory, _as long as we reset it on exit._ That last part is important, because you may be setting
 
 ## The one liner
 
@@ -46,5 +46,6 @@ Now you're safe to [`cd(1)`](https://linux.die.net/man/1/cd) to heart's content!
 
 Here's the
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMjA5MDQ1OTAxMywtMzU3Mzc2ODcxXX0=
+eyJoaXN0b3J5IjpbNjMzNDkwMTUsMjA5MDQ1OTAxMywtMzU3Mz
+c2ODcxXX0=
 -->
