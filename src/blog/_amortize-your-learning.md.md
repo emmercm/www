@@ -48,7 +48,7 @@ Here are some example how-to guides you could write today:
 
 You should be motivated by both helping yourself and your colleagues, but if not, write how-to guides for clout.
 
-If in the course of your daily tasks you have learned something generalizable or publicly applicable, blog about it! You would be surprised how helpful it can be to someone else.
+If in the course of your daily tasks you have learned something generalizable or publicly applicable, blog about it! You would be surprised how helpful it can be to someone else. For exampl, I wrote [Docker Shell vs. Exec Form](/blog/docker-shell-vs.-exec-form)
 
 Having an impact beyond your team is a key hallmark of staff+ engineers. What is more "beyond your team" than the public internet?
 I've published [77 blog articles](/blog) over four and a half years. I don't try to have much of a presence online beyond my website and projects
@@ -61,8 +61,8 @@ There's a Ralph Waldo Emerson quote from his essay titled "[Compensation](https:
 
 In that paragraph Emerson is talking about paying debts, and in the rest of the essay is about keeping one's life in balance. It's not quite the same as writing documentation, but I appreciate his opinion that it's one's responsibility to pass benefits on to others.
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTM4MjAxNzYxNyw2MzQyMzYyOTQsLTE0ND
-c4Mjg0ODgsLTIwNzM5NTg1NjQsODExMDc2NTc4LC0xOTAyNTM3
-MDI0LC0yODUwMDYyOTEsLTExMjkxMTgzNDgsLTcwNzcwNjIzNi
-wzNDk3MDQ0MjAsLTE1MjY5NTc5NzRdfQ==
+eyJoaXN0b3J5IjpbMTU2MDIwNDUwMiwxMzgyMDE3NjE3LDYzND
+IzNjI5NCwtMTQ0NzgyODQ4OCwtMjA3Mzk1ODU2NCw4MTEwNzY1
+NzgsLTE5MDI1MzcwMjQsLTI4NTAwNjI5MSwtMTEyOTExODM0OC
+wtNzA3NzA2MjM2LDM0OTcwNDQyMCwtMTUyNjk1Nzk3NF19
 -->
