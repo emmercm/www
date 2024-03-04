@@ -27,6 +27,10 @@ while read -r file; do
 done <<< "$(find "$(dirname "$0")" -maxdepth 1 -type f)"
 ```
 
+All of these are difficult to read because of the quotation and `$(...)` nesting.
+
+Wouldn't it be easier to just make an assumption about the working directory? I strongly believe _no_, but we
+
 ```bash
 # shellcheck disable=SC2064
 trap "cd \"${PWD}\"" EXIT
@@ -34,5 +38,5 @@ cd "$(dirname "$0")"
 ```
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTYzNTUxNDAyMF19
+eyJoaXN0b3J5IjpbLTYzOTAwMDI4XX0=
 -->
