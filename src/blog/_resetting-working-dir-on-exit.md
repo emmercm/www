@@ -31,6 +31,8 @@ All of these are difficult to read because of the quotation and `$(...)` nesting
 
 Wouldn't it be easier to just make an assumption about the working directory? I strongly believe _no_, but we should feel free to change the working directory, _as long as we reset it on exit._ That last part is important, because you don't know what is going to invoke your script, it could be another script! Then you're setting the caller up for failure.
 
+Here's the trick, put this at the top of every script you write, just below the shebang.
+
 ```bash
 # shellcheck disable=SC2064
 trap "cd \"${PWD}\"" EXIT
@@ -38,5 +40,5 @@ cd "$(dirname "$0")"
 ```
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTM1NzM3Njg3MV19
+eyJoaXN0b3J5IjpbLTkyODUyOTMwLC0zNTczNzY4NzFdfQ==
 -->
