@@ -2,12 +2,14 @@
 
 title: Resetting the Working Directory on Script Exit
 draft: true
+tags:
+- shell
 
 ---
 
 Sometimes you need change the working directory in a shell script, so you should take care to reset it back.
 
-Here's an example scenario: you've written a fairly complex
+Here's an example scenario: you've written a fairly complex shell script (e.g. in [Bash](https://www.gnu.org/software/bash/)), and it needs to reference files that are in it
 
 ```bash
 # shellcheck disable=SC2064
@@ -16,5 +18,5 @@ cd  "$(dirname "$0")"
 ```
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTMwNDEwOTY4Nl19
+eyJoaXN0b3J5IjpbLTIxMTU3ODcyMjFdfQ==
 -->
