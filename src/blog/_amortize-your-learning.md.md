@@ -31,6 +31,8 @@ Don't you wish that past you had left bread crumbs for future you? Archaeology w
 
 ## Audience two: your organization
 
+If writing documentation for selfish reasons isn't enough motivation, try writing it for altruistic reasons.
+
 ## Audience three: the public
 
 ## Closing thoughts
@@ -41,8 +43,8 @@ There's a Ralph Waldo Emerson quote from his essay titled "[Compensation](https:
 
 In that paragraph Emerson is talking about paying debts, and in the rest of the essay is about keeping one's life in balance. It's not quite the same as writing documentation, but I appreciate his opinion that it's one's responsibility to pass benefits on to others.
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTgyODkyOTA4OCw2MzQyMzYyOTQsLTE0ND
-c4Mjg0ODgsLTIwNzM5NTg1NjQsODExMDc2NTc4LC0xOTAyNTM3
-MDI0LC0yODUwMDYyOTEsLTExMjkxMTgzNDgsLTcwNzcwNjIzNi
-wzNDk3MDQ0MjAsLTE1MjY5NTc5NzRdfQ==
+eyJoaXN0b3J5IjpbOTk2NDA5MDcyLDYzNDIzNjI5NCwtMTQ0Nz
+gyODQ4OCwtMjA3Mzk1ODU2NCw4MTEwNzY1NzgsLTE5MDI1Mzcw
+MjQsLTI4NTAwNjI5MSwtMTEyOTExODM0OCwtNzA3NzA2MjM2LD
+M0OTcwNDQyMCwtMTUyNjk1Nzk3NF19
 -->
