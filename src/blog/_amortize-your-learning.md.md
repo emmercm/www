@@ -46,6 +46,8 @@ Here are some example how-to guides you could write today:
 
 ## Audience three: the public
 
+You should be motivated by both helping yourself and your colleagues, but if not, write how-to guides for clout.
+
 ## Closing thoughts
 
 There's a Ralph Waldo Emerson quote from his essay titled "[Compensation](https://en.wikipedia.org/wiki/Compensation_(essay))" that gets referenced often when talking about the "pay it forward" movement:
@@ -54,8 +56,8 @@ There's a Ralph Waldo Emerson quote from his essay titled "[Compensation](https:
 
 In that paragraph Emerson is talking about paying debts, and in the rest of the essay is about keeping one's life in balance. It's not quite the same as writing documentation, but I appreciate his opinion that it's one's responsibility to pass benefits on to others.
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbNDkxNjkzNjkzLDYzNDIzNjI5NCwtMTQ0Nz
-gyODQ4OCwtMjA3Mzk1ODU2NCw4MTEwNzY1NzgsLTE5MDI1Mzcw
-MjQsLTI4NTAwNjI5MSwtMTEyOTExODM0OCwtNzA3NzA2MjM2LD
-M0OTcwNDQyMCwtMTUyNjk1Nzk3NF19
+eyJoaXN0b3J5IjpbMTc4OTYzMDUwMCw2MzQyMzYyOTQsLTE0ND
+c4Mjg0ODgsLTIwNzM5NTg1NjQsODExMDc2NTc4LC0xOTAyNTM3
+MDI0LC0yODUwMDYyOTEsLTExMjkxMTgzNDgsLTcwNzcwNjIzNi
+wzNDk3MDQ0MjAsLTE1MjY5NTc5NzRdfQ==
 -->
