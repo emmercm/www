@@ -36,16 +36,17 @@ Wouldn't it be easier to just make an assumption about the working directory? I 
 Here's the trick, put this at the top of every script you write, just below the [shebang](https://en.wikipedia.org/wiki/Shebang_(Unix)).
 
 ```bash
-# shellcheck disable=SC2064
 trap "cd \"${PWD}\"" EXIT
 ```
 
 Now you're safe to [`cd(1)`](https://linux.die.net/man/1/cd) to heart's content!
 
+_Note: if you use [ShellCheck](https://github.com/koalaman/shellcheck) to check your scripts for errors (and you should), you will need to put `# shellcheck disable=SC2064` above the one-liner to signal that we know what we're doing with the quotes._
+
 ## Example
 
 Here's the
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTY1Njc2ODk0MSwyMDkwNDU5MDEzLC0zNT
+eyJoaXN0b3J5IjpbMjE0NjU1MTc0OCwyMDkwNDU5MDEzLC0zNT
 czNzY4NzFdfQ==
 -->
