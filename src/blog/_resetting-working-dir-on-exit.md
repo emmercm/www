@@ -80,8 +80,10 @@ done <<< "$(find "$(dirname "$0")" -maxdepth 1 -type f)"
 
 ## Limitations & notes
 
-This one-liner won't work if the script is `SIGKILL`ed rather than `SIGTERM`inated.
+This one-liner won't work if the script is `SIGKILL`ed rather than `SIGTERM`inated (or other signals). `SIGKILL` must end processes immediately, which means any shutdown hooks like this will be skipped.
+
+Taking
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTk2Njk1MjQwMSwyMDkwNDU5MDEzLC0zNT
+eyJoaXN0b3J5IjpbMTk5NTUxMjQ2MSwyMDkwNDU5MDEzLC0zNT
 czNzY4NzFdfQ==
 -->
