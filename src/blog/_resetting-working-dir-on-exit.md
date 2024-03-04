@@ -51,16 +51,20 @@ Here's the one-liner in action, using the same example from above:
 #!/usr/bin/env bash
 set -euo pipefail
 
-# shellcheck disable=SC2064
 trap "cd \"${PWD}\"" EXIT
 cd "$(dirname "$0")"
 
 echo "Now I'm safe to reference files in '${PWD}' with relative paths!"
 ```
 
+Updating our example from above:
+
 ```bash
 #!/usr/bin/env bash
 set -euo pipefail
+
+trap "cd \"${PWD}\"" EXIT
+cd "$(dirname "$0")"
 
 # Source some local file
 . "$(dirname "$0")/aliases.sh"
@@ -73,7 +77,11 @@ while read -r file; do
 	# Do something with the file...
 done <<< "$(find "$(dirname "$0")" -maxdepth 1 -type f)"
 ```
+
+## Limitations & notes
+
+This one-liner won't work if the script is `SIGKILL`ed rather than `SIGTERM`inated.
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTQwMjg5NzE1OCwyMDkwNDU5MDEzLC0zNT
+eyJoaXN0b3J5IjpbMTk2Njk1MjQwMSwyMDkwNDU5MDEzLC0zNT
 czNzY4NzFdfQ==
 -->
