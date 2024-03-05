@@ -66,6 +66,10 @@
     #   title: Twitch
     #   icon: fa-brands fa-twitch
 
+    - link: https://www.pricecharting.com/offers?seller=5wog4lmoldos44df2ed2imboee&status=collection
+      title: Price Charting
+      icon: fa-regular fa-chart-line-up
+
 - title: Miscellaneous
   icons:
     # - link: https://www.meetup.com/members/191693369/
@@ -79,3 +83,5 @@
     - link: https://untappd.com/user/emmercm
       title: Untappd
       icon: fa-brands fa-untappd
+
+    - link: https://boardgamegeek.com/user/emmercm
