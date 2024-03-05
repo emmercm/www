@@ -1,7 +1,7 @@
 ---
 
 title: Amortize Your Learning by Writing How-To Guides
-date: 2024-03-05T00:50:00
+date: 2024-03-05T01:04:00
 image: https://unsplash.com/photos/person-sitting-front-of-laptop-mfB1B1s4sMc
 tags:
 - career
@@ -16,9 +16,9 @@ I would even go so far as to say that it's your _responsibility_ to make it easi
 
 _Credit to [Tanya Reilly](https://noidea.dog/) and her book [The Staff Engineer's Path](https://noidea.dog/staff) for the idea for this article. Tanya describes amortizing the cost of creating a curriculum by teaching it multiple times (p. 268), but I think the same applies to documentation, just on a smaller scale._
 
-Here's a situation: your team uses some piece of technology, and let's say it's older or more difficult to find reliable documentation for. You spend multiple days investigating a workaround to an issue or a setting you know you want to change, but can't find anything relevant on the internet. You decide to check the code out locally yourself, and you end up further down the rabbit hole. You eventually find the functionality that you're looking for, and you're able to achieve the desired outcome.
+Here's a situation: your team uses some piece of technology, and let's say it's older or more challenging to find reliable documentation for. You spend multiple days investigating a workaround to an issue or a setting that you know you want to change, but can't find anything relevant on the internet. You decide to check the code out locally yourself, and you end up further down the rabbit hole. You eventually find the functionality that you're looking for, and you're able to achieve the desired outcome.
 
-Here's a potentially more frustrating situation: you've been tasked with modifying an older system that has very little tribal knowledge left at your company. You find some documentation and it looks promising, until you realize it's years out of date. You once again end up doing code archaeology to find what you need. You find it, spend a nightmarish amount of time testing it, and eventually make your change successfully.
+Here's a potentially more frustrating situation: you've been tasked with modifying an older system that has very little tribal knowledge left at your company. You find some documentation, and it looks promising until you realize it's years out of date. You once again end up doing code archaeology to find what you need. You find it, spend a nightmarish amount of time testing it, and eventually make your change successfully.
 
 What's missing from these two scenarios? _Making the life of the next person better_. You spent significant time gaining a lot of valuable context to accomplish your task - you should share that context!
 
@@ -28,7 +28,7 @@ Taking either of the above situations, let's say that you made your change and w
 
 _But it's been so long that you lost all of your hard-earned context._
 
-Don't you wish that past you had left bread crumbs for future you? The code archaeology will likely take you less time your second time, but it will still be costly (and likely cause a lot of frustration). Previously spending even ten minutes to have written some documentation could have saved you days of frustration. Be selfish, leave future you some bread crumbs today!
+Don't you wish that past you had left bread crumbs for future you? The code archaeology will likely take you less time your second time, but it will still be costly (and cause the frustration all over again). Previously spending even ten minutes to have written some documentation could have saved you days of frustration. Be selfish, leave future you some bread crumbs today!
 
 ## Audience two: your organization
 
@@ -47,13 +47,13 @@ Here are some example how-to guides you could write today:
 
 ## Audience three: the public
 
-You should be motivated by both helping yourself and your colleagues, but if not, write how-to guides for clout.
+You should be motivated by both helping yourself and your colleagues, but if not, try writing how-to guides for clout.
 
-If in the course of your daily tasks, you have learned something generalizable or publicly applicable, blog about it! You would be surprised how helpful it can be to someone else. If the [Reddit blackout of 2023](https://en.wikipedia.org/wiki/2023_Reddit_API_controversy) taught us anything, it's that a lot of valuable knowledge exists on the internet, and sometimes it's only in one or two Google-crawled places. You have valuable knowledge, and others should feel honored for you to share it.
+If in the course of your daily tasks you have learned something generalizable or publicly applicable, blog about it! You would be surprised how helpful it can be to someone else. If the [Reddit blackout of 2023](https://en.wikipedia.org/wiki/2023_Reddit_API_controversy) taught us anything, it's that a lot of valuable knowledge exists on the internet, and sometimes it only exists in one or two Google-crawled places. You have valuable knowledge, and others should feel honored for you to share it.
 
-I wrote [Bash Environment Variable Defaults](/blog/bash-environment-variable-defaults) because I wanted a "snack" article that was easy to write, and even though it's relatively niche, it's in my top five articles by hits. On the other hand, I wrote [Docker Shell vs. Exec Form](/blog/docker-shell-vs.-exec-form) mostly as an article to support [You Don't Need an Init System for Node.js in Docker](/blog/you-don-t-need-an-init-system-for-node.js-in-docker), but the former gets nearly 10x the hits. There is so much more information about Docker and related technologies that I thought it would get lost in the noise. But you never know what people will find valuable!
+I wrote "[Bash Environment Variable Defaults](/blog/bash-environment-variable-defaults)" because I wanted a "snack" article that was easy to write, and even though the topic is relatively niche, the article is in my top five articles by hits. On the other hand, I wrote "[Docker Shell vs. Exec Form](/blog/docker-shell-vs.-exec-form)" mostly as an article to support "[You Don't Need an Init System for Node.js in Docker](/blog/you-don-t-need-an-init-system-for-node.js-in-docker)," but the former gets nearly 10x the hits. There is so much more information about Docker and related technologies that I thought it would get lost in the noise. But you never know what people will find valuable!
 
-There are also selfish reasons to share information publicly, and it's ok to be selfish! Your company may have a public engineering blog that is in constant need of volunteers, and maybe contributing published articles can help you with your next promotion. Or maybe you're ready to move on from your company and you're looking to pump up your credentials. Or maybe you're trying to build a presence on social media and in engineering circles. Being publicly visible can help all of these goals!
+There are also selfish reasons to share information publicly, and it's ok to be selfish! Your company may have a public engineering blog that is in constant need of volunteers, and maybe contributing published articles can help you with your next promotion. Or maybe you're ready to move on from your company and you're looking to pump up your credentials to hiring managers. Or maybe you're trying to build a presence on social media or in engineering circles. Being publicly visible can help all of these goals!
 
 ## Closing thoughts
 
