@@ -2,6 +2,7 @@
 
 title: Amortize Your Learning by Writing How-To Guides
 date: 2024-03-05T01:04:00
+updated: 2024-03-05T22:25:00
 image: https://unsplash.com/photos/person-sitting-front-of-laptop-mfB1B1s4sMc
 tags:
 - career
@@ -15,6 +16,14 @@ The time required to learn something new can be large, but you can make that cos
 I would even go so far as to say that it's your _responsibility_ to make it easier for the next person to learn the same topic.
 
 _Credit to [Tanya Reilly](https://noidea.dog/) and her book [The Staff Engineer's Path](https://noidea.dog/staff) for the idea for this article. Tanya describes amortizing the cost of creating a curriculum by teaching it multiple times (p. 268), but I think the same applies to documentation, just on a smaller scale._
+
+First, let's get a definition of the word "amortization," from [Cambridge](https://dictionary.cambridge.org/us/dictionary/english/amortization):
+
+> the process of reducing a cost or total in regular small amounts
+
+The idea here is that the up-front cost of a purchase or action can be made more "worth it" over time.
+
+## Some scenarios
 
 Here's a situation: your team uses some piece of technology, and let's say it's older or more challenging to find reliable documentation for. You spend multiple days investigating a workaround to an issue or a setting that you know you want to change, but can't find anything relevant on the internet. You decide to check the code out locally yourself, and you end up further down the rabbit hole. You eventually find the functionality that you're looking for, and you're able to achieve the desired outcome.
 
