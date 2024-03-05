@@ -2,10 +2,12 @@
 
 if (process.env.BRANCH.includes('renovate')) {
     console.log('don\'t build for Renovate dependency updates');
-    process.exit(1);
+    process.exit(0);
 }
 
 if (process.env.BRANCH === 'emmercm/blog-drafts') {
     console.log('don\'t build for Renovate dependency updates');
-    process.exit(1);
+    process.exit(0);
 }
+
+process.exit(1);

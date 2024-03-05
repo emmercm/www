@@ -2,7 +2,7 @@
 
 title: Now
 description: What's important in my life, now.
-date: 2023-11-03T23:48:00
+date: 2024-03-05T00:02:00
 priority: 0.1
 
 ---
@@ -29,13 +29,13 @@ Senior Software Engineer @ [Attentive](https://www.attentive.com/), an SMS and e
 
 ## 🧘🏻‍♂️ Top three personal focuses
 
-1. Separation between work and personal life, not letting either bleed into the other, especially in a remote role
-2. Prioritizing what's most important in life, reducing mental "snacking"
+1. Keeping all the sections of the lifestyle balance pie chart in balance
+2. Checking items off of my Portland, OR bucket list
 3. Making and keeping meaningful connections
 
 ## 👨🏻‍💻 Hacking on
 
-- [`igir`](https://github.com/emmercm/igir), a ROM collection manager, and my first venture into TypeScript and Node.js CLI apps
+- [`igir`](https://github.com/emmercm/igir), a video game ROM collection manager
 - [Metalsmith plugins](https://github.com/emmercm/metalsmith-plugins) that power this site (ongoing)
 - [This site](https://github.com/emmercm/www) (ongoing)
 
@@ -43,8 +43,7 @@ See my [projects](/projects) page for a complete list.
 
 ## 📚 Reading
 
-- [The Staff Engineer's Path](https://noidea.dog/staff) by Tanya Reilly @ [Attentive](https://attentivemobile.com) technical book club
-- [First Things First](https://www.goodreads.com/book/show/36071.First_Things_First) by Stephen R. Covey
+- [More than a Glitch](https://mitpress.mit.edu/9780262548328/more-than-a-glitch/) by Meredith Broussard @ [Attentive](https://attentivemobile.com) technical book club
 - [Staff Engineer](https://staffeng.com/book) by Will Larson
 - Newsletter: [The Pragmatic Engineer](https://www.pragmaticengineer.com/) by Gergely Orosz
 - Newsletter: [SoftwareLeadWeekly](https://softwareleadweekly.com/)
