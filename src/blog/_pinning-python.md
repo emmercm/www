@@ -1,7 +1,7 @@
 ---
 
 title: Automatically Pinning Python Package Versions
-draft: true
+date: 2024-03-06T21:07:00
 tags:
 - ci-cd
 - python
@@ -119,7 +119,7 @@ numpy==1.26.4
 
 I said I would help out those Windows users that can't easily run Bash or Zsh.
 
-All of the above can be accomplished with this [Docker](https://www.docker.com/) command via PowerShell:
+All of the above can be accomplished with this [Docker](https://www.docker.com/) command via PowerShell (for the `${PWD}` environment variable):
 
 ```shell
 docker run --interactive --tty --rm \
@@ -129,9 +129,19 @@ docker run --interactive --tty --rm \
   'pip install --requirement requirements.txt && echo "$(pip freeze --requirement requirements.txt | sed "/^\s*#.*pip freeze/,$ d")" > requirements.txt'
 ```
 
+or like this with a typical Windows `cmd.exe` command prompt:
+
+```shell
+docker run --interactive --tty --rm \
+  --volume "%cd%:/pwd" \
+  --workdir "/pwd" \
+  python:3-alpine sh -c \
+  'pip install --requirement requirements.txt && echo "$(pip freeze --requirement requirements.txt | sed "/^\s*#.*pip freeze/,$ d")" > requirements.txt'
+```
+
 _Note: I'm using [Alpine](https://alpinelinux.org/) to keep download and storage size small, but feel free to use other variants._
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbNTQzODU2NDE4LDEyMzg4NjUxOTQsLTU2OT
-k4MzIyMywtMTk3NTY2ODI3M119
+eyJoaXN0b3J5IjpbOTUzMTgyOTQsMTIzODg2NTE5NCwtNTY5OT
+gzMjIzLC0xOTc1NjY4MjczXX0=
 -->
