@@ -30,12 +30,14 @@ numpy==1.26.4
 
 ## Converting a `requirements.txt`
 
-This method works best with a clean environment, so let's create a [virtual environment](https://docs.python.org/3/library/venv.html). Here's an example:
+This method works best with a clean environment, so let's create a [virtual environment](https://docs.python.org/3/library/venv.html). Here's a POSIX example:
 
 ```shell
 python -m venv venv
 . venv/bin/activate
 ```
+
+Then, we need to install the dependencies we want to pin
 
 ```shell
 # docker run --interactive --tty --rm --volume "$PWD:/pwd" --workdir "/pwd" python:3 sh -c 'pip install --requirement requirements.txt && pip freeze --exclude setuptools --exclude wheel'
@@ -136,5 +138,5 @@ python -m venv venv
 ]
 ```
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTk1NjQ0ODUyNF19
+eyJoaXN0b3J5IjpbLTIwMzI3MDU3MTRdfQ==
 -->
