@@ -39,7 +39,7 @@ python -m venv venv
 . venv/bin/activate
 ```
 
-Then, we need to install the packages we want to pin, which will take care of resolving compatible versions and installing transient dependencies:
+Then, we need to install the packages we want to pin, which will take care of resolving compatible versions and installing transitive dependencies:
 
 ```python
 # requirements.txt
@@ -53,7 +53,7 @@ pip install --requirement requirements.txt
 
 Now, we need to talk about Python's lack of a lock file. Some package managers for other languages such as [npm](https://www.npmjs.com/) for Node.js will pin _transitive_ dependency versions in a separate "lock" file. This means that if one package depends on another, the most recent compatible version of that second package gets remembered. Given a `package-lock.json` has been generated, `npm ci` will install the same _exact_ versions of _every_ dependency _every_ time. There is no equivalent for `pip` and Python. So if my `requirements.txt` file only specifies `pandas==2.2.1`, I don't actually know what version of `numpy` will be installed.
 
-The `pip freeze` command _kind of_ combats this lack of a lock file by outputting the exact version of every installed package in a format that can be written to a `requirements.txt` file. I don't consider this a real solution, 
+The `pip freeze` command _kind of_ combats this lack of a lock file by outputting the exact version of every installed package in a format that can be written to a `requirements.txt` file. I don't consider this a real solution, because if transitive dependencies ever change (and they will), there won't be a pinned version in your `requirements.txt`.
 
 ```shell
 # docker run --interactive --tty --rm --volume "$PWD:/pwd" --workdir "/pwd" python:3 sh -c 'pip install --requirement requirements.txt && pip freeze --exclude setuptools --exclude wheel'
@@ -154,6 +154,6 @@ The `pip freeze` command _kind of_ combats this lack of a lock file by outputtin
 ]
 ```
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTEwNzk3MzIzMSwxMjM4ODY1MTk0LC01Nj
+eyJoaXN0b3J5IjpbMTc1NjUzNTM1MiwxMjM4ODY1MTk0LC01Nj
 k5ODMyMjMsLTE5NzU2NjgyNzNdfQ==
 -->
