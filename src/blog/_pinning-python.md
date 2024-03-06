@@ -119,7 +119,9 @@ numpy==1.26.4
 
 ## Via Docker
 
-I said I would help out those Windows users that can
+I said I would help out those Windows users that can't easily run Bash or Zsh.
+
+All of the above
 
 ```shell
 # docker run --interactive --tty --rm --volume "$PWD:/pwd" --workdir "/pwd" python:3 sh -c 'pip install --requirement requirements.txt && pip freeze --exclude setuptools --exclude wheel'
@@ -128,6 +130,6 @@ I said I would help out those Windows users that can
 ```
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTY4Njk4MDcxNywxMjM4ODY1MTk0LC01Nj
+eyJoaXN0b3J5IjpbMTEwNjIyMTY3OCwxMjM4ODY1MTk0LC01Nj
 k5ODMyMjMsLTE5NzU2NjgyNzNdfQ==
 -->
