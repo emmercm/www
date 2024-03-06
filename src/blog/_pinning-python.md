@@ -37,7 +37,11 @@ python -m venv venv
 . venv/bin/activate
 ```
 
-Then, we need to install the dependencies we want to pin
+Then, we need to install the dependencies we want to pin, which will take care of resolving compatible versions and installing transient dependencies:
+
+```shell
+pip install --requirement requirements.txt
+```
 
 ```shell
 # docker run --interactive --tty --rm --volume "$PWD:/pwd" --workdir "/pwd" python:3 sh -c 'pip install --requirement requirements.txt && pip freeze --exclude setuptools --exclude wheel'
@@ -138,5 +142,5 @@ Then, we need to install the dependencies we want to pin
 ]
 ```
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTIwMzI3MDU3MTRdfQ==
+eyJoaXN0b3J5IjpbLTY0OTkyMDM0OF19
 -->
