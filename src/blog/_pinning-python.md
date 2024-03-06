@@ -89,9 +89,13 @@ numpy==1.26.4
 
 _Note: the `echo "$(...)" > ...` syntax is a workaround for not being able to write a file while it's still being read by one of the commands._
 
+Now 
+
 ## Another example
 
-I recently used this strategy to pin my [MkDocs](https://www.mkdocs.org/) packages in [igir#842](https://github.com/emmercm/igir/pull/842/files). The result was that every time the documentation site for Igir got deployed it would look the exact same as it did before, with no surprise changes from unpinned version number
+I recently used this strategy to pin my [MkDocs](https://www.mkdocs.org/) packages in [igir#842](https://github.com/emmercm/igir/pull/842/files). The result was that every time the documentation site for Igir got deployed it would look the exact same as it did before, with no surprise changes from packages that changed. This lets me separately test updates to MkDocs and MkDocs plugins to make sure I'm happy with the results.
+
+That same change also shows that `pip freeze --requirement requirements.txt` won't mangle any comments you have in the file. For example:
 
 ```shell
 # docker run --interactive --tty --rm --volume "$PWD:/pwd" --workdir "/pwd" python:3 sh -c 'pip install --requirement requirements.txt && pip freeze --exclude setuptools --exclude wheel'
@@ -192,6 +196,6 @@ I recently used this strategy to pin my [MkDocs](https://www.mkdocs.org/) packag
 ]
 ```
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTM4MjM3MzM0MiwxMjM4ODY1MTk0LC01Nj
-k5ODMyMjMsLTE5NzU2NjgyNzNdfQ==
+eyJoaXN0b3J5IjpbLTE0OTMyMTMwMDEsMTIzODg2NTE5NCwtNT
+Y5OTgzMjIzLC0xOTc1NjY4MjczXX0=
 -->
