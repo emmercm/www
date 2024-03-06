@@ -1,4 +1,5 @@
 pre {
+  background-color: $code-bg;
   // border: 1px solid darken($code-bg, 1%);
   @extend .shadow-sm;
   padding: .75rem 1rem;

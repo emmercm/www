@@ -1440,6 +1440,7 @@ $link-color:       $primary; // default
 $link-hover-color: darken($link-color, 5%);
 
 $code-color: $dark;
+$code-bg:    var(--#{$prefix}secondary-bg); // not actually a Bootstrap var
 
 $enable-negative-margins: true;
 
