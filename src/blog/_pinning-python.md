@@ -119,7 +119,10 @@ numpy==1.26.4
 
 I said I would help out those Windows users that can't easily run Bash or Zsh.
 
-All of the above
+All of the above can be accomplished with this Docker command:
+
+```shell
+docker run --interactive --tty --rm --volume "$PWD:/pwd" --workdir "/pwd" python:3-alpine sh -c 'pip install --requirement requirements.txt && echo "$(pip freeze --requirement requirements.txt | sed "/^\s*#.*pip freeze/,$ d")" > requirements.txt'
 
 ```shell
 # docker run --interactive --tty --rm --volume "$PWD:/pwd" --workdir "/pwd" python:3 sh -c 'pip install --requirement requirements.txt && pip freeze --exclude setuptools --exclude wheel'
@@ -128,6 +131,6 @@ All of the above
 ```
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTE4MDIwOTE1MzYsMTIzODg2NTE5NCwtNT
-Y5OTgzMjIzLC0xOTc1NjY4MjczXX0=
+eyJoaXN0b3J5IjpbODQ0OTIzMDAsMTIzODg2NTE5NCwtNTY5OT
+gzMjIzLC0xOTc1NjY4MjczXX0=
 -->
