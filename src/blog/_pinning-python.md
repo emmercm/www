@@ -5,6 +5,8 @@ draft: true
 
 ---
 
+Pin
+
 ```shell
 # docker run --interactive --tty --rm --volume "$PWD:/pwd" --workdir "/pwd" python:3 sh -c 'pip install --requirement requirements.txt && pip freeze --exclude setuptools --exclude wheel'
 # docker run --interactive --tty --rm --volume "$PWD:/pwd" --workdir "/pwd" python:3 sh -c 'pip install --requirement requirements.txt && pip freeze | grep -iE "^($(grep -E "^\s*[^#]" requirements.txt | paste -s -d "|" -))=="'
@@ -103,3 +105,6 @@ draft: true
   }
 ]
 ```
+<!--stackedit_data:
+eyJoaXN0b3J5IjpbLTE5OTk2Mjc4MzRdfQ==
+-->
