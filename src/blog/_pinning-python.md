@@ -87,7 +87,11 @@ pandas==2.2.1
 numpy==1.26.4
 ```
 
-_Note: the `echo "$(...)" > ...` syntax is a work_
+_Note: the `echo "$(...)" > ...` syntax is a workaround for not being able to write a file while it's still being read by one of the commands._
+
+## Another example
+
+I recently used this strategy to pin my 
 
 ```shell
 # docker run --interactive --tty --rm --volume "$PWD:/pwd" --workdir "/pwd" python:3 sh -c 'pip install --requirement requirements.txt && pip freeze --exclude setuptools --exclude wheel'
@@ -188,6 +192,6 @@ _Note: the `echo "$(...)" > ...` syntax is a work_
 ]
 ```
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTEzMzE2MjcxNzQsMTIzODg2NTE5NCwtNT
-Y5OTgzMjIzLC0xOTc1NjY4MjczXX0=
+eyJoaXN0b3J5IjpbLTMyNTYwODEwNywxMjM4ODY1MTk0LC01Nj
+k5ODMyMjMsLTE5NzU2NjgyNzNdfQ==
 -->
