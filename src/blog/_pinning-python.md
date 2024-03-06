@@ -2,10 +2,13 @@
 
 title: Automatically Pinning Python Dependencies
 draft: true
+tags:
+- ci-cd
+- python
 
 ---
 
-Pin
+Pinning dependencies is important for reproducible builds and saving future you headaches.
 
 ```shell
 # docker run --interactive --tty --rm --volume "$PWD:/pwd" --workdir "/pwd" python:3 sh -c 'pip install --requirement requirements.txt && pip freeze --exclude setuptools --exclude wheel'
@@ -106,5 +109,5 @@ Pin
 ]
 ```
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTE5OTk2Mjc4MzRdfQ==
+eyJoaXN0b3J5IjpbLTg3NTk5MzMyM119
 -->
