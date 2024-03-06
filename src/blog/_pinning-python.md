@@ -30,6 +30,8 @@ numpy==1.26.4
 
 ## Converting a `requirements.txt`
 
+This method
+
 ```shell
 # docker run --interactive --tty --rm --volume "$PWD:/pwd" --workdir "/pwd" python:3 sh -c 'pip install --requirement requirements.txt && pip freeze --exclude setuptools --exclude wheel'
 # docker run --interactive --tty --rm --volume "$PWD:/pwd" --workdir "/pwd" python:3 sh -c 'pip install --requirement requirements.txt && pip freeze | grep -iE "^($(grep -E "^\s*[^#]" requirements.txt | paste -s -d "|" -))=="'
@@ -129,5 +131,5 @@ numpy==1.26.4
 ]
 ```
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTE4NzY2NDM0MTZdfQ==
+eyJoaXN0b3J5IjpbLTE0NDEyMDMzXX0=
 -->
