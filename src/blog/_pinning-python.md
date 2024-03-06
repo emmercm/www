@@ -119,18 +119,19 @@ numpy==1.26.4
 
 I said I would help out those Windows users that can't easily run Bash or Zsh.
 
-All of the above can be accomplished with this [Docker](https://www.docker.com/) command:
+All of the above can be accomplished with this [Docker](https://www.docker.com/) command via PowerShell:
 
 ```shell
-$ docker run --interactive --tty --rm --volume "$PWD:/pwd" --workdir "/pwd" python:3-alpine sh -c 'pip install --requirement requirements.txt && echo "$(pip freeze --requirement requirements.txt | sed "/^\s*#.*pip freeze/,$ d")" > requirements.txt'
-$ cat requirements.txt
-pandas==2.2.1
-numpy==1.26.4
+docker run --interactive --tty --rm \
+  --volume "${PWD}:/pwd" \
+  --workdir "/pwd" \
+  python:3-alpine sh -c \
+  'pip install --requirement requirements.txt && echo "$(pip freeze --requirement requirements.txt | sed "/^\s*#.*pip freeze/,$ d")" > requirements.txt'
 ```
 
 _Note: I'm using [Alpine](https://alpinelinux.org/) to keep download and storage size small, but feel free to use other variants._
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTIwOTgzNDM3MDEsMTIzODg2NTE5NCwtNT
-Y5OTgzMjIzLC0xOTc1NjY4MjczXX0=
+eyJoaXN0b3J5IjpbNTQzODU2NDE4LDEyMzg4NjUxOTQsLTU2OT
+k4MzIyMywtMTk3NTY2ODI3M119
 -->
