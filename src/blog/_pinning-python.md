@@ -10,9 +10,9 @@ tags:
 
 Pinning dependencies is important for reproducible builds and saving future you from headaches.
 
-A few times recently I've come across an old `requirements.txt` that didn't specify required dependency versions, not even ranges (and it definitely wasn't _me_ who wrote these files 🤫). Or potentially worse, it specifies versions for some dependencies and not for others, and I find out that transitive dependencies have broken my program.
+A few times recently I've come across an old `requirements.txt` that didn't specify required dependency versions, not even version ranges (and it definitely wasn't _me_ who wrote these files...). Or potentially worse, it specifies versions for some dependencies and not for others, and I find out that incompatible transitive dependencies have broken my program.
 
-If you want your program too work the same way, every time, without issue, then you need to pin your dependencies to an exact version.
+**If you want your program too work the same way, every time, without issue, then you need to pin your dependencies to an exact version.**
 
 That means that instead of writing a `requirements.txt` like this:
 
@@ -27,6 +27,8 @@ you should write it, at a minimum, like this:
 pandas==2.2.1
 numpy==1.26.4
 ```
+
+## Converting a `requirements.txt`
 
 ```shell
 # docker run --interactive --tty --rm --volume "$PWD:/pwd" --workdir "/pwd" python:3 sh -c 'pip install --requirement requirements.txt && pip freeze --exclude setuptools --exclude wheel'
@@ -127,5 +129,5 @@ numpy==1.26.4
 ]
 ```
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbNDI3MDA3MTgyXX0=
+eyJoaXN0b3J5IjpbLTE4NzY2NDM0MTZdfQ==
 -->
