@@ -99,7 +99,8 @@ That same change also shows that `pip freeze --requirement requirements.txt` won
 
 ```python
 # requirements.txt
-# 
+# Here are some additional instructions, such as needed OS packages:
+# 	macOS: brew install python@3.9
 pandas
 numpy
 ```
@@ -111,6 +112,6 @@ numpy
 ```
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTgxNDc5ODY0LDEyMzg4NjUxOTQsLTU2OT
+eyJoaXN0b3J5IjpbLTU0Njk2Mzc2LDEyMzg4NjUxOTQsLTU2OT
 k4MzIyMywtMTk3NTY2ODI3M119
 -->
