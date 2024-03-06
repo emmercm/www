@@ -57,7 +57,18 @@ Now, we need to talk about Python's lack of a lock file. Some package managers f
 
 The `pip freeze` command _kind of_ combats this lack of a lock file by outputting the exact version of every installed package in a format that can be written to a `requirements.txt` file. I don't consider this a _real_ solution, because if transitive dependencies are ever added (and they will be), there won't be a pinned version in your `requirements.txt`.
 
-But the `pip freeze --requirement requirements.txt` command
+But the `pip freeze --requirement requirements.txt` command will output some additional information to let you know what the transitive dependencies are:
+
+```shell
+$ pip freeze --requirement requirements.txt
+pandas==2.2.1
+numpy==1.26.4
+## The following requirements were added by pip freeze:
+python-dateutil==2.9.0.post0
+pytz==2024.1
+six==1.16.0
+tzdata==2024.1
+```
 
 ```shell
 # docker run --interactive --tty --rm --volume "$PWD:/pwd" --workdir "/pwd" python:3 sh -c 'pip install --requirement requirements.txt && pip freeze --exclude setuptools --exclude wheel'
@@ -158,6 +169,6 @@ But the `pip freeze --requirement requirements.txt` command
 ]
 ```
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTgwODI0MzI0NywxMjM4ODY1MTk0LC01Nj
-k5ODMyMjMsLTE5NzU2NjgyNzNdfQ==
+eyJoaXN0b3J5IjpbLTE3MTcwMjI4NzAsMTIzODg2NTE5NCwtNT
+Y5OTgzMjIzLC0xOTc1NjY4MjczXX0=
 -->
