@@ -91,7 +91,7 @@ _Note: the `echo "$(...)" > ...` syntax is a workaround for not being able to wr
 
 ## Another example
 
-I recently used this strategy to pin my 
+I recently used this strategy to pin my [MkDocs](https://www.mkdocs.org/) packages in [igir#842](https://github.com/emmercm/igir/pull/842/files). The result was that every time the documentation site for Igir got deployed it would look the exact same as it did before, with no surprise changes from unpinned version number
 
 ```shell
 # docker run --interactive --tty --rm --volume "$PWD:/pwd" --workdir "/pwd" python:3 sh -c 'pip install --requirement requirements.txt && pip freeze --exclude setuptools --exclude wheel'
@@ -192,6 +192,6 @@ I recently used this strategy to pin my
 ]
 ```
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTMyNTYwODEwNywxMjM4ODY1MTk0LC01Nj
+eyJoaXN0b3J5IjpbLTM4MjM3MzM0MiwxMjM4ODY1MTk0LC01Nj
 k5ODMyMjMsLTE5NzU2NjgyNzNdfQ==
 -->
