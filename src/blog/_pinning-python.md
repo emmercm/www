@@ -51,7 +51,7 @@ numpy
 pip install --requirement requirements.txt
 ```
 
-The `pip freeze` command outputs the exact
+The `pip freeze` command outputs the exact version of every package installed
 
 ```shell
 # docker run --interactive --tty --rm --volume "$PWD:/pwd" --workdir "/pwd" python:3 sh -c 'pip install --requirement requirements.txt && pip freeze --exclude setuptools --exclude wheel'
@@ -152,5 +152,5 @@ The `pip freeze` command outputs the exact
 ]
 ```
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbNTk2NjEwMzAxXX0=
+eyJoaXN0b3J5IjpbLTE5NzU2NjgyNzNdfQ==
 -->
