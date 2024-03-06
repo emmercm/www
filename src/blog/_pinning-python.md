@@ -81,8 +81,13 @@ numpy==1.26.4
 Those looked like pinned dependency versions to me! Let's overwrite our existing `requirements.txt` with it:
 
 ```shell
-$ pip freeze --requirement requirements.txt | sed "/^\s*#.*pip freeze/,$ d" > requirements.txt
+$ echo "$(pip freeze --requirement requirements.txt | sed "/^\s*#.*pip freeze/,$ d")" > requirements.txt
+$ cat requirements.txt
+pandas==2.2.1
+numpy==1.26.4
 ```
+
+_Note: the `echo "$(...)" > ...` syntax is a work_
 
 ```shell
 # docker run --interactive --tty --rm --volume "$PWD:/pwd" --workdir "/pwd" python:3 sh -c 'pip install --requirement requirements.txt && pip freeze --exclude setuptools --exclude wheel'
@@ -183,6 +188,6 @@ $ pip freeze --requirement requirements.txt | sed "/^\s*#.*pip freeze/,$ d" > re
 ]
 ```
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTE2NjUwMDQzODAsMTIzODg2NTE5NCwtNT
+eyJoaXN0b3J5IjpbLTEzMzE2MjcxNzQsMTIzODg2NTE5NCwtNT
 Y5OTgzMjIzLC0xOTc1NjY4MjczXX0=
 -->
