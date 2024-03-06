@@ -16,7 +16,10 @@ If you want your program too work the same way, every time, without issue, then 
 
 That means that instead of specifying a `requirements.txt` like this:
 
-`
+```text
+pandas
+
+```
 
 ```shell
 # docker run --interactive --tty --rm --volume "$PWD:/pwd" --workdir "/pwd" python:3 sh -c 'pip install --requirement requirements.txt && pip freeze --exclude setuptools --exclude wheel'
@@ -117,5 +120,5 @@ That means that instead of specifying a `requirements.txt` like this:
 ]
 ```
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTQ0NDk3MjkwNF19
+eyJoaXN0b3J5IjpbNjE0Mjk5NzM4XX0=
 -->
