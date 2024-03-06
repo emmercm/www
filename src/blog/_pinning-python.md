@@ -70,7 +70,19 @@ six==1.16.0
 tzdata==2024.1
 ```
 
-We can omit those transitive dependencies with some [sed(1)](https://linux.die.net/man/1/sed) syntax:
+We can omit that comment and the transitive dependencies that follow it with some [sed(1)](https://linux.die.net/man/1/sed) syntax:
+
+```shell
+$ pip freeze --requirement requirements.txt | sed "/^\s*#.*pip freeze/,$ d"
+pandas==2.2.1
+numpy==1.26.4
+```
+
+Those looked like pinned dependency versions to me! Let's overwrite our existing `requirements.txt` with it:
+
+```shell
+$ pip freeze --requirement requirements.txt | sed "/^\s*#.*pip freeze/,$ d" > requirements.txt
+```
 
 ```shell
 # docker run --interactive --tty --rm --volume "$PWD:/pwd" --workdir "/pwd" python:3 sh -c 'pip install --requirement requirements.txt && pip freeze --exclude setuptools --exclude wheel'
@@ -171,6 +183,6 @@ We can omit those transitive dependencies with some [sed(1)](https://linux.die.n
 ]
 ```
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTI5NTU5MTU0NCwxMjM4ODY1MTk0LC01Nj
-k5ODMyMjMsLTE5NzU2NjgyNzNdfQ==
+eyJoaXN0b3J5IjpbLTE2NjUwMDQzODAsMTIzODg2NTE5NCwtNT
+Y5OTgzMjIzLC0xOTc1NjY4MjczXX0=
 -->
