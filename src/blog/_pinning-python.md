@@ -70,6 +70,8 @@ six==1.16.0
 tzdata==2024.1
 ```
 
+We can omit those transitive dependencies with some [sed(1)](https://linux.die.net/man/1/sed) syntax:
+
 ```shell
 # docker run --interactive --tty --rm --volume "$PWD:/pwd" --workdir "/pwd" python:3 sh -c 'pip install --requirement requirements.txt && pip freeze --exclude setuptools --exclude wheel'
 # docker run --interactive --tty --rm --volume "$PWD:/pwd" --workdir "/pwd" python:3 sh -c 'pip install --requirement requirements.txt && pip freeze | grep -iE "^($(grep -E "^\s*[^#]" requirements.txt | paste -s -d "|" -))=="'
@@ -169,6 +171,6 @@ tzdata==2024.1
 ]
 ```
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTE3MTcwMjI4NzAsMTIzODg2NTE5NCwtNT
-Y5OTgzMjIzLC0xOTc1NjY4MjczXX0=
+eyJoaXN0b3J5IjpbMTI5NTU5MTU0NCwxMjM4ODY1MTk0LC01Nj
+k5ODMyMjMsLTE5NzU2NjgyNzNdfQ==
 -->
