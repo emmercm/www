@@ -83,7 +83,6 @@ Those looked like pinned dependency versions to me! Let's overwrite our existing
 ```shell
 $ echo "$(pip freeze --requirement requirements.txt | sed "/^\s*#.*pip freeze/,$ d")" > requirements.txt
 $ cat requirements.txt
-# requirements.txt
 pandas==2.2.1
 numpy==1.26.4
 ```
@@ -99,7 +98,6 @@ I recently used this strategy to pin my [MkDocs](https://www.mkdocs.org/) packag
 That same change also shows that `pip freeze --requirement requirements.txt` won't mangle any comments you have in the file. For example:
 
 ```python
-# requirements.txt
 # Here are some additional instructions, such as needed OS packages:
 # 	macOS: brew install python@3.12
 #   Ubuntu: sudo apt-get update && sudo apt-get install python3.12
@@ -131,6 +129,6 @@ All of the above
 ```
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTE5MjcwNjI4MzUsMTIzODg2NTE5NCwtNT
-Y5OTgzMjIzLC0xOTc1NjY4MjczXX0=
+eyJoaXN0b3J5IjpbMzgwOTA2ODk1LDEyMzg4NjUxOTQsLTU2OT
+k4MzIyMywtMTk3NTY2ODI3M119
 -->
