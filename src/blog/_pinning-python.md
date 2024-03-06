@@ -24,7 +24,7 @@ numpy
 you should write it, at a minimum, like this:
 
 ```python
-pandas==2.2.1
+pandas==1.26.4
 numpy==1.26.4
 ```
 
@@ -154,6 +154,6 @@ The `pip freeze` command outputs the exact version of every package installed
 ]
 ```
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTIzODg2NTE5NCwtNTY5OTgzMjIzLC0xOT
-c1NjY4MjczXX0=
+eyJoaXN0b3J5IjpbNjk3OTY5MjYyLDEyMzg4NjUxOTQsLTU2OT
+k4MzIyMywtMTk3NTY2ODI3M119
 -->
