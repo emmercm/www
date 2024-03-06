@@ -51,7 +51,7 @@ numpy
 pip install --requirement requirements.txt
 ```
 
-Now, we need to talk about Python's lack of a lock file.
+Now, we need to talk about Python's lack of a lock file. Some l
 
 The `pip freeze` command outputs the exact version of every package installed
 
@@ -154,5 +154,6 @@ The `pip freeze` command outputs the exact version of every package installed
 ]
 ```
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTU2OTk4MzIyMywtMTk3NTY2ODI3M119
+eyJoaXN0b3J5IjpbLTE0NDIxMjkxNDMsLTU2OTk4MzIyMywtMT
+k3NTY2ODI3M119
 -->
