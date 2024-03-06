@@ -100,10 +100,26 @@ That same change also shows that `pip freeze --requirement requirements.txt` won
 ```python
 # requirements.txt
 # Here are some additional instructions, such as needed OS packages:
-# 	macOS: brew install python@3.9
+# 	macOS: brew install python@3.12
+#   Ubuntu: sudo apt-get update && sudo apt-get install python3.12
 pandas
 numpy
 ```
+
+```shell
+$ echo "$(pip freeze --requirement requirements.txt | sed "/^\s*#.*pip freeze/,$ d")" > requirements.txt
+$ cat requirements.txt
+# requirements.txt
+# Here are some additional instructions, such as needed OS packages:
+# 	macOS: brew install python@3.12
+#   Ubuntu: sudo apt-get update && sudo apt-get install python3.12
+pandas==2.2.1
+numpy==1.26.4
+```
+
+## Via Docker
+
+I said I would help out those Windows users that can
 
 ```shell
 # docker run --interactive --tty --rm --volume "$PWD:/pwd" --workdir "/pwd" python:3 sh -c 'pip install --requirement requirements.txt && pip freeze --exclude setuptools --exclude wheel'
@@ -112,6 +128,6 @@ numpy
 ```
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTU0Njk2Mzc2LDEyMzg4NjUxOTQsLTU2OT
-k4MzIyMywtMTk3NTY2ODI3M119
+eyJoaXN0b3J5IjpbLTY4Njk4MDcxNywxMjM4ODY1MTk0LC01Nj
+k5ODMyMjMsLTE5NzU2NjgyNzNdfQ==
 -->
