@@ -30,9 +30,9 @@ numpy==1.26.4
 
 ## Converting a `requirements.txt`
 
-For this method, you're going to need a POSIX shell such as [Bash](https://www.gnu.org/software/bash/) or Zsh.
+For this method, you're going to need a POSIX shell such as [Bash](https://www.gnu.org/software/bash/) or [Zsh](https://www.zsh.org/). This mostly excludes Windows, so I'll provide an alternative later.
 
-This method works best with a clean environment, so let's create a [virtual environment](https://docs.python.org/3/library/venv.html). Here's a POSIX example:
+This method works best with a clean environment, so let's create a [virtual environment](https://docs.python.org/3/library/venv.html):
 
 ```shell
 python -m venv venv
@@ -50,6 +50,8 @@ numpy
 ```shell
 pip install --requirement requirements.txt
 ```
+
+The `pip freeze` command outputs the exact
 
 ```shell
 # docker run --interactive --tty --rm --volume "$PWD:/pwd" --workdir "/pwd" python:3 sh -c 'pip install --requirement requirements.txt && pip freeze --exclude setuptools --exclude wheel'
@@ -150,5 +152,5 @@ pip install --requirement requirements.txt
 ]
 ```
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTgwOTM0NTExOV19
+eyJoaXN0b3J5IjpbNTk2NjEwMzAxXX0=
 -->
