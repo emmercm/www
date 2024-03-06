@@ -83,6 +83,7 @@ Those looked like pinned dependency versions to me! Let's overwrite our existing
 ```shell
 $ echo "$(pip freeze --requirement requirements.txt | sed "/^\s*#.*pip freeze/,$ d")" > requirements.txt
 $ cat requirements.txt
+# requirements.txt
 pandas==2.2.1
 numpy==1.26.4
 ```
@@ -130,6 +131,6 @@ All of the above
 ```
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTEwNjIyMTY3OCwxMjM4ODY1MTk0LC01Nj
-k5ODMyMjMsLTE5NzU2NjgyNzNdfQ==
+eyJoaXN0b3J5IjpbLTE5MjcwNjI4MzUsMTIzODg2NTE5NCwtNT
+Y5OTgzMjIzLC0xOTc1NjY4MjczXX0=
 -->
