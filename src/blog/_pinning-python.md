@@ -10,9 +10,13 @@ tags:
 
 Pinning dependencies is important for reproducible builds and saving future you headaches.
 
-A few times recently I've come across an old `requirements.txt` that didn't specify required dependency versions, not even ranges (and it definitely wasn't _me_ who wrote these files 🤫). Or potentially worse, it specifies versions for some dependencies and not for others, and I find out that transitive dependencies have broken my app.
+A few times recently I've come across an old `requirements.txt` that didn't specify required dependency versions, not even ranges (and it definitely wasn't _me_ who wrote these files 🤫). Or potentially worse, it specifies versions for some dependencies and not for others, and I find out that transitive dependencies have broken my program.
 
-If you want y
+If you want your program too work the same way, every time, without issue, then you need to pin your dependencies to an exact version.
+
+That means that instead of specifying a `requirements.txt` like this:
+
+`
 
 ```shell
 # docker run --interactive --tty --rm --volume "$PWD:/pwd" --workdir "/pwd" python:3 sh -c 'pip install --requirement requirements.txt && pip freeze --exclude setuptools --exclude wheel'
@@ -113,5 +117,5 @@ If you want y
 ]
 ```
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTE4MzU4ODg2NTZdfQ==
+eyJoaXN0b3J5IjpbMTQ0NDk3MjkwNF19
 -->
