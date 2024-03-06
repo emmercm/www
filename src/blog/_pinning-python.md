@@ -30,7 +30,12 @@ numpy==1.26.4
 
 ## Converting a `requirements.txt`
 
-This method
+This method works best with a clean environment, so let's create a [virtual environment](https://docs.python.org/3/library/venv.html). Here's an example:
+
+```shell
+python -m venv venv
+. venv/bin/activate
+```
 
 ```shell
 # docker run --interactive --tty --rm --volume "$PWD:/pwd" --workdir "/pwd" python:3 sh -c 'pip install --requirement requirements.txt && pip freeze --exclude setuptools --exclude wheel'
@@ -131,5 +136,5 @@ This method
 ]
 ```
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTE0NDEyMDMzXX0=
+eyJoaXN0b3J5IjpbLTk1NjQ0ODUyNF19
 -->
