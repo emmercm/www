@@ -209,7 +209,7 @@ markdownRenderer.code = (_code, infostring, escaped) => {
         return `<pre><code>${escaped ? _code : escape(_code, true)}</code></pre>\n`;
     }
     const escapedLang = escape(lang, true);
-    return `<pre data-lang="${escapedLang}"><code class="language-${escapedLang}">${escaped ? _code : escape(_code, true)}</code></pre>\n`;
+    return `<pre class="hljs" data-lang="${escapedLang}"><code class="language-${escapedLang}">${escaped ? _code : escape(_code, true)}</code></pre>\n`;
 };
 
 tracer(Metalsmith(path.resolve()))
