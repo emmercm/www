@@ -51,7 +51,7 @@ numpy
 pip install --requirement requirements.txt
 ```
 
-Now, we need to talk about Python's lack of a lock file. Some l
+Now, we need to talk about Python's lack of a lock file. Some package managers for other languages such as [npm](https://www.npmjs.com/) for Node.js 
 
 The `pip freeze` command outputs the exact version of every package installed
 
@@ -154,6 +154,6 @@ The `pip freeze` command outputs the exact version of every package installed
 ]
 ```
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTE0NDIxMjkxNDMsLTU2OTk4MzIyMywtMT
+eyJoaXN0b3J5IjpbLTE1NDU0MjE5MjAsLTU2OTk4MzIyMywtMT
 k3NTY2ODI3M119
 -->
