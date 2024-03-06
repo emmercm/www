@@ -51,7 +51,7 @@ numpy
 pip install --requirement requirements.txt
 ```
 
-Now, we need to talk about Python's lack of a lock file. Some package managers for other languages such as [npm](https://www.npmjs.com/) for Node.js will pin _transitive_ dependency versions in a separate file. This means that any dependencies
+Now, we need to talk about Python's lack of a lock file. Some package managers for other languages such as [npm](https://www.npmjs.com/) for Node.js will pin _transitive_ dependency versions in a separate file. This means that any dependencies of your required packages
 
 The `pip freeze` command outputs the exact version of every package installed
 
@@ -154,6 +154,6 @@ The `pip freeze` command outputs the exact version of every package installed
 ]
 ```
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTEwODM0ODgzODQsLTU2OTk4MzIyMywtMT
-k3NTY2ODI3M119
+eyJoaXN0b3J5IjpbMTIzODg2NTE5NCwtNTY5OTgzMjIzLC0xOT
+c1NjY4MjczXX0=
 -->
