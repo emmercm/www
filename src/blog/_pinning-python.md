@@ -89,7 +89,7 @@ numpy==1.26.4
 
 _Note: the `echo "$(...)" > ...` syntax is a workaround for not being able to write a file while it's still being read by one of the commands._
 
-Now 
+Now you have the ability to decide what packages to update and when.
 
 ## Another example
 
@@ -97,105 +97,20 @@ I recently used this strategy to pin my [MkDocs](https://www.mkdocs.org/) packag
 
 That same change also shows that `pip freeze --requirement requirements.txt` won't mangle any comments you have in the file. For example:
 
+```python
+# requirements.txt
+# 
+pandas
+numpy
+```
+
 ```shell
 # docker run --interactive --tty --rm --volume "$PWD:/pwd" --workdir "/pwd" python:3 sh -c 'pip install --requirement requirements.txt && pip freeze --exclude setuptools --exclude wheel'
 # docker run --interactive --tty --rm --volume "$PWD:/pwd" --workdir "/pwd" python:3 sh -c 'pip install --requirement requirements.txt && pip freeze | grep -iE "^($(grep -E "^\s*[^#]" requirements.txt | paste -s -d "|" -))=="'
 # docker run --interactive --tty --rm --volume "$PWD:/pwd" --workdir "/pwd" python:3 sh -c 'pip install --requirement requirements.txt && echo "$(pip3 freeze --requirement requirements.txt | sed "/^\s*#.*pip freeze/,$ d")" > requirements.txt'
 ```
 
-[Renovate](https://developer.mend.io/github/emmercm/igir/-/job/00e0221c-7ce3-48c7-a464-0fffe4a2ac8b)
-
-```json
-"pip_requirements": [
-  {
-    "deps": [
-      {
-        "depName": "mkdocs-material",
-        "datasource": "pypi",
-        "updates": [],
-        "packageName": "mkdocs-material",
-        "versioning": "pep440",
-        "warnings": [],
-        "skipReason": "invalid-value"
-      },
-      {
-        "depName": "mkdocs-exclude-search",
-        "datasource": "pypi",
-        "updates": [],
-        "packageName": "mkdocs-exclude-search",
-        "versioning": "pep440",
-        "warnings": [],
-        "skipReason": "invalid-value"
-      },
-      {
-        "depName": "mkdocs-git-revision-date-localized-plugin",
-        "datasource": "pypi",
-        "updates": [],
-        "packageName": "mkdocs-git-revision-date-localized-plugin",
-        "versioning": "pep440",
-        "warnings": [],
-        "skipReason": "invalid-value"
-      },
-      {
-        "depName": "mkdocs-htmlproofer-plugin",
-        "datasource": "pypi",
-        "updates": [],
-        "packageName": "mkdocs-htmlproofer-plugin",
-        "versioning": "pep440",
-        "warnings": [],
-        "skipReason": "invalid-value"
-      },
-      {
-        "depName": "mkdocs-redirects",
-        "datasource": "pypi",
-        "updates": [],
-        "packageName": "mkdocs-redirects",
-        "versioning": "pep440",
-        "warnings": [],
-        "skipReason": "invalid-value"
-      },
-      {
-        "depName": "mkdocs-unused-files",
-        "datasource": "pypi",
-        "updates": [],
-        "packageName": "mkdocs-unused-files",
-        "versioning": "pep440",
-        "warnings": [],
-        "skipReason": "invalid-value"
-      },
-      {
-        "depName": "mdx_truly_sane_lists",
-        "datasource": "pypi",
-        "updates": [],
-        "packageName": "mdx_truly_sane_lists",
-        "versioning": "pep440",
-        "warnings": [],
-        "skipReason": "invalid-value"
-      },
-      {
-        "depName": "pillow",
-        "datasource": "pypi",
-        "updates": [],
-        "packageName": "pillow",
-        "versioning": "pep440",
-        "warnings": [],
-        "skipReason": "invalid-value"
-      },
-      {
-        "depName": "cairosvg",
-        "datasource": "pypi",
-        "updates": [],
-        "packageName": "cairosvg",
-        "versioning": "pep440",
-        "warnings": [],
-        "skipReason": "invalid-value"
-      }
-    ],
-    "packageFile": "docs/requirements.txt"
-  }
-]
-```
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTE0OTMyMTMwMDEsMTIzODg2NTE5NCwtNT
-Y5OTgzMjIzLC0xOTc1NjY4MjczXX0=
+eyJoaXN0b3J5IjpbMTgxNDc5ODY0LDEyMzg4NjUxOTQsLTU2OT
+k4MzIyMywtMTk3NTY2ODI3M119
 -->
