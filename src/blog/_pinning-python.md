@@ -16,19 +16,21 @@ A few times recently I've come across an old `requirements.txt` that didn't spec
 
 That means that instead of writing a `requirements.txt` like this:
 
-```text
+```python
 pandas
 numpy
 ```
 
 you should write it, at a minimum, like this:
 
-```text
+```python
 pandas==2.2.1
 numpy==1.26.4
 ```
 
 ## Converting a `requirements.txt`
+
+For this method, you're going to need a POSIX shell such as [Bash](https://www.gnu.org/software/bash/) or Zsh.
 
 This method works best with a clean environment, so let's create a [virtual environment](https://docs.python.org/3/library/venv.html). Here's a POSIX example:
 
@@ -39,7 +41,7 @@ python -m venv venv
 
 Then, we need to install the dependencies we want to pin, which will take care of resolving compatible versions and installing transient dependencies:
 
-```text
+```python
 # requirements.txt
 pandas
 numpy
@@ -148,5 +150,5 @@ pip install --requirement requirements.txt
 ]
 ```
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMjEyMzM4OTkwNl19
+eyJoaXN0b3J5IjpbMTgwOTM0NTExOV19
 -->
