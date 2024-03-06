@@ -39,6 +39,12 @@ python -m venv venv
 
 Then, we need to install the dependencies we want to pin, which will take care of resolving compatible versions and installing transient dependencies:
 
+```text
+# requirements.txt
+pandas
+numpy
+```
+
 ```shell
 pip install --requirement requirements.txt
 ```
@@ -142,5 +148,5 @@ pip install --requirement requirements.txt
 ]
 ```
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTY0OTkyMDM0OF19
+eyJoaXN0b3J5IjpbMjEyMzM4OTkwNl19
 -->
