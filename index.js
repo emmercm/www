@@ -853,7 +853,7 @@ tracer(Metalsmith(path.resolve()))
     .use(msIf(prodBuild, cssUnused({
         purgecss: {
             safelist: [
-                // Bootstrap 4 JavaScript
+                // Bootstrap 5 JavaScript
                 // /\.carousel-.+/,
                 'collapse', 'collapsing', 'collapsed',
                 // /\.modal-.+/,
