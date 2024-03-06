@@ -10,9 +10,9 @@ tags:
 
 Pinning packages is important for reproducible builds and saving future you from headaches.
 
-A few times recently I've come across an old `requirements.txt` that didn't specify required package versions, not even version ranges (and it definitely wasn't _me_ who wrote these files...). Or potentially worse, it specifies versions for some dependencies and not for others, and I find out that incompatible transitive dependencies have broken my program.
+A few times recently I've come across an old `requirements.txt` that didn't specify required package versions, not even version ranges (and it definitely wasn't _me_ who wrote these files...). Or potentially worse, it specifies versions for some packages and not for others, and I find out that incompatible transitive dependencies have broken my program.
 
-**If you want your program too work the same way, every time, without issue, then you need to pin your dependencies to an exact version.**
+**If you want your program too work the same way, every time, without issue, then you need to pin your packages to an exact version.**
 
 That means that instead of writing a `requirements.txt` like this:
 
@@ -39,7 +39,7 @@ python -m venv venv
 . venv/bin/activate
 ```
 
-Then, we need to install the dependencies we want to pin, which will take care of resolving compatible versions and installing transient dependencies:
+Then, we need to install the packages we want to pin, which will take care of resolving compatible versions and installing transient dependencies:
 
 ```python
 # requirements.txt
@@ -51,7 +51,7 @@ numpy
 pip install --requirement requirements.txt
 ```
 
-Now, we need to talk about Python's lack of a lock file. Some package managers for other languages such as [npm](https://www.npmjs.com/) for Node.js will pin _transitive_ dependency versions in a separate file. This means that any dependencies that 
+Now, we need to talk about Python's lack of a lock file. Some package managers for other languages such as [npm](https://www.npmjs.com/) for Node.js will pin _transitive_ dependency versions in a separate file. This means that any dependencies
 
 The `pip freeze` command outputs the exact version of every package installed
 
@@ -154,6 +154,6 @@ The `pip freeze` command outputs the exact version of every package installed
 ]
 ```
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMzQ1Mjk4NTU3LC01Njk5ODMyMjMsLTE5Nz
-U2NjgyNzNdfQ==
+eyJoaXN0b3J5IjpbLTEwODM0ODgzODQsLTU2OTk4MzIyMywtMT
+k3NTY2ODI3M119
 -->
