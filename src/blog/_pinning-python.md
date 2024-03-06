@@ -51,7 +51,7 @@ numpy
 pip install --requirement requirements.txt
 ```
 
-Now, we need to talk about Python's lack of a lock file. Some package managers for other languages such as [npm](https://www.npmjs.com/) for Node.js will pin _transitive_ dependency versions in a separate "lock" file. This means that if one package depends on another, the most recent compatible version of that second package gets remembered. `npm ci package.json
+Now, we need to talk about Python's lack of a lock file. Some package managers for other languages such as [npm](https://www.npmjs.com/) for Node.js will pin _transitive_ dependency versions in a separate "lock" file. This means that if one package depends on another, the most recent compatible version of that second package gets remembered. Given a `package-lock.json` has been generated, `npm ci` will install the same _exact_ versions of _every_ dependency _every_ time. There is no equivalent for `pip` and Python. So even if my `requirements.txt` file specifies `
 
 The `pip freeze` command outputs the exact version of every package installed
 
@@ -154,6 +154,6 @@ The `pip freeze` command outputs the exact version of every package installed
 ]
 ```
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTk0ODQ5NDAwNSwxMjM4ODY1MTk0LC01Nj
-k5ODMyMjMsLTE5NzU2NjgyNzNdfQ==
+eyJoaXN0b3J5IjpbOTg0MjM5NTc5LDEyMzg4NjUxOTQsLTU2OT
+k4MzIyMywtMTk3NTY2ODI3M119
 -->
