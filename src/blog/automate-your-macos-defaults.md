@@ -1,7 +1,9 @@
 ---
 
-title: Automate Your macOS Defaults
+title: Automate Your macOS Default Settings
 date: 2024-02-19T05:09:00
+updated: 2024-03-05T22:20:00
+permalink: blog/automate-your-macos-defaults
 tags:
 - macos
 - shell
@@ -213,3 +215,5 @@ _Note: not every OS setting can be read and written to by `defaults`. Some setti
 ## An easier tool
 
 The above steps of running `defaults read`, `diff`, and `grep` to find change settings isn't the easiest or fastest method. Thankfully, Chirag Davé has written a tool called [`plistwatch`](https://github.com/catilac/plistwatch) that can monitor changes to settings in real-time.
+
+Ben Balter also has a tool called [`plister`](https://github.com/benbalter/plister) that can let you manage these `defaults`-accessible settings with an easier-to-read YAML file.

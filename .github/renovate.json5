@@ -80,14 +80,14 @@
       {
         matchUpdateTypes: ['patch', 'minor'],
         groupName: 'Front-End',
-        packageNames: [
+        matchPackageNames: [
           '@fortawesome/fontawesome-pro',
           'bootstrap',
           'highlight.js',
           'jquery'
         ]
       },
-      { packageNames: ['metalsmith-twitter-card'], 'allowedVersions': '!/^1.0.[5689]$/'},
+      { matchPackageNames: ['metalsmith-twitter-card'], 'allowedVersions': '!/^1.0.[5689]$/'},
 
       // Everything else
       {
