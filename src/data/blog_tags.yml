@@ -86,6 +86,10 @@ postgres:
   title: PostgreSQL
   color: postgres
 
+python:
+  title: Python
+  color: python
+
 shell:
   title: Shell
   color: dark

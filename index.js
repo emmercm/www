@@ -1049,6 +1049,8 @@ tracer(Metalsmith(path.resolve()))
             'instagram.com',
             'linkedin.com/shareArticle',
             'web.archive.org',
+            // Anti-bot ECONNREFUSED
+            'tldp.org',
             // Anti-bot timeouts
             'usnews.com',
             // Temporary
