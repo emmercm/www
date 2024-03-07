@@ -124,7 +124,7 @@ I said I would help out those Windows users that can't easily run Bash or Zsh.
 All of the above can be accomplished with this [Docker](https://www.docker.com/) command, when run via PowerShell (for the `${PWD}` environment variable):
 
 ```shell
-docker run --interactive --tty --rm \
+$ docker run --interactive --tty --rm \
   --volume "${PWD}:/pwd" \
   --workdir "/pwd" \
   python:3-alpine sh -c \
@@ -134,7 +134,7 @@ docker run --interactive --tty --rm \
 or like this when run from a typical Windows `cmd.exe` command prompt:
 
 ```batch
-docker run --interactive --tty --rm \
+$ docker run --interactive --tty --rm \
   --volume "%cd%:/pwd" \
   --workdir "/pwd" \
   python:3-alpine sh -c \
