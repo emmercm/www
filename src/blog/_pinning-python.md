@@ -1,3 +1,4 @@
+
 ---
 
 title: Automatically Pinning Python Package Versions
@@ -53,43 +54,7 @@ pip install --requirement requirements.txt
 
 Here's a quick definition of what I mean by "transitive dependencies." Python packages (e.g. ones hosted on [PyPI](https://pypi.org/)) can specify that they themselves rely on other Python packages to function. For example, [pandas v2.2.1](https://pypi.org/project/pandas/2.2.1/) specifies that it requires `numpy<2,>=1.26.0`. Even if we don't specify that we would like to install [NumPy](https://pypi.org/project/numpy/), it still gets installed because pandas needs it. NumPy would be considered a "transitive dependency" here.
 
-Now, we need to talk about Python's lack of a lock file. Some package managers for other languages such as [npm](https://www.npmjs.com/) for Node.js will pin _transitive_ dependency versions in a separate "lock" file. This means that if one package depends on another, the most recent compatible version of that second package gets remembered. Given a `package-lock.json` has been generated, `npm ci` will install the same _exact_ versions of _every_ dependency _every_ time. TheDependencies
-draft: true
-
----
-
-```shell
-# docker run --interactive --tty --rm --volume "$PWD:/pwd" --workdir "/pwd" python:3 sh -c 'pip install --requirement requirements.txt && pip freeze --exclude setuptools --exclude wheel'
-# docker run --interactive --tty --rm --volume "$PWD:/pwd" --workdir "/pwd" python:3 sh -c 'pip install --requirement requirements.txt && pip freeze | grep -iE "^($(grep -E "^\s*[^#]" requirements.txt | paste -s -d "|" -))=="'
-# docker run --interactive --tty --rm --volume "$PWD:/pwd" --workdir "/pwd" python:3 sh -c 'pip install --requirement requirements.txt && echo "$(pip3 freeze --requirement requirements.txt | sed "/^\s*#.*pip freeze/,$ d")" > requirements.txt'
-```
-
-[Renovate](https://developer.mend.io/github/emmercm/igir/-/job/00e0221c-7ce3-48c7-a464-0fffe4a2ac8b)
-
-```json
-"pip_requirements": [
-  {
-    "deps": [
-      {
-        "depName": "mkdocs-material",
-        "datasource": "pypi",
-        "updates": [],
-        "packageName": "mkdocs-material",
-        "versioning": "pep440",
-        "warnings": [],
-        "skipReason": "invalid-value"
-      },
-      {
-        "depName": "mkdocs-exclude-search",
-        "datasource": "pypi",
-        "updates": [],
-        "packageName": "mkdocs-exclude-search",
-        "versioning": "pep440",
-        "warnings": [],
-        "skipReason": "invalid-value"
-      },
-      {
-        "depName": "mkdocs-git-re vis no equivalent for `pip` and Python. So if my `requirements.txt` file only specifies `pandas==2.2.1`, I don't actually know what version of `numpy` will be installed.
+Now, we need to talk about Python's lack of a lock file. Some package managers for other languages such as [npm](https://www.npmjs.com/) for Node.js will pin _transitive_ dependency versions in a separate "lock" file. This means that if one package depends on another, the most recent compatible version of that second package gets remembered. Given a `package-lock.json` has been generated, `npm ci` will install the same _exact_ versions of _every_ dependency _every_ time. There is no equivalent for `pip` and Python. So if my `requirements.txt` file only specifies `pandas==2.2.1`, I don't actually know what version of `numpy` will be installed.
 
 The `pip freeze` command _kind of_ combats this lack of a lock file by outputting the exact version of every installed package in a format that can be written to a `requirements.txt` file. I don't consider this a _real_ solution, because if transitive dependencies are ever added (and they will be), there won't be a pinned version in your `requirements.txt`.
 
@@ -117,28 +82,7 @@ numpy==1.26.4
 Those looked like pinned dependency versions to me! Let's overwrite our existing `requirements.txt` with it:
 
 ```shell
-$ echo "$(pip freeze -ion-date-localized-plugin",
-        "datasource": "pypi",
-        "updates": [],
-        "packageName": "mkdocs-git-revision-date-localized-plugin",
-        "versioning": "pep440",
-        "warnings": [],
-        "skipReason": "invalid-value"
-      },
-      {
-        "depName": "mkdocs-htmlproofer-plugin",
-        "datasource": "pypi",
-        "updates": [],
-        "packageName": "mkdocs-htmlproofer-plugin",
-        "versioning": "pep440",
-        "warnings": [],
-        "skipReason": "invalid-value"
-      },
-      {
-        "depName": "mkdocs-redirects",
-        "datasource": "pypi",
-        "updates": [],
-        "packageName": "mkdocs-requdirement requirements.txt | sed "/^\s*#.*pip freeze/,$ d")" > requirements.txt
+$ echo "$(pip freeze --requirement requirements.txt | sed "/^\s*#.*pip freeze/,$ d")" > requirements.txt
 $ cat requirements.txt
 pandas==2.2.1
 numpy==1.26.4
@@ -197,53 +141,9 @@ docker run --interactive --tty --rm \
 ```
 
 _Note: I'm using [Alpine](https://alpinelinux.org/) to keep download and storage size small, but feel free to use other variants._
-cts",
-        "versioning": "pep440",
-        "warnings": [],
-        "skipReason": "invalid-value"
-      },
-      {
-        "depName": "mkdocs-unused-files",
-        "datasource": "pypi",
-        "updates": [],
-        "packageName": "mkdocs-unused-files",
-        "versioning": "pep440",
-        "warnings": [],
-        "skipReason": "invalid-value"
-      },
-      {
-        "depName": "mdx_truly_sane_lists",
-        "datasource": "pypi",
-        "updates": [],
-        "packageName": "mdx_truly_sane_lists",
-        "versioning": "pep440",
-        "warnings": [],
-        "skipReason": "invalid-value"
-      },
-      {
-        "depName": "pillow",
-        "datasource": "pypi",
-        "updates": [],
-        "packageName": "pillow",
-        "versioning": "pep440",
-        "warnings": [],
-        "skipReason": "invalid-value"
-      },
-      {
-        "depName": "cairosvg",
-        "datasource": "pypi",
-        "updates": [],
-        "packageName": "cairosvg",
-        "versioning": "pep440",
-        "warnings": [],
-        "skipReason": "invalid-value"
-      }
-    ],
-    "packageFile": "docs/requirements.txt"
-  }
-]
-```
+
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTM5MTgwOTcwNSw5NTMxODI5NCwxMjM4OD
-Y1MTk0LC01Njk5ODMyMjMsLTE5NzU2NjgyNzNdfQ==
+eyJoaXN0b3J5IjpbMjEwNDQwMTQ3NiwtMzkxODA5NzA1LDk1Mz
+E4Mjk0LDEyMzg4NjUxOTQsLTU2OTk4MzIyMywtMTk3NTY2ODI3
+M119
 -->
