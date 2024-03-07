@@ -1,6 +1,6 @@
 ---
 
-title: Automatically Pin Python Package Versions
+title: Quickly Pin Python Package Versions
 date: 2024-03-07T02:57:00
 tags:
 - ci-cd
