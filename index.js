@@ -10,8 +10,8 @@ import msIf       from 'metalsmith-if';
 import metaDirectory    from 'metalsmith-metadata-directory';
 import githubProfile    from 'metalsmith-github-profile';
 import gravatar         from 'metalsmith-gravatar';
-import renamer          from 'metalsmith-renamer';
 import drafts           from '@metalsmith/drafts';
+import renamer          from 'metalsmith-renamer';
 import validate         from 'metalsmith-validate';
 import dataLoader       from 'metalsmith-data-loader';
 // BUILD CSS
@@ -209,7 +209,7 @@ markdownRenderer.code = (_code, infostring, escaped) => {
         return `<pre><code>${escaped ? _code : escape(_code, true)}</code></pre>\n`;
     }
     const escapedLang = escape(lang, true);
-    return `<pre data-lang="${escapedLang}"><code class="language-${escapedLang}">${escaped ? _code : escape(_code, true)}</code></pre>\n`;
+    return `<pre class="hljs" data-lang="${escapedLang}"><code class="language-${escapedLang}">${escaped ? _code : escape(_code, true)}</code></pre>\n`;
 };
 
 tracer(Metalsmith(path.resolve()))
@@ -267,6 +267,14 @@ tracer(Metalsmith(path.resolve()))
         '**/*.rsls*'
     ])
 
+    // Ignore draft files
+    .use(drafts())
+
+    .use((files, metalsmith, done) => {
+        Object.keys(files).forEach((filename) => files[filename].originalPath = filename);
+        done();
+    })
+
     // Lowercase extensions
     .use(renamer({
         lowercase: {
@@ -277,9 +285,6 @@ tracer(Metalsmith(path.resolve()))
             }
         }
     }))
-
-    // Ignore draft files
-    .use(drafts())
 
     // Validate required metadata
     .use(validate([
@@ -439,6 +444,23 @@ tracer(Metalsmith(path.resolve()))
         property: 'paths',
         directoryIndex: 'index.md'
     }))
+
+    // Validate markdown file naming
+    .use((files, metalsmith, done) => {
+        const pathMismatches = metalsmith.match('**/*.md', Object.keys(files))
+            .map((filename) => {
+                const file = files[filename];
+                const permanentPath = `${file.paths.dir || 'index'}${file.paths.ext}`
+                if (permanentPath !== file.path) {
+                    return `'${permanentPath}' != '${file.path}'`;
+                }
+            })
+            .filter((err) => err);
+        if (pathMismatches.length) {
+            done(`Some blog articles are named incorrectly:\n${pathMismatches.map((err) => `  ${err}`).join('\n')}`);
+        }
+        done();
+    })
 
     // Find images for pages
     .use((files, metalsmith, done) => defaultValues([
@@ -831,7 +853,7 @@ tracer(Metalsmith(path.resolve()))
     .use(msIf(prodBuild, cssUnused({
         purgecss: {
             safelist: [
-                // Bootstrap 4 JavaScript
+                // Bootstrap 5 JavaScript
                 // /\.carousel-.+/,
                 'collapse', 'collapsing', 'collapsed',
                 // /\.modal-.+/,
