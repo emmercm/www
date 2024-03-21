@@ -8,8 +8,9 @@ You can control the minimum checksum algorithm used with the `--input-min-checks
 
 ### Feature: archive checksum cache
 
-To support MD5 & SHA1 checksums, and as prep work for CHD support (#937), `igir` will now cache the checksums of any archived files that it had to compute itself. Some archive formats such as `.zip` and `.7z` include CRC32
+To support MD5 & SHA1 checksums, and as prep work for CHD support (#937), `igir` will now cache the checksums of any archived files that it had to compute itself.
+
+Some archive formats such as `.zip` and `.7z` [include pre-calculated CRC32 information](https://igir.io/input/reading-archives/) such that `igir` doesn't need to calculate it. No supported archive format includes pre-calculated MD5 or SHA1 checksums, so any need to calculate them can greatly slow down ROM scanning.
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTE0NjkyOTU4MTIsLTE4NDMxMTc0MTddfQ
-==
+eyJoaXN0b3J5IjpbLTU0MzkzMzg1OSwtMTg0MzExNzQxN119
 -->
