@@ -14,7 +14,7 @@ Some archive formats such as `.zip` and `.7z` [include pre-calculated CRC32 info
 
 ### Fix: directories in ROM names
 
-Up until now, `igir` rt
+Up until now, `igir` tried to intelligently guess if a DAT used `/` or `\` path separators in ROM names intentionally. This led to the issue that was fixed in [v2.5.3](https://github.com/emmercm/igir/releases/tag/v2.5.3) for some No-Intro DATs. No-Intro doesn't allow
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTAwNTkxNTUwMiwtMTg0MzExNzQxN119
+eyJoaXN0b3J5IjpbOTM2MDU4OTAzLC0xODQzMTE3NDE3XX0=
 -->
