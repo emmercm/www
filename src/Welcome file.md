@@ -14,7 +14,10 @@ Some archive formats such as `.zip` and `.7z` [include pre-calculated CRC32 info
 
 ### Fix: directories in ROM names
 
-Up until now, `igir` tried to intelligently guess if a DAT used `/` or `\` path separators in ROM names intentionally. This led to the issue that was fixed in [v2.5.3](https://github.com/emmercm/igir/releases/tag/v2.5.3) for some No-Intro DATs. [No-Intro doesn't allow these characters](https://wiki.no-intro.org/index.php?title=Naming_Convention#Characters) in game names
+Up until now, `igir` tried to intelligently guess if a DAT used `/` or `\` path separators in ROM names intentionally. This led to the issue that was fixed in [v2.5.3](https://github.com/emmercm/igir/releases/tag/v2.5.3) for some No-Intro DATs. [No-Intro doesn't allow these characters](https://wiki.no-intro.org/index.php?title=Naming_Convention#Characters) in game names, and [Redump also follows No-Intro's naming conventions](http://wiki.redump.org/index.php?title=Useful_Links#Naming_Convention).
+
+From now on, `igir` won't 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMzM0NTU2Mjc5LC0xODQzMTE3NDE3XX0=
+eyJoaXN0b3J5IjpbLTE5NDQ0Njg4ODMsLTE4NDMxMTc0MTddfQ
+==
 -->
