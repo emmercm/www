@@ -6,10 +6,10 @@ A long missing feature of `igir` has been the ability to match ROMs to DATs base
 
 You can control the minimum checksum algorithm used with the `--input-min-checksum <algorithm>` option.
 
-### Feature: file checksum cache
+### Feature: archive checksum cache
 
-To support MD5 & SHA1 checksums, and as prep work for CHD support (#937), `igir` will now cache 
+To support MD5 & SHA1 checksums, and as prep work for CHD support (#937), `igir` will now cache the checksums of any archived files that it had to compute itself. Some archive formats such as `.zip` and `.7z` include CRC32
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTEzNzg1MDI2OTAsLTE4NDMxMTc0MTddfQ
+eyJoaXN0b3J5IjpbLTE0NjkyOTU4MTIsLTE4NDMxMTc0MTddfQ
 ==
 -->
