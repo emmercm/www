@@ -4,7 +4,7 @@ This is most helpful when copying or moving large files such as ISOs, and when c
 
 ### Feature: added "cracked" game type
 
-Games considered "cracked" have had some kind of copy prote
+A new "cracked" game type has been added that will affect the `{gameType}` [output token](https://igir.io/output/tokens/). Games considered "cracked" have had some kind of copy protection removed, and by definition are not retail.
 
 ### Fix: parent/clone inference with game "alternates"
 
@@ -16,6 +16,6 @@ Games considered "cracked" have had some kind of copy prote
 
 "Nintendo Entertainment System" and "Super Nintendo Entertainment System" have been supported for a long time, but @kerobaros pointed out that "Famicom" and "Super Famicom" were not. This has been fixed.
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMjM1MjUxMDc4LC0xMDIxMDA5MTc0LC0xOT
+eyJoaXN0b3J5IjpbNjUyNDQyMTMwLC0xMDIxMDA5MTc0LC0xOT
 Q0NDY4ODgzLC0xODQzMTE3NDE3XX0=
 -->
