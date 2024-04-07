@@ -14,7 +14,9 @@ Previously, `igir` would write its cache file to `./igir.cache`. But it can't be
 
 ### Token updates
 
-****Feature: new `{romm}` token.****
+**Feature: new `{romm}` token.**
+
+@maxexcloo has added support for [RomM](https://github.com/rommapp/romm), a web UI that
 
 **Feature: added "cracked" game type.**
 
@@ -24,6 +26,6 @@ A new "cracked" game type has been added that will affect the `{gameType}` [outp
 
 "Nintendo Entertainment System" and "Super Nintendo Entertainment System" have been supported for a long time, but @kerobaros pointed out that "Famicom" and "Super Famicom" were not. This has been fixed.
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMjA5MTgxMDcsLTEwMjEwMDkxNzQsLTE5ND
-Q0Njg4ODMsLTE4NDMxMTc0MTddfQ==
+eyJoaXN0b3J5IjpbMTA0MjA0NzczMSwtMTAyMTAwOTE3NCwtMT
+k0NDQ2ODg4MywtMTg0MzExNzQxN119
 -->
