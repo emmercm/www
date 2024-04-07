@@ -16,7 +16,7 @@ Previously, `igir` would write its cache file to `./igir.cache`. But it can't be
 
 **Feature: new `{romm}` token.**
 
-@maxexcloo has added support for [RomM](https://github.com/rommapp/romm), a web UI that
+@maxexcloo has added support for [RomM](https://github.com/rommapp/romm), a web UI to help visualize ROM collections. As of writing, RomM does not have any kind of mass ROM sorting functionality, so `igir` is a great choice to help organize RomM collections.
 
 **Feature: added "cracked" game type.**
 
@@ -26,6 +26,6 @@ A new "cracked" game type has been added that will affect the `{gameType}` [outp
 
 "Nintendo Entertainment System" and "Super Nintendo Entertainment System" have been supported for a long time, but @kerobaros pointed out that "Famicom" and "Super Famicom" were not. This has been fixed.
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTA0MjA0NzczMSwtMTAyMTAwOTE3NCwtMT
+eyJoaXN0b3J5IjpbMTk1MzIzODQxMCwtMTAyMTAwOTE3NCwtMT
 k0NDQ2ODg4MywtMTg0MzExNzQxN119
 -->
