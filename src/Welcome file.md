@@ -12,10 +12,14 @@ A new "cracked" game type has been added that will affect the `{gameType}` [outp
 
 ### Token updates
 
+**Feature: added "cracked" game type.**
+
+A new "cracked" game type has been added that will affect the `{gameType}` [output token](https://igir.io/output/tokens/). Games considered "cracked" have had some kind of copy protection removed, and by definition are not retail, so they will also be excluded by the [`--only-retail` option](https://igir.io/roms/filtering-preferences/#only-retail).
+
 **Fix: "Famicom" and "Super Famicom" DATs.**
 
 "Nintendo Entertainment System" and "Super Nintendo Entertainment System" have been supported for a long time, but @kerobaros pointed out that "Famicom" and "Super Famicom" were not. This has been fixed.
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbNjUyNDQyMTMwLC0xMDIxMDA5MTc0LC0xOT
-Q0NDY4ODgzLC0xODQzMTE3NDE3XX0=
+eyJoaXN0b3J5IjpbMTY4Mzg4MDY0MCwtMTAyMTAwOTE3NCwtMT
+k0NDQ2ODg4MywtMTg0MzExNzQxN119
 -->
