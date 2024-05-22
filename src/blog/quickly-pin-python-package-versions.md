@@ -2,6 +2,7 @@
 
 title: Quickly Pin Python Package Versions
 date: 2024-03-07T02:57:00
+updated: 2024-05-22T01:12:00
 tags:
 - ci-cd
 - python
@@ -10,7 +11,7 @@ tags:
 
 Pinning package versions is important for reproducible builds and saving future you from headaches.
 
-A few times recently I've come across old `requirements.txt` files that don't specify required package versions. Not even version ranges (and it definitely wasn't _me_ who wrote these files...). Or potentially worse, some specify versions for some packages and not for others, and I find out that incompatible transitive dependencies have broken my program.
+A few times recently I've come across old `requirements.txt` files that don't specify required package versions. Not even version ranges (and it definitely wasn't _me_ who wrote these files...). Or potentially worse, some specific versions for some packages and not for others, and I find out that incompatible transitive dependencies have broken my program.
 
 **If you want your program to work the same way, _every_ time, without issue, then you need to pin your packages to an exact version.**
 
@@ -91,7 +92,7 @@ numpy==1.26.4
 
 _Note: the `echo "$(...)" > ...` syntax is a workaround for not being able to write a file while it's still being read by one of the commands._
 
-Now you have the ability to decide what packages to update and when.
+Now you can decide what packages to update and when.
 
 ## Another example
 
@@ -119,26 +120,26 @@ numpy==1.26.4
 
 ## Via Docker
 
-I said I would help out those Windows users that can't easily run Bash or Zsh.
+I said I would help those Windows users who can't easily run Bash or Zsh.
 
 All of the above can be accomplished with this [Docker](https://www.docker.com/) command, when run via PowerShell (for the `${PWD}` environment variable):
 
-```shell
-$ docker run --interactive --tty --rm \
-  --volume "${PWD}:/pwd" \
-  --workdir "/pwd" \
-  python:3-alpine sh -c \
+```powershell
+docker run --interactive --tty --rm `
+  --volume "${PWD}:/pwd" `
+  --workdir "/pwd" `
+  python:3-alpine sh -c `
   'pip install --requirement requirements.txt && echo "$(pip freeze --requirement requirements.txt | sed "/^\s*#.*pip freeze/,$ d")" > requirements.txt'
 ```
 
 or like this when run from a typical Windows `cmd.exe` command prompt:
 
 ```batch
-$ docker run --interactive --tty --rm \
-  --volume "%cd%:/pwd" \
-  --workdir "/pwd" \
-  python:3-alpine sh -c \
+docker run --interactive --tty --rm ^
+  --volume "%cd%:/pwd" ^
+  --workdir "/pwd" ^
+  python:3-alpine sh -c ^
   'pip install --requirement requirements.txt && echo "$(pip freeze --requirement requirements.txt | sed "/^\s*#.*pip freeze/,$ d")" > requirements.txt'
 ```
 
-_Note: I'm using [Alpine](https://alpinelinux.org/) to keep download and storage size small, but feel free to use other image variants._
+_Note: I'm using [Alpine](https://alpinelinux.org/) to keep the download and storage size small, but feel free to use other image variants._
