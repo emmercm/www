@@ -2,23 +2,23 @@
   $schema: 'https://docs.renovatebot.com/renovate-schema.json',
   extends: [
     'config:recommended',
-    'schedule:monthly'
+    'schedule:monthly',
   ],
   dependencyDashboard: true,
   configMigration: true,
-
-  // Personal preferences
   timezone: 'America/Los_Angeles',
-  assignees: ['@emmercm'],
-  reviewers: ['@emmercm'],
-  assignAutomerge: false, // default
-
-  // Open PRs immediately for vulnerability alerts
-  // Requires "dependency graph" as well as Dependabot "alerts" and "security updates" enabled for the repo
+  assignees: [
+    '@emmercm',
+  ],
+  reviewers: [
+    '@emmercm',
+  ],
+  assignAutomerge: false,
   vulnerabilityAlerts: {
-    labels: ['security'],
+    labels: [
+      'security',
+    ],
     platformAutomerge: true,
-    // Renovate's defaults for `vulnerabilityAlerts`
     groupName: '',
     schedule: [],
     dependencyDashboardApproval: false,
@@ -28,69 +28,68 @@
     branchTopic: '{{{datasource}}}-{{{depName}}}-vulnerability',
     prCreation: 'immediate',
   },
-  // WARN: "When the lockfileVersion is higher than 1 in package-lock.json, remediations are only possible when changes are made to package.json."
-  transitiveRemediation: true,
-
-  // Separate potentially breaking updates, group others
   separateMultipleMajor: true,
-  separateMajorMinor: true, // default
-  separateMinorPatch: false, // default
-
-  // Limit the number of open PRs to reduce Netlify build minutes
+  separateMajorMinor: true,
+  separateMinorPatch: false,
   prConcurrentLimit: 3,
-
-  // Stability settings: don't raise a PR until a dependency is at least 3 days old
   rangeStrategy: 'pin',
   minimumReleaseAge: '3 days',
   internalChecksFilter: 'strict',
-
   packageRules: [
-    // Perform dependency pinning immediately
     {
-      matchUpdateTypes: ['pin'],
+      matchUpdateTypes: [
+        'pin',
+      ],
       commitMessageAction: 'pin',
       groupName: 'dependency ranges',
-      // Renovate's defaults for these options
       schedule: 'at any time',
       prCreation: 'immediate',
       automerge: true,
-    }
+    },
   ],
-
   npmrc: '@fortawesome:registry=https://npm.fontawesome.com/\n@awesome.me:registry=https://npm.fontawesome.com/\n//npm.fontawesome.com/:_authToken={{ secrets.FONT_AWESOME_TOKEN }}',
   npm: {
     lockFileMaintenance: {
-      // These options are required to override the `lockFileMaintenance` defaults
       enabled: true,
       schedule: 'on the 28th day of the month',
-      // one day after the above, to de-conflict
       commitMessageAction: 'update',
-      // same as above
       commitMessageTopic: 'lockfile',
     },
-
     packageRules: [
       {
-        matchUpdateTypes: ['patch', 'minor'],
-        groupName: 'Back-End'
+        matchUpdateTypes: [
+          'patch',
+          'minor',
+        ],
+        groupName: 'Back-End',
       },
       {
-        matchUpdateTypes: ['patch', 'minor'],
+        matchUpdateTypes: [
+          'patch',
+          'minor',
+        ],
         groupName: 'Front-End',
         matchPackageNames: [
           '@fortawesome/fontawesome-pro',
           'bootstrap',
           'highlight.js',
-          'jquery'
-        ]
+          'jquery',
+        ],
       },
-      { matchPackageNames: ['metalsmith-twitter-card'], 'allowedVersions': '!/^1.0.[5689]$/'},
-
-      // Everything else
       {
-        matchDepTypes: ['optionalDependencies', 'peerDependencies', 'engines'],
+        matchPackageNames: [
+          'metalsmith-twitter-card',
+        ],
+        allowedVersions: '!/^1.0.[5689]$/',
+      },
+      {
+        matchDepTypes: [
+          'optionalDependencies',
+          'peerDependencies',
+          'engines',
+        ],
         enabled: false,
-      }
-    ]
-  }
+      },
+    ],
+  },
 }
