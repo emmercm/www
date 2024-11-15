@@ -14,7 +14,7 @@ Here's an example scenario: you've written a fairly complex shell script, and it
 
 `$0` is a [Bash "special parameter"](https://www.gnu.org/software/bash/manual/html_node/Special-Parameters.html) that "expands to the name of the shell or shell script." If the shell is invoked using a relative path, `$0` will be a relative path - it doesn't automatically resolve to a full path.
 
-[`dirname`](https://linux.die.net/man/1/dirname) prints the parent directory name of a file or subdirectory. `dirname` also does not resolve paths to a full path.
+[`dirname(1)`](https://linux.die.net/man/1/dirname) prints the parent directory name of a file or subdirectory. `dirname(1)` also does not resolve paths to a full path.
 
 Here's how to use `dirname "$0"` in a script:
 
@@ -46,7 +46,7 @@ Here's the trick, put this at the top of every script you write, just below the 
 trap "cd \"${PWD}\"" EXIT
 ```
 
-Now you're safe to [`cd`](https://linux.die.net/man/1/cd) to your heart's content!
+Now you're safe to [`cd(1)`](https://linux.die.net/man/1/cd) to your heart's content!
 
 _Note: if you use [ShellCheck](https://github.com/koalaman/shellcheck) to check your scripts for errors (and you should), you will need to put `# shellcheck disable=SC2064` above the one-liner to signal that we know what we're doing with the quotes._
 
@@ -87,7 +87,7 @@ done <<< "$(find . -maxdepth 1 -type f)"
 
 ## Limitations
 
-[`trap`](https://man7.org/linux/man-pages/man1/trap.1p.html) doesn't work if the script is `SIGKILL`ed rather than `SIGTERM`inated (or other signals). `SIGKILL` must end processes immediately, which means any shutdown hooks like this will be skipped.
+[`trap(1)`](https://man7.org/linux/man-pages/man1/trap.1p.html) doesn't work if the script is `SIGKILL`ed rather than `SIGTERM`inated (or other signals). `SIGKILL` must end processes immediately, which means any shutdown hooks like this will be skipped.
 
 Here's a script to test this limitation:
 
@@ -114,3 +114,6 @@ You can see that `I exited gracefully!` never printed.
 ## Alternatives
 
 `cd -` and `cd "${OLDPWD}"` can both take you back to your previous directory in Bash, but the above [`trap`](https://man7.org/linux/man-pages/man1/trap.1p.html) solution is still better in case you need to change directories multiple times.
+<!--stackedit_data:
+eyJoaXN0b3J5IjpbOTkyNzE2NjgwXX0=
+-->
