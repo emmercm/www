@@ -28,8 +28,6 @@
     branchTopic: '{{{datasource}}}-{{{depName}}}-vulnerability',
     prCreation: 'immediate',
   },
-  // WARN: "When the lockfileVersion is higher than 1 in package-lock.json, remediations are only possible when changes are made to package.json."
-  transitiveRemediation: true,
 
   // Separate potentially breaking updates, group others
   separateMultipleMajor: true,
