@@ -57,8 +57,7 @@
     }
   ],
 
-  npmrc: '@fortawesome:registry=https://npm.fontawesome.com/\n//npm.fontawesome.com/:_authToken=${NPM_TOKEN}',
-  npmToken: '{{ secrets.NPM_TOKEN }}',
+  npmrc: '@fortawesome:registry=https://npm.fontawesome.com/\n@awesome.me:registry=https://npm.fontawesome.com/\n//npm.fontawesome.com/:_authToken={{ secrets.FONT_AWESOME_TOKEN }}',
   npm: {
     lockFileMaintenance: {
       // These options are required to override the `lockFileMaintenance` defaults
