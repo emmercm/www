@@ -72,7 +72,7 @@ import robots           from 'metalsmith-robots';
 import async           from 'async';
 import highlight       from 'highlight.js';
 import {marked}        from 'marked';
-import minimatch       from 'minimatch';
+import {minimatch}     from 'minimatch';
 import {DateTime}      from 'luxon';
 import transliteration from 'transliteration';
 
