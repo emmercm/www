@@ -89,6 +89,11 @@
         matchPackageNames: ['marked'],
         enabled: false,
       },
+      {
+        // https://github.com/arccoza/metalsmith-favicons/issues/4
+        matchPackageNames: ['minimatch'],
+        enabled: false,
+      },
 
       // Everything else
       {
