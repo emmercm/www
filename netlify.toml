@@ -1,10 +1,10 @@
 [build]
-  command = "npm test && npx puppeteer browsers install chrome && npm start"
+  command = "npm test && npm start"
   publish = "build/"
   ignore = "node netlify-ignore-build.js"
 
 [context.production]
-  command = "npx puppeteer browsers install chrome && npm start"
+  command = "npm start"
 
 [build.environment]
   # FONTAWESOME_TOKEN
