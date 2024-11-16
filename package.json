@@ -85,7 +85,7 @@
     "metalsmith-uglify": "2.4.3",
     "metalsmith-validate": "0.1.5",
     "metalsmith-vega": "1.0.8",
-    "minimatch": "7.4.6",
+    "minimatch": "10.0.1",
     "netlify-plugin-cache": "1.0.3",
     "node-fetch": "3.3.2",
     "node-sass": "9.0.0",
