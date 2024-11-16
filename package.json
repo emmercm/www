@@ -15,6 +15,7 @@
   },
   "scripts": {
     "test": "markdownlint --config markdownlint.json \"**/*.md\" --ignore node_modules",
+    "prestart": "npx puppeteer browsers install",
     "start": "node index.js"
   },
   "dependencies": {
