@@ -79,12 +79,24 @@
           '@fortawesome/fontawesome-pro',
           'bootstrap',
           'highlight.js',
-          'jquery'
-        ]
+          'jquery',
+        ],
       },
-      { matchPackageNames: ['metalsmith-twitter-card'], 'allowedVersions': '!/^1.0.[5689]$/'},
+
+      // Excluded packages/versions
+      {
+        // https://github.com/metalsmith/markdown/issues/73
+        matchPackageNames: ['marked'],
+        enabled: false,
+      },
 
       // Everything else
+      {
+        matchPackageNames: [
+          '/^@netlify/'
+        ],
+        enabled: false
+      },
       {
         matchDepTypes: ['optionalDependencies', 'peerDependencies', 'engines'],
         enabled: false,
