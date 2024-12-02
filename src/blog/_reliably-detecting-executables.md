@@ -102,8 +102,16 @@ _See "[Automatically Execute Code Before & After Unix Commands](/blog/automatica
 
 ## Example usages
 
-In my macOS dotfiles I 
+I have my [macOS dotfiles](https://github.com/emmercm/dotfiles/blob/99fcc57675bf8831857b71c26d808d2bbdfd6b9d/.10_macos.bash) install any missing tools I use frequently using [Homebrew](https://brew.sh/):
+
+```bash
+command -v gawk   > /dev/null || brew install gawk
+command -v gsed   > /dev/null || brew install gnu-sed
+command -v jq     > /dev/null || brew install jq
+command -v tree   > /dev/null || brew install tree
+command -v wget   > /dev/null || brew install wget
+```
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMjE3NDE0OTgsMTQ5NjkxNjc2MywtMTU3Nz
-g1MzE5NSwyMDkyMTIyNzk4XX0=
+eyJoaXN0b3J5IjpbLTQzNjEzOTUxMywxNDk2OTE2NzYzLC0xNT
+c3ODUzMTk1LDIwOTIxMjI3OThdfQ==
 -->
