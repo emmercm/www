@@ -75,7 +75,7 @@ CREATE INDEX IF NOT EXISTS crons_audit_id ON crons_audit (id);
 
 Note that other than the slight type change for the `crons_audit.id` column, `crons_audit` is a perfect superset of the columns in `crons`.
 
-
+We need to create a function for a table trigger to execute.
 
 ```sql
 CREATE OR REPLACE FUNCTION audit_trigger()
@@ -198,6 +198,6 @@ END;
 $func$ LANGUAGE plpgsql;
 ```
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTIxMjQxMzM3MjgsLTE4MTI5MDc2OTUsLT
-E2ODMyOTM3ODksLTE0MzYwOTU4NTIsLTYzMzQ1MjkxNl19
+eyJoaXN0b3J5IjpbLTQ0NTU2NzEzMiwtMTgxMjkwNzY5NSwtMT
+Y4MzI5Mzc4OSwtMTQzNjA5NTg1MiwtNjMzNDUyOTE2XX0=
 -->
