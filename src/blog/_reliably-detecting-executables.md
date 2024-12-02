@@ -102,6 +102,14 @@ _See "[Automatically Execute Code Before & After Unix Commands](/blog/automatica
 
 ## Example usages
 
+To check for the non-existence of a command you can use `! command -v <command_name>` syntax:
+
+```bash
+if ! command -v beep &> /dev/null; then
+  alias beep="echo -ne '\007'"
+fi
+```
+
 I have my [macOS dotfiles](https://github.com/emmercm/dotfiles/blob/99fcc57675bf8831857b71c26d808d2bbdfd6b9d/.10_macos.bash#L26-L41) install any missing tools I use frequently using [Homebrew](https://brew.sh/):
 
 ```bash
@@ -130,6 +138,6 @@ if ! command -v brew &> /dev/null && [[ -f /opt/homebrew/bin/brew ]]; then
 fi
 ```
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTMzNDkzNDY4NSwxNDk2OTE2NzYzLC0xNT
+eyJoaXN0b3J5IjpbLTU5NTYxODg4MCwxNDk2OTE2NzYzLC0xNT
 c3ODUzMTk1LDIwOTIxMjI3OThdfQ==
 -->
