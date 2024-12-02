@@ -70,6 +70,8 @@ CREATE TABLE IF NOT EXISTS crons_audit
 );
 ```
 
+Note that other than the slight type change for the `crons_audit.id` column, `crons_audit` 
+
 ```sql
 CREATE OR REPLACE FUNCTION audit_trigger()  
     RETURNS TRIGGER  
@@ -88,5 +90,5 @@ END;
 $func$ LANGUAGE plpgsql;
 ```
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTc2NzQ1ODE1NywtNjMzNDUyOTE2XX0=
+eyJoaXN0b3J5IjpbMTA2Mjg3OTczMCwtNjMzNDUyOTE2XX0=
 -->
