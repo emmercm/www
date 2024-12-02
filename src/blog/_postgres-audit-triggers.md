@@ -26,7 +26,7 @@ CREATE TABLE IF NOT EXISTS configs
 );
 ```
 
-this table will
+this table holds some de-normalized JSON configuration for some entity. The exact specifics aren't important
 
 
 ```sql
@@ -47,5 +47,5 @@ END;
 $func$ LANGUAGE plpgsql;
 ```
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTM2NDQ0NjEzMCwtNjMzNDUyOTE2XX0=
+eyJoaXN0b3J5IjpbLTU5NDIxODQyMSwtNjMzNDUyOTE2XX0=
 -->
