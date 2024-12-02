@@ -108,7 +108,7 @@ EXECUTE FUNCTION audit_trigger();
 
 ## Usage
 
-Let's add some jobs and then modify them. Inserting one row
+Let's add some jobs and then modify them. Inserting one row at a time:
 
 ```shell
 postgres=# INSERT INTO crons (schedule, config)
@@ -121,6 +121,8 @@ postgres=# SELECT * FROM crons_audit;
         1 | INSERT          | 2024-12-02 20:08:53.791243 | postgres   |  1 | 0 * * * * | {"action": "refresh_stats"}
 (1 row)
 ```
+
+Inserting multiple rows at a time, note the identitcal `crons_audit.audit_timestamp`:
 
 ```shell
 postgres=# INSERT INTO crons (schedule, config)
@@ -136,6 +138,25 @@ postgres=# SELECT * FROM crons_audit;
         3 | INSERT          | 2024-12-02 20:10:07.429602 | postgres   |  3 | 0 0 1 * * | {"action": "finalize_billing"}
 (3 rows)
 ```
+
+Updating a single row:
+
+```shell
+postgres=# UPDATE crons SET schedule = '10 * * * *'
+           WHERE config->>'action' = 'refresh_stats';
+UPDATE 1
+
+postgres=# SELECT * FROM crons_audit;
+ audit_id | audit_operation |      audit_timestamp       | audit_user | id |  schedule  |             config             
+----------+-----------------+----------------------------+------------+----+------------+--------------------------------
+        1 | INSERT          | 2024-12-02 20:08:53.791243 | postgres   |  1 | 0 * * * *  | {"action": "refresh_stats"}
+        2 | INSERT          | 2024-12-02 20:10:07.429602 | postgres   |  2 | 0 0 * * *  | {"action": "refresh_billing"}
+        3 | INSERT          | 2024-12-02 20:10:07.429602 | postgres   |  3 | 0 0 1 * *  | {"action": "finalize_billing"}
+        4 | UPDATE          | 2024-12-02 20:13:24.592229 | postgres   |  1 | 10 * * * * | {"action": "refresh_stats"}
+(4 rows)
+```
+
+Deleeting a row:
 
 ## Drawbacks
 
@@ -160,6 +181,6 @@ END;
 $func$ LANGUAGE plpgsql;
 ```
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTc4MzEwOTE2NiwtMTgxMjkwNzY5NSwtMT
+eyJoaXN0b3J5IjpbMTkwNDY5MTI0MSwtMTgxMjkwNzY5NSwtMT
 Y4MzI5Mzc4OSwtMTQzNjA5NTg1MiwtNjMzNDUyOTE2XX0=
 -->
