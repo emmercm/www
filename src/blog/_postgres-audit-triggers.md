@@ -77,6 +77,33 @@ Note that other than the slight type change for the `crons_audit.id` column, `cr
 Now for the function and trigger, which will give us automatic auditing:
 
 ```sql
+CREATE OR REPLACE FUNCTION audit_trigger()
+    RETURNS TRIGGER
+AS
+$func$
+BEGIN
+    IF (tg_op = 'DELETE') THEN
+        EXECUTE 'INSERT INTO ' || quote_ident(tg_table_schema) || '.' || quote_ident(tg_table_name || '_audit') ||
+                ' SELECT nextval(pg_get_serial_sequence(''' || quote_ident(tg_table_schema) || '.' ||
+                quote_ident(tg_table_name || '_audit') || ''', ''audit_id'')), ' ||
+                '''' || tg_op || ''', now(), user, $1.*' USING old;
+    ELSE
+        EXECUTE 'INSERT INTO ' || quote_ident(tg_table_schema) || '.' || quote_ident(tg_table_name || '_audit') ||
+                ' SELECT nextval(pg_get_serial_sequence(''' || quote_ident(tg_table_schema) || '.' ||
+                quote_ident(tg_table_name || '_audit') || ''', ''audit_id'')), ' ||
+                '''' || tg_op || ''', now(), user, $1.*' USING new;
+    END IF;
+    RETURN NULL;
+END;
+$func$ LANGUAGE plpgsql;
+```
+
+```sql
+CREATE OR REPLACE TRIGGER crons_audit_trigger
+    AFTER INSERT OR UPDATE OR DELETE
+    ON crons
+    FOR EACH ROW
+EXECUTE FUNCTION audit_trigger();
 ```
 
 ## Drawbacks
@@ -102,6 +129,6 @@ END;
 $func$ LANGUAGE plpgsql;
 ```
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTE3MDk4MjgzODcsLTE2ODMyOTM3ODksLT
+eyJoaXN0b3J5IjpbLTE4MTI5MDc2OTUsLTE2ODMyOTM3ODksLT
 E0MzYwOTU4NTIsLTYzMzQ1MjkxNl19
 -->
