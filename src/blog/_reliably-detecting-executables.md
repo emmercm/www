@@ -106,11 +106,11 @@ I have my [macOS dotfiles](https://github.com/emmercm/dotfiles/blob/99fcc57675bf
 
 ```bash
 if command -v brew &> /dev/null; then
-	command -v gawk   > /dev/null || brew install gawk
-	command -v gsed   > /dev/null || brew install gnu-sed
-	command -v jq     > /dev/null || brew install jq
-	command -v tree   > /dev/null || brew install tree
-	command -v wget   > /dev/null || brew install wget
+	command -v gawk > /dev/null || brew install gawk
+	command -v gsed > /dev/null || brew install gnu-sed
+	command -v jq   > /dev/null || brew install jq
+	command -v tree > /dev/null || brew install tree
+	command -v wget > /dev/null || brew install wget
 fi
 ```
 
@@ -122,8 +122,14 @@ if ! command -v pip &> /dev/null && command -v pip3 &> /dev/null; then
 fi
 ```
 
-You can mix `command -v <command_name>` conditionals with other Bash conditionals 
+You can mix `command -v <command_name>` conditionals with other Bash conditionals like this:
+
+```bash
+if ! command -v brew &> /dev/null && [[ -f /opt/homebrew/bin/brew ]]; then
+    eval "$(/opt/homebrew/bin/brew shellenv)"
+fi
+```
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTExMDI5Mjc3NDgsMTQ5NjkxNjc2MywtMT
-U3Nzg1MzE5NSwyMDkyMTIyNzk4XX0=
+eyJoaXN0b3J5IjpbLTMzNDkzNDY4NSwxNDk2OTE2NzYzLC0xNT
+c3ODUzMTk1LDIwOTIxMjI3OThdfQ==
 -->
