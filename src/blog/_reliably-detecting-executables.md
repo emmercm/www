@@ -75,7 +75,7 @@ fi
 
 This will test if the output of the `command -v <command_name>` is an executable file or not. If you _do_ want that behavior, there are better options such as `find <dir> -type f -executable` or the function from "[Reliably Finding Files in $PATH](blog/reliably-finding-files-in-path)".
 
-The problem with this is it won't work for aliases, which may shadow executables:
+The problem with `if [[ -x file ]]` is it doesn't work for aliases, which may shadow executables:
 
 ```shell
 $ if [[ -x "$(command -v grep)" ]]; then echo "grep exists"; fi
@@ -99,7 +99,11 @@ docker exists
 ```
 
 _See "[Automatically Execute Code Before & After Unix Commands](/blog/automatically-execute-code-before-after-unix-commands)" for more tricks on using functions to shadow executables.
+
+## Example usages
+
+In my macOS dotfiles I 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTg5ODAzMDA1OCwxNDk2OTE2NzYzLC0xNT
-c3ODUzMTk1LDIwOTIxMjI3OThdfQ==
+eyJoaXN0b3J5IjpbMjE3NDE0OTgsMTQ5NjkxNjc2MywtMTU3Nz
+g1MzE5NSwyMDkyMTIyNzk4XX0=
 -->
