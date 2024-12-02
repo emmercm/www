@@ -67,9 +67,14 @@ fi
 
 The problem with this is it won't work for functions or aliases, which may shadow executables:
 
-```bash
+```shell
+$ if [[ -x "$(command -v grep)" ]]; then echo "grep exists"; fi
+grep exists
 
+$ alias  grep='grep --color=auto'
+
+$ if [[ -x "$(command -v grep)" ]]; then echo "grep exists"; fi
 ```
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbNzEzMjUxNjE0XX0=
+eyJoaXN0b3J5IjpbMjA5MjEyMjc5OF19
 -->
