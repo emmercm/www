@@ -8,9 +8,9 @@ tags:
 
 ---
 
-You can create an audit log of changes to table rows using triggers and a second table.
+You can create an audit log of changes to a table's rows by using functions, triggers, and a second table.
 
-It is exceptionally difficult to reconstruct data from a point-in-time unless you design around this need from the start. Some reasons you may want to create an audit trail is:
+It is exceptionally difficult to reconstruct data from a point-in-time unless you design around the need from the start. Some reasons you may want to create an audit trail is:
 
 - To debug or troubleshoot a problem, especially involving user-submitted data
 - To identify what Postgres user caused a specific change
@@ -158,6 +158,22 @@ postgres=# SELECT * FROM crons_audit;
 
 Deleeting a row:
 
+```shell
+postgres=# DELETE FROM crons
+           WHERE config->>'action' = 'refresh_stats';
+DELETE 1
+
+postgres=# SELECT * FROM crons_audit;
+ audit_id | audit_operation |      audit_timestamp       | audit_user | id |  schedule  |             config             
+----------+-----------------+----------------------------+------------+----+------------+--------------------------------
+        1 | INSERT          | 2024-12-02 20:08:53.791243 | postgres   |  1 | 0 * * * *  | {"action": "refresh_stats"}
+        2 | INSERT          | 2024-12-02 20:10:07.429602 | postgres   |  2 | 0 0 * * *  | {"action": "refresh_billing"}
+        3 | INSERT          | 2024-12-02 20:10:07.429602 | postgres   |  3 | 0 0 1 * *  | {"action": "finalize_billing"}
+        4 | UPDATE          | 2024-12-02 20:13:24.592229 | postgres   |  1 | 10 * * * * | {"action": "refresh_stats"}
+        5 | DELETE          | 2024-12-02 20:15:23.977359 | postgres   |  1 | 10 * * * * | {"action": "refresh_stats"}
+(5 rows)
+```
+
 ## Drawbacks
 
 - Have to use EXECUTE to make it a generic function
@@ -181,6 +197,6 @@ END;
 $func$ LANGUAGE plpgsql;
 ```
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTkwNDY5MTI0MSwtMTgxMjkwNzY5NSwtMT
+eyJoaXN0b3J5IjpbLTYxMjk2NzI3MCwtMTgxMjkwNzY5NSwtMT
 Y4MzI5Mzc4OSwtMTQzNjA5NTg1MiwtNjMzNDUyOTE2XX0=
 -->
