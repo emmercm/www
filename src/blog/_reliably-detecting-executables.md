@@ -27,7 +27,7 @@ command -v (command) &> /dev/null && echo "do something"
 
 Here's the man page for `command -v`:
 
-```text
+<pre>
 -v       Write a string to standard output that indicates the  
          pathname or command that will be used by the shell, in  
          the current shell execution environment (see _Section_  
@@ -51,7 +51,7 @@ Here's the man page for `command -v`:
   
           *  Otherwise, no output shall be written and the exit  
              status shall reflect that the name was not found.
-```
+</pre>
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTE4MzcwNDQ2NDZdfQ==
+eyJoaXN0b3J5IjpbLTEyNzA2OTYxNzBdfQ==
 -->
