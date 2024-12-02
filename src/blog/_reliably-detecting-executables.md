@@ -64,6 +64,11 @@ if [[ -x "$(command -v <command_name>)" ]]; then
 	echo "executable exists"
 fi
 ```
+
+The problem with this is it won't work for functions or aliases, which may shadow executables:
+
+```bash
+```
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTMzNDYzNzI5MV19
+eyJoaXN0b3J5IjpbLTQ4ODUzNjU2NF19
 -->
