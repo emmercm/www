@@ -10,7 +10,7 @@ tags:
 
 You can create an audit log of changes to table rows using triggers and a second table.
 
-It is exceptionally difficult to reconstruct data from a point-in-time unless you design around this need from the start. Creating yourself an audit log of changes can be
+It is exceptionally difficult to reconstruct data from a point-in-time unless you design around this need from the start.
 
 ```sql
 CREATE OR REPLACE FUNCTION audit_trigger()  
@@ -30,5 +30,5 @@ END;
 $func$ LANGUAGE plpgsql;
 ```
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTU2ODA2NTQ0M119
+eyJoaXN0b3J5IjpbLTYzMzQ1MjkxNl19
 -->
