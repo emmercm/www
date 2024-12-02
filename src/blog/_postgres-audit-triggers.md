@@ -1,6 +1,6 @@
 ---
 
-title:
+title: Keeping a Row Modification Log Using Postgres Triggers
 draft: true
 tags:
 - databases
@@ -26,5 +26,5 @@ END;
 $func$ LANGUAGE plpgsql;
 ```
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbODUzMzM4NDYyXX0=
+eyJoaXN0b3J5IjpbLTE3MTYwMjc3NzRdfQ==
 -->
