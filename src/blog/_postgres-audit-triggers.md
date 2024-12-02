@@ -19,14 +19,15 @@ It is exceptionally difficult to reconstruct data from a point-in-time unless yo
 Let's start with an example table:
 
 ```sql
-CREATE TABLE IF NOT EXISTS jobs
+CREATE TABLE IF NOT EXISTS crons
 (
-    id BIGSERIAL PRIMARY KEY,
-    config jsonb NOT NULL
+    id       BIGSERIAL PRIMARY KEY,
+    schedule TEXT  NOT NULL,
+    config   jsonb NOT NULL
 );
 ```
 
-Let's say this table holds
+This table holds information about cron jobs that execute on some schedule, using the de-no
 
 ```sql
 CREATE OR REPLACE FUNCTION audit_trigger()  
@@ -46,5 +47,5 @@ END;
 $func$ LANGUAGE plpgsql;
 ```
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbNjk3MjgyNjcxLC02MzM0NTI5MTZdfQ==
+eyJoaXN0b3J5IjpbLTE1OTkwNTY5NSwtNjMzNDUyOTE2XX0=
 -->
