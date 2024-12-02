@@ -8,17 +8,20 @@ draft: true
 ```sql
 CREATE OR REPLACE FUNCTION audit_trigger()  
     RETURNS TRIGGER  
- AS $func$  
-  BEGIN  
- IF (TG_OP = 'DELETE') THEN  
- EXECUTE 'INSERT INTO ' || quote_ident(TG_TABLE_SCHEMA) || '.' || quote_ident(TG_TABLE_NAME || '_audit') || ' SELECT public.uuid_generate_v4(), ''' || TG_OP || ''', now(), user, $1.*' USING OLD;  
-        ELSE  
- EXECUTE 'INSERT INTO ' || quote_ident(TG_TABLE_SCHEMA) || '.' || quote_ident(TG_TABLE_NAME || '_audit') || ' SELECT public.uuid_generate_v4(), ''' || TG_OP || ''', now(), user, $1.*' USING NEW;  
-        END IF;  
-        RETURN NULL;  
-    END;  
+AS  
+$func$  
+BEGIN  
+ IF (tg_op = 'DELETE') THEN  
+ EXECUTE 'INSERT INTO ' || quote_ident(tg_table_schema) || '.' || quote_ident(tg_table_name || '_audit') ||  
+                ' SELECT public.uuid_generate_v4(), ''' || tg_op || ''', now(), user, $1.*' USING old;  
+    ELSE  
+ EXECUTE 'INSERT INTO ' || quote_ident(tg_table_schema) || '.' || quote_ident(tg_table_name || '_audit') ||  
+                ' SELECT public.uuid_generate_v4(), ''' || tg_op || ''', now(), user, $1.*' USING new;  
+    END IF;  
+    RETURN NULL;  
+END;  
 $func$ LANGUAGE plpgsql;
 ```
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTIwNTk5NDYzMjhdfQ==
+eyJoaXN0b3J5IjpbNDk2MTYyOTQ0XX0=
 -->
