@@ -110,9 +110,23 @@ EXECUTE FUNCTION audit_trigger();
 
 Let's add some jobs and then modify them:
 
-```sqlpostgres=# INSERT INTO crons (schedule, config)  
-VALUES ('0 * * * *', '{"action": "refresh_stats"}');
+```shell
+postgres=# INSERT INTO crons (schedule, config)
+           VALUES ('0 * * * *', '{"action": "refresh_stats"}');
 INSERT 0 1
+
+postgres=# SELECT * FROM crons_audit;
+ audit_id | audit_operation |      audit_timestamp       | audit_user | id | schedule  |           config            
+----------+-----------------+----------------------------+------------+----+-----------+-----------------------------
+        1 | INSERT          | 2024-12-02 20:08:53.791243 | postgres   |  1 | 0 * * * * | {"action": "refresh_stats"}
+(1 row)
+```
+
+```shell
+postgres=# INSERT INTO crons (schedule, config)
+           VALUES ('0 0 * * *', '{"action": "refresh_billing"}')
+                , ('0 0 1 * *', '{"action": "finalize_billing"}');
+INSERT 0 2
 ```
 
 ## Drawbacks
@@ -138,6 +152,6 @@ END;
 $func$ LANGUAGE plpgsql;
 ```
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTU4NDQ4ODYzMiwtMTgxMjkwNzY5NSwtMT
+eyJoaXN0b3J5IjpbMTgzNDQ4NDM5NCwtMTgxMjkwNzY5NSwtMT
 Y4MzI5Mzc4OSwtMTQzNjA5NTg1MiwtNjMzNDUyOTE2XX0=
 -->
