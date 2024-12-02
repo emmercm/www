@@ -68,6 +68,8 @@ CREATE TABLE IF NOT EXISTS crons_audit
     schedule        TEXT      NOT NULL,
     config          jsonb     NOT NULL
 );
+
+CREATE INDEX IF NOT EXISTS crons_audit_id ON crons_audit (id);
 ```
 
 Note that other than the slight type change for the `crons_audit.id` column, `crons_audit` is a perfect superset of `crons`.
@@ -100,6 +102,6 @@ END;
 $func$ LANGUAGE plpgsql;
 ```
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTE2ODMyOTM3ODksLTE0MzYwOTU4NTIsLT
-YzMzQ1MjkxNl19
+eyJoaXN0b3J5IjpbLTE3MDk4MjgzODcsLTE2ODMyOTM3ODksLT
+E0MzYwOTU4NTIsLTYzMzQ1MjkxNl19
 -->
