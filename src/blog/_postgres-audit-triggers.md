@@ -99,7 +99,9 @@ END;
 $func$ LANGUAGE plpgsql;
 ```
 
-String concatenation makes the function relatively complicated, but it is necessary in order to make a re-usable function. Other drawbacks of this are discussed 
+String concatenation makes the function relatively complicated, but it is necessary in order to make a re-usable function. Other drawbacks of this are discussed below.
+
+Lastly, we need a trigger on the base table which will execute the function:
 
 ```sql
 CREATE OR REPLACE TRIGGER crons_audit_trigger
@@ -125,7 +127,7 @@ postgres=# SELECT * FROM crons_audit;
 (1 row)
 ```
 
-Inserting multiple rows at a time, note the identitcal `crons_audit.audit_timestamp`:
+Inserting multiple rows at a time (note the identitcal `crons_audit.audit_timestamp`):
 
 ```shell
 postgres=# INSERT INTO crons (schedule, config)
@@ -159,7 +161,7 @@ postgres=# SELECT * FROM crons_audit;
 (4 rows)
 ```
 
-Deleeting a row:
+Deleting a row:
 
 ```shell
 postgres=# DELETE FROM crons
@@ -182,24 +184,8 @@ postgres=# SELECT * FROM crons_audit;
 - Have to use EXECUTE to make it a generic function
 - Have to migrate the audit table first
 
-```sql
-CREATE OR REPLACE FUNCTION audit_trigger()  
-    RETURNS TRIGGER  
-AS  
-$func$  
-BEGIN  
- IF (tg_op = 'DELETE') THEN  
- EXECUTE 'INSERT INTO ' || quote_ident(tg_table_schema) || '.' || quote_ident(tg_table_name || '_audit') ||  
-                ' SELECT public.uuid_generate_v4(), ''' || tg_op || ''', now(), user, $1.*' USING old;  
-    ELSE  
- EXECUTE 'INSERT INTO ' || quote_ident(tg_table_schema) || '.' || quote_ident(tg_table_name || '_audit') ||  
-                ' SELECT public.uuid_generate_v4(), ''' || tg_op || ''', now(), user, $1.*' USING new;  
-    END IF;  
-    RETURN NULL;  
-END;  
-$func$ LANGUAGE plpgsql;
-```
+## Alternative
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTE5NjUyMzc2NzksLTE4MTI5MDc2OTUsLT
+eyJoaXN0b3J5IjpbLTExMjYwNTc3OTgsLTE4MTI5MDc2OTUsLT
 E2ODMyOTM3ODksLTE0MzYwOTU4NTIsLTYzMzQ1MjkxNl19
 -->
