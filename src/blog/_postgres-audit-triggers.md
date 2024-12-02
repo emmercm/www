@@ -16,6 +16,19 @@ It is exceptionally difficult to reconstruct data from a point-in-time unless yo
 - To identify what Postgres user caused a specific change
 - To create a regulatory compliance trail, depending on your needs
 
+Let's start with an example table:
+
+```sql
+CREATE TABLE IF NOT EXISTS configs
+(
+    id   BIGSERIAL PRIMARY KEY,
+    data jsonb NOT NULL
+);
+```
+
+this table will
+
+
 ```sql
 CREATE OR REPLACE FUNCTION audit_trigger()  
     RETURNS TRIGGER  
@@ -34,5 +47,5 @@ END;
 $func$ LANGUAGE plpgsql;
 ```
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTEyNTE4MTM4NywtNjMzNDUyOTE2XX0=
+eyJoaXN0b3J5IjpbMTM2NDQ0NjEzMCwtNjMzNDUyOTE2XX0=
 -->
