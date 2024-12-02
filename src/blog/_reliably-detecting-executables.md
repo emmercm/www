@@ -102,7 +102,7 @@ _See "[Automatically Execute Code Before & After Unix Commands](/blog/automatica
 
 ## Example usages
 
-I have my [macOS dotfiles](https://github.com/emmercm/dotfiles/blob/99fcc57675bf8831857b71c26d808d2bbdfd6b9d/.10_macos.bash) install any missing tools I use frequently using [Homebrew](https://brew.sh/):
+I have my [macOS dotfiles](https://github.com/emmercm/dotfiles/blob/99fcc57675bf8831857b71c26d808d2bbdfd6b9d/.10_macos.bash#L26-L41) install any missing tools I use frequently using [Homebrew](https://brew.sh/):
 
 ```bash
 if command -v brew &> /dev/null; then
@@ -113,7 +113,9 @@ if command -v brew &> /dev/null; then
 	command -v wget   > /dev/null || brew install wget
 fi
 ```
+
+I also alias `pip3` to `pip` when `pip` doesn't exist, because the version suffix on Python commands is wildly inconsistent across 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTEyNzc4NjY0ODMsMTQ5NjkxNjc2MywtMT
-U3Nzg1MzE5NSwyMDkyMTIyNzk4XX0=
+eyJoaXN0b3J5IjpbNzkyNzU2NzIwLDE0OTY5MTY3NjMsLTE1Nz
+c4NTMxOTUsMjA5MjEyMjc5OF19
 -->
