@@ -2,6 +2,9 @@
 
 title:
 draft: true
+tags:
+- databases
+- postgres
 
 ---
 
@@ -23,5 +26,5 @@ END;
 $func$ LANGUAGE plpgsql;
 ```
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbNDk2MTYyOTQ0XX0=
+eyJoaXN0b3J5IjpbODUzMzM4NDYyXX0=
 -->
