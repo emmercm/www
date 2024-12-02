@@ -127,6 +127,14 @@ postgres=# INSERT INTO crons (schedule, config)
            VALUES ('0 0 * * *', '{"action": "refresh_billing"}')
                 , ('0 0 1 * *', '{"action": "finalize_billing"}');
 INSERT 0 2
+
+postgres=# SELECT * FROM crons_audit;
+ audit_id | audit_operation |      audit_timestamp       | audit_user | id | schedule  |             config             
+----------+-----------------+----------------------------+------------+----+-----------+--------------------------------
+        1 | INSERT          | 2024-12-02 20:08:53.791243 | postgres   |  1 | 0 * * * * | {"action": "refresh_stats"}
+        2 | INSERT          | 2024-12-02 20:10:07.429602 | postgres   |  2 | 0 0 * * * | {"action": "refresh_billing"}
+        3 | INSERT          | 2024-12-02 20:10:07.429602 | postgres   |  3 | 0 0 1 * * | {"action": "finalize_billing"}
+(3 rows)
 ```
 
 ## Drawbacks
@@ -152,6 +160,6 @@ END;
 $func$ LANGUAGE plpgsql;
 ```
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTgzNDQ4NDM5NCwtMTgxMjkwNzY5NSwtMT
-Y4MzI5Mzc4OSwtMTQzNjA5NTg1MiwtNjMzNDUyOTE2XX0=
+eyJoaXN0b3J5IjpbNjI5ODc4NDExLC0xODEyOTA3Njk1LC0xNj
+gzMjkzNzg5LC0xNDM2MDk1ODUyLC02MzM0NTI5MTZdfQ==
 -->
