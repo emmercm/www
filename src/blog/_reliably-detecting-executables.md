@@ -25,20 +25,20 @@ command -v (command) &> /dev/null && echo "do something"
 
 ## Explanation
 
-Here's the man page for `command -v`:
+Here's the man page for `command -v command_name`:
 
 <pre>
 -v       Write a string to standard output that indicates the  
          pathname or command that will be used by the shell, in  
          the current shell execution environment (see <i>Section  
-         2.12</i>, Shell Execution Environment_), to invoke  
-         _command_name_, but do not invoke _command_name_.  
+         2.12</i>, <i>Shell Execution Environment</i>), to invoke  
+         <i>command_name</i>, but do not invoke <i>command_name</i>.  
   
           *  Utilities, regular built-in utilities,  
-             _command_name_s including a <slash> character, and  
+             <i>command_name</i>s including a &lt;slash&gt; character, and  
              any implementation-defined functions that are found  
-             using the _PATH_ variable (as described in _Section_  
-             _2.9.1.1_, _Command Search and Execution_), shall be  
+             using the <i>PATH</i> variable (as described in <i>Section  
+             2.9.1.1_, _Command Search and Execution_), shall be  
              written as absolute pathnames.  
   
           *  Shell functions, special built-in utilities,  
@@ -53,5 +53,5 @@ Here's the man page for `command -v`:
              status shall reflect that the name was not found.
 </pre>
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTY3NzM0NzQ2Nl19
+eyJoaXN0b3J5IjpbMTQ3ODQxMzk4Ml19
 -->
