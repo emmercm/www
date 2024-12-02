@@ -44,9 +44,13 @@ There are four key pieces of data we need to create an audit trail:
 - What or who caused the action
 - What the change was
 
+We can log these in a separate "audit" table in the same DB.
+
 ## Solution
 
-Let's create
+We can make a generic solution for our DB if we adhere to some rules:
+
+- The audit table is always named  `<base_table>_audit`
 
 ```sql
 CREATE OR REPLACE FUNCTION audit_trigger()  
@@ -66,5 +70,5 @@ END;
 $func$ LANGUAGE plpgsql;
 ```
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTE3NTA1OTk0LC02MzM0NTI5MTZdfQ==
+eyJoaXN0b3J5IjpbMTk5MjI3NTg2MSwtNjMzNDUyOTE2XX0=
 -->
