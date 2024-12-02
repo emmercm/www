@@ -13,14 +13,14 @@ Before I go into the details, this is the syntax you want:
 
 ```bash
 if command -v <command_name> &> /dev/null; then
-	echo "do something"
+	echo "command exists"
 fi
 ```
 
 or alternatively:
 
 ```bash
-command -v <command_name> &> /dev/null && echo "do something"
+command -v <command_name> &> /dev/null && echo "command exists"
 ```
 
 ## Explanation
@@ -60,8 +60,10 @@ The main takeaway here is this method will work for executables in `$PATH`, func
 One of the more common methods I've seen suggested is:
 
 ```bash
-if [[ -x "$(command -v <command_name>)"
+if [[ -x "$(command -v <command_name>)" ]]; then
+	echo "executable exists"
+fi
 ```
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTU3NTQwNDU0N119
+eyJoaXN0b3J5IjpbLTMzNDYzNzI5MV19
 -->
