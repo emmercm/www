@@ -181,11 +181,13 @@ postgres=# SELECT * FROM crons_audit;
 
 ## Drawbacks
 
+- General slowdown from additional queries (especially with multi-row changes?)
 - Have to use EXECUTE to make it a generic function
 - Have to migrate the audit table first
 
 ## Alternative
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTI3Mjg3NDAwMCwtMTgxMjkwNzY5NSwtMT
-Y4MzI5Mzc4OSwtMTQzNjA5NTg1MiwtNjMzNDUyOTE2XX0=
+eyJoaXN0b3J5IjpbNzM4NDM5Nzk1LC0yNzI4NzQwMDAsLTE4MT
+I5MDc2OTUsLTE2ODMyOTM3ODksLTE0MzYwOTU4NTIsLTYzMzQ1
+MjkxNl19
 -->
