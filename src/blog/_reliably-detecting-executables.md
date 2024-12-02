@@ -55,6 +55,8 @@ Here's the [man page](https://man7.org/linux/man-pages/man1/command.1p.html) for
 
 The main takeaway here is this method will work for executables in `$PATH`, functions, and aliases. Other methodologies only work for a subset of those commands.
 
+`command`
+
 ## The problem with `which`
 
 `which <program>` works for both functions and aliases, but it doesn't define a consistent exit code behavior. `which` will exit with a non-zero status code on _most_ distros, but this isn't a guarantee.
@@ -138,6 +140,6 @@ if ! command -v brew &> /dev/null && [[ -f /opt/homebrew/bin/brew ]]; then
 fi
 ```
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTc5NzA4NDcxNywxNDk2OTE2NzYzLC0xNT
-c3ODUzMTk1LDIwOTIxMjI3OThdfQ==
+eyJoaXN0b3J5IjpbLTUyNjAyMjgsMTQ5NjkxNjc2MywtMTU3Nz
+g1MzE5NSwyMDkyMTIyNzk4XX0=
 -->
