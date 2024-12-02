@@ -76,16 +76,19 @@ $ alias  grep='grep --color=auto'
 $ if [[ -x "$(command -v grep)" ]]; then echo "grep exists"; fi
 ```
 
-but it
+but it _does_ work for functions:
 
 ```shell
 $ if [[ -x "$(command -v docker)" ]]; then echo "docker exists"; fi
 docker exists
 
 $ docker() { echo "do some prework"; command docker "$@" }
+
+$ if [[ -x "$(command -v docker)" ]]; then echo "docker exists"; fi
+docker exists
 ```
 
 _See "[Automatically Execute Code Before & After Unix Commands](/blog/automatically-execute-code-before-after-unix-commands)" for more tricks on using functions to shadow executables.
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTEwNzg3MTg0ODQsMjA5MjEyMjc5OF19
+eyJoaXN0b3J5IjpbLTg2MDc1NTY2OCwyMDkyMTIyNzk4XX0=
 -->
