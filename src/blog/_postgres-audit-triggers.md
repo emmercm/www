@@ -77,6 +77,11 @@ Now for the function and trigger, which will give us automatic auditing:
 ```sql
 ```
 
+## Drawbacks
+
+- Have to use EXECUTE to make it a generic function
+- Have to migrate the audit table first
+
 ```sql
 CREATE OR REPLACE FUNCTION audit_trigger()  
     RETURNS TRIGGER  
@@ -95,5 +100,6 @@ END;
 $func$ LANGUAGE plpgsql;
 ```
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTE0MzYwOTU4NTIsLTYzMzQ1MjkxNl19
+eyJoaXN0b3J5IjpbLTE2ODMyOTM3ODksLTE0MzYwOTU4NTIsLT
+YzMzQ1MjkxNl19
 -->
