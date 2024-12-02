@@ -56,6 +56,21 @@ We can make a generic solution for our DB if we adhere to some rules:
 Let's create a `crons_audit` table:
 
 ```sql
+CREATE TABLE IF NOT EXISTS crons_audit
+(
+    -- Audit columns
+    audit_id        BIGSERIAL PRIMARY KEY,
+    audit_operation TEXT      NOT NULL,
+    audit_timestamp TIMESTAMP NOT NULL,
+    audit_user      TEXT      NOT NULL,
+    -- Columns from `crons`, with the same types and order
+    id              BIGINT    NOT NULL,
+    schedule        TEXT      NOT NULL,
+    config          jsonb     NOT NULL
+);
+```
+
+```sql
 CREATE OR REPLACE FUNCTION audit_trigger()  
     RETURNS TRIGGER  
 AS  
@@ -73,5 +88,5 @@ END;
 $func$ LANGUAGE plpgsql;
 ```
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTE5Njg1NDkyNzUsLTYzMzQ1MjkxNl19
+eyJoaXN0b3J5IjpbMTc2NzQ1ODE1NywtNjMzNDUyOTE2XX0=
 -->
