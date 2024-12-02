@@ -57,6 +57,8 @@ The main takeaway here is this method will work for executables in `$PATH`, func
 
 ## The problem with `which`
 
+
+
 ## The problem with `if [[ -x file ]]`
 
 One of the more common methods I've seen suggested is:
@@ -92,6 +94,6 @@ docker exists
 
 _See "[Automatically Execute Code Before & After Unix Commands](/blog/automatically-execute-code-before-after-unix-commands)" for more tricks on using functions to shadow executables.
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbNTYwOTY0ODU1LC0xNTc3ODUzMTk1LDIwOT
-IxMjI3OThdfQ==
+eyJoaXN0b3J5IjpbMTQ5NjkxNjc2MywtMTU3Nzg1MzE5NSwyMD
+kyMTIyNzk4XX0=
 -->
