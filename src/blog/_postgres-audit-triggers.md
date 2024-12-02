@@ -16,17 +16,23 @@ It is exceptionally difficult to reconstruct data from a point-in-time unless yo
 - To identify what Postgres user caused a specific change
 - To create a regulatory compliance trail, depending on your needs
 
-Let's start with an example table:
+Let's start with a pair of example tables:
 
 ```sql
-CREATE TABLE IF NOT EXISTS configs
+CREATE TABLE IF NOT EXISTS jobs
 (
-    id   BIGSERIAL PRIMARY KEY,
-    data jsonb NOT NULL
+    id BIGSERIAL PRIMARY KEY
+);
+
+CREATE TABLE IF NOT EXISTS job_configs
+(
+    id     BIGSERIAL PRIMARY KEY,
+    job_id BIGINT REFERENCES jobs (id),
+    config jsonb NOT NULL
 );
 ```
 
-this table holds some de-normalized JSON configuration for some entity. The exact specifics aren't important
+The
 
 
 ```sql
@@ -47,5 +53,5 @@ END;
 $func$ LANGUAGE plpgsql;
 ```
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTU5NDIxODQyMSwtNjMzNDUyOTE2XX0=
+eyJoaXN0b3J5IjpbLTkyMzk1NzYxOSwtNjMzNDUyOTE2XX0=
 -->
