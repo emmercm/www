@@ -31,7 +31,7 @@ CREATE TABLE IF NOT EXISTS crons
 
 This table holds information about cron jobs that execute on some schedule, using some de-normalized config. The config can be updated by humans, such as through a web UI, and changes will take effect on the next job execution.
 
-Let's say this flexible design has been working great for months and there hasn't been any need to change it. But then
+Let's say this flexible design has been working great for months and there hasn't been any need to change it. But then a bug ticket comes in that says a specific job wasn't working, or was producing unexpected results—
 
 ```sql
 CREATE OR REPLACE FUNCTION audit_trigger()  
@@ -51,5 +51,5 @@ END;
 $func$ LANGUAGE plpgsql;
 ```
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbNDI4MTY4ODk2LC02MzM0NTI5MTZdfQ==
+eyJoaXN0b3J5IjpbLTkzMTYwNzQ1NywtNjMzNDUyOTE2XX0=
 -->
