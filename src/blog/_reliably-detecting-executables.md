@@ -105,13 +105,15 @@ _See "[Automatically Execute Code Before & After Unix Commands](/blog/automatica
 I have my [macOS dotfiles](https://github.com/emmercm/dotfiles/blob/99fcc57675bf8831857b71c26d808d2bbdfd6b9d/.10_macos.bash) install any missing tools I use frequently using [Homebrew](https://brew.sh/):
 
 ```bash
-command -v gawk   > /dev/null || brew install gawk
-command -v gsed   > /dev/null || brew install gnu-sed
-command -v jq     > /dev/null || brew install jq
-command -v tree   > /dev/null || brew install tree
-command -v wget   > /dev/null || brew install wget
+if command -v brew &> /dev/null; then
+	command -v gawk   > /dev/null || brew install gawk
+	command -v gsed   > /dev/null || brew install gnu-sed
+	command -v jq     > /dev/null || brew install jq
+	command -v tree   > /dev/null || brew install tree
+	command -v wget   > /dev/null || brew install wget
+fi
 ```
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTQzNjEzOTUxMywxNDk2OTE2NzYzLC0xNT
-c3ODUzMTk1LDIwOTIxMjI3OThdfQ==
+eyJoaXN0b3J5IjpbLTEyNzc4NjY0ODMsMTQ5NjkxNjc2MywtMT
+U3Nzg1MzE5NSwyMDkyMTIyNzk4XX0=
 -->
