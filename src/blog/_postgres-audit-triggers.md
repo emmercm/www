@@ -52,7 +52,7 @@ We can make a generic solution for our DB if we adhere to some rules:
 
 - Every audit table is always named predictably, e.g. `<base_table>_audit`
 - Every audit table contains the same audit columns
-- Each audit table contains every column from its base table
+- Each audit table contains every column from its base table—which will require the audit table to be altered any time the base table is altered!
 
 Let's create a `crons_audit` table:
 
@@ -186,6 +186,6 @@ postgres=# SELECT * FROM crons_audit;
 
 ## Alternative
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTExMjYwNTc3OTgsLTE4MTI5MDc2OTUsLT
-E2ODMyOTM3ODksLTE0MzYwOTU4NTIsLTYzMzQ1MjkxNl19
+eyJoaXN0b3J5IjpbLTI3Mjg3NDAwMCwtMTgxMjkwNzY5NSwtMT
+Y4MzI5Mzc4OSwtMTQzNjA5NTg1MiwtNjMzNDUyOTE2XX0=
 -->
