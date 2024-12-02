@@ -69,11 +69,11 @@ One of the more common methods I've seen suggested is:
 
 ```bash
 if [[ -x "$(command -v <command_name>)" ]]; then
-	echo "executable exists"
+  echo "executable exists"
 fi
 ```
 
-This will test if the output of the `command -v <command_name>` is an executable file or not. If you _do_ want that behavior, there are better options such as `find <dir> -type f -executable` or the function from "[Reliably Finding Files in $PATH](blog/reliably-finding-files-in-path)".
+This will test if the output of the `command -v <command_name>` is an executable file or not, which won't work for aliases. If you _do_ want that behavior, there are better options such as `find <dir> -type f -executable` or the `pinpoint` function from "[Reliably Finding Files in $PATH](blog/reliably-finding-files-in-path)".
 
 The problem with `if [[ -x file ]]` is it doesn't work for aliases, which may shadow executables:
 
@@ -138,6 +138,6 @@ if ! command -v brew &> /dev/null && [[ -f /opt/homebrew/bin/brew ]]; then
 fi
 ```
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTAzOTMyOTEzNCwxNDk2OTE2NzYzLC0xNT
+eyJoaXN0b3J5IjpbLTg4NDg2NDk4MywxNDk2OTE2NzYzLC0xNT
 c3ODUzMTk1LDIwOTIxMjI3OThdfQ==
 -->
