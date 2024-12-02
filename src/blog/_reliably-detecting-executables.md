@@ -73,6 +73,8 @@ if [[ -x "$(command -v <command_name>)" ]]; then
 fi
 ```
 
+This will test if the output of the `command -v <command_name>` is an executable file or not. That may be desirable
+
 The problem with this is it won't work for aliases, which may shadow executables:
 
 ```shell
@@ -98,6 +100,6 @@ docker exists
 
 _See "[Automatically Execute Code Before & After Unix Commands](/blog/automatically-execute-code-before-after-unix-commands)" for more tricks on using functions to shadow executables.
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTI3NDE4MjUyLDE0OTY5MTY3NjMsLTE1Nz
-c4NTMxOTUsMjA5MjEyMjc5OF19
+eyJoaXN0b3J5IjpbMTYzNTY1NzIxNywxNDk2OTE2NzYzLC0xNT
+c3ODUzMTk1LDIwOTIxMjI3OThdfQ==
 -->
