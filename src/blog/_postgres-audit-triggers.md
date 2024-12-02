@@ -99,7 +99,7 @@ END;
 $func$ LANGUAGE plpgsql;
 ```
 
-String concatenation makes the function relatively complicated, but it is necessary in order to make a re-usable function. Other drawbacks of this are discussed below.
+String concatenation makes the function hard to read, but it is necessary in order to create a re-usable function. Other drawbacks of this are discussed below.
 
 Lastly, we need a trigger on the base table which will execute the function:
 
@@ -187,7 +187,7 @@ postgres=# SELECT * FROM crons_audit;
 
 ## Alternative
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbNzM4NDM5Nzk1LC0yNzI4NzQwMDAsLTE4MT
-I5MDc2OTUsLTE2ODMyOTM3ODksLTE0MzYwOTU4NTIsLTYzMzQ1
-MjkxNl19
+eyJoaXN0b3J5IjpbLTU3MzY5Nzg3LDczODQzOTc5NSwtMjcyOD
+c0MDAwLC0xODEyOTA3Njk1LC0xNjgzMjkzNzg5LC0xNDM2MDk1
+ODUyLC02MzM0NTI5MTZdfQ==
 -->
