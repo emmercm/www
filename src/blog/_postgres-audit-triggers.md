@@ -16,6 +16,8 @@ It is exceptionally difficult to reconstruct data from a point-in-time unless yo
 - To identify what Postgres user caused a specific change
 - To create a regulatory compliance trail, depending on your needs
 
+## Example
+
 Let's start with an example table:
 
 ```sql
@@ -27,7 +29,9 @@ CREATE TABLE IF NOT EXISTS crons
 );
 ```
 
-This table holds information about cron jobs that execute on some schedule, using the de-no
+This table holds information about cron jobs that execute on some schedule, using some de-normalized config. The config can be updated by humans, such as through a web UI, and changes will take effect on the next job execution.
+
+Let's say this design has be
 
 ```sql
 CREATE OR REPLACE FUNCTION audit_trigger()  
@@ -47,5 +51,5 @@ END;
 $func$ LANGUAGE plpgsql;
 ```
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTE1OTkwNTY5NSwtNjMzNDUyOTE2XX0=
+eyJoaXN0b3J5IjpbLTczNzY4NjI0MiwtNjMzNDUyOTE2XX0=
 -->
