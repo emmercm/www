@@ -14,7 +14,7 @@ It is exceptionally difficult to reconstruct data from a point-in-time unless yo
 
 - To debug or troubleshoot a problem, especially involving user-submitted data
 - To identify what Postgres user caused a specific change
-- To create a regulatory compliance trail, depending on your needs
+- To create a regulatory compliance trail, depending on your company needs
 
 ## Example scenario
 
@@ -29,7 +29,7 @@ CREATE TABLE IF NOT EXISTS crons
 );
 ```
 
-This table holds information about cron jobs that execute on some schedule, using some de-normalized config. The config can be updated by humans, such as through a web UI, and changes will take effect on the next job execution.
+This table holds information about cron jobs that execute on some schedule, using some de-normalized config. The config is updated by human action, such as through a web UI, and changes will take effect on the next job execution.
 
 Let's say this flexible design has been working great for months and there hasn't been any need to change it. But then a bug ticket comes in that says a specific job wasn't working, or was producing unexpected results a week ago. You investigate the job and see it has been running fine for the last few days. Because you don't have any way to know what the job configuration was a week ago you reject the bug ticket and frustrate your customer.
 
@@ -197,6 +197,6 @@ END;
 $func$ LANGUAGE plpgsql;
 ```
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTYxMjk2NzI3MCwtMTgxMjkwNzY5NSwtMT
+eyJoaXN0b3J5IjpbLTc5NTc1NzU0NSwtMTgxMjkwNzY5NSwtMT
 Y4MzI5Mzc4OSwtMTQzNjA5NTg1MiwtNjMzNDUyOTE2XX0=
 -->
