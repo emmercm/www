@@ -1,7 +1,7 @@
 ---
 
 title: Reliably Detecting Command Existence in Bash
-date: 2024-12-02T18:37:00
+date: 2024-12-02T18:47:00
 tags:
 - shell
 
@@ -55,7 +55,7 @@ Here's the [man page](https://man7.org/linux/man-pages/man1/command.1p.html) for
 
 The main takeaway here is this method will work for executables in `$PATH`, functions, and aliases. Other methodologies only work for a subset of those commands.
 
-`command`
+The `command` command is also POSIX-compliant, meaning it should work consistently across different UNIX variants.
 
 ## The problem with `which`
 
@@ -140,6 +140,6 @@ if ! command -v brew &> /dev/null && [[ -f /opt/homebrew/bin/brew ]]; then
 fi
 ```
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTUyNjAyMjgsMTQ5NjkxNjc2MywtMTU3Nz
-g1MzE5NSwyMDkyMTIyNzk4XX0=
+eyJoaXN0b3J5IjpbLTQ0NjczMTM2MCwxNDk2OTE2NzYzLC0xNT
+c3ODUzMTk1LDIwOTIxMjI3OThdfQ==
 -->
