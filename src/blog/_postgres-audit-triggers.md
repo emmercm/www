@@ -106,6 +106,15 @@ CREATE OR REPLACE TRIGGER crons_audit_trigger
 EXECUTE FUNCTION audit_trigger();
 ```
 
+## Usage
+
+Let's add some jobs and then modify them:
+
+```sqlpostgres=# INSERT INTO crons (schedule, config)  
+VALUES ('0 * * * *', '{"action": "refresh_stats"}');
+INSERT 0 1
+```
+
 ## Drawbacks
 
 - Have to use EXECUTE to make it a generic function
@@ -129,6 +138,6 @@ END;
 $func$ LANGUAGE plpgsql;
 ```
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTE4MTI5MDc2OTUsLTE2ODMyOTM3ODksLT
-E0MzYwOTU4NTIsLTYzMzQ1MjkxNl19
+eyJoaXN0b3J5IjpbLTU4NDQ4ODYzMiwtMTgxMjkwNzY5NSwtMT
+Y4MzI5Mzc4OSwtMTQzNjA5NTg1MiwtNjMzNDUyOTE2XX0=
 -->
