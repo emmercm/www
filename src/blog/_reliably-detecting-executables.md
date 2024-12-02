@@ -53,7 +53,7 @@ Here's the [man page](https://man7.org/linux/man-pages/man1/command.1p.html) for
              status shall reflect that the name was not found.
 </pre>
 
-The main takeaway here is this method will work for executables in `$PATH`, functions, and aliases.
+The main takeaway here is this method will work for executables in `$PATH`, functions, and aliases. Other methodologies only work for a subset
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbNDc4Mzc5NTU4XX0=
+eyJoaXN0b3J5IjpbLTEyNTA3NDEzMzJdfQ==
 -->
