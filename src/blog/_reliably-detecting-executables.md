@@ -57,7 +57,7 @@ The main takeaway here is this method will work for executables in `$PATH`, func
 
 ## The problem with `which`
 
-
+`which` works for both functions and aliases, but it doesn't
 
 ## The problem with `if [[ -x file ]]`
 
@@ -94,6 +94,6 @@ docker exists
 
 _See "[Automatically Execute Code Before & After Unix Commands](/blog/automatically-execute-code-before-after-unix-commands)" for more tricks on using functions to shadow executables.
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTQ5NjkxNjc2MywtMTU3Nzg1MzE5NSwyMD
-kyMTIyNzk4XX0=
+eyJoaXN0b3J5IjpbLTE4NzI2NzQxNzgsMTQ5NjkxNjc2MywtMT
+U3Nzg1MzE5NSwyMDkyMTIyNzk4XX0=
 -->
