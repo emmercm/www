@@ -114,8 +114,16 @@ if command -v brew &> /dev/null; then
 fi
 ```
 
-I also alias `pip3` to `pip` when `pip` doesn't exist, because the version suffix on Python commands is wildly inconsistent across 
+I also [alias `pip3` to `pip`](https://github.com/emmercm/dotfiles/blob/master/.20_python.bash#L42-L44) when `pip` doesn't exist because the version suffix on Python commands is wildly inconsistent across distros and package managers:
+
+```bash
+if ! command -v pip &> /dev/null && command -v pip3 &> /dev/null; then
+	alias pip=pip3
+fi
+```
+
+You can mix `command -v <command_name>` conditionals with other Bash conditionals 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbNzkyNzU2NzIwLDE0OTY5MTY3NjMsLTE1Nz
-c4NTMxOTUsMjA5MjEyMjc5OF19
+eyJoaXN0b3J5IjpbLTExMDI5Mjc3NDgsMTQ5NjkxNjc2MywtMT
+U3Nzg1MzE5NSwyMDkyMTIyNzk4XX0=
 -->
