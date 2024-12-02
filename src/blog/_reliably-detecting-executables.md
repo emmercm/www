@@ -130,7 +130,7 @@ if ! command -v pip &> /dev/null && command -v pip3 &> /dev/null; then
 fi
 ```
 
-You can also mix `command -v <command_name>` conditionals with other Bash conditionals like this:
+You can also mix `command -v <command_name>` conditionals with other Bash conditionals [like this](https://github.com/emmercm/dotfiles/blob/99fcc57675bf8831857b71c26d808d2bbdfd6b9d/.10_macos.bash#L8-L10):
 
 ```bash
 if ! command -v brew &> /dev/null && [[ -f /opt/homebrew/bin/brew ]]; then
@@ -138,6 +138,6 @@ if ! command -v brew &> /dev/null && [[ -f /opt/homebrew/bin/brew ]]; then
 fi
 ```
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTE3NjY1NTE2OSwxNDk2OTE2NzYzLC0xNT
+eyJoaXN0b3J5IjpbLTc5NzA4NDcxNywxNDk2OTE2NzYzLC0xNT
 c3ODUzMTk1LDIwOTIxMjI3OThdfQ==
 -->
