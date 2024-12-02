@@ -1,12 +1,14 @@
 ---
 
-title: Keeping a Row Modification Log Using Postgres Triggers
+title: Keeping a Row Modification Log Using PostgreSQL Triggers
 draft: true
 tags:
 - databases
 - postgres
 
 ---
+
+You can create an audit log of changes to table rows using triggers and a second table.
 
 ```sql
 CREATE OR REPLACE FUNCTION audit_trigger()  
@@ -26,5 +28,5 @@ END;
 $func$ LANGUAGE plpgsql;
 ```
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTE3MTYwMjc3NzRdfQ==
+eyJoaXN0b3J5IjpbLTY0OTE5ODQ4MV19
 -->
