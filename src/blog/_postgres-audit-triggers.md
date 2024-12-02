@@ -53,6 +53,8 @@ We can make a generic solution for our DB if we adhere to some rules:
 - The audit table is always named predictably, e.g. `<base_table>_audit`
 - The audit table contains every column the base table does
 
+Let's create a `crons_audit` table:
+
 ```sql
 CREATE OR REPLACE FUNCTION audit_trigger()  
     RETURNS TRIGGER  
@@ -71,5 +73,5 @@ END;
 $func$ LANGUAGE plpgsql;
 ```
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTM0MjY1Mjk4NCwtNjMzNDUyOTE2XX0=
+eyJoaXN0b3J5IjpbLTE5Njg1NDkyNzUsLTYzMzQ1MjkxNl19
 -->
