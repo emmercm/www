@@ -68,7 +68,8 @@ fi
 The problem with this is it won't work for functions or aliases, which may shadow executables:
 
 ```bash
+
 ```
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTQ4ODUzNjU2NF19
+eyJoaXN0b3J5IjpbNzEzMjUxNjE0XX0=
 -->
