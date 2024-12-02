@@ -57,7 +57,7 @@ The main takeaway here is this method will work for executables in `$PATH`, func
 
 ## The problem with `which`
 
-`which` works for both functions and aliases, but it doesn't
+`which <program>` works for both functions and aliases, but it doesn't define a consistent exit code behavior. _Most_ 
 
 ## The problem with `if [[ -x file ]]`
 
@@ -94,6 +94,6 @@ docker exists
 
 _See "[Automatically Execute Code Before & After Unix Commands](/blog/automatically-execute-code-before-after-unix-commands)" for more tricks on using functions to shadow executables.
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTE4NzI2NzQxNzgsMTQ5NjkxNjc2MywtMT
+eyJoaXN0b3J5IjpbLTE5MTIxOTA0NzIsMTQ5NjkxNjc2MywtMT
 U3Nzg1MzE5NSwyMDkyMTIyNzk4XX0=
 -->
