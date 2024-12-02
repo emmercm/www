@@ -25,7 +25,7 @@ command -v (command) &> /dev/null && echo "do something"
 
 ## Explanation
 
-Here's the man page for `command -v command_name`:
+Here's the [man page](https://man7.org/linux/man-pages/man1/command.1p.html) for `command -v command_name`:
 
 <pre>
 -v       Write a string to standard output that indicates the  
@@ -38,12 +38,12 @@ Here's the man page for `command -v command_name`:
              <i>command_name</i>s including a &lt;slash&gt; character, and  
              any implementation-defined functions that are found  
              using the <i>PATH</i> variable (as described in <i>Section  
-             2.9.1.1_, _Command Search and Execution_), shall be  
+             2.9.1.1</i>, <i>Command Search and Execution</i>), shall be  
              written as absolute pathnames.  
   
           *  Shell functions, special built-in utilities,  
              regular built-in utilities not associated with a  
-             _PATH_ search, and shell reserved words shall be  
+             <i>PATH</i> search, and shell reserved words shall be  
              written as just their names.  
   
           *  An alias shall be written as a command line that  
@@ -52,6 +52,8 @@ Here's the man page for `command -v command_name`:
           *  Otherwise, no output shall be written and the exit  
              status shall reflect that the name was not found.
 </pre>
+
+The main takeaway here is this method will work for executables in `$PATH`, functions, and aliases.
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTQ3ODQxMzk4Ml19
+eyJoaXN0b3J5IjpbNDc4Mzc5NTU4XX0=
 -->
