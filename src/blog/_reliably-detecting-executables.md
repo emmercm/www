@@ -30,8 +30,8 @@ Here's the man page for `command -v`:
 <pre>
 -v       Write a string to standard output that indicates the  
          pathname or command that will be used by the shell, in  
-         the current shell execution environment (see _Section_  
-         _2.12_, _Shell Execution Environment_), to invoke  
+         the current shell execution environment (see <i>Section  
+         2.12</i>, Shell Execution Environment_), to invoke  
          _command_name_, but do not invoke _command_name_.  
   
           *  Utilities, regular built-in utilities,  
@@ -53,5 +53,5 @@ Here's the man page for `command -v`:
              status shall reflect that the name was not found.
 </pre>
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTEyNzA2OTYxNzBdfQ==
+eyJoaXN0b3J5IjpbLTY3NzM0NzQ2Nl19
 -->
