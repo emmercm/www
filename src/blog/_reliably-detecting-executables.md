@@ -12,7 +12,7 @@ There are quite a few different methods you'll find on the internet that all hav
 Before I go into the details, this is the syntax you want:
 
 ```bash
-if command -v (command) &> /dev/null; then
+if command -v <command_name> &> /dev/null; then
 	echo "do something"
 fi
 ```
@@ -20,7 +20,7 @@ fi
 or alternatively:
 
 ```bash
-command -v (command) &> /dev/null && echo "do something"
+command -v <command_name> &> /dev/null && echo "do something"
 ```
 
 ## Explanation
@@ -55,7 +55,13 @@ Here's the [man page](https://man7.org/linux/man-pages/man1/command.1p.html) for
 
 The main takeaway here is this method will work for executables in `$PATH`, functions, and aliases. Other methodologies only work for a subset of those commands.
 
-## The problem with `if -x`
+## The problem with `if -x file`
+
+One of the more common methods I've seen suggested is:
+
+```bash
+if [[ -x "$(command -v <command_name>)"
+```
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTUzNjg4OTg5MF19
+eyJoaXN0b3J5IjpbMTU3NTQwNDU0N119
 -->
