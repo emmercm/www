@@ -16,7 +16,7 @@ It is exceptionally difficult to reconstruct data from a point-in-time unless yo
 - To identify what Postgres user caused a specific change
 - To create a regulatory compliance trail, depending on your needs
 
-## Example
+## Example scenario
 
 Let's start with an example table:
 
@@ -34,6 +34,10 @@ This table holds information about cron jobs that execute on some schedule, usin
 Let's say this flexible design has been working great for months and there hasn't been any need to change it. But then a bug ticket comes in that says a specific job wasn't working, or was producing unexpected results a week ago. You investigate the job and see it has been running fine for the last few days. Because you don't have any way to know what the job configuration was a week ago you reject the bug ticket and frustrate your customer.
 
 There's nothing we can do for that customer, we don't have any audit trail of changes made. But we can start creating one going forward!
+
+## Considerations
+
+There are 
 
 ```sql
 CREATE OR REPLACE FUNCTION audit_trigger()  
@@ -53,5 +57,5 @@ END;
 $func$ LANGUAGE plpgsql;
 ```
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTcyNzYwODQ0NCwtNjMzNDUyOTE2XX0=
+eyJoaXN0b3J5IjpbLTE4NTg2NDU0MzUsLTYzMzQ1MjkxNl19
 -->
