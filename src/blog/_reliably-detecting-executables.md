@@ -86,7 +86,7 @@ $ alias  grep='grep --color=auto'
 $ if [[ -x "$(command -v grep)" ]]; then echo "grep exists"; fi
 ```
 
-but it _does_ work for functions:
+but it _does_ work for functions, which may cause confusion:
 
 ```shell
 $ if [[ -x "$(command -v docker)" ]]; then echo "docker exists"; fi
@@ -102,7 +102,7 @@ _See "[Automatically Execute Code Before & After Unix Commands](/blog/automatica
 
 ## Example usages
 
-To check for the non-existence of a command you can use `! command -v <command_name>` syntax:
+To check for the nonexistence of a command you can use `! command -v <command_name>` syntax:
 
 ```bash
 if ! command -v beep &> /dev/null; then
@@ -114,11 +114,11 @@ For a real world example, I have my [macOS dotfiles](https://github.com/emmercm/
 
 ```bash
 if command -v brew &> /dev/null; then
-	command -v gawk > /dev/null || brew install gawk
-	command -v gsed > /dev/null || brew install gnu-sed
-	command -v jq   > /dev/null || brew install jq
-	command -v tree > /dev/null || brew install tree
-	command -v wget > /dev/null || brew install wget
+  command -v gawk > /dev/null || brew install gawk
+  command -v gsed > /dev/null || brew install gnu-sed
+  command -v jq   > /dev/null || brew install jq
+  command -v tree > /dev/null || brew install tree
+  command -v wget > /dev/null || brew install wget
 fi
 ```
 
@@ -126,7 +126,7 @@ I also [alias `pip3` to `pip`](https://github.com/emmercm/dotfiles/blob/master/.
 
 ```bash
 if ! command -v pip &> /dev/null && command -v pip3 &> /dev/null; then
-	alias pip=pip3
+  alias pip=pip3
 fi
 ```
 
@@ -134,10 +134,10 @@ You can also mix `command -v <command_name>` conditionals with other Bash condit
 
 ```bash
 if ! command -v brew &> /dev/null && [[ -f /opt/homebrew/bin/brew ]]; then
-    eval "$(/opt/homebrew/bin/brew shellenv)"
+  eval "$(/opt/homebrew/bin/brew shellenv)"
 fi
 ```
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTM4Mzg5NDM1NywxNDk2OTE2NzYzLC0xNT
+eyJoaXN0b3J5IjpbMTE3NjY1NTE2OSwxNDk2OTE2NzYzLC0xNT
 c3ODUzMTk1LDIwOTIxMjI3OThdfQ==
 -->
