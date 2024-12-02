@@ -12,7 +12,9 @@ You can create an audit log of changes to table rows using triggers and a second
 
 It is exceptionally difficult to reconstruct data from a point-in-time unless you design around this need from the start. Some reasons you may want to create an audit trail is:
 
-- To debug
+- To debug or troubleshoot a problem, especially involving user-submitted data
+- To identify what Postgres user caused a specific change
+- To create a regulatory compliance trail, depending on your needs
 
 ```sql
 CREATE OR REPLACE FUNCTION audit_trigger()  
@@ -32,5 +34,5 @@ END;
 $func$ LANGUAGE plpgsql;
 ```
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTI2NDgxMDQ3LC02MzM0NTI5MTZdfQ==
+eyJoaXN0b3J5IjpbMTEyNTE4MTM4NywtNjMzNDUyOTE2XX0=
 -->
