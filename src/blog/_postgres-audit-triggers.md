@@ -50,7 +50,8 @@ We can log these in a separate "audit" table in the same DB.
 
 We can make a generic solution for our DB if we adhere to some rules:
 
-- The audit table is always named  `<base_table>_audit`
+- The audit table is always named predictably, e.g. `<base_table>_audit`
+- The audit table contains every column the base table does
 
 ```sql
 CREATE OR REPLACE FUNCTION audit_trigger()  
@@ -70,5 +71,5 @@ END;
 $func$ LANGUAGE plpgsql;
 ```
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTk5MjI3NTg2MSwtNjMzNDUyOTE2XX0=
+eyJoaXN0b3J5IjpbMTM0MjY1Mjk4NCwtNjMzNDUyOTE2XX0=
 -->
