@@ -108,7 +108,7 @@ EXECUTE FUNCTION audit_trigger();
 
 ## Usage
 
-Let's add some jobs and then modify them:
+Let's add some jobs and then modify them. Inserting one row
 
 ```shell
 postgres=# INSERT INTO crons (schedule, config)
@@ -160,6 +160,6 @@ END;
 $func$ LANGUAGE plpgsql;
 ```
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbNjI5ODc4NDExLC0xODEyOTA3Njk1LC0xNj
-gzMjkzNzg5LC0xNDM2MDk1ODUyLC02MzM0NTI5MTZdfQ==
+eyJoaXN0b3J5IjpbMTc4MzEwOTE2NiwtMTgxMjkwNzY5NSwtMT
+Y4MzI5Mzc4OSwtMTQzNjA5NTg1MiwtNjMzNDUyOTE2XX0=
 -->
