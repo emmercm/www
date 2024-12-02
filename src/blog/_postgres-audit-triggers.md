@@ -50,8 +50,9 @@ We can log these in a separate "audit" table in the same DB.
 
 We can make a generic solution for our DB if we adhere to some rules:
 
-- The audit table is always named predictably, e.g. `<base_table>_audit`
-- The audit table contains every column the base table does
+- Every audit table is always named predictably, e.g. `<base_table>_audit`
+- Every audit table contains the same audit columns
+- Each audit table contains every column from its base table
 
 Let's create a `crons_audit` table:
 
@@ -72,9 +73,9 @@ CREATE TABLE IF NOT EXISTS crons_audit
 CREATE INDEX IF NOT EXISTS crons_audit_id ON crons_audit (id);
 ```
 
-Note that other than the slight type change for the `crons_audit.id` column, `crons_audit` is a perfect superset of `crons`.
+Note that other than the slight type change for the `crons_audit.id` column, `crons_audit` is a perfect superset of the columns in `crons`.
 
-Now for the function and trigger, which will give us automatic auditing:
+
 
 ```sql
 CREATE OR REPLACE FUNCTION audit_trigger()
@@ -197,6 +198,6 @@ END;
 $func$ LANGUAGE plpgsql;
 ```
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTc5NTc1NzU0NSwtMTgxMjkwNzY5NSwtMT
-Y4MzI5Mzc4OSwtMTQzNjA5NTg1MiwtNjMzNDUyOTE2XX0=
+eyJoaXN0b3J5IjpbLTIxMjQxMzM3MjgsLTE4MTI5MDc2OTUsLT
+E2ODMyOTM3ODksLTE0MzYwOTU4NTIsLTYzMzQ1MjkxNl19
 -->
