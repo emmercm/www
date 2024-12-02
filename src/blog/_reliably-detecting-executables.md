@@ -75,6 +75,11 @@ $ alias  grep='grep --color=auto'
 
 $ if [[ -x "$(command -v grep)" ]]; then echo "grep exists"; fi
 ```
+
+```shell
+$ if [[ -x "$(command -v docker)" ]]; then echo "docker exists"; fi
+docker exists
+```
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMjA5MjEyMjc5OF19
+eyJoaXN0b3J5IjpbLTEzOTU2NzIwMTgsMjA5MjEyMjc5OF19
 -->
