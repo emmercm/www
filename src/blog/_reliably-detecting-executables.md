@@ -73,7 +73,7 @@ if [[ -x "$(command -v <command_name>)" ]]; then
 fi
 ```
 
-This will test if the output of the `command -v <command_name>` is an executable file or not. If you want that behavior there are better options
+This will test if the output of the `command -v <command_name>` is an executable file or not. If you _do_ want that behavior, there are better options such as `find <dir> -type f -executable` or the function from "[Reliably Finding Files in $PATH](blog/reliably-finding-files-in-path)".
 
 The problem with this is it won't work for aliases, which may shadow executables:
 
@@ -100,6 +100,6 @@ docker exists
 
 _See "[Automatically Execute Code Before & After Unix Commands](/blog/automatically-execute-code-before-after-unix-commands)" for more tricks on using functions to shadow executables.
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMjA5NDQ4NzUzNiwxNDk2OTE2NzYzLC0xNT
+eyJoaXN0b3J5IjpbMTg5ODAzMDA1OCwxNDk2OTE2NzYzLC0xNT
 c3ODUzMTk1LDIwOTIxMjI3OThdfQ==
 -->
