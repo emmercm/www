@@ -70,7 +70,12 @@ CREATE TABLE IF NOT EXISTS crons_audit
 );
 ```
 
-Note that other than the slight type change for the `crons_audit.id` column, `crons_audit` 
+Note that other than the slight type change for the `crons_audit.id` column, `crons_audit` is a perfect superset of `crons`.
+
+Now for the trigger, which will give us automatic auditing:
+
+```sql
+```
 
 ```sql
 CREATE OR REPLACE FUNCTION audit_trigger()  
@@ -90,5 +95,5 @@ END;
 $func$ LANGUAGE plpgsql;
 ```
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTA2Mjg3OTczMCwtNjMzNDUyOTE2XX0=
+eyJoaXN0b3J5IjpbLTExMzQ1MTkyMjUsLTYzMzQ1MjkxNl19
 -->
