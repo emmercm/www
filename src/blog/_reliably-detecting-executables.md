@@ -55,6 +55,8 @@ Here's the [man page](https://man7.org/linux/man-pages/man1/command.1p.html) for
 
 The main takeaway here is this method will work for executables in `$PATH`, functions, and aliases. Other methodologies only work for a subset of those commands.
 
+## The problem with `which`
+
 ## The problem with `if -x file`
 
 One of the more common methods I've seen suggested is:
@@ -90,5 +92,5 @@ docker exists
 
 _See "[Automatically Execute Code Before & After Unix Commands](/blog/automatically-execute-code-before-after-unix-commands)" for more tricks on using functions to shadow executables.
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTg2MDc1NTY2OCwyMDkyMTIyNzk4XX0=
+eyJoaXN0b3J5IjpbLTE1Nzc4NTMxOTUsMjA5MjEyMjc5OF19
 -->
