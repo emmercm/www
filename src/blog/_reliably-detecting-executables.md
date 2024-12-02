@@ -1,6 +1,6 @@
 ---
 
-title: Reliably Detecting Executables in Bash
+title: Reliably Detecting Existing Commands in Bash
 date: 2024-12-02
 tags:
 - shell
@@ -53,7 +53,9 @@ Here's the [man page](https://man7.org/linux/man-pages/man1/command.1p.html) for
              status shall reflect that the name was not found.
 </pre>
 
-The main takeaway here is this method will work for executables in `$PATH`, functions, and aliases. Other methodologies only work for a subset
+The main takeaway here is this method will work for executables in `$PATH`, functions, and aliases. Other methodologies only work for a subset of those commands.
+
+## The problem with `if -x`
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTEyNTA3NDEzMzJdfQ==
+eyJoaXN0b3J5IjpbLTUzNjg4OTg5MF19
 -->
