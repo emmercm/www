@@ -1,7 +1,7 @@
 ---
 
-title: Reliably Detecting Existing Commands in Bash
-date: 2024-12-02
+title: Reliably Detecting Command Existence in Bash
+date: 2024-12-02T18:37:00
 tags:
 - shell
 
@@ -13,7 +13,7 @@ Before I go into the details, this is the syntax you want:
 
 ```bash
 if command -v <command_name> &> /dev/null; then
-	echo "command exists"
+  echo "command exists"
 fi
 ```
 
@@ -110,7 +110,7 @@ if ! command -v beep &> /dev/null; then
 fi
 ```
 
-I have my [macOS dotfiles](https://github.com/emmercm/dotfiles/blob/99fcc57675bf8831857b71c26d808d2bbdfd6b9d/.10_macos.bash#L26-L41) install any missing tools I use frequently using [Homebrew](https://brew.sh/):
+For a real world example, I have my [macOS dotfiles](https://github.com/emmercm/dotfiles/blob/99fcc57675bf8831857b71c26d808d2bbdfd6b9d/.10_macos.bash#L26-L41) install any missing tools I use frequently using [Homebrew](https://brew.sh/):
 
 ```bash
 if command -v brew &> /dev/null; then
@@ -130,7 +130,7 @@ if ! command -v pip &> /dev/null && command -v pip3 &> /dev/null; then
 fi
 ```
 
-You can mix `command -v <command_name>` conditionals with other Bash conditionals like this:
+You can also mix `command -v <command_name>` conditionals with other Bash conditionals like this:
 
 ```bash
 if ! command -v brew &> /dev/null && [[ -f /opt/homebrew/bin/brew ]]; then
@@ -138,6 +138,6 @@ if ! command -v brew &> /dev/null && [[ -f /opt/homebrew/bin/brew ]]; then
 fi
 ```
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTU5NTYxODg4MCwxNDk2OTE2NzYzLC0xNT
+eyJoaXN0b3J5IjpbMTAzOTMyOTEzNCwxNDk2OTE2NzYzLC0xNT
 c3ODUzMTk1LDIwOTIxMjI3OThdfQ==
 -->
