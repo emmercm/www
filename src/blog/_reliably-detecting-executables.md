@@ -65,7 +65,7 @@ if [[ -x "$(command -v <command_name>)" ]]; then
 fi
 ```
 
-The problem with this is it won't work for functions or aliases, which may shadow executables:
+The problem with this is it won't work for aliases, which may shadow executables:
 
 ```shell
 $ if [[ -x "$(command -v grep)" ]]; then echo "grep exists"; fi
@@ -76,10 +76,16 @@ $ alias  grep='grep --color=auto'
 $ if [[ -x "$(command -v grep)" ]]; then echo "grep exists"; fi
 ```
 
+but it
+
 ```shell
 $ if [[ -x "$(command -v docker)" ]]; then echo "docker exists"; fi
 docker exists
+
+$ docker() { echo "do some prework"; command docker "$@" }
 ```
+
+_See "[Automatically Execute Code Before & After Unix Commands](/blog/automatically-execute-code-before-after-unix-commands)" for more tricks on using functions to shadow executables.
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTEzOTU2NzIwMTgsMjA5MjEyMjc5OF19
+eyJoaXN0b3J5IjpbLTEwNzg3MTg0ODQsMjA5MjEyMjc5OF19
 -->
