@@ -59,7 +59,7 @@ We gave ourselves some additional requirements related to our unique architectur
 
 This combination of needs led us to implement our own tracing emission, ingestion, and analysis platform–which we call Heimdall.
 
-#### Who is Heimdall?
+### Who is Heimdall?
 
 Heimdall is a Marvel character based on Norse mythology from Asgard who has extrasensory sight and hearing that even transcends time. Much of Attentive’s event platform is named after Marvel characters, which helps give the organization a unique identity.
 
@@ -93,11 +93,11 @@ Attentive uses an in-house, shared streaming library for the majority of our ser
 
 The tracing library emits structured logs at a sampled rate, which our existing log aggregator then ingests. The trace logs are indexed separately so that they don’t intermix with normal service logs and cause service owners confusion. These logs are then archived to Amazon S3, where we then ingest the files into Apache Druid hourly using Apache Airflow as the orchestrator. We expose common queries of the trace data via RPC endpoints in a dedicated service which can be called programmatically. We also allow humans to query this data manually via the Druid web UI to aid in support requests and incident triage.
 
-#### A tale of two libraries
+### A tale of two libraries
 
 While the majority of Attentive’s services use the same in-house library for stream interaction, there are other technologies we use that come with their own stream connectors, such as Apache Flink. Unfortunately, the actively maintained Pulsar connector for Flink doesn’t offer easy ways to get detailed information about events being consumed and produced. We had to fork the Pulsar connector and add the functionality we needed to get access to information such as message IDs and offsets. This decision wasn’t taken lightly; it added a non-trivial maintenance burden for our teams. But Flink is so central to our streaming architecture that if it didn’t emit traces we would have an extremely difficult time establishing event lineage.
 
-#### Cost tradeoffs
+### Cost tradeoffs
 
 Because we have more than 100 services processing more than 100 billion events every day, we had to make some tradeoff decisions to keep the cost of event tracing low.
 
@@ -107,15 +107,15 @@ Second, more than 100 services emitting more than 20k sampled traces/sec is stil
 
 One of our initial goals was to understand event throughput, but sampling event types at different rates in different services means we can’t simply count traces ingested. So we also added a metric called "event seen" that is incremented any time an event is consumed or produced. The metric is tagged by service name, event type, action (consumed vs. produced), type (Kinesis, Pulsar, SQS, etc.), and stream name, and we actively encourage teams to use it in their observability dashboards. We use this metric more than any other trace information during incident triage.
 
-#### Centralized configuration
+### Centralized configuration
 
 We created a new service to both centrally manage tracing configuration (such as the sampling rates mentioned above), as well as provide programmatic access to ingested traces. This service has several CRUD endpoints that engineers in our Event Platform organization use to manage configurations and a single endpoint that services use to retrieve their specific configuration values. The tracing library fetches this config at startup, and then non-Flink services refresh it every minute so that config changes don’t require service restarts or redeployments.
 
-#### Datastore choice
+### Datastore choice
 
 We chose to use Apache Druid for our trace datastore because of the time series nature of the trace data, but also because we wanted to trial the technology for other future use cases. After the initial implementation, we also made use of Druid’s retention policies to keep storage size constrained. Druid supports direct ingestion from Apache Kafka and Amazon Kinesis, but unfortunately not Apache Pulsar, so we used a Flink application to copy the trace events from Pulsar to Kinesis for real-time ingestion.
 
-#### Why not use OpenTelemetry?
+### Why not use OpenTelemetry?
 
 We already use an observability and monitoring vendor for application performance monitoring, custom metrics, and log aggregation. This vendor’s ingestion agent also supports OpenTelemetry trace ingestion, so we could have used it for ingestion and storage, but decided against it for a couple of reasons:
 
@@ -163,7 +163,7 @@ flowchart LR
     stream3 --> consumer2
 ```
 
-#### Cataloging streams for migration
+### Cataloging streams for migration
 
 As mentioned at the end of [Maestro: Attentive's Event Platform](https://tech.attentive.com/articles/maestro-attentives-event-platform), Attentive has moved away from Amazon Kinesis for our event streaming needs. We used trace data and metrics to help identify Kinesis streams that needed to be migrated, and then we used the trace data and metrics to track our progress of the migration.  
 
@@ -179,5 +179,6 @@ One last piece that has been on our wishlist for a while is automating the gener
 
 Ready to hit the ground running and make a big impact? Attentive’s hiring! [Explore our open roles](https://www.attentive.com/careers?utm_source=website&utm_medium=tech-blog).
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTE3MjUwMzkzMCwtNDk3NjU0OTE0XX0=
+eyJoaXN0b3J5IjpbODI3NDIxNTE1LC0xNzI1MDM5MzAsLTQ5Nz
+Y1NDkxNF19
 -->
