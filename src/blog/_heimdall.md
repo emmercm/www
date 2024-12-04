@@ -8,7 +8,7 @@ tags:
 
 ---
 
-_This article was originally
+_This article was originally posted on the [Attentive Tech Blog](https://tech.attentive.com/articles/heimdall-attentives-event-tracing-platform)._
 
 [Attentive](https://www.attentive.com/careers?utm_source=website&utm_medium=tech-blog) loves event streaming. We have more than 100 services collectively processing more than 100 billion events every day. Adopting event streaming so widely allows us to keep our architecture loosely coupled and independently scaled. Streaming allows our teams to receive the data they need in real time with minimal effort or impact on the rest of our system.
 
@@ -179,5 +179,5 @@ One last piece that has been on our wishlist for a while is automating the gener
 
 Ready to hit the ground running and make a big impact? Attentive’s hiring! [Explore our open roles](https://www.attentive.com/careers?utm_source=website&utm_medium=tech-blog).
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbODk3OTg1NzAsLTQ5NzY1NDkxNF19
+eyJoaXN0b3J5IjpbLTE3MjUwMzkzMCwtNDk3NjU0OTE0XX0=
 -->
