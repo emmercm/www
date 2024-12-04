@@ -8,6 +8,8 @@ tags:
 
 ---
 
+_This article was originally
+
 [Attentive](https://www.attentive.com/careers?utm_source=website&utm_medium=tech-blog) loves event streaming. We have more than 100 services collectively processing more than 100 billion events every day. Adopting event streaming so widely allows us to keep our architecture loosely coupled and independently scaled. Streaming allows our teams to receive the data they need in real time with minimal effort or impact on the rest of our system.
 
 However, streaming architectures are more difficult to reason about than a single service doing synchronous processing. When an expected outcome of a process doesn’t happen it can be difficult to pinpoint exactly where in the pipeline an error occurred and why. Much like other microservice architectures, it is imperative to instrument these services with observability tools. In this article, we'll discuss our work to implement a sophisticated observability platform called Heimdall.
@@ -141,7 +143,26 @@ Most of these questions can be answered with the "event seen" metric mentioned a
 
 Our third most common use case for the trace data is to create event lineage diagrams. It can be much easier to reason about data visualizations, and architecture diagrams with streams visualize well. We created an endpoint to query all of the unique service, stream, and action (consumed vs. produced) tuples, and then use that data to construct a [Mermaid](https://mermaid.js.org/) flowchart diagram. We store the generated diagrams in our version control system, and their plaintext nature makes it easy to spot-check diffs in pull requests.
 
-![](https://cdn.prod.website-files.com/662ae63d0306bdfd5a66b3af/66d765834894a379bc2291ba_66d76532f18deae243db31b0_Graphic2.jpeg)
+```mermaid
+flowchart LR
+    producer(Producer)
+    stream1@{shape: das, label: "Stream"}
+    stream2@{shape: das, label: "Stream"}
+    consumer1(Consumer)
+    processor(Processor)
+    consumer2(Consumer)
+    stream3@{shape: das, label: "Stream"}
+    consumer3(Consumer)
+
+    producer --> stream1
+    producer --> stream2
+    stream1 --> consumer1
+    stream1 --> processor
+    stream2 --> consumer3
+    processor --> stream3
+    stream3 --> consumer2
+```
+
 #### Cataloging streams for migration
 
 As mentioned at the end of [Maestro: Attentive's Event Platform](https://tech.attentive.com/articles/maestro-attentives-event-platform), Attentive has moved away from Amazon Kinesis for our event streaming needs. We used trace data and metrics to help identify Kinesis streams that needed to be migrated, and then we used the trace data and metrics to track our progress of the migration.  
@@ -158,5 +179,5 @@ One last piece that has been on our wishlist for a while is automating the gener
 
 Ready to hit the ground running and make a big impact? Attentive’s hiring! [Explore our open roles](https://www.attentive.com/careers?utm_source=website&utm_medium=tech-blog).
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTUxNjE1Njk2NywtNDk3NjU0OTE0XX0=
+eyJoaXN0b3J5IjpbODk3OTg1NzAsLTQ5NzY1NDkxNF19
 -->
