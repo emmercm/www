@@ -63,7 +63,29 @@ Heimdall is a Marvel character based on Norse mythology from Asgard who has extr
 
 ## Attentive’s implementation
 
-![](https://cdn.prod.website-files.com/662ae63d0306bdfd5a66b3af/66d765834894a379bc2291c0_66d76516ebdfb594c3a22670_Graphic1.jpeg)
+```mermaid
+flowchart LR
+    source@{shape: das, label: "Stream"}
+    processor(Processor<br>service)
+    library(Streaming<br>library)
+    sink@{shape: das, label: "Stream"}
+    tracing(Tracing<br>library)
+    logs(Logs)
+    aggregator(Aggregator<br>service)
+    datastore[(Trace<br>datastore)]
+    config(Config<br>service)
+
+    source --Consume--> library
+    library --Produce--> sink
+
+    processor --Implements--> library
+    library --Implements--> tracing
+    tracing --Fetches--> config
+
+    tracing --Emits-->logs
+    aggregator --Ingests--> logs
+    aggregator --Writes--> datastore
+```
 
 Attentive uses an in-house, shared streaming library for the majority of our services. This library and its abstractions have helped us with migrations between different streaming technologies, and it has features such as automatic serialization and deserialization of our shared event schemas. You can read more about our learned pain points working with Amazon Kinesis at [Maestro: Attentive's Event Platform](https://tech.attentive.com/articles/maestro-attentives-event-platform). This library made a natural place to add hooks for emitting event traces, and this architecture met our goal of making adoption a low effort for teams.
 
@@ -136,5 +158,5 @@ One last piece that has been on our wishlist for a while is automating the gener
 
 Ready to hit the ground running and make a big impact? Attentive’s hiring! [Explore our open roles](https://www.attentive.com/careers?utm_source=website&utm_medium=tech-blog).
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTQ5NzY1NDkxNF19
+eyJoaXN0b3J5IjpbMTUxNjE1Njk2NywtNDk3NjU0OTE0XX0=
 -->
