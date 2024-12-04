@@ -1,7 +1,7 @@
 ---
 
 title: Heimdall: Attentive’s Event Tracing Platform
-Engineering
+date: 2024-08-28T16:00:00
 
 ---
 
@@ -133,5 +133,5 @@ One last piece that has been on our wishlist for a while is automating the gener
 
 Ready to hit the ground running and make a big impact? Attentive’s hiring! [Explore our open roles](https://www.attentive.com/careers?utm_source=website&utm_medium=tech-blog).
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTM3MDM5ODUwM119
+eyJoaXN0b3J5IjpbMTg2NTk5OTM2NV19
 -->
