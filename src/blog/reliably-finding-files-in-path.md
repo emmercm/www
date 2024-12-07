@@ -1,16 +1,17 @@
 ---
 
-title: Reliably Finding Files in $PATH
+title: Reliably Finding Executables in $PATH
 date: 2021-08-27T20:10:00
-updated: 2023-01-19T21:53:00
+updated: 2024-12-07T23:32:00
+permalink: blog/reliably-finding-files-in-path
 tags:
 - shell
 
 ---
 
-Most built-in commands commonly used to find files in `$PATH` don't always work quite as expected, or are shell-specific.
+Most built-in commands commonly used to find executables in `$PATH` don't always work quite as expected, or are shell-specific.
 
-Jump to the bottom of the article for a function definition that looks for files in `$PATH` and is shell-agnostic, or keep reading for a full explanation of why some built-in commands don't work as desired.
+Jump to the bottom of the article for a function definition that looks for executables in `$PATH` and is shell-agnostic, or keep reading for a full explanation of why some built-in commands don't work as desired.
 
 ## The use case
 
@@ -22,6 +23,8 @@ Cannot connect to the Docker daemon at unix:///var/run/docker.sock. Is the docke
 ```
 
 I wanted to create a function in my dotfiles to override the `docker` command, and that function would ensure Docker Desktop is running before executing the `docker` command. But I had an issue with finding the actual location of the `docker` executable once it was shadowed by the function. See "[Automatically Execute Code Before & After Unix Commands](/blog/automatically-execute-code-before-after-unix-commands)" for how you can intercept commands like this.
+
+_See "[Reliably Detecting Command Existence in Bash](/blog/reliably-detecting-command-existence-in-bash)" for how to write conditions to detect the existence of executables, functions, and aliases._
 
 ## The problem with `which`
 
@@ -138,7 +141,7 @@ If you need functionality similar to `which` to get the _path_ of an executable,
 ```bash
 pinpoint() {
     while read -r DIR; do
-        if [[ -f "${DIR}/$1" ]]; then
+        if [[ -x "${DIR}/$1" ]]; then
             echo "${DIR}/$1"
             return 0
         fi
