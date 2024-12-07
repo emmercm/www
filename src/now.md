@@ -2,7 +2,7 @@
 
 title: Now
 description: What's important in my life, now.
-date: 2024-03-05T00:02:00
+date: 2024-12-07T23:38:00
 priority: 0.1
 
 ---
@@ -15,7 +15,7 @@ _Last updated on {{luxon date "MMM d, yyyy"}}._
 
 ## 📍 Living in
 
-Portland, OR since late 2021 - experiencing the wild, green, and sometimes wet Pacific Northwest.
+Los Angeles, CA since late 2024—experiencing the sun, surf, and food of the most populous county in the US.
 
 ## 🏢 Working at
 
@@ -30,7 +30,7 @@ Senior Software Engineer @ [Attentive](https://www.attentive.com/), an SMS and e
 ## 🧘🏻‍♂️ Top three personal focuses
 
 1. Keeping all the sections of the lifestyle balance pie chart in balance
-2. Checking items off of my Portland, OR bucket list
+2. Checking items off of my Los Angeles, CA bucket list
 3. Making and keeping meaningful connections
 
 ## 👨🏻‍💻 Hacking on
@@ -43,7 +43,7 @@ See my [projects](/projects) page for a complete list.
 
 ## 📚 Reading
 
-- [More than a Glitch](https://mitpress.mit.edu/9780262548328/more-than-a-glitch/) by Meredith Broussard @ [Attentive](https://attentivemobile.com) technical book club
+<!-- - [More than a Glitch](https://mitpress.mit.edu/9780262548328/more-than-a-glitch/) by Meredith Broussard @ [Attentive](https://attentivemobile.com) technical book club -->
 - [Staff Engineer](https://staffeng.com/book) by Will Larson
 - Newsletter: [The Pragmatic Engineer](https://www.pragmaticengineer.com/) by Gergely Orosz
 - Newsletter: [SoftwareLeadWeekly](https://softwareleadweekly.com/)
