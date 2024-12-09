@@ -25,6 +25,8 @@ We have other how-to guides that are linked to by multiple incident runbooks:
 
 - How to delete old logs when a host is running out of disk space
 - How to move a service/job between regions or availability zones (in case one is degraded)
+- How to rate limit a specific tenant in a multi-tenant system
+- How to replay messages in a dead-letter queue ("DLQ")
 
 ## A cloneable how-to guide template
 
@@ -135,5 +137,5 @@ _Optional section: summary of any setup work required before a person can execut
 
 _Optional section: how-to guides and/or tasks that a person would commonly need to take next._
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTgzODg0Nzk0OF19
+eyJoaXN0b3J5IjpbNTMxMjA3ODE4XX0=
 -->
