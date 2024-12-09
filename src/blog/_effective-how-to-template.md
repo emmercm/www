@@ -13,7 +13,8 @@ In this article I'm defining "technical how-to guides" as a list of repeatable s
 
 Some examples of how-to guides I use at work on a weekly or monthly basis:
 
-- How to
+- How to create & deploy a new [microservice](/blog/tag/microservices)
+- How to escalate a support ticket with a vendor
 
 ## A cloneable how-to guide template
 
@@ -124,5 +125,5 @@ _Optional section: summary of any setup work required before a person can execut
 
 _Optional section: how-to guides and/or tasks that a person would commonly need to take next._
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTcwMjMzNTQxXX0=
+eyJoaXN0b3J5IjpbLTQ4MDgyNTY5XX0=
 -->
