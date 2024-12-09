@@ -16,10 +16,12 @@ Some examples of how-to guides me and my team frequently use:
 - How to create & deploy a new [microservice](/blog/tag/microservices)
 - How to scale a service
 - How to load test a service
-- How to use a service's admin CRUD end
+- How to use a service's admin create, read, update, and delete ("CRUD") endpoints
 - How to elevate cloud provider or [database](/blog/tag/databases) access
 - How to install and use a CLI tool
 - How to escalate a support ticket with a vendor
+
+We have other how-to guides that are linked to 
 
 ## A cloneable how-to guide template
 
@@ -130,5 +132,5 @@ _Optional section: summary of any setup work required before a person can execut
 
 _Optional section: how-to guides and/or tasks that a person would commonly need to take next._
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMzQ5Mjk4NTkzXX0=
+eyJoaXN0b3J5IjpbLTI1MDUwNDgwXX0=
 -->
