@@ -21,23 +21,16 @@ When this tool is verbally presented to engineers, it is important to index on t
 >
 > ⚠️ This how-to guide expresses the author’s opinions, as every how-to guide does. There is not a single correct way to write a how-to guide, and not all sections apply to every how-to guide.
 >
-✅ This guide is based on the following tenets. A how-to guide _should_ be:
-
--   An ordered list of actions to complete a specific, repeatable task
-    
--   Specific - the guide should cover as small of an action as is still useful, and then related how-to guides should be cross-linked together
-    
--   A single, authoritative guide – there should be no documents that could conflict
-    
-
-❌ An how-to guide should _not_ be:
-
--   Written once and never reviewed for accuracy again
-    
--   An incident runbook on how to resolve a severe issue (see
-    
-
-). But how-to guides may be linked to from incident runbooks.
+> ✅ This guide is based on the following tenets. A how-to guide _should_ be:
+>
+> -   An ordered list of actions to complete a specific, repeatable task
+> -   Specific - the guide should cover as small of an action as is still useful, and then related how-to guides should be cross-linked together
+> -   A single, authoritative guide – there should be no documents that could conflict 
+>
+> ❌ An how-to guide should _not_ be:
+>
+> -   Written once and never reviewed for accuracy again
+> -   An incident runbook on how to resolve a severe issue (see "[An Effective Incident Runbook Template](/blog/an-effective-incident-runbook-template)"). But how-to guides may be linked to from incident runbooks.
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTgwODI3ODA5OV19
+eyJoaXN0b3J5IjpbMjAzNDc3NTQwNF19
 -->
