@@ -7,7 +7,11 @@ tags:
 
 ---
 
-Having a template when writing technical how-to guides
+Having a template when writing technical how-to guides can increase clarity and therefore usability.
+
+## A cloneable how-to guide template
+
+Everything below this division can be made into a standalone page in your organizati
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTI1MjkzODQ0OF19
+eyJoaXN0b3J5IjpbLTc2MjE5ODg5MV19
 -->
