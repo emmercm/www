@@ -11,7 +11,9 @@ Having a template when writing technical how-to guides can increase clarity and 
 
 In this article I'm defining "technical how-to guides" as a list of repeatable steps an engineer may need to execute during their daily work.
 
-Some examples of 
+Some examples of how-to guides I use at work on a weekly or monthly basis:
+
+- How to
 
 ## A cloneable how-to guide template
 
@@ -122,5 +124,5 @@ _Optional section: summary of any setup work required before a person can execut
 
 _Optional section: how-to guides and/or tasks that a person would commonly need to take next._
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTEwODczMTk0MDldfQ==
+eyJoaXN0b3J5IjpbMTcwMjMzNTQxXX0=
 -->
