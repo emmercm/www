@@ -11,9 +11,12 @@ Having a template when writing technical how-to guides can increase clarity and 
 
 In this article I'm defining "technical how-to guides" as a list of repeatable steps an engineer may need to execute during their daily work.
 
-Some examples of how-to guides I use at work on a weekly or monthly basis:
+Some examples of how-to guides me and my team frequently use:
 
 - How to create & deploy a new [microservice](/blog/tag/microservices)
+- How to scale a service
+- How to load test a service
+- How to use a service's admin CRUD end
 - How to elevate cloud provider or [database](/blog/tag/databases) access
 - How to install and use a CLI tool
 - How to escalate a support ticket with a vendor
@@ -127,5 +130,5 @@ _Optional section: summary of any setup work required before a person can execut
 
 _Optional section: how-to guides and/or tasks that a person would commonly need to take next._
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTE2Njk5NjIzMTNdfQ==
+eyJoaXN0b3J5IjpbMzQ5Mjk4NTkzXX0=
 -->
