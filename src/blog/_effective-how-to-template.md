@@ -9,7 +9,7 @@ tags:
 
 Having a template when writing technical how-to guides can increase clarity and therefore usability.
 
-By "te
+For the extent of this article
 
 ## A cloneable how-to guide template
 
@@ -120,5 +120,5 @@ _Optional section: summary of any setup work required before a person can execut
 
 _Optional section: how-to guides and/or tasks that a person would commonly need to take next._
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTQ4NjM2MjE1MV19
+eyJoaXN0b3J5IjpbLTE4MTQ4Nzc2MjBdfQ==
 -->
