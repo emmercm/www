@@ -9,6 +9,8 @@ tags:
 
 Having a template when writing technical how-to guides can increase clarity and therefore usability.
 
+By "te
+
 ## A cloneable how-to guide template
 
 Everything below this division can be made into a standalone page in your organization's documentation tool of choice. The goal is to help engineers take the guesswork out of what a how-to guide should contain to be effective.
@@ -118,5 +120,5 @@ _Optional section: summary of any setup work required before a person can execut
 
 _Optional section: how-to guides and/or tasks that a person would commonly need to take next._
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbNzMyNjE1NTE1XX0=
+eyJoaXN0b3J5IjpbLTQ4NjM2MjE1MV19
 -->
