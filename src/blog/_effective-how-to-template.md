@@ -38,7 +38,7 @@ When this tool is verbally presented to engineers, it is important to index on t
 
 > ℹ️ This page has been written so that it can be easily copied/pasted to serve as a starting point for a how-to guide. All sections marked as a blockquote, including this introduction, are done to be easily deletable.
 >
-> ⚠️ This how-to guide expresses the author’s opinions, as every how-to guide does. There is not a single correct way to write a how-to guide, and not all sections apply to every how-to guide.
+> ⚠️ This how-to guide expresses the author's opinions, as every how-to guide does. There is not a single correct way to write a how-to guide, and not all sections apply to every how-to guide.
 >
 > ✅ This guide is based on the following tenets. A how-to guide _should_ be:
 >
@@ -51,20 +51,19 @@ When this tool is verbally presented to engineers, it is important to index on t
 > -   Written once and never reviewed for accuracy again
 > -   An incident runbook on how to resolve a severe issue (see "[An Effective Incident Runbook Template](/blog/an-effective-incident-runbook-template)"). However how-to guides may be linked from incident runbooks.
 
-> When starting a brand new document, here are some questions you need to
-> consider:
+> When starting a brand new document, here are some questions you need to consider:
 > 
 > **What is the audience for this document?**
 > 
 > Here are some situations that have very different audiences and therefore will likely have very different content:
 > 
-> -   I’m an IC writing an “internal” how-to guide only for my teammates (for new functionality I wrote, to prevent information loss, to amortize the cost of learning, etc.)
-> -   I’m an IC on a platform team writing an “external” how-to guide for colleagues outside of my organization
-> -   I’m an IC on a feature team writing an “external” how-to guide for PMs, CSMs, TAMs, and others outside of my organization that have different skill sets or responsibilities
+> -   I'm an IC writing an "internal” how-to guide only for my teammates (for new functionality I wrote, to prevent information loss, to amortize the cost of learning, etc.)
+> -   I'm an IC on a platform team writing an “external” how-to guide for colleagues outside of my organization
+> -   I'm an IC on a feature team writing an “external” how-to guide for PMs, CSMs, TAMs, and others outside of my organization that have different skill sets or responsibilities
 > 
 > **What does my audience already know about this topic? What might they not?**
 > 
-> If you’re writing for an audience outside of your team, they will have very different context from you. They may not know the same domain or technical terminology as you, the same technologies as you, or have the same product understanding as you. You should link to all relevant pre-reading at the top of the page, and all relevant next step documents at the bottom of the page.
+> If you're writing for an audience outside of your team, they will have very different context from you. They may not know the same domain or technical terminology as you, the same technologies as you, or have the same product understanding as you. You should link to all relevant pre-reading at the top of the page, and all relevant next step documents at the bottom of the page.
 > 
 > This guide helps set a consistent structure for your team so that starting from scratch and modifying existing pages is as painless as possible.
 > 
@@ -72,12 +71,12 @@ When this tool is verbally presented to engineers, it is important to index on t
 > 
 > -   Limit the number of initial authors to 1-2. Having many authors of one draft may reduce the clarity of the content. Alternatively, you could have one person write the outline and then divide the work to fill in each section.
 > -   Have fellow subject matter experts review the document for accuracy. Written documentation is usually assumed to be correct, so having someone review it can save future readers from headaches.
-> -   Have multiple members from the guide’s intended audience review for clarity. Again, they likely have a different context from you, so they will be the best judge on if the document makes sense.
+> -   Have multiple members from the guide's intended audience review for clarity. Again, they likely have a different context from you, so they will be the best judge on if the document makes sense.
 > 
 > **Here are some tips for keeping the document up-to-date:**
 > 
-> -   Act like an owner - if you come across how-to guides that you know are inaccurate, update it and make it better for the next person! If you don’t feel comfortable updating the document, ask questions of subject matter experts until you do feel comfortable updating it.
-> -   Consider building documentation review into your team cadences. Every quarter or so (it doesn’t have to be often, how-to guides don’t grow stale _that_ fast), sit down with your team and review the state of your internal and external guides. Some questions to ask:
+> -   Act like an owner - if you come across how-to guides that you know are inaccurate, update it and make it better for the next person! If you don't feel comfortable updating the document, ask questions of subject matter experts until you do feel comfortable updating it.
+> -   Consider building documentation review into your team cadences. Every quarter or so (it doesn't have to be often, how-to guides don't grow stale _that_ fast), sit down with your team and review the state of your internal and external guides. Some questions to ask:
 >     
 >     -   Is the guide still accurate? Is there a newer or better process?
 >     -   For internal guides, is the information clear to new hires on your team?
@@ -87,11 +86,11 @@ When this tool is verbally presented to engineers, it is important to index on t
 
 _Summary of what this how-to guide helps a person accomplish. Feel free to keep this short._
 
-_Optional note of who this how-to guide is for, in case it isn’t clear from the page title or how the page is organized._
+_Optional note of who this how-to guide is for, in case it isn't clear from the page title or how the page is organized._
 
 _Summary of how a person would know if this how-to guide is appropriate for their situation, ideally including keywords to make this page more discoverable. For example, it can help to include specific technology names, technical resource names, or log lines._
 
-_Optional note of what team owns the guide and who a reader can reach out to if they experience issues, in case this isn’t clear from the content of the guide or how the page is organized._
+_Optional note of what team owns the guide and who a reader can reach out to if they experience issues, in case this isn't clear from the content of the guide or how the page is organized._
 
 ## Pre-reading & prerequisites
 
@@ -117,5 +116,5 @@ _Optional section: summary of any setup work required before a person can execut
 
 _Optional section: how-to guides and/or tasks that a person would commonly need to take next._
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTk3OTA3MDQzMyw1MzEyMDc4MThdfQ==
+eyJoaXN0b3J5IjpbLTEwMzk2Mzc3Nyw1MzEyMDc4MThdfQ==
 -->
