@@ -9,7 +9,7 @@ tags:
 
 Having a template when writing technical how-to guides can increase clarity and therefore usability.
 
-In this article I'm defining "technical how-to guides" as a list of repeatable steps an engineer may need to execute during their daily work. This 
+In this article I'm defining "technical how-to guides" as a list of repeatable steps an engineer may need to execute during their daily work. This is a fairly broad definition on purpose as technical how-to guides can range from engineer onboarding, to permission escalation, 
 
 Some examples of how-to guides me and my team frequently use:
 
@@ -117,5 +117,5 @@ _Optional section: summary of any setup work required before a person can execut
 
 _Optional section: how-to guides and/or tasks that a person would commonly need to take next._
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbODczNTQyNDIsNTMxMjA3ODE4XX0=
+eyJoaXN0b3J5IjpbNjIwMDE4NTM0LDUzMTIwNzgxOF19
 -->
