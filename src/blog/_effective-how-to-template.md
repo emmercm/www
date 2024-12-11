@@ -75,7 +75,7 @@ When this tool is verbally presented to engineers, it is important to index on t
 > 
 > **Here are some tips for keeping the document up-to-date:**
 > 
-> -   Act like an owner - if you come across how-to guides that you know are inaccurate, update it and make it better for the next person! If you don't feel comfortable updating the document, ask questions of subject matter experts until you do feel comfortable updating it.
+> -   Act like an owner - if you come across how-to guides that you know are inaccurate, update them and make them better for the next person! If you don't feel comfortable updating the document, ask questions of subject matter experts until you do feel comfortable updating it.
 > -   Consider building documentation review into your team cadences. Every quarter or so (it doesn't have to be often, how-to guides don't grow stale _that_ fast), sit down with your team and review the state of your internal and external guides. Some questions to ask:
 >     
 >     -   Is the guide still accurate? Is there a newer or better process?
@@ -116,5 +116,5 @@ _Optional section: summary of any setup work required before a person can execut
 
 _Optional section: how-to guides and/or tasks that a person would commonly need to take next._
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbNDgzMTQ2ODk1LDUzMTIwNzgxOF19
+eyJoaXN0b3J5IjpbLTEwMzc2MTQyODcsNTMxMjA3ODE4XX0=
 -->
