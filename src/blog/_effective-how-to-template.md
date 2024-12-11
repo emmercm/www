@@ -57,13 +57,13 @@ When this tool is verbally presented to engineers, it is important to index on t
 > 
 > Here are some situations that have very different audiences and therefore will likely have very different content:
 > 
-> -   I'm an IC writing an "internal” how-to guide only for my teammates (for new functionality I wrote, to prevent information loss, to amortize the cost of learning, etc.)
-> -   I'm an IC on a platform team writing an “external” how-to guide for colleagues outside of my organization
-> -   I'm an IC on a feature team writing an “external” how-to guide for PMs, CSMs, TAMs, and others outside of my organization that have different skill sets or responsibilities
+> -   I'm an IC writing an "internal" how-to guide only for my teammates (for new functionality I wrote, to prevent information loss, to [amortize the cost of learning](blog/amortize-your-learning-by-writing-how-to-guides), etc.)
+> -   I'm an IC on a platform team writing an "external" how-to guide for colleagues outside of my organization
+> -   I'm an IC on a product team writing an "external" how-to guide for PMs, CSMs, TAMs, and others outside of my organization who have different skill sets or responsibilities
 > 
 > **What does my audience already know about this topic? What might they not?**
 > 
-> If you're writing for an audience outside of your team, they will have very different context from you. They may not know the same domain or technical terminology as you, the same technologies as you, or have the same product understanding as you. You should link to all relevant pre-reading at the top of the page, and all relevant next step documents at the bottom of the page.
+> If you're writing for an audience outside of your team, they will have a very different context from you. They may not know the same domain or technical terminology as you, the same technologies as you, or have the same product understanding as you. You should link to all relevant pre-reading at the top of the page, and all relevant next step documents at the bottom of the page.
 > 
 > This guide helps set a consistent structure for your team so that starting from scratch and modifying existing pages is as painless as possible.
 > 
@@ -116,5 +116,5 @@ _Optional section: summary of any setup work required before a person can execut
 
 _Optional section: how-to guides and/or tasks that a person would commonly need to take next._
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTEwMzk2Mzc3Nyw1MzEyMDc4MThdfQ==
+eyJoaXN0b3J5IjpbLTY5NTQyMjIxMyw1MzEyMDc4MThdfQ==
 -->
