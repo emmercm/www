@@ -9,13 +9,13 @@ tags:
 
 Having a template when writing technical how-to guides can increase clarity and therefore usability.
 
-In this article I'm defining "technical how-to guides" as a list of repeatable steps an engineer may need to execute during their daily work. This is a fairly broad definition on purpose as technical how-to guides can range from engineer onboarding, to permission escalation, 
+In this article I'm defining "technical how-to guides" as a list of repeatable steps an engineer may need to execute during their daily work. This is a fairly broad definition on purpose as technical how-to guides can range from engineer onboarding, to permission escalation, all the way to code contribution guidelines.
 
 Some examples of how-to guides me and my team frequently use:
 
 - How to create & deploy a new [microservice](/blog/tag/microservices)
 - How to scale a service
-- How to load test a service
+- How to load test a service, both API-based and event-based
 - How to use a service's admin create, read, update, and delete ("CRUD") endpoints
 - How to elevate cloud provider or [database](/blog/tag/databases) access
 - How to install and use a CLI tool
@@ -117,5 +117,5 @@ _Optional section: summary of any setup work required before a person can execut
 
 _Optional section: how-to guides and/or tasks that a person would commonly need to take next._
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbNjIwMDE4NTM0LDUzMTIwNzgxOF19
+eyJoaXN0b3J5IjpbNDM0NjE3Nzk0LDUzMTIwNzgxOF19
 -->
