@@ -49,9 +49,9 @@ When this tool is verbally presented to engineers, it is important to index on t
 > ❌ A how-to guide should _not_ be:
 >
 > -   Written once and never reviewed for accuracy again
-> -   An incident runbook on how to resolve a severe issue (see "[An Effective Incident Runbook Template](/blog/an-effective-incident-runbook-template)"). But how-to guides may be linked to from incident runbooks.
-> 
-> When staring a brand new document, here are some questions you need to
+> -   An incident runbook on how to resolve a severe issue (see "[An Effective Incident Runbook Template](/blog/an-effective-incident-runbook-template)"). However how-to guides may be linked from incident runbooks.
+
+> When starting a brand new document, here are some questions you need to
 > consider:
 > 
 > **What is the audience for this document?**
@@ -117,5 +117,5 @@ _Optional section: summary of any setup work required before a person can execut
 
 _Optional section: how-to guides and/or tasks that a person would commonly need to take next._
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTkwNTE2MzQ2NSw1MzEyMDc4MThdfQ==
+eyJoaXN0b3J5IjpbLTk3OTA3MDQzMyw1MzEyMDc4MThdfQ==
 -->
