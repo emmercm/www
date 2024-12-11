@@ -104,7 +104,7 @@ _Optional section: summary of any setup work required before a person can execut
 > 
 > **Splitting up steps:** it may make sense to break up this section into multiple headings. For example, it may make sense to colocate all steps of creating, editing, and deleting a resource all on one page due to similar setup instructions and to ease jumping between pages. In that example, it would make sense to create separate headings that can be deep linked to separately.
 > 
-> **Be specific:** the less guesswork a reader has to do the better. This may mean including links to specific lines of code, AWS resources, Jenkins jobs, Datadog monitors, or including screenshots with annotations. If a step might be useful to multiple how-to guides, consider breaking it out into its own page and linking to it.
+> **Be specific:** the less guesswork a reader has to do the better. This may mean including links to specific lines of code, cloud resources, deployment pipelines, service monitors, or including screenshots with annotations. If a step might be useful to multiple how-to guides, consider breaking it out into its own page and linking to it.
 > 
 > **Include examples:** including specific examples of actions can help the reader understand the instructions more clearly. For example, if a step is to execute a CLI command, execute a SQL query, or make an RPC call, then include an example with fields filled out with dummy data.
 > 
@@ -116,6 +116,6 @@ _Optional section: summary of any setup work required before a person can execut
 
 _Optional section: how-to guides and/or tasks that a person would commonly need to take next._
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTI5NzY4Mzk5MywtMTAzNzYxNDI4Nyw1Mz
-EyMDc4MThdfQ==
+eyJoaXN0b3J5IjpbLTE0NTkzMTAzNjQsLTEwMzc2MTQyODcsNT
+MxMjA3ODE4XX0=
 -->
