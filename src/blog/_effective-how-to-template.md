@@ -36,7 +36,7 @@ When this tool is verbally presented to engineers, it is important to index on t
 
 ---
 
-> ℹ️ This page has been written so that it can be easily copied/pasted to serve as a starting point for an incident runbook. All sections marked as a “note,” including this introduction, are done to be easily deletable.
+> ℹ️ This page has been written so that it can be easily copied/pasted to serve as a starting point for a how-to guide. All sections marked as a blockquote, including this introduction, are done to be easily deletable.
 >
 > ⚠️ This how-to guide expresses the author’s opinions, as every how-to guide does. There is not a single correct way to write a how-to guide, and not all sections apply to every how-to guide.
 >
@@ -46,7 +46,7 @@ When this tool is verbally presented to engineers, it is important to index on t
 > -   Specific - the guide should cover as small of an action as is still useful, and then related how-to guides should be cross-linked together
 > -   A single, authoritative guide – there should be no documents that could conflict 
 >
-> ❌ An how-to guide should _not_ be:
+> ❌ A how-to guide should _not_ be:
 >
 > -   Written once and never reviewed for accuracy again
 > -   An incident runbook on how to resolve a severe issue (see "[An Effective Incident Runbook Template](/blog/an-effective-incident-runbook-template)"). But how-to guides may be linked to from incident runbooks.
@@ -117,5 +117,5 @@ _Optional section: summary of any setup work required before a person can execut
 
 _Optional section: how-to guides and/or tasks that a person would commonly need to take next._
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTE5NDY5NjMxNjcsNTMxMjA3ODE4XX0=
+eyJoaXN0b3J5IjpbLTkwNTE2MzQ2NSw1MzEyMDc4MThdfQ==
 -->
