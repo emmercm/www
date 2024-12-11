@@ -9,7 +9,7 @@ tags:
 
 Having a template when writing technical how-to guides can increase clarity and therefore usability.
 
-In this article I'm defining "technical how-to guides" as a list of repeatable steps an engineer may need to execute during their daily work.
+In this article I'm defining "technical how-to guides" as a list of repeatable steps an engineer may need to execute during their daily work. This 
 
 Some examples of how-to guides me and my team frequently use:
 
@@ -103,26 +103,19 @@ _Optional section: summary of any setup work required before a person can execut
 
 > These sections should be tailored to your specific use case. There is unlikely a one-size-fits-all solution here.
 > 
-> **Splitting up steps:** it may make sense to break up this section into multiple headings. For example, it may make sense to colocate all
-> steps of creating, editing, and deleting a resource all on one page due to similar setup instructions and to ease jumping between pages. In that example, it would make sense to create separate headings that can be deep linked to separately.
+> **Splitting up steps:** it may make sense to break up this section into multiple headings. For example, it may make sense to colocate all steps of creating, editing, and deleting a resource all on one page due to similar setup instructions and to ease jumping between pages. In that example, it would make sense to create separate headings that can be deep linked to separately.
 > 
-> **Be specific:** the less guesswork a reader has to do the better. This may mean including links to specific lines of code, AWS
-> resources, Jenkins jobs, Datadog monitors, or including screenshots
-> with annotations. If a step might be useful to multiple how-to guides,
-> consider breaking it out into its own page and linking to it.
+> **Be specific:** the less guesswork a reader has to do the better. This may mean including links to specific lines of code, AWS resources, Jenkins jobs, Datadog monitors, or including screenshots with annotations. If a step might be useful to multiple how-to guides, consider breaking it out into its own page and linking to it.
 > 
-> **Include examples:** including specific examples of actions can help the reader understand the instructions more clearly. For example, if a
-> step is to execute a CLI command, execute a SQL query, or make an RPC
-> call, then include an example with fields filled out with dummy data.
+> **Include examples:** including specific examples of actions can help the reader understand the instructions more clearly. For example, if a step is to execute a CLI command, execute a SQL query, or make an RPC call, then include an example with fields filled out with dummy data.
 > 
 > **Include validation steps:** if applicable, include information about how a person can know if a step completed successfully without error.
 > 
-> **Be clear about ownership:** if a step is not self-service and requires action from an owning team, be clear about that and include
-> instructions of how to appropriately contact them.
+> **Be clear about ownership:** if a step is not self-service and requires action from an owning team, be clear about that and include instructions of how to appropriately contact them.
 
 ## Next steps
 
 _Optional section: how-to guides and/or tasks that a person would commonly need to take next._
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTExNjc2MzE0OCw1MzEyMDc4MThdfQ==
+eyJoaXN0b3J5IjpbODczNTQyNDIsNTMxMjA3ODE4XX0=
 -->
