@@ -96,7 +96,7 @@ _Optional note of what team owns the guide and who a reader can reach out to if 
 
 _Optional section: list of documents a person may need to read to gain sufficient context before executing this how-to guide. This could involve an overview of technologies mentioned, or architecture diagrams of distributed systems._
 
-_Optional section: summary of any setup work required before a person can execute this how-to guide. Setup could involve obtaining AWS/DB/SSH access, installing tools, or setting up a local environment._
+_Optional section: summary of any setup work required before a person can execute this how-to guide. Setup could involve obtaining cloud/DB/SSH access, installing tools, or setting up a local environment._
 
 ## Steps
 
@@ -116,5 +116,6 @@ _Optional section: summary of any setup work required before a person can execut
 
 _Optional section: how-to guides and/or tasks that a person would commonly need to take next._
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTEwMzc2MTQyODcsNTMxMjA3ODE4XX0=
+eyJoaXN0b3J5IjpbMTI5NzY4Mzk5MywtMTAzNzYxNDI4Nyw1Mz
+EyMDc4MThdfQ==
 -->
