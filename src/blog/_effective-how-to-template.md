@@ -63,13 +63,13 @@ When this tool is verbally presented to engineers, it is important to index on t
 > 
 > **What does my audience already know about this topic? What might they not?**
 > 
-> If you're writing for an audience outside of your team, they will have a very different context from you. They may not know the same domain or technical terminology as you, the same technologies as you, or have the same product understanding as you. You should link to all relevant pre-reading at the top of the page, and all relevant next step documents at the bottom of the page.
-> 
+> If you're writing for an audience outside of your team, they will have a very different context from you. They may not know the same domain or technical terminology as you, have the same technologies as you, or have the same product understanding as you. You should link to all relevant pre-reading at the top of the page, and all relevant next step documents at the bottom of the page.
+
 > This guide helps set a consistent structure for your team so that starting from scratch and modifying existing pages is as painless as possible.
 > 
 > **Here are some rules of thumb for a first draft:**
 > 
-> -   Limit the number of initial authors to 1-2. Having many authors of one draft may reduce the clarity of the content. Alternatively, you could have one person write the outline and then divide the work to fill in each section.
+> -   Limit the number of initial authors to 1-2. Having many authors in one draft may reduce the clarity of the content. Alternatively, you could have one person write the outline and then divide the work to fill in each section.
 > -   Have fellow subject matter experts review the document for accuracy. Written documentation is usually assumed to be correct, so having someone review it can save future readers from headaches.
 > -   Have multiple members from the guide's intended audience review for clarity. Again, they likely have a different context from you, so they will be the best judge on if the document makes sense.
 > 
@@ -116,5 +116,5 @@ _Optional section: summary of any setup work required before a person can execut
 
 _Optional section: how-to guides and/or tasks that a person would commonly need to take next._
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTY5NTQyMjIxMyw1MzEyMDc4MThdfQ==
+eyJoaXN0b3J5IjpbNDgzMTQ2ODk1LDUzMTIwNzgxOF19
 -->
