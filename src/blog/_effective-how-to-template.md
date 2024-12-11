@@ -56,8 +56,7 @@ When this tool is verbally presented to engineers, it is important to index on t
 > 
 > **What is the audience for this document?**
 > 
-> Here are some situations that have very different audiences and
-> therefore will likely have very different content:
+> Here are some situations that have very different audiences and therefore will likely have very different content:
 > 
 > -   I’m an IC writing an “internal” how-to guide only for my teammates (for new functionality I wrote, to prevent information loss, to amortize the cost of learning, etc.)
 > -   I’m an IC on a platform team writing an “external” how-to guide for colleagues outside of my organization
@@ -67,21 +66,13 @@ When this tool is verbally presented to engineers, it is important to index on t
 > 
 > If you’re writing for an audience outside of your team, they will have very different context from you. They may not know the same domain or technical terminology as you, the same technologies as you, or have the same product understanding as you. You should link to all relevant pre-reading at the top of the page, and all relevant next step documents at the bottom of the page.
 > 
-> This guide helps set a consistent structure for your team so that
-> starting from scratch and modifying existing pages is as painless as
-> possible.
+> This guide helps set a consistent structure for your team so that starting from scratch and modifying existing pages is as painless as possible.
 > 
 > **Here are some rules of thumb for a first draft:**
 > 
-> -   Limit the number of initial authors to 1-2. Having many authors of one draft may reduce the clarity of the content. Alternatively, you
-> could have one person write the outline and then divide the work to
-> fill in each section.
->     
-> -   Have fellow subject matter experts review the document for accuracy. Written documentation is usually assumed to be correct, so
-> having someone review it can save future readers from headaches.
->     
+> -   Limit the number of initial authors to 1-2. Having many authors of one draft may reduce the clarity of the content. Alternatively, you could have one person write the outline and then divide the work to fill in each section.
+> -   Have fellow subject matter experts review the document for accuracy. Written documentation is usually assumed to be correct, so having someone review it can save future readers from headaches.
 > -   Have multiple members from the guide’s intended audience review for clarity. Again, they likely have a different context from you, so they will be the best judge on if the document makes sense.
->     
 > 
 > **Here are some tips for keeping the document up-to-date:**
 > 
@@ -110,14 +101,10 @@ _Optional section: summary of any setup work required before a person can execut
 
 ## Steps
 
-> These sections should be tailored to your specific use case. There is
-> unlikely a one-size-fits-all solution here.
+> These sections should be tailored to your specific use case. There is unlikely a one-size-fits-all solution here.
 > 
 > **Splitting up steps:** it may make sense to break up this section into multiple headings. For example, it may make sense to colocate all
-> steps of creating, editing, and deleting a resource all on one page
-> due to similar setup instructions and to ease jumping between pages.
-> In that example, it would make sense to create separate headings that
-> can be deep linked to separately.
+> steps of creating, editing, and deleting a resource all on one page due to similar setup instructions and to ease jumping between pages. In that example, it would make sense to create separate headings that can be deep linked to separately.
 > 
 > **Be specific:** the less guesswork a reader has to do the better. This may mean including links to specific lines of code, AWS
 > resources, Jenkins jobs, Datadog monitors, or including screenshots
@@ -137,5 +124,5 @@ _Optional section: summary of any setup work required before a person can execut
 
 _Optional section: how-to guides and/or tasks that a person would commonly need to take next._
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbNTMxMjA3ODE4XX0=
+eyJoaXN0b3J5IjpbMTExNjc2MzE0OCw1MzEyMDc4MThdfQ==
 -->
