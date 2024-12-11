@@ -18,13 +18,13 @@ Some examples of how-to guides me and my team frequently use:
 - How to load test a service, both API-based and event-based
 - How to use a service's admin create, read, update, and delete ("CRUD") endpoints
 - How to elevate cloud provider or [database](/blog/tag/databases) access
-- How to install and use a CLI tool
+- How to install and use a [CLI](/blog/tag/shell) tool
 - How to escalate a support ticket with a vendor
 
 We have other how-to guides that are linked to by multiple incident runbooks:
 
 - How to delete old logs when a host is running out of disk space
-- How to move a service/job between regions or availability zones (in case one is degraded)
+- How to move a service/job away from a region or availability zone
 - How to rate limit a specific tenant in a multi-tenant system
 - How to replay messages in a dead-letter queue ("DLQ")
 
@@ -117,5 +117,5 @@ _Optional section: summary of any setup work required before a person can execut
 
 _Optional section: how-to guides and/or tasks that a person would commonly need to take next._
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbNDM0NjE3Nzk0LDUzMTIwNzgxOF19
+eyJoaXN0b3J5IjpbODM0NjIwNTk5LDUzMTIwNzgxOF19
 -->
