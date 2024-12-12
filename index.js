@@ -535,7 +535,7 @@ tracer(Metalsmith(path.resolve()))
                             // Lines that contain blog links
                             .replace(/^(.*?href="\/?blog\/.*?".*?)$/gm, val => {
                                 // Each blog link
-                                [...val.matchAll(/href="(\/?blog\/.*?)"/g)]
+                                [...val.matchAll(/href="(\/?blog\/(?!tag\/).+)"/g)]
                                     .map(result => result[1])
                                     // Append the partial to the end
                                     // TODO: place the crosspost after any <pre> immediately following
