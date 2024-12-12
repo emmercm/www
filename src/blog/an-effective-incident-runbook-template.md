@@ -12,7 +12,7 @@ A structured incident runbook that is tailored to your organization's needs is a
 
 What is an incident runbook? Google calls them "playbooks," but the definition in their [SRE Workbook](https://sre.google/workbook/on-call/) is nice and concise:
 
-> Playbooks contain high-level instructions on how to respond to automated alerts. They explain the severity and impact of the alert, and include debugging suggestions and possible actions to take to mitigate impact and fully resolve the alert. In SRE, whenever an alert is created, a corresponding playbook entry is usually created.
+> Playbooks contain high-level instructions on how to respond to automated alerts. They explain the severity and impact of the alert, and include debugging suggestions and possible actions to take to mitigate the impact and fully resolve the alert. In SRE, whenever an alert is created, a corresponding playbook entry is usually created.
 
 _Note: many organizations draw a distinction between "runbooks" and "playbooks," with "playbook" referring to an organization-specific incident response process. To be clear and consistent, I will use the phrase "incident runbooks."_
 
@@ -28,7 +28,7 @@ Regardless of opinions on naming, most thought leaders agree on the five A's of 
 
 ## Foreword
 
-Most high-SEO articles about incident response talk about how to establish an incident management process at an organization. Basically none of these articles provide anything actionable to engineers.
+Most high-SEO articles about incident response talk about how to establish an incident management process at an organization. Basically, none of these articles provide anything actionable to engineers.
 
 _Note: I am not a security practitioner. All information contained here is aimed at SREs and engineers that participate in an on-call rotation._
 
@@ -51,11 +51,11 @@ For the call to action, have engineers that participate in an on-call rotation a
 
 ---
 
-> ℹ️ This page has been written so that it can be easily copied/pasted to serve as a starting point for an incident runbook. All sections marked as a blockquote, including this introduction, are done so to be easily deletable.
+> ℹ️ This page has been written to be easily copied/pasted to serve as a starting point for an incident runbook. All sections marked as a blockquote, including this introduction, are done so to be easily deletable.
 >
 > ⚠️ This how-to guide expresses the author's opinions, as every how-to guide does. There is not a single correct way to write an incident runbook, and not all sections apply to every runbook.
 >
-> ✅ This guide is based on the following tenants. An _incident_ runbook _should_ be:
+> ✅ This guide is based on the following tenets. An _incident_ runbook _should_ be:
 >
 > - An ordered list of actions to investigate, _then_ mitigate, and _then_ remediate a specific situation
 > - Something that anyone can (and should) edit as systems change
@@ -66,7 +66,7 @@ For the call to action, have engineers that participate in an on-call rotation a
 > ❌ And incident runbook should _not_ be:
 >
 > - Written once and never reviewed for accuracy again
-> - A how-to guide on how to perform regular tasks or otherwise operate a system
+> - A how-to guide on how to perform regular tasks or otherwise operate a system (see "[An Effective How-To Guide Template](/blog/an-effective-how-to-guide-template)")
 
 ## Summary of the situation
 
@@ -94,7 +94,7 @@ Related SLOs:
 
 > This section has three main goals:
 >
-> 1. Help the incident responder discern what is happening, such that it can be mitigated.
+> 1. Help the incident responder discern what is happening so that it can be mitigated.
 > 2. Help the incident responder measure the impact on external customers, in case communications need to be sent out.
 > 3. Help the incident responder measure the impact on internal teams, in case this incident needs to be escalated to additional teams. This may uncover additional impact on external customers.
 >
@@ -102,7 +102,7 @@ Related SLOs:
 >
 > You should provide a list of metrics and dashboards to help the incident responder determine the root cause. Some effective ways to lay this out are:
 >
-> - If your automated alert is a multi-alert (different data tags produce different alerts) indicate how triage steps change for different tags, and if different tags have different severities. For example, tag values with the word "backup" in them may indicate a low severity, while tag values with the word "identity" in them may indicate a high severity, and escalation is needed.
+> - If your automated alert is a multi-alert (different data tags produce different alerts) indicate how triage steps change for different tags, and if different tags have different severities. For example, tag values with the word "backup" in them may indicate low severity, while tag values with the word "identity" in them may indicate high severity, and escalation is needed.
 > - If there are more than a few triage steps, it may make sense to include a decision tree.
 >
 > You should also include information on how to assess severity, this could be:
@@ -110,7 +110,7 @@ Related SLOs:
 > - If your automated alert is a multi-alert, does the severity change depending on how many tags are alerting?
 > - Does the severity change depending on how long the incident has been happening?
 > - Does the severity change depending on the magnitude of some metric?
-> - Does the severity change depending on the time of day or day of the week?
+> - Does the severity change depending on the time of day, or day of the week?
 
 Steps to take, in order:
 
@@ -125,7 +125,7 @@ Steps to take, in order:
 > 1. Help the incident responder take steps to stop the situation from getting worse.
 > 2. Help the incident responder take steps to recover from the situation.
 >
-> Incident mitigation is all about fixing the immediate problem. You can think of mitigation as: if I am paged at 3 a.m., what do I need to do to get the system healthy such that I can confidently & safely go back to sleep?
+> Incident mitigation is all about fixing the immediate problem. You can think of mitigation as: if I’m paged at 3 a.m., what do I need to do to get the system healthy such that I can confidently & safely go back to sleep?
 >
 > Complicated, nuanced, or unclear steps may benefit from the inclusion of screenshots that have been marked up with arrows and/or numbers to indicate action order.
 >
@@ -155,13 +155,13 @@ Indicators that health has been restored:
 >
 > - Help the incident responder take any final, necessary steps before the incident can be resolved.
 >
-> Incident remediation covers the steps that need to be taken after mitigation, generally during normal working hours. Steps may include, but are not limited to:
+> Incident remediation covers the steps that need to be taken after mitigation, generally during normal working hours. Steps may include but aren’t limited to:
 >
 > - Reverting any temporary hotfixes made during mitigation
 > - Dealing with any corrupted data or statistics
 > - Auditing other services, jobs, etc. for similar risks
 >
-> This does not encompass incident follow-ups, which should be created & prioritized as part of the written incident postmortem & debrief meeting.
+> This doesn’t encompass incident follow-ups, which should be created & prioritized as part of the written incident postmortem & debrief meeting.
 
 Steps to take, in order:
 
