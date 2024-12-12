@@ -105,7 +105,7 @@ This function will insert a new row into `crons_audit` for every row changed in 
 - On `UPDATE crons`: the new `crons_audit` row will contain the values from _after_ the update to `crons`
 - On `DELETE FROM crons`: the new `crons_audit` row will contain the values from _before_ the delete from `crons`
 
-The `INSERT INTO crons_audit` queries will use the same transaction that is making changes to `crons`—which means the changes will either succeed together or fail together. This requires extra care when making alterations to `audit_trigger()
+The `INSERT INTO crons_audit` queries will use the same transaction that is making changes to `crons`—which means the changes will either succeed together or fail together. This requires extra care when making alterations to base tables, discussed below.
 
 String concatenation makes the function hard to read, but it is necessary in order to create a function that can be used for many tables. Other drawbacks of this are discussed below.
 
@@ -189,13 +189,15 @@ postgres=# SELECT * FROM crons_audit;
 
 ## Drawbacks
 
+**Alterations made to base table columns must
+
 - General slowdown from additional queries (especially with multi-row changes?)
 - Have to use EXECUTE to make it a generic function
 - Have to migrate the audit table first
 
 ## Alternative
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMzE4Mzk3NTUyLC01NzM2OTc4Nyw3Mzg0Mz
-k3OTUsLTI3Mjg3NDAwMCwtMTgxMjkwNzY5NSwtMTY4MzI5Mzc4
-OSwtMTQzNjA5NTg1MiwtNjMzNDUyOTE2XX0=
+eyJoaXN0b3J5IjpbLTE1ODg0NDU1MTIsLTU3MzY5Nzg3LDczOD
+QzOTc5NSwtMjcyODc0MDAwLC0xODEyOTA3Njk1LC0xNjgzMjkz
+Nzg5LC0xNDM2MDk1ODUyLC02MzM0NTI5MTZdfQ==
 -->
