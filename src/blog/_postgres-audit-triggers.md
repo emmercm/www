@@ -189,7 +189,9 @@ postgres=# SELECT * FROM crons_audit;
 
 ## Drawbacks
 
-**Alterations made to base table columns must be made to the audit table first.**
+**Base tables and audit tables have to be altered in the same DDL transaction.**
+
+Or the audit table needs to be alt
 
 And it needs to be done in a backwards-compatible way, or the alterations
 
@@ -199,7 +201,7 @@ And it needs to be done in a backwards-compatible way, or the alterations
 
 ## Alternative
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTc2NTc1OTkzNCwtNTczNjk3ODcsNzM4ND
-M5Nzk1LC0yNzI4NzQwMDAsLTE4MTI5MDc2OTUsLTE2ODMyOTM3
-ODksLTE0MzYwOTU4NTIsLTYzMzQ1MjkxNl19
+eyJoaXN0b3J5IjpbOTk3ODAxNTUxLC01NzM2OTc4Nyw3Mzg0Mz
+k3OTUsLTI3Mjg3NDAwMCwtMTgxMjkwNzY5NSwtMTY4MzI5Mzc4
+OSwtMTQzNjA5NTg1MiwtNjMzNDUyOTE2XX0=
 -->
