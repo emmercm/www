@@ -220,15 +220,14 @@ Otherwise, you can run into this situation, using `crons` and `crons_audit` as a
 
 **The trigger has to use an `EXECUTE` statement for re-usability.**
 
-This might ra
+This might raise a flag with your security team. The `SELECT $1.*` doesn't allow for SQL injection, but it's still executing some arbitrary code.
 
 - General slowdown from additional queries (especially with multi-row changes?)
-- Have to use EXECUTE to make it a generic function
 
 ## Alternative
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbNDkxMjQyNDE0LC02MTk1NjEwNjksLTU3Mz
-Y5Nzg3LDczODQzOTc5NSwtMjcyODc0MDAwLC0xODEyOTA3Njk1
-LC0xNjgzMjkzNzg5LC0xNDM2MDk1ODUyLC02MzM0NTI5MTZdfQ
-==
+eyJoaXN0b3J5IjpbLTEwNTEwOTk0MjAsLTYxOTU2MTA2OSwtNT
+czNjk3ODcsNzM4NDM5Nzk1LC0yNzI4NzQwMDAsLTE4MTI5MDc2
+OTUsLTE2ODMyOTM3ODksLTE0MzYwOTU4NTIsLTYzMzQ1MjkxNl
+19
 -->
