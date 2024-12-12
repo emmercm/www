@@ -191,9 +191,15 @@ postgres=# SELECT * FROM crons_audit;
 
 **Base tables and audit tables have to be altered in the same DDL transaction.**
 
-Or the audit table needs to be alt
+Or the audit table needs to be altered first in a backwards-compatible way.
 
-And it needs to be done in a backwards-compatible way, or the alterations
+Otherwise, you can run into this situation, using `crons` and `crons_audit` as an example:
+
+- We want to add a `crons.created_at` column, so we do that:
+
+```sql
+
+```
 
 - General slowdown from additional queries (especially with multi-row changes?)
 - Have to use EXECUTE to make it a generic function
@@ -201,7 +207,7 @@ And it needs to be done in a backwards-compatible way, or the alterations
 
 ## Alternative
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbOTk3ODAxNTUxLC01NzM2OTc4Nyw3Mzg0Mz
-k3OTUsLTI3Mjg3NDAwMCwtMTgxMjkwNzY5NSwtMTY4MzI5Mzc4
-OSwtMTQzNjA5NTg1MiwtNjMzNDUyOTE2XX0=
+eyJoaXN0b3J5IjpbNzI1NDI5NjcsLTU3MzY5Nzg3LDczODQzOT
+c5NSwtMjcyODc0MDAwLC0xODEyOTA3Njk1LC0xNjgzMjkzNzg5
+LC0xNDM2MDk1ODUyLC02MzM0NTI5MTZdfQ==
 -->
