@@ -197,9 +197,12 @@ Otherwise, you can run into this situation, using `crons` and `crons_audit` as a
 
 - We want to add a `crons.created_at` column, so we do that:
 
-```sql
+    ```sql
+    ALTER TABLE crons  
+    ADD COLUMN created_at TIMESTAMP DEFAULT current_timestamp NOT NULL;
+    ```
 
-```
+- The next 
 
 - General slowdown from additional queries (especially with multi-row changes?)
 - Have to use EXECUTE to make it a generic function
@@ -207,7 +210,7 @@ Otherwise, you can run into this situation, using `crons` and `crons_audit` as a
 
 ## Alternative
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbNzI1NDI5NjcsLTU3MzY5Nzg3LDczODQzOT
-c5NSwtMjcyODc0MDAwLC0xODEyOTA3Njk1LC0xNjgzMjkzNzg5
-LC0xNDM2MDk1ODUyLC02MzM0NTI5MTZdfQ==
+eyJoaXN0b3J5IjpbMTMyMjAxMjAyLC01NzM2OTc4Nyw3Mzg0Mz
+k3OTUsLTI3Mjg3NDAwMCwtMTgxMjkwNzY5NSwtMTY4MzI5Mzc4
+OSwtMTQzNjA5NTg1MiwtNjMzNDUyOTE2XX0=
 -->
