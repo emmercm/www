@@ -29,11 +29,11 @@ CREATE TABLE IF NOT EXISTS crons
 );
 ```
 
-This table holds information about cron jobs that execute on some schedule, using some de-normalized config. The config is updated by human action, such as through a web UI, and changes will take effect on the next job execution.
+This table holds information about cron jobs that execute on some schedule, using some de-normalized config. The job config is updated by human action, such as through a web UI, and changes will take effect on the next job execution.
 
 Let's say this flexible design has been working great for months and there hasn't been any need to change it. But then a bug ticket comes in that says a specific job wasn't working, or was producing unexpected results a week ago. You investigate the job and see it has been running fine for the last few days. Because you don't have any way to know what the job configuration was a week ago you reject the bug ticket and frustrate your customer.
 
-There's nothing we can do for that customer, we don't have any audit trail of changes made. But we can start creating one going forward!
+There's nothing we can do for that customer, we don't have any audit trail of changes previously made. But we can start creating one going forward!
 
 ## Considerations
 
@@ -187,7 +187,7 @@ postgres=# SELECT * FROM crons_audit;
 
 ## Alternative
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbNDM4MjYxNzA3LC01NzM2OTc4Nyw3Mzg0Mz
-k3OTUsLTI3Mjg3NDAwMCwtMTgxMjkwNzY5NSwtMTY4MzI5Mzc4
-OSwtMTQzNjA5NTg1MiwtNjMzNDUyOTE2XX0=
+eyJoaXN0b3J5IjpbMTMwMzM5ODE3MCwtNTczNjk3ODcsNzM4ND
+M5Nzk1LC0yNzI4NzQwMDAsLTE4MTI5MDc2OTUsLTE2ODMyOTM3
+ODksLTE0MzYwOTU4NTIsLTYzMzQ1MjkxNl19
 -->
