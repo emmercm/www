@@ -10,7 +10,7 @@ tags:
 
 You can create an audit log of changes to a table's rows by using functions, triggers, and a second table.
 
-It is exceptionally difficult to reconstruct data from a point-in-time unless you design around the need from the start. Some reasons you may want to create an audit trail is:
+It is exceptionally difficult to reconstruct data from a point-in-time unless you design around the need from the start. Some reasons you may want to create an audit trail of changes to a DB are:
 
 - To debug or troubleshoot a problem, especially involving user-submitted data
 - To identify what Postgres user caused a specific change
@@ -187,7 +187,7 @@ postgres=# SELECT * FROM crons_audit;
 
 ## Alternative
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTU3MzY5Nzg3LDczODQzOTc5NSwtMjcyOD
-c0MDAwLC0xODEyOTA3Njk1LC0xNjgzMjkzNzg5LC0xNDM2MDk1
-ODUyLC02MzM0NTI5MTZdfQ==
+eyJoaXN0b3J5IjpbNDM4MjYxNzA3LC01NzM2OTc4Nyw3Mzg0Mz
+k3OTUsLTI3Mjg3NDAwMCwtMTgxMjkwNzY5NSwtMTY4MzI5Mzc4
+OSwtMTQzNjA5NTg1MiwtNjMzNDUyOTE2XX0=
 -->
