@@ -204,17 +204,19 @@ Otherwise, you can run into this situation, using `crons` and `crons_audit` as a
 
 - The next `INSERT INTO crons`, `UPDATE crons`, or `DELETE FROM crons` will trigger this query:
 
-```sql
-INSERT INTO crons_audit
-SELECT nextval(pg_get_serial_sequence('crons_audit', 'audit_id'))
-     , '<operation>'
-     , now()
-     , '<user>'
-     , <crons.id>
-     , '<schedule>'
-     , '<config>'
-     , '<created_at>';
-```
+    ```sql
+    INSERT INTO crons_audit
+    SELECT nextval(pg_get_serial_sequence('crons_audit', 'audit_id'))
+         , '<operation>'
+         , now()
+         , '<user>'
+         , <crons.id>
+         , '<crons.schedule>'
+         , '<crons.config>'
+         , '<crons.created_at>';
+    ```
+
+- We'll get an error similar to `INSERT has more expressions than target columns` because we never added a matching `crons_audit.created_at` column
 
 - General slowdown from additional queries (especially with multi-row changes?)
 - Have to use EXECUTE to make it a generic function
@@ -222,7 +224,7 @@ SELECT nextval(pg_get_serial_sequence('crons_audit', 'audit_id'))
 
 ## Alternative
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTE3Mjk3NTYyNSwtNjE5NTYxMDY5LC01Nz
+eyJoaXN0b3J5IjpbMTY0MDA2Mzk0MiwtNjE5NTYxMDY5LC01Nz
 M2OTc4Nyw3Mzg0Mzk3OTUsLTI3Mjg3NDAwMCwtMTgxMjkwNzY5
 NSwtMTY4MzI5Mzc4OSwtMTQzNjA5NTg1MiwtNjMzNDUyOTE2XX
 0=
