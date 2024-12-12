@@ -189,7 +189,9 @@ postgres=# SELECT * FROM crons_audit;
 
 ## Drawbacks
 
-**Alterations made to base table columns must
+**Alterations made to base table columns must be made to the audit table first.**
+
+And it needs to be done in a backwards-compatible way, or the alterations
 
 - General slowdown from additional queries (especially with multi-row changes?)
 - Have to use EXECUTE to make it a generic function
@@ -197,7 +199,7 @@ postgres=# SELECT * FROM crons_audit;
 
 ## Alternative
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTE1ODg0NDU1MTIsLTU3MzY5Nzg3LDczOD
-QzOTc5NSwtMjcyODc0MDAwLC0xODEyOTA3Njk1LC0xNjgzMjkz
-Nzg5LC0xNDM2MDk1ODUyLC02MzM0NTI5MTZdfQ==
+eyJoaXN0b3J5IjpbLTc2NTc1OTkzNCwtNTczNjk3ODcsNzM4ND
+M5Nzk1LC0yNzI4NzQwMDAsLTE4MTI5MDc2OTUsLTE2ODMyOTM3
+ODksLTE0MzYwOTU4NTIsLTYzMzQ1MjkxNl19
 -->
