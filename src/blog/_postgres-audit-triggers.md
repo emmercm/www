@@ -218,16 +218,18 @@ Otherwise, you can run into this situation, using `crons` and `crons_audit` as a
 
 3. We'll get an error similar to `INSERT has more expressions than target columns` because we never added a matching `crons_audit.created_at` column—and because the queries are performed in the same transaction, the error will roll it back, preventing any changes to rows in `crons`
 
+**The additional queries are guaranteed to add latency.**
+
+There's no way around it, the function will double the number of rows being changed on every write statement.
+
 **The trigger has to use an `EXECUTE` statement for re-usability.**
 
 This might raise a flag with your security team. The `SELECT $1.*` doesn't allow for SQL injection, but it's still executing some arbitrary code.
 
-- General slowdown from additional queries (especially with multi-row changes?)
-
 ## Alternative
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTEwNTEwOTk0MjAsLTYxOTU2MTA2OSwtNT
-czNjk3ODcsNzM4NDM5Nzk1LC0yNzI4NzQwMDAsLTE4MTI5MDc2
-OTUsLTE2ODMyOTM3ODksLTE0MzYwOTU4NTIsLTYzMzQ1MjkxNl
-19
+eyJoaXN0b3J5IjpbMTg3MDg3NDcxMiwtMTA1MTA5OTQyMCwtNj
+E5NTYxMDY5LC01NzM2OTc4Nyw3Mzg0Mzk3OTUsLTI3Mjg3NDAw
+MCwtMTgxMjkwNzY5NSwtMTY4MzI5Mzc4OSwtMTQzNjA5NTg1Mi
+wtNjMzNDUyOTE2XX0=
 -->
