@@ -205,6 +205,15 @@ Otherwise, you can run into this situation, using `crons` and `crons_audit` as a
 - The next `INSERT INTO crons`, `UPDATE crons`, or `DELETE FROM crons` will trigger this query:
 
 ```sql
+INSERT INTO crons_audit
+SELECT nextval(pg_get_serial_sequence('crons_audit', 'audit_id'))
+     , '<operation>'
+     , now()
+     , '<user>'
+     , <crons.id>
+     , '<schedule>'
+     , '<config>'
+     , '<created_at>';
 ```
 
 - General slowdown from additional queries (especially with multi-row changes?)
@@ -213,7 +222,8 @@ Otherwise, you can run into this situation, using `crons` and `crons_audit` as a
 
 ## Alternative
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTYxOTU2MTA2OSwtNTczNjk3ODcsNzM4ND
-M5Nzk1LC0yNzI4NzQwMDAsLTE4MTI5MDc2OTUsLTE2ODMyOTM3
-ODksLTE0MzYwOTU4NTIsLTYzMzQ1MjkxNl19
+eyJoaXN0b3J5IjpbMTE3Mjk3NTYyNSwtNjE5NTYxMDY5LC01Nz
+M2OTc4Nyw3Mzg0Mzk3OTUsLTI3Mjg3NDAwMCwtMTgxMjkwNzY5
+NSwtMTY4MzI5Mzc4OSwtMTQzNjA5NTg1MiwtNjMzNDUyOTE2XX
+0=
 -->
