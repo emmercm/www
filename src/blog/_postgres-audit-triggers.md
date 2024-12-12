@@ -222,13 +222,15 @@ Otherwise, you can run into this situation, using `crons` and `crons_audit` as a
 
 There's no way around it, the function will double the number of rows being changed on every write statement. Any indexes you add to audit tables will make this even worse. Because of this, it is recommended to only use this strategy for lower-throughput tables, otherwise you may want to explore a change data capture ("CDC") solution.
 
+**Database functions hide behavior.**
+
 **The trigger has to use an `EXECUTE` statement for re-usability.**
 
-This might raise a flag with your security team. The `SELECT $1.*` doesn't allow for SQL injection, but it's still executing some arbitrary code.
+This might raise a flag with your security team. The `SELECT $1.*` doesn't allow for SQL injection, but it's still executing a somewhat arbitrary statement.
 
 ## Alternative
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTYzMjg5MzUzMiwtMTA1MTA5OTQyMCwtNj
+eyJoaXN0b3J5IjpbMTI4NjUwOTE2MSwtMTA1MTA5OTQyMCwtNj
 E5NTYxMDY5LC01NzM2OTc4Nyw3Mzg0Mzk3OTUsLTI3Mjg3NDAw
 MCwtMTgxMjkwNzY5NSwtMTY4MzI5Mzc4OSwtMTQzNjA5NTg1Mi
 wtNjMzNDUyOTE2XX0=
