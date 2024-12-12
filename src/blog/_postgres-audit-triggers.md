@@ -99,6 +99,8 @@ END;
 $func$ LANGUAGE plpgsql;
 ```
 
+This will insert a new row into `crons_audit` per row changed in `crons`. When rows are i
+
 String concatenation makes the function hard to read, but it is necessary in order to create a re-usable function. Other drawbacks of this are discussed below.
 
 Lastly, we need a trigger on the base table which will execute the function:
@@ -187,7 +189,7 @@ postgres=# SELECT * FROM crons_audit;
 
 ## Alternative
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMzUzMDQ4NjQxLC01NzM2OTc4Nyw3Mzg0Mz
-k3OTUsLTI3Mjg3NDAwMCwtMTgxMjkwNzY5NSwtMTY4MzI5Mzc4
-OSwtMTQzNjA5NTg1MiwtNjMzNDUyOTE2XX0=
+eyJoaXN0b3J5IjpbLTExMjAwNzg3NDMsLTU3MzY5Nzg3LDczOD
+QzOTc5NSwtMjcyODc0MDAwLC0xODEyOTA3Njk1LC0xNjgzMjkz
+Nzg5LC0xNDM2MDk1ODUyLC02MzM0NTI5MTZdfQ==
 -->
