@@ -218,14 +218,16 @@ Otherwise, you can run into this situation, using `crons` and `crons_audit` as a
 
 3. We'll get an error similar to `INSERT has more expressions than target columns` because we never added a matching `crons_audit.created_at` column—and because the queries are performed in the same transaction, the error will roll it back, preventing any changes to rows in `crons`
 
-**The trigger has to use an `EXECUTE` statement
+**The trigger has to use an `EXECUTE` statement for re-usability.**
+
+This might ra
 
 - General slowdown from additional queries (especially with multi-row changes?)
 - Have to use EXECUTE to make it a generic function
 
 ## Alternative
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbODIyMDkwMzQxLC02MTk1NjEwNjksLTU3Mz
+eyJoaXN0b3J5IjpbNDkxMjQyNDE0LC02MTk1NjEwNjksLTU3Mz
 Y5Nzg3LDczODQzOTc5NSwtMjcyODc0MDAwLC0xODEyOTA3Njk1
 LC0xNjgzMjkzNzg5LC0xNDM2MDk1ODUyLC02MzM0NTI5MTZdfQ
 ==
