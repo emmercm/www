@@ -202,7 +202,10 @@ Otherwise, you can run into this situation, using `crons` and `crons_audit` as a
     ADD COLUMN created_at TIMESTAMP DEFAULT current_timestamp NOT NULL;
     ```
 
-- The next 
+- The next `INSERT INTO crons`, `UPDATE crons`, or `DELETE FROM crons` will trigger this query:
+
+```sql
+```
 
 - General slowdown from additional queries (especially with multi-row changes?)
 - Have to use EXECUTE to make it a generic function
@@ -210,7 +213,7 @@ Otherwise, you can run into this situation, using `crons` and `crons_audit` as a
 
 ## Alternative
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTMyMjAxMjAyLC01NzM2OTc4Nyw3Mzg0Mz
-k3OTUsLTI3Mjg3NDAwMCwtMTgxMjkwNzY5NSwtMTY4MzI5Mzc4
-OSwtMTQzNjA5NTg1MiwtNjMzNDUyOTE2XX0=
+eyJoaXN0b3J5IjpbLTYxOTU2MTA2OSwtNTczNjk3ODcsNzM4ND
+M5Nzk1LC0yNzI4NzQwMDAsLTE4MTI5MDc2OTUsLTE2ODMyOTM3
+ODksLTE0MzYwOTU4NTIsLTYzMzQ1MjkxNl19
 -->
