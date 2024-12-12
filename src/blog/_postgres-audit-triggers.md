@@ -195,14 +195,14 @@ Or the audit table needs to be altered first in a backwards-compatible way.
 
 Otherwise, you can run into this situation, using `crons` and `crons_audit` as an example:
 
-- We want to add a `crons.created_at` column, so we do that:
+1. We want to add a `crons.created_at` column, so we do that:
 
     ```sql
     ALTER TABLE crons  
     ADD COLUMN created_at TIMESTAMP DEFAULT current_timestamp NOT NULL;
     ```
 
-- The next `INSERT INTO crons`, `UPDATE crons`, or `DELETE FROM crons` will trigger this query:
+2. The next `INSERT INTO crons`, `UPDATE crons`, or `DELETE FROM crons` will trigger this query:
 
     ```sql
     INSERT INTO crons_audit
@@ -216,16 +216,17 @@ Otherwise, you can run into this situation, using `crons` and `crons_audit` as a
          , '<crons.created_at>';
     ```
 
-- We'll get an error similar to `INSERT has more expressions than target columns` because we never added a matching `crons_audit.created_at` column
+3. We'll get an error similar to `INSERT has more expressions than target columns` because we never added a matching `crons_audit.created_at` column—and because the queries are performed in the same transaction, the error will roll it back, preventing any changes to rows in `crons`
+
+**The trigger has to use an `EXECUTE` statement
 
 - General slowdown from additional queries (especially with multi-row changes?)
 - Have to use EXECUTE to make it a generic function
-- Have to migrate the audit table first
 
 ## Alternative
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTY0MDA2Mzk0MiwtNjE5NTYxMDY5LC01Nz
-M2OTc4Nyw3Mzg0Mzk3OTUsLTI3Mjg3NDAwMCwtMTgxMjkwNzY5
-NSwtMTY4MzI5Mzc4OSwtMTQzNjA5NTg1MiwtNjMzNDUyOTE2XX
-0=
+eyJoaXN0b3J5IjpbODIyMDkwMzQxLC02MTk1NjEwNjksLTU3Mz
+Y5Nzg3LDczODQzOTc5NSwtMjcyODc0MDAwLC0xODEyOTA3Njk1
+LC0xNjgzMjkzNzg5LC0xNDM2MDk1ODUyLC02MzM0NTI5MTZdfQ
+==
 -->
