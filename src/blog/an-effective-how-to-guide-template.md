@@ -57,7 +57,7 @@ When this tool is verbally presented to engineers, it is important to index on t
 >
 > Here are some situations that have very different audiences and therefore will likely have very different content:
 >
-> - I'm an IC writing an "internal" how-to guide only for my teammates (for new functionality I wrote, to prevent information loss, to [amortize the cost of learning](blog/amortize-your-learning-by-writing-how-to-guides), etc.)
+> - I'm an IC writing an "internal" how-to guide only for my teammates (for new functionality I wrote, to prevent information loss, to [amortize the cost of learning](/blog/amortize-your-learning-by-writing-how-to-guides), etc.)
 > - I'm an IC on a platform team writing an "external" how-to guide for colleagues outside my organization
 > - I'm an IC on a product team writing an "external" how-to guide for PMs, CSMs, TAMs, and others outside my organization who have different skill sets or responsibilities
 >
