@@ -233,9 +233,11 @@ The "hidden" complexity of the function is mitigated by the fact it doesn't cont
 This might raise a flag with your security team. The `SELECT $1.*` doesn't allow for SQL injection, but it's still executing a somewhat arbitrary statement.
 
 ## Alternative
+
+The strategy above is for the `*_audit` tables to contain the same exact columns as its base table, in the exact same order. If the above drawback around
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTEwNjA5MTE0NzAsLTEwNTEwOTk0MjAsLT
-YxOTU2MTA2OSwtNTczNjk3ODcsNzM4NDM5Nzk1LC0yNzI4NzQw
-MDAsLTE4MTI5MDc2OTUsLTE2ODMyOTM3ODksLTE0MzYwOTU4NT
-IsLTYzMzQ1MjkxNl19
+eyJoaXN0b3J5IjpbODAzNzYyMzMsLTEwNTEwOTk0MjAsLTYxOT
+U2MTA2OSwtNTczNjk3ODcsNzM4NDM5Nzk1LC0yNzI4NzQwMDAs
+LTE4MTI5MDc2OTUsLTE2ODMyOTM3ODksLTE0MzYwOTU4NTIsLT
+YzMzQ1MjkxNl19
 -->
