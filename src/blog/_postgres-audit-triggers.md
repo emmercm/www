@@ -234,10 +234,15 @@ This might raise a flag with your security team. The `SELECT $1.*` doesn't allow
 
 ## Alternative
 
-The strategy above is for the `*_audit` tables to contain the same exact columns as its base table, in the exact same order. If the above drawback around
+The strategy above is for the `*_audit` tables to contain the same exact columns as its base table, in the exact same order. If the above drawback around altering both tables together is dealbreaker for you, you could make use of "before" and "after" JSON columns.
+
+The audit table would instead look like this:
+
+```sql
+```
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbODAzNzYyMzMsLTEwNTEwOTk0MjAsLTYxOT
-U2MTA2OSwtNTczNjk3ODcsNzM4NDM5Nzk1LC0yNzI4NzQwMDAs
-LTE4MTI5MDc2OTUsLTE2ODMyOTM3ODksLTE0MzYwOTU4NTIsLT
-YzMzQ1MjkxNl19
+eyJoaXN0b3J5IjpbLTU5MTMxMDk2MSwtMTA1MTA5OTQyMCwtNj
+E5NTYxMDY5LC01NzM2OTc4Nyw3Mzg0Mzk3OTUsLTI3Mjg3NDAw
+MCwtMTgxMjkwNzY5NSwtMTY4MzI5Mzc4OSwtMTQzNjA5NTg1Mi
+wtNjMzNDUyOTE2XX0=
 -->
