@@ -1,7 +1,7 @@
 ---
 
 title: Keeping a Row Modification Log Using PostgreSQL Triggers
-draft: true
+date: 2024-12-13T00:31:00
 tags:
 - databases
 - postgres
@@ -290,7 +290,7 @@ WHERE (old_row ->> 'id')::BIGINT = 1
 
 Note the type casting, this is required because the `->>` operator returns values as `TEXT`, even if they're stored as a numeric.
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTY3ODA4NDQ1NCw1Njk1NzM1MzksLTkyNz
+eyJoaXN0b3J5IjpbMTcxNjY3MTk1NCw1Njk1NzM1MzksLTkyNz
 gzMTIwNCwtNTkxMzEwOTYxLC0xMDUxMDk5NDIwLC02MTk1NjEw
 NjksLTU3MzY5Nzg3LDczODQzOTc5NSwtMjcyODc0MDAwLC0xOD
 EyOTA3Njk1LC0xNjgzMjkzNzg5LC0xNDM2MDk1ODUyLC02MzM0
