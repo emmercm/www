@@ -282,10 +282,17 @@ $func$ LANGUAGE plpgsql;
 You would then need to use Postgres' JSON operators to query the audit table, like this:
 
 ```sql
+SELECT *
+FROM crons_audit
+WHERE (old_row ->> 'id')::BIGINT = 1
+   OR (new_row ->> 'id')::BIGINT = 1
 ```
+
+Note the type casting, this is required
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbNTY5NTczNTM5LC05Mjc4MzEyMDQsLTU5MT
-MxMDk2MSwtMTA1MTA5OTQyMCwtNjE5NTYxMDY5LC01NzM2OTc4
-Nyw3Mzg0Mzk3OTUsLTI3Mjg3NDAwMCwtMTgxMjkwNzY5NSwtMT
-Y4MzI5Mzc4OSwtMTQzNjA5NTg1MiwtNjMzNDUyOTE2XX0=
+eyJoaXN0b3J5IjpbNzM3NzUzOTgwLDU2OTU3MzUzOSwtOTI3OD
+MxMjA0LC01OTEzMTA5NjEsLTEwNTEwOTk0MjAsLTYxOTU2MTA2
+OSwtNTczNjk3ODcsNzM4NDM5Nzk1LC0yNzI4NzQwMDAsLTE4MT
+I5MDc2OTUsLTE2ODMyOTM3ODksLTE0MzYwOTU4NTIsLTYzMzQ1
+MjkxNl19
 -->
