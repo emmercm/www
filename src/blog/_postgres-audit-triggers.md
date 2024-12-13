@@ -238,20 +238,21 @@ The strategy above is for the `*_audit` tables to contain the same exact columns
 
 The audit table would instead look like this:
 
-```sql'CREATE TABLE IF NOT EXISTS crons_audit  
-(  
-    -- Audit columns  
-  audit_id BIGSERIAL PRIMARY KEY,  
-    audit_operation TEXT      NOT NULL,  
-    audit_timestamp TIMESTAMP NOT NULL,  
-    audit_user TEXT      NOT NULL,  
-    -- Columns to capture the state before and after a change  
-  old_row jsonb,  
-    new_row jsonb  
+```sql
+CREATE TABLE IF NOT EXISTS crons_audit
+(
+    -- Audit columns
+    audit_id        BIGSERIAL PRIMARY KEY,
+    audit_operation TEXT      NOT NULL,
+    audit_timestamp TIMESTAMP NOT NULL,
+    audit_user      TEXT      NOT NULL,
+    -- Columns to capture the state before and after a change
+    old_row         jsonb,
+    new_row         jsonb
 );
 ```
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTMxOTY1OTY0OSwtNTkxMzEwOTYxLC0xMD
+eyJoaXN0b3J5IjpbLTkyNzgzMTIwNCwtNTkxMzEwOTYxLC0xMD
 UxMDk5NDIwLC02MTk1NjEwNjksLTU3MzY5Nzg3LDczODQzOTc5
 NSwtMjcyODc0MDAwLC0xODEyOTA3Njk1LC0xNjgzMjkzNzg5LC
 0xNDM2MDk1ODUyLC02MzM0NTI5MTZdfQ==
