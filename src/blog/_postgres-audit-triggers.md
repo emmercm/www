@@ -256,10 +256,36 @@ CREATE TABLE IF NOT EXISTS crons_audit
 and the trigger like this:
 
 ```sql
+CREATE OR REPLACE FUNCTION audit_trigger()
+    RETURNS TRIGGER
+AS
+$func$
+BEGIN
+    IF (tg_op = 'INSERT') THEN
+        EXECUTE 'INSERT INTO ' || quote_ident(tg_table_schema) || '.' || quote_ident(tg_table_name || '_audit') ||
+                ' (audit_operation, audit_timestamp, audit_user, new_row)' ||
+                ' VALUES (''' || tg_op || ''', now(), user, to_jsonb($1))' USING new;
+    ELSEIF (tg_op = 'UPDATE') THEN
+        EXECUTE 'INSERT INTO ' || quote_ident(tg_table_schema) || '.' || quote_ident(tg_table_name || '_audit') ||
+                ' (audit_operation, audit_timestamp, audit_user, old_row, new_row)' ||
+                ' VALUES (''' || tg_op || ''', now(), user, to_jsonb($1), to_jsonb($2))' USING old, new;
+    ELSEIF (tg_op = 'DELETE') THEN
+        EXECUTE 'INSERT INTO ' || quote_ident(tg_table_schema) || '.' || quote_ident(tg_table_name || '_audit') ||
+                ' (audit_operation, audit_timestamp, audit_user, old_row)' ||
+                ' VALUES (''' || tg_op || ''', now(), user, to_jsonb($1))' USING old;
+    END IF;
+    RETURN NULL;
+END;
+$func$ LANGUAGE plpgsql;
+```
 
+You would then need to use Postgres' JSON operators to query the audit table, like this:
+
+```sql
+```
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTIyMzgyOTQ4NSwtOTI3ODMxMjA0LC01OT
-EzMTA5NjEsLTEwNTEwOTk0MjAsLTYxOTU2MTA2OSwtNTczNjk3
-ODcsNzM4NDM5Nzk1LC0yNzI4NzQwMDAsLTE4MTI5MDc2OTUsLT
-E2ODMyOTM3ODksLTE0MzYwOTU4NTIsLTYzMzQ1MjkxNl19
+eyJoaXN0b3J5IjpbNTY5NTczNTM5LC05Mjc4MzEyMDQsLTU5MT
+MxMDk2MSwtMTA1MTA5OTQyMCwtNjE5NTYxMDY5LC01NzM2OTc4
+Nyw3Mzg0Mzk3OTUsLTI3Mjg3NDAwMCwtMTgxMjkwNzY5NSwtMT
+Y4MzI5Mzc4OSwtMTQzNjA5NTg1MiwtNjMzNDUyOTE2XX0=
 -->
