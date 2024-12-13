@@ -288,11 +288,11 @@ WHERE (old_row ->> 'id')::BIGINT = 1
    OR (new_row ->> 'id')::BIGINT = 1
 ```
 
-Note the type casting, this is required
+Note the type casting, this is required because the `->>` operator returns values as `TEXT`, even if they're stored as a numeric.
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbNzM3NzUzOTgwLDU2OTU3MzUzOSwtOTI3OD
-MxMjA0LC01OTEzMTA5NjEsLTEwNTEwOTk0MjAsLTYxOTU2MTA2
-OSwtNTczNjk3ODcsNzM4NDM5Nzk1LC0yNzI4NzQwMDAsLTE4MT
-I5MDc2OTUsLTE2ODMyOTM3ODksLTE0MzYwOTU4NTIsLTYzMzQ1
-MjkxNl19
+eyJoaXN0b3J5IjpbMTY3ODA4NDQ1NCw1Njk1NzM1MzksLTkyNz
+gzMTIwNCwtNTkxMzEwOTYxLC0xMDUxMDk5NDIwLC02MTk1NjEw
+NjksLTU3MzY5Nzg3LDczODQzOTc5NSwtMjcyODc0MDAwLC0xOD
+EyOTA3Njk1LC0xNjgzMjkzNzg5LC0xNDM2MDk1ODUyLC02MzM0
+NTI5MTZdfQ==
 -->
