@@ -224,7 +224,7 @@ There's no way around it, the function will double the number of rows being chan
 
 **Database functions hide behavior.**
 
-Logic in DB functions and triggers is separated from application logic, which makes it obscure
+Code in DB functions is separated from code in the application, which obscures the logic. Developers spend most of their time reading application code
 
 **The trigger has to use an `EXECUTE` statement for re-usability.**
 
@@ -232,7 +232,7 @@ This might raise a flag with your security team. The `SELECT $1.*` doesn't allow
 
 ## Alternative
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTcyMTE3Nzc0NiwtMTA1MTA5OTQyMCwtNj
+eyJoaXN0b3J5IjpbLTE0NTI5MTY3NSwtMTA1MTA5OTQyMCwtNj
 E5NTYxMDY5LC01NzM2OTc4Nyw3Mzg0Mzk3OTUsLTI3Mjg3NDAw
 MCwtMTgxMjkwNzY5NSwtMTY4MzI5Mzc4OSwtMTQzNjA5NTg1Mi
 wtNjMzNDUyOTE2XX0=
