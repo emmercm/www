@@ -224,14 +224,16 @@ There's no way around it, the function will double the number of rows being chan
 
 **Database functions hide behavior.**
 
+Developers spend most of their time reading and modifying application code, not looking at DB entities.
+
 **The trigger has to use an `EXECUTE` statement for re-usability.**
 
 This might raise a flag with your security team. The `SELECT $1.*` doesn't allow for SQL injection, but it's still executing a somewhat arbitrary statement.
 
 ## Alternative
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTI4NjUwOTE2MSwtMTA1MTA5OTQyMCwtNj
-E5NTYxMDY5LC01NzM2OTc4Nyw3Mzg0Mzk3OTUsLTI3Mjg3NDAw
-MCwtMTgxMjkwNzY5NSwtMTY4MzI5Mzc4OSwtMTQzNjA5NTg1Mi
-wtNjMzNDUyOTE2XX0=
+eyJoaXN0b3J5IjpbLTE1MTAxMzk0NzksLTEwNTEwOTk0MjAsLT
+YxOTU2MTA2OSwtNTczNjk3ODcsNzM4NDM5Nzk1LC0yNzI4NzQw
+MDAsLTE4MTI5MDc2OTUsLTE2ODMyOTM3ODksLTE0MzYwOTU4NT
+IsLTYzMzQ1MjkxNl19
 -->
