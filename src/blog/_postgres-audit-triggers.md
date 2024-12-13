@@ -226,7 +226,7 @@ There's no way around it, the function will double the number of rows being chan
 
 Code in DB functions is separated from code in the application, which obscures the application logic. Developers spend most of their time reading and writing application code, so the existence of this logic somewhere else may be surprising due to poor discoverability.
 
-This "hidden" complexity is mitigated by the audit function not containing any business logic, only logic to insert into a table that the application
+The "hidden" complexity of the function is mitigated by the fact it doesn't contain any business logic, only logic to insert into a table that only humans will query.
 
 **The trigger has to use an `EXECUTE` statement for re-usability.**
 
@@ -234,8 +234,8 @@ This might raise a flag with your security team. The `SELECT $1.*` doesn't allow
 
 ## Alternative
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbNTI3MjcwOTYxLC0xMDUxMDk5NDIwLC02MT
-k1NjEwNjksLTU3MzY5Nzg3LDczODQzOTc5NSwtMjcyODc0MDAw
-LC0xODEyOTA3Njk1LC0xNjgzMjkzNzg5LC0xNDM2MDk1ODUyLC
-02MzM0NTI5MTZdfQ==
+eyJoaXN0b3J5IjpbLTEwNjA5MTE0NzAsLTEwNTEwOTk0MjAsLT
+YxOTU2MTA2OSwtNTczNjk3ODcsNzM4NDM5Nzk1LC0yNzI4NzQw
+MDAsLTE4MTI5MDc2OTUsLTE2ODMyOTM3ODksLTE0MzYwOTU4NT
+IsLTYzMzQ1MjkxNl19
 -->
