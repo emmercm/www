@@ -155,7 +155,8 @@ postgres=# SELECT * FROM crons_audit;
 Updating a single row:
 
 ```shell
-postgres=# UPDATE crons SET schedule = '10 * * * *'
+postgres=# UPDATE crons
+           SET schedule = '10 * * * *'
            WHERE config->>'action' = 'refresh_stats';
 UPDATE 1
 
@@ -251,9 +252,14 @@ CREATE TABLE IF NOT EXISTS crons_audit
     new_row         jsonb
 );
 ```
+
+and the trigger like this:
+
+```sql
+
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTkyNzgzMTIwNCwtNTkxMzEwOTYxLC0xMD
-UxMDk5NDIwLC02MTk1NjEwNjksLTU3MzY5Nzg3LDczODQzOTc5
-NSwtMjcyODc0MDAwLC0xODEyOTA3Njk1LC0xNjgzMjkzNzg5LC
-0xNDM2MDk1ODUyLC02MzM0NTI5MTZdfQ==
+eyJoaXN0b3J5IjpbLTIyMzgyOTQ4NSwtOTI3ODMxMjA0LC01OT
+EzMTA5NjEsLTEwNTEwOTk0MjAsLTYxOTU2MTA2OSwtNTczNjk3
+ODcsNzM4NDM5Nzk1LC0yNzI4NzQwMDAsLTE4MTI5MDc2OTUsLT
+E2ODMyOTM3ODksLTE0MzYwOTU4NTIsLTYzMzQ1MjkxNl19
 -->
