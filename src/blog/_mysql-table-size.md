@@ -8,7 +8,7 @@ tags:
 
 ---
 
-`SELECT COUNT(*)` requires an expensive full index scan, which may not be what you want.
+`SELECT COUNT(*)` requires an expensive full index scan, which may not beit probably isn't what you want.
 
 Here are the queries that you should use the majority of the time:
 
@@ -220,5 +220,5 @@ From the [MySQL documentation](https://dev.mysql.com/doc/refman/8.0/en/aggregate
 
 `SELECT COUNT(*)` and similar queries can take an exceptionally long time on large tables. You should strongly consider using the persistent stats stored in [`information_schema.tables`](https://dev.mysql.com/doc/refman/8.0/en/information-schema-tables-table.html) if possible.
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTEzMDA1NzI2NjRdfQ==
+eyJoaXN0b3J5IjpbMTE2NDM3OTc2MSwtMTMwMDU3MjY2NF19
 -->
