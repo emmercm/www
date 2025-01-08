@@ -49,7 +49,7 @@
     "metalsmith-collections-related": "2.0.12",
     "metalsmith-concat": "7.0.3",
     "metalsmith-copy": "0.4.1",
-    "metalsmith-css-unused": "2.0.2",
+    "metalsmith-css-unused": "2.0.3",
     "metalsmith-data-loader": "1.8.0",
     "metalsmith-discover-helpers": "0.1.1",
     "metalsmith-discover-partials": "0.1.2",
@@ -60,7 +60,7 @@
     "metalsmith-gravatar": "0.1.0",
     "metalsmith-hbt-md": "1.0.1",
     "metalsmith-html-glob": "2.0.4",
-    "metalsmith-html-linter": "2.0.8",
+    "metalsmith-html-linter": "2.0.9",
     "metalsmith-html-minifier": "4.0.1",
     "metalsmith-html-relative": "2.0.6",
     "metalsmith-html-sri": "2.1.1",
@@ -70,9 +70,9 @@
     "metalsmith-jquery": "0.2.2",
     "metalsmith-jsonld": "0.0.7",
     "metalsmith-link-checker": "2.1.9",
-    "metalsmith-mermaid": "1.0.15",
+    "metalsmith-mermaid": "1.0.16",
     "metalsmith-metadata-directory": "1.2.3",
-    "metalsmith-multi-collections": "0.0.3",
+    "metalsmith-multi-collections": "0.0.4",
     "metalsmith-open-graph": "0.0.4",
     "metalsmith-pagination": "1.5.0",
     "metalsmith-paths": "4.0.6",
@@ -81,7 +81,7 @@
     "metalsmith-robots": "1.1.0",
     "metalsmith-sharp": "3.1.0",
     "metalsmith-sitemap": "1.2.2",
-    "metalsmith-tracer": "2.0.4",
+    "metalsmith-tracer": "2.0.5",
     "metalsmith-twitter-card": "1.0.9",
     "metalsmith-uglify": "2.4.3",
     "metalsmith-validate": "0.1.5",
@@ -98,6 +98,6 @@
   },
   "devDependencies": {
     "@netlify/plugin-lighthouse": "^6.0.1",
-    "puppeteer": "23.10.1"
+    "puppeteer": "23.11.1"
   }
 }
