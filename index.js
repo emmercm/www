@@ -535,7 +535,7 @@ tracer(Metalsmith(path.resolve()))
                             // Lines that contain blog links
                             .replace(/^(.*?href="\/?blog\/.*?".*?)$/gm, val => {
                                 // Each blog link
-                                [...val.matchAll(/href="(\/?blog\/.*?)"/g)]
+                                [...val.matchAll(/href="(\/?blog\/(?!tag\/).+?)"/g)]
                                     .map(result => result[1])
                                     // Append the partial to the end
                                     // TODO: place the crosspost after any <pre> immediately following
@@ -1033,6 +1033,8 @@ tracer(Metalsmith(path.resolve()))
     // Ensure no broken links
     .use(msIf(prodBuild, linkChecker({
         ignore: [
+            // Vercel payment failure 402
+            'brunoscheufler.com',
             // Anti-bot 403
             'discogs.com',
             'hackernoon.com',
@@ -1053,8 +1055,6 @@ tracer(Metalsmith(path.resolve()))
             'tldp.org',
             // Anti-bot timeouts
             'usnews.com',
-            // Temporary
-            'orientdb.org',
         ]
     })))
 

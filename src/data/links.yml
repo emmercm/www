@@ -85,3 +85,5 @@
       icon: fa-brands fa-untappd
 
     - link: https://boardgamegeek.com/user/emmercm
+      title: BoardGameGeek
+      icon: fa-regular fa-game-board

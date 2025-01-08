@@ -11,7 +11,7 @@ It can be helpful to run some code automatically before or after calling a comma
 
 ## A use case
 
-I have run into a few situations where I would like some code to automatically execute before or after a certain command executes. A concrete example I talked about in "[Reliably Finding Files in $PATH](/blog/reliably-finding-files-in-path)" is wanting to ensure [Docker Desktop](https://docs.docker.com/desktop/) is actually running before the `docker` CLI command is executed.
+I have run into a few situations where I would like some code to automatically execute before or after a certain command executes. A concrete example I talked about in "[Reliably Finding Executables in $PATH](/blog/reliably-finding-files-in-path)" is wanting to ensure [Docker Desktop](https://docs.docker.com/desktop/) is actually running before the `docker` CLI command is executed.
 
 I wanted the order of operations to be:
 
