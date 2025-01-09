@@ -25,11 +25,11 @@ The idea here is that the up-front cost of a purchase or action can be made more
 
 ## Some scenarios
 
-Here's a situation: your team uses some piece of technology, and let's say it's older or more challenging to find reliable documentation for. You spend multiple days investigating a workaround to an issue or a setting that you know you want to change, but can't find anything relevant on the internet. You decide to check the code out locally yourself, and you progress further down the rabbit hole. You eventually find the functionality that you're looking for, and you're able to achieve the desired outcome.
+Here's a situation: your team uses some piece of technology, and let's say it's older or more challenging to find reliable documentation for. You spend multiple days investigating a workaround to an issue or a setting that you know you want to change, but can't find anything relevant on the internet. You decide to check the code out locally yourself, and you progressend up further down the rabbit hole. You eventually find the functionality that you're looking for, and you're able to achieve the desired outcome.
 
 Here's a potentially more frustrating situation: you've been tasked with modifying an older system that has very little tribal knowledge left at your company. You find some documentation, and it looks promising until you realize it's years out of date. You once again end up doing code archaeology to find what you need. You find it, spend a nightmarish amount of time testing it, and eventually make your change successfully.
 
-What's missing from these two scenarios? _Making the life of the next person better_. You spent significant time gaining a lot of valuable context to accomplish your task—you should share that context!
+What's missing from these two scenarios? _Making the life of the next person better_. You spent significant time gaining a lot of valuable context to accomplish your task— - you should share that context!
 
 ## Audience one: yourself
 
@@ -52,17 +52,17 @@ Here are some example how-to guides you could write today:
 - Local development & testing instructions for your services, especially if they differ from your organization's norms
 - Deployment steps for your services, in case multiple manual steps need coordination
 - A list of custom metrics emitted by your services and what they mean
-- How to use one of your team's admin tools (and no, strict RPC schemas aren’t self-descriptive)
+- How to use one of your team's admin tools (and no, strict RPC schemas aren’ not self-descriptive)
 
 ## Audience three: the public
 
 You should be motivated by both helping yourself and your colleagues, but if not, try writing how-to guides for clout.
 
-If in the course of your daily tasks you’ve learned something generalizable or publicly applicable, blog about it! You would be surprised how helpful it can be to someone else. If the [Reddit blackout of 2023](https://en.wikipedia.org/wiki/2023_Reddit_API_controversy) taught us anything, it's that a lot of valuable knowledge exists on the internet, and sometimes it only exists in one or two Google-crawled places. You have valuable knowledge, and others should feel honored for you to share it.
+If in the course of your daily tasks you’ have learned something generalizable or publicly applicable, blog about it! You would be surprised how helpful it can be to someone else. If the [Reddit blackout of 2023](https://en.wikipedia.org/wiki/2023_Reddit_API_controversy) taught us anything, it's that a lot of valuable knowledge exists on the internet, and sometimes it only exists in one or two Google-crawled places. You have valuable knowledge, and others should feel honored for you to share it.
 
 I wrote "[Bash Environment Variable Defaults](/blog/bash-environment-variable-defaults)" because I wanted a "snack" article that was easy to write, and even though the topic is relatively niche, the article is in my top five articles by hits. On the other hand, I wrote "[Docker Shell vs. Exec Form](/blog/docker-shell-vs.-exec-form)" mostly as an article to support "[You Don't Need an Init System for Node.js in Docker](/blog/you-don-t-need-an-init-system-for-node.js-in-docker)," but the former gets nearly 10x the hits. There is so much more information about Docker and related technologies that I thought it would get lost in the noise. But you never know what people will find valuable!
 
-There are also selfish reasons to share information publicly, and it's ok to be selfish! Your company may have a public engineering blog in constant need of volunteers, and maybe contributing published articles can help you with your next promotion. Or maybe you're ready to move on from your company and you're looking to pump up your credentials to hiring managers. Or maybe you're trying to build a presence on social media or in engineering circles. Being publicly visible can help all of these goals!
+There are also selfish reasons to share information publicly, and it's ok to be selfish! Your company may have a public engineering blog that is in constant need of volunteers, and maybe contributing published articles can help you with your next promotion. Or maybe you're ready to move on from your company and you're looking to pump up your credentials to hiring managers. Or maybe you're trying to build a presence on social media or in engineering circles. Being publicly visible can help all of these goals!
 
 ## Getting started
 
@@ -70,8 +70,11 @@ It can be difficult (and overwhelming!) to start writing something from nothing.
 
 ## Closing thoughts
 
-There's a Ralph Waldo Emerson quote from his essay titled "[Compensation](https://en.wikipedia.org/wiki/Compensation_(essay))" that is often referenced when talking about the "pay it forward" movement:
+There's a Ralph Waldo Emerson quote from his essay titled "[Compensation](https://en.wikipedia.org/wiki/Compensation_(essay))" that is oftengets referenced often when talking about the "pay it forward" movement:
 
-> In the order of nature we can’t render benefits to those from whom we receive them, or only seldom. But the benefit we receive must be rendered again, line for line, deed for deed, cent for cent, to somebody. Beware of too much good staying in your hand. It will fast corrupt and worm worms. Pay it away quickly in some sort.
+> In the order of nature we can’not render benefits to those from whom we receive them, or only seldom. But the benefit we receive must be rendered again, line for line, deed for deed, cent for cent, to somebody. Beware of too much good staying in your hand. It will fast corrupt and worm worms. Pay it away quickly in some sort.
 
 In that paragraph, Emerson is talking about paying debts, and the rest of the essay is about keeping one's life in balance. It's not quite the same as writing how-to guides, but I appreciate his opinion that it's one's responsibility to pass benefits on to others.
+<!--stackedit_data:
+eyJoaXN0b3J5IjpbNzI5NDg4MDA4XX0=
+-->
