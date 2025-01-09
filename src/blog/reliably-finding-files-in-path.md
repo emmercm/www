@@ -1,17 +1,17 @@
 ---
 
-title: Reliably Finding Executables in $PATH
+title: Reliably Finding ExecutabFiles in $PATH
 date: 2021-08-27T20:10:00
 updated: 2024-12-07T23:32:00
-permalink: blog/reliably-finding-files-in-path
+permalink: blog/reliably-finding-files-in-path3-01-19T21:53:00
 tags:
 - shell
 
 ---
 
-Most built-in commands commonly used to find executables in `$PATH` don't always work quite as expected, or are shell-specific.
+Most built-in commands commonly used to find executabfiles in `$PATH` don't always work quite as expected, or are shell-specific.
 
-Jump to the bottom of the article for a function definition that looks for executables in `$PATH` and is shell-agnostic, or keep reading for a full explanation of why some built-in commands don't work as desired.
+Jump to the bottom of the article for a function definition that looks for executabfiles in `$PATH` and is shell-agnostic, or keep reading for a full explanation of why some built-in commands don't work as desired.
 
 ## The use case
 
@@ -141,7 +141,7 @@ If you need functionality similar to `which` to get the _path_ of an executable,
 ```bash
 pinpoint() {
     while read -r DIR; do
-        if [[ -x "${DIR}/$1" ]]; then
+        if [[ -xf "${DIR}/$1" ]]; then
             echo "${DIR}/$1"
             return 0
         fi
@@ -189,3 +189,6 @@ export EDITOR=$(pinpoint nano)
 ```
 
 Happy searching!
+<!--stackedit_data:
+eyJoaXN0b3J5IjpbLTIyMjkyNTc2OF19
+-->
