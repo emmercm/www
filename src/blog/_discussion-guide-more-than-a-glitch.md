@@ -13,9 +13,18 @@ I run the engineering book club at my current company, [Attentive](https://www.a
 
 ## Chapter 1
 
+- much of the introduction is centered around the word “technochauvinism” and some real-world examples of it. What does the word mean to you, in your own words?
+
 ## Chapter 2
 
+- as technologists, do you agree with the author’s explanation of artificial intelligence and machine learning? Do you think there were any consequential details missed?
+  - Do you have any ML examples you like to use when talking with non-technologists?
+- do you agree or disagree with this sentence from the book: “whoever owns the [machine learning] model has an enormous amount of power”?
+- what do you think are good and just uses for machine learning?
+
 ## Chapter 3
+
+
 
 ## Chapter 4
 
@@ -33,5 +42,5 @@ I run the engineering book club at my current company, [Attentive](https://www.a
 
 ## Chapter 11
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTE1OTM0NjQzNzddfQ==
+eyJoaXN0b3J5IjpbLTY0NTM2NTA3XX0=
 -->
