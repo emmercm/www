@@ -56,7 +56,10 @@ I run the engineering book club at my current company, [Attentive](https://www.a
 
 ## Chapter 10
 
+- As a technologist, would you consider working for the [US Digital Service (USDS)](https://www.usds.gov/ "https://www.usds.gov/") or [18F](https://18f.gsa.gov/ "https://18f.gsa.gov/")? Why or why not?
+- The author says one of her default assumptions is that “AI doesn’t work as well as people imagine.” First, what do you think people imagine AI does today? Second, do you agree with the author’s assumption?
+
 ## Chapter 11
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTY1MDMyMjk5MV19
+eyJoaXN0b3J5IjpbLTEyNDEyNTI1NzVdfQ==
 -->
