@@ -13,18 +13,20 @@ I run the engineering book club at my current company, [Attentive](https://www.a
 
 ## Chapter 1
 
-- much of the introduction is centered around the word “technochauvinism” and some real-world examples of it. What does the word mean to you, in your own words?
+- Much of the introduction is centered around the word “technochauvinism” and some real-world examples of it. What does the word mean to you, in your own words?
 
 ## Chapter 2
 
-- as technologists, do you agree with the author’s explanation of artificial intelligence and machine learning? Do you think there were any consequential details missed?
+- As technologists, do you agree with the author’s explanation of artificial intelligence and machine learning? Do you think there were any consequential details missed?
   - Do you have any ML examples you like to use when talking with non-technologists?
-- do you agree or disagree with this sentence from the book: “whoever owns the [machine learning] model has an enormous amount of power”?
-- what do you think are good and just uses for machine learning?
+- Do you agree or disagree with this sentence from the book: “whoever owns the [machine learning] model has an enormous amount of power”?
+- What do you think are good and just uses for machine learning?
 
 ## Chapter 3
 
-
+- The author tells a story about [Robert Williams](https://www.aclumich.org/en/press-releases/farmington-hills-father-sues-detroit-police-department-wrongful-arrest-based-faulty "https://www.aclumich.org/en/press-releases/farmington-hills-father-sues-detroit-police-department-wrongful-arrest-based-faulty"), a southeast Michigan man who was arrested based on a low-quality surveillance video screenshot and error-prone facial recognition technology (FRT). Many people had the chance to question the algorithm’s “answer” but didn’t. Do you have any personal examples of a decision chain failing you, or regrets of participating in a faulty one?
+- Companies that create facial recognition technology (FRT) are incentivized to continually push the adoption of the technology, mostly by government agencies. Customers are incentivized to use the technology as much as possible to justify the cost. Can these incentives ever be aligned to the goal of fair and just policing?
+- The lack of audit trails and accountability with various governments' use of facial recognition technology (FRT) is inexcusable at best. The author states that while facial recognition technology is provably racist, training it on a more diverse set of people would only exacerbate a racist over-policing problem. Do you think facial recognition technology could ever be used safely for good?
 
 ## Chapter 4
 
@@ -42,5 +44,5 @@ I run the engineering book club at my current company, [Attentive](https://www.a
 
 ## Chapter 11
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTY0NTM2NTA3XX0=
+eyJoaXN0b3J5IjpbLTE1NDY1MTkxNDZdfQ==
 -->
