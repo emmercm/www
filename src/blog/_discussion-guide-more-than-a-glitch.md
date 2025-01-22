@@ -15,6 +15,8 @@ I run the engineering book club at my current company, [Attentive](https://www.a
 
 ## Discussion ground rules
 
+I discussed this book in a workplace setting, which is an inherently unsafe place to discuss su
+
 ## Chapter 1
 
 - Much of the introduction is centered around the word “technochauvinism” and some real-world examples of it. What does the word mean to you, in your own words?
@@ -65,5 +67,5 @@ I run the engineering book club at my current company, [Attentive](https://www.a
 
 ## Chapter 11
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTk4MzQ3MzMwNywtMTI0MTI1MjU3NV19
+eyJoaXN0b3J5IjpbMTgyOTAzMzExNCwtMTI0MTI1MjU3NV19
 -->
