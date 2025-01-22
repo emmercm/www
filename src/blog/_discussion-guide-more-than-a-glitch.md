@@ -21,13 +21,13 @@ I discussed this book in a workplace setting, which can be an unsafe place to di
 
 Ground rules:
 
--   **Respect the speaker** - don’t interrupt, listen to the message and not the person, and avoid invaliding others' experiences by building on their story
--   **Respect other attendees** - avoid being a dominant voice, give space to others to share their experiences and opinions, and give voice to those who are seeking it
--   **Respect non-attendees** - try to share only your personal experience rather than speak authoritatively for a group of people, and keep the confidentiality of others when sharing experiences
--   **Respect yourself** - give yourself grace for not feeling as educated as others, and acknowledge that you have biases even if you might not recognize them
--   **Lead with good faith** - assume all attendees are present for good reasons who want to add to the conversation or learn from it, recognize that people have different levels of education on different topics, and ask questions to clarify statements that don’t seem constructive
--   **It is ok to disagree respectfully** - people’s experiences are different, people’s education level is different (and the quality of material that exists online is varying), ask questions to seek to understand, and never attack the speaker
--   **Keep discussions confidential** - what is said in the discussion should remain in the discussion, attendees are putting themselves in a vulnerable place and we must respect that, and coworkers’s experiences are for them to share and not you
+- **Respect the speaker** - don’t interrupt, listen to the message and not the person, and avoid invaliding others' experiences by building on their story
+- **Respect other attendees** - avoid being a dominant voice, give space to others to share their experiences and opinions, and give voice to those who are seeking it
+- **Respect non-attendees** - try to share only your personal experience rather than speak authoritatively for a group of people, and keep the confidentiality of others when sharing experiences
+- **Respect yourself** - give yourself grace for not feeling as educated as others, and acknowledge that you have biases even if you might not recognize them
+- **Lead with good faith** - assume all attendees are present for good reasons who want to add to the conversation or learn from it, recognize that people have different levels of education on different topics, and ask questions to clarify statements that don’t seem constructive
+- **It is ok to disagree respectfully** - people’s experiences are different, people’s education level is different (and the quality of material that exists online is varying), ask questions to seek to understand, and never attack the speaker
+- **Keep discussions confidential** - what is said in the discussion should remain in the discussion, attendees are putting themselves in a vulnerable place and we must respect that, and coworkers’s experiences are for them to share and not you
   - But do recognize that vulnerable conversations amongst coworkers are inherently less safe than conversations outside the workplace, you may work with other attendees often and it is important to not destroy working relationships
 
 ## Chapter 1
@@ -80,5 +80,5 @@ Ground rules:
 
 ## Chapter 11
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTcxMDU0MzkyOCwtMTI0MTI1MjU3NV19
+eyJoaXN0b3J5IjpbLTIxNTg4MDYzMiwtMTI0MTI1MjU3NV19
 -->
