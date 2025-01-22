@@ -49,7 +49,7 @@ Ground rules:
 
 ## Chapter 4
 
-- Paige Fernandez from the ACLU discussed in a 2020 podcast that the current system of American policing began to “maintain social control of black, enslaved people.” This kind of history is not well known and is rarely taught. What other historical facts or stories do you have about American policing that others are unlikely to know?
+- [Paige Fernandez](https://www.aclu.org/bio/paige-fernandez) from the ACLU discussed in a [2020 podcast](https://www.aclu.org/podcast/why-it-so-hard-hold-police-accountable-ep-102) that the current system of American policing began to “maintain social control of black, enslaved people.” This kind of history is not well known and is rarely taught. What other historical facts or stories do you have about American policing that others are unlikely to know?
 - The author quotes Hamid Khan who said “[those using location-based policing] are not there to police potholes and trees. They are there to police people in the location.” What predictive algorithms would you like to see local governments use for social good, such as predicting areas that are prone to potholes?
 - A major theme of the chapter is how numbers and statistics can be weaponized against groups of people. This was evidenced by NYPD’s use of CompStat, and again by Karl Pearson’s eugenic motivations for using statistics. How have you seen statistics used to advance societal equity?
 
@@ -80,6 +80,6 @@ Ground rules:
 
 ## Chapter 11
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbOTEwOTA5OTYwLC01NzUwNzU3MzcsLTEyND
-EyNTI1NzVdfQ==
+eyJoaXN0b3J5IjpbLTY5NDExMDI4MCwtNTc1MDc1NzM3LC0xMj
+QxMjUyNTc1XX0=
 -->
