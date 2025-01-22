@@ -30,11 +30,25 @@ I run the engineering book club at my current company, [Attentive](https://www.a
 
 ## Chapter 4
 
+- Paige Fernandez from the ACLU discussed in a 2021 podcast that the current system of American policing began to “maintain social control of black, enslaved people.” This kind of history is not well known and is rarely taught. What other historical facts or stories do you have about American policing that others are unlikely to know?
+- The author quotes Hamid Khan who said “[those using location-based policing] are not there to police potholes and trees. They are there to police people in the location.” What predictive algorithms would you like to see local governments use for social good, such as predicting areas that are prone to potholes?
+- A major theme of the chapter is how numbers and statistics can be weaponized against groups of people. This was evidenced by NYPD’s use of CompStat, and again by Karl Pearson’s eugenic motivations for using statistics. How have you seen statistics used to advance societal equity?
+
 ## Chapter 5
+
+- EdTech companies have historically had a difficult time raising capital, but this has been changing recently, especially in the last five years. What are examples of companies that are using technology to increase education outcomes, rather than decrease labor costs?
+- The author states “one of the big misconceptions of data science is that it provides insights. It doesn’t always.” This is relevant to the tech industry where many companies claim to use data to drive decisions. Have you seen data be misused or creatively interpreted to justify business decisions?
 
 ## Chapter 6
 
+- Do you think Attentive is investing enough in making our products accessible?
+- The book gives multiple examples of companies taken to court over their products being inaccessible. Do you know of companies that are getting it right, are ahead of the curve, or advocate for accessibility outside of their workplace and products?
+- Universities have started adding ethics courses to their computer science curriculums. The author would likely argue that one course is not enough. What other human-centric courses do you think should be required for computer science students?
+
 ## Chapter 7
+
+- The Y2GAY problem came about because databases storing personally identifiable information (PII) stored gender information as a boolean. What do you think about websites collecting gender information at all?
+  - Where does attentive collect Gender information? How does Attentive (or its clients) use that information? How does Attentive store that information (String, Boolean)?
 
 ## Chapter 8
 
@@ -44,5 +58,5 @@ I run the engineering book club at my current company, [Attentive](https://www.a
 
 ## Chapter 11
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTE1NDY1MTkxNDZdfQ==
+eyJoaXN0b3J5IjpbLTY1MDMyMjk5MV19
 -->
