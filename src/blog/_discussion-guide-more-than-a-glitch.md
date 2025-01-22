@@ -11,6 +11,8 @@ A guide with discussion prompts for [Meredeith Broussard's](https://meredithbrou
 
 I run the engineering book club at my current company, [Attentive](https://www.attentive.com/). For the pace of our book club, we committed to reading 2 chapters every 2 weeks. I personally appreciate having multiple discussions over time, I find I better retain content that way. These are the exact discussion prompts I used over the few months of reading the book, so they're colored by my personal experience and the current culture at Attentive. All prompts are wholly my own and are free to use by all.
 
+## Discussion ground rules
+
 ## Chapter 1
 
 - Much of the introduction is centered around the word “technochauvinism” and some real-world examples of it. What does the word mean to you, in your own words?
@@ -61,5 +63,5 @@ I run the engineering book club at my current company, [Attentive](https://www.a
 
 ## Chapter 11
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTEyNDEyNTI1NzVdfQ==
+eyJoaXN0b3J5IjpbLTQ2MjEwODE1MywtMTI0MTI1MjU3NV19
 -->
