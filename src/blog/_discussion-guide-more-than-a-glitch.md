@@ -9,7 +9,7 @@ tags:
 
 A guide with discussion prompts for [Meredeith Broussard's](https://meredithbroussard.com/) [More than a Glitch: Confronting Race, Gender, and Ability Bias in Tech](https://mitpress.mit.edu/9780262548328/more-than-a-glitch/).
 
-I think it is important now more than ever to educate oneself on the topics covered by this book.
+I think it is important now more than ever to educate oneself on the topics covered by this book. Large Language Models (LLMs) are more widespread than ever, and the Trump administration is actively
 
 I run the engineering book club at my current company, [Attentive](https://www.attentive.com/). For the pace of our book club, we committed to reading 2 chapters every 2 weeks. I personally appreciate having multiple discussions over time, I find I better retain content that way. These are the exact discussion prompts I used over the few months of reading the book, so they're colored by my personal experience and the current culture at Attentive. All prompts are wholly my own and are free to use by all.
 
@@ -80,5 +80,5 @@ Ground rules:
 
 ## Chapter 11
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTIxNTg4MDYzMiwtMTI0MTI1MjU3NV19
+eyJoaXN0b3J5IjpbODE4MDEzODI5LC0xMjQxMjUyNTc1XX0=
 -->
