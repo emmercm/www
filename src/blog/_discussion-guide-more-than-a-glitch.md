@@ -66,7 +66,7 @@ Ground rules:
 
 ## Chapter 7
 
-- The Y2GAY problem came about because databases storing personally identifiable information (PII) stored gender information as a boolean. What do you think about websites collecting gender information at all?
+- The "[Y2GAY](https://qntm.org/gay)" problem came about because databases storing personally identifiable information (PII) stored gender information as a boolean. What do you think about websites collecting gender information at all?
   - Where does your company collect gender information? How does your company (or its clients) use that information? How does your company store that information (string, boolean, etc.)?
 
 ## Chapter 8
@@ -80,6 +80,6 @@ Ground rules:
 
 ## Chapter 11
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTY0MTczODg4NywtNTc1MDc1NzM3LC0xMj
-QxMjUyNTc1XX0=
+eyJoaXN0b3J5IjpbLTI1MjYyNjY1MSwxNjQxNzM4ODg3LC01Nz
+UwNzU3MzcsLTEyNDEyNTI1NzVdfQ==
 -->
