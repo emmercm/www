@@ -71,6 +71,10 @@ Ground rules:
 
 ## Chapter 8
 
+- The author shared a story of encountering an electronic medical/health record (EMR/EHR) system with restrictive options to describe her race. As machine learning’s understanding of unstructured data progresses, do you think we could allow for more freeform answers on medical and legal forms?
+- The author gives a call to action to “‘call bullshit’ on claims about future technology and a rosy tech-enabled future,” as a response to a [2017 interview](https://www.newyorker.com/magazine/2017/04/03/ai-versus-md) with [Geoffrey Hinton](https://en.wikipedia.org/wiki/Geoffrey_Hinton). What technology is currently over-valued, either monetarily or in terms of hype from the media?
+- The author asserts that one perpetrator of bias is overvaluing experts’ opinions in an area that isn’t their expertise, such as technologists making statements about social science. What similar harm do you see technologists making today?
+
 ## Chapter 9
 
 ## Chapter 10
@@ -80,6 +84,7 @@ Ground rules:
 
 ## Chapter 11
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTE0MTIxNjU0OSwtMjUyNjI2NjUxLDE2ND
-E3Mzg4ODcsLTU3NTA3NTczNywtMTI0MTI1MjU3NV19
+eyJoaXN0b3J5IjpbLTg0NDIxNTgyMSwxMTQxMjE2NTQ5LC0yNT
+I2MjY2NTEsMTY0MTczODg4NywtNTc1MDc1NzM3LC0xMjQxMjUy
+NTc1XX0=
 -->
