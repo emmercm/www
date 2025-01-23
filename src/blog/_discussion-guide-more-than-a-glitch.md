@@ -77,6 +77,8 @@ Ground rules:
 
 ## Chapter 9
 
+- The author calls out that “the whole reason to do open science is so that other people can replicate or challenge your scientific results,” but also calls out that rarely happens. What studies have you heard of that couldn’t be replicated recently?
+
 ## Chapter 10
 
 - As a technologist, would you consider working for the [US Digital Service (USDS)](https://www.usds.gov/ "https://www.usds.gov/") or [18F](https://18f.gsa.gov/ "https://18f.gsa.gov/")? Why or why not?
@@ -84,7 +86,7 @@ Ground rules:
 
 ## Chapter 11
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTg0NDIxNTgyMSwxMTQxMjE2NTQ5LC0yNT
-I2MjY2NTEsMTY0MTczODg4NywtNTc1MDc1NzM3LC0xMjQxMjUy
-NTc1XX0=
+eyJoaXN0b3J5IjpbLTEwMjI5MzY1MjEsLTg0NDIxNTgyMSwxMT
+QxMjE2NTQ5LC0yNTI2MjY2NTEsMTY0MTczODg4NywtNTc1MDc1
+NzM3LC0xMjQxMjUyNTc1XX0=
 -->
