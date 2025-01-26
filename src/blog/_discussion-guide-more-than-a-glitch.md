@@ -1,7 +1,7 @@
 ---
 
 title: Discussion Guide: More than a Glitch
-date: 2025-01-22
+date: 2025-01-26
 tags:
 - books
 
@@ -83,11 +83,13 @@ Ground rules:
 
 - As a technologist, would you consider working for the [US Digital Service (USDS)](https://www.usds.gov/ "https://www.usds.gov/") or [18F](https://18f.gsa.gov/ "https://18f.gsa.gov/")? Why or why not?
 - The author touches on the idea of emotional attachment to one’s code and the difficulty in throwing it out. What is your team or organization’s history with cutting losses on code that doesn’t solve its intended goal, or is even counterproductive?
--   One theme with algorithmic auditing is organizations' unwillingness to fund it at the same time as net-new development. How does your organization approach funding these initiatives that aren’t revenue-generating?
+- Is algorithmic auditing applicable to your organization? Do you know if your organization already pay for or participate in this type of auditing? Where do you think your organization could invest in further technical auditing?
+- One theme with algorithmic auditing is organizations' unwillingness to fund it at the same time as net-new development. How does your organization approach funding these initiatives that aren’t revenue-generating?
 
 ## Chapter 11
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbNjA4NzQ1NDM1LC0xMDIyOTM2NTIxLC04ND
-QyMTU4MjEsMTE0MTIxNjU0OSwtMjUyNjI2NjUxLDE2NDE3Mzg4
-ODcsLTU3NTA3NTczNywtMTI0MTI1MjU3NV19
+eyJoaXN0b3J5IjpbLTE0NDQ2Njk3NDYsNjA4NzQ1NDM1LC0xMD
+IyOTM2NTIxLC04NDQyMTU4MjEsMTE0MTIxNjU0OSwtMjUyNjI2
+NjUxLDE2NDE3Mzg4ODcsLTU3NTA3NTczNywtMTI0MTI1MjU3NV
+19
 -->
