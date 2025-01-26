@@ -82,11 +82,12 @@ Ground rules:
 ## Chapter 10
 
 - As a technologist, would you consider working for the [US Digital Service (USDS)](https://www.usds.gov/ "https://www.usds.gov/") or [18F](https://18f.gsa.gov/ "https://18f.gsa.gov/")? Why or why not?
-- The author says one of her default assumptions is that “AI doesn’t work as well as people imagine.” First, what do you think people imagine AI does today? Second, do you agree with the author’s assumption?
+- The author touches on the idea of emotional attachment to one’s code and the difficulty in throwing it out. What is your team or organization’s history with cutting losses on code that doesn’t solve its intended goal, or is even counterproductive?
+-   One theme with algorithmic auditing is organizations' unwillingness to fund it at the same time as net-new development. How does your organization approach funding these initiatives that aren’t revenue-generating?
 
 ## Chapter 11
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTEwMjI5MzY1MjEsLTg0NDIxNTgyMSwxMT
-QxMjE2NTQ5LC0yNTI2MjY2NTEsMTY0MTczODg4NywtNTc1MDc1
-NzM3LC0xMjQxMjUyNTc1XX0=
+eyJoaXN0b3J5IjpbNjA4NzQ1NDM1LC0xMDIyOTM2NTIxLC04ND
+QyMTU4MjEsMTE0MTIxNjU0OSwtMjUyNjI2NjUxLDE2NDE3Mzg4
+ODcsLTU3NTA3NTczNywtMTI0MTI1MjU3NV19
 -->
