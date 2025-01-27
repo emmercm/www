@@ -144,6 +144,9 @@
     .edgeLabel {
       color: var(--#{$prefix}body-color) !important;
       background-color: var(--#{$prefix}body-bg) !important;
+      p {
+        background-color: var(--#{$prefix}body-bg) !important;
+      }
     }
   }
 
