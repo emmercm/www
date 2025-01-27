@@ -29,42 +29,30 @@ I run the engineering book club at my current company, [Attentive](https://www.a
 ## Chapter 3
 
 - Do you think your team’s components or services are maintainable, and if not, what do you think they’re suffering from (component coupling, component cohesion, cyclomatic complexity, or component size)?
-    
-    -   _Definitions for quick reference:_
-        
-        -   _Component coupling: the degree and manner to which components know about one another_
-            
-        -   _Component cohesion: the degree and manner to which the operations of a component interrelate_
-            
-        -   _Cyclomatic complexity: the overall level of indirection and nesting within a component_
-            
-        -   _Component size: the number of aggregated statements of code within a component_
-            
-    -   Same question about analyzing your components or services' testability.
-        
--   Chapter 3: Despite warnings about coupling and synchronous communication, the authors seem to believe microservices solve all architectural modularity problems. Do you agree?
-    
--   Chapter 3: Have you ever made a refactor or re-architecture pitch to non-engineers using a strategy similar to Addison and Austen? What is it effective? How was it received?
+  - _Definitions for quick reference:_
+    - _Component coupling: the degree and manner to which components know about one another_
+    - _Component cohesion: the degree and manner to which the operations of a component interrelate_
+    - _Cyclomatic complexity: the overall level of indirection and nesting within a component_
+    - _Component size: the number of aggregated statements of code within a component_
+  - Same question about analyzing your components or services' testability.
+- Despite warnings about coupling and synchronous communication, the authors seem to believe microservices solve all architectural modularity problems. Do you agree?
+- Have you ever made a refactor or re-architecture pitch to non-engineers using a strategy similar to Addison and Austen? What is it effective? How was it received?
 
 ## Chapter 4
 
-- Chapter 4: The authors mention component-based decomposition and tactical forking as two effective strategies for decomposing a monolithic application. What other strategies have you heard of? Have you used any of them? What was your experience?
+- The authors mention component-based decomposition and tactical forking as two effective strategies for decomposing a monolithic application. What other strategies have you heard of? Have you used any of them? What was your experience?
 
 ## Chapter 5
 
--   Have you framed refactors or re-architectures in terms of “architecture stories” before? Did you find it effective?
-    
--   Does your team use a component-based (i.e. “clean architecture”, “modular monolith”) organization in your services or more of a layered architecture (i.e. MVC)?
-    
--   What’s your opinion on the author’s component flatting strategy where no source files should exist in subdomains (parents of components)? Even if you aren’t decomposing them, do you think this would improve the organization of any of your services?
-    
--   Many monolith fitness functions discussed also apply to microservices (maximum size, maximum level of coupling, etc.). Do you think those would be worthwhile metrics to instrument in Cortex?
-    
--   What’s your opinion on how the Sysops Squad broke down their monolith? Do you think they ended up with the right number of domain services?
+- Have you framed refactors or re-architectures in terms of “architecture stories” before? Did you find it effective?
+- Does your team use a component-based (i.e. “clean architecture”, “modular monolith”) organization in your services or more of a layered architecture (i.e. MVC)?
+- What’s your opinion on the author’s component flatting strategy where no source files should exist in subdomains (parents of components)? Even if you aren’t decomposing them, do you think this would improve the organization of any of your services?
+- Many monolith fitness functions discussed also apply to microservices (maximum size, maximum level of coupling, etc.). Do you think those would be worthwhile metrics to instrument in Cortex?
+- What’s your opinion on how the Sysops Squad broke down their monolith? Do you think they ended up with the right number of domain services?
 
 ## Chapter 6
 
--   Do you operate any services that share a DB? Have you experienced any “data disintegrator” pain points (change control, connection management, scalability, fault tolerance, etc.)? Do you think those pain points outweighed the “data integrator” benefits?
+- Do you operate any services that share a DB? Have you experienced any “data disintegrator” pain points (change control, connection management, scalability, fault tolerance, etc.)? Do you think those pain points outweighed the “data integrator” benefits?
     
 -   The authors skip talking about _why_ cross-domain DB views might exist in this chapter, just that they need to be eliminated. Do you think the ease of performing data science on a monolithic DB should be a “data integrator”?
     
@@ -128,6 +116,6 @@ TODO
 
 TODO
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMjAwODU3Njg3Nyw1NjM1Mzk5NDYsLTgwNT
-YwMTg3XX0=
+eyJoaXN0b3J5IjpbMTgzNjMyOTA4LDU2MzUzOTk0NiwtODA1Nj
+AxODddfQ==
 -->
