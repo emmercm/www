@@ -83,13 +83,13 @@ Ground rules:
 
 - As a technologist, would you consider working for the [US Digital Service (USDS)](https://www.usds.gov/ "https://www.usds.gov/") or [18F](https://18f.gsa.gov/ "https://18f.gsa.gov/")? Why or why not?
 - The author touches on the idea of emotional attachment to one’s code and the difficulty in throwing it out. What is your team or organization’s history with cutting losses on code that doesn’t solve its intended goal, or is even counterproductive?
-- Is algorithmic auditing applicable to your organization? Do you know if your organization already pay for or participate in this type of auditing? Where do you think your organization could invest in further technical auditing?
+- Is algorithmic auditing applicable to your organization? Do you know if your organization already pays for or participates in this type of auditing? Where do you think your organization could invest in further technical auditing?
 - One theme with algorithmic auditing is organizations' unwillingness to fund it at the same time as net-new development. How does your organization approach funding these initiatives that aren’t revenue-generating?
 
 ## Chapter 11
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTE0NDQ2Njk3NDYsNjA4NzQ1NDM1LC0xMD
-IyOTM2NTIxLC04NDQyMTU4MjEsMTE0MTIxNjU0OSwtMjUyNjI2
-NjUxLDE2NDE3Mzg4ODcsLTU3NTA3NTczNywtMTI0MTI1MjU3NV
-19
+eyJoaXN0b3J5IjpbMTkyNzI1MjkzMiwtMTQ0NDY2OTc0Niw2MD
+g3NDU0MzUsLTEwMjI5MzY1MjEsLTg0NDIxNTgyMSwxMTQxMjE2
+NTQ5LC0yNTI2MjY2NTEsMTY0MTczODg4NywtNTc1MDc1NzM3LC
+0xMjQxMjUyNTc1XX0=
 -->
