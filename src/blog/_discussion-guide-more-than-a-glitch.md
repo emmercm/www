@@ -1,7 +1,7 @@
 ---
 
 title: Discussion Guide: More than a Glitch
-date: 2025-01-26
+date: 2025-01-27T00:09:00
 tags:
 - books
 
@@ -88,11 +88,10 @@ Ground rules:
 
 ## Chapter 11
 
-- -   The author paints a picture of the progress made in understanding bias in technology between 2018 and 2022. What progress would you like to see in the next five years?
-    
--   The author specifically avoids using the term “magic” when describing ML algorithms to non-technical audiences. How do you like to succinctly describe these algorithms to friends and family?
+- The author paints a picture of the progress made in understanding bias in technology between 2018 and 2022. What progress would you like to see in the next five years?
+- The author specifically avoids using the term “magic” when describing ML algorithms to non-technical audiences. How do you like to succinctly describe these algorithms to friends and family?
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTE3NTQxMTU5ODYsMTkyNzI1MjkzMiwtMT
+eyJoaXN0b3J5IjpbLTE0MTg0MzQ3MzUsMTkyNzI1MjkzMiwtMT
 Q0NDY2OTc0Niw2MDg3NDU0MzUsLTEwMjI5MzY1MjEsLTg0NDIx
 NTgyMSwxMTQxMjE2NTQ5LC0yNTI2MjY2NTEsMTY0MTczODg4Ny
 wtNTc1MDc1NzM3LC0xMjQxMjUyNTc1XX0=
