@@ -1,7 +1,7 @@
 ---
 
 title: "Discussion Guide: Software Architecture: The Hard Parts"
-date: 2025-01-26
+date: 2025-01-27
 tags:
 - books
 - databases
@@ -91,21 +91,18 @@ TODO
 
 - Do you agree or disagree with this quote from early in the chapter: “architects aren’t forced to use strict contracts and should do so only when advantageous” (p. 367).
   - Similarly, what is your opinion on the authors implying changes to strict contracts aren’t forward-compatible, requiring coordinated changes or versioned endpoints?
-        
--   Chapter 13: Has your organization struggled with knowing what API response fields are actually used? Have you had issues with coordinating backward-incompatible changes because consumer needs were unclear? What did you do to solve this?
+- Has your organization struggled with knowing what API response fields are actually used? Have you had issues with coordinating backward-incompatible changes because consumer needs were unclear? What did you do to solve this?
 
 ## Chapter 14
 
--   Chapter 14: Has your organization built or attempted to build a data warehouse, data lake, or data mesh? What was the difficulty in the initial implementation? What are the difficulties with the ongoing maintenance? How did you solve for ever-changing DB schemas?
-    
--   Chapter 14: What are your thoughts about data meshes and data product quanta? Do you think it makes sense to push such responsibility to data originators, or does that sound like too much operational burden?
-    
-    -   How would you adopt the paradigm in a system that wasn’t built with it from the beginning?
+- Has your organization built or attempted to build a data warehouse, data lake, or data mesh? What was the difficulty in the initial implementation? What are the difficulties with the ongoing maintenance? How did you solve for ever-changing DB schemas?
+- What are your thoughts about data meshes and data product quanta? Do you think it makes sense to push such responsibility to data originators, or does that sound like too much operational burden?
+  - How would you adopt the paradigm in a system that wasn’t built with it from the beginning?
 
 ## Chapter 15
 
 TODO
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbNTc4NjEyOTY5LDU2MzUzOTk0NiwtODA1Nj
-AxODddfQ==
+eyJoaXN0b3J5IjpbLTYzNzM5NzQ4Myw1NjM1Mzk5NDYsLTgwNT
+YwMTg3XX0=
 -->
