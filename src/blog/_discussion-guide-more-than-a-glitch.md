@@ -87,9 +87,13 @@ Ground rules:
 - One theme with algorithmic auditing is organizations' unwillingness to fund it at the same time as net-new development. How does your organization approach funding these initiatives that aren’t revenue-generating?
 
 ## Chapter 11
+
+- -   The author paints a picture of the progress made in understanding bias in technology between 2018 and 2022. What progress would you like to see in the next five years?
+    
+-   The author specifically avoids using the term “magic” when describing ML algorithms to non-technical audiences. How do you like to succinctly describe these algorithms to friends and family?
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTkyNzI1MjkzMiwtMTQ0NDY2OTc0Niw2MD
-g3NDU0MzUsLTEwMjI5MzY1MjEsLTg0NDIxNTgyMSwxMTQxMjE2
-NTQ5LC0yNTI2MjY2NTEsMTY0MTczODg4NywtNTc1MDc1NzM3LC
-0xMjQxMjUyNTc1XX0=
+eyJoaXN0b3J5IjpbLTE3NTQxMTU5ODYsMTkyNzI1MjkzMiwtMT
+Q0NDY2OTc0Niw2MDg3NDU0MzUsLTEwMjI5MzY1MjEsLTg0NDIx
+NTgyMSwxMTQxMjE2NTQ5LC0yNTI2MjY2NTEsMTY0MTczODg4Ny
+wtNTc1MDc1NzM3LC0xMjQxMjUyNTc1XX0=
 -->
