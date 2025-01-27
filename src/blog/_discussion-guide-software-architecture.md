@@ -79,7 +79,59 @@ I run the engineering book club at my current company, [Attentive](https://www.a
 -   Chapter 7: The authors don’t consider preexisting engineering team organization as a granularity integrator or disintegrator. Do you think it should be?
     
 -   Chapter 7: The Sysops Squad combined profile info, credit card info, password info, and purchase product info into one service–using a preexisting authorization library to secure access. Do you think this is acceptable from a security standpoint, or would you have pushed back on profile inconsistency being a hard requirement?
+
+## Chapter 8
+
+-   Chapter 8: The authors assert that dependency management with many services and libraries (e.g. 200 and 40, respectively) “would quickly become overly complex and unmaintainable.” Do you agree? Or what strategies would you apply to counter this?
+    
+-   Chapter 8: Getting teams to deploy their services after a shared library version has been updated is difficult to coordinate. Do you think we do it well at Attentive (e.g. the `attnlib` Helm chart, or widely-used libraries such as `kinesis2` and `feature-flag-sdk`)? How would you do it differently?
+    
+-   Chapter 8: The sidecar pattern described that allows for the sharing of class files does not fit the Kubernetes idea of a sidecar container. How would you implement the sidecar pattern as described?
+
+## Chapter 9
+
+TODO
+
+## Chapter 10
+
+TODO
+
+## Chapter 11
+
+-   Chapter 11: Do you think the authors do a good job of fairly representing multiple approaches to a problem? Example on layered vs. modular monoliths: “both topologies are logical ways to organize a codebase… [but layered monoliths] increases the overall implementation complexity because now the architect must design for the _semantic_ complexity along with the additional _implementation_ complexity” (p. 310-311).
+    
+-   Chapter 11: Attentive’s event pipeline generally encourages choreography between services. What examples of orchestration do you know of within our architecture? What areas do you think could benefit from more orchestration?
+    
+-   Chapter 11: At the end of the chapter, do you think Sysops Squad considered orchestration vs. choreography fairly? For example, there was no mention of a single point of failure or centralized retries.
+
+## Chapter 12
+
+-   Chapter 12 Think about some of the microservice coordination architectures you’ve worked with in the past, can you neatly categorize them into one of the eight transactional saga patterns?
+    
+    -   If you experienced difficulty with them, can you name which of the three dimensions (communication, consistency, and coordination) caused the most difficulty?
+        
+-   Chapter 12: The authors don’t discuss and therefore don’t compare the testability of the various transactional saga patterns. From an end-to-end testing perspective, which feels the easiest or most difficult to test?
+
+## Chapter 13
+
+-   Chapter 13: Do you agree or disagree with this quote from early in the chapter: “architects aren’t forced to use strict contracts and should do so only when advantageous” (p. 367).
+    
+    -   Similarly, what is your opinion on the authors implying changes to strict contracts aren’t forward-compatible, requiring coordinated changes or versioned endpoints?
+        
+-   Chapter 13: Has your organization struggled with knowing what API response fields are actually used? Have you had issues with coordinating backward-incompatible changes because consumer needs were unclear? What did you do to solve this?
+
+## Chapter 14
+
+-   Chapter 14: Has your organization built or attempted to build a data warehouse, data lake, or data mesh? What was the difficulty in the initial implementation? What are the difficulties with the ongoing maintenance? How did you solve for ever-changing DB schemas?
+    
+-   Chapter 14: What are your thoughts about data meshes and data product quanta? Do you think it makes sense to push such responsibility to data originators, or does that sound like too much operational burden?
+    
+    -   How would you adopt the paradigm in a system that wasn’t built with it from the beginning?
+
+## Chapter 15
+
+TODO
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTMzMjg0NDM4MSw1NjM1Mzk5NDYsLTgwNT
-YwMTg3XX0=
+eyJoaXN0b3J5IjpbLTEyNDU3MzU4NjAsNTYzNTM5OTQ2LC04MD
+U2MDE4N119
 -->
