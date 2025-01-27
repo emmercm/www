@@ -6,7 +6,7 @@ tags:
 - books
 - databases
 - microservices
-- 
+- streaming
 
 ---
 
@@ -16,5 +16,5 @@ I run the engineering book club at my current company, [Attentive](https://www.a
 
 ## Chapter 1
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbNTczNzc0NTI4LC04MDU2MDE4N119
+eyJoaXN0b3J5IjpbNTYzNTM5OTQ2LC04MDU2MDE4N119
 -->
