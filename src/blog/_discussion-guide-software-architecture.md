@@ -12,27 +12,23 @@ tags:
 
 A guide with discussion prompts for Neal Ford, Mark Richards, Pramod Sadalage, and Zhamak Dehghani's [Software Architecture: The Hard Parts: Modern Trade-Off Analyses for Distributed Architectures](https://www.oreilly.com/library/view/software-architecture-the/9781492086888/).
 
-I run the engineering book club at my current company, [Attentive](https://www.attentive.com/). For the pace of our book club, we committed to reading X chapters every 2 weeks. I personally appreciate having multiple discussions over time, I find I better retain content that way. These are the exact discussion prompts I used over the few months of reading the book, so they're colored by my personal experience and the current culture at Attentive. All prompts are wholly my own and are free to use by all.
+I run the engineering book club at my current company, [Attentive](https://www.attentive.com/). For the pace of our book club, we committed to reading 1-2 chapters (depending on the page count) every 2 weeks. I personally appreciate having multiple discussions over time, I find I better retain content that way. These are the exact discussion prompts I used over the few months of reading the book, so they're colored by my personal experience and the current culture at Attentive. All prompts are wholly my own and are free to use by all.
 
 ## Chapter 1
 
--   Chapter 1: Do you think Attentive has any _truly_ unique problems we solved first or no other company has yet to solve?
-    
--   Chapter 1: Attentive hasn’t used architectural decision records (ADRs) in [three years](https://github.com/attentive-mobile/code/tree/master/docs/architecture/decisions "https://github.com/attentive-mobile/code/tree/master/docs/architecture/decisions"). Teams instead tend to write requests for comments (RFCs). What is your opinion about ADRs? Are they worth reviving, or is the current push for more RFCs filling any gap?
-    
--   Chapter 1: The authors recommend centrally managing and automating “fitness function” checks for code best practices. Attentive uses service scorecards via Cortex, but rules defined there are generally unenforced. If you were to add fitness functions for our Java services, what would you add?
+- Do you think Attentive has any _truly_ unique problems we solved first or no other company has yet to solve?  
+- Attentive hasn’t used architectural decision records (ADRs) in [three years](https://github.com/attentive-mobile/code/tree/master/docs/architecture/decisions "https://github.com/attentive-mobile/code/tree/master/docs/architecture/decisions"). Teams instead tend to write requests for comments (RFCs). What is your opinion about ADRs? Are they worth reviving, or is the current push for more RFCs filling any gap?  
+- The authors recommend centrally managing and automating “fitness function” checks for code best practices. Attentive uses service scorecards via Cortex, but rules defined there are generally unenforced. If you were to add fitness functions for our Java services, what would you add?
 
 ## Chapter 2
 
--   Chapter 2: for architecture quantum to be separate, they need to be independently deployable. At Attentive, our shared protobuf contracts can necessitate complicated deployments. Would you classify our services as one quantum as a result of this, or not, and why?
-    
--   Chapter 2: the authors state that in terms of architecture quanta and static coupling, if a set of monolith modules or microservices all rely on the same database, there is only one quantum. They do not provide any exceptions for databases that are segmented. Do you agree or disagree with this classification?
-    
-    -   They make the same statement about a shared front-end that doesn’t use micro front-ends as also always having only one quantum. Do you agree or disagree with this classification, and do you feel more or less strongly compared to the shared database?
+- For architecture quantum to be separate, they need to be independently deployable. At Attentive, our shared protobuf contracts can necessitate complicated deployments. Would you classify our services as one quantum as a result of this, or not, and why?
+- The authors state that in terms of architecture quanta and static coupling, if a set of monolith modules or microservices all rely on the same database, there is only one quantum. They do not provide any exceptions for databases that are segmented. Do you agree or disagree with this classification?
+  - They make the same statement about a shared front-end that doesn’t use micro front-ends as also always having only one quantum. Do you agree or disagree with this classification, and do you feel more or less strongly compared to the shared database?
 
 ## Chapter 3
 
--   Chapter 3: Do you think your team’s components or services are maintainable, and if not, what do you think they’re suffering from (component coupling, component cohesion, cyclomatic complexity, or component size)?
+- Do you think your team’s components or services are maintainable, and if not, what do you think they’re suffering from (component coupling, component cohesion, cyclomatic complexity, or component size)?
     
     -   _Definitions for quick reference:_
         
@@ -132,6 +128,6 @@ TODO
 
 TODO
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTEyNDU3MzU4NjAsNTYzNTM5OTQ2LC04MD
-U2MDE4N119
+eyJoaXN0b3J5IjpbMjAwODU3Njg3Nyw1NjM1Mzk5NDYsLTgwNT
+YwMTg3XX0=
 -->
