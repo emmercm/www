@@ -1,6 +1,6 @@
 ---
 
-title: Page or Delete Your Monitor
+title: Page, or Delete Your Monitor
 draft: true
 
 ---
@@ -11,5 +11,5 @@ draft: true
 	- Though incidents can help give you the air cover and support you need
 - Also make sure you're monitoring symptoms, not causes
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTg3Njc1MjY1MCwtNDI1MDE2ODk2XX0=
+eyJoaXN0b3J5IjpbLTE2NTU2MTE0LC00MjUwMTY4OTZdfQ==
 -->
