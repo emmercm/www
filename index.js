@@ -1033,8 +1033,6 @@ tracer(Metalsmith(path.resolve()))
     // Ensure no broken links
     .use(msIf(prodBuild, linkChecker({
         ignore: [
-            // Gone for good
-            '18f.gsa.gov',
             // Anti-bot 403
             'discogs.com',
             'hackernoon.com',
@@ -1055,6 +1053,8 @@ tracer(Metalsmith(path.resolve()))
             'tldp.org',
             // Anti-bot timeouts
             'usnews.com',
+            // Temporary?
+            'jamstack.wtf',
         ]
     })))
 
