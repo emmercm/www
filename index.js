@@ -1033,8 +1033,8 @@ tracer(Metalsmith(path.resolve()))
     // Ensure no broken links
     .use(msIf(prodBuild, linkChecker({
         ignore: [
-            // Vercel payment failure 402
-            'brunoscheufler.com',
+            // Gone for good
+            '18f.gsa.gov',
             // Anti-bot 403
             'discogs.com',
             'hackernoon.com',
