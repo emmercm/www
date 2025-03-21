@@ -1040,6 +1040,7 @@ tracer(Metalsmith(path.resolve()))
             'pixabay.com',
             'mysql.com',
             'qbittorrent.org',
+            'mitpress.mit.edu',
             // Anti-bot 404
             'fonts.gstatic.com$',
             'support.google.com',
