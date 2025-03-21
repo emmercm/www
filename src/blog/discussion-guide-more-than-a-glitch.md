@@ -26,7 +26,7 @@ Ground rules:
 - **Respect non-attendees** - try to share only your personal experience rather than speak authoritatively for a group of people, and keep the confidentiality of others when sharing experiences.
 - **Respect yourself** - give yourself grace for not feeling as educated as others, and acknowledge that you have biases even if you might not recognize them.
 - **Lead with good faith** - assume all attendees are present for good reasons who want to add to the conversation or learn from it. Recognize that people have different levels of education on different topics, and ask questions to clarify statements that don't seem constructive.
-- **It is ok to disagree respectfully** - people's experiences are different, people's education level on these topics is different (and the quality of material that exists online is varying)—ask questions to seek to understand, and never attack the speaker.
+- **It is ok to disagree respectfully** - people's experiences are different, and people's education level on these topics is different (and the quality of material that exists online is varying)—ask questions to seek to understand, and never attack the speaker.
 - **Keep discussions confidential** - what is said in the discussion should remain in the discussion, attendees are putting themselves in a vulnerable place, and we must respect that. Coworkers' experiences are for them to share and not you.
   - But do recognize that vulnerable conversations amongst coworkers are inherently less safe than conversations outside the workplace, you may often work with other attendees, and it is important to not destroy working relationships.
 
@@ -60,7 +60,7 @@ Ground rules:
 
 ## Chapter 6
 
-- Do you think your company is investing enough in making their products accessible?
+- Do you think your company is investing enough in making its products accessible?
 - The book gives multiple examples of companies taken to court over their products being inaccessible. Do you know of companies that are getting it right, are ahead of the curve, or advocate for accessibility outside their workplace and products?
 - Universities have started adding ethics courses to their computer science curriculums. The author would likely argue that one course is not enough. What other human-centric courses do you think should be required for computer science students?
 
@@ -81,7 +81,7 @@ Ground rules:
 
 ## Chapter 10
 
-- As a technologist, would you consider working for the [US Digital Service (USDS)](https://www.usds.gov/) or [18F](https://18f.gsa.gov/ "https://18f.gsa.gov/")? Why or why not?
+- As a technologist, would you consider working for the [US Digital Service (USDS)](https://www.usds.gov/) or [18F](https://en.wikipedia.org/wiki/18F)? Why or why not?
 - The author touches on the idea of emotional attachment to one's code and the difficulty in throwing it out. What is your team or organization's history with cutting losses on code that doesn't solve its intended goal, or is even counterproductive?
 - Is algorithmic auditing applicable to your organization? Do you know if your organization already pays for or participates in this type of auditing? Where do you think your organization could invest in further technical auditing?
 - One theme with algorithmic auditing is organizations' unwillingness to fund it at the same time as net-new development. How does your organization approach funding these initiatives that aren't revenue-generating?

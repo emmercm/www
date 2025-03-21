@@ -1033,8 +1033,6 @@ tracer(Metalsmith(path.resolve()))
     // Ensure no broken links
     .use(msIf(prodBuild, linkChecker({
         ignore: [
-            // Vercel payment failure 402
-            'brunoscheufler.com',
             // Anti-bot 403
             'discogs.com',
             'hackernoon.com',
@@ -1042,6 +1040,7 @@ tracer(Metalsmith(path.resolve()))
             'pixabay.com',
             'mysql.com',
             'qbittorrent.org',
+            'mitpress.mit.edu',
             // Anti-bot 404
             'fonts.gstatic.com$',
             'support.google.com',
@@ -1055,6 +1054,8 @@ tracer(Metalsmith(path.resolve()))
             'tldp.org',
             // Anti-bot timeouts
             'usnews.com',
+            // Temporary?
+            'jamstack.wtf',
         ]
     })))
 
