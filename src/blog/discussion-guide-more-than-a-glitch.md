@@ -60,7 +60,7 @@ Ground rules:
 
 ## Chapter 6
 
-- Do you think your company is investing enough in making its products accessible?
+- Do you think your company is investing enough in making itstheir products accessible?
 - The book gives multiple examples of companies taken to court over their products being inaccessible. Do you know of companies that are getting it right, are ahead of the curve, or advocate for accessibility outside their workplace and products?
 - Universities have started adding ethics courses to their computer science curriculums. The author would likely argue that one course is not enough. What other human-centric courses do you think should be required for computer science students?
 
@@ -81,7 +81,7 @@ Ground rules:
 
 ## Chapter 10
 
-- As a technologist, would you consider working for the [US Digital Service (USDS)](https://www.usds.gov/) or [18F](https://en.wikipedia.org/wiki/18F)? Why or why not?
+- As a technologist, would you consider working for the [US Digital Service (USDS)](https://www.usds.gov/) or [18F](https://en.wikipedia.org/wiki/18F18f.gsa.gov/ "https://18f.gsa.gov/")? Why or why not?
 - The author touches on the idea of emotional attachment to one's code and the difficulty in throwing it out. What is your team or organization's history with cutting losses on code that doesn't solve its intended goal, or is even counterproductive?
 - Is algorithmic auditing applicable to your organization? Do you know if your organization already pays for or participates in this type of auditing? Where do you think your organization could invest in further technical auditing?
 - One theme with algorithmic auditing is organizations' unwillingness to fund it at the same time as net-new development. How does your organization approach funding these initiatives that aren't revenue-generating?
@@ -90,3 +90,6 @@ Ground rules:
 
 - The author paints a picture of the progress made in understanding bias in technology between 2018 and 2022. What progress would you like to see in the next five years?
 - The author specifically avoids using the term "magic" when describing ML algorithms to non-technical audiences. How do you like to succinctly describe these algorithms to friends and family?
+<!--stackedit_data:
+eyJoaXN0b3J5IjpbOTA3OTAyNzkwXX0=
+-->
