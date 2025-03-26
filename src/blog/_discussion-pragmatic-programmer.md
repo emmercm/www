@@ -12,8 +12,8 @@ tags:
 ## Chapter 1  
   
 - (Topic 3: Software Entropy) How does your team handle "broken windows"? Is time reserved to fix them, or are they at least boarded over? Does your team generally understand the point at which a window gets broken?  
-- (Topic 5: Good-Enough Software) How does your organization do with Attentive has a goal of generally shorter iteration cycles so feedback can be gathered and incorporated quickly. How is your team adhering to this in 2025?  
-- (Topic 6: Your Knowledge Portfolio) Besides the engineering book club, how are you investing in your programming "knowledge portfolio?" Do you have recent newsletters or books you'd recommend to others?  
+- (Topic 5: Good-Enough Software) How does your organization do with keeping short iteration cycles? Is feedback incorporated early and often?
+- (Topic 6: Your Knowledge Portfolio) Besides reading t, how are you investing in your programming "knowledge portfolio?" Do you have recent newsletters or books you'd recommend to others?  
 - (Topic 7: Communicate!) Have you struggled to gain traction on a proposal recently, with your teammates or stakeholders? Did you find any advice from this topic actionable for this or other proposals you struggled with?  
   
 ## Chapter 2  
@@ -80,5 +80,5 @@ tags:
 - (Topic 49: Pragmatic Teams) What team norms do you currently have that are generally well received and you find effective? Any new norms you wish your team would adopt?  
 - (Topic 50: Coconuts Don't Cut It) What do you think your current team, organization, or company is cargo culting from other companies? Is it working for you?
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbNzE5ODI0OTY3LC0zMzc2MjgyMzNdfQ==
+eyJoaXN0b3J5IjpbMTYwMzU1NDUxMiwtMzM3NjI4MjMzXX0=
 -->
