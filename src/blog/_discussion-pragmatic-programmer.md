@@ -13,12 +13,12 @@ tags:
   
 - (Topic 3: Software Entropy) How does your team handle "broken windows"? Is time reserved to fix them, or are they at least boarded over? Does your team generally understand the point at which a window gets broken?  
 - (Topic 5: Good-Enough Software) How does your organization do with keeping short iteration cycles? Is feedback incorporated early and often?
-- (Topic 6: Your Knowledge Portfolio) Besides reading t, how are you investing in your programming "knowledge portfolio?" Do you have recent newsletters or books you'd recommend to others?  
+- (Topic 6: Your Knowledge Portfolio) Besides reading this book, how are you investing in your programming "knowledge portfolio?" Do you have recent newsletters or books you'd recommend to others?  
 - (Topic 7: Communicate!) Have you struggled to gain traction on a proposal recently, with your teammates or stakeholders? Did you find any advice from this topic actionable for this or other proposals you struggled with?  
   
 ## Chapter 2  
   
-- (Topic 8: The Essence of Good Design) Does Attentive have any pervasive patterns that name code difficult to change?  
+- (Topic 8: The Essence of Good Design) Does your organization have any pervasive patterns that make code difficult to change?  
 - (Topic 10: Orthogonality) Can you think of a unit test suite that takes significant work to set up? How would you describe the orthogonality of its unit under test?  
 - (Topic 11: Reversibility) Have you tried to abstract the usage of some technology, or make the choice of it more reversible and found it was difficult to do so? Do you think it was a design flaw in the technology itself?  
 - (Topic 12: Tracer Bullets) How are you currently using tracer bullets (or "vertical slices") in your projects? Are you finding iterating during implementation more effective than additional up-front design? How have they affected progress tracking and timeline adjustments?  
@@ -27,7 +27,7 @@ tags:
   
 ## Chapter 3  
   
-- (Topic 16: The Power of Plain Text) What would the authors think about common binary serialization formats such as Protocol Buffers and Avro?  
+- (Topic 16: The Power of Plain Text) What would the authors think about common binary serialization formats such as [Protocol Buffers](https://protobuf.dev/) and ApAvro?  
 - (Topic 18: Power Editing) What is your favorite IntelliJ shortcut, feature, or other life hack that has improved your development workflow?  
 - (Topic 19: Version Control) After book club, share your dotfiles repository in Slack if you have one!  
 - (Topic 19: Version Control) Have you ever worked at a place that didn't use version control, or had poor hygiene around it? What do you think about it in hindsight?  
@@ -80,5 +80,5 @@ tags:
 - (Topic 49: Pragmatic Teams) What team norms do you currently have that are generally well received and you find effective? Any new norms you wish your team would adopt?  
 - (Topic 50: Coconuts Don't Cut It) What do you think your current team, organization, or company is cargo culting from other companies? Is it working for you?
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTYwMzU1NDUxMiwtMzM3NjI4MjMzXX0=
+eyJoaXN0b3J5IjpbMjA1OTQ1NDQwLC0zMzc2MjgyMzNdfQ==
 -->
