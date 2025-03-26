@@ -46,8 +46,7 @@ tags:
 - (Topic 28: Decoupling) How often do you make a change and encounter seemingly unrelated unit tests start failing? Is this a problem with just a few packages/namespaces or services, or many of them? How would you start to address this?  
 - (Topic 29: Juggling the Real World) Where could your team benefit from using finite state machines or pub/sub processing?  
 - (Topic 29: Juggling the Real World) Which of the responsive patterns do you think make sense to use across domain boundaries, and which do you think don't: finite state machines, the observer/callback pattern, pub/sub, and reactive programming with streams?  
-- (Topic 32: Configuration) What do you think of all the ways we have at Attentive to externalize configuration (AWS SSM parameter store, AWS secrets manager, Spring properties files, etc.)?  
-- - (Topic 32: Configuration) Does your team make use of any configuration APIs with a polling mechanism?  
+- (Topic 32: Configuration) Does your organization have one common way to configure your services, or are there multiple different options? If there are multiple different options, what is your opinion of th
   
 ## Chapter 6  
   
@@ -77,5 +76,5 @@ tags:
 - (Topic 49: Pragmatic Teams) What team norms do you currently have that are generally well received and you find effective? Any new norms you wish your team would adopt?  
 - (Topic 50: Coconuts Don't Cut It) What do you think your current team, organization, or company is cargo culting from other companies? Is it working for you?
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbOTA3MjExODc5LC0zMzc2MjgyMzNdfQ==
+eyJoaXN0b3J5IjpbMTA2Mjc5MzcyMiwtMzM3NjI4MjMzXX0=
 -->
