@@ -46,12 +46,12 @@ tags:
 - (Topic 28: Decoupling) How often do you make a change and encounter seemingly unrelated unit tests start failing? Is this a problem with just a few packages/namespaces or services, or many of them? How would you start to address this?  
 - (Topic 29: Juggling the Real World) Where could your team benefit from using finite state machines or pub/sub processing?  
 - (Topic 29: Juggling the Real World) Which of the responsive patterns do you think make sense to use across domain boundaries, and which do you think don't: finite state machines, the observer/callback pattern, pub/sub, and reactive programming with streams?  
-- (Topic 32: Configuration) Does your organization have one common way to configure your services, or are there multiple different options? If there are multiple different options, what is your opinion of th
+- (Topic 32: Configuration) Does your organization have one common way to configure your services, or are there multiple different options? If there are multiple different options, what is your opinion of them?
   
 ## Chapter 6  
   
 - (Topic 34: Shared State Is Incorrect State) Have you had to deal with or debug concurrency issues within a service? Between replicas of the same service? Between different services entirely?  
-- (Topic 35: Actors and Processes) Do you think Attentive would benefit from applying the actor pattern to companies, subscribers, messages, or other entities?  
+- (Topic 35: Actors and Processes) Where do you think your organization could apply the actor pattern?  
   
 ## Chapter 7  
   
@@ -60,7 +60,7 @@ tags:
 - (Topic 39: Algorithm Speed) Have you ever used leetcode skills such as algorithm design and optimization in a job? What were the project(s)?  
 - (Topic 40: Refactoring) In most organizations, securing time dedicated to only refactoring or paying down tech debt is difficult. What tips and tricks do you have for working it into your daily work?  
 - (Topic 41: Test to Code) Do you regularly practice test-drive development (TDD)? Are there certain times you favor it or certain times you avoid it?  
-  - Do you agree with the authors' opinions that TDD is particularly useful for newer developers, and that TDD can cause some shortsightedness?  
+  - Do you agree with the authors' opinions that TDD is particularly useful for newer developers, but that TDD can cause some shortsightedness?  
 - (Topic 42: Property-Based Testing) A lot of people would argue that automated tests should be deterministic and not use randomized values. How do you feel about the example usage of [Hypothesis](https://hypothesis.readthedocs.io/en/latest/), even when used with other, static tests?  
 - (Topic 44: Naming Things) What is your opinion on the tradition of "obscure, 'clever' names" for microservices?  
   
@@ -76,5 +76,5 @@ tags:
 - (Topic 49: Pragmatic Teams) What team norms do you currently have that are generally well received and you find effective? Any new norms you wish your team would adopt?  
 - (Topic 50: Coconuts Don't Cut It) What do you think your current team, organization, or company is cargo culting from other companies? Is it working for you?
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTA2Mjc5MzcyMiwtMzM3NjI4MjMzXX0=
+eyJoaXN0b3J5IjpbNjAzMTIxMjcwLC0zMzc2MjgyMzNdfQ==
 -->
