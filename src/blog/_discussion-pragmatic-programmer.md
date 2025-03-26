@@ -12,7 +12,7 @@ tags:
 ## Chapter 1  
   
 - (Topic 3: Software Entropy) How does your team handle "broken windows"? Is time reserved to fix them, or are they at least boarded over? Does your team generally understand the point at which a window gets broken?  
-- (Topic 5: Good-Enough Software) How does your organization do with keeping short iteration cycles? Is feedback incorporated early and often?
+- (Topic 5: Good-Enough Software) How does your organization do with keeping short iteration cycles? Is feedback incorporated early and often?  
 - (Topic 6: Your Knowledge Portfolio) Besides reading this book, how are you investing in your programming "knowledge portfolio?" Do you have recent newsletters or books you'd recommend to others?  
 - (Topic 7: Communicate!) Have you struggled to gain traction on a proposal recently, with your teammates or stakeholders? Did you find any advice from this topic actionable for this or other proposals you struggled with?  
   
@@ -27,7 +27,7 @@ tags:
   
 ## Chapter 3  
   
-- (Topic 16: The Power of Plain Text) What would the authors think about common binary serialization formats such as [Protocol Buffers](https://protobuf.dev/) and [Apache Avro](https://avro.apache.org/)?
+- (Topic 16: The Power of Plain Text) What would the authors think about common binary serialization formats such as [Protocol Buffers](https://protobuf.dev/) and [Apache Avro](https://avro.apache.org/)?  
 - (Topic 18: Power Editing) What is your favorite IDE shortcut, feature, or other life hack that has improved your development workflow?  
 - (Topic 19: Version Control) Share your dotfiles repository with the group if you have one!  
 - (Topic 19: Version Control) Have you ever worked at a place that didn't use version control, or had poor hygiene around it? What do you think about it in hindsight?  
@@ -38,9 +38,8 @@ tags:
 ## Chapter 4  
   
 - (Topic 23: Design by Contract) Have you ever worked with a code generation tool that lets you [design by contract](https://en.wikipedia.org/wiki/Design_by_contract)? Did you use it, and how effective was it?  
-- (Topic 23: Design by Contract) Not really for discussion, but curious if any could figure out why Exercise 15 (p.112) was included in this topic. Maybe just an editing mistake?  
 - (Topic 24: Dead Programs Tell No Lies) In a web API world where exceptions can propagate to other services, how do you feel about the "crash early" tip? Where _should_ exceptions be handled?  
-- (Topic 25: Assertive Programming) Has your team adopted Nullaway and Error Prone broadly? Have you addressed Error Prone warnings? Have you turned any of those warnings into errors?  
+- (Topic 25: Assertive Programming) Does your organization use linters or pre-compiler steps to help avoidHas your team adopted Nullaway and Error Prone broadly? Have you addressed Error Prone warnings? Have you turned any of those warnings into errors?  
   
 ## Chapter 5  
   
@@ -80,5 +79,5 @@ tags:
 - (Topic 49: Pragmatic Teams) What team norms do you currently have that are generally well received and you find effective? Any new norms you wish your team would adopt?  
 - (Topic 50: Coconuts Don't Cut It) What do you think your current team, organization, or company is cargo culting from other companies? Is it working for you?
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbOTUxNjQ3NDUzLC0zMzc2MjgyMzNdfQ==
+eyJoaXN0b3J5IjpbMzU0MDA0MjUsLTMzNzYyODIzM119
 -->
