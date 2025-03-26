@@ -7,7 +7,13 @@ tags:
 - books  
 - career  
   
----  
+---
+
+A guide with discussion prompts for Tanya Reilly's [The Staff Engineer's Path](https://noidea.dog/staff).
+
+[The Staff Engineer's Path](https://noidea.dog/staff) (2022) is one of the few books that talk about what it's like to continue growing on an individual contributor path rather than a people management path. Will Larson's [Staff Engineer](https://staffeng.com/book) is one of the others, and both have been published only in the last two years. Both books have been some of the most important ones that I've read in 2023.
+
+I run the engineering book club at my current company, [Attentive](https://www.attentive.com/). For the pace of our book club, we committed to reading 2 chapters every 2 weeks. I personally appreciate having multiple discussions over time, I find I better retain content that way. These are the exact discussion prompts I used over the few months of reading the book, so they're colored by my personal experience and the current culture at Attentive. All prompts are wholly my own and are free to use by all.
   
 ## Chapter 1  
   
@@ -76,5 +82,5 @@ tags:
 - (Topic 49: Pragmatic Teams) What team norms do you currently have that are generally well received and you find effective? Any new norms you wish your team would adopt?  
 - (Topic 50: Coconuts Don't Cut It) What do you think your current team, organization, or company is cargo culting from other companies? Is it working for you?
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbNjAzMTIxMjcwLC0zMzc2MjgyMzNdfQ==
+eyJoaXN0b3J5IjpbLTIxNjE4MjA0NSwtMzM3NjI4MjMzXX0=
 -->
