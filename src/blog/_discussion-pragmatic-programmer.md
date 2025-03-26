@@ -39,15 +39,13 @@ tags:
   
 - (Topic 23: Design by Contract) Have you ever worked with a code generation tool that lets you [design by contract](https://en.wikipedia.org/wiki/Design_by_contract)? Did you use it, and how effective was it?  
 - (Topic 24: Dead Programs Tell No Lies) In a web API world where exceptions can propagate to other services, how do you feel about the "crash early" tip? Where _should_ exceptions be handled?  
-- (Topic 25: Assertive Programming) Does your organization use linters or pre-compiler steps to help avoidHas your team adopted Nullaway and Error Prone broadly? Have you addressed Error Prone warnings? Have you turned any of those warnings into errors?  
+- (Topic 25: Assertive Programming) Does your organization use linters or pre-compiler steps to help avoid language shortcomings? Do you report issues as errors or just warnings?
   
 ## Chapter 5  
   
-- (Topic 28: Decoupling) How often do you make a change and encounter seemingly unrelated unit tests start failing? Is this a problem with just a few packages or services, or many of them? How would you start to address this?  
+- (Topic 28: Decoupling) How often do you make a change and encounter seemingly unrelated unit tests start failing? Is this a problem with just a few packages/namespaces or services, or many of them? How would you start to address this?  
 - (Topic 29: Juggling the Real World) Where could your team benefit from using finite state machines or pub/sub processing?  
 - (Topic 29: Juggling the Real World) Which of the responsive patterns do you think make sense to use across domain boundaries, and which do you think don't: finite state machines, the observer/callback pattern, pub/sub, and reactive programming with streams?  
-- (Topic 30: Transforming Programming) Does your team use the `Either<Problem, T>` pattern to optionally return errors from methods? How do you like it?  
-- (Topic 31: Inheritance Tax) How would you achieve mixin/trait behavior in Java? Does your team use a pattern like this?  
 - (Topic 32: Configuration) What do you think of all the ways we have at Attentive to externalize configuration (AWS SSM parameter store, AWS secrets manager, Spring properties files, etc.)?  
 - - (Topic 32: Configuration) Does your team make use of any configuration APIs with a polling mechanism?  
   
@@ -79,5 +77,5 @@ tags:
 - (Topic 49: Pragmatic Teams) What team norms do you currently have that are generally well received and you find effective? Any new norms you wish your team would adopt?  
 - (Topic 50: Coconuts Don't Cut It) What do you think your current team, organization, or company is cargo culting from other companies? Is it working for you?
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMzU0MDA0MjUsLTMzNzYyODIzM119
+eyJoaXN0b3J5IjpbOTA3MjExODc5LC0zMzc2MjgyMzNdfQ==
 -->
