@@ -27,9 +27,9 @@ tags:
   
 ## Chapter 3  
   
-- (Topic 16: The Power of Plain Text) What would the authors think about common binary serialization formats such as [Protocol Buffers](https://protobuf.dev/) and ApAvro?  
-- (Topic 18: Power Editing) What is your favorite IntelliJ shortcut, feature, or other life hack that has improved your development workflow?  
-- (Topic 19: Version Control) After book club, share your dotfiles repository in Slack if you have one!  
+- (Topic 16: The Power of Plain Text) What would the authors think about common binary serialization formats such as [Protocol Buffers](https://protobuf.dev/) and [Apache Avro](https://avro.apache.org/)?
+- (Topic 18: Power Editing) What is your favorite IDE shortcut, feature, or other life hack that has improved your development workflow?  
+- (Topic 19: Version Control) Share your dotfiles repository with the group if you have one!  
 - (Topic 19: Version Control) Have you ever worked at a place that didn't use version control, or had poor hygiene around it? What do you think about it in hindsight?  
 - (Topic 20: Debugging) Do you have any stories about a bug that was particularly difficult to track down and reproduce? How did you reproduce it, fix it, and then make sure it never happened again?  
 - (Topic 22: Engineering Daybooks) Do you keep something similar to an engineering daybook, physical or otherwise? What medium is it in, and do you use any digital technology for it? In what situations have you found its history of information useful?  
@@ -80,5 +80,5 @@ tags:
 - (Topic 49: Pragmatic Teams) What team norms do you currently have that are generally well received and you find effective? Any new norms you wish your team would adopt?  
 - (Topic 50: Coconuts Don't Cut It) What do you think your current team, organization, or company is cargo culting from other companies? Is it working for you?
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMjA1OTQ1NDQwLC0zMzc2MjgyMzNdfQ==
+eyJoaXN0b3J5IjpbOTUxNjQ3NDUzLC0zMzc2MjgyMzNdfQ==
 -->
