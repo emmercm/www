@@ -281,7 +281,7 @@ await cache.metalsmith(tracer(Metalsmith(path.resolve())))
  *                    *
  **********************/
 
-await tracer(Metalsmith(path.resolve()))
+tracer(Metalsmith(path.resolve()))
     // Files from cached builds above
     .use(remove([
         'static/css/**',
@@ -1137,4 +1137,8 @@ await tracer(Metalsmith(path.resolve()))
     .clean(true)
 
     // Build
-    .build();
+    .build((err) => {
+        if (err) {
+            throw err;
+        }
+    });
