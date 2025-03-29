@@ -868,19 +868,19 @@ await tracer(Metalsmith(path.resolve()))
      *                                       *
      *****************************************/
 
-    // Concatenate all un-minified JS (non-vendor first so they appear last)
+    // Concatenate all JS (non-vendor first so they appear last)
     .use(concat({
-        files: '**/!(vendor)*/!(*.min).js',
+        files: '**/!(vendor)*/*.js',
         output: 'static/js/non-vendor.js'
     }))
     .use(concat({
-        files: '**/!(*.min).js',
+        files: '**/*.js',
         output: 'static/js/scripts.js'
     }))
 
-    // Concatenate all un-minified CSS
+    // Concatenate all CSS
     .use(concat({
-        files: '**/!(*.min).css',
+        files: '**/*.css',
         output: 'static/css/styles.css'
     }))
 
