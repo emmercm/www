@@ -107,7 +107,7 @@ const siteName        = 'Christian Emmer';
 const siteURL         = process.env.NETLIFY && process.env.CONTEXT !== 'production' ? process.env.DEPLOY_PRIME_URL : (process.env.URL || 'https://emmer.dev');
 const siteEmail       = 'emmercm@gmail.com';
 const siteDescription = 'Software engineer with ' + Math.floor(DateTime.local().diff(DateTime.fromISO('2012-01-16'), 'years').years) + '+ years of experience developing full-stack solutions in JavaScript, PHP, Go, Java, and Python.';
-const siteLogo        = '**/prologo1/logo3_Gray_Lighter.svg';
+const siteLogo        = 'src/**/prologo1/logo3_Gray_Lighter.svg';
 const twitterHandle   = 'emmercm';
 const githubHandle    = 'emmercm';
 
@@ -214,16 +214,29 @@ markdownRenderer.code = (_code, infostring, escaped) => {
     return `<pre class="hljs" data-lang="${escapedLang}"><code class="language-${escapedLang}">${escaped ? _code : escape(_code, true)}</code></pre>\n`;
 };
 
-/*********************
- *                   *
- *     BUILD CSS     *
- *                   *
- *********************/
+/**************************
+ *                        *
+ *     PROCESS IMAGES     *
+ *                        *
+ **************************/
 
-await cache.metalsmith(tracer(Metalsmith(path.resolve())))
+const files = await cache.metalsmith(tracer(Metalsmith(path.resolve())))
     .source(path.join('src', 'static', 'img', 'blog'))
     .destination('build-img-blog')
     .clean(true)
+
+    // Create static/img/blog/default.*
+    .use(include({
+        directories: {
+            '': siteLogo
+        }
+    }))
+    .use(renamer({
+        siteLogo: {
+            pattern: `${siteLogo.split('/').pop()}`,
+            rename: file => `default.${file.split('.').pop()}`
+        }
+    }))
 
     // Ignore files that can't be processed
     .use(remove(['*.@(psd|xcf)']))
@@ -238,31 +251,16 @@ await cache.metalsmith(tracer(Metalsmith(path.resolve())))
     .use(blogImage('*-thumb.*', blogImageThumbSizes[0][0]*2, blogImageThumbSizes[0][1]*2, prodBuild))
     .build();
 
-/**************************
- *                        *
- *     PROCESS IMAGES     *
- *                        *
- **************************/
+/*********************
+ *                   *
+ *     BUILD CSS     *
+ *                   *
+ *********************/
 
 await cache.metalsmith(tracer(Metalsmith(path.resolve())))
     .source(path.join('src', 'static', 'css'))
     .destination('build-css')
     .clean(true)
-
-    // Create static/img/blog/default.*
-    .use(include({
-        directories: {
-            'static/img/blog': [
-                siteLogo
-            ]
-        }
-    }))
-    .use(renamer({
-        siteLogo: {
-            pattern: `static/img/blog/${siteLogo.split('/').pop()}`,
-            rename: file => `default.${file.split('.').pop()}`
-        }
-    }))
 
     // Compile Sass files
     .use(sass({
@@ -291,8 +289,8 @@ await tracer(Metalsmith(path.resolve()))
     ]))
     .use(include({
         directories: {
-            'static/css': ['build-css/**'],
-            'static/img/blog': ['build-img-blog/**']
+            'static/css': 'build-css/**',
+            'static/img/blog': 'build-img-blog/**'
         }
     }))
 
@@ -1117,7 +1115,7 @@ await tracer(Metalsmith(path.resolve()))
     // Include raw Google ownership verification file
     .use(include({
         directories: {
-            '': ['./src/google*.html']
+            '': './src/google*.html'
         }
     }))
 
