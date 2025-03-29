@@ -1116,7 +1116,9 @@ await tracer(Metalsmith(path.resolve()))
 
     // Include raw Google ownership verification file
     .use(include({
-        '': ['./src/google*.html']
+        directories: {
+            '': ['./src/google*.html']
+        }
     }))
 
     // Generate robots.txt
