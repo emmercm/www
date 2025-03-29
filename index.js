@@ -1,8 +1,10 @@
 'use strict';
 
-import path from 'path';
+import path from 'node:path';
+import url from "node:url";
 
 import Metalsmith from 'metalsmith';
+import cache      from 'metalsmith-build-cache';
 import tracer     from 'metalsmith-tracer';
 import msIf       from 'metalsmith-if';
 
@@ -212,7 +214,86 @@ markdownRenderer.code = (_code, infostring, escaped) => {
     return `<pre class="hljs" data-lang="${escapedLang}"><code class="language-${escapedLang}">${escaped ? _code : escape(_code, true)}</code></pre>\n`;
 };
 
+/**************************
+ *                        *
+ *     PROCESS IMAGES     *
+ *                        *
+ **************************/
+
+const files = await cache.metalsmith(tracer(Metalsmith(path.resolve())))
+    .source(path.join('src', 'static', 'img', 'blog'))
+    .destination('build-img-blog')
+    .clean(true)
+
+    // Create static/img/blog/default.*
+    .use(include({
+        directories: {
+            '': path.join('src', siteLogo)
+        }
+    }))
+    .use(renamer({
+        siteLogo: {
+            pattern: `${siteLogo.split('/').pop()}`,
+            rename: file => `default.${file.split('.').pop()}`
+        }
+    }))
+
+    // Ignore files that can't be processed
+    .use(remove(['*.@(psd|xcf)']))
+
+    // Process blog images
+    .use(copy({
+        pattern: '*',
+        transform: filename => filename.replace(/\.([^.]+)$/, '-thumb.$1')
+    }))
+    // TODO(cemmer): responsive image sizes
+    .use(blogImage('!(*-thumb).*', blogImageSizes[0][0]*2, blogImageSizes[0][1]*2, prodBuild))
+    .use(blogImage('*-thumb.*', blogImageThumbSizes[0][0]*2, blogImageThumbSizes[0][1]*2, prodBuild))
+    .build();
+
+/*********************
+ *                   *
+ *     BUILD CSS     *
+ *                   *
+ *********************/
+
+await cache.metalsmith(tracer(Metalsmith(path.resolve())))
+    .source(path.join('src', 'static', 'css'))
+    .destination('build-css')
+    .clean(true)
+
+    // Compile Sass files
+    .use(sass({
+        style: 'expanded'
+    }))
+
+    // Run autoprefixer on CSS files
+    .use(postcss({
+        plugins: {
+            'autoprefixer': {}
+        }
+    }))
+    .build();
+
+/**********************
+ *                    *
+ *     MAIN BUILD     *
+ *                    *
+ **********************/
+
 tracer(Metalsmith(path.resolve()))
+    // Files from cached builds above
+    .use(remove([
+        'static/css/**',
+        'static/img/blog/**',
+    ]))
+    .use(include({
+        directories: {
+            'static/css': 'build-css/**',
+            'static/img/blog': 'build-img-blog/**'
+        }
+    }))
+
     /***********************
      *                     *
      *     SETUP INPUT     *
@@ -307,24 +388,6 @@ tracer(Metalsmith(path.resolve()))
         removeSource: true
     }))
 
-    /*********************
-     *                   *
-     *     BUILD CSS     *
-     *                   *
-     *********************/
-
-    // Compile Sass files
-    .use(sass({
-        style: 'expanded'
-    }))
-
-    // Run autoprefixer on CSS files
-    .use(postcss({
-        plugins: {
-            'autoprefixer': {}
-        }
-    }))
-
     /**************************
      *                        *
      *     PROCESS IMAGES     *
@@ -368,31 +431,6 @@ tracer(Metalsmith(path.resolve()))
             done(err);
         });
     })
-
-    // Create static/img/blog/default.*
-    .use(include({
-        'static/img/blog': [
-            siteLogo
-        ]
-    }))
-    .use(renamer({
-        siteLogo: {
-            pattern: `static/img/blog/${siteLogo.split('/').pop()}`,
-            rename: file => `default.${file.split('.').pop()}`
-        }
-    }))
-
-    // Ignore files that can't be processed
-    .use(remove(['static/img/blog/*.@(psd|xcf)']))
-
-    // Process blog images
-    .use(copy({
-        pattern: 'static/img/blog/*',
-        transform: filename => filename.replace(/\.([^.]+)$/, '-thumb.$1')
-    }))
-    // TODO(cemmer): responsive image sizes
-    .use(blogImage('static/img/blog/!(*-thumb).*', blogImageSizes[0][0]*2, blogImageSizes[0][1]*2, prodBuild))
-    .use(blogImage('static/img/blog/*-thumb.*', blogImageThumbSizes[0][0]*2, blogImageThumbSizes[0][1]*2, prodBuild))
 
     /***********************
      *                     *
@@ -517,10 +555,18 @@ tracer(Metalsmith(path.resolve()))
             // metalsmith-feed
             collection: 'blog',
             destination: 'blog/rss.xml',
-            // rss
+            // https://www.npmjs.com/package/rss#itemoptions
+            preprocess: (file) => ({
+                ...file,
+                url: url.resolve(siteURL, file.permalink),
+                categories: file.tags,
+                author: undefined, // undocumented & unneeded, will default to `author` below
+            }),
+            // https://www.npmjs.com/package/rss#feedoptions
             title: siteName,
             description: siteDescription,
-            site_url: siteURL
+            author: siteName,
+            site_url: siteURL,
         }))
         // Estimate pages' reading times
         .use(readingTime())
@@ -804,6 +850,7 @@ tracer(Metalsmith(path.resolve()))
                 './node_modules/jquery/dist/jquery.slim.js',
                 // TODO(cemmer): only grab the needed module files (requires a bundler?)
                 './node_modules/bootstrap/dist/js/bootstrap.js',
+                // TODO(cemmer): this JS replaces tags with SVGs inline, maybe run it through Puppeteer as a build step?
                 './node_modules/@fortawesome/fontawesome-pro/js/fontawesome.js',
                 './node_modules/@fortawesome/fontawesome-pro/js/brands.js',
                 './node_modules/@fortawesome/fontawesome-pro/js/light.js',
@@ -819,19 +866,19 @@ tracer(Metalsmith(path.resolve()))
      *                                       *
      *****************************************/
 
-    // Concatenate all un-minified JS (non-vendor first so they appear last)
+    // Concatenate all JS (non-vendor first so they appear last)
     .use(concat({
-        files: '**/!(vendor)*/!(*.min).js',
+        files: '**/!(vendor)*/*.js',
         output: 'static/js/non-vendor.js'
     }))
     .use(concat({
-        files: '**/!(*.min).js',
+        files: '**/*.js',
         output: 'static/js/scripts.js'
     }))
 
-    // Concatenate all un-minified CSS
+    // Concatenate all CSS
     .use(concat({
-        files: '**/!(*.min).css',
+        files: '**/*.css',
         output: 'static/css/styles.css'
     }))
 
@@ -1067,7 +1114,9 @@ tracer(Metalsmith(path.resolve()))
 
     // Include raw Google ownership verification file
     .use(include({
-        '': ['./src/google*.html']
+        directories: {
+            '': './src/google*.html'
+        }
     }))
 
     // Generate robots.txt
