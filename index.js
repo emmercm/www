@@ -1139,8 +1139,4 @@ await tracer(Metalsmith(path.resolve()))
     .clean(true)
 
     // Build
-    .build((err) => {
-        if (err) {
-            throw err;
-        }
-    });
+    .build();
