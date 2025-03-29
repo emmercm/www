@@ -557,10 +557,18 @@ await tracer(Metalsmith(path.resolve()))
             // metalsmith-feed
             collection: 'blog',
             destination: 'blog/rss.xml',
-            // rss
+            // https://www.npmjs.com/package/rss#itemoptions
+            preprocess: (file) => ({
+                ...file,
+                url: url.resolve(siteURL, file.permalink),
+                categories: file.tags,
+                author: undefined, // undocumented & unneeded, will default to `author` below
+            }),
+            // https://www.npmjs.com/package/rss#feedoptions
             title: siteName,
             description: siteDescription,
-            site_url: siteURL
+            author: siteName,
+            site_url: siteURL,
         }))
         // Estimate pages' reading times
         .use(readingTime())
