@@ -90,6 +90,7 @@ typings/
 
 # Metalsmith
 build/
+build-*/
 .links_checked.json
 links_failed.json
 .format_checked.json
