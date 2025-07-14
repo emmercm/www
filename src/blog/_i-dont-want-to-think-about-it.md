@@ -11,7 +11,9 @@ tags:
 ---
 
 - rnd-subscriber-pruning-service's use of Spring cron, preventing safe restarts for a week
-- batch-subscriber-processor's
+- batch-subscriber-processor's lack of CD tests
+- subscription-api's lack of CD tests
+- litigator-service's in-memory job queue, preventing safe restarts ever, requiring callers to pause
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTE4OTA0NzQ4MzhdfQ==
+eyJoaXN0b3J5IjpbLTE1NTM3MTAwMzBdfQ==
 -->
