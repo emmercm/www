@@ -10,7 +10,8 @@ tags:
 
 ---
 
-- rnd-
+- rnd-subscriber-pruning-service's use of Spring cron, preventing safe restarts for a week
+- batch-subscriber-processor's
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTEyNTg5MDMzMDddfQ==
+eyJoaXN0b3J5IjpbLTE4OTA0NzQ4MzhdfQ==
 -->
