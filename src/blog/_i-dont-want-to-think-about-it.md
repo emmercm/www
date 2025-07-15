@@ -20,12 +20,13 @@ _I want to invest in these services just enough that I never have to think about
 
 And when I mean never think about them again, I mean they needed:
 
-- 
+- Automated alerting related to SLOs and business metrics
+- Safe deploys, such that CI/CD could automate
 
 - rnd-subscriber-pruning-service's use of Spring cron, preventing safe restarts for a week
 - batch-subscriber-processor's lack of CD tests, making the Spring Boot 3 migration dangerous
 - subscription-api's lack of CD tests, creating a business risk
 - litigator-service's in-memory job queue, preventing safe restarts ever, requiring callers to pause
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMjA1MzM1NzA1MSwxOTMzODQxNDEwXX0=
+eyJoaXN0b3J5IjpbMTQ5OTI4Njc0OSwxOTMzODQxNDEwXX0=
 -->
