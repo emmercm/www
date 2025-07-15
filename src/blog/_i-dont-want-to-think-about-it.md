@@ -12,12 +12,12 @@ tags:
 
 I spent a substantial amount of time in the first half of 2025 ensuring that I don't have to think about microservices my team owns that have a low rate of change.
 
-I joined a new team in 2025
+I joined a new team in 2025 as a few different teams and domains were shuffled. My new team inherited an entire domain that's adjacent to the domain they already owned, but didn't inherit almost any of the engineers who had expertise in the domain.
 
 - rnd-subscriber-pruning-service's use of Spring cron, preventing safe restarts for a week
 - batch-subscriber-processor's lack of CD tests, making the Spring Boot 3 migration dangerous
 - subscription-api's lack of CD tests, creating a business risk
 - litigator-service's in-memory job queue, preventing safe restarts ever, requiring callers to pause
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMjAzNTk3MjQ1NCwxOTMzODQxNDEwXX0=
+eyJoaXN0b3J5IjpbLTczOTUxODQ3LDE5MzM4NDE0MTBdfQ==
 -->
