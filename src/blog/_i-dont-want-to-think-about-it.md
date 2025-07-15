@@ -26,14 +26,15 @@ And when I mean never think about them again, I mean they needed:
 
 Because these services usually have a low rate of changes needed, I will eventually go back to not thinking of them while I'm working elsewhere in the codebases. And when that happens, I want to ensure that I truly don't have to reserve any brain space for them.
 
-## Patient 1 & 2: services that were unsafe to restart
-
-## Patient 3
+## Patients 1 & 2: services that were unsafe to restart
 
 - rnd-subscriber-pruning-service's use of Spring cron, preventing safe restarts for a week
+- litigator-service's in-memory job queue, preventing safe restarts ever, requiring callers to pause
+
+## Patients 3 & 4: services with low meaningful test coverage
+
 - batch-subscriber-processor's lack of CD tests, making the Spring Boot 3 migration dangerous
 - subscription-api's lack of CD tests, creating a business risk
-- litigator-service's in-memory job queue, preventing safe restarts ever, requiring callers to pause
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTM3NDQzNDE2NywxOTMzODQxNDEwXX0=
+eyJoaXN0b3J5IjpbLTEzNjcwNDAxODcsMTkzMzg0MTQxMF19
 -->
