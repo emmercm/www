@@ -22,12 +22,14 @@ And when I mean never think about them again, I mean they needed:
 
 - Automated alerting related to SLOs and business metrics
 - Safe deploys, such that CI/CD could take care of dependency updates
-- Meaningful 
+- Meaningful end-to-end tests that avoided mocking wherever possible
+
+Because these services have a low rate of changes needed, I will eventually go back to 
 
 - rnd-subscriber-pruning-service's use of Spring cron, preventing safe restarts for a week
 - batch-subscriber-processor's lack of CD tests, making the Spring Boot 3 migration dangerous
 - subscription-api's lack of CD tests, creating a business risk
 - litigator-service's in-memory job queue, preventing safe restarts ever, requiring callers to pause
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTg2NzYxMjk1OCwxOTMzODQxNDEwXX0=
+eyJoaXN0b3J5IjpbLTE4NzYyNDY5MDUsMTkzMzg0MTQxMF19
 -->
