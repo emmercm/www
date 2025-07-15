@@ -26,6 +26,8 @@ And when I mean never think about them again, I mean they needed:
 
 Because these services usually have a low rate of changes needed, I will eventually go back to not thinking of them while I'm working elsewhere in the codebases. And when that happens, I want to ensure that I truly don't have to reserve any brain space for them.
 
+I'm going to group the services I encountered into some general categories, and the 
+
 ## Patients 1 & 2: services that were unsafe to restart
 
 - rnd-subscriber-pruning-service's use of Spring cron, preventing safe restarts for a week
@@ -36,5 +38,5 @@ Because these services usually have a low rate of changes needed, I will eventua
 - batch-subscriber-processor's lack of CD tests, making the Spring Boot 3 migration dangerous
 - subscription-api's lack of CD tests, creating a business risk
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTEzNjcwNDAxODcsMTkzMzg0MTQxMF19
+eyJoaXN0b3J5IjpbMTY3NTQ1ODE4OCwxOTMzODQxNDEwXX0=
 -->
