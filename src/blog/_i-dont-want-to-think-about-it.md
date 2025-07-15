@@ -28,7 +28,7 @@ Because these services usually have a low rate of changes needed, I will eventua
 
 I'm going to group the services I encountered into some general categories, and while these won't be an exhaustive list of applicable scenarios, the mindset I want you to take away is:
 
-__
+_What improvements can I make now that will allow me to not ._
 
 ## Patients 1 & 2: services that were unsafe to restart
 
@@ -40,5 +40,5 @@ __
 - batch-subscriber-processor's lack of CD tests, making the Spring Boot 3 migration dangerous
 - subscription-api's lack of CD tests, creating a business risk
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTMwODA4MDM0NiwxOTMzODQxNDEwXX0=
+eyJoaXN0b3J5IjpbMjk2ODA4MDA0LDE5MzM4NDE0MTBdfQ==
 -->
