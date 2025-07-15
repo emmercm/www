@@ -24,12 +24,16 @@ And when I mean never think about them again, I mean they needed:
 - Safe deploys, such that CI/CD could take care of dependency updates
 - Meaningful end-to-end tests that avoided mocking wherever possible
 
-Because these services usually have a low rate of changes needed, I will eventually go back to not thinking of them while I'm working elsewhere in the codebases—and I want to ensure that I truly don't have reserve any brain space for them
+Because these services usually have a low rate of changes needed, I will eventually go back to not thinking of them while I'm working elsewhere in the codebases. And when that happens, I want to ensure that I truly don't have to reserve any brain space for them.
+
+## Patient 1 & 2: services that were unsafe to restart
+
+## Patient 3
 
 - rnd-subscriber-pruning-service's use of Spring cron, preventing safe restarts for a week
 - batch-subscriber-processor's lack of CD tests, making the Spring Boot 3 migration dangerous
 - subscription-api's lack of CD tests, creating a business risk
 - litigator-service's in-memory job queue, preventing safe restarts ever, requiring callers to pause
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTU0MDc5Mzc1MiwxOTMzODQxNDEwXX0=
+eyJoaXN0b3J5IjpbMTM3NDQzNDE2NywxOTMzODQxNDEwXX0=
 -->
