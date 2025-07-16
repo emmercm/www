@@ -44,7 +44,7 @@ Create the following directories and files for use in the build pipeline:
     └── index.html
 ```
 
-For now, we're pretending `google0123456789abcdef.html` is the file you downloaded from Google which is unique for every domain + user combo. Follow [Google's instructions](https://support.google.com/webmasters/answer/9008080) on how to find and download your own file.
+For now, we're pretending `google0123456789abcdef.html` is the file you downloaded from Google which is unique for every domain + user combo. Follow [Google'sthe instructions [here](https://support.google.com/webmasters/answer/9008080) on how to find and download your own file.
 
 ## Writing the source files
 
@@ -142,3 +142,6 @@ Because the verification file isn't meaningful to site viewers or non-Google cra
 If you're using [`metalsmith-sitemap`](https://www.npmjs.com/package/metalsmith-sitemap) to generate a sitemap you probably want to do it in between the [`metalsmith-ignore`](https://www.npmjs.com/package/metalsmith-ignore) and [`metalsmith-include-files`](https://www.npmjs.com/package/metalsmith-include-files) steps so the verification file doesn't get referenced in the sitemap.
 
 If you're using [`metalsmith-formatcheck`](https://www.npmjs.com/package/metalsmith-formatcheck) to lint your output HTML (see "[Linting Metalsmith Output HTML](/blog/linting-metalsmith-output-html)") you're going to want to do that before including the verification file as it isn't valid HTML.
+<!--stackedit_data:
+eyJoaXN0b3J5IjpbMTkxNjE5MDQyM119
+-->
