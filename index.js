@@ -1095,7 +1095,7 @@ tracer(Metalsmith(path.resolve()))
             // Anti-bot 429 rate limiting
             'github.com',
             'instagram.com',
-            'linkedin.com/shareArticle',
+            'linkedin.com',
             'web.archive.org',
             // Anti-bot ECONNREFUSED
             'tldp.org',
@@ -1103,6 +1103,7 @@ tracer(Metalsmith(path.resolve()))
             'usnews.com',
             // Temporary?
             'jamstack.wtf',
+            'console.cloud.google.com',
         ]
     })))
 

@@ -119,7 +119,7 @@ There are values you don't want to persist in Docker images, mainly secrets. You
 
 I ran across a use case for this trick while I was developing a Flexget [Docker image](https://github.com/emmercm/docker-flexget). Flexget is a Python project that's installed via `pip`, and I wanted the image to automatically update Flexget to the latest patch version on startup. Because I wanted to pin the major and minor version of Flexget, I needed to persist the version in the built image, and for that I needed `ENV`.
 
-The full Dockerfile can be found [here](https://github.com/emmercm/docker-flexget/blob/70e0fdcf5d296767381dd883f131f98af8eb3aa8/3.1/Dockerfile), but here's a slimmed-down, slightly modified version to demonstrate this use case:
+The full Dockerfile can be found [on GitHub](https://github.com/emmercm/docker-flexget/blob/70e0fdcf5d296767381dd883f131f98af8eb3aa8/3.1/Dockerfile), but here's a slimmed-down, slightly modified version to demonstrate this use case:
 
 ```dockerfile
 FROM python:3-alpine
