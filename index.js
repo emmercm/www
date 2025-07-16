@@ -1103,6 +1103,7 @@ tracer(Metalsmith(path.resolve()))
             'usnews.com',
             // Temporary?
             'jamstack.wtf',
+            'console.cloud.google.com',
         ]
     })))
 
