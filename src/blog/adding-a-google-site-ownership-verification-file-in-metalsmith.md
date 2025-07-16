@@ -44,7 +44,7 @@ Create the following directories and files for use in the build pipeline:
     └── index.html
 ```
 
-For now we're pretending `google0123456789abcdef.html` is the file you downloaded from Google which is unique for every domain + user combo. Follow the instructions [here](https://support.google.com/webmasters/answer/9008080) on how to find and download your own file.
+For now, we're pretending `google0123456789abcdef.html` is the file you downloaded from Google which is unique for every domain + user combo. Follow [Google's instructions](https://support.google.com/webmasters/answer/9008080) on how to find and download your own file.
 
 ## Writing the source files
 
