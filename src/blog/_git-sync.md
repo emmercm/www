@@ -7,7 +7,9 @@ tags:
 
 ---
 
+How to sync uncommitted changes between two different working trees of the same repository.
 
+I've been experimenting with a [Git sparse checkout](https://git-scm.com/docs/git-sparse-checkout)
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbNzg4NzQ1Njk1XX0=
+eyJoaXN0b3J5IjpbLTgzOTczODIyNV19
 -->
