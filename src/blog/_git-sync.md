@@ -66,6 +66,8 @@ $ git status --porcelain=v1
 ?? three
 
 $ cd ../new
+$ git status --porcelain=v1
+$ gsync
 
 
 $ rm old/one
@@ -75,6 +77,6 @@ $ touch old/four
 $ git clone https://github.com/dummy/repo.git old/
 ```
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTY1ODUxMjMwMywyMTE3OTY3MjQ5LC0xMj
+eyJoaXN0b3J5IjpbMTEyNDk5NTYyNiwyMTE3OTY3MjQ5LC0xMj
 A5MDA5OTI3XX0=
 -->
