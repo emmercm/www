@@ -45,6 +45,21 @@ Function usage looks like this:
 
 ```shell
 $ mkdir old
+$ cd old
+$ git init
+Initialized empty Git repository in ~/old/.git/
+
+$ touch one two
+$ git add .
+$ git commit -m "Added two files"
+[main (root-commit) 2f25b59] Added two files
+ 2 files changed, 0 insertions(+), 0 deletions(-)
+ create mode 100644 one
+ create mode 100644 two
+
+$ cp -r . ../new
+
+
 $ rm old/one
 $ mv old/two old/three
 $ touch old/four
@@ -52,5 +67,6 @@ $ touch old/four
 $ git clone https://github.com/dummy/repo.git old/
 ```
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMjExNzk2NzI0OSwtMTIwOTAwOTkyN119
+eyJoaXN0b3J5IjpbNzMyNzE0OTM4LDIxMTc5NjcyNDksLTEyMD
+kwMDk5MjddfQ==
 -->
