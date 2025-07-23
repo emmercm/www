@@ -21,7 +21,7 @@ gsync() {
         if [[ "${state}" == *D* ]]; then
             # Sync deletions
             echo -e "\033[91mX\033[0m ${file}"
-            rm -rf "$2/${file}"
+            rm -rf "${2:?}/${file}"
         elif [[ "${state}" == *R* ]]; then
             # Sync renames
             before="${file% -> *}"
@@ -67,7 +67,15 @@ $ git status --porcelain=v1
 
 $ cd ../new
 $ git status --porcelain=v1
-$ gsync
+$ gsync ../old .
+X one
+X two
+* three
+
+$ git status --porcelain=v1
+ D one
+ D two
+?? three
 
 
 $ rm old/one
@@ -77,6 +85,6 @@ $ touch old/four
 $ git clone https://github.com/dummy/repo.git old/
 ```
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTEyNDk5NTYyNiwyMTE3OTY3MjQ5LC0xMj
-A5MDA5OTI3XX0=
+eyJoaXN0b3J5IjpbLTE1NjY2NjQ1NzQsMjExNzk2NzI0OSwtMT
+IwOTAwOTkyN119
 -->
