@@ -58,6 +58,14 @@ $ git commit -m "Added two files"
  create mode 100644 two
 
 $ cp -r . ../new
+$ rm one
+$ mv two three
+$ git status --porcelain=v1
+ D one
+ D two
+?? three
+
+$ cd ../new
 
 
 $ rm old/one
@@ -67,6 +75,6 @@ $ touch old/four
 $ git clone https://github.com/dummy/repo.git old/
 ```
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbNzMyNzE0OTM4LDIxMTc5NjcyNDksLTEyMD
-kwMDk5MjddfQ==
+eyJoaXN0b3J5IjpbLTY1ODUxMjMwMywyMTE3OTY3MjQ5LC0xMj
+A5MDA5OTI3XX0=
 -->
