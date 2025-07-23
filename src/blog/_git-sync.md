@@ -44,9 +44,13 @@ This Bash function accounts for file deletions and renames, which most [xargs(1)
 Function usage looks like this:
 
 ```shell
+$ mkdir old
+$ rm old/one
+$ mv old/two old/three
+$ touch old/four
+
 $ git clone https://github.com/dummy/repo.git old/
-$ rm old/
 ```
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTY1OTM1NTEwNSwtMTIwOTAwOTkyN119
+eyJoaXN0b3J5IjpbMjExNzk2NzI0OSwtMTIwOTAwOTkyN119
 -->
