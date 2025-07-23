@@ -1,7 +1,7 @@
 ---
 
 title: Syncing Changes Between Git Working Trees
-draft: true
+date: 2025-07-23T23:52:00
 tags:
 - git
 - github
@@ -83,6 +83,6 @@ R  two -> three
 
 This function likely isn't safe for complicated scenarios, but it will handle a lot more situations than other solutions you'll find out there.
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTE4MzI2Mzc5OCwyMTE3OTY3MjQ5LC0xMj
-A5MDA5OTI3XX0=
+eyJoaXN0b3J5IjpbNTI0MzYwNzk4LC0xODMyNjM3OTgsMjExNz
+k2NzI0OSwtMTIwOTAwOTkyN119
 -->
