@@ -40,7 +40,13 @@ gsync() {
 ```
 
 This Bash function accounts for file deletions and renames, which most [xargs(1)](https://linux.die.net/man/1/xargs)-based solutions don't account for.
+
+Function usage looks like this:
+
+```shell
+$ git clone https://github.com/dummy/repo.git old/
+$ rm old/
+```
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTE4NTQxNTMyOTgsLTEyMDkwMDk5MjddfQ
-==
+eyJoaXN0b3J5IjpbMTY1OTM1NTEwNSwtMTIwOTAwOTkyN119
 -->
