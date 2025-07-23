@@ -16,7 +16,7 @@ I've been experimenting with using [Git sparse checkout](https://git-scm.com/doc
 # Sync changes from one working tree to another
 # @param {string} $1 The original/old git root
 # @param {string} $2 The new git root
-git_sync() {
+gsync() {
     git -C "$1" status --porcelain=v1 | while read -r state file; do
         if [[ "${state}" == *D* ]]; then
             # Sync deletions
@@ -39,6 +39,5 @@ git_sync() {
 }
 ```
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTExMjczNzM2MzAsLTEyMDkwMDk5MjddfQ
-==
+eyJoaXN0b3J5IjpbMjA2MTIxMzA0MiwtMTIwOTAwOTkyN119
 -->
