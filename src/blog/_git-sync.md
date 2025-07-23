@@ -77,17 +77,12 @@ X one
 
 $ git status --porcelain=v1
  D one
- D two
-?? three
-
-
-$ rm old/one
-$ mv old/two old/three
-$ touch old/four
-
-$ git clone https://github.com/dummy/repo.git old/
+R  two -> three
+?? four
 ```
+
+This function likely isn't safe for complicated scenarios, but it will handle a lot more situations than other solutions you'll find out there.
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMjAzMTk5NzUxNywyMTE3OTY3MjQ5LC0xMj
+eyJoaXN0b3J5IjpbLTE4MzI2Mzc5OCwyMTE3OTY3MjQ5LC0xMj
 A5MDA5OTI3XX0=
 -->
