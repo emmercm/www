@@ -39,8 +39,8 @@ gsync() {
 }
 ```
 
-This Bash function accounts for file deletions and renames, which most `xargs(1)`-based
+This Bash function accounts for file deletions and renames, which most [xargs(1)](https://linux.die.net/man/1/xargs)-based solutions don't account for.
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTE3MjIxNzI1NTAsLTEyMDkwMDk5MjddfQ
+eyJoaXN0b3J5IjpbLTE4NTQxNTMyOTgsLTEyMDkwMDk5MjddfQ
 ==
 -->
