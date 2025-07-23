@@ -59,18 +59,21 @@ $ git commit -m "Added two files"
 
 $ cp -r . ../new
 $ rm one
-$ mv two three
+$ git mv two three
+$ touch four
 $ git status --porcelain=v1
  D one
- D two
-?? three
+R  two -> three
+?? four
 
 $ cd ../new
-$ git status --porcelain=v1
+$ git status
+On branch main
+nothing to commit, working tree clean
 $ gsync ../old .
 X one
-X two
-* three
+> two -> three
+* four
 
 $ git status --porcelain=v1
  D one
@@ -85,6 +88,6 @@ $ touch old/four
 $ git clone https://github.com/dummy/repo.git old/
 ```
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTE1NjY2NjQ1NzQsMjExNzk2NzI0OSwtMT
-IwOTAwOTkyN119
+eyJoaXN0b3J5IjpbMjAzMTk5NzUxNywyMTE3OTY3MjQ5LC0xMj
+A5MDA5OTI3XX0=
 -->
