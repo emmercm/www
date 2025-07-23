@@ -10,7 +10,7 @@ tags:
 
 How to sync uncommitted changes between two different working trees of the same repository.
 
-I've been experimenting with using [Git sparse checkout](https://git-scm.com/docs/git-sparse-checkout) with a very large monorepo recently. I usually have a number of changed files that aren't ready to commit just yet in my working tree, so I wanted to create a new working tree to experiment with until I was happy first. Once I was happy, I wanted to copy all my in-flight changes over. I couldn't find a script for this, so I created one!
+I've been experimenting with using [Git sparse checkout](https://git-scm.com/docs/git-sparse-checkout) with a very large monorepo recently. I usually have a number of changed files that aren't ready to commit just yet in my working tree, so I wanted to create a new working tree to experiment with until I was happy first. Once I was happy, I wanted to copy all my in-flight changes over. I couldn't find a very complete solution for this, so I created one!
 
 ```bash
 # Sync changes from one working tree to another
@@ -38,6 +38,9 @@ gsync() {
     done
 }
 ```
+
+This Bash function accounts for file deletions and renames, which most `xargs(1)`-based
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMjA2MTIxMzA0MiwtMTIwOTAwOTkyN119
+eyJoaXN0b3J5IjpbLTE3MjIxNzI1NTAsLTEyMDkwMDk5MjddfQ
+==
 -->
