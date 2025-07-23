@@ -1,6 +1,6 @@
 ---
 
-title: Syncing Changes Between Git Working Trees
+title: Syncing Changes Between Git Clones
 date: 2025-07-23T23:52:00
 tags:
 - git
@@ -8,9 +8,7 @@ tags:
 
 ---
 
-How to sync uncommitted changes between two different working trees of the same repository.
-
-_Note: what I mean by the phrase "working tree" is a local clone of a repository, including all of its files and directories. _
+How to sync uncommitted changes between different clones of the same repository.
 
 I've been experimenting with using [Git sparse checkout](https://git-scm.com/docs/git-sparse-checkout) with a very large monorepo recently. I usually have a number of changed files that aren't ready to commit just yet in my working tree, so I wanted to create a new working tree to experiment with until I was happy first. Once I was happy, I wanted to copy all my in-flight changes over. I couldn't find a very complete solution for this, so I created one!
 
@@ -85,6 +83,6 @@ R  two -> three
 
 This function likely isn't safe for complicated scenarios, but it will handle a lot more situations than other solutions you'll find out there.
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTc1NzQ1MjA3NSwtMTgzMjYzNzk4LDIxMT
-c5NjcyNDksLTEyMDkwMDk5MjddfQ==
+eyJoaXN0b3J5IjpbLTE1MTYwODczNDQsMTc1NzQ1MjA3NSwtMT
+gzMjYzNzk4LDIxMTc5NjcyNDksLTEyMDkwMDk5MjddfQ==
 -->
