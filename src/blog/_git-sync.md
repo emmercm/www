@@ -13,7 +13,7 @@ How to sync uncommitted changes between two different working trees of the same 
 I've been experimenting with using [Git sparse checkout](https://git-scm.com/docs/git-sparse-checkout) with a very large monorepo recently. I usually have a number of changed files that aren't ready to commit just yet in my working tree, so I wanted to create a new working tree to experiment with until I was happy first. Once I was happy, I wanted to copy all my in-flight changes over. I couldn't find a script for this, so I created one!
 
 ```bash
-# Sy
+# Sync changes from
 # @param {string} $1 The original/old git root
 # @param {string} $2 The new git root
 git_sync() {
@@ -39,5 +39,5 @@ git_sync() {
 }
 ```
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTEwMjM5MjA4MDFdfQ==
+eyJoaXN0b3J5IjpbLTEyMDkwMDk5MjddfQ==
 -->
