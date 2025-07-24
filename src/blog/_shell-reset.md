@@ -31,6 +31,12 @@ You might be familiar with the `$()` syntax with [command substitution](https://
 
 Subshells are great because:
 
+- Output can be redirected together:
+
+```shell
+( echo "lorem"; echo "ipsum" ) > output.log
+```
+
 - Exit codes are returned:
 
 	```shell
@@ -61,5 +67,5 @@ However, subshells can be undesirable because:
 trap  "cd \"${PWD}\"" $(if [ -n  "${ZSH_VERSION}" ]; then  echo  EXIT; else  echo  RETURN; fi)
 ```
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTg0NjA4MDU4NywtOTgwMzAwNTMzXX0=
+eyJoaXN0b3J5IjpbLTg3NjY1MDU5NywtOTgwMzAwNTMzXX0=
 -->
