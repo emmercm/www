@@ -60,6 +60,12 @@ However, subshells can be undesirable because:
 	unset
 	```
 
+	including [exported](https://www.gnu.org/software/bash/manual/html_node/Bourne-Shell-Builtins.html#index-export) variables!
+
+```shell
+( export PATH=/my/bin/dir:$PATH )
+```
+
 - [`trap`](https://man7.org/linux/man-pages/man1/trap.1p.html) is local to the subshell
 - [`umask(2)`](https://linux.die.net/man/2/umask) is local to the subshell
 
@@ -67,5 +73,5 @@ However, subshells can be undesirable because:
 trap  "cd \"${PWD}\"" $(if [ -n  "${ZSH_VERSION}" ]; then  echo  EXIT; else  echo  RETURN; fi)
 ```
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTg3NjY1MDU5NywtOTgwMzAwNTMzXX0=
+eyJoaXN0b3J5IjpbOTQzNjc1MDk1LC05ODAzMDA1MzNdfQ==
 -->
