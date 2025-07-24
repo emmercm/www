@@ -46,6 +46,7 @@ Subshells are great because:
 
 However, subshells can be undesirable because:
 
+- There's a performance cost to forking a process
 - Variables are local to the subshell:
 
 	```shell
@@ -53,9 +54,14 @@ However, subshells can be undesirable because:
 	unset
 	```
 
+- `trap` is local to the subshell:
+
+```shell
+```
+
 ```shell
 trap  "cd \"${PWD}\"" $(if [ -n  "${ZSH_VERSION}" ]; then  echo  EXIT; else  echo  RETURN; fi)
 ```
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTE3NDcwOTI5ODksLTk4MDMwMDUzM119
+eyJoaXN0b3J5IjpbLTE1NDM3MTA1NDgsLTk4MDMwMDUzM119
 -->
