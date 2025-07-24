@@ -27,6 +27,8 @@ echo "I don't want my working directory to change."
 echo "My working directory hasn't changed!"
 ```
 
+You might be familiar with the `$()` syntax with command substitution
+
 Subshells are great because:
 
 - Exit codes are returned:
@@ -49,5 +51,5 @@ However, subshells can be undesirable because:
 trap  "cd \"${PWD}\"" $(if [ -n  "${ZSH_VERSION}" ]; then  echo  EXIT; else  echo  RETURN; fi)
 ```
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTE1MDYxNDQwNTQsLTk4MDMwMDUzM119
+eyJoaXN0b3J5IjpbLTY1MzMxMzkwMywtOTgwMzAwNTMzXX0=
 -->
