@@ -33,9 +33,15 @@ Subshells are great because:
 
 - Output can be redirected together:
 
-```shell
-( echo "lorem"; echo "ipsum" ) > output.log
-```
+	```shell
+	( echo "lorem"; echo "ipsum" ) > output.log
+	```
+
+	or captured together:
+
+	```shell
+	output=$( echo "hello"; echo "world" )
+	```
 
 - Exit codes are returned:
 
@@ -63,7 +69,7 @@ However, subshells can be undesirable because:
 	including [exported](https://www.gnu.org/software/bash/manual/html_node/Bourne-Shell-Builtins.html#index-export) variables!
 
 ```shell
-( export PATH=/my/bin/dir:$PATH )
+( export PATH=/my/bin/dir:$PATH; my_bin ) && echo $PATH
 ```
 
 - [`trap`](https://man7.org/linux/man-pages/man1/trap.1p.html) is local to the subshell
@@ -73,5 +79,5 @@ However, subshells can be undesirable because:
 trap  "cd \"${PWD}\"" $(if [ -n  "${ZSH_VERSION}" ]; then  echo  EXIT; else  echo  RETURN; fi)
 ```
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbOTQzNjc1MDk1LC05ODAzMDA1MzNdfQ==
+eyJoaXN0b3J5IjpbMTEwMjM3NDA0OSwtOTgwMzAwNTMzXX0=
 -->
