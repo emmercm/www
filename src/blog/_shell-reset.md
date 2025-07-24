@@ -11,7 +11,7 @@ Sometimes you need to change the working directory in a shell function. You shou
 
 Here's an example scenario: you're writing a complicated shell script that makes use of functions, or you're adding functions to your dotfiles. Within that function you need to an execute that needs to be within a specific working directory. However, you don't want this to affect the rest of your script or the current shell you have open.
 
-## The portable answer
+## The portable solution
 
 You should use a [subshell](https://tldp.org/LDP/abs/html/subshells.html) with POSIX-compliant shells. Subshells are separate, child processes of the shell that invoked the function, and manipulating the environment (including the working directory) in them does not affect the parent process. Subshells are created using parentheticals:
 
@@ -75,9 +75,11 @@ However, subshells can be undesirable because:
 - [`trap`](https://man7.org/linux/man-pages/man1/trap.1p.html) is local to the subshell
 - [`umask(2)`](https://linux.die.net/man/2/umask) is local to the subshell
 
+## Shell-specific solutions
+
 ```shell
 trap  "cd \"${PWD}\"" $(if [ -n  "${ZSH_VERSION}" ]; then  echo  EXIT; else  echo  RETURN; fi)
 ```
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTEwMjM3NDA0OSwtOTgwMzAwNTMzXX0=
+eyJoaXN0b3J5IjpbMTU1ODA4MTAyNSwtOTgwMzAwNTMzXX0=
 -->
