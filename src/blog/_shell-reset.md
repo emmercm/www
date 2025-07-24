@@ -21,8 +21,8 @@ set -euo pipefail
 
 function cd_and_exec() {
 		(
-			  cd ~
 			  echo "I won't affect my parent"
+			  cd ~
 		)
 }
 
@@ -85,9 +85,19 @@ Most shells have some way to trap exit signals, but some also have a way to trap
 
 - Bash has `trap [action] RETURN`:
 
+	```bash
+	function foo() {
+	    trap "cd \"${PWD}\"" RETURN
+	    echo "I'm safe to change the working directory"
+	    cd ~
+	}
+	```
+
+- Zsh has
+
 ```shell
 trap  "cd \"${PWD}\"" $(if [ -n  "${ZSH_VERSION}" ]; then  echo  EXIT; else  echo  RETURN; fi)
 ```
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbNzI3NDgwMDcyLC05ODAzMDA1MzNdfQ==
+eyJoaXN0b3J5IjpbMTI3MzgwNTkxMiwtOTgwMzAwNTMzXX0=
 -->
