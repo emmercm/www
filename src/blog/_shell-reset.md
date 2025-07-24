@@ -40,9 +40,9 @@ Subshells are great because:
 
 - File descriptors can be changed:
 
-```shell
-( exec > output.log; echo "This will be logged" )
-```
+	```shell
+	( exec > output.log; echo "This will be logged" )
+	```
 
 However, subshells can be undesirable because:
 
@@ -54,12 +54,12 @@ However, subshells can be undesirable because:
 	unset
 	```
 
-- `trap` is local to the subshell:
-- `umask
+- [`trap`](https://man7.org/linux/man-pages/man1/trap.1p.html) is local to the subshell
+- [`umask(2)`](https://linux.die.net/man/2/umask) is local to the subshell
 
 ```shell
 trap  "cd \"${PWD}\"" $(if [ -n  "${ZSH_VERSION}" ]; then  echo  EXIT; else  echo  RETURN; fi)
 ```
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTExODkyOTMxMDgsLTk4MDMwMDUzM119
+eyJoaXN0b3J5IjpbLTg0NjA4MDU4NywtOTgwMzAwNTMzXX0=
 -->
