@@ -77,9 +77,13 @@ However, subshells can be undesirable because:
 
 ## Shell-specific solutions
 
+Most shells have some way to trap exit signals, but some also have a way to trap function return signals. These solutions aren't recommended, even if you think you will always be using the same shell.
+
+- 
+
 ```shell
 trap  "cd \"${PWD}\"" $(if [ -n  "${ZSH_VERSION}" ]; then  echo  EXIT; else  echo  RETURN; fi)
 ```
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTU1ODA4MTAyNSwtOTgwMzAwNTMzXX0=
+eyJoaXN0b3J5IjpbLTk2MDY2MDU2MCwtOTgwMzAwNTMzXX0=
 -->
