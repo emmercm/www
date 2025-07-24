@@ -13,7 +13,7 @@ Here's an example scenario: you're writing a complicated shell script that makes
 
 ## The portable answer
 
-You should use a [subshell](https://tldp.org/LDP/abs/html/subshells.html) with POSIX-compliant shells. Subshells are separate, child processes of the shell that invoked the function, and manipulating the working directory in them does not affect the parent process. Subshells are created using parentheticals:
+You should use a [subshell](https://tldp.org/LDP/abs/html/subshells.html) with POSIX-compliant shells. Subshells are separate, child processes of the shell that invoked the function, and manipulating the environment (including the working directory) in them does not affect the parent process. Subshells are created using parentheticals:
 
 ```bash
 #!/usr/bin/env bash
@@ -36,9 +36,13 @@ Subshells are great because:
 	the subshell failed!
 	```
 
+However, subshells can be undesirable because:
+
+- Variables
+
 ```shell
 trap  "cd \"${PWD}\"" $(if [ -n  "${ZSH_VERSION}" ]; then  echo  EXIT; else  echo  RETURN; fi)
 ```
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTQzNDQ2NjQwLC05ODAzMDA1MzNdfQ==
+eyJoaXN0b3J5IjpbNTM1ODYzNjYwLC05ODAzMDA1MzNdfQ==
 -->
