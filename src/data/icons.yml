@@ -4,9 +4,9 @@ header:
     title: GitHub
     icon: fa-brands fa-github
 
-  - link: https://twitter.com/emmercm
-    title: X
-    icon: fa-brands fa-x-twitter
+  - link: https://bsky.app/profile/igir.io
+    title: Bluesky
+    icon: fa-brands fa-bluesky
 
   - link: https://www.linkedin.com/in/emmercm/
     title: LinkedIn
