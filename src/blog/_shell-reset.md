@@ -11,9 +11,13 @@ Sometimes you need to change the working directory in a shell function. You shou
 
 Here's an example scenario: you're writing a complicated shell script that makes use of functions, or you're adding functions to your dotfiles. Within that function you need to an execute that needs to be within a specific working directory. However, you don't want this to affect the rest of your script or the current shell you have open.
 
+## The portable answer
+
+You should use a subshell. Subshells are separate processes
+
 ```shell
 trap  "cd \"${PWD}\"" $(if [ -n  "${ZSH_VERSION}" ]; then  echo  EXIT; else  echo  RETURN; fi)
 ```
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTIxNDYwMzY4MywtOTgwMzAwNTMzXX0=
+eyJoaXN0b3J5IjpbLTE1ODYyMDM1MDYsLTk4MDMwMDUzM119
 -->
