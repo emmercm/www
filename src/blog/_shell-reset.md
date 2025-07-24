@@ -27,9 +27,17 @@ echo "I don't want my working directory to change."
 echo "My working directory hasn't changed!"
 ```
 
+Subshells are great because:
+
+- Exit codes are returned:
+
+```shell
+$ (true && false) || echo "the subshell failed!"
+```
+
 ```shell
 trap  "cd \"${PWD}\"" $(if [ -n  "${ZSH_VERSION}" ]; then  echo  EXIT; else  echo  RETURN; fi)
 ```
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTQ0MjA0MDUyNiwtOTgwMzAwNTMzXX0=
+eyJoaXN0b3J5IjpbODk3NTI2Njc4LC05ODAzMDA1MzNdfQ==
 -->
