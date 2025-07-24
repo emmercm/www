@@ -50,6 +50,6 @@ See my [projects](/projects) page for a complete list.
 
 ## 🎧 Listening to
 
-- [The Pragmatic Engineer](https://www.pragmaticengineer.com/podcast) by Gergely Orosz
+- [The Pragmatic Engineer](https://newsletter.pragmaticengineer.com/podcast) by Gergely Orosz
 - [Developer Tea](https://developertea.com/) by Jonathan Cutrell
 - [Soft Skills Engineering](https://softskills.audio/) by Dave Smith and Jamison Dance
