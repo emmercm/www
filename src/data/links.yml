@@ -18,6 +18,10 @@
     #   title: Facebook
     #   icon: fa-brands fa-facebook
 
+    - link: https://bsky.app/profile/igir.io
+      title: Bluesky
+      icon: fa-brands fa-bluesky
+
     - link: https://twitter.com/emmercm
       title: X
       icon: fa-brands fa-x-twitter

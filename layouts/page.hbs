@@ -202,19 +202,25 @@
                                     <i class="fa-regular fa-link fa-stack-1x"></i>
                                 </span>
                             </button>-->
-                            <a href="https://twitter.com/intent/tweet?url={{{encodeURI siteurl}}}{{{encodeURI paths.href}}}&text={{{encodeURI (concat title " by " twitterhandle)}}}" title="Share on Twitter" class="link-body-emphasis">
+                            <a href="https://bsky.app/intent/compose?text={{{encodeURI (concat title " by " blueskyhandle)}}}%0A%0A{{{encodeURI (concat siteurl paths.href)}}}" title="Share on Bluesky" class="link-body-emphasis">
+                            <span class="fa-stack align-top">
+                                    <i class="fa-light fa-circle fa-stack-2x"></i>
+                                    <i class="fa-brands fa-bluesky fa-stack-1x"></i>
+                                </span>
+                            </a>
+                            <a href="https://twitter.com/intent/tweet?url={{{encodeURI (concat siteurl paths.href)}}}&text={{{encodeURI (concat title " by " twitterhandle)}}}" title="Share on Twitter" class="link-body-emphasis">
                                 <span class="fa-stack align-top">
                                     <i class="fa-light fa-circle fa-stack-2x"></i>
                                     <i class="fa-brands fa-x-twitter fa-stack-1x"></i>
                                 </span>
                             </a>
-                            <a href="https://www.linkedin.com/shareArticle?url={{{encodeURI siteurl}}}{{{encodeURI paths.href}}}&mini=true&title={{{encodeURI title}}}&summary={{{encodeURI excerpt}}}&source={{{encodeURI sitename}}}" title="Share on LinkedIn" class="link-body-emphasis">
+                            <a href="https://www.linkedin.com/shareArticle?url={{{encodeURI (concat siteurl paths.href)}}}&mini=true&title={{{encodeURI title}}}&summary={{{encodeURI excerpt}}}&source={{{encodeURI sitename}}}" title="Share on LinkedIn" class="link-body-emphasis">
                                 <span class="fa-stack align-top">
                                     <i class="fa-light fa-circle fa-stack-2x"></i>
                                     <i class="fa-brands fa-linkedin-in fa-stack-1x"></i>
                                 </span>
                             </a>
-                            <!--<a href="https://www.facebook.com/sharer.php?u={{{encodeURI siteurl}}}{{{encodeURI paths.href}}}" title="Share on Facebook" class="link-dark">
+                            <!--<a href="https://www.facebook.com/sharer.php?u={{{encodeURI (concat siteurl paths.href)}}}" title="Share on Facebook" class="link-dark">
                                 <span class="fa-stack align-top">
                                     <i class="fa-light fa-circle fa-stack-2x"></i>
                                     <i class="fa-brands fa-facebook-f fa-stack-1x"></i>
@@ -256,7 +262,7 @@
                             {{/each}}
                         {{/if}}
                     </div>
-                    <a href="https://twitter.com/search?q={{{encodeURI siteurl}}}{{{encodeURI paths.href}}}" title="Discuss" class="font-italic">
+                    <a href="https://twitter.com/search?q={{{encodeURI (concat siteurl paths.href)}}}" title="Discuss" class="font-italic">
                         <i class="fa-brands fa-x-twitter"></i>
                         Discuss
                     </a>
