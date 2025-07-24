@@ -38,11 +38,16 @@ Subshells are great because:
 
 However, subshells can be undesirable because:
 
-- Variables
+- Variables are local to the subshell:
+
+	```shell
+	$ (foo="bar") && echo "${foo:-unset}"
+	unset
+	```
 
 ```shell
 trap  "cd \"${PWD}\"" $(if [ -n  "${ZSH_VERSION}" ]; then  echo  EXIT; else  echo  RETURN; fi)
 ```
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbNTM1ODYzNjYwLC05ODAzMDA1MzNdfQ==
+eyJoaXN0b3J5IjpbLTE1MDYxNDQwNTQsLTk4MDMwMDUzM119
 -->
