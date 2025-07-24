@@ -86,6 +86,7 @@ Most shells have some way to trap exit signals, but some also have a way to trap
 - Bash has `trap [action] RETURN`:
 
 	```bash
+	#!/usr/bin/env bash
 	function foo() {
 	    trap "cd \"${PWD}\"" RETURN
 	    echo "I'm safe to change the working directory"
@@ -94,11 +95,18 @@ Most shells have some way to trap exit signals, but some also have a way to trap
 	```
 
 - Zsh's `trap [action] EXIT` will fire when the surrounding function exits:
-- 
+
+	```bash
+	function foo() {
+	    trap "cd \"${PWD}\"" EXIT
+	    echo "I'm safe to change the working directory"
+	    cd ~
+	}
+	```
 
 ```shell
 trap  "cd \"${PWD}\"" $(if [ -n  "${ZSH_VERSION}" ]; then  echo  EXIT; else  echo  RETURN; fi)
 ```
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTc3NTM3MDQwNiwtOTgwMzAwNTMzXX0=
+eyJoaXN0b3J5IjpbLTE4NjQ5NjQ0MDIsLTk4MDMwMDUzM119
 -->
