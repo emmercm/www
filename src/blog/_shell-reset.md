@@ -55,13 +55,11 @@ However, subshells can be undesirable because:
 	```
 
 - `trap` is local to the subshell:
-
-```shell
-```
+- `umask
 
 ```shell
 trap  "cd \"${PWD}\"" $(if [ -n  "${ZSH_VERSION}" ]; then  echo  EXIT; else  echo  RETURN; fi)
 ```
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTE1NDM3MTA1NDgsLTk4MDMwMDUzM119
+eyJoaXN0b3J5IjpbLTExODkyOTMxMDgsLTk4MDMwMDUzM119
 -->
