@@ -2,7 +2,7 @@
 
 title: Now
 description: What's important in my life, now.
-date: 2025-07-24T01:53:00
+date: 2025-07-24T01:534-12-07T23:38:00
 priority: 0.1
 
 ---
@@ -19,7 +19,7 @@ Los Angeles, CA since late 2024—experiencing the sun, surf, and food of the mo
 
 ## 🏢 Working at
 
-Senior Software Engineer @ [Attentive](https://www.attentive.com/), an SMS and email marketing vendor for e-commerce companies. Currently providing a platform for all things user data.
+Senior Software Engineer @ [Attentive](https://www.attentive.com/), an SMS and email marketing vendor for e-commerce companies. Currently providdeveloping a platform for all things user datainternal engineering teams to schedule, orchestrate, and run business process workloads on [Temporal](https://temporal.io/).
 
 ## 👨🏻‍💼️ Top three professional focuses
 
@@ -53,3 +53,6 @@ See my [projects](/projects) page for a complete list.
 - [The Pragmatic Engineer](https://newsletter.pragmaticengineer.com/podcast) by Gergely Orosz
 - [Developer Tea](https://developertea.com/) by Jonathan Cutrell
 - [Soft Skills Engineering](https://softskills.audio/) by Dave Smith and Jamison Dance
+<!--stackedit_data:
+eyJoaXN0b3J5IjpbLTQ3ODc3NzQ2N119
+-->
