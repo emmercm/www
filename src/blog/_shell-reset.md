@@ -22,7 +22,7 @@ set -euo pipefail
 echo "I don't want my working directory to change."
 (
 	  cd ~
-	  echo "I can do whatever I need to!"
+	  echo "I can do whatever I need to now!"
 )
 echo "My working directory hasn't changed!"
 ```
@@ -31,5 +31,5 @@ echo "My working directory hasn't changed!"
 trap  "cd \"${PWD}\"" $(if [ -n  "${ZSH_VERSION}" ]; then  echo  EXIT; else  echo  RETURN; fi)
 ```
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTUyMjc2MjEzOCwtOTgwMzAwNTMzXX0=
+eyJoaXN0b3J5IjpbODI4NTY4Nzg0LC05ODAzMDA1MzNdfQ==
 -->
