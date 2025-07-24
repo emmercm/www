@@ -94,19 +94,16 @@ Most shells have some way to trap exit signals, but some also have a way to trap
 	}
 	```
 
-- Zsh's `trap [action] EXIT` will fire when the surrounding function exits:
+- Zsh's [`TRAPEXIT`](https://zsh.sourceforge.io/Doc/Release/Functions.html#Trap-Functions) will fire when the surrounding function exits:
 
 	```bash
+	#!/usr/bin/env zsh
 	function foo() {
 	    trap "cd \"${PWD}\"" EXIT
 	    echo "I'm safe to change the working directory"
 	    cd ~
 	}
 	```
-
-```shell
-trap  "cd \"${PWD}\"" $(if [ -n  "${ZSH_VERSION}" ]; then  echo  EXIT; else  echo  RETURN; fi)
-```
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTE4NjQ5NjQ0MDIsLTk4MDMwMDUzM119
+eyJoaXN0b3J5IjpbLTU0NjU1ODIzOSwtOTgwMzAwNTMzXX0=
 -->
