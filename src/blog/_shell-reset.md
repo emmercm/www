@@ -19,11 +19,15 @@ You should use a [subshell](https://tldp.org/LDP/abs/html/subshells.html) with P
 #!/usr/bin/env bash
 set -euo pipefail
 
+function cd_and_exec() {
+		(
+			  cd ~
+			  echo "I won't affect my parent"
+		)
+}
+
 echo "I don't want my working directory to change."
-(
-	  cd ~
-	  echo "I can do whatever I need to now!"
-)
+cd_and_exec
 echo "My working directory hasn't changed!"
 ```
 
@@ -79,11 +83,11 @@ However, subshells can be undesirable because:
 
 Most shells have some way to trap exit signals, but some also have a way to trap function return signals. These solutions aren't recommended, even if you think you will always be using the same shell.
 
-- 
+- Bash has `trap [action] RETURN`:
 
 ```shell
 trap  "cd \"${PWD}\"" $(if [ -n  "${ZSH_VERSION}" ]; then  echo  EXIT; else  echo  RETURN; fi)
 ```
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTk2MDY2MDU2MCwtOTgwMzAwNTMzXX0=
+eyJoaXN0b3J5IjpbNzI3NDgwMDcyLC05ODAzMDA1MzNdfQ==
 -->
