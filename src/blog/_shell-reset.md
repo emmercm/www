@@ -13,11 +13,14 @@ Here's an example scenario: you're writing a complicated shell script that makes
 
 ## The portable answer
 
-You should use a subshell. Subshells are separate processes of the shell that invoked the function, and manipulating the curre
+You should use a subshell. Subshells are separate child processes of the shell that invoked the function, and manipulating the working directory in them does not affect the parent process. Subshells are created using parentheticals:
+
+```bash
+```
 
 ```shell
 trap  "cd \"${PWD}\"" $(if [ -n  "${ZSH_VERSION}" ]; then  echo  EXIT; else  echo  RETURN; fi)
 ```
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTI5MTI5ODIyNiwtOTgwMzAwNTMzXX0=
+eyJoaXN0b3J5IjpbLTk0MTM3MzgyNywtOTgwMzAwNTMzXX0=
 -->
