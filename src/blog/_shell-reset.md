@@ -93,11 +93,12 @@ Most shells have some way to trap exit signals, but some also have a way to trap
 	}
 	```
 
-- Zsh has
+- Zsh's `trap [action] EXIT` will fire when the surrounding function exits:
+- 
 
 ```shell
 trap  "cd \"${PWD}\"" $(if [ -n  "${ZSH_VERSION}" ]; then  echo  EXIT; else  echo  RETURN; fi)
 ```
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTI3MzgwNTkxMiwtOTgwMzAwNTMzXX0=
+eyJoaXN0b3J5IjpbMTc3NTM3MDQwNiwtOTgwMzAwNTMzXX0=
 -->
