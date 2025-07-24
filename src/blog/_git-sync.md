@@ -10,10 +10,10 @@ tags:
 
 How to sync uncommitted changes between different clones of the same repository.
 
-I've been experimenting with using [Git sparse checkout](https://git-scm.com/docs/git-sparse-checkout) with a very large monorepo recently. I usually have a number of changed files that aren't ready to commit just yet in my working tree, so I wanted to create a new working tree to experiment with until I was happy first. Once I was happy, I wanted to copy all my in-flight changes over. I couldn't find a very complete solution for this, so I created one!
+I've been experimenting with using [Git sparse checkout](https://git-scm.com/docs/git-sparse-checkout) with a very large monorepo recently. I usually have a number of changed files that aren't ready to commit just yet in my working tree, so I wanted to create a new clone to experiment with until I was happy first. Once I was happy, I wanted to copy all my in-flight changes over. I couldn't find a very complete solution for this, so I created one!
 
 ```bash
-# Sync changes from one working tree to another
+# Sync changes from one clone to another
 # @param {string} $1 The original/old git root
 # @param {string} $2 The new git root
 gsync() {
@@ -39,9 +39,9 @@ gsync() {
 }
 ```
 
-This Bash function accounts for file deletions and renames, which most [xargs(1)](https://linux.die.net/man/1/xargs)-based solutions don't account for.
+This Bash function accounts for file deletions and renames, which most [xargs(1)](https://linux.die.net/man/1/xargs)-based solutions don't.
 
-Function usage looks like this:
+Usage of the function looks like this:
 
 ```shell
 $ mkdir old
@@ -83,6 +83,6 @@ R  two -> three
 
 This function likely isn't safe for complicated scenarios, but it will handle a lot more situations than other solutions you'll find out there.
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTE1MTYwODczNDQsMTc1NzQ1MjA3NSwtMT
+eyJoaXN0b3J5IjpbLTExMjE0MDY5MTgsMTc1NzQ1MjA3NSwtMT
 gzMjYzNzk4LDIxMTc5NjcyNDksLTEyMDkwMDk5MjddfQ==
 -->
