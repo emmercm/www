@@ -27,7 +27,7 @@ echo "I don't want my working directory to change."
 echo "My working directory hasn't changed!"
 ```
 
-You might be familiar with the `$()` syntax with command substitution
+You might be familiar with the `$()` syntax with [command substitution](https://www.gnu.org/software/bash/manual/html_node/Command-Substitution.html), these are using subshells!
 
 Subshells are great because:
 
@@ -37,6 +37,12 @@ Subshells are great because:
 	$ (true && false) || echo "the subshell failed!"
 	the subshell failed!
 	```
+
+- File descriptors can be changed:
+
+```shell
+( exec > output.log; echo "This will be logged" )
+```
 
 However, subshells can be undesirable because:
 
@@ -51,5 +57,5 @@ However, subshells can be undesirable because:
 trap  "cd \"${PWD}\"" $(if [ -n  "${ZSH_VERSION}" ]; then  echo  EXIT; else  echo  RETURN; fi)
 ```
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTY1MzMxMzkwMywtOTgwMzAwNTMzXX0=
+eyJoaXN0b3J5IjpbLTE3NDcwOTI5ODksLTk4MDMwMDUzM119
 -->
