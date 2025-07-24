@@ -1,7 +1,7 @@
 ---
 
 title: Syncing Changes Between Git Clones
-date: 2025-07-23T23:52:00
+date: 2025-07-24T00:00:00
 tags:
 - git
 - github
@@ -83,6 +83,6 @@ R  two -> three
 
 This function likely isn't safe for complicated scenarios, but it will handle a lot more situations than other solutions you'll find out there.
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTExMjE0MDY5MTgsMTc1NzQ1MjA3NSwtMT
-gzMjYzNzk4LDIxMTc5NjcyNDksLTEyMDkwMDk5MjddfQ==
+eyJoaXN0b3J5IjpbMTc3NzE0NzY2OSwxNzU3NDUyMDc1LC0xOD
+MyNjM3OTgsMjExNzk2NzI0OSwtMTIwOTAwOTkyN119
 -->
