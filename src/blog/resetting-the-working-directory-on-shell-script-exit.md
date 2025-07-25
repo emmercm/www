@@ -8,7 +8,7 @@ tags:
 
 ---
 
-Sometimes you need to change the working directory in a shell script. You should take care to reset it back.
+Sometimes you need to change the working directory in a shell script. You should take care to reset it back after.
 
 Here's an example scenario: you've written a fairly complex shell script, and it needs to reference files that are in the same directory. You can't make assumptions about the working directory that your script was invoked from, so you have to sprinkle `dirname "$0"` everywhere.
 
@@ -37,6 +37,8 @@ done <<< "$(find "$(dirname "$0")" -maxdepth 1 -type f)"
 All of these are difficult to read because of the quotation and `$(...)` nesting.
 
 Wouldn't it be easier to just make an assumption about the working directory? I strongly believe _no_, but we should feel free to change the working directory, _as long as we reset it on exit._ That last part is important, because you may be setting the caller up for confusion or danger.
+
+_See "[Resetting the Working Directory on Shell Function Exit](/blog/resetting-the-working-directory-on-shell-function-exit)" for when you need to reset the working directory during script execution._
 
 ## The one-liner
 
