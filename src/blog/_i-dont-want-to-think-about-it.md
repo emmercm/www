@@ -34,7 +34,7 @@ _What improvements can I make now that will allow me to not waste time and brain
 
 Two of the services kept queued tasks in memory, making them unsafe to restart.
 
-The problem with this is
+The problem with this is: you don't always get to choose when your services restart. Maybe your host dies and a new container needs to start, or your service runs out of memory, _or the entire department is going through a massive library migration_
 - rnd-subscriber-pruning-service's use of Spring cron, preventing safe restarts for a week
 - litigator-service's in-memory job queue, preventing safe restarts ever, requiring callers to pause
 
@@ -43,6 +43,6 @@ The problem with this is
 - batch-subscriber-processor's lack of CD tests, making the Spring Boot 3 migration dangerous
 - subscription-api's lack of CD tests, creating a business risk
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTk2NjQ0MzMyOCwxNDE0OTgwMTc4LDE5Mz
+eyJoaXN0b3J5IjpbMjEzMzk0MDg5NiwxNDE0OTgwMTc4LDE5Mz
 M4NDE0MTBdfQ==
 -->
