@@ -36,7 +36,9 @@ Two of the services kept queued tasks in memory, making them unsafe to restart. 
 
 For one of the services, we wholly controlled when tasks got queued, and had a low-effort way to restart abandoned tasks. But the other service's traffic came from another team, requiring a complicated pausing of their service so that we could restart ours.
 
-Neither scenario is acceptable. In a cloud-based world, you have to treat your service instances as [cattle, not pets](https://cloudscaling.com/blog/cloud-computing/the-history-of-pets-vs-cattle/). Your services will restart, and I wa
+Neither scenario is acceptable. In a cloud-based world, you have to treat your service instances as [cattle, not pets](https://cloudscaling.com/blog/cloud-computing/the-history-of-pets-vs-cattle/). Your services will restart, and I want to not have to think about them when they do.
+
+The solution for both services was to externalize the task queue and each task's incremental state.
 
 - rnd-subscriber-pruning-service's use of Spring cron, preventing safe restarts for a week
 - litigator-service's in-memory job queue, preventing safe restarts ever, requiring callers to pause
@@ -46,6 +48,6 @@ Neither scenario is acceptable. In a cloud-based world, you have to treat your s
 - batch-subscriber-processor's lack of CD tests, making the Spring Boot 3 migration dangerous
 - subscription-api's lack of CD tests, creating a business risk
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbODQ1MjMxNTEzLDE0MTQ5ODAxNzgsMTkzMz
+eyJoaXN0b3J5IjpbNjIzNDQ4NTE0LDE0MTQ5ODAxNzgsMTkzMz
 g0MTQxMF19
 -->
