@@ -41,7 +41,9 @@ gcopy() {
 }
 ```
 
-This Bash function accounts for file deletions and renames, which most [xargs(1)](https://linux.die.net/man/1/xargs)-based solutions don't.
+This Bash function accounts for file deletions and renames, which most [xargs](https://linux.die.net/man/1/xargs)-based solutions don't.
+
+_Note: this won't copy anything in your stash._
 
 Usage of the function looks like this:
 
