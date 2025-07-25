@@ -41,7 +41,7 @@ gcopy() {
 }
 ```
 
-This Bash function accounts for file deletions and renames, which most [xargs](https://linux.die.net/man/1/xargs)-based solutions don't.
+This Bash function accounts for file deletions and renames, which most [xargs(1)](https://linux.die.net/man/1/xargs)-based solutions don't.
 
 _Note: this won't copy anything in your stash._
 
@@ -86,3 +86,6 @@ R  two -> three
 ```
 
 This function likely isn't safe for complicated scenarios, but it will handle a lot more situations than other solutions you'll find out there.
+<!--stackedit_data:
+eyJoaXN0b3J5IjpbOTI5MTYzNDE2XX0=
+-->
