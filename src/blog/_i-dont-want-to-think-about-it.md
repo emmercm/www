@@ -34,11 +34,11 @@ _What improvements can I make now that will allow me to not waste time and brain
 
 Two of the services kept queued tasks in memory, making them unsafe to restart. The problem with this is: you don't always get to choose when your services restart. Maybe your host dies and a new container needs to start, or your service runs out of memory, _or the entire department is going through a massive library migration_.
 
-For one of the services, we wholly controlled when tasks got queued, and had a low-effort way to restart abandoned tasks. But the other service's traffic came from another team, requiring a complicated pausing of their service so that we could restart ours.
+For one of the services, we wholly controlled when tasks got queued, and had a low-effort way to restart abandoned tasks. But the other service's traffic came from another team, requiring a complicated pausing of their service so that we could restart ours. Thankfully they could safely pause traffic at any time of day, but
 
 Neither scenario is acceptable. In a cloud-based world, you have to treat your service instances as [cattle, not pets](https://cloudscaling.com/blog/cloud-computing/the-history-of-pets-vs-cattle/). Your services will restart, and I want to not have to think about them when they do.
 
-The solution for both services was to externalize the task queue and each task's status. If you track tasks with statuses such as "queued", "in-progress", "completed", or "failed" along with a timestamp of the last time a service made progress on it, then you recover from failure. ACID-compliant DBs are going to work the best for this because
+The solution for both services was to externalize the task queue and each task's status. If you track tasks with statuses such as "queued", "in-progress", "completed", or "failed" along with a timestamp of the last time a service made progress on it, then you recover from failure. ACID-compliant DBs are going to work the best for this because separate instances of the same service might fight each other to claim a task to work on. You'll want to track the last time a task made progress, or a "heartbeat" timestamp to be able to set a timeout to determine when a task has been abandoned.
 
 - rnd-subscriber-pruning-service's use of Spring cron, preventing safe restarts for a week
 - litigator-service's in-memory job queue, preventing safe restarts ever, requiring callers to pause
@@ -48,6 +48,6 @@ The solution for both services was to externalize the task queue and each task's
 - batch-subscriber-processor's lack of CD tests, making the Spring Boot 3 migration dangerous
 - subscription-api's lack of CD tests, creating a business risk
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTEwMTA5MjI0MDcsMTQxNDk4MDE3OCwxOT
-MzODQxNDEwXX0=
+eyJoaXN0b3J5IjpbLTM3Mzg5NjU1NiwxNDE0OTgwMTc4LDE5Mz
+M4NDE0MTBdfQ==
 -->
