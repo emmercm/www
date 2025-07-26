@@ -48,12 +48,12 @@ I gave "the entire department is going through a massive library migration" as a
 
 For two of these services, an over-use of [mocking](https://en.wikipedia.org/wiki/Mock_object) meant that some of their critical flows were never exercised fully end-to-end. I accidentally caused multiple regressions during a different project because tests weren't using real-world inputs and asserting outcomes. Poor code hygiene meant that I experienced a lot of null pointer exceptions because model classes didn't explicitly convey what properties were optional and which weren't.
 
-Both of these two services are RPC-serving, the solution was to 
+Both of these two services have web APIs, so the solution was to test them
 
 - batch-subscriber-processor's lack of CD tests, making the Spring Boot 3 migration dangerous
 - subscription-api's lack of CD tests, creating a business risk
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTE3NDk3MTk2MCwxNTMxMDQ2MDIzLC0xMD
-k3MDgwMzIsLTQ4MTIxOTQ1NywxNDE0OTgwMTc4LDE5MzM4NDE0
-MTBdfQ==
+eyJoaXN0b3J5IjpbLTEwMDUzNDIyNDcsMTUzMTA0NjAyMywtMT
+A5NzA4MDMyLC00ODEyMTk0NTcsMTQxNDk4MDE3OCwxOTMzODQx
+NDEwXX0=
 -->
