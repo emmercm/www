@@ -50,12 +50,15 @@ For two of these services, an over-use of [mocking](https://en.wikipedia.org/wik
 
 Both of these two services are API-based, so the solution was to automate running them and calling their endpoints like a real client would. And if a real client would make a series of requests, using the response from a request to assemble the next request, then the tests need to do that, too.
 
-These tests don't help me test correctness such as making sure datastores have the right state after each request, but they do help me prevent reg
+These tests don't help me test correctness such as making sure datastores have the right state after each request, but they do help me prevent regressions. Specifically in two areas:
+
+1. I know the service starts correctly
+2. I know the service won't experience any runtime issues with tested user flows
 
 - batch-subscriber-processor's lack of CD tests, making the Spring Boot 3 migration dangerous
 - subscription-api's lack of CD tests, creating a business risk
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTE2ODQ4MjQ4MTIsMTUzMTA0NjAyMywtMT
-A5NzA4MDMyLC00ODEyMTk0NTcsMTQxNDk4MDE3OCwxOTMzODQx
-NDEwXX0=
+eyJoaXN0b3J5IjpbMTI1OTM2NzQ1MCwxNTMxMDQ2MDIzLC0xMD
+k3MDgwMzIsLTQ4MTIxOTQ1NywxNDE0OTgwMTc4LDE5MzM4NDE0
+MTBdfQ==
 -->
