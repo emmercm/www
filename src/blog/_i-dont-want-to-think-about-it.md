@@ -55,14 +55,16 @@ These tests don't help me test correctness such as making sure datastores have t
 1. I know the service starts correctly
 2. I know the service won't throw any runtime exceptions with tested client flows
 
-My goal was to gain confidence that my services wouldn't start experiencing exceptions as soon as they were deployed to production. They helped protect me from myself, and they gave me confidence that
+My goal was to gain confidence that my services wouldn't start experiencing exceptions as soon as they were deployed to production. They helped protect me from myself, and they gave me confidence that sweeping upgrades to critical libraries were largely safe.
+
+Obviously this testing strategy isn't a fool-proof plan. You should still test things like authorization and input validation in unit tests. And this end-to-end runtime 
 
 Both of those provided me safety to perform refactors and migrations. I greatly reduced the chances of errors happening in the most common client flows, preventing
 
 - batch-subscriber-processor's lack of CD tests, making the Spring Boot 3 migration dangerous
 - subscription-api's lack of CD tests, creating a business risk
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTY4MzkzNjAwNCwxNTMxMDQ2MDIzLC0xMD
-k3MDgwMzIsLTQ4MTIxOTQ1NywxNDE0OTgwMTc4LDE5MzM4NDE0
-MTBdfQ==
+eyJoaXN0b3J5IjpbLTE0OTkwOTQ3NTgsMTUzMTA0NjAyMywtMT
+A5NzA4MDMyLC00ODEyMTk0NTcsMTQxNDk4MDE3OCwxOTMzODQx
+NDEwXX0=
 -->
