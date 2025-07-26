@@ -57,7 +57,8 @@ These tests don't help me test correctness such as making sure datastores have t
 
 My goal was to gain confidence that my services wouldn't start experiencing exceptions as soon as they were deployed to production. They helped protect me from myself, and they gave me confidence that sweeping upgrades to critical libraries were largely safe.
 
-Obviously this testing strategy isn't a fool-proof plan. My end-to-end runtime testing doesn't have a particularly high test coverage by lines of code. Instead, it aims to cover a high percentage of API traffic. The next step I want to take with these services is to make use of canary deployments
+Obviously this testing strategy isn't a fool-proof plan. My end-to-end runtime testing doesn't have a particularly high test coverage by lines of code. Instead, it aims to cover a high percentage of API traffic. The next step I want to take with these services is to make use of [canary deployments](https://martinfowler.com/bliki/CanaryRelease.html?ref=wellarchitected) to reduce the blast radius of bugs that make their way to production.
+
 
 You should still test things like authorization and input validation in unit tests.
 
@@ -66,7 +67,7 @@ Both of those provided me safety to perform refactors and migrations. I greatly 
 - batch-subscriber-processor's lack of CD tests, making the Spring Boot 3 migration dangerous
 - subscription-api's lack of CD tests, creating a business risk
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbOTA0MDk3MzQxLDE1MzEwNDYwMjMsLTEwOT
+eyJoaXN0b3J5IjpbMjM1MzEyMjYwLDE1MzEwNDYwMjMsLTEwOT
 cwODAzMiwtNDgxMjE5NDU3LDE0MTQ5ODAxNzgsMTkzMzg0MTQx
 MF19
 -->
