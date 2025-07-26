@@ -46,12 +46,14 @@ After I made the two services not lose state on restart I put them on full CI/CD
 
 I gave "the entire department is going through a massive library migration" as an example above, and that's because we are. The migration changes were largely automated, but it was up to each team to test their services to make sure the changes didn't break them. Here's the problem: _I don't trust the tests in some of my services enough to know that I won't have runtime issues._
 
-For two of these services, an over-use of [mocking](https://en.wikipedia.org/wiki/Mock_object) meant that some of their critical flows were never exercised fully end-to-end. I accidentally caused multiple regressions during a different project because tests weren't using real-world inputs and asserting outcomes. Poor code hygiene meant h
+For two of these services, an over-use of [mocking](https://en.wikipedia.org/wiki/Mock_object) meant that some of their critical flows were never exercised fully end-to-end. I accidentally caused multiple regressions during a different project because tests weren't using real-world inputs and asserting outcomes. Poor code hygiene meant that I experienced a lot of null pointer exceptions because model classes didn't explicitly convey what properties were optional and which weren't.
+
+Both of these two services are RPC-serving, the solution was to 
 
 - batch-subscriber-processor's lack of CD tests, making the Spring Boot 3 migration dangerous
 - subscription-api's lack of CD tests, creating a business risk
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTI2OTA0MDk3OCwxNTMxMDQ2MDIzLC0xMD
+eyJoaXN0b3J5IjpbMTE3NDk3MTk2MCwxNTMxMDQ2MDIzLC0xMD
 k3MDgwMzIsLTQ4MTIxOTQ1NywxNDE0OTgwMTc4LDE5MzM4NDE0
 MTBdfQ==
 -->
