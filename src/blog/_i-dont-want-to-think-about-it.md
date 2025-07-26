@@ -18,7 +18,7 @@ Sometimes it helps to be the new person on a team, or in the case of these servi
 
 > I want to invest in these services _just enough_ that I never have to think about them again.
 
-And when I mean never think about them again, I mean they needed:
+And when I say "never think about them again," I mean they needed:
 
 - Automated alerting tied to SLOs and business metrics
 - Safe deploys, such that CI/CD could take care of dependency updates
@@ -50,6 +50,6 @@ TODO: tie it back to the original point
 - batch-subscriber-processor's lack of CD tests, making the Spring Boot 3 migration dangerous
 - subscription-api's lack of CD tests, creating a business risk
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTIzMDQ0NTc3MywtMTA5NzA4MDMyLC00OD
+eyJoaXN0b3J5IjpbMTUzMTA0NjAyMywtMTA5NzA4MDMyLC00OD
 EyMTk0NTcsMTQxNDk4MDE3OCwxOTMzODQxNDEwXX0=
 -->
