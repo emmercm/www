@@ -46,7 +46,7 @@ After I made the two services not lose state on restart I put them on full CI/CD
 
 I gave "the entire department is going through a massive library migration" as an example above, and that's because we are. The migration changes were largely automated, and it is the responsibility of each team to test their services to make sure the library changes didn't break them. Here's the problem: _I don't trust the tests in some of my services enough to know that I won't have runtime issues._
 
-For two of these services, an over-use of [mocking](https://en.wikipedia.org/wiki/Mock_object) meant that some of their critical flows were never exercised fully end-to-end. I accidentally caused multiple regressions during a different project because tests weren't using real-world inputs and asserting outcomes. Poor code hygiene meant that I experienced a lot of null pointer exceptions because model classes didn't explicitly convey what properties were optional and which weren't.
+For two of these services, an over-use of [mocking](https://en.wikipedia.org/wiki/Mock_object) meant that some of their critical flows were never exercised fully end-to-end. I accidentally caused multiple regressions during a different project because no test fully exercised the service all the way from request to datastore to response. Poor code hygiene meant that I experienced a lot of null pointer exceptions because model classes didn't explicitly convey what properties were optional and which weren't.
 
 Both of these two services are API-based, so the solution was to automate running them and calling their endpoints like a real client would. And if a real client would make a series of requests, using the response from a request to assemble the next request, then the tests need to do that, too.
 
@@ -67,7 +67,7 @@ Both of those provided me safety to perform refactors and migrations. I greatly 
 - batch-subscriber-processor's lack of CD tests, making the Spring Boot 3 migration dangerous
 - subscription-api's lack of CD tests, creating a business risk
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTcyODE4NDA1MCwxNTMxMDQ2MDIzLC0xMD
+eyJoaXN0b3J5IjpbMTU1OTkxODk1MiwxNTMxMDQ2MDIzLC0xMD
 k3MDgwMzIsLTQ4MTIxOTQ1NywxNDE0OTgwMTc4LDE5MzM4NDE0
 MTBdfQ==
 -->
