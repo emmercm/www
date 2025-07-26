@@ -55,12 +55,12 @@ These tests don't help me test correctness such as making sure datastores have t
 1. I know the service starts correctly
 2. I know the service won't throw any runtime exceptions with tested user flows
 
-Both of those provided me safety to perform refactors and migrations. If a runtime issue did occurr, I could
+Both of those provided me safety to perform refactors and migrations. I greatly reduced the chances of errors happening in the most common flows, preventing
 
 - batch-subscriber-processor's lack of CD tests, making the Spring Boot 3 migration dangerous
 - subscription-api's lack of CD tests, creating a business risk
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbNTE2NDIzMzI1LDE1MzEwNDYwMjMsLTEwOT
-cwODAzMiwtNDgxMjE5NDU3LDE0MTQ5ODAxNzgsMTkzMzg0MTQx
-MF19
+eyJoaXN0b3J5IjpbLTEyMTk1OTg2NTcsMTUzMTA0NjAyMywtMT
+A5NzA4MDMyLC00ODEyMTk0NTcsMTQxNDk4MDE3OCwxOTMzODQx
+NDEwXX0=
 -->
