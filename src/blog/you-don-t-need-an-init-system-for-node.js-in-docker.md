@@ -2,6 +2,7 @@
 
 title: You Don't Need an Init System for Node.js in Docker
 date: 2021-03-20T19:43:00
+permalink: blog/you-don-t-need-an-init-system-for-node.js-in-docker
 tags:
 - docker
 - node.js

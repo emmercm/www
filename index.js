@@ -135,7 +135,7 @@ const vegaOptions = {
 };
 
 const slugify = (source) => {
-    let slug = transliteration.slugify(source);
+    let slug = transliteration.slugify(source.replace(/['"]/g, ''));
 
     // linthtml id-class-no-ad (E010)
     const bannedWords = ['ad', 'banner', 'social'];
@@ -478,6 +478,17 @@ tracer(Metalsmith(path.resolve()))
             }
         ]
     }))
+    .use((files, metalsmith, done) => {
+        // TODO(cemmer): remove when https://github.com/metalsmith/permalinks/pull/145 releases
+        Object.keys(files).forEach(filename => {
+            if (filename.indexOf('\0') !== -1) {
+                files[filename].permalink = files[filename].permalink.replace(/\x00/g, '.');
+                files[filename.replace(/\x00/g, '.')] = files[filename];
+                delete files[filename];
+            }
+        });
+        done();
+    })
 
     // Add a "paths" object to each file's metadata - after permalinks() moves them
     .use(paths({
@@ -1095,6 +1106,7 @@ tracer(Metalsmith(path.resolve()))
             'support.google.com',
             'twitter.com',
             // Anti-bot 429 rate limiting
+            'bsky.app',
             'github.com',
             'instagram.com',
             'linkedin.com',
