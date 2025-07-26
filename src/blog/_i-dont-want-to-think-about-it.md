@@ -46,12 +46,12 @@ After I made the two services not lose state on restart I put them on full CI/CD
 
 I gave "the entire department is going through a massive library migration" as an example above, and that's because we are. The migration changes were largely automated, but it was up to each team to test their services to make sure the changes didn't break them. Here's the problem: _I don't trust the tests in some of my services enough to know that I won't have runtime issues._
 
-For two of these services, an over-use of [mocking](https://en.wikipedia.org/wiki/Mock_object) meant that
+For two of these services, an over-use of [mocking](https://en.wikipedia.org/wiki/Mock_object) meant that some of their critical flows were never exercised fully end-to-end. I accidentally caused multiple regressions during a different project because tests weren't exercising real-world 
 
 - batch-subscriber-processor's lack of CD tests, making the Spring Boot 3 migration dangerous
 - subscription-api's lack of CD tests, creating a business risk
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTE5OTU5NjY3MCwxNTMxMDQ2MDIzLC0xMD
+eyJoaXN0b3J5IjpbMTM1NzE5NTgyOSwxNTMxMDQ2MDIzLC0xMD
 k3MDgwMzIsLTQ4MTIxOTQ1NywxNDE0OTgwMTc4LDE5MzM4NDE0
 MTBdfQ==
 -->
