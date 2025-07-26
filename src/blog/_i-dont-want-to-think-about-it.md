@@ -32,13 +32,13 @@ _What improvements can I make now that will allow me to not waste time and brain
 
 ## Patients 1 & 2: services that were unsafe to restart
 
-Two of the services kept queued tasks in memory, making them unsafe to restart. The problem with this is: you don't always get to choose when your services restart. Maybe your host dies and a new container needs to start, or your service runs out of memory, _or the entire department is going through a massive library migration_.
+Two of the services kept queued tasks in memory, making them unsafe to restart. The problem with this is: you don't always get to _choose_ when your services restart. Maybe your host dies and a new container needs to start, or your service runs out of memory, _or the entire department is going through a massive library migration_.
 
-For one of the services, we wholly controlled when tasks got queued, and had a low-effort way to restart abandoned tasks. But the other service's traffic came from another team, requiring a complicated pausing of their service so that we could restart ours. Thankfully they could safely pause traffic at any time of day, it would have been much worse to require their effort after working hours.
+For one of the services, my team wholly controlled when tasks got queued, and had a low-effort way to restart abandoned tasks. But the other service's traffic came from another team, requiring a complicated pausing of their service so that we could restart ours. Thankfully they could safely pause traffic at any time of day, it would have been much worse to require their effort after working hours.
 
 Neither scenario is acceptable. In a cloud-based world, you have to treat your service instances as [cattle, not pets](https://cloudscaling.com/blog/cloud-computing/the-history-of-pets-vs-cattle/). Your services will restart, and I want to not have to think about them when they do.
 
-The solution for both services was to externalize the task queue and each task's status. If you track tasks with statuses such as "queued", "in-progress", "completed", or "failed" along with a timestamp of the last time a service made progress on it, then you can recover from service restarts. ACID-compliant DBs are going to work the best for this because separate instances of the same service might fight each other to claim a task to work on. You'll want to track the last time a task made progress, or a "heartbeat" timestamp to be able to set a timeout to determine when a task has been abandoned.
+The solution for both services was to externalize the task queue and each task's status. If you track tasks with statuses such as "queued," "in-progress", "completed", or "failed" along with a timestamp of the last time a service made progress on it, then you can recover from service restarts. ACID-compliant DBs are going to work the best for this because separate instances of the same service might fight each other to claim a task to work on. You'll want to track the last time a task made progress, or a "heartbeat" timestamp to be able to set a timeout to determine when a task has been abandoned.
 
 TODO: tie it back to the original point
 
@@ -50,6 +50,7 @@ TODO: tie it back to the original point
 - batch-subscriber-processor's lack of CD tests, making the Spring Boot 3 migration dangerous
 - subscription-api's lack of CD tests, creating a business risk
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTUzMTA0NjAyMywtMTA5NzA4MDMyLC00OD
-EyMTk0NTcsMTQxNDk4MDE3OCwxOTMzODQxNDEwXX0=
+eyJoaXN0b3J5IjpbLTEyNDQ3NTM2LDE1MzEwNDYwMjMsLTEwOT
+cwODAzMiwtNDgxMjE5NDU3LDE0MTQ5ODAxNzgsMTkzMzg0MTQx
+MF19
 -->
