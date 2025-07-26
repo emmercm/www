@@ -53,12 +53,14 @@ Both of these two services are API-based, so the solution was to automate runnin
 These tests don't help me test correctness such as making sure datastores have the right state after each request, but they do help me prevent regressions. Specifically in two areas:
 
 1. I know the service starts correctly
-2. I know the service won't experience any runtime issues with tested user flows
+2. I know the service won't throw any runtime exceptions with tested user flows
+
+Both of those provided me safety to make internal changes
 
 - batch-subscriber-processor's lack of CD tests, making the Spring Boot 3 migration dangerous
 - subscription-api's lack of CD tests, creating a business risk
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTI1OTM2NzQ1MCwxNTMxMDQ2MDIzLC0xMD
+eyJoaXN0b3J5IjpbMTUyNjQyNTQyMywxNTMxMDQ2MDIzLC0xMD
 k3MDgwMzIsLTQ4MTIxOTQ1NywxNDE0OTgwMTc4LDE5MzM4NDE0
 MTBdfQ==
 -->
