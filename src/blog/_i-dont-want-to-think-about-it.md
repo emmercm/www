@@ -59,17 +59,9 @@ My goal was to gain confidence that my services wouldn't start experiencing exce
 
 Obviously this testing strategy isn't a fool-proof plan. My end-to-end runtime testing doesn't have a particularly high test coverage by lines of code. Instead, it aims to cover a high percentage of API traffic. The next step I want to take with these services is to make use of [canary deployments](https://martinfowler.com/bliki/CanaryRelease.html?ref=wellarchitected) to reduce the blast radius of bugs that make their way to production.
 
-I greatly increased my team's confidence in these services, making their deployment less of a ceremony. I no longer have to think about
-
-
-You should still test things like authorization and input validation in unit tests.
-
-Both of those provided me safety to perform refactors and migrations. I greatly reduced the chances of errors happening in the most common client flows, preventing
-
-- batch-subscriber-processor's lack of CD tests, making the Spring Boot 3 migration dangerous
-- subscription-api's lack of CD tests, creating a business risk
+I greatly increased my team's confidence in these services, making their deployment less of a ceremony. Adding guardrails allowed me to think less about running this service in production.
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTE4Njg2Mzk0MTksMTUzMTA0NjAyMywtMT
+eyJoaXN0b3J5IjpbLTIxMjE2ODE0NTYsMTUzMTA0NjAyMywtMT
 A5NzA4MDMyLC00ODEyMTk0NTcsMTQxNDk4MDE3OCwxOTMzODQx
 NDEwXX0=
 -->
