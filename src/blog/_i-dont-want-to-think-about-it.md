@@ -38,8 +38,9 @@ For one of the services, my team wholly controlled when tasks got queued, and ha
 
 Neither scenario is acceptable. In a cloud-based world, you have to treat your service instances as [cattle, not pets](https://cloudscaling.com/blog/cloud-computing/the-history-of-pets-vs-cattle/). Your services will restart, and I want to not have to think about them when they do.
 
-The solution for both services was to externalize the task queue and each task's status. If you track tasks with statuses such as "queued," "in-progress", "completed", or "failed" along with a timestamp of the last time a service made progress on it, then you can recover from service restarts. ACID-compliant DBs are going to work the best for this because separate instances of the same service might fight each other to claim a task to work on. You'll want to track the last time a task made progress, or a "heartbeat" timestamp to be able to set a timeout to determine when a task has been abandoned.
+The solution for both services was to externalize the task queue and each task's status. If you track tasks with statuses such as "queued," "in-progress," "completed," and "failed" along with a timestamp of the last time a service made progress on it, then you can recover from service restarts. ACID-compliant DBs are going to work the best for this because separate instances of the same service might fight each other to claim a task to work on. You'll want to track the last time a task made progress, or a "heartbeat" timestamp to be able to set a timeout to determine when a task has been abandoned.
 
+After I made the two services
 TODO: tie it back to the original point
 
 - rnd-subscriber-pruning-service's use of Spring cron, preventing safe restarts for a week
@@ -50,7 +51,7 @@ TODO: tie it back to the original point
 - batch-subscriber-processor's lack of CD tests, making the Spring Boot 3 migration dangerous
 - subscription-api's lack of CD tests, creating a business risk
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTEyNDQ3NTM2LDE1MzEwNDYwMjMsLTEwOT
-cwODAzMiwtNDgxMjE5NDU3LDE0MTQ5ODAxNzgsMTkzMzg0MTQx
-MF19
+eyJoaXN0b3J5IjpbMTY3ODI5MDE5NSwxNTMxMDQ2MDIzLC0xMD
+k3MDgwMzIsLTQ4MTIxOTQ1NywxNDE0OTgwMTc4LDE5MzM4NDE0
+MTBdfQ==
 -->
