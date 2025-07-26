@@ -2,6 +2,7 @@
 
 title: "Heimdall: Attentive's Event Tracing Platform"
 date: 2024-08-28T16:00:00
+permalink: blog/heimdall-attentive-s-event-tracing-platform
 tags:
 - java
 - microservices

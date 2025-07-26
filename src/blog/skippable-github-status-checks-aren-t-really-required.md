@@ -2,6 +2,7 @@
 
 title: Skippable GitHub Status Checks Aren't Really Required
 date: 2023-07-25T22:39:00
+permalink: blog/skippable-github-status-checks-aren-t-really-required
 tags:
 - ci-cd
 - github

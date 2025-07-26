@@ -2,6 +2,7 @@
 
 title: "Discussion Guide: The Staff Engineer's Path"
 date: 2023-11-08T00:52:00
+permalink: blog/discussion-guide-the-staff-engineer-s-path
 tags:
 - books
 - career
