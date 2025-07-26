@@ -44,12 +44,12 @@ After I made the two services not lose state on restart I put them on full CI/CD
 
 ## Patients 3 & 4: services with low meaningful test coverage
 
-I gave "the entire department is going through a massive library migration" as an example above, and that's because we are.
+I gave "the entire department is going through a massive library migration" as an example above, and that's because we are. The migration changes were largely automated, but it was up to each team to test their services to make sure the changes didn't break them. Here's the problem: _I don't trust that
 
 - batch-subscriber-processor's lack of CD tests, making the Spring Boot 3 migration dangerous
 - subscription-api's lack of CD tests, creating a business risk
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTUyOTgwNjM2NywxNTMxMDQ2MDIzLC0xMD
-k3MDgwMzIsLTQ4MTIxOTQ1NywxNDE0OTgwMTc4LDE5MzM4NDE0
-MTBdfQ==
+eyJoaXN0b3J5IjpbNjk4Njk5NDQ0LDE1MzEwNDYwMjMsLTEwOT
+cwODAzMiwtNDgxMjE5NDU3LDE0MTQ5ODAxNzgsMTkzMzg0MTQx
+MF19
 -->
