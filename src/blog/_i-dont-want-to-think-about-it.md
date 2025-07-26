@@ -57,14 +57,16 @@ These tests don't help me test correctness such as making sure datastores have t
 
 My goal was to gain confidence that my services wouldn't start experiencing exceptions as soon as they were deployed to production. They helped protect me from myself, and they gave me confidence that sweeping upgrades to critical libraries were largely safe.
 
-Obviously this testing strategy isn't a fool-proof plan. You should still test things like authorization and input validation in unit tests. And this end-to-end runtime testing didn't completely eliminate the chance of critical errors
+Obviously this testing strategy isn't a fool-proof plan. My end-to-end runtime testing doesn't have a particularly high test coverage.
+
+You should still test things like authorization and input validation in unit tests.
 
 Both of those provided me safety to perform refactors and migrations. I greatly reduced the chances of errors happening in the most common client flows, preventing
 
 - batch-subscriber-processor's lack of CD tests, making the Spring Boot 3 migration dangerous
 - subscription-api's lack of CD tests, creating a business risk
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTgwNzk3NzE0OCwxNTMxMDQ2MDIzLC0xMD
+eyJoaXN0b3J5IjpbLTE3NDI2NTUyOCwxNTMxMDQ2MDIzLC0xMD
 k3MDgwMzIsLTQ4MTIxOTQ1NywxNDE0OTgwMTc4LDE5MzM4NDE0
 MTBdfQ==
 -->
