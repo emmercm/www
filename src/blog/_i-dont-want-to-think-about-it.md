@@ -40,18 +40,16 @@ Neither scenario is acceptable. In a cloud-based world, you have to treat your s
 
 The solution for both services was to externalize the task queue and each task's status. If you track tasks with statuses such as "queued," "in-progress," "completed," and "failed" along with a timestamp of the last time a service made progress on it, then you can recover from service restarts. ACID-compliant DBs are going to work the best for this because separate instances of the same service might fight each other to claim a task to work on. You'll want to track the last time a task made progress, or a "heartbeat" timestamp to be able to set a timeout to determine when a task has been abandoned.
 
-After I made the two services
-TODO: tie it back to the original point
-
-- rnd-subscriber-pruning-service's use of Spring cron, preventing safe restarts for a week
-- litigator-service's in-memory job queue, preventing safe restarts ever, requiring callers to pause
+After I made the two services not lose state on restart I put them on full CI/CD with automatic deployments on dependency updates. I no longer have to think about them.
 
 ## Patients 3 & 4: services with low meaningful test coverage
+
+I gave "the entire department is going through a massive library migration" as an example above, and that's because we are.
 
 - batch-subscriber-processor's lack of CD tests, making the Spring Boot 3 migration dangerous
 - subscription-api's lack of CD tests, creating a business risk
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTY3ODI5MDE5NSwxNTMxMDQ2MDIzLC0xMD
+eyJoaXN0b3J5IjpbLTUyOTgwNjM2NywxNTMxMDQ2MDIzLC0xMD
 k3MDgwMzIsLTQ4MTIxOTQ1NywxNDE0OTgwMTc4LDE5MzM4NDE0
 MTBdfQ==
 -->
