@@ -48,17 +48,18 @@ I gave "the entire department is going through a massive library migration" as a
 
 For two of these services, an over-use of [mocking](https://en.wikipedia.org/wiki/Mock_object) meant that some of their critical flows were never exercised fully end-to-end. I accidentally caused multiple regressions during a different project because no test fully exercised the service all the way from request to datastore to response. Poor code hygiene meant that I experienced a lot of null pointer exceptions because model classes didn't explicitly convey what properties were optional and which weren't.
 
-Both of these two services are API-based, so the solution was to automate running them and calling their endpoints like a real client would. And if a real client would make a series of requests, using the response from a request to assemble the next request, then the tests need to do that, too.
+Both of these two services are API-based, so the solution was to automate running them and calling their endpoints like a real client would. And if a real client would make a series of requests, using the response from one request to assemble the next request, then the tests needed to do that, too.
 
 These tests don't help me test correctness such as making sure datastores have the right state after each request, but they do help me prevent regressions. Specifically in two areas:
 
 1. I know the service starts correctly
-2. I know the service won't throw any runtime exceptions with tested client flows
+2. I know the service won't throw any runtime exceptions during tested client flows
 
 My goal was to gain confidence that my services wouldn't start experiencing exceptions as soon as they were deployed to production. They helped protect me from myself, and they gave me confidence that sweeping upgrades to critical libraries were largely safe.
 
 Obviously this testing strategy isn't a fool-proof plan. My end-to-end runtime testing doesn't have a particularly high test coverage by lines of code. Instead, it aims to cover a high percentage of API traffic. The next step I want to take with these services is to make use of [canary deployments](https://martinfowler.com/bliki/CanaryRelease.html?ref=wellarchitected) to reduce the blast radius of bugs that make their way to production.
 
+I greatly increased my team's confidence
 
 You should still test things like authorization and input validation in unit tests.
 
@@ -67,7 +68,7 @@ Both of those provided me safety to perform refactors and migrations. I greatly 
 - batch-subscriber-processor's lack of CD tests, making the Spring Boot 3 migration dangerous
 - subscription-api's lack of CD tests, creating a business risk
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTU1OTkxODk1MiwxNTMxMDQ2MDIzLC0xMD
-k3MDgwMzIsLTQ4MTIxOTQ1NywxNDE0OTgwMTc4LDE5MzM4NDE0
-MTBdfQ==
+eyJoaXN0b3J5IjpbNDI3MjQzNzU3LDE1MzEwNDYwMjMsLTEwOT
+cwODAzMiwtNDgxMjE5NDU3LDE0MTQ5ODAxNzgsMTkzMzg0MTQx
+MF19
 -->
