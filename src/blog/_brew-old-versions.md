@@ -8,9 +8,9 @@ https://github.com/orgs/Homebrew/discussions/2941#discussioncomment-2155711
 
 ```shell
 brew tap --force homebrew/core
-brew tap-new emmercm/zstd
-brew extract --version=1.5.5 zstd emmercm/zstd
-brew install emmercm/zstd/zstd@1.5.5
+brew tap-new historical
+brew extract --version=1.5.5 zstd historical
+brew install historical/zstd@1.5.5
 ```
 
 if you need to modify build parameters,
@@ -25,6 +25,7 @@ Warnings:
 
 - The app may require an older version of Xcode
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTE2ODA1MDg0NzcsLTIwNDY4NzgwNjgsMT
-gwMjU1MDY2LDk5NjU3MDI3NCwxNjgxNzM3ODAyXX0=
+eyJoaXN0b3J5IjpbLTE0MzM0MjgyOTksLTE2ODA1MDg0NzcsLT
+IwNDY4NzgwNjgsMTgwMjU1MDY2LDk5NjU3MDI3NCwxNjgxNzM3
+ODAyXX0=
 -->
