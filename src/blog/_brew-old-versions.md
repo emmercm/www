@@ -39,6 +39,7 @@ brew tap-new homebrew/local
 Then, we'll copy ("extract") a specific version of a formulae into our local tap:
 
 ```shell
+brew extract --version=1.5.5 zstd homebrew/local
 ```
 
 ---
@@ -83,9 +84,9 @@ Warnings:
 
 - The app may require an older version of Xcode
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMzQ1NDEwNTI1LDQzMTExODExLDEyNjY5Mz
-k4MTIsLTEzOTU2NTM2OTEsLTE1NzYwMDU3NDMsLTIxMjQyMTkz
-NjMsMTkwMDQ5Mjg2LC05MjE2NDYxNDIsLTE2ODA1MDg0NzcsLT
-IwNDY4NzgwNjgsMTgwMjU1MDY2LDk5NjU3MDI3NCwxNjgxNzM3
-ODAyXX0=
+eyJoaXN0b3J5IjpbMTU5MTk4NjA3NCwzNDU0MTA1MjUsNDMxMT
+E4MTEsMTI2NjkzOTgxMiwtMTM5NTY1MzY5MSwtMTU3NjAwNTc0
+MywtMjEyNDIxOTM2MywxOTAwNDkyODYsLTkyMTY0NjE0MiwtMT
+Y4MDUwODQ3NywtMjA0Njg3ODA2OCwxODAyNTUwNjYsOTk2NTcw
+Mjc0LDE2ODE3Mzc4MDJdfQ==
 -->
