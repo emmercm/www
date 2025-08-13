@@ -10,7 +10,7 @@ tags:
 
 Homebrew makes it very difficult to install older versions of a formulae.
 
-And no, [versioned formula](https://docs.brew.sh/Versions) are not a real solution.
+And no, [versioned formula](https://docs.brew.sh/Versions) are not a real solution. Thankfully, we can cobble together some incantations to get what we want.
 
 https://github.com/orgs/Homebrew/discussions/2941#discussioncomment-2155711
 
@@ -53,8 +53,8 @@ Warnings:
 
 - The app may require an older version of Xcode
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTE1NzYwMDU3NDMsLTIxMjQyMTkzNjMsMT
-kwMDQ5Mjg2LC05MjE2NDYxNDIsLTE2ODA1MDg0NzcsLTIwNDY4
-NzgwNjgsMTgwMjU1MDY2LDk5NjU3MDI3NCwxNjgxNzM3ODAyXX
-0=
+eyJoaXN0b3J5IjpbLTEwODcyMzQzMjAsLTE1NzYwMDU3NDMsLT
+IxMjQyMTkzNjMsMTkwMDQ5Mjg2LC05MjE2NDYxNDIsLTE2ODA1
+MDg0NzcsLTIwNDY4NzgwNjgsMTgwMjU1MDY2LDk5NjU3MDI3NC
+wxNjgxNzM3ODAyXX0=
 -->
