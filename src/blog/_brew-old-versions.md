@@ -28,7 +28,7 @@ brew list -1 | grep -E '^mas($|@)' | xargs brew unlink
 if you need to modify build parameters,
 
 ```shell
-brew edit emmercm/zstd-1.5.5/zstd@1.5.5
+brew edit homebrew/local/zstd@1.5.5
 ```
 
 TODO: how to uninstall, get rid of tap
@@ -37,8 +37,7 @@ Warnings:
 
 - The app may require an older version of Xcode
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTM3MDE0NTU5OSwtMjEyNDIxOTM2MywxOT
-AwNDkyODYsLTkyMTY0NjE0MiwtMTY4MDUwODQ3NywtMjA0Njg3
-ODA2OCwxODAyNTUwNjYsOTk2NTcwMjc0LDE2ODE3Mzc4MDJdfQ
-==
+eyJoaXN0b3J5IjpbNDcyMTQxOTY4LC0yMTI0MjE5MzYzLDE5MD
+A0OTI4NiwtOTIxNjQ2MTQyLC0xNjgwNTA4NDc3LC0yMDQ2ODc4
+MDY4LDE4MDI1NTA2Niw5OTY1NzAyNzQsMTY4MTczNzgwMl19
 -->
