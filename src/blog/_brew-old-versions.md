@@ -8,7 +8,9 @@ tags:
 
 ---
 
-Homebrew makes it very difficult to install specific versions
+Homebrew makes it very difficult to install older versions of a formulae.
+
+And no, [versioned formula](https://docs.brew.sh/Versions) are not a real solution.
 
 https://github.com/orgs/Homebrew/discussions/2941#discussioncomment-2155711
 
@@ -51,8 +53,8 @@ Warnings:
 
 - The app may require an older version of Xcode
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTQzNTkzMTQzMCwtMjEyNDIxOTM2MywxOT
-AwNDkyODYsLTkyMTY0NjE0MiwtMTY4MDUwODQ3NywtMjA0Njg3
-ODA2OCwxODAyNTUwNjYsOTk2NTcwMjc0LDE2ODE3Mzc4MDJdfQ
-==
+eyJoaXN0b3J5IjpbLTE1NzYwMDU3NDMsLTIxMjQyMTkzNjMsMT
+kwMDQ5Mjg2LC05MjE2NDYxNDIsLTE2ODA1MDg0NzcsLTIwNDY4
+NzgwNjgsMTgwMjU1MDY2LDk5NjU3MDI3NCwxNjgxNzM3ODAyXX
+0=
 -->
