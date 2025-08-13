@@ -26,8 +26,7 @@ First, we need to checkout the entire history of homebrew/core so that we can sc
 brew tap --force homebrew/core
 ```
 
-We only need to tap once. Subsequent runs should use `brew 
-_Note: running `brew update` will update all taps, including this one._
+We only need to tap once. Subsequent runs should use `brew update` to update the tap.
 
 ```shell
 brew tap --force homebrew/core
@@ -69,8 +68,8 @@ Warnings:
 
 - The app may require an older version of Xcode
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTM2MTAwMzI4MywxMjY2OTM5ODEyLC0xMz
-k1NjUzNjkxLC0xNTc2MDA1NzQzLC0yMTI0MjE5MzYzLDE5MDA0
-OTI4NiwtOTIxNjQ2MTQyLC0xNjgwNTA4NDc3LC0yMDQ2ODc4MD
-Y4LDE4MDI1NTA2Niw5OTY1NzAyNzQsMTY4MTczNzgwMl19
+eyJoaXN0b3J5IjpbNDMxMTE4MTEsMTI2NjkzOTgxMiwtMTM5NT
+Y1MzY5MSwtMTU3NjAwNTc0MywtMjEyNDIxOTM2MywxOTAwNDky
+ODYsLTkyMTY0NjE0MiwtMTY4MDUwODQ3NywtMjA0Njg3ODA2OC
+wxODAyNTUwNjYsOTk2NTcwMjc0LDE2ODE3Mzc4MDJdfQ==
 -->
