@@ -36,7 +36,7 @@ Then, we need to make our local tap. We only need to do this once _ever_:
 brew tap-new homebrew/local
 ```
 
-Then, we'll copy a specific version of a formulae into our local tap:
+Then, we'll copy ("extract") a specific version of a formulae into our local tap:
 
 ```shell
 ```
@@ -83,9 +83,9 @@ Warnings:
 
 - The app may require an older version of Xcode
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTE0MTU0OTc0Nyw0MzExMTgxMSwxMjY2OT
-M5ODEyLC0xMzk1NjUzNjkxLC0xNTc2MDA1NzQzLC0yMTI0MjE5
-MzYzLDE5MDA0OTI4NiwtOTIxNjQ2MTQyLC0xNjgwNTA4NDc3LC
-0yMDQ2ODc4MDY4LDE4MDI1NTA2Niw5OTY1NzAyNzQsMTY4MTcz
-NzgwMl19
+eyJoaXN0b3J5IjpbMzQ1NDEwNTI1LDQzMTExODExLDEyNjY5Mz
+k4MTIsLTEzOTU2NTM2OTEsLTE1NzYwMDU3NDMsLTIxMjQyMTkz
+NjMsMTkwMDQ5Mjg2LC05MjE2NDYxNDIsLTE2ODA1MDg0NzcsLT
+IwNDY4NzgwNjgsMTgwMjU1MDY2LDk5NjU3MDI3NCwxNjgxNzM3
+ODAyXX0=
 -->
