@@ -12,6 +12,10 @@ Homebrew makes it very difficult to install older versions of a formulae.
 
 And no, [versioned formula](https://docs.brew.sh/Versions) are not a real solution. Thankfully, we can cobble together some incantations to get what we want.
 
+The solution comes from [Carlo Cabrera](https://github.com/carlocab) on [GitHub](https://github.com/orgs/Homebrew/discussions/2941#discussioncomment-2155711). It involves:
+
+1. Making a 
+
 https://github.com/orgs/Homebrew/discussions/2941#discussioncomment-2155711
 
 ```shell
@@ -53,7 +57,7 @@ Warnings:
 
 - The app may require an older version of Xcode
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTEwODcyMzQzMjAsLTE1NzYwMDU3NDMsLT
+eyJoaXN0b3J5IjpbLTE5MjgxNDUxMTAsLTE1NzYwMDU3NDMsLT
 IxMjQyMTkzNjMsMTkwMDQ5Mjg2LC05MjE2NDYxNDIsLTE2ODA1
 MDg0NzcsLTIwNDY4NzgwNjgsMTgwMjU1MDY2LDk5NjU3MDI3NC
 wxNjgxNzM3ODAyXX0=
