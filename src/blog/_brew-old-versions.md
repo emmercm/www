@@ -20,6 +20,8 @@ The solution comes from [Carlo Cabrera](https://github.com/carlocab) on [GitHub]
 
 ## Steps
 
+For our example formulae, I'm going to use Zstd
+
 First, we need to checkout the entire history of homebrew/core so that we can scan its history for the desired version of the formulae:
 
 ```shell
@@ -28,7 +30,13 @@ brew tap --force homebrew/core
 
 We only need to tap once. Subsequent runs should use `brew update` to update the tap.
 
-Then, we need to make our l
+Then, we need to make our local tap. We only need to do this once _ever_:
+
+```shell
+brew tap-new homebrew/local
+```
+
+Then, we'll copy a specific version of a formulae into our local tap.
 
 ```shell
 brew tap --force homebrew/core
@@ -70,7 +78,7 @@ Warnings:
 
 - The app may require an older version of Xcode
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTEyMTUxNjM1MDcsNDMxMTE4MTEsMTI2Nj
+eyJoaXN0b3J5IjpbLTE1MDU2MDMzNjgsNDMxMTE4MTEsMTI2Nj
 kzOTgxMiwtMTM5NTY1MzY5MSwtMTU3NjAwNTc0MywtMjEyNDIx
 OTM2MywxOTAwNDkyODYsLTkyMTY0NjE0MiwtMTY4MDUwODQ3Ny
 wtMjA0Njg3ODA2OCwxODAyNTUwNjYsOTk2NTcwMjc0LDE2ODE3
