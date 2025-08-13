@@ -36,10 +36,16 @@ Then, we need to make our local tap. We only need to do this once _ever_:
 brew tap-new homebrew/local
 ```
 
-Then, we'll copy ("extract") a specific version of a formulae into our local tap:
+Then, we'll copy ("extract") a specific version of a formulae into our local tap. Again, we'll only need to do this once ever:
 
 ```shell
 brew extract --version=1.5.5 zstd homebrew/local
+```
+
+Then, we'll install the formulae, which may cause a build process:
+
+```shell
+brew install homebrew/local/zstd@1.5.5
 ```
 
 ---
@@ -84,9 +90,9 @@ Warnings:
 
 - The app may require an older version of Xcode
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTU5MTk4NjA3NCwzNDU0MTA1MjUsNDMxMT
-E4MTEsMTI2NjkzOTgxMiwtMTM5NTY1MzY5MSwtMTU3NjAwNTc0
-MywtMjEyNDIxOTM2MywxOTAwNDkyODYsLTkyMTY0NjE0MiwtMT
-Y4MDUwODQ3NywtMjA0Njg3ODA2OCwxODAyNTUwNjYsOTk2NTcw
-Mjc0LDE2ODE3Mzc4MDJdfQ==
+eyJoaXN0b3J5IjpbLTExNTQ5ODAzNjUsMzQ1NDEwNTI1LDQzMT
+ExODExLDEyNjY5Mzk4MTIsLTEzOTU2NTM2OTEsLTE1NzYwMDU3
+NDMsLTIxMjQyMTkzNjMsMTkwMDQ5Mjg2LC05MjE2NDYxNDIsLT
+E2ODA1MDg0NzcsLTIwNDY4NzgwNjgsMTgwMjU1MDY2LDk5NjU3
+MDI3NCwxNjgxNzM3ODAyXX0=
 -->
