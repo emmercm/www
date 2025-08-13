@@ -20,7 +20,11 @@ brew edit emmercm/zstd-1.5.5/zstd@1.5.5
 ```
 
 TODO: how to uninstall, get rid of tap
+
+Warnings:
+
+- The app may require an older version of Xcode
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTIwNDY4NzgwNjgsMTgwMjU1MDY2LDk5Nj
-U3MDI3NCwxNjgxNzM3ODAyXX0=
+eyJoaXN0b3J5IjpbLTE2ODA1MDg0NzcsLTIwNDY4NzgwNjgsMT
+gwMjU1MDY2LDk5NjU3MDI3NCwxNjgxNzM3ODAyXX0=
 -->
