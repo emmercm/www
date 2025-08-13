@@ -14,7 +14,7 @@ And no, [versioned formula](https://docs.brew.sh/Versions) are not a real soluti
 
 The solution comes from [Carlo Cabrera](https://github.com/carlocab) on [GitHub](https://github.com/orgs/Homebrew/discussions/2941#discussioncomment-2155711). It involves:
 
-1. Making a 
+1. [Making a local tap](https://docs.brew.sh/How-to-Create-and-Maintain-a-Tap) ("local" because we won't be publishing this to a remote Git repository)
 
 https://github.com/orgs/Homebrew/discussions/2941#discussioncomment-2155711
 
@@ -57,8 +57,8 @@ Warnings:
 
 - The app may require an older version of Xcode
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTE5MjgxNDUxMTAsLTE1NzYwMDU3NDMsLT
-IxMjQyMTkzNjMsMTkwMDQ5Mjg2LC05MjE2NDYxNDIsLTE2ODA1
-MDg0NzcsLTIwNDY4NzgwNjgsMTgwMjU1MDY2LDk5NjU3MDI3NC
-wxNjgxNzM3ODAyXX0=
+eyJoaXN0b3J5IjpbMTE1NTk4MDQ1LC0xNTc2MDA1NzQzLC0yMT
+I0MjE5MzYzLDE5MDA0OTI4NiwtOTIxNjQ2MTQyLC0xNjgwNTA4
+NDc3LC0yMDQ2ODc4MDY4LDE4MDI1NTA2Niw5OTY1NzAyNzQsMT
+Y4MTczNzgwMl19
 -->
