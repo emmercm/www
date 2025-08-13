@@ -8,9 +8,9 @@ https://github.com/orgs/Homebrew/discussions/2941#discussioncomment-2155711
 
 ```shell
 brew tap --force homebrew/core
-brew tap-new historical
-brew extract --version=1.5.5 zstd historical
-brew install historical/zstd@1.5.5
+brew tap-new local/historical
+brew extract --version=1.5.5 zstd local/historical
+brew install local/historical/zstd@1.5.5
 ```
 
 if you need to modify build parameters,
@@ -25,7 +25,7 @@ Warnings:
 
 - The app may require an older version of Xcode
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTE0MzM0MjgyOTksLTE2ODA1MDg0NzcsLT
-IwNDY4NzgwNjgsMTgwMjU1MDY2LDk5NjU3MDI3NCwxNjgxNzM3
-ODAyXX0=
+eyJoaXN0b3J5IjpbMTQxNDg1MTY2NSwtMTY4MDUwODQ3NywtMj
+A0Njg3ODA2OCwxODAyNTUwNjYsOTk2NTcwMjc0LDE2ODE3Mzc4
+MDJdfQ==
 -->
