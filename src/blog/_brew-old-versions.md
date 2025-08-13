@@ -18,13 +18,15 @@ The solution comes from [Carlo Cabrera](https://github.com/carlocab) on [GitHub]
 2. Copy a specific version of a formulae to our local tap
 3. Install the local formulae
 
-https://github.com/orgs/Homebrew/discussions/2941#discussioncomment-2155711
+## Steps
+
+First, we need
 
 ```shell
 brew tap --force homebrew/core
-brew tap-new homebrew/local
-brew extract --version=1.5.5 zstd homebrew/local
-brew install homebrew/local/zstd@1.5.5
+brew tap-new local/homebrew
+brew extract --version=1.5.5 zstd local/homebrew
+brew install local/homebrew/zstd@1.5.5
 brew link --overwrite zstd@1.5.5
 ```
 
@@ -53,14 +55,15 @@ brew uninstall zstd@1.5.5
 
 ```shell
 brew untap homebrew/local
+brew untap homebrew/core
 ```
 
 Warnings:
 
 - The app may require an older version of Xcode
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTA2Njc3Mjg0OCwtMTU3NjAwNTc0MywtMj
-EyNDIxOTM2MywxOTAwNDkyODYsLTkyMTY0NjE0MiwtMTY4MDUw
-ODQ3NywtMjA0Njg3ODA2OCwxODAyNTUwNjYsOTk2NTcwMjc0LD
-E2ODE3Mzc4MDJdfQ==
+eyJoaXN0b3J5IjpbNDM3NzE4Nzk3LC0xNTc2MDA1NzQzLC0yMT
+I0MjE5MzYzLDE5MDA0OTI4NiwtOTIxNjQ2MTQyLC0xNjgwNTA4
+NDc3LC0yMDQ2ODc4MDY4LDE4MDI1NTA2Niw5OTY1NzAyNzQsMT
+Y4MTczNzgwMl19
 -->
