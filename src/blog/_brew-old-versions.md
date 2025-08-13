@@ -20,7 +20,7 @@ The solution comes from [Carlo Cabrera](https://github.com/carlocab) on [GitHub]
 
 ## Steps
 
-For our example formulae, I'm going to use Zstd
+For our example formulae, I'm going to use [Zstd](https://github.com/facebook/zstd) v1.5.5. This came from a real world need of mine while developing [Igir](https://igir.io/).
 
 First, we need to checkout the entire history of homebrew/core so that we can scan its history for the desired version of the formulae:
 
@@ -36,7 +36,12 @@ Then, we need to make our local tap. We only need to do this once _ever_:
 brew tap-new homebrew/local
 ```
 
-Then, we'll copy a specific version of a formulae into our local tap.
+Then, we'll copy a specific version of a formulae into our local tap:
+
+```shell
+```
+
+---
 
 ```shell
 brew tap --force homebrew/core
@@ -78,9 +83,9 @@ Warnings:
 
 - The app may require an older version of Xcode
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTE1MDU2MDMzNjgsNDMxMTE4MTEsMTI2Nj
-kzOTgxMiwtMTM5NTY1MzY5MSwtMTU3NjAwNTc0MywtMjEyNDIx
-OTM2MywxOTAwNDkyODYsLTkyMTY0NjE0MiwtMTY4MDUwODQ3Ny
-wtMjA0Njg3ODA2OCwxODAyNTUwNjYsOTk2NTcwMjc0LDE2ODE3
-Mzc4MDJdfQ==
+eyJoaXN0b3J5IjpbLTE0MTU0OTc0Nyw0MzExMTgxMSwxMjY2OT
+M5ODEyLC0xMzk1NjUzNjkxLC0xNTc2MDA1NzQzLC0yMTI0MjE5
+MzYzLDE5MDA0OTI4NiwtOTIxNjQ2MTQyLC0xNjgwNTA4NDc3LC
+0yMDQ2ODc4MDY4LDE4MDI1NTA2Niw5OTY1NzAyNzQsMTY4MTcz
+NzgwMl19
 -->
