@@ -24,9 +24,9 @@ First, we need
 
 ```shell
 brew tap --force homebrew/core
-brew tap-new local/homebrew
-brew extract --version=1.5.5 zstd local/homebrew
-brew install local/homebrew/zstd@1.5.5
+brew tap-new homebrew/local
+brew extract --version=1.5.5 zstd homebrew/local
+brew install homebrew/local/zstd@1.5.5
 brew link --overwrite zstd@1.5.5
 ```
 
@@ -62,8 +62,8 @@ Warnings:
 
 - The app may require an older version of Xcode
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbNDM3NzE4Nzk3LC0xNTc2MDA1NzQzLC0yMT
-I0MjE5MzYzLDE5MDA0OTI4NiwtOTIxNjQ2MTQyLC0xNjgwNTA4
-NDc3LC0yMDQ2ODc4MDY4LDE4MDI1NTA2Niw5OTY1NzAyNzQsMT
-Y4MTczNzgwMl19
+eyJoaXN0b3J5IjpbLTEzOTU2NTM2OTEsLTE1NzYwMDU3NDMsLT
+IxMjQyMTkzNjMsMTkwMDQ5Mjg2LC05MjE2NDYxNDIsLTE2ODA1
+MDg0NzcsLTIwNDY4NzgwNjgsMTgwMjU1MDY2LDk5NjU3MDI3NC
+wxNjgxNzM3ODAyXX0=
 -->
