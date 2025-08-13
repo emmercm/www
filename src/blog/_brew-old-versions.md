@@ -20,7 +20,11 @@ The solution comes from [Carlo Cabrera](https://github.com/carlocab) on [GitHub]
 
 ## Steps
 
-First, we need
+First, we need to checkout the entire history of homebrew/core so that we can scan its history for the desired version of the formulae. We only need to do this once:
+
+```shell
+brew tap --force homebrew/core
+```
 
 ```shell
 brew tap --force homebrew/core
@@ -62,8 +66,8 @@ Warnings:
 
 - The app may require an older version of Xcode
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTEzOTU2NTM2OTEsLTE1NzYwMDU3NDMsLT
-IxMjQyMTkzNjMsMTkwMDQ5Mjg2LC05MjE2NDYxNDIsLTE2ODA1
-MDg0NzcsLTIwNDY4NzgwNjgsMTgwMjU1MDY2LDk5NjU3MDI3NC
-wxNjgxNzM3ODAyXX0=
+eyJoaXN0b3J5IjpbLTc1MjY3MjcxNywtMTM5NTY1MzY5MSwtMT
+U3NjAwNTc0MywtMjEyNDIxOTM2MywxOTAwNDkyODYsLTkyMTY0
+NjE0MiwtMTY4MDUwODQ3NywtMjA0Njg3ODA2OCwxODAyNTUwNj
+YsOTk2NTcwMjc0LDE2ODE3Mzc4MDJdfQ==
 -->
