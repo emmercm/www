@@ -14,6 +14,11 @@ brew install homebrew/local/zstd@1.5.5
 brew link --overwrite zstd@1.5.5
 ```
 
+```shell
+brew reinstall zstd
+brew link --overwrite zstd
+```
+
 if you need to modify build parameters,
 
 ```shell
@@ -26,7 +31,7 @@ Warnings:
 
 - The app may require an older version of Xcode
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTIxMTc3NTE0NzcsLTkyMTY0NjE0MiwtMT
+eyJoaXN0b3J5IjpbLTE3MTk4NTUzNTIsLTkyMTY0NjE0MiwtMT
 Y4MDUwODQ3NywtMjA0Njg3ODA2OCwxODAyNTUwNjYsOTk2NTcw
 Mjc0LDE2ODE3Mzc4MDJdfQ==
 -->
