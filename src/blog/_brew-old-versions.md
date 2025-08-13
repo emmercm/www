@@ -11,6 +11,7 @@ brew tap --force homebrew/core
 brew tap-new homebrew/local
 brew extract --version=1.5.5 zstd homebrew/local
 brew install homebrew/local/zstd@1.5.5
+brew link --overwrite zstd@1.5.5
 ```
 
 if you need to modify build parameters,
@@ -25,7 +26,7 @@ Warnings:
 
 - The app may require an older version of Xcode
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTkyMTY0NjE0MiwtMTY4MDUwODQ3NywtMj
-A0Njg3ODA2OCwxODAyNTUwNjYsOTk2NTcwMjc0LDE2ODE3Mzc4
-MDJdfQ==
+eyJoaXN0b3J5IjpbLTIxMTc3NTE0NzcsLTkyMTY0NjE0MiwtMT
+Y4MDUwODQ3NywtMjA0Njg3ODA2OCwxODAyNTUwNjYsOTk2NTcw
+Mjc0LDE2ODE3Mzc4MDJdfQ==
 -->
