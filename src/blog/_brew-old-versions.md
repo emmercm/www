@@ -17,6 +17,7 @@ brew link --overwrite zstd@1.5.5
 To swap back:
 
 ```shell
+brew reinstall zstd
 brew link --overwrite zstd
 ```
 
@@ -32,7 +33,7 @@ Warnings:
 
 - The app may require an older version of Xcode
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTkwMDQ5Mjg2LC05MjE2NDYxNDIsLTE2OD
-A1MDg0NzcsLTIwNDY4NzgwNjgsMTgwMjU1MDY2LDk5NjU3MDI3
-NCwxNjgxNzM3ODAyXX0=
+eyJoaXN0b3J5IjpbMTkyMzkyNjkwNywxOTAwNDkyODYsLTkyMT
+Y0NjE0MiwtMTY4MDUwODQ3NywtMjA0Njg3ODA2OCwxODAyNTUw
+NjYsOTk2NTcwMjc0LDE2ODE3Mzc4MDJdfQ==
 -->
