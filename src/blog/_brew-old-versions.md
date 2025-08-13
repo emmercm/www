@@ -8,6 +8,8 @@ tags:
 
 ---
 
+Homebrew makes it very difficult to install specific versions
+
 https://github.com/orgs/Homebrew/discussions/2941#discussioncomment-2155711
 
 ```shell
@@ -49,7 +51,7 @@ Warnings:
 
 - The app may require an older version of Xcode
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTU1OTgxNDYxMiwtMjEyNDIxOTM2MywxOT
+eyJoaXN0b3J5IjpbLTQzNTkzMTQzMCwtMjEyNDIxOTM2MywxOT
 AwNDkyODYsLTkyMTY0NjE0MiwtMTY4MDUwODQ3NywtMjA0Njg3
 ODA2OCwxODAyNTUwNjYsOTk2NTcwMjc0LDE2ODE3Mzc4MDJdfQ
 ==
