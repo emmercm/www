@@ -28,6 +28,8 @@ brew tap --force homebrew/core
 
 We only need to tap once. Subsequent runs should use `brew update` to update the tap.
 
+Then, we need to make our l
+
 ```shell
 brew tap --force homebrew/core
 brew tap-new homebrew/local
@@ -68,8 +70,9 @@ Warnings:
 
 - The app may require an older version of Xcode
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbNDMxMTE4MTEsMTI2NjkzOTgxMiwtMTM5NT
-Y1MzY5MSwtMTU3NjAwNTc0MywtMjEyNDIxOTM2MywxOTAwNDky
-ODYsLTkyMTY0NjE0MiwtMTY4MDUwODQ3NywtMjA0Njg3ODA2OC
-wxODAyNTUwNjYsOTk2NTcwMjc0LDE2ODE3Mzc4MDJdfQ==
+eyJoaXN0b3J5IjpbLTEyMTUxNjM1MDcsNDMxMTE4MTEsMTI2Nj
+kzOTgxMiwtMTM5NTY1MzY5MSwtMTU3NjAwNTc0MywtMjEyNDIx
+OTM2MywxOTAwNDkyODYsLTkyMTY0NjE0MiwtMTY4MDUwODQ3Ny
+wtMjA0Njg3ODA2OCwxODAyNTUwNjYsOTk2NTcwMjc0LDE2ODE3
+Mzc4MDJdfQ==
 -->
