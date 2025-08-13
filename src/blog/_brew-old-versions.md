@@ -21,6 +21,10 @@ brew unlink zstd@1.5.5
 brew link --overwrite zstd
 ```
 
+```shell
+brew list -1 | grep -E '^mas($|@)' | xargs brew unlink
+```
+
 if you need to modify build parameters,
 
 ```shell
@@ -33,7 +37,8 @@ Warnings:
 
 - The app may require an older version of Xcode
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTIxMjQyMTkzNjMsMTkwMDQ5Mjg2LC05Mj
-E2NDYxNDIsLTE2ODA1MDg0NzcsLTIwNDY4NzgwNjgsMTgwMjU1
-MDY2LDk5NjU3MDI3NCwxNjgxNzM3ODAyXX0=
+eyJoaXN0b3J5IjpbMTM3MDE0NTU5OSwtMjEyNDIxOTM2MywxOT
+AwNDkyODYsLTkyMTY0NjE0MiwtMTY4MDUwODQ3NywtMjA0Njg3
+ODA2OCwxODAyNTUwNjYsOTk2NTcwMjc0LDE2ODE3Mzc4MDJdfQ
+==
 -->
