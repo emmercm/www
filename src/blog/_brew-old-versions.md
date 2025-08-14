@@ -85,7 +85,41 @@ brew untap homebrew/core
 
 ## As a dotfile function
 
-We can tie everything together into one clean function that we can put
+We can tie everything together into one clean function that you can put in your dotfiles:
+
+```bash
+# Install a specific version of a Homebrew formula
+# @param {string} $1 Formula name
+# @param {string} $2 Formula version
+vintage() {
+    # Ensure homebrew/core is tapped and up to date
+    brew tap | grep --quiet --line-regexp homebrew/core \
+        && brew update \
+        || brew tap --force homebrew/core
+
+    # Ensure homebrew/local is created
+    brew tap | grep --quiet --line-regexp homebrew/local \
+        || brew tap homebrew/local
+
+    # Extract the formula
+    brew extract --force "--version=${2:?}" "${1:?}" homebrew/local
+
+    # If the formula is already linked, re-link it
+    if brew list -1 | grep --quiet --line-regexp "${1:?}@${2:?}"; then
+        brew unlink "${1:?}@${2:?}"
+        brew link --overwrite "${1:?}@${2:?}"
+        return 0
+    fi
+    
+    # Install the formula and ensure it's linked
+    brew install "homebrew/local/${1:?}@${2:?}" \
+        || brew link --overwrite "${1:?}@${2:?}"
+}
+```
+
+## Caveats
+
+The main caveat is if you're installing an older version of a formula, it may need old versions of its dependencies. Each situation is going to be unique, but some may be
 
 ---
 
@@ -129,10 +163,10 @@ Warnings:
 
 - The app may require an older version of Xcode
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbNTAzOTQ4NzczLDE1MzU1NzMwOTIsLTE1ND
-g2NTkxMiwtMTE1NDk4MDM2NSwzNDU0MTA1MjUsNDMxMTE4MTEs
-MTI2NjkzOTgxMiwtMTM5NTY1MzY5MSwtMTU3NjAwNTc0MywtMj
-EyNDIxOTM2MywxOTAwNDkyODYsLTkyMTY0NjE0MiwtMTY4MDUw
-ODQ3NywtMjA0Njg3ODA2OCwxODAyNTUwNjYsOTk2NTcwMjc0LD
-E2ODE3Mzc4MDJdfQ==
+eyJoaXN0b3J5IjpbLTIwODIwOTkzODAsMTUzNTU3MzA5MiwtMT
+U0ODY1OTEyLC0xMTU0OTgwMzY1LDM0NTQxMDUyNSw0MzExMTgx
+MSwxMjY2OTM5ODEyLC0xMzk1NjUzNjkxLC0xNTc2MDA1NzQzLC
+0yMTI0MjE5MzYzLDE5MDA0OTI4NiwtOTIxNjQ2MTQyLC0xNjgw
+NTA4NDc3LC0yMDQ2ODc4MDY4LDE4MDI1NTA2Niw5OTY1NzAyNz
+QsMTY4MTczNzgwMl19
 -->
