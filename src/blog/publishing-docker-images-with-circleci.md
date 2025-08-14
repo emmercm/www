@@ -14,7 +14,7 @@ Publishing Docker images is a common CI/CD task, and the flexibility [CircleCI](
 
 Automated builds, when combined with tests, are a great tool to increase iteration speed on projects through time savings.
 
-Imagine you maintain a public Docker image of an application that has frequent version changes - every time a new version is released you'll have to spend time _building_, _tagging_, _testing_, and _publishing_ a new version. Now imagine you had a tool to update the application version for you automatically in your Dockerfile, and a CI/CD pipeline that would take care of the building, tagging, testing, and publishing of the image - it could maintain itself indefinitely without your intervention.
+Imagine that you maintain a public Docker image of an application that has frequent version changes - every time a new version is released, you'll have to spend time _building_, _tagging_, _testing_, and _publishing_ a new version. Now imagine you had a tool to update the application version for you automatically in your Dockerfile, and a CI/CD pipeline that would take care of the building, tagging, testing, and publishing of the image - it could maintain itself indefinitely without your intervention.
 
 We'll touch on the second part here, the CI/CD pipeline for Docker images.
 
@@ -26,18 +26,18 @@ We'll touch on the second part here, the CI/CD pipeline for Docker images.
 
 In case you haven't used CircleCI before, here are some definitions for their terminology:
 
-> **Steps** are a collection of executable commands which are run during a job. ([source](https://circleci.com/docs/2.0/jobs-steps/#steps-overview))
+> **Steps** are a collection of executable commands which are run during a job. ([source](https://circleci.com/docs/guides/about-circleci/concepts/#steps))
 
-> **Jobs** are collections of steps. All of the steps in the job are executed in a single unit, either within a fresh container or VM. ([source](https://circleci.com/docs/2.0/jobs-steps/#jobs-overview))
+> **Jobs** are collections of steps. All the steps in the job are executed in a single unit, either within a fresh container or VM. ([source](https://circleci.com/docs/guides/about-circleci/concepts/#jobs))
 
-> A **workflow** is a set of rules for defining a collection of jobs and their run order. Workflows support complex job orchestration using a simple set of configuration keys to help you resolve failures sooner. ([source](https://circleci.com/docs/2.0/workflows/#overview))
+> A **workflow** is a set of rules for defining a collection of jobs and their run order. Workflows support complex job orchestration using a simple set of configuration keys to help you resolve failures sooner. ([source](https://circleci.com/docs/guides/about-circleci/concepts/#workflows))
 
 ## Setup
 
-For this project you will need a few things:
+For this project, you will need a few things:
 
-- CircleCI [installed](https://circleci.com/docs/2.0/getting-started/) to your version control of choice
-- A CircleCI project [set up](https://circleci.com/docs/2.0/getting-started/#setting-up-circleci) from your selected repository
+- CircleCI [installed](https://circleci.com/docs/guides/getting-started/getting-started/) to your version control of choice
+- A CircleCI project [set up](https://circleci.com/docs/guides/getting-started/getting-started/#1-connect-your-code) from your selected repository
 - A [Docker Hub](https://hub.docker.com/) account to push your image to
 
 ## Building the image
@@ -56,7 +56,7 @@ $ docker build --tag helloworld . && docker run helloworld
 Hello world!
 ```
 
-Then we'll create the beginnings of our [CircleCI config](https://circleci.com/docs/2.0/configuration-reference/) at the default location `.circleci/config.yml`:
+Then we'll create the beginnings of our [CircleCI config](https://circleci.com/docs/reference/configuration-reference/) at the default location `.circleci/config.yml`:
 
 ```yaml
 version: 2.1
@@ -80,11 +80,11 @@ jobs:
           command: docker build --tag helloworld .
 ```
 
-By default, CircleCI will execute the pipeline on every code push, so once these files are committed and pushed, CircleCI will run `docker build` and continue to on every subsequent push. The pipeline should finish in under 30 seconds, and if we see that succeed in the CircleCI UI then we know the image built successfully.
+By default, CircleCI will execute the pipeline on every code push, so once these files are committed and pushed, CircleCI will run `docker build` and continue to on every subsequent push. The pipeline should finish in under 30 seconds, and if we see that succeed in the CircleCI UI, then we know the image built successfully.
 
 ## Publishing the image
 
-Building the Docker image is great, but that image artifact disappeared when the job finished. In order to save our work we'll want to publish the image - what this post is all about!
+Building the Docker image is great, but that image artifact disappeared when the job finished. In order to save our work, we'll want to publish the image - what this post is all about!
 
 First, we'll want to set an image name to publish under. To keep things easier to read, I will collapse some parts of the Dockerfile that haven't changed.
 
@@ -146,7 +146,7 @@ jobs:
 
 Because the image is very small, even archiving and saving the output should still keep our build time under 30 seconds.
 
-In order to push images to Docker Hub we'll need to supply CircleCI with our credentials. In your CircleCI project's settings there is a page to configure environment variables. We'll need a variable named `DOCKERHUB_USERNAME` with the value of your username, and one named `DOCKERHUB_PASS` with the value of a [personal access token](https://docs.docker.com/docker-hub/access-tokens/#create-an-access-token) created for CircleCI. I would recommend against saving your password in plaintext.
+In order to push images to Docker Hub, we'll need to supply CircleCI with our credentials. In your CircleCI project's settings, there is a page to configure environment variables. We'll need a variable named `DOCKERHUB_USERNAME` with the value of your username, and one named `DOCKERHUB_PASS` with the value of a [personal access token](https://docs.docker.com/docker-hub/access-tokens/#create-an-access-token) created for CircleCI. I would recommend against saving your password in plaintext.
 
 Now we're ready to add a job to log in to Docker Hub and push the image:
 
