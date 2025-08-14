@@ -26,18 +26,18 @@ We'll touch on the second part here, the CI/CD pipeline for Docker images.
 
 In case you haven't used CircleCI before, here are some definitions for their terminology:
 
-> **Steps** are a collection of executable commands which are run during a job. ([source](https://circleci.com/docs/guides/about-circleci/concepts/#steps))
+> **Steps** are a collection of executable commands which are run during a job. ([source](https://circleci.com/docs/guides/about-circleci/conc2.0/jobs-stepts/#steps-overview))
 
-> **Jobs** are collections of steps. All the steps in the job are executed in a single unit, either within a fresh container or VM. ([source](https://circleci.com/docs/guides/about-circleci/concepts/#jobs))
+> **Jobs** are collections of steps. All of the steps in the job are executed in a single unit, either within a fresh container or VM. ([source](https://circleci.com/docs/guides/about-circleci/conc2.0/jobs-stepts/#jobs-overview))
 
-> A **workflow** is a set of rules for defining a collection of jobs and their run order. Workflows support complex job orchestration using a simple set of configuration keys to help you resolve failures sooner. ([source](https://circleci.com/docs/guides/about-circleci/concepts/#workflows))
+> A **workflow** is a set of rules for defining a collection of jobs and their run order. Workflows support complex job orchestration using a simple set of configuration keys to help you resolve failures sooner. ([source](https://circleci.com/docs/guides/about-circleci/concepts/#workflows2.0/workflows/#overview))
 
 ## Setup
 
 For this project, you will need a few things:
 
-- CircleCI [installed](https://circleci.com/docs/guides/getting-started/getting-started/) to your version control of choice
-- A CircleCI project [set up](https://circleci.com/docs/guides/getting-started/getting-started/#1-connect-your-code) from your selected repository
+- CircleCI [installed](https://circleci.com/docs/guides2.0/getting-started/getting-started/) to your version control of choice
+- A CircleCI project [set up](https://circleci.com/docs/guides2.0/getting-started/g#setting-started/#1-connect-your-codeup-circleci) from your selected repository
 - A [Docker Hub](https://hub.docker.com/) account to push your image to
 
 ## Building the image
@@ -56,7 +56,7 @@ $ docker build --tag helloworld . && docker run helloworld
 Hello world!
 ```
 
-Then we'll create the beginnings of our [CircleCI config](https://circleci.com/docs/reference/configuration-reference/) at the default location `.circleci/config.yml`:
+Then we'll create the beginnings of our [CircleCI config](https://circleci.com/docs/reference2.0/configuration-reference/) at the default location `.circleci/config.yml`:
 
 ```yaml
 version: 2.1
@@ -346,3 +346,6 @@ If Hadolint doesn't pass, it will exit with a non-zero exit code, which will fai
 ## Other CI/CD tools
 
 If CircleCI isn't the right tool for you, check out how to accomplish this same pipeline using [GitHub Actions](/blog/publishing-docker-images-with-github-actions).
+<!--stackedit_data:
+eyJoaXN0b3J5IjpbMzYyMjgyMTE4XX0=
+-->
