@@ -119,54 +119,17 @@ vintage() {
 
 ## Caveats
 
-The main caveat is if you're installing an older version of a formula, it may need old versions of its dependencies. Each situation is going to be unique, but some may be
-
----
-
-```shell
-brew tap --force homebrew/core
-brew tap-new homebrew/local
-brew extract --version=1.5.5 zstd homebrew/local
-brew install homebrew/local/zstd@1.5.5
-brew link --overwrite zstd@1.5.5
-```
-
-To swap back:
-
-```shell
-brew unlink zstd@1.5.5
-brew link --overwrite zstd
-```
-
-```shell
-brew list -1 | grep -E '^mas($|@)' | xargs brew unlink
-```
-
-if you need to modify build parameters,
+The main caveat is if you're installing an older version of a formula, it may need old versions of its dependencies. Each situation is going to be unique, but some may be resolved by making changes to the formula file and then running `brew install` again:
 
 ```shell
 brew edit homebrew/local/zstd@1.5.5
 ```
 
-TODO: how to uninstall, get rid of tap
-
-```shell
-brew uninstall zstd@1.5.5
-```
-
-```shell
-brew untap homebrew/local
-brew untap homebrew/core
-```
-
-Warnings:
-
-- The app may require an older version of Xcode
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTIwODIwOTkzODAsMTUzNTU3MzA5MiwtMT
-U0ODY1OTEyLC0xMTU0OTgwMzY1LDM0NTQxMDUyNSw0MzExMTgx
-MSwxMjY2OTM5ODEyLC0xMzk1NjUzNjkxLC0xNTc2MDA1NzQzLC
-0yMTI0MjE5MzYzLDE5MDA0OTI4NiwtOTIxNjQ2MTQyLC0xNjgw
-NTA4NDc3LC0yMDQ2ODc4MDY4LDE4MDI1NTA2Niw5OTY1NzAyNz
-QsMTY4MTczNzgwMl19
+eyJoaXN0b3J5IjpbNTMzMTM1NjM3LDE1MzU1NzMwOTIsLTE1ND
+g2NTkxMiwtMTE1NDk4MDM2NSwzNDU0MTA1MjUsNDMxMTE4MTEs
+MTI2NjkzOTgxMiwtMTM5NTY1MzY5MSwtMTU3NjAwNTc0MywtMj
+EyNDIxOTM2MywxOTAwNDkyODYsLTkyMTY0NjE0MiwtMTY4MDUw
+ODQ3NywtMjA0Njg3ODA2OCwxODAyNTUwNjYsOTk2NTcwMjc0LD
+E2ODE3Mzc4MDJdfQ==
 -->
