@@ -65,13 +65,23 @@ brew unlink zstd
 brew link --overwrite zstd
 ```
 
-To delete the formula that you copied to local, run:
+To delete the formula that you copied to local disk, run:
 
 ```shell
 brew uninstall zstd@1.5.5
 ```
 
-To delete the lo
+To delete the local tap entirely, run:
+
+```shell
+brew untap homebrew/local
+```
+
+And to remove your local copy of homebrew/core (and stop it from updating on every `brew update`), run:
+
+```shell
+brew untap homebrew/core
+```
 
 ---
 
@@ -115,7 +125,7 @@ Warnings:
 
 - The app may require an older version of Xcode
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMjA5NjQyNjE2MiwxNTM1NTczMDkyLC0xNT
+eyJoaXN0b3J5IjpbMTA4MDgwMTU2NywxNTM1NTczMDkyLC0xNT
 Q4NjU5MTIsLTExNTQ5ODAzNjUsMzQ1NDEwNTI1LDQzMTExODEx
 LDEyNjY5Mzk4MTIsLTEzOTU2NTM2OTEsLTE1NzYwMDU3NDMsLT
 IxMjQyMTkzNjMsMTkwMDQ5Mjg2LC05MjE2NDYxNDIsLTE2ODA1
