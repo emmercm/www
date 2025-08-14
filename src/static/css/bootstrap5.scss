@@ -1,4 +1,5 @@
 @use 'sass:color';
+@use "sass:map";
 @use "sass:math";
 
 @import '../../../node_modules/bootstrap/scss/functions';
@@ -1398,9 +1399,14 @@ $theme-colors: (
   "dark":      $dark,
   "darker":    $darker
 );
-$theme-colors: map-merge($theme-colors, $grays);
-$theme-colors: map-merge($theme-colors, $colors);
-$theme-colors: map-merge($theme-colors, (
+$theme-colors: map.merge($theme-colors, $grays);
+$theme-colors: map.merge($theme-colors, $colors);
+@each $name, $value in $colors {
+  $theme-colors: map.merge($theme-colors, (
+    "#{$name}-pale": color.adjust($value, $saturation: -40%)
+  ));
+}
+$theme-colors: map.merge($theme-colors, (
   "agile": #FFAB00, // https://atlassian.design/foundations/color "golden state"
   "bootstrap": #533B78,
   "datadog": #632CA6,
@@ -1447,7 +1453,7 @@ $code-bg:    var(--#{$prefix}secondary-bg); // not actually a Bootstrap var
 $enable-negative-margins: true;
 
 // Add more spacer sizes
-$spacers: map-merge($spacers, (
+$spacers: map.merge($spacers, (
   6: ($spacer * 4.5)
 ));
 

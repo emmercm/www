@@ -1,5 +1,75 @@
 // https://highlightjs.org/examples
-
-@use '../../../../node_modules/highlight.js/styles/rainbow.css';
-
 // https://highlightjs.readthedocs.io/en/latest/css-classes-reference.html
+
+// https://github.com/highlightjs/highlight.js/blob/5697ae5187746c24732e62cd625f3f83004a44ce/src/styles/rainbow.css
+
+.hljs-comment,
+.hljs-quote {
+  //color: #969896;
+  color: var(--bs-gray);
+  font-style: italic
+}
+.hljs-keyword,
+.hljs-selector-tag,
+.hljs-literal,
+.hljs-type,
+.hljs-addition {
+  //color: #cc99cc;
+  color: var(--bs-pink-pale);
+}
+.hljs-number,
+.hljs-selector-attr,
+.hljs-selector-pseudo {
+  //color: #f99157
+  color: var(--bs-orange-pale);
+}
+.hljs-string,
+.hljs-doctag,
+.hljs-regexp {
+  //color: #8abeb7
+  color: var(--bs-cyan-pale);
+}
+.hljs-title,
+.hljs-name,
+.hljs-section,
+.hljs-built_in {
+  //color: #b5bd68
+  color: var(--bs-teal-pale);
+}
+.hljs-variable,
+.hljs-template-variable,
+.hljs-selector-id,
+.hljs-title.class_,
+.hljs-class .hljs-title {
+  //color: #ffcc66
+  color: var(--bs-yellow-pale);
+}
+.hljs-section,
+.hljs-name,
+.hljs-strong {
+  font-weight: bold
+}
+.hljs-symbol,
+.hljs-bullet,
+.hljs-subst,
+.hljs-meta,
+.hljs-link {
+  //color: #f99157
+  color: var(--bs-orange-pale);
+}
+.hljs-deletion {
+  //color: #dc322f
+  color: var(--bs-red-pale);
+}
+.hljs-formula {
+  //background: #eee8d5
+  background: var(--bs-gray-200);
+}
+.hljs-attr,
+.hljs-attribute {
+  //color: #81a2be
+  color: var(--bs-cyan-pale);
+}
+.hljs-emphasis {
+  font-style: italic
+}

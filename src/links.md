@@ -15,7 +15,7 @@ pageContainer: false
         {{#each icons}}
             <div class="py-2">{{#if link}}<a href="{{link}}" title="{{title}}" class="link-body-emphasis">{{/if}}
                 <div class="row d-flex justify-content-between align-items-center g-0 bg-body-secondary br-2 py-2">
-                    <div class="col-1">
+                    <div class="col-1 text-start ps-3">
                         <h2>
                             <i class="{{icon}}"></i>
                         </h2>
