@@ -8,7 +8,7 @@ tags:
 
 ---
 
-[Homebrew](https://brew.sh/) makes it very difficult to install older versions of a formulae.
+[Homebrew](https://brew.sh/) makes it very difficult to install older versions of a formula.
 
 And no, [versioned formula](https://docs.brew.sh/Versions) are not a real solution. Thankfully, we can cobble together some incantations to get what we want.
 
@@ -20,9 +20,9 @@ The solution comes from [Carlo Cabrera](https://github.com/carlocab) on [GitHub]
 
 ## Steps
 
-For our example formulae, I'm going to use [Zstd](https://github.com/facebook/zstd) v1.5.5. This came from a real world need of mine while developing [Igir](https://igir.io/).
+For our example formula, I'm going to use [Zstd](https://github.com/facebook/zstd) v1.5.5. This came from a real world need of mine while developing [Igir](https://igir.io/).
 
-First, we need to checkout the entire history of homebrew/core so that we can scan its history for the desired version of the formulae:
+First, we need to checkout the entire history of homebrew/core so that we can scan its history for the desired version of the formula:
 
 ```shell
 brew tap --force homebrew/core
@@ -36,19 +36,21 @@ Then, we need to make our local tap. We only need to do this once _ever_:
 brew tap-new homebrew/local
 ```
 
-Then, we'll copy ("extract") a specific version of a formulae into our local tap. Again, we'll only need to do this once ever:
+Then, we'll copy ("extract") a specific version of a formula into our local tap. Again, we'll only need to do this once ever:
 
 ```shell
 brew extract --version=1.5.5 zstd homebrew/local
 ```
 
-Then, we'll install the formulae, which may cause a build process:
+Then, we'll install the formula, which may cause a build process:
 
 ```shell
 brew install homebrew/local/zstd@1.5.5
 ```
 
-_Note: you can use the command `brew edit homebrew/local/zstd@1.5.5` to edit the formula file
+_Note: you can use the command `brew edit homebrew/local/zstd@1.5.5` to edit the formula file in case of build failures. In the case of Zstd v1.5.5, I needed to add `-DCMAKE_POLICY_VERSION_MINIMUM=3.5` to the `cmake` command._
+
+Lastly, we need to 
 
 ---
 
@@ -92,9 +94,9 @@ Warnings:
 
 - The app may require an older version of Xcode
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbNTczMDI4Mjc4LC0xMTU0OTgwMzY1LDM0NT
-QxMDUyNSw0MzExMTgxMSwxMjY2OTM5ODEyLC0xMzk1NjUzNjkx
-LC0xNTc2MDA1NzQzLC0yMTI0MjE5MzYzLDE5MDA0OTI4NiwtOT
-IxNjQ2MTQyLC0xNjgwNTA4NDc3LC0yMDQ2ODc4MDY4LDE4MDI1
-NTA2Niw5OTY1NzAyNzQsMTY4MTczNzgwMl19
+eyJoaXN0b3J5IjpbLTE1NTA2MDIxMDYsLTExNTQ5ODAzNjUsMz
+Q1NDEwNTI1LDQzMTExODExLDEyNjY5Mzk4MTIsLTEzOTU2NTM2
+OTEsLTE1NzYwMDU3NDMsLTIxMjQyMTkzNjMsMTkwMDQ5Mjg2LC
+05MjE2NDYxNDIsLTE2ODA1MDg0NzcsLTIwNDY4NzgwNjgsMTgw
+MjU1MDY2LDk5NjU3MDI3NCwxNjgxNzM3ODAyXX0=
 -->
