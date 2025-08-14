@@ -56,7 +56,12 @@ Typically `brew install` will create necessary symlinks, but if you already have
 brew link --overwrite zstd@1.5.5
 ```
 
+If you later want to swap back to the latest version, run the commands:
 
+```shell
+brew unlink zstd
+brew link --overwrite zstd
+```
 
 ---
 
@@ -100,10 +105,10 @@ Warnings:
 
 - The app may require an older version of Xcode
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbNzA1OTY5MDY4LC0xNTQ4NjU5MTIsLTExNT
-Q5ODAzNjUsMzQ1NDEwNTI1LDQzMTExODExLDEyNjY5Mzk4MTIs
-LTEzOTU2NTM2OTEsLTE1NzYwMDU3NDMsLTIxMjQyMTkzNjMsMT
-kwMDQ5Mjg2LC05MjE2NDYxNDIsLTE2ODA1MDg0NzcsLTIwNDY4
-NzgwNjgsMTgwMjU1MDY2LDk5NjU3MDI3NCwxNjgxNzM3ODAyXX
-0=
+eyJoaXN0b3J5IjpbMTUzNTU3MzA5MiwtMTU0ODY1OTEyLC0xMT
+U0OTgwMzY1LDM0NTQxMDUyNSw0MzExMTgxMSwxMjY2OTM5ODEy
+LC0xMzk1NjUzNjkxLC0xNTc2MDA1NzQzLC0yMTI0MjE5MzYzLD
+E5MDA0OTI4NiwtOTIxNjQ2MTQyLC0xNjgwNTA4NDc3LC0yMDQ2
+ODc4MDY4LDE4MDI1NTA2Niw5OTY1NzAyNzQsMTY4MTczNzgwMl
+19
 -->
