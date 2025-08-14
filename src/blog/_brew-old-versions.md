@@ -22,7 +22,7 @@ The solution comes from [Carlo Cabrera](https://github.com/carlocab) on [GitHub]
 
 For our example formula, I'm going to use [Zstd](https://github.com/facebook/zstd) v1.5.5. This came from a real world need of mine while developing [Igir](https://igir.io/).
 
-First, we need to checkout the entire history of homebrew/core so that we can scan its history for the desired version of the formula:
+First, we need to checkout the entire history of [homebrew/core](https://github.com/Homebrew/homebrew-core) so that we can scan its history for the desired version of the formula:
 
 ```shell
 brew tap --force homebrew/core
@@ -77,11 +77,15 @@ To delete the local tap entirely, run:
 brew untap homebrew/local
 ```
 
-And to remove your local copy of homebrew/core (and stop it from updating on every `brew update`), run:
+And to remove your local copy of [homebrew/core](https://github.com/Homebrew/homebrew-core) (and stop it from updating on every `brew update`), run:
 
 ```shell
 brew untap homebrew/core
 ```
+
+## As a dotfile function
+
+We can tie everything together into one clean function that we can put
 
 ---
 
@@ -125,10 +129,10 @@ Warnings:
 
 - The app may require an older version of Xcode
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTA4MDgwMTU2NywxNTM1NTczMDkyLC0xNT
-Q4NjU5MTIsLTExNTQ5ODAzNjUsMzQ1NDEwNTI1LDQzMTExODEx
-LDEyNjY5Mzk4MTIsLTEzOTU2NTM2OTEsLTE1NzYwMDU3NDMsLT
-IxMjQyMTkzNjMsMTkwMDQ5Mjg2LC05MjE2NDYxNDIsLTE2ODA1
-MDg0NzcsLTIwNDY4NzgwNjgsMTgwMjU1MDY2LDk5NjU3MDI3NC
-wxNjgxNzM3ODAyXX0=
+eyJoaXN0b3J5IjpbNTAzOTQ4NzczLDE1MzU1NzMwOTIsLTE1ND
+g2NTkxMiwtMTE1NDk4MDM2NSwzNDU0MTA1MjUsNDMxMTE4MTEs
+MTI2NjkzOTgxMiwtMTM5NTY1MzY5MSwtMTU3NjAwNTc0MywtMj
+EyNDIxOTM2MywxOTAwNDkyODYsLTkyMTY0NjE0MiwtMTY4MDUw
+ODQ3NywtMjA0Njg3ODA2OCwxODAyNTUwNjYsOTk2NTcwMjc0LD
+E2ODE3Mzc4MDJdfQ==
 -->
