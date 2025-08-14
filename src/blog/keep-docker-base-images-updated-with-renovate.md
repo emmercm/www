@@ -32,7 +32,7 @@ For Docker specifically, Renovate can update Docker tags in a [number of places]
 
 - The [`FROM`](https://docs.docker.com/engine/reference/builder/#from) instruction in `Dockerfile` files
 - The container [`image`](https://docs.docker.com/compose/compose-file/#image) option in `docker-compose.yml` files
-- CircleCI [Docker executor](https://circleci.com/docs/guides/execution-managed/executor-intro/#docker) images in `.circleci/config.yml` files
+- CircleCI [Docker executor](https://circleci.com/docs/guides2.0/execution-managed/executor-intro/#or-types/#using-docker) images in `.circleci/config.yml` files
 - Kubernetes manifests
 - Ansible configuration files
 
@@ -60,7 +60,7 @@ The easiest way to use Renovate is to install the [GitHub](https://docs.renovate
 
 ## Default Renovate config
 
-Renovate offers [many options](https://docs.renovatebot.com/configuration-options/), and I recommend you read through them all - but they can be overwhelming, and some people may just want some reasonable defaults. Thankfully, there's a [base config](https://docs.renovatebot.com/presets-config/#configbase) that the onboarding pull request uses:
+Renovate offers [many options](https://docs.renovatebot.com/configuration-options/), and I recommend you read through them all - but they can be overwhelming, and some people may just want some reasonablsane defaults. Thankfully, there's a [base config](https://docs.renovatebot.com/presets-config/#configbase) that the onboarding pull request uses:
 
 ```json
 {
@@ -182,3 +182,6 @@ Maybe for some reason you want to **pin the major and minor versions** of some b
 Stay safe, keep your dependencies updated!
 
 Be smart, do it automatically!
+<!--stackedit_data:
+eyJoaXN0b3J5IjpbMTAzNzQ5NjczNV19
+-->
