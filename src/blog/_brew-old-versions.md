@@ -18,7 +18,7 @@ The solution comes from [Carlo Cabrera](https://github.com/carlocab) on [GitHub]
 2. Copy a specific version of a formula to our local tap
 3. Install the local formula
 
-## Steps
+## Installation
 
 For our example formula, I'm going to use [Zstd](https://github.com/facebook/zstd) v1.5.5. This came from a real world need of mine while developing [Igir](https://igir.io/).
 
@@ -50,11 +50,13 @@ brew install homebrew/local/zstd@1.5.5
 
 _Note: you can use the command `brew edit homebrew/local/zstd@1.5.5` to edit the formula file in case of build failures. In the case of Zstd v1.5.5, I needed to add `-DCMAKE_POLICY_VERSION_MINIMUM=3.5` to the `cmake` command._
 
-Typically `brew install` will create necessary symlinks, but if you already have the formula then you'll need to follow the instructions to overwrite the symlinks:
+Typically `brew install` will create necessary symlinks, but if you already have the formula installed then you'll need to follow the printed instructions to overwrite the symlinks:
 
 ```shell
 brew link --overwrite zstd@1.5.5
 ```
+
+## Uninstallation
 
 If you later want to swap back to the latest version, run the commands:
 
@@ -62,6 +64,14 @@ If you later want to swap back to the latest version, run the commands:
 brew unlink zstd
 brew link --overwrite zstd
 ```
+
+To delete the formula that you copied to local, run:
+
+```shell
+brew uninstall zstd@1.5.5
+```
+
+To delete the lo
 
 ---
 
@@ -105,10 +115,10 @@ Warnings:
 
 - The app may require an older version of Xcode
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTUzNTU3MzA5MiwtMTU0ODY1OTEyLC0xMT
-U0OTgwMzY1LDM0NTQxMDUyNSw0MzExMTgxMSwxMjY2OTM5ODEy
-LC0xMzk1NjUzNjkxLC0xNTc2MDA1NzQzLC0yMTI0MjE5MzYzLD
-E5MDA0OTI4NiwtOTIxNjQ2MTQyLC0xNjgwNTA4NDc3LC0yMDQ2
-ODc4MDY4LDE4MDI1NTA2Niw5OTY1NzAyNzQsMTY4MTczNzgwMl
-19
+eyJoaXN0b3J5IjpbMjA5NjQyNjE2MiwxNTM1NTczMDkyLC0xNT
+Q4NjU5MTIsLTExNTQ5ODAzNjUsMzQ1NDEwNTI1LDQzMTExODEx
+LDEyNjY5Mzk4MTIsLTEzOTU2NTM2OTEsLTE1NzYwMDU3NDMsLT
+IxMjQyMTkzNjMsMTkwMDQ5Mjg2LC05MjE2NDYxNDIsLTE2ODA1
+MDg0NzcsLTIwNDY4NzgwNjgsMTgwMjU1MDY2LDk5NjU3MDI3NC
+wxNjgxNzM3ODAyXX0=
 -->
