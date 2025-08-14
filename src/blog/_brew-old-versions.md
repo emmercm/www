@@ -15,8 +15,8 @@ And no, [versioned formula](https://docs.brew.sh/Versions) are not a real soluti
 The solution comes from [Carlo Cabrera](https://github.com/carlocab) on [GitHub](https://github.com/orgs/Homebrew/discussions/2941#discussioncomment-2155711). It involves:
 
 1. [Making a local tap](https://docs.brew.sh/How-to-Create-and-Maintain-a-Tap) ("local" because we won't be publishing this to a remote Git repository)
-2. Copy a specific version of a formulae to our local tap
-3. Install the local formulae
+2. Copy a specific version of a formula to our local tap
+3. Install the local formula
 
 ## Steps
 
@@ -47,6 +47,8 @@ Then, we'll install the formulae, which may cause a build process:
 ```shell
 brew install homebrew/local/zstd@1.5.5
 ```
+
+_Note: you can use the command `brew edit homebrew/local/zstd@1.5.5` to edit the formula file
 
 ---
 
@@ -90,9 +92,9 @@ Warnings:
 
 - The app may require an older version of Xcode
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTExNTQ5ODAzNjUsMzQ1NDEwNTI1LDQzMT
-ExODExLDEyNjY5Mzk4MTIsLTEzOTU2NTM2OTEsLTE1NzYwMDU3
-NDMsLTIxMjQyMTkzNjMsMTkwMDQ5Mjg2LC05MjE2NDYxNDIsLT
-E2ODA1MDg0NzcsLTIwNDY4NzgwNjgsMTgwMjU1MDY2LDk5NjU3
-MDI3NCwxNjgxNzM3ODAyXX0=
+eyJoaXN0b3J5IjpbNTczMDI4Mjc4LC0xMTU0OTgwMzY1LDM0NT
+QxMDUyNSw0MzExMTgxMSwxMjY2OTM5ODEyLC0xMzk1NjUzNjkx
+LC0xNTc2MDA1NzQzLC0yMTI0MjE5MzYzLDE5MDA0OTI4NiwtOT
+IxNjQ2MTQyLC0xNjgwNTA4NDc3LC0yMDQ2ODc4MDY4LDE4MDI1
+NTA2Niw5OTY1NzAyNzQsMTY4MTczNzgwMl19
 -->
