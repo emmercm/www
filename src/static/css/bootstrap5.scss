@@ -1455,6 +1455,7 @@ $code-bg:    var(--#{$prefix}secondary-bg); // not actually a Bootstrap var
 $enable-negative-margins: true;
 
 // Add more spacer sizes
+$spacers: map.merge($spacers, (
   6: ($spacer * 4.5)
 ));
 
