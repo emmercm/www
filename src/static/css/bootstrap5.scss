@@ -1,3 +1,4 @@
+@use 'sass:color';
 @use "sass:math";
 
 @import '../../../node_modules/bootstrap/scss/functions';
@@ -1346,16 +1347,16 @@ $link-hover-decoration: none;
 // Colors
 
 // Darken all colors
-$blue:   darken($blue,   15%);
-$indigo: darken($indigo, 15%);
-$purple: darken($purple, 15%);
-$pink:   darken($pink,   15%);
-$red:    darken($red,    15%);
-$orange: darken($orange, 15%);
-$yellow: darken($yellow, 15%);
-$green:  darken($green,  15%);
-$teal:   darken($teal,   15%);
-$cyan:   darken($cyan,   15%);
+$blue:   color.adjust($blue,   $lightness: -15%);
+$indigo: color.adjust($indigo, $lightness: -15%);
+$purple: color.adjust($purple, $lightness: -15%);
+$pink:   color.adjust($pink,   $lightness: -15%);
+$red:    color.adjust($red,    $lightness: -15%);
+$orange: color.adjust($orange, $lightness: -15%);
+$yellow: color.adjust($yellow, $lightness: -15%);
+$green:  color.adjust($green,  $lightness: -15%);
+$teal:   color.adjust($teal,   $lightness: -15%);
+$cyan:   color.adjust($cyan,   $lightness: -15%);
 
 $colors: (
   "blue":       $blue,
@@ -1381,9 +1382,9 @@ $info:      $cyan;
 $warning:   $yellow;
 $danger:    $red;
 $light:     $gray-400;
-$lighter:   lighten($light, 5%);
+$lighter:   color.adjust($light, $lightness: 5%);
 $dark:      $gray-800;
-$darker:    darken($dark, 5%);
+$darker:    color.adjust($dark, $lightness: 5%);
 
 $theme-colors: (
   "primary":   $primary,
@@ -1438,7 +1439,7 @@ $hr-border-color: var(--#{$prefix}secondary-border-subtle);
 $hr-opacity: 1.0;
 
 $link-color:       $primary; // default
-$link-hover-color: darken($link-color, 5%);
+$link-hover-color: color.adjust($link-color, $lightness: 5%);
 
 $code-color: $dark;
 $code-bg:    var(--#{$prefix}secondary-bg); // not actually a Bootstrap var
@@ -1460,9 +1461,9 @@ $box-shadow-lg: 0 0 3rem rgba($black, .35);
 $badge-font-weight: normal; // not bold
 
 $pagination-color:                 $primary;
-$pagination-bg:                    darken($light, 10%);
-$pagination-border-color:          darken($pagination-bg, 10%);
-$pagination-hover-color:           darken($pagination-color, 15%);
+$pagination-bg:                    color.adjust($light, $lightness: 10%);
+$pagination-border-color:          color.adjust($pagination-bg, $lightness: 10%);
+$pagination-hover-color:           color.adjust($pagination-color, $lightness: 15%);
 $pagination-hover-bg:              $gray-200;
 $pagination-hover-border-color:    $pagination-border-color;
 $pagination-active-color:          $pagination-bg;
