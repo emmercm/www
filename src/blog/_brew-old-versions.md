@@ -50,7 +50,11 @@ brew install homebrew/local/zstd@1.5.5
 
 _Note: you can use the command `brew edit homebrew/local/zstd@1.5.5` to edit the formula file in case of build failures. In the case of Zstd v1.5.5, I needed to add `-DCMAKE_POLICY_VERSION_MINIMUM=3.5` to the `cmake` command._
 
-Lastly, we need to 
+Typically `brew install` will create necessary symlinks, but if you already have the formula then you'll need to follow the instructions to overwrite the symlinks:
+
+```shell
+brew link --overwrite zstd@1.5.5
+```
 
 ---
 
@@ -94,9 +98,9 @@ Warnings:
 
 - The app may require an older version of Xcode
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTE1NTA2MDIxMDYsLTExNTQ5ODAzNjUsMz
-Q1NDEwNTI1LDQzMTExODExLDEyNjY5Mzk4MTIsLTEzOTU2NTM2
-OTEsLTE1NzYwMDU3NDMsLTIxMjQyMTkzNjMsMTkwMDQ5Mjg2LC
-05MjE2NDYxNDIsLTE2ODA1MDg0NzcsLTIwNDY4NzgwNjgsMTgw
-MjU1MDY2LDk5NjU3MDI3NCwxNjgxNzM3ODAyXX0=
+eyJoaXN0b3J5IjpbLTE1NDg2NTkxMiwtMTE1NDk4MDM2NSwzND
+U0MTA1MjUsNDMxMTE4MTEsMTI2NjkzOTgxMiwtMTM5NTY1MzY5
+MSwtMTU3NjAwNTc0MywtMjEyNDIxOTM2MywxOTAwNDkyODYsLT
+kyMTY0NjE0MiwtMTY4MDUwODQ3NywtMjA0Njg3ODA2OCwxODAy
+NTUwNjYsOTk2NTcwMjc0LDE2ODE3Mzc4MDJdfQ==
 -->
