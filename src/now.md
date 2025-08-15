@@ -35,7 +35,7 @@ Senior Software Engineer @ [Attentive](https://www.attentive.com/), an SMS and e
 
 ## 👨🏻‍💻 Hacking on
 
-- [`igir`](https://github.com/emmercm/igir), a video game ROM collection manager
+- [Igir](https://github.com/emmercm/igir), a video game ROM collection manager
 - [Metalsmith plugins](https://github.com/emmercm/metalsmith-plugins) that power this site (ongoing)
 - [This site](https://github.com/emmercm/www) (ongoing)
 
