@@ -2,6 +2,7 @@
 // https://highlightjs.readthedocs.io/en/latest/css-classes-reference.html
 
 // https://github.com/highlightjs/highlight.js/blob/5697ae5187746c24732e62cd625f3f83004a44ce/src/styles/rainbow.css
+//@use '../../../../node_modules/highlight.js/styles/rainbow.css';
 
 .hljs-comment,
 .hljs-quote {
@@ -15,26 +16,26 @@
 .hljs-type,
 .hljs-addition {
   //color: #cc99cc;
-  color: var(--bs-pink-pale);
+  color: var(--bs-pink-accessible);
 }
 .hljs-number,
 .hljs-selector-attr,
 .hljs-selector-pseudo {
   //color: #f99157
-  color: var(--bs-orange-pale);
+  color: var(--bs-orange-accessible);
 }
 .hljs-string,
 .hljs-doctag,
 .hljs-regexp {
   //color: #8abeb7
-  color: var(--bs-cyan-pale);
+  color: var(--bs-cyan-accessible);
 }
 .hljs-title,
 .hljs-name,
 .hljs-section,
 .hljs-built_in {
   //color: #b5bd68
-  color: var(--bs-teal-pale);
+  color: var(--bs-green-accessible);
 }
 .hljs-variable,
 .hljs-template-variable,
@@ -42,7 +43,7 @@
 .hljs-title.class_,
 .hljs-class .hljs-title {
   //color: #ffcc66
-  color: var(--bs-yellow-pale);
+  color: var(--bs-yellow-accessible);
 }
 .hljs-section,
 .hljs-name,
@@ -55,11 +56,11 @@
 .hljs-meta,
 .hljs-link {
   //color: #f99157
-  color: var(--bs-orange-pale);
+  color: var(--bs-orange-accessible);
 }
 .hljs-deletion {
   //color: #dc322f
-  color: var(--bs-red-pale);
+  color: var(--bs-red-accessible);
 }
 .hljs-formula {
   //background: #eee8d5
@@ -68,7 +69,7 @@
 .hljs-attr,
 .hljs-attribute {
   //color: #81a2be
-  color: var(--bs-cyan-pale);
+  color: var(--bs-blue-accessible);
 }
 .hljs-emphasis {
   font-style: italic

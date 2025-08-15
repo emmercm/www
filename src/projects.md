@@ -10,9 +10,9 @@ priority: 0.8
 
 {{ description }}
 
-## <i class="fa-regular fa-joystick"></i> igir
+## <i class="fa-regular fa-joystick"></i> Igir
 
-[`igir`](https://github.com/emmercm/igir) is a platform-independent video game ROM collection manager to help filter, sort, patch, and archive ROM collections. It combines all the best features from other ROM managers together into a neat, intuitive CLI package.
+[Igir](https://github.com/emmercm/igir) is a platform-independent video game ROM collection manager to help filter, sort, patch, and archive ROM collections. It combines all the best features from other ROM managers together into a neat, intuitive CLI package.
 
 ## <i class="fa-brands fa-node-js"></i> Metalsmith Plugins
 
