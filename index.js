@@ -221,7 +221,7 @@ markdownRenderer.code = (_code, infostring, escaped) => {
  *                        *
  **************************/
 
-const files = await cache.metalsmith(tracer(Metalsmith(path.resolve())))
+await cache.metalsmith(tracer(Metalsmith(path.resolve())))
     .source(path.join('src', 'static', 'img', 'blog'))
     .destination('build-img-blog')
     .clean(true)
@@ -248,8 +248,8 @@ const files = await cache.metalsmith(tracer(Metalsmith(path.resolve())))
         transform: filename => filename.replace(/\.([^.]+)$/, '-thumb.$1')
     }))
     // TODO(cemmer): responsive image sizes
-    .use(blogImage('!(*-thumb).*', blogImageSizes[0][0]*2, blogImageSizes[0][1]*2, prodBuild))
-    .use(blogImage('*-thumb.*', blogImageThumbSizes[0][0]*2, blogImageThumbSizes[0][1]*2, prodBuild))
+    .use(blogImage('**/!(*-thumb).*', blogImageSizes[0][0]*2, blogImageSizes[0][1]*2, prodBuild))
+    .use(blogImage('**/*-thumb.*', blogImageThumbSizes[0][0]*2, blogImageThumbSizes[0][1]*2, prodBuild))
     .build();
 
 /*********************
@@ -977,7 +977,7 @@ tracer(Metalsmith(path.resolve()))
 
     // Add Facebook OpenGraph meta tags
     .use(msIf(prodBuild, openGraph({
-        pattern: '**/*.html',
+        pattern: '{*,blog/*,blog/[0-9]*/index.html}',
         sitename: siteName,
         siteurl: siteURL,
         image: '.og-image'
