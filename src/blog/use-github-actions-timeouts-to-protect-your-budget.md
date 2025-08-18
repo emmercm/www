@@ -14,7 +14,7 @@ I just got an email that I exhausted "100% of included services" for my personal
 
 At first, I thought "this makes sense, I've been doing a lot with [emmercm/metalsmith-plugins](https://github.com/emmercm/metalsmith-plugins) lately, and I haven't been efficient with my pull request count (see my [months of dependency update catch-ups](/blog/keep-lerna-monorepos-updated-with-renovate))." But that wasn't it. In your GitHub account's [billing page](https://github.com/settings/billing/summary) you can request a usage report CSV be emailed to you, so I did that.
 
-First off, [Igir](https://igir.io/) was entirely missing from the CSV, which is provably wrong. I have actions running on that repository [all the time](https://github.com/emmercm/igir/actions). But what stood out to me was a private repository I was using to test [Renovate](https://www.mend.io/renovate/) config options. That repository had spent 6h32m on running tests on a macOS runner (lines for other repositories have been redacted):
+First off, [I`igir`](https://igir.io/) was entirely missing from the CSV, which is provably wrong. I have actions running on that repository [all the time](https://github.com/emmercm/igir/actions). But what stood out to me was a private repository I was using to test [Renovate](https://www.mend.io/renovate/) config options. That repository had spent 6h32m on running tests on a macOS runner (lines for other repositories have been redacted):
 
 ```csv
 Date,Product,SKU,Quantity,Unit Type,Price Per Unit ($),Multiplier,Owner,Repository Slug,Username,Actions Workflow,Notes
@@ -111,3 +111,6 @@ _See [`jobs.<job_id>.steps[*].timeout-minutes`](https://docs.github.com/en/actio
 Six hours is an irresponsible default timeout length, and you should set timeouts on your jobs before you find yourself in the same situation.
 
 See me talk about other unexpected GitHub Actions behavior in "[Skippable GitHub Status Checks Aren't Really Required](/blog/skippable-github-status-checks-aren-t-really-required)."
+<!--stackedit_data:
+eyJoaXN0b3J5IjpbLTU2MjU5NjY4MF19
+-->
