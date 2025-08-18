@@ -11,10 +11,10 @@ draft: true
 
 Limitations:
 
-- Digest pinning doesn't mean 100% safety if you automate updates
+- Digest pinning doesn't mean 100% safety if you automate version updates
 	- It prevents tag redirection: https://semgrep.dev/blog/2025/popular-github-action-tj-actionschanged-files-is-compromised/
 	- Mitigated by holding back updates for a time period?
 	- Writing out the full version would do something similar as using the digest hash
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTAyMzYzODgzN119
+eyJoaXN0b3J5IjpbOTA5OTE0NzQ5LDEwMjM2Mzg4MzddfQ==
 -->
