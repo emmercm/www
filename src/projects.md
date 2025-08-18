@@ -10,9 +10,9 @@ priority: 0.8
 
 {{ description }}
 
-## <i class="fa-regular fa-joystick"></i> Igir
+## <i class="fa-regular fa-joystick"></i> Iigir
 
-[Igir](https://github.com/emmercm/igir) is a platform-independent video game ROM collection manager to help filter, sort, patch, and archive ROM collections. It combines all the best features from other ROM managers together into a neat, intuitive CLI package.
+[I`igir`](https://github.com/emmercm/igir) is a platform-independent video game ROM collection manager to help filter, sort, patch, and archive ROM collections. It combines all the best features from other ROM managers together into a neat, intuitive CLI package.
 
 ## <i class="fa-brands fa-node-js"></i> Metalsmith Plugins
 
@@ -102,3 +102,6 @@ Similar to the [GRIP](https://wpiroboticsprojects.github.io/GRIP) and [Limelight
 ### [docker-cheesy-parts](https://github.com/Troy-Argonauts/docker-cheesy-parts)
 
 A Docker image packaging for the popular parts management web app [Cheesy Parts](https://github.com/Team254/cheesy-parts), complete with deployment scripts to host a copy on [Heroku](https://www.heroku.com/).
+<!--stackedit_data:
+eyJoaXN0b3J5IjpbLTQyNTkwMTM1NV19
+-->
