@@ -12,8 +12,9 @@ draft: true
 Limitations:
 
 - Digest pinning doesn't mean 100% safety if you automate updates
+	- It prevents tag redire
 	- Mitigated by holding back updates for a time period?
-	- Pinning the full version woul
+	- Writing out the full version would do something similar as using the digest hash
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMzgzNDE4MzgzXX0=
+eyJoaXN0b3J5IjpbMTYyNDQzMTA3NV19
 -->
