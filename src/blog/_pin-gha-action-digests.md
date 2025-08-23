@@ -32,7 +32,7 @@ Here's the problem with specifying a Git tag or Git branch: _they can change, th
 
 If an attacker gains access to a GitHub account that publishes actions, _they can commit malicious code and then update any or all of the existing Git tags to point to that new commit SHA._
 
-This happened in [March 2025](https://semgrep.dev/blog/2025/popular-github-action-tj-actionschanged-files-is-compromised/) when the popular [`tj-actions/changed-files`](https://github.com/tj-actions/changed-files) action
+This exact scenario happened in [March 2025](https://semgrep.dev/blog/2025/popular-github-action-tj-actionschanged-files-is-compromised/) when the popular [`tj-actions/changed-files`](https://github.com/tj-actions/changed-files) action was compromised. Man
 
 - https://docs.github.com/en/actions/reference/security/secure-use#using-third-party-actions
 - https://semgrep.dev/blog/2025/popular-github-action-tj-actionschanged-files-is-compromised/
@@ -45,6 +45,6 @@ Limitations:
 	- Mitigated by holding back updates for a time period?
 	- Writing out the full version would do something similar as using the digest hash
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTU2Njg5MTc2OCwxNjAyNDM2NzMwLDkwOT
+eyJoaXN0b3J5IjpbLTI1MzAxMzYxOCwxNjAyNDM2NzMwLDkwOT
 kxNDc0OSwxMDIzNjM4ODM3XX0=
 -->
