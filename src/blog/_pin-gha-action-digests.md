@@ -78,8 +78,19 @@ Here's a minimum viable `renovate.json5` config to automate these updates:
 {
 	$schema: 'https://docs.renovatebot.com/renovate-schema.json',
 	extends: [
+	  // Pin GitHub Actions to commit SHAs, and keep them up to date
 		'helpers:pinGitHubActionDigestsToSemver'
-	]
+	],
+	"github-actions": {
+      // Group non-major actions updates together
+      {
+        matchDepTypes: ['action'],
+        matchUpdateTypes: ['patch', 'minor'],
+        groupName: 'GitHub Actions',
+        schedule: 'on the 26th day of the month',
+      }
+    ]
+  }
 }
 ```
 
@@ -96,7 +107,7 @@ Limitations:
 	- Mitigated by holding back updates for a time period?
 	- Writing out the full version would do something similar as using the digest hash
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbNjk4MTgwMTU1LC0xNDQ1MTE3MTg1LC05ND
+eyJoaXN0b3J5IjpbODczMTI5ODAyLC0xNDQ1MTE3MTg1LC05ND
 A3OTMwNSwxNjAyNDM2NzMwLDkwOTkxNDc0OSwxMDIzNjM4ODM3
 XX0=
 -->
