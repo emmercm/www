@@ -77,6 +77,9 @@ Here's a minimum viable `renovate.json5` config to automate these updates:
 ```json5
 {
 	$schema: 'https://docs.renovatebot.com/renovate-schema.json',
+	extends: [
+		'helpers:pinGitHubActionDigestsToSemver'
+	]
 }
 ```
 
@@ -93,7 +96,7 @@ Limitations:
 	- Mitigated by holding back updates for a time period?
 	- Writing out the full version would do something similar as using the digest hash
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTgxODIyMTc3NSwtMTQ0NTExNzE4NSwtOT
-QwNzkzMDUsMTYwMjQzNjczMCw5MDk5MTQ3NDksMTAyMzYzODgz
-N119
+eyJoaXN0b3J5IjpbNjk4MTgwMTU1LC0xNDQ1MTE3MTg1LC05ND
+A3OTMwNSwxNjAyNDM2NzMwLDkwOTkxNDc0OSwxMDIzNjM4ODM3
+XX0=
 -->
