@@ -68,7 +68,9 @@ Updating your third-party actions to use a commit SHA instead of a version tag w
 
 ## Automating updates
 
-I love [Renovate](https://www.mend.io/renovate/). I think it's lightyears ahead of Dependabot. And I blog about Renovate [often](/blog/tag/ci-cd/).
+I love [Renovate](https://www.mend.io/renovate/). I use it in [a lot of my projects](https://github.com/search?q=user%3Aemmercm+%28path%3A**%2Frenovate.json+OR+path%3A**%2Frenovate.json5%29&type=code&ref=advsearch). I think it's lightyears ahead of Dependabot. And I blog about Renovate [often](/blog/tag/ci-cd/).
+
+Renovate has a "helper" named `helpers:pinGitHubActionDigestsToSemver` that when used will
 
 - https://docs.github.com/en/actions/reference/security/secure-use#using-third-party-actions
 - https://semgrep.dev/blog/2025/popular-github-action-tj-actionschanged-files-is-compromised/
@@ -81,6 +83,7 @@ Limitations:
 	- Mitigated by holding back updates for a time period?
 	- Writing out the full version would do something similar as using the digest hash
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTE0NDUxMTcxODUsLTk0MDc5MzA1LDE2MD
-I0MzY3MzAsOTA5OTE0NzQ5LDEwMjM2Mzg4MzddfQ==
+eyJoaXN0b3J5IjpbMTk4NjY0OTg3MiwtMTQ0NTExNzE4NSwtOT
+QwNzkzMDUsMTYwMjQzNjczMCw5MDk5MTQ3NDksMTAyMzYzODgz
+N119
 -->
