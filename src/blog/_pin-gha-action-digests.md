@@ -30,7 +30,7 @@ _Note: you can specify a Git branch name such as `actions/checkout@main`, but ne
 
 Here's the problem with specifying a Git tag or Git branch: _they can change, they're "mutable."_
 
-If an attacker gains access to a GitHub account that publishes Actions, _they can change any existing tag to
+If an attacker gains access to a GitHub account that publishes Actions, _they can commit malicious code and then update any or all of the existing Git tags to point to that new commit SHA._
 
 - https://docs.github.com/en/actions/reference/security/secure-use#using-third-party-actions
 - https://semgrep.dev/blog/2025/popular-github-action-tj-actionschanged-files-is-compromised/
@@ -43,6 +43,6 @@ Limitations:
 	- Mitigated by holding back updates for a time period?
 	- Writing out the full version would do something similar as using the digest hash
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMzc3MTI1NjksMTYwMjQzNjczMCw5MDk5MT
-Q3NDksMTAyMzYzODgzN119
+eyJoaXN0b3J5IjpbMTAzOTUwNzU3NSwxNjAyNDM2NzMwLDkwOT
+kxNDc0OSwxMDIzNjM4ODM3XX0=
 -->
