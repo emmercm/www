@@ -1,6 +1,6 @@
 ---
 
-title: Pin GitHub Actions Digests to ...
+title: Pin YGitHub Actions Digests to ...
 draft: true
 
 ---
@@ -16,5 +16,6 @@ Limitations:
 	- Mitigated by holding back updates for a time period?
 	- Writing out the full version would do something similar as using the digest hash
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbOTA5OTE0NzQ5LDEwMjM2Mzg4MzddfQ==
+eyJoaXN0b3J5IjpbLTQyMzE5MDYyLDkwOTkxNDc0OSwxMDIzNj
+M4ODM3XX0=
 -->
