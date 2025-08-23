@@ -5,6 +5,7 @@ date: 2020-07-19T21:00:00
 tags:
 - node.js
 - ci-cd
+- renovate
 
 ---
 
