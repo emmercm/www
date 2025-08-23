@@ -56,9 +56,15 @@ jobs:
 Git tags correspond to a specific, single commit. Because the maintainers of `actions/checkout` publish releases, you can easily see [v5.0.0's](https://github.com/actions/checkout/releases/tag/v5.0.0) associated commit SHA. We can also find it with GitHub's REST API:
 
 ```shell
-curl --silent https://api.github.com/repos/actions/checkout/tags \
+$ curl --silent https://api.github.com/repos/actions/checkout/tags \
 	| jq '.[] | select(.name == "v5.0.0") | .commit'
+{
+  "sha": "08c6903cd8c0fde910a37f88322edcfb5dd907a8",
+  "url": "https://api.github.com/repos/actions/checkout/commits/08c6903cd8c0fde910a37f88322edcfb5dd907a8"
+}
 ```
+
+Updating your third-party actions to use a commit SHA instead of a version tag means
 
 - https://docs.github.com/en/actions/reference/security/secure-use#using-third-party-actions
 - https://semgrep.dev/blog/2025/popular-github-action-tj-actionschanged-files-is-compromised/
@@ -71,6 +77,6 @@ Limitations:
 	- Mitigated by holding back updates for a time period?
 	- Writing out the full version would do something similar as using the digest hash
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTE4OTc2MTQ4MDAsMTYwMjQzNjczMCw5MD
+eyJoaXN0b3J5IjpbLTE2NDI1OTM3NTUsMTYwMjQzNjczMCw5MD
 k5MTQ3NDksMTAyMzYzODgzN119
 -->
