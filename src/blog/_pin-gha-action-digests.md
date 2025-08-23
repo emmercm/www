@@ -36,7 +36,7 @@ This exact scenario happened in [March 2025](https://www.stepsecurity.io/blog/ha
 
 ## Solution
 
-So what can you do to protect yourself? Follow GitHub's "[secure use reference](https://docs.github.com/en/actions/reference/security/secure-use#using-third-party-actions)"
+So what can you do to protect yourself? Follow GitHub's "[secure [actions] use reference](https://docs.github.com/en/actions/reference/security/secure-use#using-third-party-actions)" and "pin" actions to their commit SHA.
 
 - https://docs.github.com/en/actions/reference/security/secure-use#using-third-party-actions
 - https://semgrep.dev/blog/2025/popular-github-action-tj-actionschanged-files-is-compromised/
@@ -49,6 +49,6 @@ Limitations:
 	- Mitigated by holding back updates for a time period?
 	- Writing out the full version would do something similar as using the digest hash
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMjg3MzM2OTg2LDE2MDI0MzY3MzAsOTA5OT
-E0NzQ5LDEwMjM2Mzg4MzddfQ==
+eyJoaXN0b3J5IjpbMTk2NjUxNDQ2NiwxNjAyNDM2NzMwLDkwOT
+kxNDc0OSwxMDIzNjM4ODM3XX0=
 -->
