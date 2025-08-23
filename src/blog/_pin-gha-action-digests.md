@@ -12,8 +12,11 @@ If you've written a GitHub Actions workflow before then you've probably used a t
 ```yaml
 on:
 	pull_request:
-	
-
+jobs:
+  do-something:
+    runs-on: ubuntu-latest
+    steps:
+	    - uses: actions/checkout@v5
 ```
 
 
@@ -28,6 +31,6 @@ Limitations:
 	- Mitigated by holding back updates for a time period?
 	- Writing out the full version would do something similar as using the digest hash
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMjUxNTc2NDgsOTA5OTE0NzQ5LDEwMjM2Mz
-g4MzddfQ==
+eyJoaXN0b3J5IjpbMTYwMjQzNjczMCw5MDk5MTQ3NDksMTAyMz
+YzODgzN119
 -->
