@@ -32,7 +32,11 @@ Here's the problem with specifying a Git tag or Git branch: _they can change, th
 
 If an attacker gains access to a GitHub account that publishes actions, _they can commit malicious code and then update any or all of the existing Git tags to point to that new commit SHA._
 
-This exact scenario happened in [March 2025](https://www.stepsecurity.io/blog/harden-runner-detection-tj-actions-changed-files-action-is-compromised) when the popular [`tj-actions/changed-files`](https://github.com/tj-actions/changed-files) action was compromised. [More than 350 ](https://gist.github.com/stevebeattie/1847841fb3b1bfbf6d8449ae2fb0e8a2) were updated to a commit that attempted to dump the runner's secrets. More than 23,000 repositories were affected by this attack.
+This exact scenario happened in [March 2025](https://www.stepsecurity.io/blog/harden-runner-detection-tj-actions-changed-files-action-is-compromised) when the popular [`tj-actions/changed-files`](https://github.com/tj-actions/changed-files) action was compromised. [More than 350 Git tags](https://gist.github.com/stevebeattie/1847841fb3b1bfbf6d8449ae2fb0e8a2) were updated to a commit that attempted to dump the runner's secrets. More than 23,000 repositories were affected by this attack.
+
+## Solution
+
+So what can you do to protect yourself? Follow GitHub's "[secure use reference](https://docs.github.com/en/actions/reference/security/secure-use#using-third-party-actions)"
 
 - https://docs.github.com/en/actions/reference/security/secure-use#using-third-party-actions
 - https://semgrep.dev/blog/2025/popular-github-action-tj-actionschanged-files-is-compromised/
@@ -45,6 +49,6 @@ Limitations:
 	- Mitigated by holding back updates for a time period?
 	- Writing out the full version would do something similar as using the digest hash
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbOTE0NjY5NDg1LDE2MDI0MzY3MzAsOTA5OT
+eyJoaXN0b3J5IjpbMjg3MzM2OTg2LDE2MDI0MzY3MzAsOTA5OT
 E0NzQ5LDEwMjM2Mzg4MzddfQ==
 -->
