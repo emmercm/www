@@ -1,6 +1,6 @@
 ---
 
-title: Pin YGitHub Actions Digests to ...
+title: Pin Your GitHub Actions to Protect Against Mutability
 draft: true
 
 ---
@@ -16,6 +16,6 @@ Limitations:
 	- Mitigated by holding back updates for a time period?
 	- Writing out the full version would do something similar as using the digest hash
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTQyMzE5MDYyLDkwOTkxNDc0OSwxMDIzNj
+eyJoaXN0b3J5IjpbOTk2OTg3NjA3LDkwOTkxNDc0OSwxMDIzNj
 M4ODM3XX0=
 -->
