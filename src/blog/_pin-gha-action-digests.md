@@ -66,7 +66,7 @@ $ curl --silent https://api.github.com/repos/actions/checkout/tags \
 
 Updating your third-party actions to use a commit SHA instead of a version tag will protect you from "retargeting" attacks.
 
-## Automating with 
+## Automating with Renovate
 
 I love [Renovate](https://www.mend.io/renovate/). I use it in [a lot of my projects](https://github.com/search?q=user%3Aemmercm+%28path%3A**%2Frenovate.json+OR+path%3A**%2Frenovate.json5%29&type=code&ref=advsearch). I think it's lightyears ahead of Dependabot. And I blog about Renovate [often](/blog/tag/ci-cd/).
 
@@ -81,6 +81,10 @@ Here's a minimum viable `renovate.json5` config to automate these updates:
     // Pin GitHub Actions to commit SHAs, and keep them up to date
     "helpers:pinGitHubActionDigestsToSemver"
   ],
+
+  // Don't update dependencies immediately
+  "minimumReleaseAge": "3 days",
+
   "packageRules": [
     // Perform dependency pinning immediately
     {
@@ -90,6 +94,7 @@ Here's a minimum viable `renovate.json5` config to automate these updates:
       "automerge": true
     }
   ],
+
   "github-actions": {
     "packageRules": [
       // Group non-major actions updates together
@@ -105,6 +110,8 @@ Here's a minimum viable `renovate.json5` config to automate these updates:
 }
 ```
 
+When you merge this config file, Renovate will imme
+
 ## Drawbacks
 
 - https://docs.github.com/en/actions/reference/security/secure-use#using-third-party-actions
@@ -118,7 +125,7 @@ Limitations:
 	- Mitigated by holding back updates for a time period?
 	- Writing out the full version would do something similar as using the digest hash
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTE3OTc1ODk5NSwtODE2MTg0NTEsLTE0ND
-UxMTcxODUsLTk0MDc5MzA1LDE2MDI0MzY3MzAsOTA5OTE0NzQ5
-LDEwMjM2Mzg4MzddfQ==
+eyJoaXN0b3J5IjpbNDI5NDM1MzE2LC04MTYxODQ1MSwtMTQ0NT
+ExNzE4NSwtOTQwNzkzMDUsMTYwMjQzNjczMCw5MDk5MTQ3NDks
+MTAyMzYzODgzN119
 -->
