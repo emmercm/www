@@ -124,7 +124,11 @@ There are few scenarios that commit SHA pinning doesn't address, or doesn't addr
 
 - **The repository is already compromised.**
 
-  Pinning only works if you trust the committed code, but if the code is already malicious, the
+  Pinning only works if you trust the committed code, but if the code is already malicious, then pinning won't save you.
+
+- **Automatic updates can newly expose you.**
+
+  See the note above about how newly pushed Git version tags that contain malicious code
 
 Commit SHA pinning is based around trust that you 
 
@@ -139,7 +143,7 @@ Limitations:
 	- Mitigated by holding back updates for a time period?
 	- Writing out the full version would do something similar as using the digest hash
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbNjM3MDg2MzIxLC03Nzk0MzgyNjQsLTgxNj
-E4NDUxLC0xNDQ1MTE3MTg1LC05NDA3OTMwNSwxNjAyNDM2NzMw
-LDkwOTkxNDc0OSwxMDIzNjM4ODM3XX0=
+eyJoaXN0b3J5IjpbLTE0Mzc2MDE0OTIsLTc3OTQzODI2NCwtOD
+E2MTg0NTEsLTE0NDUxMTcxODUsLTk0MDc5MzA1LDE2MDI0MzY3
+MzAsOTA5OTE0NzQ5LDEwMjM2Mzg4MzddfQ==
 -->
