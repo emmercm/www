@@ -110,11 +110,11 @@ Here's a minimum viable `renovate.json5` config to automate these updates:
 }
 ```
 
-When you merge this config file, Renovate will immediately create a pull request pinning all of your un-pinned GitHub Actions. Then, it will keep the commit SHAs updated with automatic pull requests just as if
+When you merge this config file, Renovate will immediately create a pull request pinning all of your un-pinned GitHub Actions. Then, it will keep the commit SHAs updated with automatic pull requests, reducing the maintenance burden on you.
 
 ## Drawbacks
 
-Commit SHA pinning 
+Commit SHA pinning is based around trust that you 
 
 - https://docs.github.com/en/actions/reference/security/secure-use#using-third-party-actions
 - https://semgrep.dev/blog/2025/popular-github-action-tj-actionschanged-files-is-compromised/
@@ -127,7 +127,7 @@ Limitations:
 	- Mitigated by holding back updates for a time period?
 	- Writing out the full version would do something similar as using the digest hash
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMjEzMjM5MTE3MCwtODE2MTg0NTEsLTE0ND
+eyJoaXN0b3J5IjpbMTUyNTM3NTY3OCwtODE2MTg0NTEsLTE0ND
 UxMTcxODUsLTk0MDc5MzA1LDE2MDI0MzY3MzAsOTA5OTE0NzQ5
 LDEwMjM2Mzg4MzddfQ==
 -->
