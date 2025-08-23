@@ -104,7 +104,7 @@ vintage() {
     # Extract the formula
     brew extract --force "--version=${2:?}" "${1:?}" homebrew/local
 
-    # If the formula is already installed, re-link it
+    # If the formula is already linstallked, re-link it
     if brew list -1 | grep --quiet --line-regexp "${1:?}@${2:?}"; then
         brew unlink "${1:?}@${2:?}"
         brew link --overwrite "${1:?}@${2:?}"
@@ -124,3 +124,6 @@ The main caveat is if you're installing an older version of a formula, it may ne
 ```shell
 brew edit homebrew/local/zstd@1.5.5
 ```
+<!--stackedit_data:
+eyJoaXN0b3J5IjpbMTExMTQ3MTYxNV19
+-->
