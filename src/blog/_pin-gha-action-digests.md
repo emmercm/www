@@ -128,7 +128,7 @@ There are few scenarios that commit SHA pinning doesn't address, or doesn't addr
 
 - **Automatic updates can newly expose you.**
 
-  See the note above about how newly pushed Git version tags that contain malicious code
+  See the note above about how newly pushed Git version tags that contain malicious code can cause your dependency updater to 
 
 Commit SHA pinning is based around trust that you 
 
@@ -143,7 +143,7 @@ Limitations:
 	- Mitigated by holding back updates for a time period?
 	- Writing out the full version would do something similar as using the digest hash
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTE0Mzc2MDE0OTIsLTc3OTQzODI2NCwtOD
-E2MTg0NTEsLTE0NDUxMTcxODUsLTk0MDc5MzA1LDE2MDI0MzY3
-MzAsOTA5OTE0NzQ5LDEwMjM2Mzg4MzddfQ==
+eyJoaXN0b3J5IjpbMTE0NjQ5Mzk2NSwtNzc5NDM4MjY0LC04MT
+YxODQ1MSwtMTQ0NTExNzE4NSwtOTQwNzkzMDUsMTYwMjQzNjcz
+MCw5MDk5MTQ3NDksMTAyMzYzODgzN119
 -->
