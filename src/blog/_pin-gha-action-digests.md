@@ -70,7 +70,11 @@ Updating your third-party actions to use a commit SHA instead of a version tag w
 
 I love [Renovate](https://www.mend.io/renovate/). I use it in [a lot of my projects](https://github.com/search?q=user%3Aemmercm+%28path%3A**%2Frenovate.json+OR+path%3A**%2Frenovate.json5%29&type=code&ref=advsearch). I think it's lightyears ahead of Dependabot. And I blog about Renovate [often](/blog/tag/ci-cd/).
 
-Renovate has a "helper" named [`helpers:pinGitHubActionDigestsToSemver`](https://docs.renovatebot.com/presets-helpers/#helperspingithubactiondigeststosemver) that will pin every GitHub Action you have to a commit SHA, and it will keep a human-readable version string up to date in a 
+Renovate has a "helper" named [`helpers:pinGitHubActionDigestsToSemver`](https://docs.renovatebot.com/presets-helpers/#helperspingithubactiondigeststosemver) that will pin every GitHub Action you have to a commit SHA, and it will keep a human-readable version string up to date in a trailing comment. You can see it in action at [emmercm/igir#1823](https://github.com/emmercm/igir/pull/1823).
+
+I recommend you look
+
+## Drawbacks
 
 - https://docs.github.com/en/actions/reference/security/secure-use#using-third-party-actions
 - https://semgrep.dev/blog/2025/popular-github-action-tj-actionschanged-files-is-compromised/
@@ -83,7 +87,7 @@ Limitations:
 	- Mitigated by holding back updates for a time period?
 	- Writing out the full version would do something similar as using the digest hash
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTE2MDAzNTk5OTAsLTE0NDUxMTcxODUsLT
-k0MDc5MzA1LDE2MDI0MzY3MzAsOTA5OTE0NzQ5LDEwMjM2Mzg4
-MzddfQ==
+eyJoaXN0b3J5IjpbNjU3OTk4OTQ2LC0xNDQ1MTE3MTg1LC05ND
+A3OTMwNSwxNjAyNDM2NzMwLDkwOTkxNDc0OSwxMDIzNjM4ODM3
+XX0=
 -->
