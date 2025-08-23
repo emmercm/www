@@ -68,6 +68,8 @@ Updating your third-party actions to use a commit SHA instead of a version tag w
 
 ## Automating updates
 
+I love [Renovate](https://www.mend.io/renovate/). It's 
+
 - https://docs.github.com/en/actions/reference/security/secure-use#using-third-party-actions
 - https://semgrep.dev/blog/2025/popular-github-action-tj-actionschanged-files-is-compromised/
 - https://github.com/open-telemetry/sig-security/issues/69#issuecomment-2730078977
@@ -79,6 +81,6 @@ Limitations:
 	- Mitigated by holding back updates for a time period?
 	- Writing out the full version would do something similar as using the digest hash
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTk0MDc5MzA1LDE2MDI0MzY3MzAsOTA5OT
-E0NzQ5LDEwMjM2Mzg4MzddfQ==
+eyJoaXN0b3J5IjpbLTE0MDczMzk2MjAsLTk0MDc5MzA1LDE2MD
+I0MzY3MzAsOTA5OTE0NzQ5LDEwMjM2Mzg4MzddfQ==
 -->
