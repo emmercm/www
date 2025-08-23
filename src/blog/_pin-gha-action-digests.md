@@ -17,11 +17,14 @@ jobs:
   do-something:
     runs-on: ubuntu-latest
     steps:
-      # This is a third-party action
+      # This is a "third-party" action
 	    - uses: actions/checkout@v5
-	    - 
+
+			# This is a "private" action
+	    - uses: ./.github/actions/my-custom-action
 ```
 
+Most examples you see online (and even most actions themselves)
 
 - https://docs.github.com/en/actions/reference/security/secure-use#using-third-party-actions
 - https://semgrep.dev/blog/2025/popular-github-action-tj-actionschanged-files-is-compromised/
@@ -34,6 +37,6 @@ Limitations:
 	- Mitigated by holding back updates for a time period?
 	- Writing out the full version would do something similar as using the digest hash
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMjA1NDIwNzAyMSwxNjAyNDM2NzMwLDkwOT
+eyJoaXN0b3J5IjpbMTM4NzUzMzkwNywxNjAyNDM2NzMwLDkwOT
 kxNDc0OSwxMDIzNjM4ODM3XX0=
 -->
