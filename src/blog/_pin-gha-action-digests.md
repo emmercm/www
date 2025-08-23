@@ -66,7 +66,7 @@ $ curl --silent https://api.github.com/repos/actions/checkout/tags \
 
 Updating your third-party actions to use a commit SHA instead of a version tag will protect you from "retargeting" attacks.
 
-## Automating updates
+## Automating with 
 
 I love [Renovate](https://www.mend.io/renovate/). I use it in [a lot of my projects](https://github.com/search?q=user%3Aemmercm+%28path%3A**%2Frenovate.json+OR+path%3A**%2Frenovate.json5%29&type=code&ref=advsearch). I think it's lightyears ahead of Dependabot. And I blog about Renovate [often](/blog/tag/ci-cd/).
 
@@ -76,28 +76,29 @@ Here's a minimum viable `renovate.json5` config to automate these updates:
 
 ```json5
 {
-	$schema: 'https://docs.renovatebot.com/renovate-schema.json',
-	extends: [
-	  // Pin GitHub Actions to commit SHAs, and keep them up to date
-		'helpers:pinGitHubActionDigestsToSemver'
-	],
-	packageRules: [
+  "$schema": "https://docs.renovatebot.com/renovate-schema.json",
+  "extends": [
+    // Pin GitHub Actions to commit SHAs, and keep them up to date
+    "helpers:pinGitHubActionDigestsToSemver"
+  ],
+  "packageRules": [
     // Perform dependency pinning immediately
     {
-      matchUpdateTypes: ['pin', 'pinDigest'],
-      commitMessageAction: 'pin',
-      groupName: 'version ranges',
-      schedule: 'at any time',
-      recreateWhen: 'always'
+      "matchUpdateTypes": ["pin", "pinDigest"],
+      "groupName": "version pinning",
+      "schedule": "at any time",
+      "automerge": true
     }
   ],
-	"github-actions": {
+  "github-actions": {
+    "packageRules": [
       // Group non-major actions updates together
       {
-        matchDepTypes: ['action'],
-        matchUpdateTypes: ['patch', 'minor'],
-        groupName: 'GitHub Actions',
-        schedule: 'on the 26th day of the month'
+        "matchDepTypes": ["action"],
+        "matchUpdateTypes": ["patch", "minor"],
+        "groupName": "GitHub Actions",
+        "schedule": "before 4am on monday",
+        "automerge": true
       }
     ]
   }
@@ -117,7 +118,7 @@ Limitations:
 	- Mitigated by holding back updates for a time period?
 	- Writing out the full version would do something similar as using the digest hash
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTgxNjE4NDUxLC0xNDQ1MTE3MTg1LC05ND
-A3OTMwNSwxNjAyNDM2NzMwLDkwOTkxNDc0OSwxMDIzNjM4ODM3
-XX0=
+eyJoaXN0b3J5IjpbLTE3OTc1ODk5NSwtODE2MTg0NTEsLTE0ND
+UxMTcxODUsLTk0MDc5MzA1LDE2MDI0MzY3MzAsOTA5OTE0NzQ5
+LDEwMjM2Mzg4MzddfQ==
 -->
