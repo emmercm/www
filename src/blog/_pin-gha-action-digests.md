@@ -97,7 +97,7 @@ Here's a minimum viable `renovate.json5` config to automate these updates:
 
   "github-actions": {
     "packageRules": [
-      // Group non-major actions updates together
+      // Group non-major actions updates together, reduce update frequency
       {
         "matchDepTypes": ["action"],
         "matchUpdateTypes": ["patch", "minor"],
@@ -110,7 +110,7 @@ Here's a minimum viable `renovate.json5` config to automate these updates:
 }
 ```
 
-When you merge this config file, Renovate will imme
+When you merge this config file, Renovate will immediately create a pull request pinning all of your un-pinned GitHub Actions. Then, it will
 
 ## Drawbacks
 
@@ -125,7 +125,7 @@ Limitations:
 	- Mitigated by holding back updates for a time period?
 	- Writing out the full version would do something similar as using the digest hash
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbNDI5NDM1MzE2LC04MTYxODQ1MSwtMTQ0NT
-ExNzE4NSwtOTQwNzkzMDUsMTYwMjQzNjczMCw5MDk5MTQ3NDks
-MTAyMzYzODgzN119
+eyJoaXN0b3J5IjpbLTM5NjA4NzI0NiwtODE2MTg0NTEsLTE0ND
+UxMTcxODUsLTk0MDc5MzA1LDE2MDI0MzY3MzAsOTA5OTE0NzQ5
+LDEwMjM2Mzg4MzddfQ==
 -->
