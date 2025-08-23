@@ -128,22 +128,9 @@ There are few scenarios that commit SHA pinning doesn't address, or doesn't addr
 
 - **Automatic updates can newly expose you.**
 
-  See the note above about how newly pushed Git version tags that contain malicious code can cause your dependency updater to 
-
-Commit SHA pinning is based around trust that you 
-
-- https://docs.github.com/en/actions/reference/security/secure-use#using-third-party-actions
-- https://semgrep.dev/blog/2025/popular-github-action-tj-actionschanged-files-is-compromised/
-- https://github.com/open-telemetry/sig-security/issues/69#issuecomment-2730078977
-
-Limitations:
-
-- Digest pinning doesn't mean 100% safety if you automate version updates
-	- It prevents tag redirection: https://semgrep.dev/blog/2025/popular-github-action-tj-actionschanged-files-is-compromised/
-	- Mitigated by holding back updates for a time period?
-	- Writing out the full version would do something similar as using the digest hash
+  See the note above about how newly pushed Git version tags that contain malicious code can cause your dependency updater (Dependabot, Renovate) to pick up the malicious change.
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTE0NjQ5Mzk2NSwtNzc5NDM4MjY0LC04MT
-YxODQ1MSwtMTQ0NTExNzE4NSwtOTQwNzkzMDUsMTYwMjQzNjcz
-MCw5MDk5MTQ3NDksMTAyMzYzODgzN119
+eyJoaXN0b3J5IjpbODMzNzQwMDU2LC03Nzk0MzgyNjQsLTgxNj
+E4NDUxLC0xNDQ1MTE3MTg1LC05NDA3OTMwNSwxNjAyNDM2NzMw
+LDkwOTkxNDc0OSwxMDIzNjM4ODM3XX0=
 -->
