@@ -120,7 +120,11 @@ _Note: this config will protect you against Git tag retargeting attacks, but it 
 
 ## Drawbacks
 
-There are few scenarios that co
+There are few scenarios that commit SHA pinning doesn't address, or doesn't address fully:
+
+- **The repository is already compromised.**
+
+  Pinning only works if you trust the committed code, but if the code is already malicious, the
 
 Commit SHA pinning is based around trust that you 
 
@@ -135,7 +139,7 @@ Limitations:
 	- Mitigated by holding back updates for a time period?
 	- Writing out the full version would do something similar as using the digest hash
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTI3NDkwMzM0NiwtNzc5NDM4MjY0LC04MT
-YxODQ1MSwtMTQ0NTExNzE4NSwtOTQwNzkzMDUsMTYwMjQzNjcz
-MCw5MDk5MTQ3NDksMTAyMzYzODgzN119
+eyJoaXN0b3J5IjpbNjM3MDg2MzIxLC03Nzk0MzgyNjQsLTgxNj
+E4NDUxLC0xNDQ1MTE3MTg1LC05NDA3OTMwNSwxNjAyNDM2NzMw
+LDkwOTkxNDc0OSwxMDIzNjM4ODM3XX0=
 -->
