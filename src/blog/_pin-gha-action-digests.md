@@ -83,7 +83,7 @@ Here's a minimum viable `renovate.json5` config to automate these updates:
   ],
 
   // Don't update dependencies immediately
-  "minimumReleaseAge": "3 days",
+  "minimumReleaseAge": "7 days",
 
   "packageRules": [
     // Perform dependency pinning immediately
@@ -112,6 +112,8 @@ Here's a minimum viable `renovate.json5` config to automate these updates:
 
 When you merge this config file, Renovate will immediately create a pull request pinning all of your un-pinned GitHub Actions. Then, it will keep the commit SHAs updated with automatic pull requests, reducing the maintenance burden on you.
 
+_Note: this config will protect you against Git tag retargeting attacks, but it won't entirely protect you from an attacker 
+
 ## Drawbacks
 
 Commit SHA pinning is based around trust that you 
@@ -127,7 +129,7 @@ Limitations:
 	- Mitigated by holding back updates for a time period?
 	- Writing out the full version would do something similar as using the digest hash
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTUyNTM3NTY3OCwtODE2MTg0NTEsLTE0ND
-UxMTcxODUsLTk0MDc5MzA1LDE2MDI0MzY3MzAsOTA5OTE0NzQ5
-LDEwMjM2Mzg4MzddfQ==
+eyJoaXN0b3J5IjpbLTIxNDMwNTk2MDIsLTgxNjE4NDUxLC0xND
+Q1MTE3MTg1LC05NDA3OTMwNSwxNjAyNDM2NzMwLDkwOTkxNDc0
+OSwxMDIzNjM4ODM3XX0=
 -->
