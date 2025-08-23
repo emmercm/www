@@ -36,7 +36,22 @@ This exact scenario happened in [March 2025](https://www.stepsecurity.io/blog/ha
 
 ## Solution
 
-So what can you do to protect yourself? Follow GitHub's "[secure [actions] use reference](https://docs.github.com/en/actions/reference/security/secure-use#using-third-party-actions)" and "pin" actions to their commit SHA.
+So what can you do to protect yourself? Follow GitHub's "[secure [actions] use reference](https://docs.github.com/en/actions/reference/security/secure-use#using-third-party-actions)" and "pin" actions to their commit SHA. Updating our example above, that looks like this:
+
+```yaml
+on:
+	pull_request:
+
+jobs:
+  do-something:
+    runs-on: ubuntu-latest
+    steps:
+      # This is a "third-party" action
+	    - uses: actions/checkout@08c6903cd8c0fde910a37f88322edcfb5dd907a8 # v5.0.0
+
+			# This is a "private" action
+	    - uses: ./.github/actions/my-custom-action
+```
 
 - https://docs.github.com/en/actions/reference/security/secure-use#using-third-party-actions
 - https://semgrep.dev/blog/2025/popular-github-action-tj-actionschanged-files-is-compromised/
@@ -49,6 +64,6 @@ Limitations:
 	- Mitigated by holding back updates for a time period?
 	- Writing out the full version would do something similar as using the digest hash
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTk2NjUxNDQ2NiwxNjAyNDM2NzMwLDkwOT
-kxNDc0OSwxMDIzNjM4ODM3XX0=
+eyJoaXN0b3J5IjpbLTE3NzcwODI1ODksMTYwMjQzNjczMCw5MD
+k5MTQ3NDksMTAyMzYzODgzN119
 -->
