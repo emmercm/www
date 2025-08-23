@@ -24,9 +24,9 @@ jobs:
 	    - uses: ./.github/actions/my-custom-action
 ```
 
-Most examples you see online (and even most actions themselves) recommend specifying a major version number, such as `actions/checkout@v5` in the example above. This typically corresponds 
+Most examples you see online (and even most actions themselves) recommend specifying a major version number, such as `actions/checkout@v5` in the example above. This version corresponds to a Git tag name, which is typically created by a GitHub Release.
 
-_Note: you can spe
+_Note: you can specify a Git branch name such as `actions/checkout@main`, but nearly no one recommends this, as it doesn't protect you from breaking changes between major versions._
 
 - https://docs.github.com/en/actions/reference/security/secure-use#using-third-party-actions
 - https://semgrep.dev/blog/2025/popular-github-action-tj-actionschanged-files-is-compromised/
@@ -39,6 +39,6 @@ Limitations:
 	- Mitigated by holding back updates for a time period?
 	- Writing out the full version would do something similar as using the digest hash
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTU1MDc1MjMyNywxNjAyNDM2NzMwLDkwOT
-kxNDc0OSwxMDIzNjM4ODM3XX0=
+eyJoaXN0b3J5IjpbLTEzNzU0NjIyNDIsMTYwMjQzNjczMCw5MD
+k5MTQ3NDksMTAyMzYzODgzN119
 -->
