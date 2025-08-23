@@ -53,7 +53,7 @@ jobs:
 	    - uses: ./.github/actions/my-custom-action
 ```
 
-Git tags correspond to a specific, single commit. Because 
+Git tags correspond to a specific, single commit. Because the maintainers of `actions/checkout` publish releases, you can easily see [v5.0.0's](https://github.com/actions/checkout/releases/tag/v5.0.0) associated commit SHA. We can also 
 
 - https://docs.github.com/en/actions/reference/security/secure-use#using-third-party-actions
 - https://semgrep.dev/blog/2025/popular-github-action-tj-actionschanged-files-is-compromised/
@@ -66,6 +66,6 @@ Limitations:
 	- Mitigated by holding back updates for a time period?
 	- Writing out the full version would do something similar as using the digest hash
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTExMzc3MzkzMCwxNjAyNDM2NzMwLDkwOT
-kxNDc0OSwxMDIzNjM4ODM3XX0=
+eyJoaXN0b3J5IjpbLTExOTYwOTMyNzEsMTYwMjQzNjczMCw5MD
+k5MTQ3NDksMTAyMzYzODgzN119
 -->
