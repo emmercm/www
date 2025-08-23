@@ -72,7 +72,13 @@ I love [Renovate](https://www.mend.io/renovate/). I use it in [a lot of my proje
 
 Renovate has a "helper" named [`helpers:pinGitHubActionDigestsToSemver`](https://docs.renovatebot.com/presets-helpers/#helperspingithubactiondigeststosemver) that will pin every GitHub Action you have to a commit SHA, and it will keep a human-readable version string up to date in a trailing comment. You can see it in action at [emmercm/igir#1823](https://github.com/emmercm/igir/pull/1823).
 
-I recommend you look
+Here's a minimum viable `renovate.json5` config to automate these updates:
+
+```json5
+{
+	$schema: 'https://docs.renovatebot.com/renovate-schema.json',
+}
+```
 
 ## Drawbacks
 
@@ -87,7 +93,7 @@ Limitations:
 	- Mitigated by holding back updates for a time period?
 	- Writing out the full version would do something similar as using the digest hash
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbNjU3OTk4OTQ2LC0xNDQ1MTE3MTg1LC05ND
-A3OTMwNSwxNjAyNDM2NzMwLDkwOTkxNDc0OSwxMDIzNjM4ODM3
-XX0=
+eyJoaXN0b3J5IjpbLTgxODIyMTc3NSwtMTQ0NTExNzE4NSwtOT
+QwNzkzMDUsMTYwMjQzNjczMCw5MDk5MTQ3NDksMTAyMzYzODgz
+N119
 -->
