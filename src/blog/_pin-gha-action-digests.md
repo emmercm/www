@@ -24,7 +24,7 @@ jobs:
 	    - uses: ./.github/actions/my-custom-action
 ```
 
-Most examples you see online (and even most actions themselves) recommend specifying a major version number, such as `actions/checkout@v5` in the example above. This version corresponds to a Git tag name, which is typically created by a GitHub Release.
+Most examples you see online (and even most actions themselves) recommend specifying a major version number, such as `actions/checkout@v5` in the example above. This version corresponds to a Git tag name, which is typically created by a GitHub Release. For `actions/checkout@v5`, the latest tag for v5.x.x as of writing is [v5.0.0](https://github.com/actions/checkout/releases/tag/v5.0.0).
 
 _Note: you can specify a Git branch name such as `actions/checkout@main`, but nearly no one recommends this, as it doesn't protect you from breaking changes between major versions._
 
@@ -39,6 +39,6 @@ Limitations:
 	- Mitigated by holding back updates for a time period?
 	- Writing out the full version would do something similar as using the digest hash
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTEzNzU0NjIyNDIsMTYwMjQzNjczMCw5MD
-k5MTQ3NDksMTAyMzYzODgzN119
+eyJoaXN0b3J5IjpbMTMyNDEzNjQ0MywxNjAyNDM2NzMwLDkwOT
+kxNDc0OSwxMDIzNjM4ODM3XX0=
 -->
