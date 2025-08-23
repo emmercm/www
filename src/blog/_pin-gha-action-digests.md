@@ -116,7 +116,7 @@ Here's a minimum viable `renovate.json5` config to automate these updates:
 
 When you merge this config file, Renovate will immediately create a pull request pinning all of your un-pinned GitHub Actions. Then, it will keep the commit SHAs updated with automatic pull requests, reducing the maintenance burden on you.
 
-_Note: this config will protect you against Git tag retargeting attacks, but it won't entirely protect you from an attacker pushing new Git version tags. The `minimumReleaseAge` option intends to give a repository maintainer (or GitHub) time to address_
+_Note: this config will protect you against Git tag retargeting attacks, but it won't entirely protect you from an attacker pushing new Git version tags. The `minimumReleaseAge` option intends to give a repository maintainer (or GitHub) time to delete any new malicious versions before you adopt them, but it isn't perfect._
 
 ## Drawbacks
 
@@ -133,7 +133,7 @@ Limitations:
 	- Mitigated by holding back updates for a time period?
 	- Writing out the full version would do something similar as using the digest hash
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTk1MzUzMzA0NiwtODE2MTg0NTEsLTE0ND
+eyJoaXN0b3J5IjpbLTc3OTQzODI2NCwtODE2MTg0NTEsLTE0ND
 UxMTcxODUsLTk0MDc5MzA1LDE2MDI0MzY3MzAsOTA5OTE0NzQ5
 LDEwMjM2Mzg4MzddfQ==
 -->
