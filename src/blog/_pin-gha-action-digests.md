@@ -120,6 +120,8 @@ _Note: this config will protect you against Git tag retargeting attacks, but it 
 
 ## Drawbacks
 
+There are few scenarios that co
+
 Commit SHA pinning is based around trust that you 
 
 - https://docs.github.com/en/actions/reference/security/secure-use#using-third-party-actions
@@ -133,7 +135,7 @@ Limitations:
 	- Mitigated by holding back updates for a time period?
 	- Writing out the full version would do something similar as using the digest hash
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTc3OTQzODI2NCwtODE2MTg0NTEsLTE0ND
-UxMTcxODUsLTk0MDc5MzA1LDE2MDI0MzY3MzAsOTA5OTE0NzQ5
-LDEwMjM2Mzg4MzddfQ==
+eyJoaXN0b3J5IjpbLTI3NDkwMzM0NiwtNzc5NDM4MjY0LC04MT
+YxODQ1MSwtMTQ0NTExNzE4NSwtOTQwNzkzMDUsMTYwMjQzNjcz
+MCw5MDk5MTQ3NDksMTAyMzYzODgzN119
 -->
