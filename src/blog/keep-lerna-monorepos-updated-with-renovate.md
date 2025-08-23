@@ -5,6 +5,7 @@ date: 2023-11-04T16:00:00
 tags:
 - ci-cd
 - node.js
+- renovate
 
 ---
 

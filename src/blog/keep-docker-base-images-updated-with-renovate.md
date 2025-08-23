@@ -5,6 +5,7 @@ date: 2020-07-30T23:18:00
 tags:
 - docker
 - ci-cd
+- renovate
 
 ---
 

@@ -90,6 +90,10 @@ python:
   title: Python
   color: python
 
+renovate:
+  title: Renovate
+  color: renovate
+
 shell:
   title: Shell
   color: dark
