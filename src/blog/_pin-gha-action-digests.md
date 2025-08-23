@@ -64,7 +64,9 @@ $ curl --silent https://api.github.com/repos/actions/checkout/tags \
 }
 ```
 
-Updating your third-party actions to use a commit SHA instead of a version tag means
+Updating your third-party actions to use a commit SHA instead of a version tag will protect you from "retargeting" attacks.
+
+## Automating updates
 
 - https://docs.github.com/en/actions/reference/security/secure-use#using-third-party-actions
 - https://semgrep.dev/blog/2025/popular-github-action-tj-actionschanged-files-is-compromised/
@@ -77,6 +79,6 @@ Limitations:
 	- Mitigated by holding back updates for a time period?
 	- Writing out the full version would do something similar as using the digest hash
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTE2NDI1OTM3NTUsMTYwMjQzNjczMCw5MD
-k5MTQ3NDksMTAyMzYzODgzN119
+eyJoaXN0b3J5IjpbLTk0MDc5MzA1LDE2MDI0MzY3MzAsOTA5OT
+E0NzQ5LDEwMjM2Mzg4MzddfQ==
 -->
