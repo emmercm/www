@@ -16,7 +16,11 @@ Ways it helps:
 
 - Onboards
 - Shares opportunities with juniors
+
+---
+
+https://hodgkins.io/blog/quiet-influence-a-guide-to-nemawashi-in-engineering/
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTQ2ODI4NTczMyw0Mjk2MzU5NjIsNTIzNT
-E2MjM4XX0=
+eyJoaXN0b3J5IjpbMTkxNzY5MzQ4MiwxNDY4Mjg1NzMzLDQyOT
+YzNTk2Miw1MjM1MTYyMzhdfQ==
 -->
