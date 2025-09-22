@@ -1,7 +1,9 @@
 ---
 
-title: Pin Your GitHub Actions to Protect Against Mutability
+title: Pin Your GitHub Actions to Protect Against Supply Chain Attacks
 date: 2025-08-23T17:44:00
+updated: 2025-09-22T01:56:00
+permalink: blog/pin-your-github-actions-to-protect-against-mutability
 tags:
 - ci-cd
 - github
@@ -32,7 +34,7 @@ Most examples you see online (and even most actions' READMEs) recommend specifyi
 
 _Note: you can specify a Git branch name such as `actions/checkout@main`, but nearly no one recommends this, as it doesn't protect you from breaking changes between major versions._
 
-Here's the problem with specifying a Git tag or Git branch: _they can change, they're "mutable."_
+Here's the problem with specifying a Git tag or Git branch: _they can change, they're "mutable."_ (Though if you're an Actions author, please consider turning on [immutable releases](https://docs.github.com/en/code-security/supply-chain-security/understanding-your-software-supply-chain/immutable-releases) for all your repositories.)
 
 If an attacker gains access to a GitHub account that publishes actions, _they can commit malicious code and then update any or all of the existing Git tags to point to that new malicious commit SHA._
 

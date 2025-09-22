@@ -1101,6 +1101,7 @@ tracer(Metalsmith(path.resolve()))
             'mysql.com',
             'qbittorrent.org',
             'mitpress.mit.edu',
+            'npmjs.com',
             // Anti-bot 404
             'fonts.gstatic.com$',
             'support.google.com',
