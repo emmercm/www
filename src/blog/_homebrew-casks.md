@@ -67,30 +67,15 @@ Then, we'll install the cask:
 brew install --cask homebrew/local/corretto@24.0.2.12.1
 ```
 
-_Note: you can use the command `brew edit homebrew/local/zstd@1.5.5` to edit the formula file in case of build failures. In the case of Zstd v1.5.5, I needed to add `-DCMAKE_POLICY_VERSION_MINIMUM=3.5` to the `cmake` command to get the build to succeed._
-
-Typically `brew install` will create all appropriate symlinks, but if you already have the formula installed then you'll need to follow the printed instructions to overwrite the symlinks:
-
-```shell
-brew link --overwrite zstd@1.5.5
-```
-
 ## Uninstallation
 
-If you later want to swap back to the latest version, run the commands:
-
-```shell
-brew unlink zstd
-brew link --overwrite zstd
-```
-
-To delete the formula that you copied to local disk, run:
+To uninstall the cask that you copied to local disk, run:
 
 ```shell
 brew uninstall zstd@1.5.5
 ```
 
-To delete the local tap and all copied formulae, run:
+To delete the local tap and all copied casks, run:
 
 ```shell
 brew untap homebrew/local
@@ -144,6 +129,6 @@ The main caveat is if you're installing an older version of a formula, it may ne
 brew edit homebrew/local/zstd@1.5.5
 ```
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTEzMzExNzU0NSw3NzE5NzAxNzgsNDAyOD
-EyODddfQ==
+eyJoaXN0b3J5IjpbMzEwMDE4NDYsNzcxOTcwMTc4LDQwMjgxMj
+g3XX0=
 -->
