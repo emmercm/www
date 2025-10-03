@@ -44,6 +44,7 @@ Casks/c/corretto.rb
 Then, we'll need to figure out the commit hash that updated the cask file to our desired version. Here we'll print all Corretto v24 versions:
 
 ```shell
+$ cd  "$(brew  --repository homebrew/cask)"
 $ git rev-list --all Casks/c/corretto.rb \
     | xargs -n1 -I% git --no-pager grep --fixed-strings "version \"24." % -- Casks/c/corretto.rb
 51d5d6c524854fe11dfa82c5b7439e6a502c47cf:Casks/c/corretto.rb:  version "24.0.2.12.1"
@@ -60,10 +61,10 @@ git show "51d5d6c524854fe11dfa82c5b7439e6a502c47cf:Casks/c/corretto.rb" \
 		> "$(brew --repository homebrew/local)/Casks/corretto@24.0.2.12.1.rb"
 ```
 
-Then, we'll install the formula, which may cause a build process:
+Then, we'll install the cask:
 
 ```shell
-brew install homebrew/local/zstd@1.5.5
+brew install --cask homebrew/local/corretto@24.0.2.12.1
 ```
 
 _Note: you can use the command `brew edit homebrew/local/zstd@1.5.5` to edit the formula file in case of build failures. In the case of Zstd v1.5.5, I needed to add `-DCMAKE_POLICY_VERSION_MINIMUM=3.5` to the `cmake` command to get the build to succeed._
@@ -143,6 +144,6 @@ The main caveat is if you're installing an older version of a formula, it may ne
 brew edit homebrew/local/zstd@1.5.5
 ```
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTAzMDgxMTQ4MCw3NzE5NzAxNzgsNDAyOD
+eyJoaXN0b3J5IjpbLTEzMzExNzU0NSw3NzE5NzAxNzgsNDAyOD
 EyODddfQ==
 -->
