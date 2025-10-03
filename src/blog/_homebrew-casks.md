@@ -15,20 +15,14 @@ tags:
 
 Installing old versions of casks is more complicated than [installing old versions of formulae](/blog/installing-old-homebrew-formula-versions), as there is no `brew extract --cask` command.
 
-The solution comes from [Carlo Cabrera](https://github.com/carlocab) on [GitHub](https://github.com/orgs/Homebrew/discussions/2941#discussioncomment-2155711). It involves:
-
-1. [Making a local tap](https://docs.brew.sh/How-to-Create-and-Maintain-a-Tap) ("local" because we won't be publishing this to a remote Git repository)
-2. Copying a specific version of a formula to our local tap
-3. Installing the local copy of the formula
-
 ## Installation
 
-For our example cask, I'm going to use [Amazon Corretto](https://aws.amazon.com/corretto/) v24. This came from a real world need of mine to install non-LTS .
+For our example cask, I'm going to use [Amazon Corretto](https://aws.amazon.com/corretto/) v24. This came from a real world need of mine to install non-LTS JDK versions at work.
 
-First, we need to check out the entire Git history of [homebrew/core](https://github.com/Homebrew/homebrew-core) so that `brew` can scan its history for the desired version of the formula:
+First, we need to check out the entire Git history of [homebrew/cask](https://github.com/Homebrew/homebrew-cask) so that `git` can scan its file history for the desired version of the cask:
 
 ```shell
-brew tap --force homebrew/core
+brew tap --force homebrew/cask
 ```
 
 We only need to tap once. Subsequent runs should use `brew update` to update the tap.
@@ -128,5 +122,5 @@ The main caveat is if you're installing an older version of a formula, it may ne
 brew edit homebrew/local/zstd@1.5.5
 ```
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbNDkxODI3MjE3XX0=
+eyJoaXN0b3J5IjpbNjYyOTY2MDNdfQ==
 -->
