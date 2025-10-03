@@ -33,6 +33,12 @@ Then, we need to make our local tap. We only need to do this once _ever_:
 brew tap-new homebrew/local
 ```
 
+Then, we'll need to figure out the path of the cask's Ruby file. As of writing, this would be `Casks/<letter>/<cask>.rb`, but a more resilient approach would be:
+
+```shell
+git  ls-files  'Casks/*'  |  grep  -E  "/corretto\.rb$"
+```
+
 Then, we'll "extract" (copy) a specific version of a formula into our local tap. Again, we'll only need to do this once ever:
 
 ```shell
@@ -123,5 +129,5 @@ The main caveat is if you're installing an older version of a formula, it may ne
 brew edit homebrew/local/zstd@1.5.5
 ```
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbNDAyODEyODddfQ==
+eyJoaXN0b3J5IjpbMTU5Mzk4NzUwMiw0MDI4MTI4N119
 -->
