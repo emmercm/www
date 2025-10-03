@@ -2,7 +2,7 @@
 ---
 
 title: Installing Old Homebrew Cask Versions
-date: 2025-10-03T22:24:00
+date: 2025-10-03T22:30:00
 tags:
 - macos
 - shell
@@ -52,7 +52,7 @@ a780d8ca78c3072c8c43ae6ed9108041c722fff0:Casks/c/corretto.rb:  version "24.0.1.9
 fe80d7e571d831942cf19f923be20db84bcd8738:Casks/c/corretto.rb:  version "24.0.0.36.2"
 ```
 
-Then, we'll write the contents of the desired file version to our local tap. I'm choosing to use a naming scheme similar to [versioned casks](https://docs.brew.sh/Versions), which requires changing the cask name within the file. We'll only need to do this file write once ever:
+Then, we'll write the contents of the desired file version to our local `homebrew/local` tap. I'm choosing to use a naming scheme similar to [versioned casks](https://docs.brew.sh/Versions), which requires changing the cask name within the file. We'll only need to do this file write once ever:
 
 ```shell
 cd  "$(brew  --repository homebrew/cask)"
@@ -69,13 +69,13 @@ brew install --cask homebrew/local/corretto@24.0.2.12.1
 
 ## Uninstallation
 
-To uninstall cask-provided applications, run:
+To uninstall all applications provided by the cask, run:
 
 ```shell
 brew uninstall corretto@24.0.2.12.1
 ```
 
-To delete the local tap and all copied casks, run:
+To delete the local tap and all cask files, run:
 
 ```shell
 brew untap homebrew/local
@@ -154,6 +154,6 @@ vintage() {
 ```
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTIwMDg3MjM4NzMsNzcxOTcwMTc4LDQwMj
+eyJoaXN0b3J5IjpbLTE0NDU4Njc4MjksNzcxOTcwMTc4LDQwMj
 gxMjg3XX0=
 -->
