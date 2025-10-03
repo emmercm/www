@@ -36,8 +36,9 @@ brew tap-new homebrew/local
 Then, we'll need to figure out the path of the cask's Ruby file. As of writing, this would be `Casks/<letter>/<cask>.rb`, but a more resilient approach would be:
 
 ```shell
-cd  "$(brew  --repository homebrew/cask)"
-git  ls-files  'Casks/*'  |  grep  -E  "/corretto\.rb$"
+$ cd  "$(brew  --repository homebrew/cask)"
+$ git  ls-files  'Casks/*'  |  grep  -E  "/corretto\.rb$"
+Casks/c/corretto.rb
 ```
 
 Then, we'll need to figure out the commit hash that updated the cask file to our desired version. Here we'll print all Corretto v24 versions:
@@ -50,7 +51,7 @@ a780d8ca78c3072c8c43ae6ed9108041c722fff0:Casks/c/corretto.rb:  version "24.0.1.9
 fe80d7e571d831942cf19f923be20db84bcd8738:Casks/c/corretto.rb:  version "24.0.0.36.2"
 ```
 
-Then, we'll "extract" (copy) a specific version of a formula into our local tap. Again, we'll only need to do this once ever:
+Then, we'll write the contents of the desired file version to our local tap. Again, we'll only need to do this once ever:
 
 ```shell
 cd  "$(brew  --repository homebrew/cask)"
@@ -140,5 +141,5 @@ The main caveat is if you're installing an older version of a formula, it may ne
 brew edit homebrew/local/zstd@1.5.5
 ```
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTUwNDgxNDExNSw0MDI4MTI4N119
+eyJoaXN0b3J5IjpbNzcxOTcwMTc4LDQwMjgxMjg3XX0=
 -->
