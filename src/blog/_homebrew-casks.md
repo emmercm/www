@@ -51,11 +51,13 @@ a780d8ca78c3072c8c43ae6ed9108041c722fff0:Casks/c/corretto.rb:  version "24.0.1.9
 fe80d7e571d831942cf19f923be20db84bcd8738:Casks/c/corretto.rb:  version "24.0.0.36.2"
 ```
 
-Then, we'll write the contents of the desired file version to our local tap. I'm choosing to use a naming scheme similar to [versioned casks](https://docs.brew.sh/Versions), which requires some finessing. We'll only need to do this file write once ever:
+Then, we'll write the contents of the desired file version to our local tap. I'm choosing to use a naming scheme similar to [versioned casks](https://docs.brew.sh/Versions), which requires changing the cask name within the file. We'll only need to do this file write once ever:
 
 ```shell
 cd  "$(brew  --repository homebrew/cask)"
-brew extract --version=1.5.5 zstd homebrew/local
+git show "51d5d6c524854fe11dfa82c5b7439e6a502c47cf:Casks/c/corretto.rb" \
+		| sed "s/cask \"corretto\"/cask \"corretto@24.0.2.12.1\"/" \
+		> "$(brew --repository homebrew/local)/Casks/corretto@24.0.2.12.1.rb"
 ```
 
 Then, we'll install the formula, which may cause a build process:
@@ -141,6 +143,6 @@ The main caveat is if you're installing an older version of a formula, it may ne
 brew edit homebrew/local/zstd@1.5.5
 ```
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTY0NTQ2MzI1Myw3NzE5NzAxNzgsNDAyOD
+eyJoaXN0b3J5IjpbMTAzMDgxMTQ4MCw3NzE5NzAxNzgsNDAyOD
 EyODddfQ==
 -->
