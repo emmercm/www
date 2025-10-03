@@ -89,9 +89,7 @@ brew untap homebrew/cask
 
 ## As a dotfile function
 
-Combining this together with
-
-We can tie everything together into one clean function that you can put in your dotfiles:
+Combining this together with the easier method to [install old formula versions](/blog/installing-old-homebrew-formula-versions), we can write one clean function that you can put in your dotfiles:
 
 ```bash
 # Install a specific version of a Homebrew formula
@@ -124,6 +122,6 @@ vintage() {
 ```
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTUwNTc5OTEyLDc3MTk3MDE3OCw0MDI4MT
-I4N119
+eyJoaXN0b3J5IjpbLTg5MTM4MzIzMCw3NzE5NzAxNzgsNDAyOD
+EyODddfQ==
 -->
