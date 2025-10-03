@@ -2,7 +2,7 @@
 ---
 
 title: Installing Old Homebrew Cask Versions
-date: 2025-08-14T04:07:00
+date: 2025-10-03T22:24:00
 tags:
 - macos
 - shell
@@ -13,11 +13,11 @@ tags:
 
 [Homebrew casks](https://github.com/Homebrew/homebrew-cask) are a way to install macOS GUI applications (i.e. in the `/Applications` directory). Unlike Homebrew formulae, casks aren't typically symlinked.
 
-Installing old versions of casks is more complicated than [installing old versions of formulae](/blog/installing-old-homebrew-formula-versions), as there is no `brew extract --cask` command.
+Installing old versions of casks is more complicated than [installing old versions of formulae](/blog/installing-old-homebrew-formula-versions), as there is no `brew extract --cask` command (as of writing).
 
 ## Installation
 
-For our example cask, I'm going to use [Amazon Corretto](https://aws.amazon.com/corretto/) v24. This came from a real world need of mine to install non-LTS JDK versions at work.
+For our example cask, I'm going to use [Amazon Corretto](https://aws.amazon.com/corretto/) v24. This came from a real world need of mine to install non-LTS JDK versions at work. There are versioned casks
 
 First, we need to check out the entire Git history of [homebrew/cask](https://github.com/Homebrew/homebrew-cask) so that `git` can scan its file history for the desired version of the cask:
 
@@ -154,6 +154,6 @@ vintage() {
 ```
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTg1MDEwNjg2MCw3NzE5NzAxNzgsNDAyOD
-EyODddfQ==
+eyJoaXN0b3J5IjpbMjk2NDI2Mjk2LDc3MTk3MDE3OCw0MDI4MT
+I4N119
 -->
