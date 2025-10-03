@@ -69,10 +69,10 @@ brew install --cask homebrew/local/corretto@24.0.2.12.1
 
 ## Uninstallation
 
-To uninstall the cask that you copied to local disk, run:
+To uninstall cask-provided applications, run:
 
 ```shell
-brew uninstall zstd@1.5.5
+brew uninstall corretto@24.0.2.12.1
 ```
 
 To delete the local tap and all copied casks, run:
@@ -81,13 +81,15 @@ To delete the local tap and all copied casks, run:
 brew untap homebrew/local
 ```
 
-And to remove your local copy of [homebrew/core](https://github.com/Homebrew/homebrew-core) (and stop it from updating on every `brew update`), run:
+And to remove your local copy of [homebrew/cask](https://github.com/Homebrew/homebrew-cask) (and stop it from updating on every `brew update`), run:
 
 ```shell
-brew untap homebrew/core
+brew untap homebrew/cask
 ```
 
 ## As a dotfile function
+
+Combining this together with
 
 We can tie everything together into one clean function that you can put in your dotfiles:
 
@@ -121,14 +123,7 @@ vintage() {
 }
 ```
 
-## Caveats
-
-The main caveat is if you're installing an older version of a formula, it may need old versions of its dependencies. Each situation is going to be unique, but some situations may be resolved by making changes to the formula file and then running `brew install` again:
-
-```shell
-brew edit homebrew/local/zstd@1.5.5
-```
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMzEwMDE4NDYsNzcxOTcwMTc4LDQwMjgxMj
-g3XX0=
+eyJoaXN0b3J5IjpbMTUwNTc5OTEyLDc3MTk3MDE3OCw0MDI4MT
+I4N119
 -->
