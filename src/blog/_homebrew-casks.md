@@ -43,7 +43,11 @@ git  ls-files  'Casks/*'  |  grep  -E  "/corretto\.rb$"
 Then, we'll need to figure out the commit hash that updated the cask file to our desired version. Here we'll print all Corretto v24 versions:
 
 ```shell
-git rev-list --all Casks/c/corretto.rb | xargs -n1 -I% git --no-pager grep --fixed-strings "version \"24." % -- Casks/c/corretto.rb
+$ git rev-list --all Casks/c/corretto.rb \
+    | xargs -n1 -I% git --no-pager grep --fixed-strings "version \"24." % -- Casks/c/corretto.rb
+51d5d6c524854fe11dfa82c5b7439e6a502c47cf:Casks/c/corretto.rb:  version "24.0.2.12.1"
+a780d8ca78c3072c8c43ae6ed9108041c722fff0:Casks/c/corretto.rb:  version "24.0.1.9.1"
+fe80d7e571d831942cf19f923be20db84bcd8738:Casks/c/corretto.rb:  version "24.0.0.36.2"
 ```
 
 Then, we'll "extract" (copy) a specific version of a formula into our local tap. Again, we'll only need to do this once ever:
@@ -136,5 +140,5 @@ The main caveat is if you're installing an older version of a formula, it may ne
 brew edit homebrew/local/zstd@1.5.5
 ```
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTQ0NjQ2MDc5NSw0MDI4MTI4N119
+eyJoaXN0b3J5IjpbLTUwNDgxNDExNSw0MDI4MTI4N119
 -->
