@@ -36,6 +36,7 @@ brew tap-new homebrew/local
 Then, we'll "extract" (copy) a specific version of a formula into our local tap. Again, we'll only need to do this once ever:
 
 ```shell
+cd  "$(brew  --repository homebrew/cask)"
 brew extract --version=1.5.5 zstd homebrew/local
 ```
 
@@ -122,5 +123,5 @@ The main caveat is if you're installing an older version of a formula, it may ne
 brew edit homebrew/local/zstd@1.5.5
 ```
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbNjYyOTY2MDNdfQ==
+eyJoaXN0b3J5IjpbNDAyODEyODddfQ==
 -->
