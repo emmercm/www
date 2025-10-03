@@ -1,7 +1,7 @@
 
 ---
 
-title: Installing Old Homebrew Formula Versions
+title: Installing Old Homebrew Cask Versions
 date: 2025-08-14T04:07:00
 tags:
 - macos
@@ -9,9 +9,9 @@ tags:
 
 ---
 
-[Homebrew](https://brew.sh/) makes it very difficult to install older versions of a formula.
+[Homebrew](https://brew.sh/) makes it very difficult to install older versions of a cask.
 
-And no, [versioned formulae](https://docs.brew.sh/Versions) are not a real solution. Thankfully, we can cobble together some incantations to get what we want.
+Homebrew 
 
 The solution comes from [Carlo Cabrera](https://github.com/carlocab) on [GitHub](https://github.com/orgs/Homebrew/discussions/2941#discussioncomment-2155711). It involves:
 
@@ -126,5 +126,5 @@ The main caveat is if you're installing an older version of a formula, it may ne
 brew edit homebrew/local/zstd@1.5.5
 ```
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTUyNDc3NDE5Ml19
+eyJoaXN0b3J5IjpbLTIwMzQzMTc0MjFdfQ==
 -->
