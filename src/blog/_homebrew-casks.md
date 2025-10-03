@@ -17,7 +17,7 @@ Installing old versions of casks is more complicated than [installing old versio
 
 ## Installation
 
-For our example cask, I'm going to use [Amazon Corretto](https://aws.amazon.com/corretto/) v24. This came from a real world need of mine to install non-LTS JDK versions at work. There are versioned casks
+For our example cask, I'm going to use [Amazon Corretto](https://aws.amazon.com/corretto/) v24. This came from a real world need of mine to install non-LTS JDK versions at work. The only [versioned casks](https://docs.brew.sh/Versions) for Corretto is for LTS JDK versions (`corretto@17`, `corretto@21`, `corretto@25`, etc.), so there is no `corretto@24`. Instead, we h
 
 First, we need to check out the entire Git history of [homebrew/cask](https://github.com/Homebrew/homebrew-cask) so that `git` can scan its file history for the desired version of the cask:
 
@@ -154,6 +154,6 @@ vintage() {
 ```
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMjk2NDI2Mjk2LDc3MTk3MDE3OCw0MDI4MT
-I4N119
+eyJoaXN0b3J5IjpbLTcyMTM0MTYwNCw3NzE5NzAxNzgsNDAyOD
+EyODddfQ==
 -->
