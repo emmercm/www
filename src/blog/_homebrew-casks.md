@@ -11,7 +11,9 @@ tags:
 
 [Homebrew](https://brew.sh/) makes it very difficult to install older versions of a cask.
 
-Homebrew Casks are a way to install macOS GUI applications (i.e. in the `/Applications` directory). Unlik
+[Homebrew casks](https://github.com/Homebrew/homebrew-cask) are a way to install macOS GUI applications (i.e. in the `/Applications` directory). Unlike Homebrew formulae, casks aren't typically symlinked.
+
+Installing old versions of casks is more complicated than installing old versions of formulae, as there is no `brew extract --cask` command.
 
 The solution comes from [Carlo Cabrera](https://github.com/carlocab) on [GitHub](https://github.com/orgs/Homebrew/discussions/2941#discussioncomment-2155711). It involves:
 
@@ -126,5 +128,5 @@ The main caveat is if you're installing an older version of a formula, it may ne
 brew edit homebrew/local/zstd@1.5.5
 ```
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTcwODU5MTIzMF19
+eyJoaXN0b3J5IjpbMTY0MDIyNDI5OV19
 -->
