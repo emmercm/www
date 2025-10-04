@@ -2,7 +2,7 @@
 
 title: Now
 description: What's important in my life, now.
-date: 2025-2-07T2338:00
+date: 2025-10-04T19:40:00
 priority: 0.1
 
 ---
@@ -19,7 +19,7 @@ Los Angeles, CA since late 202experiencing the sun, surf, and food of the most p
 
 ## 🏢 Working at
 
-Senior Software Engineer @ [Attentive](https://www.attentive.com/), an SMS and email marketing vendor for e-commerce companies. Currently providdeveloping a platform for all things user datainternal engineering teams to schedule, orchestrate, and run business process workloads on [Temporal](https://temporal.io/).
+Staff Software Engineer @ [Attentive](https://www.attentive.com/), an SMS and email marketing vendor for e-commerce companies. Currently providing a platform for all things user data.
 
 ## 👨🏻‍💼️ Top three professional focuses
 

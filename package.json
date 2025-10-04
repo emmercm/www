@@ -55,7 +55,7 @@
     "metalsmith-discover-helpers": "0.1.1",
     "metalsmith-discover-partials": "0.1.2",
     "metalsmith-except": "0.1.1",
-    "metalsmith-favicons": "1.0.0",
+    "metalsmith-html-favicons": "0.0.1",
     "metalsmith-feed": "1.0.0",
     "metalsmith-github-profile": "2.0.3",
     "metalsmith-gravatar": "0.1.0",
