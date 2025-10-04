@@ -41,7 +41,6 @@
     "jquery": "3.7.1",
     "jstransformer-handlebars": "1.2.0",
     "luxon": "3.7.1",
-    "markdownlint-cli": "0.45.0",
     "marked": "12.0.2",
     "metalsmith": "2.6.3",
     "metalsmith-branch": "0.0.5",
@@ -55,7 +54,7 @@
     "metalsmith-discover-helpers": "0.1.1",
     "metalsmith-discover-partials": "0.1.2",
     "metalsmith-except": "0.1.1",
-    "metalsmith-favicons": "1.0.0",
+    "metalsmith-html-favicons": "0.0.1",
     "metalsmith-feed": "1.0.0",
     "metalsmith-github-profile": "2.0.3",
     "metalsmith-gravatar": "0.1.0",
@@ -99,6 +98,7 @@
   },
   "devDependencies": {
     "@netlify/plugin-lighthouse": "^6.0.1",
+    "markdownlint-cli": "0.45.0",
     "puppeteer": "23.11.1"
   }
 }
