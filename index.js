@@ -44,7 +44,7 @@ import multiCollections from 'metalsmith-multi-collections';
 import pagination       from 'metalsmith-pagination';
 import jsonld           from './lib/metalsmith-jsonld.js';
 import related          from 'metalsmith-collections-related';
-import favicons         from 'metalsmith-favicons';
+import favicons         from 'metalsmith-html-favicons';
 import layouts          from '@metalsmith/layouts';
 import jquery           from 'metalsmith-jquery';
 // INCLUDE EXTERNAL FILES
@@ -787,50 +787,24 @@ tracer(Metalsmith(path.resolve()))
         maxRelated: 6
     }))
 
-    // Prod: add favicons and icons
-    // .use(msIf(prodBuild, sharp({
-    //     src: siteLogo,
-    //     namingPattern: '{dir}{name}-padded{ext}',
-    //     moveFile: false,
-    //     methods: [{
-    //         name: 'extend',
-    //         args: metadata => {
-    //             return [{
-    //                 top: metadata.height * 0.25,
-    //                 bottom: metadata.height * 0.25,
-    //                 left: metadata.width * 0.25,
-    //                 right: metadata.width * 0.25
-    //             }];
-    //         }
-    //     }]
-    // })))
-    .use(msIf(prodBuild, favicons({
-        src: siteLogo,
-        dest: '.',
-        appName: siteName,
-        appDescription: siteDescription,
-        developerName: siteName,
-        developerURL: siteURL,
-        theme_color: '#343a40', // $dark
-        start_url: siteURL,
-        // manifestMaskable: siteLogo.replace(/(\.[^.]+)$/, '-padded$1'),
-        icons: {
-            android: true,
-            // Apple icons get rendered with a white background, and because they are listed first
-            //  in HTML, apps such as Slack will choose that icon over the favicon. So don't
-            //  render them.
-            appleIcon: false,
-            appleStartup: false,
-            favicons: true,
-            windows: true
-        }
-    })))
-
     // Use Handlebars templating
     .use(layouts({
         pattern: '**/*.html',
         default: 'page.hbs',
         engine: 'handlebars'
+    }))
+
+    // Add favicons and web manifests
+    .use(favicons({
+        icon: siteLogo,
+        favicons: {
+            appName: siteName,
+            appDescription: siteDescription,
+            developerName: siteName,
+            developerURL: siteURL,
+            theme_color: '#343a40', // $dark
+            start_url: siteURL,
+        },
     }))
 
     // Change all links with a protocol (external) to be target="_blank"
@@ -977,7 +951,7 @@ tracer(Metalsmith(path.resolve()))
 
     // Add Facebook OpenGraph meta tags
     .use(msIf(prodBuild, openGraph({
-        pattern: '{*,blog/*,blog/[0-9]*/index.html}',
+        pattern: '{*,blog/*,blog/[0-9]*/index}.html',
         sitename: siteName,
         siteurl: siteURL,
         image: '.og-image'
