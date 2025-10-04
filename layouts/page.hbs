@@ -192,7 +192,7 @@
                             {{>gravatar size=56 class="me-3 rounded-circle img-thumbnail bg-secondary border-0"}}
                             <div class="media-body">
                                 <div>{{ sitename }}</div>
-                                <div class="text-muted"><span title="{{luxon this.date "fff"}}">{{luxon this.date "DD"}}</span> &middot; {{readingTime}}</div>
+                                <div class="text-muted"><span title="{{#if this.updated}}Updated on {{luxon this.updated "fff"}}{{else}}{{luxon this.date "fff"}}{{/if}}">{{luxon this.date "DD"}}{{#if this.updated}}<sup>*</sup>{{/if}}</span> &middot; {{readingTime}}</div>
                             </div>
                         </div>
                         <div class="d-flex flex-nowrap">
