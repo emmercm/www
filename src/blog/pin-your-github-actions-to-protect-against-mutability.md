@@ -1,6 +1,6 @@
 ---
 
-title: Pin Your GitHub Actions to Protect Against Supply Chain Attacks
+title: Pin Your GitHub Actions to Protect Against Supply Chain AttacksMutability
 date: 2025-08-23T17:44:00
 updated: 2025-09-22T01:56:00
 permalink: blog/pin-your-github-actions-to-protect-against-mutability
@@ -135,3 +135,6 @@ There are few scenarios that commit SHA pinning doesn't address, or doesn't addr
 - **It doesn't address compromised transitive dependencies.**
 
   If a dependency that the third-party action uses is compromised, then pinning the action won't help you. Action maintainers need to adhere to good security practices as well, and it's your responsibility to vet the actions you use.
+<!--stackedit_data:
+eyJoaXN0b3J5IjpbNzc3NzA5OTldfQ==
+-->
