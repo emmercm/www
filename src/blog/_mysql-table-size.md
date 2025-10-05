@@ -26,7 +26,9 @@ WHERE database_name = :databaseName
   AND table_name = :tableName;
 ```
 
-**Caveat 1: 
+**Caveat 1: `mysql.innodb_table_stats.n_rows` is estimated based on sampling.**
+
+InnoDB will sample an []() number of pages
 
 `mysql.innodb_table_stats` is updated in any of these situations:
 
@@ -264,8 +266,8 @@ From the [MySQL documentation](https://dev.mysql.com/doc/refman/8.0/en/aggregate
 
 `SELECT COUNT(*)` and similar queries can take an exceptionally long time on large tables. You should strongly consider using the persistent stats stored in [`information_schema.tables`](https://dev.mysql.com/doc/refman/8.0/en/information-schema-tables-table.html) if possible.
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTEyMDQ5NDMyNTQsMzY5NzM5NzU1LDY2OD
-UzOTc3OSwtMTEwNjEyMTI1OSwtOTYwODEwNTczLDYzMjUyMjI5
-OCwtMTM2MjU3ODk5Nyw0NTQ2Nzc5OTYsLTkzNzkyODQ1OSw4Nz
-gxNDM0MjEsMTE2NDM3OTc2MSwtMTMwMDU3MjY2NF19
+eyJoaXN0b3J5IjpbMTYxNjIzMDExMCwzNjk3Mzk3NTUsNjY4NT
+M5Nzc5LC0xMTA2MTIxMjU5LC05NjA4MTA1NzMsNjMyNTIyMjk4
+LC0xMzYyNTc4OTk3LDQ1NDY3Nzk5NiwtOTM3OTI4NDU5LDg3OD
+E0MzQyMSwxMTY0Mzc5NzYxLC0xMzAwNTcyNjY0XX0=
 -->
