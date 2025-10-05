@@ -32,14 +32,14 @@ InnoDB samples an [`innodb_stats_persistent_sample_pages`](https://dev.mysql.com
 
 As a table's size grows, so does the inaccuracy of `n_rows`.
 
-**Caveat 2: `mysql.innodb_table_stats` may not update often.**
+**Caveat 2: a table's stats may not update often.**
 
-`mysql.innodb_table_stats` only updates:
+A table's `mysql.innodb_table_stats` only updates in these scenarios:
 
 - "When a table undergoes changes to more than 10% of its rows" if the [`innodb_stats_auto_recalc`](https://dev.mysql.com/doc/refman/8.0/en/innodb-parameters.html#sysvar_innodb_stats_auto_recalc) setting is "ON" (which it is by default)
-- [`ANALYZE TABLE ...`](https://dev.mysql.com/doc/refman/8.0/en/analyze-table.html) is run
-- [`OPTIMIZE TABLE ...`](https://dev.mysql.com/doc/refman/8.0/en/optimize-table.html) is run
-- [`TRUNCATE TABLE ...`](https://dev.mysql.com/doc/refman/8.0/en/truncate-table.html) is run
+- [`ANALYZE TABLE <table>`](https://dev.mysql.com/doc/refman/8.0/en/analyze-table.html) is run
+- [`OPTIMIZE TABLE <table>`](https://dev.mysql.com/doc/refman/8.0/en/optimize-table.html) is run
+- [`TRUNCATE TABLE <table>`](https://dev.mysql.com/doc/refman/8.0/en/truncate-table.html) is run
 - A column is added or dropped
 - An index is added or dropped
 
@@ -270,7 +270,7 @@ From the [MySQL documentation](https://dev.mysql.com/doc/refman/8.0/en/aggregate
 
 `SELECT COUNT(*)` and similar queries can take an exceptionally long time on large tables. You should strongly consider using the persistent stats stored in [`information_schema.tables`](https://dev.mysql.com/doc/refman/8.0/en/information-schema-tables-table.html) if possible.
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTE4MDEwOTY0MzIsLTgwNjkwMTQzLDM2OT
+eyJoaXN0b3J5IjpbLTIwMzY4NDQ4NTUsLTgwNjkwMTQzLDM2OT
 czOTc1NSw2Njg1Mzk3NzksLTExMDYxMjEyNTksLTk2MDgxMDU3
 Myw2MzI1MjIyOTgsLTEzNjI1Nzg5OTcsNDU0Njc3OTk2LC05Mz
 c5Mjg0NTksODc4MTQzNDIxLDExNjQzNzk3NjEsLTEzMDA1NzI2
