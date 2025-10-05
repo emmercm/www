@@ -10,6 +10,8 @@ tags:
 
 `SELECT COUNT(*)` requires an expensive full clustered index scan, which probably isn't what you want.
 
+## `information_schema.tables`
+
 Here are the queries that you should use the majority of the time:
 
 ```sql
@@ -44,14 +46,6 @@ WHERE variable_name LIKE 'innodb_stats_%';
 ```
 
 ## `information_schema.tables` vs. `mysql.innodb_table_stats`
-
-By default, the MySQL setting [`innodb_stats_auto_recalc=ON`](https://dev.mysql.com/doc/refman/8.0/en/innodb-parameters.html#sysvar_innodb_stats_auto_recalc), which means InnoDB table [persistent stats](https://dev.mysql.com/doc/refman/8.0/en/innodb-persistent-stats.html) recalculate automatically "when a table undergoes changes to more than 10% of its rows." Stats also get recalculated when an index is added or a column is added or dropped. You can also force this recalculation with the [`ANALYZE TABLE ...`](https://dev.mysql.com/doc/refman/8.0/en/analyze-table.html) statement.
-
-_You can check your persistent stats settings with this query:_
-
-```sql
-SHOW VARIABLES WHERE variable_name LIKE 'innodb_stats_%';
-```
 
 These persisted stats get stored in the [`mysql.innodb_table_stats`](https://dev.mysql.com/doc/refman/8.0/en/innodb-persistent-stats.html#innodb-persistent-stats-tables) and [`mysql.innodb_index_stats`](https://dev.mysql.com/doc/refman/8.0/en/innodb-persistent-stats.html#innodb-persistent-stats-tables) tables.
 
@@ -221,6 +215,6 @@ From the [MySQL documentation](https://dev.mysql.com/doc/refman/8.0/en/aggregate
 
 `SELECT COUNT(*)` and similar queries can take an exceptionally long time on large tables. You should strongly consider using the persistent stats stored in [`information_schema.tables`](https://dev.mysql.com/doc/refman/8.0/en/information-schema-tables-table.html) if possible.
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTkzNzkyODQ1OSw4NzgxNDM0MjEsMTE2ND
-M3OTc2MSwtMTMwMDU3MjY2NF19
+eyJoaXN0b3J5IjpbMzMwNjAzODg5LDg3ODE0MzQyMSwxMTY0Mz
+c5NzYxLC0xMzAwNTcyNjY0XX0=
 -->
