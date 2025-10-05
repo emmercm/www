@@ -10,7 +10,7 @@ tags:
 
 `SELECT COUNT(*)` requires an expensive full clustered index scan, which probably isn't what you want.
 
-## InnoDB
+## InnoDB's persistent stats
 
 It's highly likely that you're using InnoDB as the engine for your tables as it has been the default since [MySQL v5.5.5 (2010)](https://web.archive.org/web/20190123090733/https://dev.mysql.com/doc/refman/5.5/en/storage-engine-setting.html).
 
@@ -270,7 +270,7 @@ From the [MySQL documentation](https://dev.mysql.com/doc/refman/8.0/en/aggregate
 
 `SELECT COUNT(*)` and similar queries can take an exceptionally long time on large tables. You should strongly consider using the persistent stats stored in [`information_schema.tables`](https://dev.mysql.com/doc/refman/8.0/en/information-schema-tables-table.html) if possible.
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTQzODczNTQxMSwtODA2OTAxNDMsMzY5Nz
+eyJoaXN0b3J5IjpbMTkwMjIzODU2NywtODA2OTAxNDMsMzY5Nz
 M5NzU1LDY2ODUzOTc3OSwtMTEwNjEyMTI1OSwtOTYwODEwNTcz
 LDYzMjUyMjI5OCwtMTM2MjU3ODk5Nyw0NTQ2Nzc5OTYsLTkzNz
 kyODQ1OSw4NzgxNDM0MjEsMTE2NDM3OTc2MSwtMTMwMDU3MjY2
