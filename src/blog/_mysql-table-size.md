@@ -14,7 +14,7 @@ tags:
 
 It's highly likely that you're using InnoDB as the engine for your tables as it has been the default since [MySQL v5.5.5 (2010)](https://web.archive.org/web/20190123090733/https://dev.mysql.com/doc/refman/5.5/en/storage-engine-setting.html).
 
-MySQL v5.6.2 (2011) added the ability to persist optimizer statistics for InnoDB tables
+[MySQL v5.6.2 (2011)](https://downloads.mysql.com/docs/mysql-5.6-relnotes-en.pdf) added the ability to [persist optimizer statistics for InnoDB tables](https://dev.mysql.com/doc/refman/8.0/en/innodb-persistent-stats.html) across server restarts.
 
 
 
@@ -230,7 +230,7 @@ From the [MySQL documentation](https://dev.mysql.com/doc/refman/8.0/en/aggregate
 
 `SELECT COUNT(*)` and similar queries can take an exceptionally long time on large tables. You should strongly consider using the persistent stats stored in [`information_schema.tables`](https://dev.mysql.com/doc/refman/8.0/en/information-schema-tables-table.html) if possible.
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTYwNzU1MjgyNCw0NTQ2Nzc5OTYsLTkzNz
-kyODQ1OSw4NzgxNDM0MjEsMTE2NDM3OTc2MSwtMTMwMDU3MjY2
-NF19
+eyJoaXN0b3J5IjpbLTE4MDMyNDE0ODYsNDU0Njc3OTk2LC05Mz
+c5Mjg0NTksODc4MTQzNDIxLDExNjQzNzk3NjEsLTEzMDA1NzI2
+NjRdfQ==
 -->
