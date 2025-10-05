@@ -26,7 +26,10 @@ However, table statistics columns in `information_schema.tables` are cached, up 
 
 `information_schema.tables` is updated in any of these situations:
 
+- The column's cache has expired
 - [`ANALYZE TABLE ...`](https://dev.mysql.com/doc/refman/8.0/en/analyze-table.html) is run
+
+Setting the [` information_schema_stats_expiry`](https://dev.mysql.com/doc/refman/8.0/en/server-system-variables.html#sysvar_information_schema_stats_expiry) setting to "0" (zero) disables caching, causing queries against
 
 
 
@@ -242,7 +245,7 @@ From the [MySQL documentation](https://dev.mysql.com/doc/refman/8.0/en/aggregate
 
 `SELECT COUNT(*)` and similar queries can take an exceptionally long time on large tables. You should strongly consider using the persistent stats stored in [`information_schema.tables`](https://dev.mysql.com/doc/refman/8.0/en/information-schema-tables-table.html) if possible.
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMjM1MTI1NzUsNjMyNTIyMjk4LC0xMzYyNT
-c4OTk3LDQ1NDY3Nzk5NiwtOTM3OTI4NDU5LDg3ODE0MzQyMSwx
-MTY0Mzc5NzYxLC0xMzAwNTcyNjY0XX0=
+eyJoaXN0b3J5IjpbNDgxMzE3MjgxLDYzMjUyMjI5OCwtMTM2Mj
+U3ODk5Nyw0NTQ2Nzc5OTYsLTkzNzkyODQ1OSw4NzgxNDM0MjEs
+MTE2NDM3OTc2MSwtMTMwMDU3MjY2NF19
 -->
