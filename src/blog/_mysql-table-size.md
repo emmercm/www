@@ -26,6 +26,8 @@ WHERE database_name = :databaseName
   AND table_name = :tableName;
 ```
 
+_You can also find stats about indexes in `mysql.innodb_index_stats`._
+
 **Caveat 1: `mysql.innodb_table_stats.n_rows` is estimated based on sampling.**
 
 InnoDB samples an [`innodb_stats_persistent_sample_pages`](https://dev.mysql.com/doc/refman/8.0/en/innodb-parameters.html#sysvar_innodb_stats_persistent_sample_pages) (default of "20") number of pages from the clustered index and then extrapolates. Individual tables can override this setting with the [`STATS_SAMPLE_PAGES`](https://dev.mysql.com/doc/refman/8.0/en/create-table.html#create-table-options) table setting.
@@ -80,7 +82,7 @@ FROM (SELECT 1
          , (SELECT 0 AS n UNION SELECT 1 UNION SELECT 2 UNION SELECT 3 UNION SELECT 4 UNION SELECT 5 UNION SELECT 6 UNION SELECT 7 UNION SELECT 8 UNION SELECT 9) g) temp;
 ```
 
-You can see how the time it takes to perform a full index scan grows linearly with the table size:
+You can see how the time it takes to perform a full index scan grows propotionally with the table size:
 
 ```sql
 SELECT COUNT(*) FROM messages;
@@ -207,9 +209,9 @@ Setting the [` information_schema_stats_expiry`](https://dev.mysql.com/doc/refma
 
 `SELECT COUNT(*)` and similar queries can take an exceptionally long time on large tables. You should strongly consider using the persistent stats stored in [`information_schema.tables`](https://dev.mysql.com/doc/refman/8.0/en/information-schema-tables-table.html) if possible.
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTcxMDE1MTczLC0xMDkzMTgzNTYyLC04MD
-Y5MDE0MywzNjk3Mzk3NTUsNjY4NTM5Nzc5LC0xMTA2MTIxMjU5
-LC05NjA4MTA1NzMsNjMyNTIyMjk4LC0xMzYyNTc4OTk3LDQ1ND
-Y3Nzk5NiwtOTM3OTI4NDU5LDg3ODE0MzQyMSwxMTY0Mzc5NzYx
-LC0xMzAwNTcyNjY0XX0=
+eyJoaXN0b3J5IjpbMTg0MDkyNTIwNCwtMTA5MzE4MzU2MiwtOD
+A2OTAxNDMsMzY5NzM5NzU1LDY2ODUzOTc3OSwtMTEwNjEyMTI1
+OSwtOTYwODEwNTczLDYzMjUyMjI5OCwtMTM2MjU3ODk5Nyw0NT
+Q2Nzc5OTYsLTkzNzkyODQ1OSw4NzgxNDM0MjEsMTE2NDM3OTc2
+MSwtMTMwMDU3MjY2NF19
 -->
