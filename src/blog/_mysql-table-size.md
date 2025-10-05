@@ -20,7 +20,7 @@ These table stats are persisted in the `mysql.innodb_table_stats` table.
 
 `mysql.innodb_table_stats` is updated in any of these situations:
 
-- 
+- "When a table undergoes changes to more than 10% of its rows" if the [`innodb_stats_auto_recalc`](https://dev.mysql.com/doc/refman/8.0/en/innodb-parameters.html#sysvar_innodb_stats_auto_recalc) setting is "ON" (which it is by default)
 
 ## Why not `information_schema.tables`?
 
@@ -249,8 +249,7 @@ From the [MySQL documentation](https://dev.mysql.com/doc/refman/8.0/en/aggregate
 
 `SELECT COUNT(*)` and similar queries can take an exceptionally long time on large tables. You should strongly consider using the persistent stats stored in [`information_schema.tables`](https://dev.mysql.com/doc/refman/8.0/en/information-schema-tables-table.html) if possible.
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTExNTAyNTk5MTIsLTk2MDgxMDU3Myw2Mz
-I1MjIyOTgsLTEzNjI1Nzg5OTcsNDU0Njc3OTk2LC05Mzc5Mjg0
-NTksODc4MTQzNDIxLDExNjQzNzk3NjEsLTEzMDA1NzI2NjRdfQ
-==
+eyJoaXN0b3J5IjpbMzU0ODg5ODgsLTk2MDgxMDU3Myw2MzI1Mj
+IyOTgsLTEzNjI1Nzg5OTcsNDU0Njc3OTk2LC05Mzc5Mjg0NTks
+ODc4MTQzNDIxLDExNjQzNzk3NjEsLTEzMDA1NzI2NjRdfQ==
 -->
