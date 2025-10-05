@@ -42,8 +42,8 @@ A table's `mysql.innodb_table_stats` only updates in these scenarios:
 - [`ANALYZE TABLE <table>`](https://dev.mysql.com/doc/refman/8.0/en/analyze-table.html) is run
 - [`OPTIMIZE TABLE <table>`](https://dev.mysql.com/doc/refman/8.0/en/optimize-table.html) is run
 - [`TRUNCATE TABLE <table>`](https://dev.mysql.com/doc/refman/8.0/en/truncate-table.html) is run
-- A column is added or dropped
-- An index is added or dropped
+- Most `ALTER TABLE` statements, including `ADD COLUMN` and `DROP COLUMN`
+- `CREATE INDEX` and `DROP INDEX`
 
 As a table's size grows, it will take more and more operations to hit that 10% threshold.
 
@@ -209,7 +209,7 @@ Setting the [` information_schema_stats_expiry`](https://dev.mysql.com/doc/refma
 
 `SELECT COUNT(*)` and similar queries can take an exceptionally long time on large tables. You should strongly consider using the persistent stats stored in [`information_schema.tables`](https://dev.mysql.com/doc/refman/8.0/en/information-schema-tables-table.html) if possible.
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTg0MDkyNTIwNCwtMTA5MzE4MzU2MiwtOD
+eyJoaXN0b3J5IjpbMTAwOTAzNzg2NywtMTA5MzE4MzU2MiwtOD
 A2OTAxNDMsMzY5NzM5NzU1LDY2ODUzOTc3OSwtMTEwNjEyMTI1
 OSwtOTYwODEwNTczLDYzMjUyMjI5OCwtMTM2MjU3ODk5Nyw0NT
 Q2Nzc5OTYsLTkzNzkyODQ1OSw4NzgxNDM0MjEsMTE2NDM3OTc2
