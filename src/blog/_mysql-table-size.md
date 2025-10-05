@@ -175,7 +175,7 @@ If you want to get the estimated row count from a non-InnoDB table, but still av
 
 However, table statistics columns in `information_schema.tables` are cached, up to a default of 24 hours (controlled by the [`information_schema_stats_expiry`](https://dev.mysql.com/doc/refman/8.0/en/server-system-variables.html#sysvar_information_schema_stats_expiry) setting). MySQL explicitly avoids querying from the storage engine (e.g. InnoDB) frequently, even though it's fast to query `mysql.innodb_table_stats`.
 
-`information_schema.tables` is updated in any of these situations:
+A table's `information_schema.tables` statistics are updated in these scenarios:
 
 - The column's cache has expired
 - [`ANALYZE TABLE ...`](https://dev.mysql.com/doc/refman/8.0/en/analyze-table.html) is run
@@ -194,7 +194,7 @@ SELECT table_schema
      , table_rows
 FROM information_schema.tables
 WHERE table_type = 'BASE TABLE'
-  AND table_schema NOT IN ('information_schema', 'performance_schema', 'mysql', 'sys')
+  AND table_schema = :databaseName
 ORDER BY table_schema, table_name;
 ```
 
@@ -236,7 +236,7 @@ TODO
 
 `SELECT COUNT(*)` and similar queries can take an exceptionally long time on large tables. You should strongly consider using the persistent stats stored in [`information_schema.tables`](https://dev.mysql.com/doc/refman/8.0/en/information-schema-tables-table.html) if possible.
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbNDMxNTE2MTMwLC0xMDkzMTgzNTYyLC04MD
+eyJoaXN0b3J5IjpbMjk1MjE5OTM4LC0xMDkzMTgzNTYyLC04MD
 Y5MDE0MywzNjk3Mzk3NTUsNjY4NTM5Nzc5LC0xMTA2MTIxMjU5
 LC05NjA4MTA1NzMsNjMyNTIyMjk4LC0xMzYyNTc4OTk3LDQ1ND
 Y3Nzk5NiwtOTM3OTI4NDU5LDg3ODE0MzQyMSwxMTY0Mzc5NzYx
