@@ -173,7 +173,9 @@ From the [MySQL documentation](https://dev.mysql.com/doc/refman/8.0/en/aggregate
 
 ## Why not `information_schema.tables`?
 
-If you want to get the estimated row count from a non-InnoDB table, but still avoid `SELECT COUNT(*)`, then you have to use `information_schema.tables`.
+Because the table statistics columns in `information_schema.tables` are cached, up to a default of 24 hours (controlled by the [`information_schema_stats_expiry`](https://dev.mysql.com/doc/refman/8.0/en/server-system-variables.html#sysvar_information_schema_stats_expiry) setting). MySQL explicitly avoids querying from the storage engine (e.g. InnoDB) frequently.
+
+For InnoDB tables, `information_schema.tables` is populated from `mysql.innodb_table_stats`, so you should query from the source to avoid the cache. For non-InnoDB tables, you have to use `information_schema.tables` if you want to avoid the expensive `SELECT COUNT(*)`.
 
 ```sql
 -- Row count for every table
@@ -196,10 +198,6 @@ WHERE table_schema = :databaseName
   AND table_name = :tableName;
 ```
 
-Because the table statistics columns in `information_schema.tables` are cached, up to a default of 24 hours (controlled by the [`information_schema_stats_expiry`](https://dev.mysql.com/doc/refman/8.0/en/server-system-variables.html#sysvar_information_schema_stats_expiry) setting). MySQL explicitly avoids querying from the storage engine (e.g. InnoDB) frequently.
-
-For InnoDB tables, `information_schema.tables` is populated from `mysql.innodb_table_stats`, so you should query from the source to avoid the cache. For non-InnoDB tables, you have to use `information_schema.tables` if you want to avoid the expensive `SELECT COUNT(*)`.
-
 A table's `information_schema.tables` statistics are updated in these scenarios:
 
 - The column's cache has expired
@@ -209,11 +207,11 @@ Setting the [` information_schema_stats_expiry`](https://dev.mysql.com/doc/refma
 
 ## Conclusion
 
-`SELECT COUNT(*)` and similar queries can take an exceptionally long time on large tables. You should strongly consider using the persistent stats stored in [`information_schema.tables`](https://dev.mysql.com/doc/refman/8.0/en/information-schema-tables-table.html) if possible.
+`SELECT COUNT(*)` and similar queries can take an exceptionally long time on large tables. You should strongly consider using the persistent stats stored in [`mysql.innodb_table_stats`](https://dev.mysql.com/doc/refman/8.0/en/innodb-persistent-stats.html) if possible.
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTk3NjM0Mzg4MSwtMTA5MzE4MzU2MiwtOD
-A2OTAxNDMsMzY5NzM5NzU1LDY2ODUzOTc3OSwtMTEwNjEyMTI1
-OSwtOTYwODEwNTczLDYzMjUyMjI5OCwtMTM2MjU3ODk5Nyw0NT
-Q2Nzc5OTYsLTkzNzkyODQ1OSw4NzgxNDM0MjEsMTE2NDM3OTc2
-MSwtMTMwMDU3MjY2NF19
+eyJoaXN0b3J5IjpbLTEyNzg4Njk3OTUsLTEwOTMxODM1NjIsLT
+gwNjkwMTQzLDM2OTczOTc1NSw2Njg1Mzk3NzksLTExMDYxMjEy
+NTksLTk2MDgxMDU3Myw2MzI1MjIyOTgsLTEzNjI1Nzg5OTcsND
+U0Njc3OTk2LC05Mzc5Mjg0NTksODc4MTQzNDIxLDExNjQzNzk3
+NjEsLTEzMDA1NzI2NjRdfQ==
 -->
