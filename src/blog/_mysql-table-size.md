@@ -28,7 +28,7 @@ WHERE database_name = :databaseName
 
 **Caveat 1: `mysql.innodb_table_stats.n_rows` is estimated based on sampling.**
 
-InnoDB samples an [`innodb_stats_persistent_sample_pages`](https://dev.mysql.com/doc/refman/8.0/en/innodb-parameters.html#sysvar_innodb_stats_persistent_sample_pages) (default of "20") number of pages from the clustered index and then extrapolates.
+InnoDB samples an [`innodb_stats_persistent_sample_pages`](https://dev.mysql.com/doc/refman/8.0/en/innodb-parameters.html#sysvar_innodb_stats_persistent_sample_pages) (default of "20") number of pages from the clustered index and then extrapolates. Individual tables can override this setting with the [`STATS_SAMPLE_PAGES`](https://dev.mysql.com/doc/refman/8.0/en/create-table.html#create-table-options) table setting.
 
 As a table's size grows, so does the inaccuracy of `n_rows`.
 
@@ -270,9 +270,9 @@ From the [MySQL documentation](https://dev.mysql.com/doc/refman/8.0/en/aggregate
 
 `SELECT COUNT(*)` and similar queries can take an exceptionally long time on large tables. You should strongly consider using the persistent stats stored in [`information_schema.tables`](https://dev.mysql.com/doc/refman/8.0/en/information-schema-tables-table.html) if possible.
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTIwMzY4NDQ4NTUsLTgwNjkwMTQzLDM2OT
-czOTc1NSw2Njg1Mzk3NzksLTExMDYxMjEyNTksLTk2MDgxMDU3
-Myw2MzI1MjIyOTgsLTEzNjI1Nzg5OTcsNDU0Njc3OTk2LC05Mz
-c5Mjg0NTksODc4MTQzNDIxLDExNjQzNzk3NjEsLTEzMDA1NzI2
-NjRdfQ==
+eyJoaXN0b3J5IjpbMTQzODczNTQxMSwtODA2OTAxNDMsMzY5Nz
+M5NzU1LDY2ODUzOTc3OSwtMTEwNjEyMTI1OSwtOTYwODEwNTcz
+LDYzMjUyMjI5OCwtMTM2MjU3ODk5Nyw0NTQ2Nzc5OTYsLTkzNz
+kyODQ1OSw4NzgxNDM0MjEsMTE2NDM3OTc2MSwtMTMwMDU3MjY2
+NF19
 -->
