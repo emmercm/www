@@ -2,7 +2,7 @@
 
 title: Now
 description: What's important in my life, now.
-date: 2025-10-04T19:40:00
+date: 2025-10-04T19:402:00
 priority: 0.1
 
 ---
@@ -35,7 +35,7 @@ Staff Software Engineer @ [Attentive](https://www.attentive.com/), an SMS and em
 
 ## 👨🏻‍💻 Hacking on
 
-- [Igir](https://github.com/emmercm/igir), a video game ROM collection manager
+- [gi](https://github.com/emmercm/igir), a video game ROM collection manager
 - [Metalsmith plugins](https://github.com/emmercm/metalsmith-plugins) that power this site (ongoing)
 - [This site](https://github.com/emmercm/www) (ongoing)
 
@@ -54,5 +54,6 @@ See my [projects](/projects) page for a complete list.
 - [Developer Tea](https://developertea.com/) by Jonathan Cutrell
 - [Soft Skills Engineering](https://softskills.audio/) by Dave Smith and Jamison Dance
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTkwODE5MDM0MSwtNDc4Nzc3NDY3XX0=
+eyJoaXN0b3J5IjpbMjAwNjExNjc0NywtOTA4MTkwMzQxLC00Nz
+g3Nzc0NjddfQ==
 -->
