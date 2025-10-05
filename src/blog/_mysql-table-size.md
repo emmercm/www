@@ -18,6 +18,10 @@ It's highly likely that you're using InnoDB as the engine for your tables as it 
 
 These table stats are persisted in the `mysql.innodb_table_stats` table.
 
+`mysql.innodb_table_stats` is updated in any of these situations:
+
+- 
+
 ## Why not `information_schema.tables`?
 
 If you want to get the estimated row count from a non-InnoDB table then you'll have to use `information_schema.tables`.
@@ -245,7 +249,8 @@ From the [MySQL documentation](https://dev.mysql.com/doc/refman/8.0/en/aggregate
 
 `SELECT COUNT(*)` and similar queries can take an exceptionally long time on large tables. You should strongly consider using the persistent stats stored in [`information_schema.tables`](https://dev.mysql.com/doc/refman/8.0/en/information-schema-tables-table.html) if possible.
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTk2MDgxMDU3Myw2MzI1MjIyOTgsLTEzNj
-I1Nzg5OTcsNDU0Njc3OTk2LC05Mzc5Mjg0NTksODc4MTQzNDIx
-LDExNjQzNzk3NjEsLTEzMDA1NzI2NjRdfQ==
+eyJoaXN0b3J5IjpbLTExNTAyNTk5MTIsLTk2MDgxMDU3Myw2Mz
+I1MjIyOTgsLTEzNjI1Nzg5OTcsNDU0Njc3OTk2LC05Mzc5Mjg0
+NTksODc4MTQzNDIxLDExNjQzNzk3NjEsLTEzMDA1NzI2NjRdfQ
+==
 -->
