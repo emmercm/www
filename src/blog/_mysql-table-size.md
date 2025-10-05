@@ -19,6 +19,11 @@ It's highly likely that you're using InnoDB as the engine for your tables as it 
 These table stats are persisted in the `mysql.innodb_table_stats` table, and can be queried like this:
 
 ```sql
+SELECT n_rows
+     , last_update
+FROM mysql.innodb_table_stats
+WHERE database_name = :databaseName
+  AND table_name = :tableName;
 ```
 
 **Caveat 1: 
@@ -259,7 +264,7 @@ From the [MySQL documentation](https://dev.mysql.com/doc/refman/8.0/en/aggregate
 
 `SELECT COUNT(*)` and similar queries can take an exceptionally long time on large tables. You should strongly consider using the persistent stats stored in [`information_schema.tables`](https://dev.mysql.com/doc/refman/8.0/en/information-schema-tables-table.html) if possible.
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTE1NjY4NDMyNzAsMzY5NzM5NzU1LDY2OD
+eyJoaXN0b3J5IjpbLTEyMDQ5NDMyNTQsMzY5NzM5NzU1LDY2OD
 UzOTc3OSwtMTEwNjEyMTI1OSwtOTYwODEwNTczLDYzMjUyMjI5
 OCwtMTM2MjU3ODk5Nyw0NTQ2Nzc5OTYsLTkzNzkyODQ1OSw4Nz
 gxNDM0MjEsMTE2NDM3OTc2MSwtMTMwMDU3MjY2NF19
