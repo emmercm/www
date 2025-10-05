@@ -24,6 +24,8 @@ These table stats are persisted in the `mysql.innodb_table_stats` table.
 - [`ANALYZE TABLE ...`](https://dev.mysql.com/doc/refman/8.0/en/analyze-table.html) is run
 - [`OPTIMIZE TABLE ...`](https://dev.mysql.com/doc/refman/8.0/en/optimize-table.html) is run
 - [`TRUNCATE TABLE ...`](https://dev.mysql.com/doc/refman/8.0/en/truncate-table.html) is run
+- A column is added or dropped
+- An index is added or dropped
 
 ## Why not `information_schema.tables`?
 
@@ -252,8 +254,8 @@ From the [MySQL documentation](https://dev.mysql.com/doc/refman/8.0/en/aggregate
 
 `SELECT COUNT(*)` and similar queries can take an exceptionally long time on large tables. You should strongly consider using the persistent stats stored in [`information_schema.tables`](https://dev.mysql.com/doc/refman/8.0/en/information-schema-tables-table.html) if possible.
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTc4MjMzNTczOSw2Njg1Mzk3NzksLTExMD
-YxMjEyNTksLTk2MDgxMDU3Myw2MzI1MjIyOTgsLTEzNjI1Nzg5
-OTcsNDU0Njc3OTk2LC05Mzc5Mjg0NTksODc4MTQzNDIxLDExNj
-QzNzk3NjEsLTEzMDA1NzI2NjRdfQ==
+eyJoaXN0b3J5IjpbMzY5NzM5NzU1LDY2ODUzOTc3OSwtMTEwNj
+EyMTI1OSwtOTYwODEwNTczLDYzMjUyMjI5OCwtMTM2MjU3ODk5
+Nyw0NTQ2Nzc5OTYsLTkzNzkyODQ1OSw4NzgxNDM0MjEsMTE2ND
+M3OTc2MSwtMTMwMDU3MjY2NF19
 -->
