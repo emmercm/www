@@ -33,6 +33,7 @@ However, table statistics columns in `information_schema.tables` are cached, up 
 
 - The column's cache has expired
 - [`ANALYZE TABLE ...`](https://dev.mysql.com/doc/refman/8.0/en/analyze-table.html) is run
+- [`OPTIMIZE TABLE ...`](https://dev.mysql.com/doc/refman/8.0/en/optimize-table.html) is run (because it causes `ANALYZE TABLE ...`)
 
 Setting the [` information_schema_stats_expiry`](https://dev.mysql.com/doc/refman/8.0/en/server-system-variables.html#sysvar_information_schema_stats_expiry) setting to "0" (zero) disables caching, causing queries against `information_schema.tables` to always retrieve the latest statistics from the storage engine.
 
@@ -250,8 +251,8 @@ From the [MySQL documentation](https://dev.mysql.com/doc/refman/8.0/en/aggregate
 
 `SELECT COUNT(*)` and similar queries can take an exceptionally long time on large tables. You should strongly consider using the persistent stats stored in [`information_schema.tables`](https://dev.mysql.com/doc/refman/8.0/en/information-schema-tables-table.html) if possible.
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTExMDYxMjEyNTksLTk2MDgxMDU3Myw2Mz
-I1MjIyOTgsLTEzNjI1Nzg5OTcsNDU0Njc3OTk2LC05Mzc5Mjg0
-NTksODc4MTQzNDIxLDExNjQzNzk3NjEsLTEzMDA1NzI2NjRdfQ
-==
+eyJoaXN0b3J5IjpbMjAyNDY2NjUzNCwtMTEwNjEyMTI1OSwtOT
+YwODEwNTczLDYzMjUyMjI5OCwtMTM2MjU3ODk5Nyw0NTQ2Nzc5
+OTYsLTkzNzkyODQ1OSw4NzgxNDM0MjEsMTE2NDM3OTc2MSwtMT
+MwMDU3MjY2NF19
 -->
