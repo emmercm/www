@@ -34,12 +34,13 @@ WHERE table_name = :tableName;
 
 **The caveat is: the row count will be an approximation, and it won't be realtime.**
 
-By default, the MySQL setting [`innodb_stats_auto_recalc`](https://dev.mysql.com/doc/refman/8.0/en/innodb-parameters.html#sysvar_innodb_stats_auto_recalc) is "ON", which means InnoDB table [persistent stats](https://dev.mysql.com/doc/refman/8.0/en/innodb-persistent-stats.html) recalculate automatically "when a table undergoes changes to more than 10% of its rows." Stats also get recalculated when an index is added or a column is added or dropped. You can also force this recalculation with the [`ANALYZE TABLE ...`](https://dev.mysql.com/doc/refman/8.0/en/analyze-table.html) statement.
+By default, the MySQL setting [`innodb_stats_auto_recalc`](https://dev.mysql.com/doc/refman/8.0/en/innodb-parameters.html#sysvar_innodb_stats_auto_recalc) is "ON", which means InnoDB table [persistent stats](https://dev.mysql.com/doc/refman/8.0/en/innodb-persistent-stats.html) recalculate automatically "when a table undergoes changes to more than 10% of its rows." Stats are also recalculated when an index is added or a column is added or dropped. You can also force this recalculation with the [`ANALYZE TABLE ...`](https://dev.mysql.com/doc/refman/8.0/en/analyze-table.html) statement.
 
 You can check your persistent stats settings with this query:
 
 ```sql
-SHOW VARIABLES WHERE variable_name LIKE 'innodb_stats_%';
+SHOW VARIABLES
+WHERE variable_name LIKE 'innodb_stats_%';
 ```
 
 ## `information_schema.tables` vs. `mysql.innodb_table_stats`
@@ -220,6 +221,6 @@ From the [MySQL documentation](https://dev.mysql.com/doc/refman/8.0/en/aggregate
 
 `SELECT COUNT(*)` and similar queries can take an exceptionally long time on large tables. You should strongly consider using the persistent stats stored in [`information_schema.tables`](https://dev.mysql.com/doc/refman/8.0/en/information-schema-tables-table.html) if possible.
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbODc4MTQzNDIxLDExNjQzNzk3NjEsLTEzMD
-A1NzI2NjRdfQ==
+eyJoaXN0b3J5IjpbLTkzNzkyODQ1OSw4NzgxNDM0MjEsMTE2ND
+M3OTc2MSwtMTMwMDU3MjY2NF19
 -->
