@@ -173,7 +173,7 @@ From the [MySQL documentation](https://dev.mysql.com/doc/refman/8.0/en/aggregate
 
 ## Why not `information_schema.tables`?
 
-If you want to get the estimated row count from a non-InnoDB table, but still avoid `SELECT COUNT(*)`, then you have to use `information_schema.tables`:
+If you want to get the estimated row count from a non-InnoDB table, but still avoid `SELECT COUNT(*)`, then you have to use `information_schema.tables`.
 
 ```sql
 -- Row count for every table
@@ -196,7 +196,9 @@ WHERE table_schema = :databaseName
   AND table_name = :tableName;
 ```
 
-However, table statistics columns in `information_schema.tables` are cached, up to a default of 24 hours (controlled by the [`information_schema_stats_expiry`](https://dev.mysql.com/doc/refman/8.0/en/server-system-variables.html#sysvar_information_schema_stats_expiry) setting). MySQL explicitly avoids querying from the storage engine (e.g. InnoDB) frequently, even though it's fast to query `mysql.innodb_table_stats`.
+Because the table statistics columns in `information_schema.tables` are cached, up to a default of 24 hours (controlled by the [`information_schema_stats_expiry`](https://dev.mysql.com/doc/refman/8.0/en/server-system-variables.html#sysvar_information_schema_stats_expiry) setting). MySQL explicitly avoids querying from the storage engine (e.g. InnoDB) frequently.
+
+For InnoDB, `information_schema.tables`
 
 A table's `information_schema.tables` statistics are updated in these scenarios:
 
@@ -209,9 +211,9 @@ Setting the [` information_schema_stats_expiry`](https://dev.mysql.com/doc/refma
 
 `SELECT COUNT(*)` and similar queries can take an exceptionally long time on large tables. You should strongly consider using the persistent stats stored in [`information_schema.tables`](https://dev.mysql.com/doc/refman/8.0/en/information-schema-tables-table.html) if possible.
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTAwOTAzNzg2NywtMTA5MzE4MzU2MiwtOD
-A2OTAxNDMsMzY5NzM5NzU1LDY2ODUzOTc3OSwtMTEwNjEyMTI1
-OSwtOTYwODEwNTczLDYzMjUyMjI5OCwtMTM2MjU3ODk5Nyw0NT
-Q2Nzc5OTYsLTkzNzkyODQ1OSw4NzgxNDM0MjEsMTE2NDM3OTc2
-MSwtMTMwMDU3MjY2NF19
+eyJoaXN0b3J5IjpbLTE3MDA5NzI0MjIsLTEwOTMxODM1NjIsLT
+gwNjkwMTQzLDM2OTczOTc1NSw2Njg1Mzk3NzksLTExMDYxMjEy
+NTksLTk2MDgxMDU3Myw2MzI1MjIyOTgsLTEzNjI1Nzg5OTcsND
+U0Njc3OTk2LC05Mzc5Mjg0NTksODc4MTQzNDIxLDExNjQzNzk3
+NjEsLTEzMDA1NzI2NjRdfQ==
 -->
