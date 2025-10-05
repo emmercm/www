@@ -12,7 +12,11 @@ tags:
 
 ## InnoDB
 
-If you're using InnoDB
+It's highly likely that you're using InnoDB as the engine for your tables as it has been the default since [MySQL v5.5.5 (2010)](https://web.archive.org/web/20190123090733/https://dev.mysql.com/doc/refman/5.5/en/storage-engine-setting.html).
+
+
+
+
 
 Here are the queries that you should use the majority of the time:
 
@@ -225,6 +229,6 @@ From the [MySQL documentation](https://dev.mysql.com/doc/refman/8.0/en/aggregate
 
 `SELECT COUNT(*)` and similar queries can take an exceptionally long time on large tables. You should strongly consider using the persistent stats stored in [`information_schema.tables`](https://dev.mysql.com/doc/refman/8.0/en/information-schema-tables-table.html) if possible.
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTA5Mzk0NTc3LC05Mzc5Mjg0NTksODc4MT
+eyJoaXN0b3J5IjpbNDU0Njc3OTk2LC05Mzc5Mjg0NTksODc4MT
 QzNDIxLDExNjQzNzk3NjEsLTEzMDA1NzI2NjRdfQ==
 -->
