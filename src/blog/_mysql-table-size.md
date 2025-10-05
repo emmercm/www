@@ -1,7 +1,7 @@
 ---
 
 title: Querying MySQL Row Counts the Fast Way
-date: 2023-04-05T23:00:00
+date: 2025-10-05T23:53:00
 tags:
 - databases
 - mysql
@@ -209,9 +209,9 @@ Setting the [` information_schema_stats_expiry`](https://dev.mysql.com/doc/refma
 
 `SELECT COUNT(*)` and similar queries can take an exceptionally long time on large tables. You should strongly consider using the persistent stats stored in [`mysql.innodb_table_stats`](https://dev.mysql.com/doc/refman/8.0/en/innodb-persistent-stats.html) if possible.
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTEyNzg4Njk3OTUsLTEwOTMxODM1NjIsLT
-gwNjkwMTQzLDM2OTczOTc1NSw2Njg1Mzk3NzksLTExMDYxMjEy
-NTksLTk2MDgxMDU3Myw2MzI1MjIyOTgsLTEzNjI1Nzg5OTcsND
-U0Njc3OTk2LC05Mzc5Mjg0NTksODc4MTQzNDIxLDExNjQzNzk3
-NjEsLTEzMDA1NzI2NjRdfQ==
+eyJoaXN0b3J5IjpbNTkxMzA0NTM2LC0xMDkzMTgzNTYyLC04MD
+Y5MDE0MywzNjk3Mzk3NTUsNjY4NTM5Nzc5LC0xMTA2MTIxMjU5
+LC05NjA4MTA1NzMsNjMyNTIyMjk4LC0xMzYyNTc4OTk3LDQ1ND
+Y3Nzk5NiwtOTM3OTI4NDU5LDg3ODE0MzQyMSwxMTY0Mzc5NzYx
+LC0xMzAwNTcyNjY0XX0=
 -->
