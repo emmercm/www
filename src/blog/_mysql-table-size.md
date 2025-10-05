@@ -22,7 +22,7 @@ These table stats are persisted in the `mysql.innodb_table_stats` table.
 
 If you want to get the estimated row count from a non-InnoDB table then you'll have to use `information_schema.tables`.
 
-However, table statistics columns in `information_schema.tables` are cached
+However, table statistics columns in `information_schema.tables` are cached, up to to a default of 24 hours (controlled by the `information_schema_stats_expiry` setting).
 
 
 
@@ -238,7 +238,7 @@ From the [MySQL documentation](https://dev.mysql.com/doc/refman/8.0/en/aggregate
 
 `SELECT COUNT(*)` and similar queries can take an exceptionally long time on large tables. You should strongly consider using the persistent stats stored in [`information_schema.tables`](https://dev.mysql.com/doc/refman/8.0/en/information-schema-tables-table.html) if possible.
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTk4NjM2NzE2MCwtMTM2MjU3ODk5Nyw0NT
-Q2Nzc5OTYsLTkzNzkyODQ1OSw4NzgxNDM0MjEsMTE2NDM3OTc2
-MSwtMTMwMDU3MjY2NF19
+eyJoaXN0b3J5IjpbNjMyNTIyMjk4LC0xMzYyNTc4OTk3LDQ1ND
+Y3Nzk5NiwtOTM3OTI4NDU5LDg3ODE0MzQyMSwxMTY0Mzc5NzYx
+LC0xMzAwNTcyNjY0XX0=
 -->
