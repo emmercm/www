@@ -43,9 +43,11 @@ A table's `mysql.innodb_table_stats` only updates in these scenarios:
 - A column is added or dropped
 - An index is added or dropped
 
+As a table's size grows, it will take more and more operations to hit that 10% threshold.
+
 ## Why not `information_schema.tables`?
 
-If you want to get the estimated row count from a non-InnoDB table then you'll have to use `information_schema.tables`.
+First, f you want to get the estimated row count from a non-InnoDB table then you'll have to use `information_schema.tables`.
 
 However, table statistics columns in `information_schema.tables` are cached, up to to a default of 24 hours (controlled by the [`information_schema_stats_expiry`](https://dev.mysql.com/doc/refman/8.0/en/server-system-variables.html#sysvar_information_schema_stats_expiry) setting). MySQL explicitly avoids querying from the storage engine (e.g. InnoDB) frequently, even though it's fast to query `mysql.innodb_table_stats`.
 
@@ -270,7 +272,7 @@ From the [MySQL documentation](https://dev.mysql.com/doc/refman/8.0/en/aggregate
 
 `SELECT COUNT(*)` and similar queries can take an exceptionally long time on large tables. You should strongly consider using the persistent stats stored in [`information_schema.tables`](https://dev.mysql.com/doc/refman/8.0/en/information-schema-tables-table.html) if possible.
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTkwMjIzODU2NywtODA2OTAxNDMsMzY5Nz
+eyJoaXN0b3J5IjpbMTYzNzA2MjMxMywtODA2OTAxNDMsMzY5Nz
 M5NzU1LDY2ODUzOTc3OSwtMTEwNjEyMTI1OSwtOTYwODEwNTcz
 LDYzMjUyMjI5OCwtMTM2MjU3ODk5Nyw0NTQ2Nzc5OTYsLTkzNz
 kyODQ1OSw4NzgxNDM0MjEsMTE2NDM3OTc2MSwtMTMwMDU3MjY2
