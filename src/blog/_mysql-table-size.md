@@ -8,7 +8,7 @@ tags:
 
 ---
 
-`SELECT COUNT(*)` requires an expensive full clustered index scan, which probably isn't what you want.
+`SELECT COUNT(*)` requires an expensive full index scan, which probably isn't what you want.
 
 ## InnoDB's persistent stats
 
@@ -46,6 +46,12 @@ A table's `mysql.innodb_table_stats` only updates in these scenarios:
 As a table's size grows, it will take more and more operations to hit that 10% threshold.
 
 ## Why not `SELECT COUNT(*)`?
+
+Because it requires a full index scan. From the [official documentation](https://dev.mysql.com/doc/refman/8.0/en/aggregate-functions.html#function_count):
+
+> `InnoDB` processes `SELECT COUNT(*)` statements by traversing the smallest available secondary index unless an index or optimizer hint directs the optimizer to use a different index. If a secondary index is not present, `InnoDB` processes `SELECT COUNT(*)` statements by scanning the clustered index.
+
+_It's worth noting that an InnoDB table will always have a [clustered index](https://dev.mysql.com/doc/refman/8.0/en/innodb-index-types.html) because that's how it stores row data, so `SELECT COUNT(*)` won't ever cause a full table scan._
 
 ## Why not `information_schema.tables`?
 
@@ -274,9 +280,9 @@ From the [MySQL documentation](https://dev.mysql.com/doc/refman/8.0/en/aggregate
 
 `SELECT COUNT(*)` and similar queries can take an exceptionally long time on large tables. You should strongly consider using the persistent stats stored in [`information_schema.tables`](https://dev.mysql.com/doc/refman/8.0/en/information-schema-tables-table.html) if possible.
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTEzMzcxNDI2NDIsLTgwNjkwMTQzLDM2OT
-czOTc1NSw2Njg1Mzk3NzksLTExMDYxMjEyNTksLTk2MDgxMDU3
-Myw2MzI1MjIyOTgsLTEzNjI1Nzg5OTcsNDU0Njc3OTk2LC05Mz
-c5Mjg0NTksODc4MTQzNDIxLDExNjQzNzk3NjEsLTEzMDA1NzI2
-NjRdfQ==
+eyJoaXN0b3J5IjpbMjgzNzEwMDU1LC04MDY5MDE0MywzNjk3Mz
+k3NTUsNjY4NTM5Nzc5LC0xMTA2MTIxMjU5LC05NjA4MTA1NzMs
+NjMyNTIyMjk4LC0xMzYyNTc4OTk3LDQ1NDY3Nzk5NiwtOTM3OT
+I4NDU5LDg3ODE0MzQyMSwxMTY0Mzc5NzYxLC0xMzAwNTcyNjY0
+XX0=
 -->
