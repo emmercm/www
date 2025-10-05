@@ -22,6 +22,8 @@ These table stats are persisted in the `mysql.innodb_table_stats` table.
 
 - "When a table undergoes changes to more than 10% of its rows" if the [`innodb_stats_auto_recalc`](https://dev.mysql.com/doc/refman/8.0/en/innodb-parameters.html#sysvar_innodb_stats_auto_recalc) setting is "ON" (which it is by default)
 - [`ANALYZE TABLE ...`](https://dev.mysql.com/doc/refman/8.0/en/analyze-table.html) is run
+- [`OPTIMIZE TABLE ...`](https://dev.mysql.com/doc/refman/8.0/en/optimize-table.html) is run
+- [`TRUNCATE TABLE ...`](https://dev.mysql.com/doc/refman/8.0/en/truncate-table.html) is run
 
 ## Why not `information_schema.tables`?
 
@@ -33,8 +35,6 @@ However, table statistics columns in `information_schema.tables` are cached, up 
 
 - The column's cache has expired
 - [`ANALYZE TABLE ...`](https://dev.mysql.com/doc/refman/8.0/en/analyze-table.html) is run
-- [`OPTIMIZE TABLE ...`](https://dev.mysql.com/doc/refman/8.0/en/optimize-table.html) is run (because it causes `ANALYZE TABLE ...`)
-- [`TRUNCATE TABLE ...`](https://dev.mysql.com/doc/refman/8.0/en/truncate-table.html) is run
 
 Setting the [` information_schema_stats_expiry`](https://dev.mysql.com/doc/refman/8.0/en/server-system-variables.html#sysvar_information_schema_stats_expiry) setting to "0" (zero) disables caching, causing queries against `information_schema.tables` to always retrieve the latest statistics from the storage engine.
 
@@ -252,8 +252,8 @@ From the [MySQL documentation](https://dev.mysql.com/doc/refman/8.0/en/aggregate
 
 `SELECT COUNT(*)` and similar queries can take an exceptionally long time on large tables. You should strongly consider using the persistent stats stored in [`information_schema.tables`](https://dev.mysql.com/doc/refman/8.0/en/information-schema-tables-table.html) if possible.
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbNjY4NTM5Nzc5LC0xMTA2MTIxMjU5LC05Nj
-A4MTA1NzMsNjMyNTIyMjk4LC0xMzYyNTc4OTk3LDQ1NDY3Nzk5
-NiwtOTM3OTI4NDU5LDg3ODE0MzQyMSwxMTY0Mzc5NzYxLC0xMz
-AwNTcyNjY0XX0=
+eyJoaXN0b3J5IjpbMTc4MjMzNTczOSw2Njg1Mzk3NzksLTExMD
+YxMjEyNTksLTk2MDgxMDU3Myw2MzI1MjIyOTgsLTEzNjI1Nzg5
+OTcsNDU0Njc3OTk2LC05Mzc5Mjg0NTksODc4MTQzNDIxLDExNj
+QzNzk3NjEsLTEzMDA1NzI2NjRdfQ==
 -->
