@@ -10,6 +10,10 @@ tags:
 
 `SELECT COUNT(*)` requires an expensive full clustered index scan, which probably isn't what you want.
 
+## InnoDB
+
+If you're using InnoDB
+
 Here are the queries that you should use the majority of the time:
 
 ```sql
@@ -221,6 +225,6 @@ From the [MySQL documentation](https://dev.mysql.com/doc/refman/8.0/en/aggregate
 
 `SELECT COUNT(*)` and similar queries can take an exceptionally long time on large tables. You should strongly consider using the persistent stats stored in [`information_schema.tables`](https://dev.mysql.com/doc/refman/8.0/en/information-schema-tables-table.html) if possible.
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTkzNzkyODQ1OSw4NzgxNDM0MjEsMTE2ND
-M3OTc2MSwtMTMwMDU3MjY2NF19
+eyJoaXN0b3J5IjpbMTA5Mzk0NTc3LC05Mzc5Mjg0NTksODc4MT
+QzNDIxLDExNjQzNzk3NjEsLTEzMDA1NzI2NjRdfQ==
 -->
