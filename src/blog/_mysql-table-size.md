@@ -171,9 +171,9 @@ From the [MySQL documentation](https://dev.mysql.com/doc/refman/8.0/en/aggregate
 
 ## Why not `information_schema.tables`?
 
-If you want to get the estimated row count from a non-InnoDB table, but still avoid `SELECT COUNT then you'll have to use `information_schema.tables`.
+If you want to get the estimated row count from a non-InnoDB table, but still avoid `SELECT COUNT(*)`, then you have to use `information_schema.tables`.
 
-Table statistics columns in `information_schema.tables` are cached, up to to a default of 24 hours (controlled by the [`information_schema_stats_expiry`](https://dev.mysql.com/doc/refman/8.0/en/server-system-variables.html#sysvar_information_schema_stats_expiry) setting). MySQL explicitly avoids querying from the storage engine (e.g. InnoDB) frequently, even though it's fast to query `mysql.innodb_table_stats`.
+However, table statistics columns in `information_schema.tables` are cached, up to a default of 24 hours (controlled by the [`information_schema_stats_expiry`](https://dev.mysql.com/doc/refman/8.0/en/server-system-variables.html#sysvar_information_schema_stats_expiry) setting). MySQL explicitly avoids querying from the storage engine (e.g. InnoDB) frequently, even though it's fast to query `mysql.innodb_table_stats`.
 
 `information_schema.tables` is updated in any of these situations:
 
@@ -236,9 +236,9 @@ TODO
 
 `SELECT COUNT(*)` and similar queries can take an exceptionally long time on large tables. You should strongly consider using the persistent stats stored in [`information_schema.tables`](https://dev.mysql.com/doc/refman/8.0/en/information-schema-tables-table.html) if possible.
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTE5OTI2MTY5MDMsLTEwOTMxODM1NjIsLT
-gwNjkwMTQzLDM2OTczOTc1NSw2Njg1Mzk3NzksLTExMDYxMjEy
-NTksLTk2MDgxMDU3Myw2MzI1MjIyOTgsLTEzNjI1Nzg5OTcsND
-U0Njc3OTk2LC05Mzc5Mjg0NTksODc4MTQzNDIxLDExNjQzNzk3
-NjEsLTEzMDA1NzI2NjRdfQ==
+eyJoaXN0b3J5IjpbNDMxNTE2MTMwLC0xMDkzMTgzNTYyLC04MD
+Y5MDE0MywzNjk3Mzk3NTUsNjY4NTM5Nzc5LC0xMTA2MTIxMjU5
+LC05NjA4MTA1NzMsNjMyNTIyMjk4LC0xMzYyNTc4OTk3LDQ1ND
+Y3Nzk5NiwtOTM3OTI4NDU5LDg3ODE0MzQyMSwxMTY0Mzc5NzYx
+LC0xMzAwNTcyNjY0XX0=
 -->
