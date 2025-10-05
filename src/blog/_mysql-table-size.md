@@ -80,7 +80,7 @@ FROM (SELECT 1
          , (SELECT 0 AS n UNION SELECT 1 UNION SELECT 2 UNION SELECT 3 UNION SELECT 4 UNION SELECT 5 UNION SELECT 6 UNION SELECT 7 UNION SELECT 8 UNION SELECT 9) g) temp;
 ```
 
-You can see how the time it takes to perform a full index scan grows exponentially with the table size:
+You can see how the time it takes to perform a full index scan grows linearly with the table size:
 
 ```sql
 SELECT COUNT(*) FROM messages;
@@ -207,7 +207,7 @@ Setting the [` information_schema_stats_expiry`](https://dev.mysql.com/doc/refma
 
 `SELECT COUNT(*)` and similar queries can take an exceptionally long time on large tables. You should strongly consider using the persistent stats stored in [`information_schema.tables`](https://dev.mysql.com/doc/refman/8.0/en/information-schema-tables-table.html) if possible.
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbNDc2OTkzNTY3LC0xMDkzMTgzNTYyLC04MD
+eyJoaXN0b3J5IjpbLTcxMDE1MTczLC0xMDkzMTgzNTYyLC04MD
 Y5MDE0MywzNjk3Mzk3NTUsNjY4NTM5Nzc5LC0xMTA2MTIxMjU5
 LC05NjA4MTA1NzMsNjMyNTIyMjk4LC0xMzYyNTc4OTk3LDQ1ND
 Y3Nzk5NiwtOTM3OTI4NDU5LDg3ODE0MzQyMSwxMTY0Mzc5NzYx
