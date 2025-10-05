@@ -53,77 +53,6 @@ Because it requires a full index scan. From the [official documentation](https:/
 
 _It's worth noting that an InnoDB table will always have a [clustered index](https://dev.mysql.com/doc/refman/8.0/en/innodb-index-types.html) because that's how it stores row data, so `SELECT COUNT(*)` won't ever cause a full table scan._
 
-## Why not `information_schema.tables`?
-
-First, if you want to get the estimated row count from a non-InnoDB table then you'll have to use `information_schema.tables`.
-
-Table statistics columns in `information_schema.tables` are cached, up to to a default of 24 hours (controlled by the [`information_schema_stats_expiry`](https://dev.mysql.com/doc/refman/8.0/en/server-system-variables.html#sysvar_information_schema_stats_expiry) setting). MySQL explicitly avoids querying from the storage engine (e.g. InnoDB) frequently, even though it's fast to query `mysql.innodb_table_stats`.
-
-`information_schema.tables` is updated in any of these situations:
-
-- The column's cache has expired
-- [`ANALYZE TABLE ...`](https://dev.mysql.com/doc/refman/8.0/en/analyze-table.html) is run
-
-Setting the [` information_schema_stats_expiry`](https://dev.mysql.com/doc/refman/8.0/en/server-system-variables.html#sysvar_information_schema_stats_expiry) setting to "0" (zero) disables caching, causing queries against `information_schema.tables` to always retrieve the latest statistics from the storage engine.
-
-
-
-
-Here are the queries that you should use the majority of the time:
-
-```sql
--- Row count for every table
-SELECT table_schema
-     , table_name
-     , table_rows
-FROM information_schema.tables
-WHERE table_type = 'BASE TABLE'
-  AND table_schema NOT IN ('information_schema', 'performance_schema', 'mysql', 'sys')
-ORDER BY table_schema, table_name;
-```
-
-```sql
--- Row count for a specific table
-SELECT table_schema
-     , table_name
-     , table_rows
-FROM information_schema.tables
-WHERE table_name = :tableName;
-```
-
-**The caveat is: the row count will be an approximation, and it won't be realtime.**
-
-By default, the MySQL setting [`innodb_stats_auto_recalc`](https://dev.mysql.com/doc/refman/8.0/en/innodb-parameters.html#sysvar_innodb_stats_auto_recalc) is "ON", which means InnoDB table [persistent stats](https://dev.mysql.com/doc/refman/8.0/en/innodb-persistent-stats.html) recalculate automatically "when a table undergoes changes to more than 10% of its rows." Stats are also recalculated when an index is added or a column is added or dropped. You can also force this recalculation with the [`ANALYZE TABLE ...`](https://dev.mysql.com/doc/refman/8.0/en/analyze-table.html) statement.
-
-You can check your persistent stats settings with this query:
-
-```sql
-SHOW VARIABLES
-WHERE variable_name LIKE 'innodb_stats_%';
-```
-
-## `information_schema.tables` vs. `mysql.innodb_table_stats`
-
-By default, the MySQL setting [`innodb_stats_auto_recalc=ON`](https://dev.mysql.com/doc/refman/8.0/en/innodb-parameters.html#sysvar_innodb_stats_auto_recalc), which means InnoDB table [persistent stats](https://dev.mysql.com/doc/refman/8.0/en/innodb-persistent-stats.html) recalculate automatically "when a table undergoes changes to more than 10% of its rows." Stats also get recalculated when an index is added or a column is added or dropped. You can also force this recalculation with the [`ANALYZE TABLE ...`](https://dev.mysql.com/doc/refman/8.0/en/analyze-table.html) statement.
-
-_You can check your persistent stats settings with this query:_
-
-```sql
-SHOW VARIABLES WHERE variable_name LIKE 'innodb_stats_%';
-```
-
-These persisted stats get stored in the [`mysql.innodb_table_stats`](https://dev.mysql.com/doc/refman/8.0/en/innodb-persistent-stats.html#innodb-persistent-stats-tables) and [`mysql.innodb_index_stats`](https://dev.mysql.com/doc/refman/8.0/en/innodb-persistent-stats.html#innodb-persistent-stats-tables) tables.
-
-TODO
-
-## Why not `SELECT COUNT(*)`?
-
-Assuming you're using InnoDB as the engine for your tables, as it has been the default since [MySQL v5.5.5 (2010)](https://web.archive.org/web/20190123090733/https://dev.mysql.com/doc/refman/5.5/en/storage-engine-setting.html), the [official documentation](https://dev.mysql.com/doc/refman/8.0/en/aggregate-functions.html#function_count) says:
-
-> `InnoDB` processes `SELECT COUNT(*)` statements by traversing the smallest available secondary index unless an index or optimizer hint directs the optimizer to use a different index. If a secondary index is not present, `InnoDB` processes `SELECT COUNT(*)` statements by scanning the clustered index.
-
-It's worth noting that an InnoDB table will always have a [clustered index](https://dev.mysql.com/doc/refman/8.0/en/innodb-index-types.html) because that's how it stores row data, so `SELECT COUNT(*)` won't ever cause a full table scan.
-
 Because different InnoDB transactions can have different row counts, the only way to return an accurate count is to fully enumerate an index _within_ the current transaction:
 
 > For transactional storage engines such as `InnoDB`, storing an exact row count is problematic. Multiple transactions may be occurring at the same time, each of which may affect the count.
@@ -222,42 +151,6 @@ SELECT COUNT(*) FROM messages;
 
 _[MySQL's `OFFSET`](/blog/the-dangers-of-offset-with-mysql) can suffer from a similar exponential cost._
 
-MySQL's persistent stats are an approximation, even when a recalculation is forced with `ANALYZE TABLE ...`:
-
-```shell
-mysql> SELECT COUNT(*) FROM messages;
-+----------+
-| COUNT(*) |
-+----------+
-| 20000000 |
-+----------+
-1 row in set (1 min 16.08 sec)
-
-mysql> SELECT table_rows FROM information_schema.tables WHERE table_name = 'messages';
-+------------+
-| TABLE_ROWS |
-+------------+
-|   19114131 |
-+------------+
-1 row in set (0.07 sec)
-
-mysql> ANALYZE TABLE messages;
-+----------------+---------+----------+----------+
-| Table          | Op      | Msg_type | Msg_text |
-+----------------+---------+----------+----------+
-| mysql.messages | analyze | status   | OK       |
-+----------------+---------+----------+----------+
-1 row in set (0.05 sec)
-
-mysql> SELECT table_rows FROM information_schema.tables WHERE table_name = 'messages';
-+------------+
-| TABLE_ROWS |
-+------------+
-|   19049840 |
-+------------+
-1 row in set (0.00 sec)
-```
-
 **You cannot avoid a potentially slow `SELECT COUNT(*)` if you have a requirement for exact or realtime row counts.**
 
 ## `COUNT(*)` vs. `COUNT(col)`
@@ -276,13 +169,76 @@ From the [MySQL documentation](https://dev.mysql.com/doc/refman/8.0/en/aggregate
 
 > `InnoDB` handles `SELECT COUNT(*)` and `SELECT COUNT(1)` operations in the same way. There is no performance difference.
 
+## Why not `information_schema.tables`?
+
+First, if you want to get the estimated row count from a non-InnoDB table then you'll have to use `information_schema.tables`.
+
+Table statistics columns in `information_schema.tables` are cached, up to to a default of 24 hours (controlled by the [`information_schema_stats_expiry`](https://dev.mysql.com/doc/refman/8.0/en/server-system-variables.html#sysvar_information_schema_stats_expiry) setting). MySQL explicitly avoids querying from the storage engine (e.g. InnoDB) frequently, even though it's fast to query `mysql.innodb_table_stats`.
+
+`information_schema.tables` is updated in any of these situations:
+
+- The column's cache has expired
+- [`ANALYZE TABLE ...`](https://dev.mysql.com/doc/refman/8.0/en/analyze-table.html) is run
+
+Setting the [` information_schema_stats_expiry`](https://dev.mysql.com/doc/refman/8.0/en/server-system-variables.html#sysvar_information_schema_stats_expiry) setting to "0" (zero) disables caching, causing queries against `information_schema.tables` to always retrieve the latest statistics from the storage engine.
+
+
+
+
+Here are the queries that you should use the majority of the time:
+
+```sql
+-- Row count for every table
+SELECT table_schema
+     , table_name
+     , table_rows
+FROM information_schema.tables
+WHERE table_type = 'BASE TABLE'
+  AND table_schema NOT IN ('information_schema', 'performance_schema', 'mysql', 'sys')
+ORDER BY table_schema, table_name;
+```
+
+```sql
+-- Row count for a specific table
+SELECT table_schema
+     , table_name
+     , table_rows
+FROM information_schema.tables
+WHERE table_name = :tableName;
+```
+
+**The caveat is: the row count will be an approximation, and it won't be realtime.**
+
+By default, the MySQL setting [`innodb_stats_auto_recalc`](https://dev.mysql.com/doc/refman/8.0/en/innodb-parameters.html#sysvar_innodb_stats_auto_recalc) is "ON", which means InnoDB table [persistent stats](https://dev.mysql.com/doc/refman/8.0/en/innodb-persistent-stats.html) recalculate automatically "when a table undergoes changes to more than 10% of its rows." Stats are also recalculated when an index is added or a column is added or dropped. You can also force this recalculation with the [`ANALYZE TABLE ...`](https://dev.mysql.com/doc/refman/8.0/en/analyze-table.html) statement.
+
+You can check your persistent stats settings with this query:
+
+```sql
+SHOW VARIABLES
+WHERE variable_name LIKE 'innodb_stats_%';
+```
+
+## `information_schema.tables` vs. `mysql.innodb_table_stats`
+
+By default, the MySQL setting [`innodb_stats_auto_recalc=ON`](https://dev.mysql.com/doc/refman/8.0/en/innodb-parameters.html#sysvar_innodb_stats_auto_recalc), which means InnoDB table [persistent stats](https://dev.mysql.com/doc/refman/8.0/en/innodb-persistent-stats.html) recalculate automatically "when a table undergoes changes to more than 10% of its rows." Stats also get recalculated when an index is added or a column is added or dropped. You can also force this recalculation with the [`ANALYZE TABLE ...`](https://dev.mysql.com/doc/refman/8.0/en/analyze-table.html) statement.
+
+_You can check your persistent stats settings with this query:_
+
+```sql
+SHOW VARIABLES WHERE variable_name LIKE 'innodb_stats_%';
+```
+
+These persisted stats get stored in the [`mysql.innodb_table_stats`](https://dev.mysql.com/doc/refman/8.0/en/innodb-persistent-stats.html#innodb-persistent-stats-tables) and [`mysql.innodb_index_stats`](https://dev.mysql.com/doc/refman/8.0/en/innodb-persistent-stats.html#innodb-persistent-stats-tables) tables.
+
+TODO
+
 ## Conclusion
 
 `SELECT COUNT(*)` and similar queries can take an exceptionally long time on large tables. You should strongly consider using the persistent stats stored in [`information_schema.tables`](https://dev.mysql.com/doc/refman/8.0/en/information-schema-tables-table.html) if possible.
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMjgzNzEwMDU1LC04MDY5MDE0MywzNjk3Mz
-k3NTUsNjY4NTM5Nzc5LC0xMTA2MTIxMjU5LC05NjA4MTA1NzMs
-NjMyNTIyMjk4LC0xMzYyNTc4OTk3LDQ1NDY3Nzk5NiwtOTM3OT
-I4NDU5LDg3ODE0MzQyMSwxMTY0Mzc5NzYxLC0xMzAwNTcyNjY0
-XX0=
+eyJoaXN0b3J5IjpbLTEwOTMxODM1NjIsLTgwNjkwMTQzLDM2OT
+czOTc1NSw2Njg1Mzk3NzksLTExMDYxMjEyNTksLTk2MDgxMDU3
+Myw2MzI1MjIyOTgsLTEzNjI1Nzg5OTcsNDU0Njc3OTk2LC05Mz
+c5Mjg0NTksODc4MTQzNDIxLDExNjQzNzk3NjEsLTEzMDA1NzI2
+NjRdfQ==
 -->
