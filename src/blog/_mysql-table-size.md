@@ -18,6 +18,8 @@ It's highly likely that you're using InnoDB as the engine for your tables as it 
 
 These table stats are persisted in the `mysql.innodb_table_stats` table.
 
+**Caveat 1: 
+
 `mysql.innodb_table_stats` is updated in any of these situations:
 
 - "When a table undergoes changes to more than 10% of its rows" if the [`innodb_stats_auto_recalc`](https://dev.mysql.com/doc/refman/8.0/en/innodb-parameters.html#sysvar_innodb_stats_auto_recalc) setting is "ON" (which it is by default)
@@ -254,8 +256,8 @@ From the [MySQL documentation](https://dev.mysql.com/doc/refman/8.0/en/aggregate
 
 `SELECT COUNT(*)` and similar queries can take an exceptionally long time on large tables. You should strongly consider using the persistent stats stored in [`information_schema.tables`](https://dev.mysql.com/doc/refman/8.0/en/information-schema-tables-table.html) if possible.
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMzY5NzM5NzU1LDY2ODUzOTc3OSwtMTEwNj
-EyMTI1OSwtOTYwODEwNTczLDYzMjUyMjI5OCwtMTM2MjU3ODk5
-Nyw0NTQ2Nzc5OTYsLTkzNzkyODQ1OSw4NzgxNDM0MjEsMTE2ND
-M3OTc2MSwtMTMwMDU3MjY2NF19
+eyJoaXN0b3J5IjpbLTg4MzI1NTY0MiwzNjk3Mzk3NTUsNjY4NT
+M5Nzc5LC0xMTA2MTIxMjU5LC05NjA4MTA1NzMsNjMyNTIyMjk4
+LC0xMzYyNTc4OTk3LDQ1NDY3Nzk5NiwtOTM3OTI4NDU5LDg3OD
+E0MzQyMSwxMTY0Mzc5NzYxLC0xMzAwNTcyNjY0XX0=
 -->
