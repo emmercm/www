@@ -28,8 +28,10 @@ Here are some concrete examples:
 	- If jobs are run per-client, is the problem with just one client, a few clients, or many clients? The answer could help you determine if it's a data issue or a systemic issue.
 	- If jobs are run per-hour or per-day, is the problem with one timeframe, a few timeframes, or many timeframes? The answer could help you determine if it's an intermittent issue or a complete failure that won't resolve without action.
 
+In an incident scenario, "one, few, or many" is a great tool to help assess the severity, and it helps answer one of the first questions a stakeholder will ask: "who is affected?"
+
 I
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTE4MzEwNTExODksLTIyMzkzODkxMywtND
-k3NzU3NDcyLC0yMDEwODU4ODg5LDEyMzA1MDI5MzJdfQ==
+eyJoaXN0b3J5IjpbMzU4MTg1MzkxLC0yMjM5Mzg5MTMsLTQ5Nz
+c1NzQ3MiwtMjAxMDg1ODg4OSwxMjMwNTAyOTMyXX0=
 -->
