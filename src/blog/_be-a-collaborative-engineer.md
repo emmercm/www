@@ -17,11 +17,11 @@ I do not think it is enough to be _able_ to collaborate. Instead, I think the ba
 
 To clarify my point, here are some scenarios where a person can invite collaboration:
 
-**Architectural design / RFC writing.** Many engineers wait until an RFC is fully written before sharing it with their peers. Instead, try bringing others into your thought process early, to create learning opportunities and to build early consensus.
+**Architectural design / ARFC writing.** Many engineers wait until an RFC is fully written before sharing it with their peers. Instead, try bringing others into your thought process early, to create learning opportunities and to build early consensus.
 
-**Experimentation / proof-of-concepts.** If the point of a project is to learn through iteration, such that some decision can be made in the end, try bringing others along. A lot of learning happens through trial and error, and these learnings don't always make it into a results readout. The effective methodologies used during the experiment can likely be used again!
+**Experimentation / proof-of-concepts / performance tuning.** If the point of a project is to learn through iteration, such that some decision can be made in the end, try bringing others along. A lot of learning happens through trial and error, and these learnings don't always make it into a results readout. The effective methodologies used during the experiment can likely be used again!
 
-**Process definition.**
+**Process definition.** Processes typically affect many people, so if you're defining or proposing one that will affect your peers, try inviting one or two along early in your thought process.
 
 
 maybe also an engineer who invites feedback? maybe this should be generalized as be an engineer who expresses vulnerability?
@@ -40,7 +40,7 @@ Ways it helps:
 
 https://hodgkins.io/blog/quiet-influence-a-guide-to-nemawashi-in-engineering/
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTEwNjk0NTYzNCwtNDYwOTQyMiwxMjkzMj
-g2MDIwLDE5MTc2OTM0ODIsMTQ2ODI4NTczMyw0Mjk2MzU5NjIs
-NTIzNTE2MjM4XX0=
+eyJoaXN0b3J5IjpbNzI4OTg2ODcwLC00NjA5NDIyLDEyOTMyOD
+YwMjAsMTkxNzY5MzQ4MiwxNDY4Mjg1NzMzLDQyOTYzNTk2Miw1
+MjM1MTYyMzhdfQ==
 -->
