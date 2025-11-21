@@ -38,18 +38,13 @@ Collaboration doesn't just mean inviting a second opinion, there are other scena
 - Grows your network
 - Builds staff+ skills of scaling others
 
-
-
-Ways it helps:
-
-- Onboards
-- Shares opportunities with juniors
-
 ---
+
+maybe also an engineer who invites feedback? maybe this should be generalized as be an engineer who expresses vulnerability?
 
 https://hodgkins.io/blog/quiet-influence-a-guide-to-nemawashi-in-engineering/
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTM4MTczNTM4NywxMjQ2ODMzNzUsMTE1ND
+eyJoaXN0b3J5IjpbLTU3MjEwOTk1NiwxMjQ2ODMzNzUsMTE1ND
 k2MjgzOCw5NzE4ODczOTEsLTQ2MDk0MjIsMTI5MzI4NjAyMCwx
 OTE3NjkzNDgyLDE0NjgyODU3MzMsNDI5NjM1OTYyLDUyMzUxNj
 IzOF19
