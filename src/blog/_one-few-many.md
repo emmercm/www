@@ -26,8 +26,8 @@ Here are some concrete examples:
 	- If the stream has different event types in it, did the throughput change for one type, a few types, or many types?
 - **An automated job has failed**
 	- If jobs are run per-client, is the problem with just one client, a few clients, or many clients? The answer could help you determine if it's a data issue or a systemic issue.
-	- If jobs are run per-hour or per-day, is the problem with one timeframe, a few timeframes, or many timeframes? The answer could help you determine
+	- If jobs are run per-hour or per-day, is the problem with one timeframe, a few timeframes, or many timeframes? The answer could help you determine if it's an intermittent issue or a complete failure that won't resolve without action.
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTE4MTA3NzY1MzMsLTIyMzkzODkxMywtND
-k3NzU3NDcyLC0yMDEwODU4ODg5LDEyMzA1MDI5MzJdfQ==
+eyJoaXN0b3J5IjpbLTk3OTgxMTE4OSwtMjIzOTM4OTEzLC00OT
+c3NTc0NzIsLTIwMTA4NTg4ODksMTIzMDUwMjkzMl19
 -->
