@@ -23,6 +23,8 @@ To clarify my point, here are some scenarios where a person can invite collabora
 
 **Process definition.** Processes typically affect many people, so if you're defining or proposing one that will affect your peers, try inviting one or two along early in your thought process. Process could include: code linter norms, testing norms, document norms, or meeting norms.
 
+Collaboration doesn't just mean inviting a second opinion, there are other 
+
 
 maybe also an engineer who invites feedback? maybe this should be generalized as be an engineer who expresses vulnerability?
 
@@ -40,7 +42,7 @@ Ways it helps:
 
 https://hodgkins.io/blog/quiet-influence-a-guide-to-nemawashi-in-engineering/
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbOTcxODg3MzkxLC00NjA5NDIyLDEyOTMyOD
-YwMjAsMTkxNzY5MzQ4MiwxNDY4Mjg1NzMzLDQyOTYzNTk2Miw1
-MjM1MTYyMzhdfQ==
+eyJoaXN0b3J5IjpbLTExMTMxMjY4ODAsOTcxODg3MzkxLC00Nj
+A5NDIyLDEyOTMyODYwMjAsMTkxNzY5MzQ4MiwxNDY4Mjg1NzMz
+LDQyOTYzNTk2Miw1MjM1MTYyMzhdfQ==
 -->
