@@ -1,12 +1,12 @@
 ---
 
 title: One, Few, or Many
-image: https://unsplash.com/photos/abstract-digital-background-pattern-with-white-arranged-columns-surface-diagram-3d-render-illustration-zyQuwgEcdcU
+image: https://unsplash.com/photos/vertical-stripes-of-blue-red-and-beige-on-dark-background-TL_UPEn0Ztw
 tags:
 - career
 - sre
 
 ---
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTIzMDUwMjkzMl19
+eyJoaXN0b3J5IjpbLTIwMTA4NTg4ODksMTIzMDUwMjkzMl19
 -->
