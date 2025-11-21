@@ -1,7 +1,7 @@
 ---
 
 title: One, Few, or Many
-image: https://unsplash.com/photos/vertical-stripes-of-blue-red-and-beige-on-dark-background-TL_UPEn0Ztw
+image: https://unsplash.com/photos/a-close-up-of-a-computer-screen-Ke1OwjOUhm4
 tags:
 - career
 - sre
@@ -24,7 +24,9 @@ Here are some concrete examples:
 	- If it consumes from multiple streams, is the problem with just one stream, a few streams, or many streams? The answer could help you narrow down if it was a large influx of events, or if the service needs to be scaled.
 	- If the stream is partitioned, is the backlog on one partition, a few partitions, or many partitions? The answer could help you narrow down the source of the traffic, and if processing is delayed for all events or just some.
 	- If the stream has different event types in it, did the throughput change for one type, a few types, or many types?
+- **An automated job has failed**
+	- If
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTIyMzkzODkxMywtNDk3NzU3NDcyLC0yMD
-EwODU4ODg5LDEyMzA1MDI5MzJdfQ==
+eyJoaXN0b3J5IjpbMzYzNjk1NzI5LC0yMjM5Mzg5MTMsLTQ5Nz
+c1NzQ3MiwtMjAxMDg1ODg4OSwxMjMwNTAyOTMyXX0=
 -->
