@@ -20,8 +20,9 @@ Here are some concrete examples:
 
 - A stream-consuming service has a high backlog
 	- If it consumes from multiple streams, is the problem with just one stream, a few streams, or many streams? The answer could help you narrow down if it was a large influx of events, or if the service needs to be scaled.
-	- If the stream 
+	- If the stream is partitioned, is the backlog on one partition, a few partitions, or many partitions? The answer could help you
+	- If the stream has different event types in it, did the throughput change for one type, a few types, or many types?
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMzQ3MjI2NTIyLC00OTc3NTc0NzIsLTIwMT
-A4NTg4ODksMTIzMDUwMjkzMl19
+eyJoaXN0b3J5IjpbLTU0MjMyNzE1NiwtNDk3NzU3NDcyLC0yMD
+EwODU4ODg5LDEyMzA1MDI5MzJdfQ==
 -->
