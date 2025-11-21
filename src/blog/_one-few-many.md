@@ -14,7 +14,7 @@ I touch on incident severity assessment in "[An Effective Incident Runbook Templ
 
 > One, few, or many.
 
-What I mean by this is: a key way to assess the impact of an observed issue is by determining if it affects only one client/user (maybe a one-off fluke), a few clients/users (maybe an edge case), or many clients/users (a systemic problem).
+What I mean by this is: a key way to assess the impact of an observed issue is by determining if it affects only one client/user (maybe a one-off fluke), a few clients/users (maybe a repeatable edge case), or many clients/users (a systemic problem).
 
 Here are some concrete examples:
 
@@ -27,7 +27,9 @@ Here are some concrete examples:
 - **An automated job has failed**
 	- If jobs are run per-client, is the problem with just one client, a few clients, or many clients? The answer could help you determine if it's a data issue or a systemic issue.
 	- If jobs are run per-hour or per-day, is the problem with one timeframe, a few timeframes, or many timeframes? The answer could help you determine if it's an intermittent issue or a complete failure that won't resolve without action.
+
+I
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTk3OTgxMTE4OSwtMjIzOTM4OTEzLC00OT
-c3NTc0NzIsLTIwMTA4NTg4ODksMTIzMDUwMjkzMl19
+eyJoaXN0b3J5IjpbLTE4MzEwNTExODksLTIyMzkzODkxMywtND
+k3NzU3NDcyLC0yMDEwODU4ODg5LDEyMzA1MDI5MzJdfQ==
 -->
