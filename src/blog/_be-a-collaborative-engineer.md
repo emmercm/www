@@ -18,7 +18,7 @@ I do not think it is enough to be _able_ to collaborate. Instead, I think the ba
 To clarify my point, here are some scenarios where a person can invite collaboration:
 
 - **Architectural design / RFC writing.** Many engineers wait until an RFC is fully written before sharing it with their peers. Instead, try bringing others into your thought process early, to create learning opportunities and to build early consensus.
-- **Experimentation / proof-of-concepts.** If the point of a project is to learn through iteration, such that some decision can be made in the end, 
+- **Experimentation / proof-of-concepts.** If the point of a project is to learn through iteration, such that some decision can be made in the end, try bringing others along. Much of the learning happens 
 
 
 maybe also an engineer who invites feedback? maybe this should be generalized as be an engineer who expresses vulnerability?
@@ -37,7 +37,7 @@ Ways it helps:
 
 https://hodgkins.io/blog/quiet-influence-a-guide-to-nemawashi-in-engineering/
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTE5NTI4MTAxMywtNDYwOTQyMiwxMjkzMj
-g2MDIwLDE5MTc2OTM0ODIsMTQ2ODI4NTczMyw0Mjk2MzU5NjIs
-NTIzNTE2MjM4XX0=
+eyJoaXN0b3J5IjpbLTExNDcyOTk0MTgsLTQ2MDk0MjIsMTI5Mz
+I4NjAyMCwxOTE3NjkzNDgyLDE0NjgyODU3MzMsNDI5NjM1OTYy
+LDUyMzUxNjIzOF19
 -->
