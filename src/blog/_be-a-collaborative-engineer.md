@@ -26,10 +26,19 @@ Collaboration doesn't just mean inviting a second opinion, there are other scena
 - **Using subject matter expertise.** Are you uniquely more experienced in an area than your peers because of past experience or a hobby? Invite them to walk through the task with you! This requires active thought on your part to identify these situations, but your peer will surely remember the kind deed.
 - **Documenting knowledge.** Whether it's documenting existing architecture or writing a process [how-to guide](/blog/amortize-your-learning-by-writing-how-to-guides), walking someone else through the process will not only give them a private lesson, it will make you think deeper and force you to express more clearly.
 
-## Why it matters
+## Why it matters to others
+
+- Onboards
+- Shares opportunities with juniors
+
+## Why it can matter to you
+
+- Builds leadership skill, especially in the ability to grow others
+- Builds communication skills
+- Grows your network
+- Builds staff+ skills of scaling others
 
 
-maybe also an engineer who invites feedback? maybe this should be generalized as be an engineer who expresses vulnerability?
 
 Ways it helps:
 
@@ -40,7 +49,8 @@ Ways it helps:
 
 https://hodgkins.io/blog/quiet-influence-a-guide-to-nemawashi-in-engineering/
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTI0NjgzMzc1LDExNTQ5NjI4MzgsOTcxOD
-g3MzkxLC00NjA5NDIyLDEyOTMyODYwMjAsMTkxNzY5MzQ4Miwx
-NDY4Mjg1NzMzLDQyOTYzNTk2Miw1MjM1MTYyMzhdfQ==
+eyJoaXN0b3J5IjpbLTM4MTczNTM4NywxMjQ2ODMzNzUsMTE1ND
+k2MjgzOCw5NzE4ODczOTEsLTQ2MDk0MjIsMTI5MzI4NjAyMCwx
+OTE3NjkzNDgyLDE0NjgyODU3MzMsNDI5NjM1OTYyLDUyMzUxNj
+IzOF19
 -->
