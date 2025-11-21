@@ -25,8 +25,9 @@ Here are some concrete examples:
 	- If the stream is partitioned, is the backlog on one partition, a few partitions, or many partitions? The answer could help you narrow down the source of the traffic, and if processing is delayed for all events or just some.
 	- If the stream has different event types in it, did the throughput change for one type, a few types, or many types?
 - **An automated job has failed**
-	- If
+	- If jobs are run per-client, is the problem with just one client, a few clients, or many clients? The answer could help you narrow down if it's a data issue or a systemic issue.
+	- If jobs are run per-hour or per-day, is the problem with one timeframe, a few time
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMzYzNjk1NzI5LC0yMjM5Mzg5MTMsLTQ5Nz
-c1NzQ3MiwtMjAxMDg1ODg4OSwxMjMwNTAyOTMyXX0=
+eyJoaXN0b3J5IjpbLTQwNTMxOTUwNSwtMjIzOTM4OTEzLC00OT
+c3NTc0NzIsLTIwMTA4NTg4ODksMTIzMDUwMjkzMl19
 -->
