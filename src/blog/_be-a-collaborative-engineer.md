@@ -19,7 +19,7 @@ To clarify my point, here are some scenarios where a person can invite collabora
 
 **Architectural design / RFC writing.** Many engineers wait until an RFC is fully written before sharing it with their peers. Instead, try bringing others into your thought process early, to create learning opportunities and to build early consensus.
 
-**Experimentation / proof-of-concepts.** If the point of a project is to learn through iteration, such that some decision can be made in the end, try bringing others along. A lot of learning happens through trial and error, and these learnings don't always make it into a results readout.
+**Experimentation / proof-of-concepts.** If the point of a project is to learn through iteration, such that some decision can be made in the end, try bringing others along. A lot of learning happens through trial and error, and these learnings don't always make it into a results readout. The effective methodologies used during the experiment can likely be used again!
 
 
 maybe also an engineer who invites feedback? maybe this should be generalized as be an engineer who expresses vulnerability?
@@ -38,7 +38,7 @@ Ways it helps:
 
 https://hodgkins.io/blog/quiet-influence-a-guide-to-nemawashi-in-engineering/
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTE4NDA4MjcxNjYsLTQ2MDk0MjIsMTI5Mz
-I4NjAyMCwxOTE3NjkzNDgyLDE0NjgyODU3MzMsNDI5NjM1OTYy
-LDUyMzUxNjIzOF19
+eyJoaXN0b3J5IjpbNjE3MTAwMDUwLC00NjA5NDIyLDEyOTMyOD
+YwMjAsMTkxNzY5MzQ4MiwxNDY4Mjg1NzMzLDQyOTYzNTk2Miw1
+MjM1MTYyMzhdfQ==
 -->
