@@ -19,8 +19,9 @@ What I mean by this is: a key way to assess the impact of an observed issue is b
 Here are some concrete examples:
 
 - A stream-consuming service has a high backlog
-	- If it consumes from multiple streams, 
+	- If it consumes from multiple streams, is the problem with just one stream, a few streams, or many streams? The answer could help you narrow down if it was a large influx of events, or if the service needs to be scaled.
+	- If the stream 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTcyODA0NzY4OCwtNDk3NzU3NDcyLC0yMD
-EwODU4ODg5LDEyMzA1MDI5MzJdfQ==
+eyJoaXN0b3J5IjpbMzQ3MjI2NTIyLC00OTc3NTc0NzIsLTIwMT
+A4NTg4ODksMTIzMDUwMjkzMl19
 -->
