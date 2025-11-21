@@ -30,8 +30,8 @@ Here are some concrete examples:
 
 In an incident scenario, "one, few, or many" is a great tool to help assess the severity, and it helps answer one of the first questions a stakeholder will ask: "who is affected?"
 
-I
+In lower-stakes situations such as addressing a bug or a client support ticket, "one, few, or many" can help narrow down the source of a possible bug, or determine if it was
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMzU4MTg1MzkxLC0yMjM5Mzg5MTMsLTQ5Nz
+eyJoaXN0b3J5IjpbNjQ2ODI4MzA5LC0yMjM5Mzg5MTMsLTQ5Nz
 c1NzQ3MiwtMjAxMDg1ODg4OSwxMjMwNTAyOTMyXX0=
 -->
