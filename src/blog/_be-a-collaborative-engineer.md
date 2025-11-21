@@ -24,7 +24,7 @@ To clarify my point, here are some scenarios where a person can invite collabora
 Collaboration doesn't just mean inviting a second opinion, there are other scenarios where you can scale others:
 
 - **Using subject matter expertise.** Are you uniquely more experienced in an area than your peers because of past experience or a hobby? Invite them to walk through the task with you! This requires active thought on your part to identify these situations, but your peer will surely remember the kind deed.
-- **Documenting knowledge.**
+- **Documenting knowledge.** Whether it's documenting existing architecture or writing a process [how-to guide](/blog/amortize-your-learning-by-writing-how-to-guides), walking someone else through the process
 
 ## Why it matters
 
@@ -45,7 +45,7 @@ Ways it helps:
 
 https://hodgkins.io/blog/quiet-influence-a-guide-to-nemawashi-in-engineering/
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTIwNDM4MzI4NTYsOTcxODg3MzkxLC00Nj
-A5NDIyLDEyOTMyODYwMjAsMTkxNzY5MzQ4MiwxNDY4Mjg1NzMz
-LDQyOTYzNTk2Miw1MjM1MTYyMzhdfQ==
+eyJoaXN0b3J5IjpbMTE1NDk2MjgzOCw5NzE4ODczOTEsLTQ2MD
+k0MjIsMTI5MzI4NjAyMCwxOTE3NjkzNDgyLDE0NjgyODU3MzMs
+NDI5NjM1OTYyLDUyMzUxNjIzOF19
 -->
