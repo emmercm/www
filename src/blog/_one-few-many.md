@@ -14,8 +14,13 @@ I touch on incident severity assessment in "[An Effective Incident Runbook Templ
 
 > One, few, or many.
 
-What I mean by this is: a key way to assess the impact of an observed issue is by determining if it affects only one client/user (maybe a one-off fluke), a few clients/users (maybe an edge case), or many clients/users (
+What I mean by this is: a key way to assess the impact of an observed issue is by determining if it affects only one client/user (maybe a one-off fluke), a few clients/users (maybe an edge case), or many clients/users (a systemic problem).
+
+Here are some concrete examples:
+
+- A stream-consuming service has a high backlog
+	- If it consumes from multiple streams, 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTk3NjcxMTcwLC00OTc3NTc0NzIsLTIwMT
-A4NTg4ODksMTIzMDUwMjkzMl19
+eyJoaXN0b3J5IjpbMTcyODA0NzY4OCwtNDk3NzU3NDcyLC0yMD
+EwODU4ODg5LDEyMzA1MDI5MzJdfQ==
 -->
