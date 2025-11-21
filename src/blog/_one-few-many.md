@@ -9,7 +9,9 @@ tags:
 ---
 
 The golden question for triaging and impact assessment.
+
+I touch on incident severity assessment in "[An Effective Incident Runbook Template](/blog/an-effective-incident-runbook-template)," but it's kept generic enough to be applicable to many situations.
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTQ5Nzc1NzQ3MiwtMjAxMDg1ODg4OSwxMj
-MwNTAyOTMyXX0=
+eyJoaXN0b3J5IjpbMjAyNDU2ODA2MSwtNDk3NzU3NDcyLC0yMD
+EwODU4ODg5LDEyMzA1MDI5MzJdfQ==
 -->
