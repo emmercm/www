@@ -23,7 +23,7 @@ To clarify my point, here are some scenarios where a person can invite collabora
 
 Collaboration doesn't just mean inviting a second opinion, there are other scenarios where you can scale others:
 
-- 
+- **Using subject matter expertise.** Are you uniquely more experienced in an area than your peers because of past experience or a hobby?
 
 
 maybe also an engineer who invites feedback? maybe this should be generalized as be an engineer who expresses vulnerability?
@@ -42,7 +42,7 @@ Ways it helps:
 
 https://hodgkins.io/blog/quiet-influence-a-guide-to-nemawashi-in-engineering/
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMzAxNjQ3MjI2LDk3MTg4NzM5MSwtNDYwOT
-QyMiwxMjkzMjg2MDIwLDE5MTc2OTM0ODIsMTQ2ODI4NTczMyw0
-Mjk2MzU5NjIsNTIzNTE2MjM4XX0=
+eyJoaXN0b3J5IjpbLTEwOTQ1NzM3NTgsOTcxODg3MzkxLC00Nj
+A5NDIyLDEyOTMyODYwMjAsMTkxNzY5MzQ4MiwxNDY4Mjg1NzMz
+LDQyOTYzNTk2Miw1MjM1MTYyMzhdfQ==
 -->
