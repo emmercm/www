@@ -26,12 +26,12 @@ Here are some concrete examples:
 	- If the stream has different event types in it, did the throughput change for one type, a few types, or many types?
 - **An automated job has failed**
 	- If jobs are run per-client, is the problem with just one client, a few clients, or many clients? The answer could help you determine if it's a data issue or a systemic issue.
-	- If jobs are run per-hour or per-day, is the problem with one timeframe, a few timeframes, or many timeframes? The answer could help you determine if it's an intermittent issue or a complete failure that won't resolve without action.
+	- If jobs are run per-hour or per-day, is the problem with one timeframe, a few timeframes, or many timeframes? The answer could help you determine if it's an intermittent or transient issue, or a complete failure that isn't going to self-resolve.
 
 In an incident scenario, "one, few, or many" is a great tool to help assess the severity, and it helps answer one of the first questions a stakeholder will ask: "who is affected?"
 
-In lower-stakes situations such as addressing a bug or a client support ticket, "one, few, or many" can help narrow down the source of a possible bug, or determine if it was
+In lower-stakes situations such as addressing a bug or a client support ticket, "one, few, or many" can help narrow down the source of a possible bug, or determine if it was a transient issue.
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbNjQ2ODI4MzA5LC0yMjM5Mzg5MTMsLTQ5Nz
-c1NzQ3MiwtMjAxMDg1ODg4OSwxMjMwNTAyOTMyXX0=
+eyJoaXN0b3J5IjpbMTEzOTc4NDM3NiwtMjIzOTM4OTEzLC00OT
+c3NTc0NzIsLTIwMTA4NTg4ODksMTIzMDUwMjkzMl19
 -->
