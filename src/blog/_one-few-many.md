@@ -10,10 +10,12 @@ tags:
 
 The golden question for triaging and impact assessment.
 
-I touch on incident severity assessment in "[An Effective Incident Runbook Template](/blog/an-effective-incident-runbook-template)," but it's kept generic enough to be applicable to many situations. But lately I've found myself repeating a phrase to colleagues during disaster scenario roleplaying ahead of Black Firday
+I touch on incident severity assessment in "[An Effective Incident Runbook Template](/blog/an-effective-incident-runbook-template)," but it's kept generic enough to be applicable to many situations. But lately I've found myself repeating a phrase to colleagues while leading disaster scenario roleplaying ahead of Black Friday:
 
-Today I want to hone in on
+> One, few, or many.
+
+What I mean by this is: a key way to assess the impact of an observed issue
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTg5MTgxNTYzMywtNDk3NzU3NDcyLC0yMD
-EwODU4ODg5LDEyMzA1MDI5MzJdfQ==
+eyJoaXN0b3J5IjpbODYzOTczMTMsLTQ5Nzc1NzQ3MiwtMjAxMD
+g1ODg4OSwxMjMwNTAyOTMyXX0=
 -->
