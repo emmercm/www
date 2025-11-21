@@ -1,6 +1,7 @@
 ---
 
 title: One, Few, or Many
+date: 2025-11-21T18:15:00
 image: https://unsplash.com/photos/a-close-up-of-a-computer-screen-Ke1OwjOUhm4
 tags:
 - career
@@ -32,6 +33,6 @@ In an incident scenario, "one, few, or many" is a great tool to help assess the 
 
 In lower-stakes situations such as addressing a bug or a client support ticket, "one, few, or many" can help narrow down the source of a possible bug, or determine if it was a transient issue.
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTEzOTc4NDM3NiwtMjIzOTM4OTEzLC00OT
+eyJoaXN0b3J5IjpbMjAxNTkzMjAzNywtMjIzOTM4OTEzLC00OT
 c3NTc0NzIsLTIwMTA4NTg4ODksMTIzMDUwMjkzMl19
 -->
