@@ -11,7 +11,7 @@ Reflecting on times where I had high friction with a colleague, either on a sing
 
 Sure, I want to work with smart engineers, there's a lot to be learned by being around engineers with experience that's different from or deeper than mine. But I don't need to work with so-called 10x engineers; I want to work with capable engineers with strong ownership, a learner mindset, and an eagerness to _invite collaboration_.
 
-I do not think it is enough to be _able_ to collaborate. Instead, I think the bar should be raised to: actively identifying situations where collaboration _is possible_, and actively inviting peers to collaborate with you.
+I do not think it is enough to be _able_ to collaborate. Instead, I think the bar should be raised to: actively identifying situations where collaboration _is possible_, and actively _inviting_ peers to collaborate with you.
 
 ## In practice
 
@@ -44,8 +44,8 @@ maybe also an engineer who invites feedback? maybe this should be generalized as
 
 https://hodgkins.io/blog/quiet-influence-a-guide-to-nemawashi-in-engineering/
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTU3MjEwOTk1NiwxMjQ2ODMzNzUsMTE1ND
-k2MjgzOCw5NzE4ODczOTEsLTQ2MDk0MjIsMTI5MzI4NjAyMCwx
-OTE3NjkzNDgyLDE0NjgyODU3MzMsNDI5NjM1OTYyLDUyMzUxNj
-IzOF19
+eyJoaXN0b3J5IjpbNDEwMTU2NjI0LDEyNDY4MzM3NSwxMTU0OT
+YyODM4LDk3MTg4NzM5MSwtNDYwOTQyMiwxMjkzMjg2MDIwLDE5
+MTc2OTM0ODIsMTQ2ODI4NTczMyw0Mjk2MzU5NjIsNTIzNTE2Mj
+M4XX0=
 -->
