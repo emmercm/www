@@ -31,6 +31,7 @@ Collaboration doesn't just mean inviting a second opinion, there are other scena
 
 First, some reasons why actively inviting others to collaborate matters to them:
 
+- **New team member onboarding.** How long did it take for you to feel fully onboarded at your current company, or your current team? 3 months? 6 months? A full year? Do you think
 
 - Onboards
 - Shares opportunities with juniors
@@ -48,7 +49,7 @@ maybe also an engineer who invites feedback? maybe this should be generalized as
 
 https://hodgkins.io/blog/quiet-influence-a-guide-to-nemawashi-in-engineering/
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTIwODM2NDIxODgsMTM4MjMzNzEzMiwxNT
+eyJoaXN0b3J5IjpbLTE4NDgxOTE5OTcsMTM4MjMzNzEzMiwxNT
 U5ODU3MzE5LDQxMDE1NjYyNCwxMjQ2ODMzNzUsMTE1NDk2Mjgz
 OCw5NzE4ODczOTEsLTQ2MDk0MjIsMTI5MzI4NjAyMCwxOTE3Nj
 kzNDgyLDE0NjgyODU3MzMsNDI5NjM1OTYyLDUyMzUxNjIzOF19
