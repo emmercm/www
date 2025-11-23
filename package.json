@@ -33,6 +33,7 @@
     "async": "3.2.6",
     "autoprefixer": "10.4.21",
     "bootstrap": "5.3.7",
+    "cheerio": "1.1.2",
     "cssnano": "7.0.7",
     "handlebars": "4.7.8",
     "handlebars-helpers": "0.10.0",

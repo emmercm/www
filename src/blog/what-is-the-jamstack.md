@@ -9,7 +9,7 @@ tags:
 
 Simply, it stands for: JavaScript, APIs, and Markup.
 
-From [WTF is JAMstack?](https://jamstack.wtf/):
+From [WTF is JAMstack?](https://web.archive.org/web/20250117072356/https://jamstack.wtf/):
 
 - **JavaScript**
 
