@@ -85,6 +85,8 @@ helpers({
     handlebars: Handlebars
 });
 
+import * as cheerio from 'cheerio';
+
 // Set up Unsplash SDK
 import fetch from 'node-fetch';
 if (!globalThis.fetch) {
@@ -589,19 +591,35 @@ tracer(Metalsmith(path.resolve()))
         .use((files, metalsmith, done) => {
             Object.keys(files)
                 .forEach(filename => {
-                    files[filename].contents = Buffer.from(
-                        files[filename].contents.toString()
-                            // Lines that contain blog links
-                            .replace(/^(.*?href="\/?blog\/.*?".*?)$/gm, val => {
-                                // Each blog link
-                                [...val.matchAll(/href="(\/?blog\/(?!tag\/).+?)"/g)]
-                                    .map(result => result[1])
-                                    // Append the partial to the end
-                                    // TODO: place the crosspost after any <pre> immediately following
-                                    .forEach(match => val += `\n\n{{>blog_crosspost path="${match.replace(/^\/+|\/+$/g, '')}"}}`)
-                                return val;
-                            })
-                    );
+                    const $ = cheerio.load(files[filename].contents.toString(), {}, false);
+                    let modified = false;
+                    $('a')
+                        .each((_, elem) => {
+                            const $elem = $(elem);
+                            if (!/^\/?blog\/(?!tag\/).+?$/.test($elem.attr('href'))) {
+                                return;
+                            }
+                            modified = true;
+                            const textToAdd = `\n{{>blog_crosspost path="${$elem.attr('href').replace(/^\/+|\/+$/g, '')}"}}`;
+                            // If the link is within an <li>, append the content at the end
+                            const $li = $elem
+                                .parents('li')
+                                .first()
+                                .append(textToAdd);
+                            if ($li.length > 0) {
+                                return;
+                            }
+                            // Otherwise, find the block-level element that we're inside of and append the content after
+                            const added = $elem
+                                .parents('h1, h2, h3, h4, h5, h6, p, div, table')
+                                .first()
+                                .nextAll(':not(blockquote, pre)')
+                                .first()
+                                .before(textToAdd);
+                        });
+                    if (modified) {
+                        files[filename].contents = Buffer.from($.html().replaceAll('{{&gt;', '{{>'));
+                    }
                 });
             done();
         })
@@ -1091,8 +1109,8 @@ tracer(Metalsmith(path.resolve()))
             // Anti-bot timeouts
             'usnews.com',
             // Temporary?
-            'jamstack.wtf',
             'console.cloud.google.com',
+            'gitpkg.vercel.app',
         ]
     })))
 

@@ -2,7 +2,7 @@
 
 title: Now
 description: What's important in my life, now.
-date: 2025-10-04T19:40:00
+date: 2025-11-23T01:13:00
 priority: 0.1
 
 ---
