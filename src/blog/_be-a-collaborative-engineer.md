@@ -18,8 +18,8 @@ I do not think it is enough to be _able_ to collaborate. Instead, I think the ba
 To clarify my point, here are some scenarios where an engineer can invite collaboration:
 
 - **Architectural design / contract definition / RFC writing.** Many engineers wait until an RFC is fully written before sharing it with their peers. Instead, try bringing others into your thought process early to create learning opportunities (for both you and them!) and gain an early advocate for your design. Further, seeking input from someone with a different set of experiences is likely to create a stronger design.
-- **Experimentation / proof-of-concepts / performance tuning.** If a project's goal is to learn through iteration, such that some decision can be made in the end, try bringing others along. A lot of learning happens through trial and error, and these learnings don't always make it into a results readout. The effective methodologies used during the experiment can likely be used again!
-- **Process definition.** Processes typically affect many people, so if you're defining or proposing one that will affect your peers, try inviting one or two along early in your thought process. Process could include: code linter norms, testing norms, document norms, or meeting norms.
+- **Experimentation / proof-of-concepts / performance tuning.** If a project's goal is to learn something through iteration, such that some decision can be made, try bringing others along for the process. A lot of learning happens through trial and error, and these learnings don't always make it into a results readout. The effective methodologies used during the experiment can likely be used again!
+- **Process definition.** Processes typically affect many people, so if you're defining or proposing one that will affect your peers, try inviting one or two along early in your thought process. Processes could include: code linter norms, testing norms, document norms, or meeting norms.
 
 Collaboration doesn't just mean inviting a second opinion, there are other scenarios where you can scale others:
 
@@ -44,7 +44,7 @@ maybe also an engineer who invites feedback? maybe this should be generalized as
 
 https://hodgkins.io/blog/quiet-influence-a-guide-to-nemawashi-in-engineering/
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMzE2MzczNTY3LDE1NTk4NTczMTksNDEwMT
+eyJoaXN0b3J5IjpbMjg4NzQyMTAxLDE1NTk4NTczMTksNDEwMT
 U2NjI0LDEyNDY4MzM3NSwxMTU0OTYyODM4LDk3MTg4NzM5MSwt
 NDYwOTQyMiwxMjkzMjg2MDIwLDE5MTc2OTM0ODIsMTQ2ODI4NT
 czMyw0Mjk2MzU5NjIsNTIzNTE2MjM4XX0=
