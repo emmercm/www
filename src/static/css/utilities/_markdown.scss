@@ -84,11 +84,13 @@
       }
     }
   }
-  li > p {
-    // <li> will have <p> children when it or one of its <li> siblings has a nested <ul>
-    & + ul {
-      margin-bottom: $spacer;
-    }
+  li + li {
+    margin-top: map-get($spacers, 1);
+  }
+  li ul,
+  li ol {
+    margin-top: map-get($spacers, 2);
+    margin-bottom: map-get($spacers, 2);
   }
 
   svg.mermaid {
