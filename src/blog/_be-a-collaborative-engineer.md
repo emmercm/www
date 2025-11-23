@@ -29,6 +29,9 @@ Collaboration doesn't just mean inviting a second opinion, there are other scena
 
 ## Why it matters to others
 
+First, some reasons why actively inviting others to collaborate matters to them:
+
+
 - Onboards
 - Shares opportunities with juniors
 
@@ -45,7 +48,7 @@ maybe also an engineer who invites feedback? maybe this should be generalized as
 
 https://hodgkins.io/blog/quiet-influence-a-guide-to-nemawashi-in-engineering/
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTEyNDg2NTE4NTEsMTM4MjMzNzEzMiwxNT
+eyJoaXN0b3J5IjpbLTIwODM2NDIxODgsMTM4MjMzNzEzMiwxNT
 U5ODU3MzE5LDQxMDE1NjYyNCwxMjQ2ODMzNzUsMTE1NDk2Mjgz
 OCw5NzE4ODczOTEsLTQ2MDk0MjIsMTI5MzI4NjAyMCwxOTE3Nj
 kzNDgyLDE0NjgyODU3MzMsNDI5NjM1OTYyLDUyMzUxNjIzOF19
