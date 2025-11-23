@@ -42,7 +42,7 @@ Here are some concrete examples of what I mean:
 - If tests are run on multiple CPU architectures, is the problem with just one architecture, a few architectures, or many architectures?
 - If the test is a web synthetic, did the problem occur from one region, a few regions, or many regions?
 
-## Summary
+## Conclusion
 
 In an incident scenario, "one, few, or many" is a great tool to help assess the severity, and it helps answer one of the first questions a stakeholder will ask: "who is affected?"
 

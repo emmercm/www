@@ -38,6 +38,17 @@
         .max-#{$abbrev}#{$infix}-#{$size} {
           max-#{$prop}: #{$size}#{$abbrev} !important;
           max-#{$prop}: calc(var(--#{$abbrev}, 1#{$abbrev}) * #{$size}) !important;
+
+          // If this item is in a flexbox, Safari (at least v26.1) may let the item overflow:
+          //  - max-height can overflow flex-direction:column
+          //  - max-width can overflow flex-direction:row
+          // The max will be used for the height, but the contents will overflow. That means this
+          // element will overflow onto the next element after this one, with the next one likely
+          // being drawn on top of this one. Nothing seems to fix this, so overflow:hidden is used.
+          // The rest is used to center this item so it's cropped evenly on all sides.
+          overflow: hidden;
+          display: flex;
+          align-items: center;
         }
       }
     }

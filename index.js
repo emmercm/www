@@ -114,19 +114,26 @@ const blueskyHandle   = 'igir.io';
 const twitterHandle   = 'emmercm';
 const githubHandle    = 'emmercm';
 
+const blogImageWidth = 720;
 const blogImageSizes = [
-    [720,720/2], // default: full width
-    [1440,1440/2], // full width retina
-    [414,414/2], // mobile
-    [360,360/2], // mobile
-];
+    blogImageWidth, // default
+    blogImageWidth * 2,
+    blogImageWidth * 1.5,
+    blogImageWidth * 0.75,
+    blogImageWidth * 0.5,
+]
+    .map(width => ([width, width/2]));
+const blogImageThumbWidth = 290;
 const blogImageThumbSizes = [
-    [290,290/2], // default: two rows of three cards
-    [580,580/2], // two rows of three cards, retina
-    [444,444/2], // three rows of two cards
-    [240,240/2], // index retina
-    [120,120/2], // index
-];
+    blogImageThumbWidth, // default
+    blogImageThumbWidth * 2,
+    blogImageThumbWidth * 1.5,
+    blogImageThumbWidth * 0.75,
+    blogImageThumbWidth * 0.5,
+]
+    .sort()
+    .reverse()
+    .map(width => ([width*2, width]));
 
 const vegaOptions = {
     vega: {
@@ -422,15 +429,26 @@ tracer(Metalsmith(path.resolve()))
                 imageUrlGenerator = (width, height) => `https://source.unsplash.com/${photoId}/${width}x${height}`;
                 files[filename].imageCredit = `Photo on <a href="${original}">Unsplash</a>`
             }
+            const imageSourceGenerator = (imageSizes, maxWidth) => {
+                const srcset = imageSizes
+                    .sort((res1, res2) => res1[0] - res2[0]) // ascending
+                    .map(resolution => `${imageUrlGenerator(resolution[0], resolution[1])} ${resolution[0]}w`)
+                    .join(', ');
+                // TODO(cemmer): use <img sizes="auto" loading="lazy"> when it has better support
+                // This pixel density strategy is borrowed from Medium's primary article image
+                const sizes = [4, 3, 2.5, 2]
+                    .flatMap((dppx) => ([
+                        `(min-resolution: ${dppx}dppx) and (max-width: ${maxWidth}px) ${100/dppx*2}vw`,
+                        `(-webkit-min-device-pixel-ratio: ${dppx}) and (max-width: ${maxWidth}px) ${100/dppx*2}vw`,
+                    ]))
+                    .join(', ')
+                return `<source srcset="${srcset}" sizes="${sizes}, ${maxWidth}px">`;
+            };
             files[filename].image = imageUrlGenerator(blogImageSizes[0][0], blogImageSizes[0][1]);
-            // TODO(cemmer): double check this is semantically right
-            files[filename].imageSources = blogImageSizes
-                .sort((res1, res2) => res2[0] - res1[0])
-                .map(resolution => `<source srcset="${imageUrlGenerator(resolution[0], resolution[1])}" media="(min-width:${resolution[0]}px)">`).join('');
+            files[filename].imageSources = imageSourceGenerator(blogImageSizes, blogImageWidth);
             files[filename].thumb = imageUrlGenerator(blogImageThumbSizes[0][0], blogImageThumbSizes[0][1]);
-            files[filename].thumbSources = blogImageThumbSizes
-                .sort((res1, res2) => res2[0] - res1[0])
-                .map(resolution => `<source srcset="${imageUrlGenerator(resolution[0], resolution[1])}" media="(min-width:${resolution[0]}px)">`).join('');
+            // TODO(cemmer): this doesn't work quite right for thumbnails
+            files[filename].thumbSources = imageSourceGenerator(blogImageThumbSizes, blogImageThumbWidth);
         }, (err) => {
             done(err);
         });
@@ -569,6 +587,7 @@ tracer(Metalsmith(path.resolve()))
         .use(feed({
             // metalsmith-feed
             collection: 'blog',
+            limit: 20,
             destination: 'blog/rss.xml',
             // https://www.npmjs.com/package/rss#itemoptions
             preprocess: (file) => ({
