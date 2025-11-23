@@ -9,7 +9,7 @@ I don't care if you're a 10x engineer, I care if we can build great things _toge
 
 Reflecting on times where I had high friction with a colleague, either on a single project or over a longer term, I had a thought: _I work best with, and am motivated most by, people who want to work with others_.
 
-Sure, I want to work with smart engineers, there's a lot to be learned by being around engineers with experience that's different from or deeper than mine. But I don't need to work with so-called 10x engineers; I want to work with capable engineers with strong ownership, a learner mindset, and an eagerness to _invite collaboration_.
+Sure, I want to work with smart engineers, there's a lot to be learned from being around engineers with experience that's different from or deeper than mine. But I don't need to work with so-called 10x engineers; I want to work with capable engineers with strong ownership, a learner mindset, and an eagerness to _invite collaboration_.
 
 I do not think it is enough to be _able_ to collaborate. Instead, I think the bar should be raised to: actively identifying situations where collaboration _is possible_, and actively _inviting_ peers to collaborate with you.
 
@@ -44,8 +44,8 @@ maybe also an engineer who invites feedback? maybe this should be generalized as
 
 https://hodgkins.io/blog/quiet-influence-a-guide-to-nemawashi-in-engineering/
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTEwOTE3MDc4NzYsNDEwMTU2NjI0LDEyND
-Y4MzM3NSwxMTU0OTYyODM4LDk3MTg4NzM5MSwtNDYwOTQyMiwx
-MjkzMjg2MDIwLDE5MTc2OTM0ODIsMTQ2ODI4NTczMyw0Mjk2Mz
-U5NjIsNTIzNTE2MjM4XX0=
+eyJoaXN0b3J5IjpbLTg1MDQ5MDgzMyw0MTAxNTY2MjQsMTI0Nj
+gzMzc1LDExNTQ5NjI4MzgsOTcxODg3MzkxLC00NjA5NDIyLDEy
+OTMyODYwMjAsMTkxNzY5MzQ4MiwxNDY4Mjg1NzMzLDQyOTYzNT
+k2Miw1MjM1MTYyMzhdfQ==
 -->
