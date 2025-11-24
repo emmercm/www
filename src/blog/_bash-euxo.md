@@ -11,7 +11,7 @@ Unlike typical programming languages, Bash doesn't terminate when it encounters 
 Here's an example dangerous scenario:
 
 ```bash
-for dir in 
+find . -type d -mindepth 1 -maxdepth 1 | while read -r dir; do echo $dir; done
 ```
 
 1. At the top of every bash file
@@ -27,6 +27,6 @@ for dir in
 	}
 	```
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbNTc4ODQ1NTM4LC0xNzc3ODI5OTk1LC03MD
-YyMzc0NDJdfQ==
+eyJoaXN0b3J5IjpbLTEzMDEwMzc2MTksLTE3Nzc4Mjk5OTUsLT
+cwNjIzNzQ0Ml19
 -->
