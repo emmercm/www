@@ -51,9 +51,9 @@ The POSIX standards define many shell options that, when set, last for the lengt
 set -o
 ```
 
-Because these options are part of the POSIX standards, any shell that is POSIX-compliant should implement them correctly ([Bash](https://www.gnu.org/software/bash/manual/html_node/The-Set-Builtin.html), [Zsh](https://zsh.sourceforge.io/Doc/Release/Options.html?utm_source=chatgpt.com#sh_002fksh-emulation-set), [Dash](https://manpages.debian.org/unstable/dash/dash.1.en.html)).
+Because these options are part of the POSIX standards, any shell that is POSIX-compliant should implement them correctly ([Bash](https://www.gnu.org/software/bash/manual/html_node/The-Set-Builtin.html), [Zsh](https://zsh.sourceforge.io/Doc/Release/Options.html?utm_source=chatgpt.com#sh_002fksh-emulation-set), [Dash/Ash](https://manpages.debian.org/unstable/dash/dash.1.en.html)).
 
-_Note: [`set -o pipefail`](https://pubs.opengroup.org/onlinepubs/9799919799/utilities/V3_chap02.html#tag_19_08_01) was only recently added in POSIX.1-2024. Shells based on the 1003.2/1003.2a_
+_Note: [`set -o pipefail`](https://pubs.opengroup.org/onlinepubs/9799919799/utilities/V3_chap02.html#tag_19_08_01) was only recently added in POSIX.1-2024. Shells based on the 1003.2/1003.2a specifications from 1992 won't have it._
 
 ## Where you _should_ use it
 
@@ -80,7 +80,7 @@ _Note: [`set -o pipefail`](https://pubs.opengroup.org/onlinepubs/9799919799/util
 	}
 	```
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMzU2ODE0MDg5LC0xODcyOTcyODk2LDE2MT
+eyJoaXN0b3J5IjpbNDE5NjcwNDE1LC0xODcyOTcyODk2LDE2MT
 ExMTc2MzcsLTQ0MDEzMDQ4OSwtMTY1MDczNjUwMyw2NTkzOTk1
 LC0xODk2NzU0ODk1LC05MTI2NzIwNjQsMzY1MTg2OTUxLC04Mz
 A3MDAzNjksMTQ0OTc0NjU5NywxMjM1NzEzNjc1LC0yMDEyMzk5
