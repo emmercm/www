@@ -62,8 +62,12 @@ Here is an explanation of all the recommended `set -euo pipefail` options.
 The script will fail as soon as any chain of commands fails. For example:
 
 ```bash
-# 'false' causes an exit code of 1, so 'echo' won't be invoked
+# 'false' returns an exit code of 1, so this will exit the script
 false && echo "will never print"
+
+# 'grep' returns an exit code of 1 because it won't find "world",
+#
+echo "hello" | grep -q "world"
 ```
 
 ## Where you _should_ use it
@@ -91,10 +95,10 @@ false && echo "will never print"
 	}
 	```
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTEyMDg0NDgwNzksLTE4NzI5NzI4OTYsMT
-YxMTExNzYzNywtNDQwMTMwNDg5LC0xNjUwNzM2NTAzLDY1OTM5
-OTUsLTE4OTY3NTQ4OTUsLTkxMjY3MjA2NCwzNjUxODY5NTEsLT
-gzMDcwMDM2OSwxNDQ5NzQ2NTk3LDEyMzU3MTM2NzUsLTIwMTIz
-OTk0MzgsLTk4MTk2NjYxNSwtNTE0NTk2NzU3LC0xMzAxMDM3Nj
-E5LC0xNzc3ODI5OTk1LC03MDYyMzc0NDJdfQ==
+eyJoaXN0b3J5IjpbLTQ0NTQ5OTE0MCwtMTg3Mjk3Mjg5NiwxNj
+ExMTE3NjM3LC00NDAxMzA0ODksLTE2NTA3MzY1MDMsNjU5Mzk5
+NSwtMTg5Njc1NDg5NSwtOTEyNjcyMDY0LDM2NTE4Njk1MSwtOD
+MwNzAwMzY5LDE0NDk3NDY1OTcsMTIzNTcxMzY3NSwtMjAxMjM5
+OTQzOCwtOTgxOTY2NjE1LC01MTQ1OTY3NTcsLTEzMDEwMzc2MT
+ksLTE3Nzc4Mjk5OTUsLTcwNjIzNzQ0Ml19
 -->
