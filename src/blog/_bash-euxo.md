@@ -21,7 +21,7 @@ apt-get install --yes git build-essential cmake
 git clone https://github.com/example/project.git project
 cd project
 # (the script continues even if either command failed,
-#  leaving us in the original working directory)
+#   leaving us in the original working directory)
 
 # Build the project
 make
@@ -75,7 +75,7 @@ rm -rf build
 	}
 	```
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTk4ODM1MTU1NCwzNjUxODY5NTEsLTgzMD
+eyJoaXN0b3J5IjpbLTkxMjY3MjA2NCwzNjUxODY5NTEsLTgzMD
 cwMDM2OSwxNDQ5NzQ2NTk3LDEyMzU3MTM2NzUsLTIwMTIzOTk0
 MzgsLTk4MTk2NjYxNSwtNTE0NTk2NzU3LC0xMzAxMDM3NjE5LC
 0xNzc3ODI5OTk1LC03MDYyMzc0NDJdfQ==
