@@ -11,11 +11,9 @@ Unlike typical programming languages, Bash doesn't terminate when it encounters 
 Here's an example (albeit contrived) dangerous scenario:
 
 ```bash
-# Install the necessary build tools
-apt-get update
-# ('apt-get update' can fail, causing outdated packages)
-apt-get install --yes git build-essential cmake
-# (the script continues even if either command failed)
+# Go to the project directory
+# (if $PROJECT_DIR is unset, this will silently do nothing)
+cd "${PROJECT_DIR}"
 
 # Download the project to build
 git clone https://github.com/example/project.git project
@@ -75,8 +73,8 @@ rm -rf build
 	}
 	```
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTkxMjY3MjA2NCwzNjUxODY5NTEsLTgzMD
-cwMDM2OSwxNDQ5NzQ2NTk3LDEyMzU3MTM2NzUsLTIwMTIzOTk0
-MzgsLTk4MTk2NjYxNSwtNTE0NTk2NzU3LC0xMzAxMDM3NjE5LC
-0xNzc3ODI5OTk1LC03MDYyMzc0NDJdfQ==
+eyJoaXN0b3J5IjpbMTIzMjM3ODc1MiwtOTEyNjcyMDY0LDM2NT
+E4Njk1MSwtODMwNzAwMzY5LDE0NDk3NDY1OTcsMTIzNTcxMzY3
+NSwtMjAxMjM5OTQzOCwtOTgxOTY2NjE1LC01MTQ1OTY3NTcsLT
+EzMDEwMzc2MTksLTE3Nzc4Mjk5OTUsLTcwNjIzNzQ0Ml19
 -->
