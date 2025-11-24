@@ -14,9 +14,9 @@ Here's an example dangerous scenario:
 # (if $PROJECT_DIR is unset, this will silently do nothing)
 cd "${PROJECT_DIR}"
 
-# (we 
+# (we aren't sure what directory this is being executed in)
 make
-make install
+sudo make install
 
 find . -type d -mindepth 1 -maxdepth 1 | while read -r dir; do
 	echo $dir
@@ -43,7 +43,7 @@ done
 	}
 	```
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbOTAzNTU5NzE2LC0yMDEyMzk5NDM4LC05OD
-E5NjY2MTUsLTUxNDU5Njc1NywtMTMwMTAzNzYxOSwtMTc3Nzgy
-OTk5NSwtNzA2MjM3NDQyXX0=
+eyJoaXN0b3J5IjpbLTEwMDQxOTI4MzgsLTIwMTIzOTk0MzgsLT
+k4MTk2NjYxNSwtNTE0NTk2NzU3LC0xMzAxMDM3NjE5LC0xNzc3
+ODI5OTk1LC03MDYyMzc0NDJdfQ==
 -->
