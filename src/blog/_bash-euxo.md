@@ -35,6 +35,8 @@ binary | tee binary-output.log || exit 1
 echo "SUCCESS!"
 ```
 
+What a mess! We have zero confidence the script did what it was supposed to, and worse, it may have had dangerous side effects.
+
 ## Where you _should_ use it
 
 **At the beginning of every shell script.**
@@ -55,7 +57,7 @@ echo "SUCCESS!"
 	}
 	```
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTY5MDIzMDAxOSwtMTY1MDczNjUwMyw2NT
+eyJoaXN0b3J5IjpbLTQ0MDEzMDQ4OSwtMTY1MDczNjUwMyw2NT
 kzOTk1LC0xODk2NzU0ODk1LC05MTI2NzIwNjQsMzY1MTg2OTUx
 LC04MzA3MDAzNjksMTQ0OTc0NjU5NywxMjM1NzEzNjc1LC0yMD
 EyMzk5NDM4LC05ODE5NjY2MTUsLTUxNDU5Njc1NywtMTMwMTAz
