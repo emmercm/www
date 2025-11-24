@@ -55,9 +55,11 @@ Because these options are part of the POSIX standards, any shell that is POSIX-c
 
 _Note: [`set -o pipefail`](https://pubs.opengroup.org/onlinepubs/9799919799/utilities/V3_chap02.html#tag_19_08_01) was only recently added in POSIX.1-2024. Shells based on the 1003.2/1003.2a specifications from 1992 won't have it._
 
-The following
+Here is an explanation of all the recommended `set -euo pipefail` options.
 
 ### `set -e` / `set -o errexit`
+
+When a command fails
 
 ## Where you _should_ use it
 
@@ -84,10 +86,10 @@ The following
 	}
 	```
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTIwNjcwNDI3NiwtMTg3Mjk3Mjg5NiwxNj
-ExMTE3NjM3LC00NDAxMzA0ODksLTE2NTA3MzY1MDMsNjU5Mzk5
-NSwtMTg5Njc1NDg5NSwtOTEyNjcyMDY0LDM2NTE4Njk1MSwtOD
-MwNzAwMzY5LDE0NDk3NDY1OTcsMTIzNTcxMzY3NSwtMjAxMjM5
-OTQzOCwtOTgxOTY2NjE1LC01MTQ1OTY3NTcsLTEzMDEwMzc2MT
-ksLTE3Nzc4Mjk5OTUsLTcwNjIzNzQ0Ml19
+eyJoaXN0b3J5IjpbOTMzNjA5OTQ3LC0xODcyOTcyODk2LDE2MT
+ExMTc2MzcsLTQ0MDEzMDQ4OSwtMTY1MDczNjUwMyw2NTkzOTk1
+LC0xODk2NzU0ODk1LC05MTI2NzIwNjQsMzY1MTg2OTUxLC04Mz
+A3MDAzNjksMTQ0OTc0NjU5NywxMjM1NzEzNjc1LC0yMDEyMzk5
+NDM4LC05ODE5NjY2MTUsLTUxNDU5Njc1NywtMTMwMTAzNzYxOS
+wtMTc3NzgyOTk5NSwtNzA2MjM3NDQyXX0=
 -->
