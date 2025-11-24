@@ -15,11 +15,8 @@ Here's an example (albeit contrived) dangerous scenario:
 # (if $PROJECT_DIR is unset, this will silently do nothing)
 cd "${PROJECT_DIR}"
 
-# Download the project to build
-git clone https://github.com/example/project.git project
-cd project
-# (the script continues even if either command failed,
-#   leaving us in the original working directory)
+# Get the latest
+git clean -fdx
 
 # Build the project
 make
@@ -73,7 +70,7 @@ rm -rf build
 	}
 	```
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTIzMjM3ODc1MiwtOTEyNjcyMDY0LDM2NT
+eyJoaXN0b3J5IjpbMTY1NTQ3ODcxMSwtOTEyNjcyMDY0LDM2NT
 E4Njk1MSwtODMwNzAwMzY5LDE0NDk3NDY1OTcsMTIzNTcxMzY3
 NSwtMjAxMjM5OTQzOCwtOTgxOTY2NjE1LC01MTQ1OTY3NTcsLT
 EzMDEwMzc2MTksLTE3Nzc4Mjk5OTUsLTcwNjIzNzQ0Ml19
