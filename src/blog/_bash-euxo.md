@@ -51,7 +51,7 @@ The POSIX standards define many shell options that, when set, last for the lengt
 set -o
 ```
 
-Because these options are part of the POSIX standards, any shell that is POSIX-compliant should implement them correctly (Bash.
+Because these options are part of the POSIX standards, any shell that is POSIX-compliant should implement them correctly ([Bash](https://www.gnu.org/software/bash/manual/html_node/The-Set-Builtin.html), [Zsh](https://zsh.sourceforge.io/Doc/Release/Options.html?utm_source=chatgpt.com#sh_002fksh-emulation-set)).
 
 _Note: [`set -o pipefail`](https://pubs.opengroup.org/onlinepubs/9799919799/utilities/V3_chap02.html#tag_19_08_01) was only recently added in POSIX.1-2024._
 
@@ -80,7 +80,7 @@ _Note: [`set -o pipefail`](https://pubs.opengroup.org/onlinepubs/9799919799/util
 	}
 	```
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTE0MDYzNjk5OTcsMTYxMTExNzYzNywtND
+eyJoaXN0b3J5IjpbLTE4NzI5NzI4OTYsMTYxMTExNzYzNywtND
 QwMTMwNDg5LC0xNjUwNzM2NTAzLDY1OTM5OTUsLTE4OTY3NTQ4
 OTUsLTkxMjY3MjA2NCwzNjUxODY5NTEsLTgzMDcwMDM2OSwxND
 Q5NzQ2NTk3LDEyMzU3MTM2NzUsLTIwMTIzOTk0MzgsLTk4MTk2
