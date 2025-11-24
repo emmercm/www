@@ -51,9 +51,9 @@ The POSIX standards define many shell options that, when set, last for the lengt
 set -o
 ```
 
-Because these opt
+Because these options are part of the POSIX standards, any shell that is POSIX-compliant should implement them correctly (Bash.
 
-https://pubs.opengroup.org/onlinepubs/9799919799/utilities/V3_chap02.html#tag_19_08_01
+_Note: [`set -o pipefail`](https://pubs.opengroup.org/onlinepubs/9799919799/utilities/V3_chap02.html#tag_19_08_01) was only recently added in POSIX.1-2024._
 
 ## Where you _should_ use it
 
@@ -80,10 +80,10 @@ https://pubs.opengroup.org/onlinepubs/9799919799/utilities/V3_chap02.html#tag_19
 	}
 	```
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMzgwODQxMTI5LDE2MTExMTc2MzcsLTQ0MD
-EzMDQ4OSwtMTY1MDczNjUwMyw2NTkzOTk1LC0xODk2NzU0ODk1
-LC05MTI2NzIwNjQsMzY1MTg2OTUxLC04MzA3MDAzNjksMTQ0OT
-c0NjU5NywxMjM1NzEzNjc1LC0yMDEyMzk5NDM4LC05ODE5NjY2
-MTUsLTUxNDU5Njc1NywtMTMwMTAzNzYxOSwtMTc3NzgyOTk5NS
-wtNzA2MjM3NDQyXX0=
+eyJoaXN0b3J5IjpbLTE0MDYzNjk5OTcsMTYxMTExNzYzNywtND
+QwMTMwNDg5LC0xNjUwNzM2NTAzLDY1OTM5OTUsLTE4OTY3NTQ4
+OTUsLTkxMjY3MjA2NCwzNjUxODY5NTEsLTgzMDcwMDM2OSwxND
+Q5NzQ2NTk3LDEyMzU3MTM2NzUsLTIwMTIzOTk0MzgsLTk4MTk2
+NjYxNSwtNTE0NTk2NzU3LC0xMzAxMDM3NjE5LC0xNzc3ODI5OT
+k1LC03MDYyMzc0NDJdfQ==
 -->
