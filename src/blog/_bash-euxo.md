@@ -126,13 +126,17 @@ Using `set -u` lets you be sure that the arguments you're providing to commands 
 
 ### `set -o pipefail`
 
-This will cause a script to fail if any command in a pipeline (those chained with `|` pipes) fails. If multiple commands fail, the last/rightmost failing command's exit code will be used. `set -o pipefail` does _not_ cause 
+This will cause a script to fail if any command in a pipeline (those chained with `|` pipes) fails. If multiple commands fail, the last/rightmost failing command's exit code will be used. `set -o pipefail` does _not_ cause early termination of the pipeline, the full pipeline will still run.
 
-This will cause a script to fail if any command in a pipeline (those chained with `|` pipes) fails. By default, the shell only cares about the last command in the pipeline. For example:
+For example:
 
 ```bash
 #!/usr/bin/env bash
 set -o pipefail
+
+# Because 'set -o pipeline' does not cause early termination,
+# 'echo' will still be invoked, but the overall pipeline will fail
+false | echo "this will print"
 ```
 
 ## Where you _should_ use it
@@ -160,11 +164,11 @@ set -o pipefail
 	}
 	```
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTIxMjIyODIyNjcsMTg1MDY1MTY1OCwtMT
-g3Mjk3Mjg5NiwxNjExMTE3NjM3LC00NDAxMzA0ODksLTE2NTA3
-MzY1MDMsNjU5Mzk5NSwtMTg5Njc1NDg5NSwtOTEyNjcyMDY0LD
-M2NTE4Njk1MSwtODMwNzAwMzY5LDE0NDk3NDY1OTcsMTIzNTcx
-MzY3NSwtMjAxMjM5OTQzOCwtOTgxOTY2NjE1LC01MTQ1OTY3NT
-csLTEzMDEwMzc2MTksLTE3Nzc4Mjk5OTUsLTcwNjIzNzQ0Ml19
+eyJoaXN0b3J5IjpbLTM0OTIxMzY5MywxODUwNjUxNjU4LC0xOD
+cyOTcyODk2LDE2MTExMTc2MzcsLTQ0MDEzMDQ4OSwtMTY1MDcz
+NjUwMyw2NTkzOTk1LC0xODk2NzU0ODk1LC05MTI2NzIwNjQsMz
+Y1MTg2OTUxLC04MzA3MDAzNjksMTQ0OTc0NjU5NywxMjM1NzEz
+Njc1LC0yMDEyMzk5NDM4LC05ODE5NjY2MTUsLTUxNDU5Njc1Ny
+wtMTMwMTAzNzYxOSwtMTc3NzgyOTk5NSwtNzA2MjM3NDQyXX0=
 
 -->
