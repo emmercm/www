@@ -107,11 +107,13 @@ rm -rf "${NONEXISTENT_VAR}/"
 
 # Without 'set -u', this will do nothing, keeping the current working directory
 cd "${NONEXISTENT_VAR}"
+
+
 ```
 
 You can use the `${parameter:−word}` [shell parameter expansion](https://www.gnu.org/software/bash/manual/html_node/Shell-Parameter-Expansion.html) if it's safe to provide a [default value](/blog/bash-environment-variable-defaults).
 
-Using `set -u` lets you be sure
+Using `set -u` lets you be sure that the arguments you're providing to commands are exactly what you intended.
 
 ## Where you _should_ use it
 
@@ -138,7 +140,7 @@ Using `set -u` lets you be sure
 	}
 	```
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTkwODAyODI4OCwtMTg3Mjk3Mjg5NiwxNj
+eyJoaXN0b3J5IjpbMTg1MDY1MTY1OCwtMTg3Mjk3Mjg5NiwxNj
 ExMTE3NjM3LC00NDAxMzA0ODksLTE2NTA3MzY1MDMsNjU5Mzk5
 NSwtMTg5Njc1NDg5NSwtOTEyNjcyMDY0LDM2NTE4Njk1MSwtOD
 MwNzAwMzY5LDE0NDk3NDY1OTcsMTIzNTcxMzY3NSwtMjAxMjM5
