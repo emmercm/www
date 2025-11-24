@@ -15,11 +15,14 @@ Here's an example (albeit contrived) dangerous scenario:
 # (if $PROJECT_DIR is unset, this will silently do nothing)
 cd "${PROJECT_DIR}"
 
-# Get the latest
+# Pull the latest project version
 git clean -fdx
+git pull
+# (we don't know what we just affected, if anything)
 
-# Build the project
+# Build & install the project
 make
+make install
 # (we're not sure what we might have just built)
 
 # Move all built executables to /usr/local/bin
@@ -70,8 +73,8 @@ rm -rf build
 	}
 	```
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTY1NTQ3ODcxMSwtOTEyNjcyMDY0LDM2NT
-E4Njk1MSwtODMwNzAwMzY5LDE0NDk3NDY1OTcsMTIzNTcxMzY3
-NSwtMjAxMjM5OTQzOCwtOTgxOTY2NjE1LC01MTQ1OTY3NTcsLT
-EzMDEwMzc2MTksLTE3Nzc4Mjk5OTUsLTcwNjIzNzQ0Ml19
+eyJoaXN0b3J5IjpbLTcyOTYyNDgwLC05MTI2NzIwNjQsMzY1MT
+g2OTUxLC04MzA3MDAzNjksMTQ0OTc0NjU5NywxMjM1NzEzNjc1
+LC0yMDEyMzk5NDM4LC05ODE5NjY2MTUsLTUxNDU5Njc1NywtMT
+MwMTAzNzYxOSwtMTc3NzgyOTk5NSwtNzA2MjM3NDQyXX0=
 -->
