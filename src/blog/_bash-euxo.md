@@ -10,6 +10,10 @@ Unlike typical programming languages, Bash doesn't terminate when it encounters 
 
 Here's an example dangerous scenario:
 
+```bash
+for dir in 
+```
+
 1. At the top of every bash file
 2. As the Docker shell
 3. In GitHub Actions steps?
@@ -23,6 +27,6 @@ Here's an example dangerous scenario:
 	}
 	```
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTE3NjUwNDA1ODUsLTE3Nzc4Mjk5OTUsLT
-cwNjIzNzQ0Ml19
+eyJoaXN0b3J5IjpbNTc4ODQ1NTM4LC0xNzc3ODI5OTk1LC03MD
+YyMzc0NDJdfQ==
 -->
