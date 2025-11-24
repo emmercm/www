@@ -8,14 +8,14 @@ tags:
 
 Unlike typical programming languages, Bash doesn't terminate when it encounters an exception.
 
-Here's an example dangerous scenario:
+Here's an example (albeit contrived) dangerous scenario:
 
 ```bash
 # Go to the project directory
 # (if $PROJECT_DIR is unset, this will silently do nothing)
 cd "${PROJECT_DIR}"
 
-# Clean up previous build artifacts
+# Clean up any previous build artifacts
 # (we aren't sure what directory this is being executed in)
 find . -name "*.o" -print0 | xargs -0 rm -f
 
@@ -47,7 +47,7 @@ make install
 	}
 	```
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTE4NzM1NDgyNTcsMTIzNTcxMzY3NSwtMj
-AxMjM5OTQzOCwtOTgxOTY2NjE1LC01MTQ1OTY3NTcsLTEzMDEw
-Mzc2MTksLTE3Nzc4Mjk5OTUsLTcwNjIzNzQ0Ml19
+eyJoaXN0b3J5IjpbMTQ0OTc0NjU5NywxMjM1NzEzNjc1LC0yMD
+EyMzk5NDM4LC05ODE5NjY2MTUsLTUxNDU5Njc1NywtMTMwMTAz
+NzYxOSwtMTc3NzgyOTk5NSwtNzA2MjM3NDQyXX0=
 -->
