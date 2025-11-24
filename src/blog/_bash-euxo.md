@@ -14,7 +14,9 @@ Here's an example dangerous scenario:
 # If $ROOT_DIR is unset, this will silently do nothing
 cd "${ROOT_DIR}"
 
-find . -type d -mindepth 1 -maxdepth 1 | while read -r dir; do echo $dir; done
+find . -type d -mindepth 1 -maxdepth 1 | while read -r dir; do
+	echo $dir
+done
 ```
 
 1. At the top of every bash file
@@ -30,6 +32,6 @@ find . -type d -mindepth 1 -maxdepth 1 | while read -r dir; do echo $dir; done
 	}
 	```
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTUxNDU5Njc1NywtMTMwMTAzNzYxOSwtMT
-c3NzgyOTk5NSwtNzA2MjM3NDQyXX0=
+eyJoaXN0b3J5IjpbLTI3MzQzODUxOCwtNTE0NTk2NzU3LC0xMz
+AxMDM3NjE5LC0xNzc3ODI5OTk1LC03MDYyMzc0NDJdfQ==
 -->
