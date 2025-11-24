@@ -116,7 +116,7 @@ elif [ -z "${NONEXISTENT_VAR}" ]; then
 fi
 
 if [ -z "${NONEXISTENT_VAR:-}" ]; then
-	echo "NONEXISTENT_VAR is unset or null"
+	echo "NONEXISTENT_VAR is unset or null (set, but empty)"
 fi
 ```
 
@@ -149,7 +149,7 @@ Using `set -u` lets you be sure that the arguments you're providing to commands 
 	}
 	```
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTYyOTU5MDI0NCwxODUwNjUxNjU4LC0xOD
+eyJoaXN0b3J5IjpbMjA5NDk1MjU4MSwxODUwNjUxNjU4LC0xOD
 cyOTcyODk2LDE2MTExMTc2MzcsLTQ0MDEzMDQ4OSwtMTY1MDcz
 NjUwMyw2NTkzOTk1LC0xODk2NzU0ODk1LC05MTI2NzIwNjQsMz
 Y1MTg2OTUxLC04MzA3MDAzNjksMTQ0OTc0NjU5NywxMjM1NzEz
