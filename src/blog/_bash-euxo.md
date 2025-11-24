@@ -156,12 +156,15 @@ Using `set -o pipefail`, similar to `set -e`, lets you be sure that execution wo
 name: Dummy Workflow
 on:
 	push:
+defaults:
+	run:
+		shell: bash --noprofile --norc -euo pipefail {0}
 jobs:
 	dummy:
 		runs-on: ubuntu-latest
-		defaults:
-			run:
-				shell: bash --noprofile --norc -euo pipefail {0}
+		steps:
+			- run: "set -euo pipefail is active"
+			- run: "set -euo pipefail is still active"
 ```
 
 ## Where you _can_ be safe
@@ -185,11 +188,11 @@ jobs:
 	}
 	```
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTcyNjY3NDYyMiwtODEwNDY4MzMxLDE4NT
-A2NTE2NTgsLTE4NzI5NzI4OTYsMTYxMTExNzYzNywtNDQwMTMw
-NDg5LC0xNjUwNzM2NTAzLDY1OTM5OTUsLTE4OTY3NTQ4OTUsLT
-kxMjY3MjA2NCwzNjUxODY5NTEsLTgzMDcwMDM2OSwxNDQ5NzQ2
-NTk3LDEyMzU3MTM2NzUsLTIwMTIzOTk0MzgsLTk4MTk2NjYxNS
-wtNTE0NTk2NzU3LC0xMzAxMDM3NjE5LC0xNzc3ODI5OTk1LC03
-MDYyMzc0NDJdfQ==
+eyJoaXN0b3J5IjpbLTE1Nzk4NDg0NTUsLTgxMDQ2ODMzMSwxOD
+UwNjUxNjU4LC0xODcyOTcyODk2LDE2MTExMTc2MzcsLTQ0MDEz
+MDQ4OSwtMTY1MDczNjUwMyw2NTkzOTk1LC0xODk2NzU0ODk1LC
+05MTI2NzIwNjQsMzY1MTg2OTUxLC04MzA3MDAzNjksMTQ0OTc0
+NjU5NywxMjM1NzEzNjc1LC0yMDEyMzk5NDM4LC05ODE5NjY2MT
+UsLTUxNDU5Njc1NywtMTMwMTAzNzYxOSwtMTc3NzgyOTk5NSwt
+NzA2MjM3NDQyXX0=
 -->
