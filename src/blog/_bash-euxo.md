@@ -150,7 +150,7 @@ Using `set -o pipefail`, similar to `set -e`, lets you be sure that execution wo
 
 **At the beginning of every shell script.** By default, put this at the top of every shell script you write, right below the shebang. The amount of safety gained is grossly more important than the more verbose code you'll have to write.
 
-**In your CI shells.**
+**In your CI shells.** GitHub Actions sets [`set -eo pipefail` automatically
 
 ## Where you _can_ be safe
 
@@ -173,11 +173,11 @@ Using `set -o pipefail`, similar to `set -e`, lets you be sure that execution wo
 	}
 	```
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTEyOTcwMDY3NjgsMTg1MDY1MTY1OCwtMT
-g3Mjk3Mjg5NiwxNjExMTE3NjM3LC00NDAxMzA0ODksLTE2NTA3
-MzY1MDMsNjU5Mzk5NSwtMTg5Njc1NDg5NSwtOTEyNjcyMDY0LD
-M2NTE4Njk1MSwtODMwNzAwMzY5LDE0NDk3NDY1OTcsMTIzNTcx
-MzY3NSwtMjAxMjM5OTQzOCwtOTgxOTY2NjE1LC01MTQ1OTY3NT
-csLTEzMDEwMzc2MTksLTE3Nzc4Mjk5OTUsLTcwNjIzNzQ0Ml19
+eyJoaXN0b3J5IjpbMTE5NzEzNjMwMCwxODUwNjUxNjU4LC0xOD
+cyOTcyODk2LDE2MTExMTc2MzcsLTQ0MDEzMDQ4OSwtMTY1MDcz
+NjUwMyw2NTkzOTk1LC0xODk2NzU0ODk1LC05MTI2NzIwNjQsMz
+Y1MTg2OTUxLC04MzA3MDAzNjksMTQ0OTc0NjU5NywxMjM1NzEz
+Njc1LC0yMDEyMzk5NDM4LC05ODE5NjY2MTUsLTUxNDU5Njc1Ny
+wtMTMwMTAzNzYxOSwtMTc3NzgyOTk5NSwtNzA2MjM3NDQyXX0=
 
 -->
