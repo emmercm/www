@@ -15,17 +15,16 @@ Here's an example dangerous scenario:
 # (if $PROJECT_DIR is unset, this will silently do nothing)
 cd "${PROJECT_DIR}"
 
-# Build the project
+# Clean up previous build artifacts
 # (we aren't sure what directory this is being executed in)
+find . -name "*.o" -print0 | xargs -0 rm -f
+
+# Build the project
 make
 make install
 
-# Clean up build artifacts
 # (this will be run even if 'make' failed)
 
-find . -type d -mindepth 1 -maxdepth 1 | while read -r dir; do
-	echo $dir
-done
 ```
 
 ## Where you _should_ use it
@@ -48,7 +47,7 @@ done
 	}
 	```
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTg2NjE5NzgxMywxMjM1NzEzNjc1LC0yMD
-EyMzk5NDM4LC05ODE5NjY2MTUsLTUxNDU5Njc1NywtMTMwMTAz
-NzYxOSwtMTc3NzgyOTk5NSwtNzA2MjM3NDQyXX0=
+eyJoaXN0b3J5IjpbLTE4NzM1NDgyNTcsMTIzNTcxMzY3NSwtMj
+AxMjM5OTQzOCwtOTgxOTY2NjE1LC01MTQ1OTY3NTcsLTEzMDEw
+Mzc2MTksLTE3Nzc4Mjk5OTUsLTcwNjIzNzQ0Ml19
 -->
