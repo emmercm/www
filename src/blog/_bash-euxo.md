@@ -207,6 +207,12 @@ nounset        	on
 pipefail       	on
 ```
 
+However, `set -e` can behave differently in checked vs. unchecked contexts:
+
+```bash
+
+```
+
 **In subshells.** The Bash you're writing may be in a location that is inappropriate to set defaults, such as in `~/.bashrc`/`~/.zshrc`. In these instances, you could consider the overhead of spawning [subshells](https://tldp.org/LDP/abs/html/subshells.html) and setting `set -euo pipefail` within them.
 
 ---
@@ -224,11 +230,11 @@ pipefail       	on
 	}
 	```
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbNDM0NDA2NzIsODQwMTQ1MDA4LC04ODgzMT
-Q5MzIsLTgxMDQ2ODMzMSwxODUwNjUxNjU4LC0xODcyOTcyODk2
-LDE2MTExMTc2MzcsLTQ0MDEzMDQ4OSwtMTY1MDczNjUwMyw2NT
-kzOTk1LC0xODk2NzU0ODk1LC05MTI2NzIwNjQsMzY1MTg2OTUx
-LC04MzA3MDAzNjksMTQ0OTc0NjU5NywxMjM1NzEzNjc1LC0yMD
-EyMzk5NDM4LC05ODE5NjY2MTUsLTUxNDU5Njc1NywtMTMwMTAz
-NzYxOV19
+eyJoaXN0b3J5IjpbLTE4MjY5NjE4ODAsODQwMTQ1MDA4LC04OD
+gzMTQ5MzIsLTgxMDQ2ODMzMSwxODUwNjUxNjU4LC0xODcyOTcy
+ODk2LDE2MTExMTc2MzcsLTQ0MDEzMDQ4OSwtMTY1MDczNjUwMy
+w2NTkzOTk1LC0xODk2NzU0ODk1LC05MTI2NzIwNjQsMzY1MTg2
+OTUxLC04MzA3MDAzNjksMTQ0OTc0NjU5NywxMjM1NzEzNjc1LC
+0yMDEyMzk5NDM4LC05ODE5NjY2MTUsLTUxNDU5Njc1NywtMTMw
+MTAzNzYxOV19
 -->
