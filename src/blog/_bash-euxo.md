@@ -25,7 +25,7 @@ make
 make install
 # (we don't know what we just installed, if anything)
 
-cat build.log
+ls build | grep -v
 
 # Move all built executables to /usr/local/bin
 find . -maxdepth 1 -type f -perm +111 -print0 \
@@ -75,9 +75,9 @@ rm -rf build
 	}
 	```
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbNjU5Mzk5NSwtMTg5Njc1NDg5NSwtOTEyNj
-cyMDY0LDM2NTE4Njk1MSwtODMwNzAwMzY5LDE0NDk3NDY1OTcs
-MTIzNTcxMzY3NSwtMjAxMjM5OTQzOCwtOTgxOTY2NjE1LC01MT
-Q1OTY3NTcsLTEzMDEwMzc2MTksLTE3Nzc4Mjk5OTUsLTcwNjIz
-NzQ0Ml19
+eyJoaXN0b3J5IjpbLTE2NTA3MzY1MDMsNjU5Mzk5NSwtMTg5Nj
+c1NDg5NSwtOTEyNjcyMDY0LDM2NTE4Njk1MSwtODMwNzAwMzY5
+LDE0NDk3NDY1OTcsMTIzNTcxMzY3NSwtMjAxMjM5OTQzOCwtOT
+gxOTY2NjE1LC01MTQ1OTY3NTcsLTEzMDEwMzc2MTksLTE3Nzc4
+Mjk5OTUsLTcwNjIzNzQ0Ml19
 -->
