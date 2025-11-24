@@ -189,7 +189,23 @@ RUN echo "set -euo pipefail is active" && \
 
 [Subshells](https://tldp.org/LDP/abs/html/subshells.html) generally inherit all of the `set -euo pipefail` options. (A notable exclusion is when Bash is not in POSIX mode, it [will clear the `set -e` option in subshells](https://www.gnu.org/software/bash/manual/html_node/Command-Execution-Environment.html).) You can prove this for yourself like this:
 
+```shell
+$ set -o | grep -E 'errexit|nounset|pipefail'
+errexit        	off
+nounset        	off
+pipefail       	off
 
+$ set -euo pipefail
+$ set -o | grep -E 'errexit|nounset|pipefail'
+errexit        	on
+nounset        	on
+pipefail       	on
+
+$ (set -o | grep -E 'errexit|nounset|pipefail')
+errexit        	on
+nounset        	on
+pipefail       	on
+```
 
 **In subshells.** The Bash you're writing may be in a location that is inappropriate to set defaults, such as in `~/.bashrc`/`~/.zshrc`. In these instances, you could consider the overhead of spawning [subshells](https://tldp.org/LDP/abs/html/subshells.html) and setting `set -euo pipefail` within them.
 
@@ -208,11 +224,11 @@ RUN echo "set -euo pipefail is active" && \
 	}
 	```
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTU2Mzg1NDYxNiw4NDAxNDUwMDgsLTg4OD
-MxNDkzMiwtODEwNDY4MzMxLDE4NTA2NTE2NTgsLTE4NzI5NzI4
-OTYsMTYxMTExNzYzNywtNDQwMTMwNDg5LC0xNjUwNzM2NTAzLD
-Y1OTM5OTUsLTE4OTY3NTQ4OTUsLTkxMjY3MjA2NCwzNjUxODY5
-NTEsLTgzMDcwMDM2OSwxNDQ5NzQ2NTk3LDEyMzU3MTM2NzUsLT
-IwMTIzOTk0MzgsLTk4MTk2NjYxNSwtNTE0NTk2NzU3LC0xMzAx
-MDM3NjE5XX0=
+eyJoaXN0b3J5IjpbNDM0NDA2NzIsODQwMTQ1MDA4LC04ODgzMT
+Q5MzIsLTgxMDQ2ODMzMSwxODUwNjUxNjU4LC0xODcyOTcyODk2
+LDE2MTExMTc2MzcsLTQ0MDEzMDQ4OSwtMTY1MDczNjUwMyw2NT
+kzOTk1LC0xODk2NzU0ODk1LC05MTI2NzIwNjQsMzY1MTg2OTUx
+LC04MzA3MDAzNjksMTQ0OTc0NjU5NywxMjM1NzEzNjc1LC0yMD
+EyMzk5NDM4LC05ODE5NjY2MTUsLTUxNDU5Njc1NywtMTMwMTAz
+NzYxOV19
 -->
