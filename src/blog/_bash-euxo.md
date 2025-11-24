@@ -134,9 +134,9 @@ For example:
 #!/usr/bin/env bash
 set -o pipefail
 
-# Without 'set -o pipeline', both 'echo's would be invoked
-# Because 'set -o pipeline' does not cause early termination,
-# the first 'echo' will still be invoked, but the overall pipeline will fail
+# Without 'set -o pipefail', "but this won't" would be printed
+# Even with 'set -o pipefail', "this will print" is still printed
+# because
 false | echo "this will print" && echo "but this won't"
 
 cat
@@ -167,11 +167,11 @@ cat
 	}
 	```
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTg3NTcxMjk1OSwxODUwNjUxNjU4LC0xOD
-cyOTcyODk2LDE2MTExMTc2MzcsLTQ0MDEzMDQ4OSwtMTY1MDcz
-NjUwMyw2NTkzOTk1LC0xODk2NzU0ODk1LC05MTI2NzIwNjQsMz
-Y1MTg2OTUxLC04MzA3MDAzNjksMTQ0OTc0NjU5NywxMjM1NzEz
-Njc1LC0yMDEyMzk5NDM4LC05ODE5NjY2MTUsLTUxNDU5Njc1Ny
-wtMTMwMTAzNzYxOSwtMTc3NzgyOTk5NSwtNzA2MjM3NDQyXX0=
+eyJoaXN0b3J5IjpbLTEwNDM2MjE1MDMsMTg1MDY1MTY1OCwtMT
+g3Mjk3Mjg5NiwxNjExMTE3NjM3LC00NDAxMzA0ODksLTE2NTA3
+MzY1MDMsNjU5Mzk5NSwtMTg5Njc1NDg5NSwtOTEyNjcyMDY0LD
+M2NTE4Njk1MSwtODMwNzAwMzY5LDE0NDk3NDY1OTcsMTIzNTcx
+MzY3NSwtMjAxMjM5OTQzOCwtOTgxOTY2NjE1LC01MTQ1OTY3NT
+csLTEzMDEwMzc2MTksLTE3Nzc4Mjk5OTUsLTcwNjIzNzQ0Ml19
 
 -->
