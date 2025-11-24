@@ -72,6 +72,10 @@ false && echo "will never print"
 echo "hello" | grep -q "world"
 ```
 
+You will still have some commands you'll want to ignore errors such that the script doesn't exit, 
+
+Using this option lets you be sure that no matter where you are in your script's execution, you can be sure that all previous commands succeeded or had failures explicitly ignored.
+
 ## Where you _should_ use it
 
 **At the beginning of every shell script.**
@@ -97,10 +101,10 @@ echo "hello" | grep -q "world"
 	}
 	```
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTU5MDkwOTI3LC0xODcyOTcyODk2LDE2MT
-ExMTc2MzcsLTQ0MDEzMDQ4OSwtMTY1MDczNjUwMyw2NTkzOTk1
-LC0xODk2NzU0ODk1LC05MTI2NzIwNjQsMzY1MTg2OTUxLC04Mz
-A3MDAzNjksMTQ0OTc0NjU5NywxMjM1NzEzNjc1LC0yMDEyMzk5
-NDM4LC05ODE5NjY2MTUsLTUxNDU5Njc1NywtMTMwMTAzNzYxOS
-wtMTc3NzgyOTk5NSwtNzA2MjM3NDQyXX0=
+eyJoaXN0b3J5IjpbLTE1NTA1MDA0MDcsLTE4NzI5NzI4OTYsMT
+YxMTExNzYzNywtNDQwMTMwNDg5LC0xNjUwNzM2NTAzLDY1OTM5
+OTUsLTE4OTY3NTQ4OTUsLTkxMjY3MjA2NCwzNjUxODY5NTEsLT
+gzMDcwMDM2OSwxNDQ5NzQ2NTk3LDEyMzU3MTM2NzUsLTIwMTIz
+OTk0MzgsLTk4MTk2NjYxNSwtNTE0NTk2NzU3LC0xMzAxMDM3Nj
+E5LC0xNzc3ODI5OTk1LC03MDYyMzc0NDJdfQ==
 -->
