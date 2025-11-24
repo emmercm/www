@@ -163,20 +163,30 @@ jobs:
 	dummy:
 		runs-on: ubuntu-latest
 		steps:
-			- run: "set -euo pipefail is active"
-			- run: "set -euo pipefail is still active"
+			- run: echo "set -euo pipefail is active"
+			- run: echo "set -euo pipefail is still active"
 ```
 
 **In your Dockerfiles.** You can change the shell and its parameters in a Dockerfile like this:
 
 ```dockerfile
+FROM ubuntu:latest
+SHELL ["/bin/bash", "-euo", "pipefail", "-c"]
+RUN echo "set -euo pipefail is active" && \
+    echo "set -euo pipefail is still active"
+```
+
+```dockerfile
 FROM alpine:latest
 SHELL ["/bin/ash", "-euo", "pipefail", "-c"]
-RUN
+RUN echo "set -euo pipefail is active" && \
+    echo "set -euo pipefail is still active"
 ```
 
 
 ## Where you _can_ be safe
+
+**In subshells.**
 
 ## Option inheritance
 
@@ -197,7 +207,7 @@ RUN
 	}
 	```
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTMxODEzNTg4MiwtODEwNDY4MzMxLDE4NT
+eyJoaXN0b3J5IjpbLTg4ODMxNDkzMiwtODEwNDY4MzMxLDE4NT
 A2NTE2NTgsLTE4NzI5NzI4OTYsMTYxMTExNzYzNywtNDQwMTMw
 NDg5LC0xNjUwNzM2NTAzLDY1OTM5OTUsLTE4OTY3NTQ4OTUsLT
 kxMjY3MjA2NCwzNjUxODY5NTEsLTgzMDcwMDM2OSwxNDQ5NzQ2
