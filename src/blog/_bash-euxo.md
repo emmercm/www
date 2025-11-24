@@ -19,6 +19,11 @@ find . -type d -mindepth 1 -maxdepth 1 | while read -r dir; do
 done
 ```
 
+## Where you _should_ use it
+
+## Where you _can_ use it
+
+
 1. At the top of every bash file
 2. As the Docker shell
 3. In GitHub Actions steps?
@@ -32,6 +37,7 @@ done
 	}
 	```
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTk4MTk2NjYxNSwtNTE0NTk2NzU3LC0xMz
-AxMDM3NjE5LC0xNzc3ODI5OTk1LC03MDYyMzc0NDJdfQ==
+eyJoaXN0b3J5IjpbLTIwMTIzOTk0MzgsLTk4MTk2NjYxNSwtNT
+E0NTk2NzU3LC0xMzAxMDM3NjE5LC0xNzc3ODI5OTk1LC03MDYy
+Mzc0NDJdfQ==
 -->
