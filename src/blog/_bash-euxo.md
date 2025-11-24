@@ -45,7 +45,11 @@ set -euo pipefail
 
 ## Explanation
 
-Bash has many shell options that you can set that last for the length of the script or shell. 
+Bash has many shell options that you can set that last for the length of the script or shell. These options are configured with the [`set` builtin](https://www.gnu.org/software/bash/manual/html_node/The-Set-Builtin.html), and you can see your current options with:
+
+```shell
+set -o
+```
 
 ## Where you _should_ use it
 
@@ -72,7 +76,7 @@ Bash has many shell options that you can set that last for the length of the scr
 	}
 	```
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTkwNzgzNjI5NSwtNDQwMTMwNDg5LC0xNj
+eyJoaXN0b3J5IjpbMTYxMTExNzYzNywtNDQwMTMwNDg5LC0xNj
 UwNzM2NTAzLDY1OTM5OTUsLTE4OTY3NTQ4OTUsLTkxMjY3MjA2
 NCwzNjUxODY5NTEsLTgzMDcwMDM2OSwxNDQ5NzQ2NTk3LDEyMz
 U3MTM2NzUsLTIwMTIzOTk0MzgsLTk4MTk2NjYxNSwtNTE0NTk2
