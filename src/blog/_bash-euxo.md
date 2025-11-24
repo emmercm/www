@@ -39,7 +39,13 @@ What a mess! We have zero confidence the script did what it was supposed to, and
 
 The answer? [Bash shell options](https://www.gnu.org/software/bash/manual/html_node/The-Set-Builtin.html).
 
-## Default 
+## Default options for safety.
+
+What you want at the top of every Bash script, directly after the [shebang](https://en.wikipedia.org/wiki/Shebang_(Unix)), is this:
+
+```shell
+set -euo pipefail
+```
 
 ## Where you _should_ use it
 
@@ -61,7 +67,7 @@ The answer? [Bash shell options](https://www.gnu.org/software/bash/manual/html_n
 	}
 	```
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTI5OTAzMjg2NiwtNDQwMTMwNDg5LC0xNj
+eyJoaXN0b3J5IjpbLTMyNzY0MjA3MSwtNDQwMTMwNDg5LC0xNj
 UwNzM2NTAzLDY1OTM5OTUsLTE4OTY3NTQ4OTUsLTkxMjY3MjA2
 NCwzNjUxODY5NTEsLTgzMDcwMDM2OSwxNDQ5NzQ2NTk3LDEyMz
 U3MTM2NzUsLTIwMTIzOTk0MzgsLTk4MTk2NjYxNSwtNTE0NTk2
