@@ -15,7 +15,7 @@ Here's an example (albeit contrived) dangerous scenario:
 # (if $PROJECT_DIR is unset, this will silently do nothing)
 cd "${PROJECT_DIR}"
 
-# Pull the latest project version
+# Remove untracked files and pull the latest version
 git clean -fdx
 git pull
 # (we don't know what we just affected, if anything)
@@ -23,7 +23,7 @@ git pull
 # Build & install the project
 make
 make install
-# (we're not sure what we might have just built)
+# (we don't know what we just installed, if anything)
 
 # Move all built executables to /usr/local/bin
 find . -maxdepth 1 -type f -perm +111 -print0 \
@@ -73,8 +73,9 @@ rm -rf build
 	}
 	```
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTcyOTYyNDgwLC05MTI2NzIwNjQsMzY1MT
-g2OTUxLC04MzA3MDAzNjksMTQ0OTc0NjU5NywxMjM1NzEzNjc1
-LC0yMDEyMzk5NDM4LC05ODE5NjY2MTUsLTUxNDU5Njc1NywtMT
-MwMTAzNzYxOSwtMTc3NzgyOTk5NSwtNzA2MjM3NDQyXX0=
+eyJoaXN0b3J5IjpbLTE4OTY3NTQ4OTUsLTkxMjY3MjA2NCwzNj
+UxODY5NTEsLTgzMDcwMDM2OSwxNDQ5NzQ2NTk3LDEyMzU3MTM2
+NzUsLTIwMTIzOTk0MzgsLTk4MTk2NjYxNSwtNTE0NTk2NzU3LC
+0xMzAxMDM3NjE5LC0xNzc3ODI5OTk1LC03MDYyMzc0NDJdfQ==
+
 -->
