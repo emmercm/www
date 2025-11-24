@@ -134,12 +134,14 @@ For example:
 #!/usr/bin/env bash
 set -o pipefail
 
-# Without 'set -o pipefail', "but this won't" would be printed
-# Even with 'set -o pipefail', "this will print" is still printed
-# because
+# Without 'set -o pipefail', "but this won't" would be printed;
+# but even with 'set -o pipefail', "this will print" is still
+# printed because 'set -o pipefail' doesn't cause early termination
 false | echo "this will print" && echo "but this won't"
 
-cat
+# Without 'set -o pipefail', 'gzip' would compress the empty
+# output of 'cat', causing a compressed file to be created
+cat nonexistent_file | gzip > compressed_file.gz
 ```
 
 ## Where you _should_ use it
@@ -167,11 +169,10 @@ cat
 	}
 	```
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTEwNDM2MjE1MDMsMTg1MDY1MTY1OCwtMT
-g3Mjk3Mjg5NiwxNjExMTE3NjM3LC00NDAxMzA0ODksLTE2NTA3
-MzY1MDMsNjU5Mzk5NSwtMTg5Njc1NDg5NSwtOTEyNjcyMDY0LD
-M2NTE4Njk1MSwtODMwNzAwMzY5LDE0NDk3NDY1OTcsMTIzNTcx
-MzY3NSwtMjAxMjM5OTQzOCwtOTgxOTY2NjE1LC01MTQ1OTY3NT
-csLTEzMDEwMzc2MTksLTE3Nzc4Mjk5OTUsLTcwNjIzNzQ0Ml19
-
+eyJoaXN0b3J5IjpbNTY3NDE0NDMsMTg1MDY1MTY1OCwtMTg3Mj
+k3Mjg5NiwxNjExMTE3NjM3LC00NDAxMzA0ODksLTE2NTA3MzY1
+MDMsNjU5Mzk5NSwtMTg5Njc1NDg5NSwtOTEyNjcyMDY0LDM2NT
+E4Njk1MSwtODMwNzAwMzY5LDE0NDk3NDY1OTcsMTIzNTcxMzY3
+NSwtMjAxMjM5OTQzOCwtOTgxOTY2NjE1LC01MTQ1OTY3NTcsLT
+EzMDEwMzc2MTksLTE3Nzc4Mjk5OTUsLTcwNjIzNzQ0Ml19
 -->
