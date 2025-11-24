@@ -39,6 +39,8 @@ What a mess! We have zero confidence the script did what it was supposed to, and
 
 The answer? [Bash shell options](https://www.gnu.org/software/bash/manual/html_node/The-Set-Builtin.html).
 
+## Default 
+
 ## Where you _should_ use it
 
 **At the beginning of every shell script.**
@@ -59,10 +61,10 @@ The answer? [Bash shell options](https://www.gnu.org/software/bash/manual/html_n
 	}
 	```
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTY0NDYwMTU3LC00NDAxMzA0ODksLTE2NT
-A3MzY1MDMsNjU5Mzk5NSwtMTg5Njc1NDg5NSwtOTEyNjcyMDY0
-LDM2NTE4Njk1MSwtODMwNzAwMzY5LDE0NDk3NDY1OTcsMTIzNT
-cxMzY3NSwtMjAxMjM5OTQzOCwtOTgxOTY2NjE1LC01MTQ1OTY3
-NTcsLTEzMDEwMzc2MTksLTE3Nzc4Mjk5OTUsLTcwNjIzNzQ0Ml
-19
+eyJoaXN0b3J5IjpbMTI5OTAzMjg2NiwtNDQwMTMwNDg5LC0xNj
+UwNzM2NTAzLDY1OTM5OTUsLTE4OTY3NTQ4OTUsLTkxMjY3MjA2
+NCwzNjUxODY5NTEsLTgzMDcwMDM2OSwxNDQ5NzQ2NTk3LDEyMz
+U3MTM2NzUsLTIwMTIzOTk0MzgsLTk4MTk2NjYxNSwtNTE0NTk2
+NzU3LC0xMzAxMDM3NjE5LC0xNzc3ODI5OTk1LC03MDYyMzc0ND
+JdfQ==
 -->
