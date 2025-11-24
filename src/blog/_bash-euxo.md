@@ -144,15 +144,13 @@ false | echo "this will print" && echo "but this won't"
 cat nonexistent_file | gzip > compressed_file.gz
 ```
 
-Using `set -o pipefail`, similar to `set
+Using `set -o pipefail`, similar to `set -e`, lets you be sure that execution won't continue after an unhandled command failure.
 
-Using `set -e` lets you be sure that no matter where you are in your script's execution, you can be sure that all previous commands succeeded or had failures explicitly ignored.
+## Where you _should_ be safe
 
-## Where you _should_ use it
+**At the beginning of every shell script.** By default, put this at the top of every shell script you write, right below the shebang. There's almost 
 
-**At the beginning of every shell script.**
-
-## Where you _can_ use it
+## Where you _can_ be safe
 
 ## Option inheritance
 
@@ -173,11 +171,11 @@ Using `set -e` lets you be sure that no matter where you are in your script's ex
 	}
 	```
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMzg1MzAwMDUzLDE4NTA2NTE2NTgsLTE4Nz
-I5NzI4OTYsMTYxMTExNzYzNywtNDQwMTMwNDg5LC0xNjUwNzM2
-NTAzLDY1OTM5OTUsLTE4OTY3NTQ4OTUsLTkxMjY3MjA2NCwzNj
-UxODY5NTEsLTgzMDcwMDM2OSwxNDQ5NzQ2NTk3LDEyMzU3MTM2
-NzUsLTIwMTIzOTk0MzgsLTk4MTk2NjYxNSwtNTE0NTk2NzU3LC
-0xMzAxMDM3NjE5LC0xNzc3ODI5OTk1LC03MDYyMzc0NDJdfQ==
+eyJoaXN0b3J5IjpbLTg5NzEwMTU2MSwxODUwNjUxNjU4LC0xOD
+cyOTcyODk2LDE2MTExMTc2MzcsLTQ0MDEzMDQ4OSwtMTY1MDcz
+NjUwMyw2NTkzOTk1LC0xODk2NzU0ODk1LC05MTI2NzIwNjQsMz
+Y1MTg2OTUxLC04MzA3MDAzNjksMTQ0OTc0NjU5NywxMjM1NzEz
+Njc1LC0yMDEyMzk5NDM4LC05ODE5NjY2MTUsLTUxNDU5Njc1Ny
+wtMTMwMTAzNzYxOSwtMTc3NzgyOTk5NSwtNzA2MjM3NDQyXX0=
 
 -->
