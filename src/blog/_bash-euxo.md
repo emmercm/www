@@ -59,7 +59,12 @@ Here is an explanation of all the recommended `set -euo pipefail` options.
 
 ### `set -e` / `set -o errexit`
 
-When a command fails
+The script will fail as soon as any chain of commands fails. For example:
+
+```bash
+# 'false' causes an exit code of 1, so 'echo' won't be invoked
+false && echo "will never print"
+```
 
 ## Where you _should_ use it
 
@@ -86,10 +91,10 @@ When a command fails
 	}
 	```
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbOTMzNjA5OTQ3LC0xODcyOTcyODk2LDE2MT
-ExMTc2MzcsLTQ0MDEzMDQ4OSwtMTY1MDczNjUwMyw2NTkzOTk1
-LC0xODk2NzU0ODk1LC05MTI2NzIwNjQsMzY1MTg2OTUxLC04Mz
-A3MDAzNjksMTQ0OTc0NjU5NywxMjM1NzEzNjc1LC0yMDEyMzk5
-NDM4LC05ODE5NjY2MTUsLTUxNDU5Njc1NywtMTMwMTAzNzYxOS
-wtMTc3NzgyOTk5NSwtNzA2MjM3NDQyXX0=
+eyJoaXN0b3J5IjpbLTEyMDg0NDgwNzksLTE4NzI5NzI4OTYsMT
+YxMTExNzYzNywtNDQwMTMwNDg5LC0xNjUwNzM2NTAzLDY1OTM5
+OTUsLTE4OTY3NTQ4OTUsLTkxMjY3MjA2NCwzNjUxODY5NTEsLT
+gzMDcwMDM2OSwxNDQ5NzQ2NTk3LDEyMzU3MTM2NzUsLTIwMTIz
+OTk0MzgsLTk4MTk2NjYxNSwtNTE0NTk2NzU3LC0xMzAxMDM3Nj
+E5LC0xNzc3ODI5OTk1LC03MDYyMzc0NDJdfQ==
 -->
