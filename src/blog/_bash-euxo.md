@@ -62,6 +62,9 @@ Here is an explanation of all the recommended `set -euo pipefail` options.
 This will cause a script to fail as soon as any chain of commands fails. For example:
 
 ```bash
+#!/usr/bin/env bash
+set -e
+
 # 'false' returns an exit code of 1
 false
 
@@ -75,6 +78,9 @@ echo "hello" | grep -q "world"
 You will still have some commands you'll want to ignore errors such that the script doesn't exit, you can do that with `|| true`:
 
 ```bash
+#!/usr/bin/env bash
+set -e
+
 # '|| true' causes the statement to return an exit of 0 always
 rm -rf "TMP_DIR" || true
 
@@ -91,8 +97,14 @@ Using `set -e` lets you be sure that no matter where you are in your script's ex
 This will cause a script to fail as soon as it comes across an unset variable. For example:
 
 ```bash
-# This
+#!/usr/bin/env bash
+set -u
+
+# This would cause a very dangerous 'rm -rf /' without 'set -u'
 rm -rf "${NONEXISTENT_VAR}/"
+
+#
+cd "${NONEXISTENT_VAR}"
 ```
 
 ## Where you _should_ use it
@@ -120,10 +132,10 @@ rm -rf "${NONEXISTENT_VAR}/"
 	}
 	```
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTc0NzIzNzc5LC0xODcyOTcyODk2LDE2MT
-ExMTc2MzcsLTQ0MDEzMDQ4OSwtMTY1MDczNjUwMyw2NTkzOTk1
-LC0xODk2NzU0ODk1LC05MTI2NzIwNjQsMzY1MTg2OTUxLC04Mz
-A3MDAzNjksMTQ0OTc0NjU5NywxMjM1NzEzNjc1LC0yMDEyMzk5
-NDM4LC05ODE5NjY2MTUsLTUxNDU5Njc1NywtMTMwMTAzNzYxOS
-wtMTc3NzgyOTk5NSwtNzA2MjM3NDQyXX0=
+eyJoaXN0b3J5IjpbMTExOTA1MzM4MywtMTg3Mjk3Mjg5NiwxNj
+ExMTE3NjM3LC00NDAxMzA0ODksLTE2NTA3MzY1MDMsNjU5Mzk5
+NSwtMTg5Njc1NDg5NSwtOTEyNjcyMDY0LDM2NTE4Njk1MSwtOD
+MwNzAwMzY5LDE0NDk3NDY1OTcsMTIzNTcxMzY3NSwtMjAxMjM5
+OTQzOCwtOTgxOTY2NjE1LC01MTQ1OTY3NTcsLTEzMDEwMzc2MT
+ksLTE3Nzc4Mjk5OTUsLTcwNjIzNzQ0Ml19
 -->
