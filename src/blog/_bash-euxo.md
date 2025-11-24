@@ -153,6 +153,14 @@ Using `set -o pipefail`, similar to `set -e`, lets you be sure that execution wo
 **In your CI shells.** GitHub Actions sets [`set -eo pipefail` automatically](https://docs.github.com/en/actions/reference/workflows-and-actions/workflow-syntax#exit-codes-and-error-action-preference) because these options are so important for safey, but crucially, it is missing `set -u`. You can set it like this:
 
 ```yaml
+name: Dummy Workflow
+on:
+	push:
+jobs:
+	dummy:
+		runs-on: ubuntu-latest
+		steps:
+			- 
 ```
 
 ## Where you _can_ be safe
@@ -176,11 +184,11 @@ Using `set -o pipefail`, similar to `set -e`, lets you be sure that execution wo
 	}
 	```
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTgxMDQ2ODMzMSwxODUwNjUxNjU4LC0xOD
-cyOTcyODk2LDE2MTExMTc2MzcsLTQ0MDEzMDQ4OSwtMTY1MDcz
-NjUwMyw2NTkzOTk1LC0xODk2NzU0ODk1LC05MTI2NzIwNjQsMz
-Y1MTg2OTUxLC04MzA3MDAzNjksMTQ0OTc0NjU5NywxMjM1NzEz
-Njc1LC0yMDEyMzk5NDM4LC05ODE5NjY2MTUsLTUxNDU5Njc1Ny
-wtMTMwMTAzNzYxOSwtMTc3NzgyOTk5NSwtNzA2MjM3NDQyXX0=
-
+eyJoaXN0b3J5IjpbNDY1OTk1MjY3LC04MTA0NjgzMzEsMTg1MD
+Y1MTY1OCwtMTg3Mjk3Mjg5NiwxNjExMTE3NjM3LC00NDAxMzA0
+ODksLTE2NTA3MzY1MDMsNjU5Mzk5NSwtMTg5Njc1NDg5NSwtOT
+EyNjcyMDY0LDM2NTE4Njk1MSwtODMwNzAwMzY5LDE0NDk3NDY1
+OTcsMTIzNTcxMzY3NSwtMjAxMjM5OTQzOCwtOTgxOTY2NjE1LC
+01MTQ1OTY3NTcsLTEzMDEwMzc2MTksLTE3Nzc4Mjk5OTUsLTcw
+NjIzNzQ0Ml19
 -->
