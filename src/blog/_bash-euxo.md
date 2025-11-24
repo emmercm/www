@@ -186,7 +186,7 @@ RUN echo "set -euo pipefail is active" && \
 
 ## Where you _can_ be safe
 
-**In subshells.** The Bash you're writing may be in a location that is inappropriate to set defaults, such as in `~/.bashrc`/`~.zshrc`
+**In subshells.** The Bash you're writing may be in a location that is inappropriate to set defaults, such as in `~/.bashrc`/`~/.zshrc`. In these instances, you could consider the overhead of spawning [subshells](https://tldp.org/LDP/abs/html/subshells.html) and setting `set -euo pipefail` within them.
 
 ## Option inheritance
 
@@ -207,7 +207,7 @@ RUN echo "set -euo pipefail is active" && \
 	}
 	```
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTYyNDI1MDc4MCwtODg4MzE0OTMyLC04MT
+eyJoaXN0b3J5IjpbMTIzNTk3MjQyMSwtODg4MzE0OTMyLC04MT
 A0NjgzMzEsMTg1MDY1MTY1OCwtMTg3Mjk3Mjg5NiwxNjExMTE3
 NjM3LC00NDAxMzA0ODksLTE2NTA3MzY1MDMsNjU5Mzk5NSwtMT
 g5Njc1NDg5NSwtOTEyNjcyMDY0LDM2NTE4Njk1MSwtODMwNzAw
