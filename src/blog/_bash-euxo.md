@@ -1,6 +1,6 @@
 ---
 
-title: set -euxo pipefail
+title: Safer Bash Scripts Through
 draft: true
 
 ---
@@ -18,5 +18,6 @@ draft: true
 	}
 	```
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTE3Nzc4Mjk5OTUsLTcwNjIzNzQ0Ml19
+eyJoaXN0b3J5IjpbLTEzNzA4MDA5NDUsLTE3Nzc4Mjk5OTUsLT
+cwNjIzNzQ0Ml19
 -->
