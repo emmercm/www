@@ -8,7 +8,7 @@ tags:
 
 Unlike typical programming languages, Bash doesn't terminate when it encounters an exception.
 
-Here's an example (albeit contrived) dangerous scenario:
+Here's an example scenario of re-building an existing project from source:
 
 ```bash
 # Go to the project directory
@@ -29,37 +29,10 @@ make install
 binary | tee binary-output.log || exit 1
 # (any errors executing 'binary' such as it not existing
 #   are swallowed by 'tee', because 'tee' itself didn't
-#   fail, it successfully wrote the errors )
+#   fail, it successfully wrote the errors to file)
 
-
-
-
-# Move all built executables to /usr/local/bin
-find . -maxdepth 1 -type f -perm +111 -print0 \
-  | xargs -0 -I{} mv "{}" "/usr/local/bin"
-# (we're not sure what we might have just moved)
-
-# Delete the project source
-cd ..
-rm -rf "project"
-# (we're not sure what we might have just deleted)
-```
-
-```bash
-# Go to the project directory
-# (if $PROJECT_DIR is unset, this will silently do nothing)
-cd "${PROJECT_DIR}"
-
-# Clean up any previous build artifacts
-# (we aren't sure what directory this is being executed in)
-find . -name "*.o" -print0 | xargs -0 rm -f
-
-# Build the project
-make
-make install
-
-# (this will be run even if 'make' failed)
-rm -rf build
+# (we have zero idea if the above succeeded or not)
+echo "SUCCESS!"
 ```
 
 ## Where you _should_ use it
@@ -82,7 +55,7 @@ rm -rf build
 	}
 	```
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTIyNDExMjQwMywtMTY1MDczNjUwMyw2NT
+eyJoaXN0b3J5IjpbMTY5MDIzMDAxOSwtMTY1MDczNjUwMyw2NT
 kzOTk1LC0xODk2NzU0ODk1LC05MTI2NzIwNjQsMzY1MTg2OTUx
 LC04MzA3MDAzNjksMTQ0OTc0NjU5NywxMjM1NzEzNjc1LC0yMD
 EyMzk5NDM4LC05ODE5NjY2MTUsLTUxNDU5Njc1NywtMTMwMTAz
