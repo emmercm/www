@@ -59,7 +59,7 @@ Here is an explanation of all the recommended `set -euo pipefail` options.
 
 ### `set -e` / `set -o errexit`
 
-The script will fail as soon as any chain of commands fails. For example:
+This will cause a script will fail as soon as any chain of commands fails. For example:
 
 ```bash
 # 'false' returns an exit code of 1
@@ -80,9 +80,13 @@ rm -rf "TMP_DIR" || true
 
 # if/then can catch failures
 if ! rm -rf "TMP_DIR"; then
-	echo "TMP_DIR
+	echo "TMP_DIR doesn't exist"
 fi
 ```
+
+### `set -u` / `set -o nounset`
+
+
 
 Using this option lets you be sure that no matter where you are in your script's execution, you can be sure that all previous commands succeeded or had failures explicitly ignored.
 
@@ -111,7 +115,7 @@ Using this option lets you be sure that no matter where you are in your script's
 	}
 	```
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTQzNDUwODYyMSwtMTg3Mjk3Mjg5NiwxNj
+eyJoaXN0b3J5IjpbMTc0MzM5MTMxNywtMTg3Mjk3Mjg5NiwxNj
 ExMTE3NjM3LC00NDAxMzA0ODksLTE2NTA3MzY1MDMsNjU5Mzk5
 NSwtMTg5Njc1NDg5NSwtOTEyNjcyMDY0LDM2NTE4Njk1MSwtOD
 MwNzAwMzY5LDE0NDk3NDY1OTcsMTIzNTcxMzY3NSwtMjAxMjM5
