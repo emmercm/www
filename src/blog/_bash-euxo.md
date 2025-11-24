@@ -21,6 +21,8 @@ done
 
 ## Where you _should_ use it
 
+**At the beginning of every shell script.**
+
 ## Where you _can_ use it
 
 
@@ -37,7 +39,7 @@ done
 	}
 	```
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTIwMTIzOTk0MzgsLTk4MTk2NjYxNSwtNT
-E0NTk2NzU3LC0xMzAxMDM3NjE5LC0xNzc3ODI5OTk1LC03MDYy
-Mzc0NDJdfQ==
+eyJoaXN0b3J5IjpbLTkzNDYyODM4LC0yMDEyMzk5NDM4LC05OD
+E5NjY2MTUsLTUxNDU5Njc1NywtMTMwMTAzNzYxOSwtMTc3Nzgy
+OTk5NSwtNzA2MjM3NDQyXX0=
 -->
