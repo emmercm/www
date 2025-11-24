@@ -108,7 +108,11 @@ rm -rf "${NONEXISTENT_VAR}/"
 # Without 'set -u', this will do nothing, keeping the current working directory
 cd "${NONEXISTENT_VAR}"
 
-
+if [ -z "${NONEXISTENT_VAR+unset}" ]; then
+	echo "NONEXISTENT_VAR is unset"
+elif [ -z "${NONEXISTENT_VAR}" ]; then
+	echo "NONEXISTENT_VAR is null (set, but empty)"
+fi
 ```
 
 You can use the `${parameter:−word}` [shell parameter expansion](https://www.gnu.org/software/bash/manual/html_node/Shell-Parameter-Expansion.html) if it's safe to provide a [default value](/blog/bash-environment-variable-defaults).
@@ -140,10 +144,11 @@ Using `set -u` lets you be sure that the arguments you're providing to commands 
 	}
 	```
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTg1MDY1MTY1OCwtMTg3Mjk3Mjg5NiwxNj
-ExMTE3NjM3LC00NDAxMzA0ODksLTE2NTA3MzY1MDMsNjU5Mzk5
-NSwtMTg5Njc1NDg5NSwtOTEyNjcyMDY0LDM2NTE4Njk1MSwtOD
-MwNzAwMzY5LDE0NDk3NDY1OTcsMTIzNTcxMzY3NSwtMjAxMjM5
-OTQzOCwtOTgxOTY2NjE1LC01MTQ1OTY3NTcsLTEzMDEwMzc2MT
-ksLTE3Nzc4Mjk5OTUsLTcwNjIzNzQ0Ml19
+eyJoaXN0b3J5IjpbMTQ0NjgzMzc0NywxODUwNjUxNjU4LC0xOD
+cyOTcyODk2LDE2MTExMTc2MzcsLTQ0MDEzMDQ4OSwtMTY1MDcz
+NjUwMyw2NTkzOTk1LC0xODk2NzU0ODk1LC05MTI2NzIwNjQsMz
+Y1MTg2OTUxLC04MzA3MDAzNjksMTQ0OTc0NjU5NywxMjM1NzEz
+Njc1LC0yMDEyMzk5NDM4LC05ODE5NjY2MTUsLTUxNDU5Njc1Ny
+wtMTMwMTAzNzYxOSwtMTc3NzgyOTk5NSwtNzA2MjM3NDQyXX0=
+
 -->
