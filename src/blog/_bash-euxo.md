@@ -37,6 +37,8 @@ echo "SUCCESS!"
 
 What a mess! We have zero confidence the script did what it was supposed to, and worse, it may have had dangerous side effects.
 
+The answer? [Bash shell options](https://www.gnu.org/software/bash/manual/html_node/The-Set-Builtin.html).
+
 ## Where you _should_ use it
 
 **At the beginning of every shell script.**
@@ -57,9 +59,10 @@ What a mess! We have zero confidence the script did what it was supposed to, and
 	}
 	```
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTQ0MDEzMDQ4OSwtMTY1MDczNjUwMyw2NT
-kzOTk1LC0xODk2NzU0ODk1LC05MTI2NzIwNjQsMzY1MTg2OTUx
-LC04MzA3MDAzNjksMTQ0OTc0NjU5NywxMjM1NzEzNjc1LC0yMD
-EyMzk5NDM4LC05ODE5NjY2MTUsLTUxNDU5Njc1NywtMTMwMTAz
-NzYxOSwtMTc3NzgyOTk5NSwtNzA2MjM3NDQyXX0=
+eyJoaXN0b3J5IjpbMTY0NDYwMTU3LC00NDAxMzA0ODksLTE2NT
+A3MzY1MDMsNjU5Mzk5NSwtMTg5Njc1NDg5NSwtOTEyNjcyMDY0
+LDM2NTE4Njk1MSwtODMwNzAwMzY5LDE0NDk3NDY1OTcsMTIzNT
+cxMzY3NSwtMjAxMjM5OTQzOCwtOTgxOTY2NjE1LC01MTQ1OTY3
+NTcsLTEzMDEwMzc2MTksLTE3Nzc4Mjk5OTUsLTcwNjIzNzQ0Ml
+19
 -->
