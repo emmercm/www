@@ -72,7 +72,11 @@ false && echo "will never print"
 echo "hello" | grep -q "world"
 ```
 
-You will still have some commands you'll want to ignore errors such that the script doesn't exit, 
+You will still have some commands you'll want to ignore errors such that the script doesn't exit, you can do that like this:
+
+```bash
+rm -rf "build"
+```
 
 Using this option lets you be sure that no matter where you are in your script's execution, you can be sure that all previous commands succeeded or had failures explicitly ignored.
 
@@ -101,7 +105,7 @@ Using this option lets you be sure that no matter where you are in your script's
 	}
 	```
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTE1NTA1MDA0MDcsLTE4NzI5NzI4OTYsMT
+eyJoaXN0b3J5IjpbLTE3OTIxNzU1MDEsLTE4NzI5NzI4OTYsMT
 YxMTExNzYzNywtNDQwMTMwNDg5LC0xNjUwNzM2NTAzLDY1OTM5
 OTUsLTE4OTY3NTQ4OTUsLTkxMjY3MjA2NCwzNjUxODY5NTEsLT
 gzMDcwMDM2OSwxNDQ5NzQ2NTk3LDEyMzU3MTM2NzUsLTIwMTIz
