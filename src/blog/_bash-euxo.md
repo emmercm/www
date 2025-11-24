@@ -100,10 +100,10 @@ This will cause a script to fail as soon as it comes across an unset variable. F
 #!/usr/bin/env bash
 set -u
 
-# This would cause a very dangerous 'rm -rf /' without 'set -u'
+# If NONEXISTENT_VAR is unset and , this evaluates to the very dangerous 'rm -rf /' without 'set -u'
 rm -rf "${NONEXISTENT_VAR}/"
 
-#
+# This
 cd "${NONEXISTENT_VAR}"
 ```
 
@@ -132,10 +132,10 @@ cd "${NONEXISTENT_VAR}"
 	}
 	```
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTExOTA1MzM4MywtMTg3Mjk3Mjg5NiwxNj
-ExMTE3NjM3LC00NDAxMzA0ODksLTE2NTA3MzY1MDMsNjU5Mzk5
-NSwtMTg5Njc1NDg5NSwtOTEyNjcyMDY0LDM2NTE4Njk1MSwtOD
-MwNzAwMzY5LDE0NDk3NDY1OTcsMTIzNTcxMzY3NSwtMjAxMjM5
-OTQzOCwtOTgxOTY2NjE1LC01MTQ1OTY3NTcsLTEzMDEwMzc2MT
-ksLTE3Nzc4Mjk5OTUsLTcwNjIzNzQ0Ml19
+eyJoaXN0b3J5IjpbLTExMDE1NzM2MjgsLTE4NzI5NzI4OTYsMT
+YxMTExNzYzNywtNDQwMTMwNDg5LC0xNjUwNzM2NTAzLDY1OTM5
+OTUsLTE4OTY3NTQ4OTUsLTkxMjY3MjA2NCwzNjUxODY5NTEsLT
+gzMDcwMDM2OSwxNDQ5NzQ2NTk3LDEyMzU3MTM2NzUsLTIwMTIz
+OTk0MzgsLTk4MTk2NjYxNSwtNTE0NTk2NzU3LC0xMzAxMDM3Nj
+E5LC0xNzc3ODI5OTk1LC03MDYyMzc0NDJdfQ==
 -->
