@@ -28,8 +28,9 @@ make
 # (we're not sure what we might have just built)
 
 # Move all built executables to /usr/local/bin
-find . -maxdepth 2 -type f -perm +111 -print0 \
+find . -maxdepth 1 -type f -perm +111 -print0 \
   | xargs -0 -I{} mv "{}" "/usr/local/bin"
+# (we're not sure what we might have just moved)
 
 # Delete the project source
 cd ..
@@ -74,8 +75,8 @@ rm -rf build
 	}
 	```
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTEzMDgxNDA0NDUsMzY1MTg2OTUxLC04Mz
-A3MDAzNjksMTQ0OTc0NjU5NywxMjM1NzEzNjc1LC0yMDEyMzk5
-NDM4LC05ODE5NjY2MTUsLTUxNDU5Njc1NywtMTMwMTAzNzYxOS
-wtMTc3NzgyOTk5NSwtNzA2MjM3NDQyXX0=
+eyJoaXN0b3J5IjpbMTk4ODM1MTU1NCwzNjUxODY5NTEsLTgzMD
+cwMDM2OSwxNDQ5NzQ2NTk3LDEyMzU3MTM2NzUsLTIwMTIzOTk0
+MzgsLTk4MTk2NjYxNSwtNTE0NTk2NzU3LC0xMzAxMDM3NjE5LC
+0xNzc3ODI5OTk1LC03MDYyMzc0NDJdfQ==
 -->
