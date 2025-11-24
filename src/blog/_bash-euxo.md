@@ -45,7 +45,7 @@ set -euo pipefail
 
 ## Explanation
 
-Bash has many shell options that you can set for the length
+Bash has many shell options that you can set that last for the length of the script
 
 ## Where you _should_ use it
 
@@ -53,6 +53,11 @@ Bash has many shell options that you can set for the length
 
 ## Where you _can_ use it
 
+## Option inheritance
+
+?
+
+---
 
 1. At the top of every bash file
 2. As the Docker shell
@@ -67,7 +72,7 @@ Bash has many shell options that you can set for the length
 	}
 	```
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTE2MTQyMDgzMTUsLTQ0MDEzMDQ4OSwtMT
+eyJoaXN0b3J5IjpbLTE4Nzc3Mzc0NjAsLTQ0MDEzMDQ4OSwtMT
 Y1MDczNjUwMyw2NTkzOTk1LC0xODk2NzU0ODk1LC05MTI2NzIw
 NjQsMzY1MTg2OTUxLC04MzA3MDAzNjksMTQ0OTc0NjU5NywxMj
 M1NzEzNjc1LC0yMDEyMzk5NDM4LC05ODE5NjY2MTUsLTUxNDU5
