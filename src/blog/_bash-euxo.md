@@ -16,7 +16,9 @@ cd "${PROJECT_DIR}"
 
 # (we aren't sure what directory this is being executed in)
 make
-sudo make install
+make install
+
+# (this will be run even if 'make' failed)
 
 find . -type d -mindepth 1 -maxdepth 1 | while read -r dir; do
 	echo $dir
@@ -43,7 +45,7 @@ done
 	}
 	```
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTEwMDQxOTI4MzgsLTIwMTIzOTk0MzgsLT
-k4MTk2NjYxNSwtNTE0NTk2NzU3LC0xMzAxMDM3NjE5LC0xNzc3
-ODI5OTk1LC03MDYyMzc0NDJdfQ==
+eyJoaXN0b3J5IjpbMTIzNTcxMzY3NSwtMjAxMjM5OTQzOCwtOT
+gxOTY2NjE1LC01MTQ1OTY3NTcsLTEzMDEwMzc2MTksLTE3Nzc4
+Mjk5OTUsLTcwNjIzNzQ0Ml19
 -->
