@@ -126,7 +126,12 @@ Using `set -u` lets you be sure that the arguments you're providing to commands 
 
 ### `set -o pipefail`
 
-This will cause a script to fail if any command in a pipeline (those chained with `|` pipes) fails. By default, 
+This will cause a script to fail if any command in a pipeline (those chained with `|` pipes) fails. By default, the shell only cares about the last command in the pipeline. For example:
+
+```bash
+#!/usr/bin/env bash
+set -o pipefail
+```
 
 ## Where you _should_ use it
 
@@ -153,7 +158,7 @@ This will cause a script to fail if any command in a pipeline (those chained wit
 	}
 	```
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTA4ODA4NjAyMCwxODUwNjUxNjU4LC0xOD
+eyJoaXN0b3J5IjpbLTg4MTUyMTU5NiwxODUwNjUxNjU4LC0xOD
 cyOTcyODk2LDE2MTExMTc2MzcsLTQ0MDEzMDQ4OSwtMTY1MDcz
 NjUwMyw2NTkzOTk1LC0xODk2NzU0ODk1LC05MTI2NzIwNjQsMz
 Y1MTg2OTUxLC04MzA3MDAzNjksMTQ0OTc0NjU5NywxMjM1NzEz
