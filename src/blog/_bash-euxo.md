@@ -14,6 +14,10 @@ Here's an example dangerous scenario:
 # (if $PROJECT_DIR is unset, this will silently do nothing)
 cd "${PROJECT_DIR}"
 
+# (we 
+make
+make install
+
 find . -type d -mindepth 1 -maxdepth 1 | while read -r dir; do
 	echo $dir
 done
@@ -39,7 +43,7 @@ done
 	}
 	```
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTkzNDYyODM4LC0yMDEyMzk5NDM4LC05OD
+eyJoaXN0b3J5IjpbOTAzNTU5NzE2LC0yMDEyMzk5NDM4LC05OD
 E5NjY2MTUsLTUxNDU5Njc1NywtMTMwMTAzNzYxOSwtMTc3Nzgy
 OTk5NSwtNzA2MjM3NDQyXX0=
 -->
