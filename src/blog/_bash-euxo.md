@@ -150,7 +150,10 @@ Using `set -o pipefail`, similar to `set -e`, lets you be sure that execution wo
 
 **At the beginning of every shell script.** By default, put this at the top of every shell script you write, right below the shebang. The amount of safety gained is grossly more important than the more verbose code you'll have to write.
 
-**In your CI shells.** GitHub Actions sets [`set -eo pipefail` automatically
+**In your CI shells.** GitHub Actions sets [`set -eo pipefail` automatically](https://docs.github.com/en/actions/reference/workflows-and-actions/workflow-syntax#exit-codes-and-error-action-preference) because these options are so important for safey, but crucially, it is missing `set -u`. You can set it like this:
+
+```yaml
+```
 
 ## Where you _can_ be safe
 
@@ -173,7 +176,7 @@ Using `set -o pipefail`, similar to `set -e`, lets you be sure that execution wo
 	}
 	```
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTE5NzEzNjMwMCwxODUwNjUxNjU4LC0xOD
+eyJoaXN0b3J5IjpbLTgxMDQ2ODMzMSwxODUwNjUxNjU4LC0xOD
 cyOTcyODk2LDE2MTExMTc2MzcsLTQ0MDEzMDQ4OSwtMTY1MDcz
 NjUwMyw2NTkzOTk1LC0xODk2NzU0ODk1LC05MTI2NzIwNjQsMz
 Y1MTg2OTUxLC04MzA3MDAzNjksMTQ0OTc0NjU5NywxMjM1NzEz
