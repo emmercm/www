@@ -37,7 +37,7 @@ echo "SUCCESS!"
 
 What a mess! We have zero confidence the script did what it was supposed to, and worse, it may have had dangerous side effects.
 
-The answer? [POSIX shell options](https://pubs.opengroup.org/onlinepubs/9799919799/utilities/V3_chap02.html#tag_19_26). You should set these options at the top of every Bash script, directly after the [shebang](https://en.wikipedia.org/wiki/Shebang_(Unix)):
+The answer? Shell options ([POSIX.1-2024](https://pubs.opengroup.org/onlinepubs/9799919799/utilities/V3_chap02.html#tag_19_26)). You should set these options at the top of every Bash script, directly after the [shebang](https://en.wikipedia.org/wiki/Shebang_(Unix)):
 
 ```shell
 set -euo pipefail
@@ -78,10 +78,10 @@ https://pubs.opengroup.org/onlinepubs/9799919799/utilities/V3_chap02.html#tag_19
 	}
 	```
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbNTIzNDUzNTM5LDE2MTExMTc2MzcsLTQ0MD
-EzMDQ4OSwtMTY1MDczNjUwMyw2NTkzOTk1LC0xODk2NzU0ODk1
-LC05MTI2NzIwNjQsMzY1MTg2OTUxLC04MzA3MDAzNjksMTQ0OT
-c0NjU5NywxMjM1NzEzNjc1LC0yMDEyMzk5NDM4LC05ODE5NjY2
-MTUsLTUxNDU5Njc1NywtMTMwMTAzNzYxOSwtMTc3NzgyOTk5NS
-wtNzA2MjM3NDQyXX0=
+eyJoaXN0b3J5IjpbLTIxMTc5ODMyMjQsMTYxMTExNzYzNywtND
+QwMTMwNDg5LC0xNjUwNzM2NTAzLDY1OTM5OTUsLTE4OTY3NTQ4
+OTUsLTkxMjY3MjA2NCwzNjUxODY5NTEsLTgzMDcwMDM2OSwxND
+Q5NzQ2NTk3LDEyMzU3MTM2NzUsLTIwMTIzOTk0MzgsLTk4MTk2
+NjYxNSwtNTE0NTk2NzU3LC0xMzAxMDM3NjE5LC0xNzc3ODI5OT
+k1LC03MDYyMzc0NDJdfQ==
 -->
