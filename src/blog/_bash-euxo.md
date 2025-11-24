@@ -13,8 +13,14 @@ Here's an example (albeit contrived) dangerous scenario:
 ```bash
 # Install the necessary build tools
 apt-get update
-# (this
+# ('apt-get update' can fail, causing outdated packages)
 apt-get install --yes git build-essential cmake
+# (the script continues even if either command failed)
+
+# Download the project to build
+git clone https://github.com/example/project.git project
+cd project
+# (the sc
 ```
 
 ```bash
@@ -54,8 +60,8 @@ rm -rf build
 	}
 	```
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTIwOTk3NzgxODgsLTgzMDcwMDM2OSwxND
-Q5NzQ2NTk3LDEyMzU3MTM2NzUsLTIwMTIzOTk0MzgsLTk4MTk2
-NjYxNSwtNTE0NTk2NzU3LC0xMzAxMDM3NjE5LC0xNzc3ODI5OT
-k1LC03MDYyMzc0NDJdfQ==
+eyJoaXN0b3J5IjpbLTQ2MDUyMjIxMywtODMwNzAwMzY5LDE0ND
+k3NDY1OTcsMTIzNTcxMzY3NSwtMjAxMjM5OTQzOCwtOTgxOTY2
+NjE1LC01MTQ1OTY3NTcsLTEzMDEwMzc2MTksLTE3Nzc4Mjk5OT
+UsLTcwNjIzNzQ0Ml19
 -->
