@@ -59,7 +59,7 @@ Here is an explanation of all the recommended `set -euo pipefail` options.
 
 ### `set -e` / `set -o errexit`
 
-This will cause a script will fail as soon as any chain of commands fails. For example:
+This will cause a script to fail as soon as any chain of commands fails. For example:
 
 ```bash
 # 'false' returns an exit code of 1
@@ -84,11 +84,16 @@ if ! rm -rf "TMP_DIR"; then
 fi
 ```
 
+Using `set -e` lets you be sure that no matter where you are in your script's execution, you can be sure that all previous commands succeeded or had failures explicitly ignored.
+
 ### `set -u` / `set -o nounset`
 
+This will cause a script to fail as soon as it comes across an unset variable. For example:
 
-
-Using this option lets you be sure that no matter where you are in your script's execution, you can be sure that all previous commands succeeded or had failures explicitly ignored.
+```bash
+# This
+rm -rf "${NONEXISTENT_VAR}/"
+```
 
 ## Where you _should_ use it
 
@@ -115,10 +120,10 @@ Using this option lets you be sure that no matter where you are in your script's
 	}
 	```
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTc0MzM5MTMxNywtMTg3Mjk3Mjg5NiwxNj
-ExMTE3NjM3LC00NDAxMzA0ODksLTE2NTA3MzY1MDMsNjU5Mzk5
-NSwtMTg5Njc1NDg5NSwtOTEyNjcyMDY0LDM2NTE4Njk1MSwtOD
-MwNzAwMzY5LDE0NDk3NDY1OTcsMTIzNTcxMzY3NSwtMjAxMjM5
-OTQzOCwtOTgxOTY2NjE1LC01MTQ1OTY3NTcsLTEzMDEwMzc2MT
-ksLTE3Nzc4Mjk5OTUsLTcwNjIzNzQ0Ml19
+eyJoaXN0b3J5IjpbMTc0NzIzNzc5LC0xODcyOTcyODk2LDE2MT
+ExMTc2MzcsLTQ0MDEzMDQ4OSwtMTY1MDczNjUwMyw2NTkzOTk1
+LC0xODk2NzU0ODk1LC05MTI2NzIwNjQsMzY1MTg2OTUxLC04Mz
+A3MDAzNjksMTQ0OTc0NjU5NywxMjM1NzEzNjc1LC0yMDEyMzk5
+NDM4LC05ODE5NjY2MTUsLTUxNDU5Njc1NywtMTMwMTAzNzYxOS
+wtMTc3NzgyOTk5NSwtNzA2MjM3NDQyXX0=
 -->
