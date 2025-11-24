@@ -144,6 +144,10 @@ false | echo "this will print" && echo "but this won't"
 cat nonexistent_file | gzip > compressed_file.gz
 ```
 
+Using `set -o pipefail`, similar to `set
+
+Using `set -e` lets you be sure that no matter where you are in your script's execution, you can be sure that all previous commands succeeded or had failures explicitly ignored.
+
 ## Where you _should_ use it
 
 **At the beginning of every shell script.**
@@ -169,10 +173,11 @@ cat nonexistent_file | gzip > compressed_file.gz
 	}
 	```
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbNTY3NDE0NDMsMTg1MDY1MTY1OCwtMTg3Mj
-k3Mjg5NiwxNjExMTE3NjM3LC00NDAxMzA0ODksLTE2NTA3MzY1
-MDMsNjU5Mzk5NSwtMTg5Njc1NDg5NSwtOTEyNjcyMDY0LDM2NT
-E4Njk1MSwtODMwNzAwMzY5LDE0NDk3NDY1OTcsMTIzNTcxMzY3
-NSwtMjAxMjM5OTQzOCwtOTgxOTY2NjE1LC01MTQ1OTY3NTcsLT
-EzMDEwMzc2MTksLTE3Nzc4Mjk5OTUsLTcwNjIzNzQ0Ml19
+eyJoaXN0b3J5IjpbMzg1MzAwMDUzLDE4NTA2NTE2NTgsLTE4Nz
+I5NzI4OTYsMTYxMTExNzYzNywtNDQwMTMwNDg5LC0xNjUwNzM2
+NTAzLDY1OTM5OTUsLTE4OTY3NTQ4OTUsLTkxMjY3MjA2NCwzNj
+UxODY5NTEsLTgzMDcwMDM2OSwxNDQ5NzQ2NTk3LDEyMzU3MTM2
+NzUsLTIwMTIzOTk0MzgsLTk4MTk2NjYxNSwtNTE0NTk2NzU3LC
+0xMzAxMDM3NjE5LC0xNzc3ODI5OTk1LC03MDYyMzc0NDJdfQ==
+
 -->
