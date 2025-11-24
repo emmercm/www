@@ -158,7 +158,7 @@ on:
 	push:
 defaults:
 	run:
-		shell: bash --noprofile --norc -euo pipefail {0}
+		shell: bash -euo pipefail {0}
 jobs:
 	dummy:
 		runs-on: ubuntu-latest
@@ -167,7 +167,13 @@ jobs:
 			- run: "set -euo pipefail is still active"
 ```
 
-**In your Dockerfiles.**
+**In your Dockerfiles.** You can change the shell and its parameters in a Dockerfile like this:
+
+```dockerfile
+FROM alpine:latest
+SHELL ["/bin/ash", "-euo", "pipefail", "-c"]
+RUN
+```
 
 
 ## Where you _can_ be safe
@@ -191,7 +197,7 @@ jobs:
 	}
 	```
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTkyMjIwNzkyOCwtODEwNDY4MzMxLDE4NT
+eyJoaXN0b3J5IjpbMTMxODEzNTg4MiwtODEwNDY4MzMxLDE4NT
 A2NTE2NTgsLTE4NzI5NzI4OTYsMTYxMTExNzYzNywtNDQwMTMw
 NDg5LC0xNjUwNzM2NTAzLDY1OTM5OTUsLTE4OTY3NTQ4OTUsLT
 kxMjY3MjA2NCwzNjUxODY5NTEsLTgzMDcwMDM2OSwxNDQ5NzQ2
