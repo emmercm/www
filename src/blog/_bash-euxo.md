@@ -11,8 +11,8 @@ Unlike typical programming languages, Bash doesn't terminate when it encounters 
 Here's an example dangerous scenario:
 
 ```bash
-# If $ROOT_DIR is unset, this will silently do nothing
-cd "${ROOT_DIR}"
+# (if $PROJECT_DIR is unset, this will silently do nothing)
+cd "${PROJECT_DIR}"
 
 find . -type d -mindepth 1 -maxdepth 1 | while read -r dir; do
 	echo $dir
@@ -32,6 +32,6 @@ done
 	}
 	```
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTI3MzQzODUxOCwtNTE0NTk2NzU3LC0xMz
+eyJoaXN0b3J5IjpbLTk4MTk2NjYxNSwtNTE0NTk2NzU3LC0xMz
 AxMDM3NjE5LC0xNzc3ODI5OTk1LC03MDYyMzc0NDJdfQ==
 -->
