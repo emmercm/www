@@ -24,7 +24,7 @@ make
 make install
 
 # (this will be run even if 'make' failed)
-
+rm -rf build
 ```
 
 ## Where you _should_ use it
@@ -47,7 +47,8 @@ make install
 	}
 	```
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTQ0OTc0NjU5NywxMjM1NzEzNjc1LC0yMD
-EyMzk5NDM4LC05ODE5NjY2MTUsLTUxNDU5Njc1NywtMTMwMTAz
-NzYxOSwtMTc3NzgyOTk5NSwtNzA2MjM3NDQyXX0=
+eyJoaXN0b3J5IjpbLTgzMDcwMDM2OSwxNDQ5NzQ2NTk3LDEyMz
+U3MTM2NzUsLTIwMTIzOTk0MzgsLTk4MTk2NjYxNSwtNTE0NTk2
+NzU3LC0xMzAxMDM3NjE5LC0xNzc3ODI5OTk1LC03MDYyMzc0ND
+JdfQ==
 -->
