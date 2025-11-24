@@ -23,9 +23,14 @@ cd project
 # (the script continues even if either command failed,
 #  leaving us in the original working directory)
 
-# Build the project
+# Build & install the project
 make
 make install
+
+# Delete the project source
+cd ..
+rm -rf "project"
+# (we're not sure what we might have just deleted)
 ```
 
 ```bash
@@ -65,7 +70,7 @@ rm -rf build
 	}
 	```
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbNTY3NTMzNTU1LC04MzA3MDAzNjksMTQ0OT
+eyJoaXN0b3J5IjpbMzY1MTg2OTUxLC04MzA3MDAzNjksMTQ0OT
 c0NjU5NywxMjM1NzEzNjc1LC0yMDEyMzk5NDM4LC05ODE5NjY2
 MTUsLTUxNDU5Njc1NywtMTMwMTAzNzYxOSwtMTc3NzgyOTk5NS
 wtNzA2MjM3NDQyXX0=
