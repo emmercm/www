@@ -186,7 +186,7 @@ RUN echo "set -euo pipefail is active" && \
 
 ## Where you _can_ be safe
 
-**In subshells.**
+**In subshells.** The Bash you're writing may be in a location that is inappropriate to set defaults, such as in `~/.bashrc`/`~.zshrc`
 
 ## Option inheritance
 
@@ -207,11 +207,11 @@ RUN echo "set -euo pipefail is active" && \
 	}
 	```
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTg4ODMxNDkzMiwtODEwNDY4MzMxLDE4NT
-A2NTE2NTgsLTE4NzI5NzI4OTYsMTYxMTExNzYzNywtNDQwMTMw
-NDg5LC0xNjUwNzM2NTAzLDY1OTM5OTUsLTE4OTY3NTQ4OTUsLT
-kxMjY3MjA2NCwzNjUxODY5NTEsLTgzMDcwMDM2OSwxNDQ5NzQ2
-NTk3LDEyMzU3MTM2NzUsLTIwMTIzOTk0MzgsLTk4MTk2NjYxNS
-wtNTE0NTk2NzU3LC0xMzAxMDM3NjE5LC0xNzc3ODI5OTk1LC03
-MDYyMzc0NDJdfQ==
+eyJoaXN0b3J5IjpbMTYyNDI1MDc4MCwtODg4MzE0OTMyLC04MT
+A0NjgzMzEsMTg1MDY1MTY1OCwtMTg3Mjk3Mjg5NiwxNjExMTE3
+NjM3LC00NDAxMzA0ODksLTE2NTA3MzY1MDMsNjU5Mzk5NSwtMT
+g5Njc1NDg5NSwtOTEyNjcyMDY0LDM2NTE4Njk1MSwtODMwNzAw
+MzY5LDE0NDk3NDY1OTcsMTIzNTcxMzY3NSwtMjAxMjM5OTQzOC
+wtOTgxOTY2NjE1LC01MTQ1OTY3NTcsLTEzMDEwMzc2MTksLTE3
+Nzc4Mjk5OTVdfQ==
 -->
