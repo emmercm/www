@@ -8,6 +8,8 @@ tags:
 
 Unlike typical programming languages, Bash doesn't terminate when it encounters an exception.
 
+Here's an example dangerous scenario:
+
 1. At the top of every bash file
 2. As the Docker shell
 3. In GitHub Actions steps?
@@ -21,6 +23,6 @@ Unlike typical programming languages, Bash doesn't terminate when it encounters 
 	}
 	```
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTE4NjQ1MDAxMDYsLTE3Nzc4Mjk5OTUsLT
+eyJoaXN0b3J5IjpbLTE3NjUwNDA1ODUsLTE3Nzc4Mjk5OTUsLT
 cwNjIzNzQ0Ml19
 -->
