@@ -25,7 +25,10 @@ make
 make install
 # (we don't know what we just installed, if anything)
 
-ls build | grep -v
+# Test the installed binary
+my-new-bin
+
+
 
 # Move all built executables to /usr/local/bin
 find . -maxdepth 1 -type f -perm +111 -print0 \
@@ -75,9 +78,9 @@ rm -rf build
 	}
 	```
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTE2NTA3MzY1MDMsNjU5Mzk5NSwtMTg5Nj
-c1NDg5NSwtOTEyNjcyMDY0LDM2NTE4Njk1MSwtODMwNzAwMzY5
-LDE0NDk3NDY1OTcsMTIzNTcxMzY3NSwtMjAxMjM5OTQzOCwtOT
-gxOTY2NjE1LC01MTQ1OTY3NTcsLTEzMDEwMzc2MTksLTE3Nzc4
-Mjk5OTUsLTcwNjIzNzQ0Ml19
+eyJoaXN0b3J5IjpbLTMzMjUwMzYzMywtMTY1MDczNjUwMyw2NT
+kzOTk1LC0xODk2NzU0ODk1LC05MTI2NzIwNjQsMzY1MTg2OTUx
+LC04MzA3MDAzNjksMTQ0OTc0NjU5NywxMjM1NzEzNjc1LC0yMD
+EyMzk5NDM4LC05ODE5NjY2MTUsLTUxNDU5Njc1NywtMTMwMTAz
+NzYxOSwtMTc3NzgyOTk5NSwtNzA2MjM3NDQyXX0=
 -->
