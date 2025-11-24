@@ -1,6 +1,6 @@
 ---
 
-title: Safer Bash Scripts Through Shell Options
+title: Safer Shell Scripts Through Shell Options
 tags:
 - shell
 
@@ -37,7 +37,7 @@ echo "SUCCESS!"
 
 What a mess! We have zero confidence the script did what it was supposed to, and worse, it may have had dangerous side effects.
 
-The answer? [Bash shell options](https://www.gnu.org/software/bash/manual/html_node/The-Set-Builtin.html). You should set these options at the top of every Bash script, directly after the [shebang](https://en.wikipedia.org/wiki/Shebang_(Unix)):
+The answer? [POSIX shell options](https://pubs.opengroup.org/onlinepubs/9799919799/utilities/V3_chap02.html#tag_19_26). You should set these options at the top of every Bash script, directly after the [shebang](https://en.wikipedia.org/wiki/Shebang_(Unix)):
 
 ```shell
 set -euo pipefail
@@ -50,6 +50,8 @@ Bash has many shell options that you can set that last for the length of the scr
 ```shell
 set -o
 ```
+
+https://pubs.opengroup.org/onlinepubs/9799919799/utilities/V3_chap02.html#tag_19_08_01
 
 ## Where you _should_ use it
 
@@ -76,10 +78,10 @@ set -o
 	}
 	```
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTYxMTExNzYzNywtNDQwMTMwNDg5LC0xNj
-UwNzM2NTAzLDY1OTM5OTUsLTE4OTY3NTQ4OTUsLTkxMjY3MjA2
-NCwzNjUxODY5NTEsLTgzMDcwMDM2OSwxNDQ5NzQ2NTk3LDEyMz
-U3MTM2NzUsLTIwMTIzOTk0MzgsLTk4MTk2NjYxNSwtNTE0NTk2
-NzU3LC0xMzAxMDM3NjE5LC0xNzc3ODI5OTk1LC03MDYyMzc0ND
-JdfQ==
+eyJoaXN0b3J5IjpbNTIzNDUzNTM5LDE2MTExMTc2MzcsLTQ0MD
+EzMDQ4OSwtMTY1MDczNjUwMyw2NTkzOTk1LC0xODk2NzU0ODk1
+LC05MTI2NzIwNjQsMzY1MTg2OTUxLC04MzA3MDAzNjksMTQ0OT
+c0NjU5NywxMjM1NzEzNjc1LC0yMDEyMzk5NDM4LC05ODE5NjY2
+MTUsLTUxNDU5Njc1NywtMTMwMTAzNzYxOSwtMTc3NzgyOTk5NS
+wtNzA2MjM3NDQyXX0=
 -->
