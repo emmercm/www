@@ -124,6 +124,10 @@ You can use the `${parameter:−word}` [shell parameter expansion](https://www.g
 
 Using `set -u` lets you be sure that the arguments you're providing to commands are exactly what you intended.
 
+### `set -o pipefail`
+
+This will cause a script to fail if any command in a pipeline (those chained with `|` pipes) fails. By default, 
+
 ## Where you _should_ use it
 
 **At the beginning of every shell script.**
@@ -149,7 +153,7 @@ Using `set -u` lets you be sure that the arguments you're providing to commands 
 	}
 	```
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMjA5NDk1MjU4MSwxODUwNjUxNjU4LC0xOD
+eyJoaXN0b3J5IjpbMTA4ODA4NjAyMCwxODUwNjUxNjU4LC0xOD
 cyOTcyODk2LDE2MTExMTc2MzcsLTQ0MDEzMDQ4OSwtMTY1MDcz
 NjUwMyw2NTkzOTk1LC0xODk2NzU0ODk1LC05MTI2NzIwNjQsMz
 Y1MTg2OTUxLC04MzA3MDAzNjksMTQ0OTc0NjU5NywxMjM1NzEz
