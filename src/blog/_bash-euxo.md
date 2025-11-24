@@ -26,9 +26,11 @@ make install
 # (we don't know what we just installed, if anything)
 
 # Test the installed binary, exiting on failure
-binary | tee binary-output || exit 1
+binary | tee binary-output.log || exit 1
 # (any errors executing 'binary' such as it not existing
- 
+#   are swallowed by 'tee', because 'tee' itself didn't
+#   fail, it successfully wrote the errors )
+
 
 
 
@@ -80,7 +82,7 @@ rm -rf build
 	}
 	```
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTAxMTYxOTg3OSwtMTY1MDczNjUwMyw2NT
+eyJoaXN0b3J5IjpbLTIyNDExMjQwMywtMTY1MDczNjUwMyw2NT
 kzOTk1LC0xODk2NzU0ODk1LC05MTI2NzIwNjQsMzY1MTg2OTUx
 LC04MzA3MDAzNjksMTQ0OTc0NjU5NywxMjM1NzEzNjc1LC0yMD
 EyMzk5NDM4LC05ODE5NjY2MTUsLTUxNDU5Njc1NywtMTMwMTAz
