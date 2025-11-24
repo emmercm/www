@@ -68,16 +68,20 @@ false
 # 'false' returns an exit code of 1, so 'echo' is never invoked
 false && echo "will never print"
 
-# 'echo' succeeds, but 'grep' returns an exit code of 1 because it won't find "world"
+# 'echo' returns an exit code of 0, but 'grep' returns an exit code of 1 because it won't find "world"
 echo "hello" | grep -q "world"
 ```
 
 You will still have some commands you'll want to ignore errors such that the script doesn't exit, you can do that with `|| true`:
 
 ```bash
-# '|| true' causes the statement to su
-rm -rf "build" || true
-make
+# '|| true' causes the statement to return an exit of 0 always
+rm -rf "TMP_DIR" || true
+
+# if/then can catch failures
+if ! rm -rf "TMP_DIR"; then
+	echo "TMP_DIR
+fi
 ```
 
 Using this option lets you be sure that no matter where you are in your script's execution, you can be sure that all previous commands succeeded or had failures explicitly ignored.
@@ -107,7 +111,7 @@ Using this option lets you be sure that no matter where you are in your script's
 	}
 	```
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMjExNzY1ODUzMCwtMTg3Mjk3Mjg5NiwxNj
+eyJoaXN0b3J5IjpbLTQzNDUwODYyMSwtMTg3Mjk3Mjg5NiwxNj
 ExMTE3NjM3LC00NDAxMzA0ODksLTE2NTA3MzY1MDMsNjU5Mzk5
 NSwtMTg5Njc1NDg5NSwtOTEyNjcyMDY0LDM2NTE4Njk1MSwtOD
 MwNzAwMzY5LDE0NDk3NDY1OTcsMTIzNTcxMzY3NSwtMjAxMjM5
