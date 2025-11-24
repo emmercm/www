@@ -109,7 +109,9 @@ rm -rf "${NONEXISTENT_VAR}/"
 cd "${NONEXISTENT_VAR}"
 ```
 
-I do not recommend using the `${parameter:−word}` shell parameter expansion
+You can use the `${parameter:−word}` [shell parameter expansion](https://www.gnu.org/software/bash/manual/html_node/Shell-Parameter-Expansion.html) if it's safe to provide a [default value](/blog/bash-environment-variable-defaults).
+
+Using `set -u` lets you be sure
 
 ## Where you _should_ use it
 
@@ -136,10 +138,10 @@ I do not recommend using the `${parameter:−word}` shell parameter expansion
 	}
 	```
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTIxMTU1NjQwNjcsLTE4NzI5NzI4OTYsMT
-YxMTExNzYzNywtNDQwMTMwNDg5LC0xNjUwNzM2NTAzLDY1OTM5
-OTUsLTE4OTY3NTQ4OTUsLTkxMjY3MjA2NCwzNjUxODY5NTEsLT
-gzMDcwMDM2OSwxNDQ5NzQ2NTk3LDEyMzU3MTM2NzUsLTIwMTIz
-OTk0MzgsLTk4MTk2NjYxNSwtNTE0NTk2NzU3LC0xMzAxMDM3Nj
-E5LC0xNzc3ODI5OTk1LC03MDYyMzc0NDJdfQ==
+eyJoaXN0b3J5IjpbMTkwODAyODI4OCwtMTg3Mjk3Mjg5NiwxNj
+ExMTE3NjM3LC00NDAxMzA0ODksLTE2NTA3MzY1MDMsNjU5Mzk5
+NSwtMTg5Njc1NDg5NSwtOTEyNjcyMDY0LDM2NTE4Njk1MSwtOD
+MwNzAwMzY5LDE0NDk3NDY1OTcsMTIzNTcxMzY3NSwtMjAxMjM5
+OTQzOCwtOTgxOTY2NjE1LC01MTQ1OTY3NTcsLTEzMDEwMzc2MT
+ksLTE3Nzc4Mjk5OTUsLTcwNjIzNzQ0Ml19
 -->
