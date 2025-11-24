@@ -23,9 +23,13 @@ cd project
 # (the script continues even if either command failed,
 #  leaving us in the original working directory)
 
-# Build & install the project
+# Build the project
 make
-make install
+# (we're not sure what we might have just built)
+
+# Move all built executables to /usr/local/bin
+find . -maxdepth 2 -type f -perm +111 -print0 \
+  | xargs -0 -I{} mv "{}" "/usr/local/bin"
 
 # Delete the project source
 cd ..
@@ -70,8 +74,8 @@ rm -rf build
 	}
 	```
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMzY1MTg2OTUxLC04MzA3MDAzNjksMTQ0OT
-c0NjU5NywxMjM1NzEzNjc1LC0yMDEyMzk5NDM4LC05ODE5NjY2
-MTUsLTUxNDU5Njc1NywtMTMwMTAzNzYxOSwtMTc3NzgyOTk5NS
-wtNzA2MjM3NDQyXX0=
+eyJoaXN0b3J5IjpbLTEzMDgxNDA0NDUsMzY1MTg2OTUxLC04Mz
+A3MDAzNjksMTQ0OTc0NjU5NywxMjM1NzEzNjc1LC0yMDEyMzk5
+NDM4LC05ODE5NjY2MTUsLTUxNDU5Njc1NywtMTMwMTAzNzYxOS
+wtMTc3NzgyOTk5NSwtNzA2MjM3NDQyXX0=
 -->
