@@ -43,8 +43,9 @@ The answer? [Bash shell options](https://www.gnu.org/software/bash/manual/html_n
 set -euo pipefail
 ```
 
-## Default options for safety
+## Explanation
 
+Bash has many shell options that you can set for the length
 
 ## Where you _should_ use it
 
@@ -66,10 +67,10 @@ set -euo pipefail
 	}
 	```
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTM2MTQzOTI5NywtNDQwMTMwNDg5LC0xNj
-UwNzM2NTAzLDY1OTM5OTUsLTE4OTY3NTQ4OTUsLTkxMjY3MjA2
-NCwzNjUxODY5NTEsLTgzMDcwMDM2OSwxNDQ5NzQ2NTk3LDEyMz
-U3MTM2NzUsLTIwMTIzOTk0MzgsLTk4MTk2NjYxNSwtNTE0NTk2
-NzU3LC0xMzAxMDM3NjE5LC0xNzc3ODI5OTk1LC03MDYyMzc0ND
-JdfQ==
+eyJoaXN0b3J5IjpbLTE2MTQyMDgzMTUsLTQ0MDEzMDQ4OSwtMT
+Y1MDczNjUwMyw2NTkzOTk1LC0xODk2NzU0ODk1LC05MTI2NzIw
+NjQsMzY1MTg2OTUxLC04MzA3MDAzNjksMTQ0OTc0NjU5NywxMj
+M1NzEzNjc1LC0yMDEyMzk5NDM4LC05ODE5NjY2MTUsLTUxNDU5
+Njc1NywtMTMwMTAzNzYxOSwtMTc3NzgyOTk5NSwtNzA2MjM3ND
+QyXX0=
 -->
