@@ -135,8 +135,8 @@ For example:
 set -o pipefail
 
 # Because 'set -o pipeline' does not cause early termination,
-# 'echo' will still be invoked, but the overall pipeline will fail
-false | echo "this will print"
+# the first 'echo' will still be invoked, but the overall pipeline will fail
+false | echo "this will print" && echo "but this won't"
 ```
 
 ## Where you _should_ use it
@@ -164,7 +164,7 @@ false | echo "this will print"
 	}
 	```
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTM0OTIxMzY5MywxODUwNjUxNjU4LC0xOD
+eyJoaXN0b3J5IjpbMTQzODY5NDUxMywxODUwNjUxNjU4LC0xOD
 cyOTcyODk2LDE2MTExMTc2MzcsLTQ0MDEzMDQ4OSwtMTY1MDcz
 NjUwMyw2NTkzOTk1LC0xODk2NzU0ODk1LC05MTI2NzIwNjQsMz
 Y1MTg2OTUxLC04MzA3MDAzNjksMTQ0OTc0NjU5NywxMjM1NzEz
