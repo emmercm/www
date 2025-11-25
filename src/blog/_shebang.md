@@ -33,8 +33,11 @@ and then if that file is named `my_executable` (with no extension, to prove noth
 # The file has to be made executable first
 chmod +x my_executable
 
-#
+# It can be invoked with a relative path
 ./my_executable
+
+# It can be invoked with an absolute path
+"$(pwd)/my_executable
 ```
 
 ## Syntax
@@ -47,9 +50,9 @@ Shebangs look like this:
 
 _(Though the space after `#!` is optional, and many people choose to omit it.)_
 
-The `executable` should be an exact, non-relative path to either an interpreter (`sh`, `bash`, `pwsh`, `python3`, `ruby`, `node`, etc.), or an executable that can _find_ an interpreter (`/usr/bin/env`).
+The `executable` should be an absolute (non-relative) path to either an interpreter (`sh`, `bash`, `pwsh`, `python3`, `ruby`, `node`, etc.), or an executable that can _find_ an interpreter (`/usr/bin/env`).
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMjAzNjQ5NzM5OSwtMTg4MDMyNzI2Miw2Nj
-IyMzI5NDksLTUyODgwOTUyMSw3MTA2MjAxMTgsLTEzNzA5ODQ0
-NzRdfQ==
+eyJoaXN0b3J5IjpbLTIwODQyMzkxNjgsLTE4ODAzMjcyNjIsNj
+YyMjMyOTQ5LC01Mjg4MDk1MjEsNzEwNjIwMTE4LC0xMzcwOTg0
+NDc0XX0=
 -->
