@@ -131,9 +131,7 @@ $ "$(pwd)/python3" -c 'print("hello world")'
 bash: /home/ubuntu/python3: No such file or directory
 ```
 
-Using `#! /usr/bin/env <interpreter>` is particularly important
-
-This is because `/usr/bin/env` should almost always exist (or your OS knows how to handle it), but your interpreter could live in a non-standard location, especially if it isn't a shell (`python3`, `ruby`, `node`, `perl`, etc.).
+Using `#! /usr/bin/env <interpreter>` is particularly important if your interpreter is frequently in different locations in different environments, such as `python3`, `ruby`, `node`, and `perl`.
 
 For example, on macOS, Python v3.9.6 could be in any one of these locations:
 
@@ -159,7 +157,7 @@ Instead, Windows will use file extensions and associations to determine which ex
 
 _(Unix-like shells such as [Windows Subsystem for Linux (WSL)](https://learn.microsoft.com/en-us/windows/wsl/about), [Cygwin](https://www.cygwin.com/), and [MSYS2](https://www.msys2.org/) all handle shebangs correctly.)_
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTE4NTMxNTExODIsLTk2MjY0OTk1LC05Nj
+eyJoaXN0b3J5IjpbLTE0MTI2NzQ3MTMsLTk2MjY0OTk1LC05Nj
 g1MTk3MDksLTEzMTUzMTQyNDMsMjEzNTk1NTY0NCwtODAxNDYz
 ODMzLC0yNjYzNDU5MSw5NDQ4MTA4MDUsLTE0NTg3OTgxMjksLT
 IwMjkxMjA0MCwzOTc2MzM0OTksMTM1OTQyNDQ0MCwyMDMwODUw
