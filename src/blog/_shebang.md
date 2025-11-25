@@ -71,8 +71,10 @@ So it is more reliable to use `/usr/bin/env` to find where `python3` is, plus it
 import sys
 print("I was executed by '" + sys.executable + "'!")
 ```
+
+_(This is less important for executables such as `/bin/bash` that should always exist in the same location, but it also isn't dangerous to default to using `/usr/bin/env`.)_
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTE2NzMxNDA1OCw5OTMwMDgxMDgsOTEwMD
-k4MywtMTg4MDMyNzI2Miw2NjIyMzI5NDksLTUyODgwOTUyMSw3
-MTA2MjAxMTgsLTEzNzA5ODQ0NzRdfQ==
+eyJoaXN0b3J5IjpbLTEzNTk1MTczNTksLTE2NzMxNDA1OCw5OT
+MwMDgxMDgsOTEwMDk4MywtMTg4MDMyNzI2Miw2NjIyMzI5NDks
+LTUyODgwOTUyMSw3MTA2MjAxMTgsLTEzNzA5ODQ0NzRdfQ==
 -->
