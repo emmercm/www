@@ -10,7 +10,9 @@ No, it's not a [Ricky Martin](https://en.wikipedia.org/wiki/Ricky_Martin) song.
 
 _[Wikpedia](https://en.wikipedia.org/wiki/Shebang_(Unix)) says the shebang also known as a sharp-exclamation, sha-bang, hashbang, pound-bang, or hash-pling._
 
-Simply put, a shebang tells your operating system where to find a program to interpret your file, and it's used whenever your file is used like an executable. Shebangs look like this:
+Simply put, a shebang tells your operating system where to find a program to interpret your file (an "interpreter directive"), and it's used whenever your file is invoked like an executable.
+
+Shebangs are always the first line inside a file, and they look like this:
 
 ```bash
 #!/usr/bin/env sh
@@ -27,7 +29,7 @@ echo "I will be executed by Bash!"
 print("I will be executed by Python 3!")
 ```
 
-and then if that file is named `my_executable` (with no extension, to prove nothing can know the right interpreter without reading the file), it can be executed like this:
+and then if that file is named `my_executable` (with no extension, to prove the OS won't know the right interpreter without reading the file), it can be executed like this:
 
 ```bash
 # The file has to be made executable first
@@ -70,7 +72,7 @@ import sys
 print("I was executed by '" + sys.executable + "'!")
 ```
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbOTkzMDA4MTA4LDkxMDA5ODMsLTE4ODAzMj
-cyNjIsNjYyMjMyOTQ5LC01Mjg4MDk1MjEsNzEwNjIwMTE4LC0x
-MzcwOTg0NDc0XX0=
+eyJoaXN0b3J5IjpbLTM0OTEzMjQzMyw5OTMwMDgxMDgsOTEwMD
+k4MywtMTg4MDMyNzI2Miw2NjIyMzI5NDksLTUyODgwOTUyMSw3
+MTA2MjAxMTgsLTEzNzA5ODQ0NzRdfQ==
 -->
