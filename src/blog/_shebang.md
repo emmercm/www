@@ -36,7 +36,9 @@ Shebangs look like this:
 ```
 
 though the space after `#!` is optional, and many people choose to leave it off.
+
+The `executable` should be an exact/non-relative path
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTExNzY3MTAyODMsNjYyMjMyOTQ5LC01Mj
+eyJoaXN0b3J5IjpbLTE4ODAzMjcyNjIsNjYyMjMyOTQ5LC01Mj
 g4MDk1MjEsNzEwNjIwMTE4LC0xMzcwOTg0NDc0XX0=
 -->
