@@ -246,13 +246,13 @@ if (cat nonexistent_file; echo "this will print"); then true; fi
 Some arguments _against_ relying on `set -euo pipefail` from people on forums are:
 
 - Agaisnt `set -e`:
-	- A Bash script can't reliably know if the severity of an external program's non-zero exit code warrants a script exit or not ([BashFAQ/105](https://mywiki.wooledge.org/BashFAQ/105))
-	- Commands may return a non-zero exit code when there isn't an error, for control flow ([BashFAQ/105](https://mywiki.wooledge.org/BashFAQ/105))
+	- A Bash script can't reliably know if the severity of an external program's non-zero exit code warrants a script exit or not ([Wooledge](https://mywiki.wooledge.org/BashFAQ/105))
+	- Commands may return a non-zero exit code when there isn't an error, for control flow ([Wooledge](https://mywiki.wooledge.org/BashFAQ/105))
 - Against `set -u`:
-	- Positional parameters such as `$1` may not be set, and this is safe in some situations ([BashFAQ/112](https://mywiki.wooledge.org/BashFAQ/112))
-	- Different versions of Bash handle empty arrays differently ([BashFAQ/112](https://mywiki.wooledge.org/BashFAQ/112))
+	- Positional parameters such as `$1` may not be set, and this is safe in some situations ([Wooledge](https://mywiki.wooledge.org/BashFAQ/112))
+	- Different versions of Bash handle empty arrays differently ([Wooledge](https://mywiki.wooledge.org/BashFAQ/112))
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTYzMjI4MjM5NywyMTA5MTQwMDAxLC0xOD
+eyJoaXN0b3J5IjpbLTc3MzE2NzIwNSwyMTA5MTQwMDAxLC0xOD
 I2OTYxODgwLDg0MDE0NTAwOCwtODg4MzE0OTMyLC04MTA0Njgz
 MzEsMTg1MDY1MTY1OCwtMTg3Mjk3Mjg5NiwxNjExMTE3NjM3LC
 00NDAxMzA0ODksLTE2NTA3MzY1MDMsNjU5Mzk5NSwtMTg5Njc1
