@@ -113,9 +113,11 @@ print("I was executed by '" + sys.executable + "'!")
 ```
 
 _(This is less important for executables such as `/bin/bash` that should always exist in the same location, but it also isn't dangerous to default to using `/usr/bin/env`.)_
+
+## Windows
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTkxMjcwMDQ5NCwtMTE4NzQ4MDAyNiwtMT
-EwMDI4MzkyMiwtMTY3MzE0MDU4LDk5MzAwODEwOCw5MTAwOTgz
-LC0xODgwMzI3MjYyLDY2MjIzMjk0OSwtNTI4ODA5NTIxLDcxMD
-YyMDExOCwtMTM3MDk4NDQ3NF19
+eyJoaXN0b3J5IjpbMTY1NjAwMDg3MSwxOTEyNzAwNDk0LC0xMT
+g3NDgwMDI2LC0xMTAwMjgzOTIyLC0xNjczMTQwNTgsOTkzMDA4
+MTA4LDkxMDA5ODMsLTE4ODAzMjcyNjIsNjYyMjMyOTQ5LC01Mj
+g4MDk1MjEsNzEwNjIwMTE4LC0xMzcwOTg0NDc0XX0=
 -->
