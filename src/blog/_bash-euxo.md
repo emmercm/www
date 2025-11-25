@@ -258,6 +258,8 @@ if (false; echo "this will print"); then true; fi
 # "any command in a pipeline but the last (subject to the state of the `pipefail` shell option)"
 ```
 
+> 
+
 ## Counter arguments
 
 Some arguments _against_ relying on `set -euo pipefail` are:
@@ -270,7 +272,7 @@ Some arguments _against_ relying on `set -euo pipefail` are:
       You get a choice to use function return values in your scripts and functions, but you don't get a choice with external programs.
 
 	- Commands may return a non-zero exit code when there isn't an error, for control flow ([1](https://mywiki.wooledge.org/BashFAQ/105)).
-	- Subshells can have differing behavior (described above) ([1](https://mywiki.wooledge.org/BashFAQ/105), [2](https://fvue.nl/wiki/Bash:_Error_handling)).
+	- Subshells can have differing behavior (described above) ([1](https://mywiki.wooledge.org/BashFAQ/105), [2](https://fvue.nl/wiki/Bash:_Error_handling), [3](https://blog.janestreet.com/when-bash-scripts-bite/)).
 
       This is one of the stronger counter arguments.
 
@@ -286,7 +288,7 @@ Some arguments _against_ relying on `set -euo pipefail` are:
 
 If we apply some common sense, we should naturally understand that complex situations likely call for a different programming language. `set -euo pipefail` won't completely save you from dangerous shell scripting, but it sure provides a better backstop than nothing at all.
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbODQ4NTQ1OTA0LC02NTk5MjM0NTQsNzQ2Nz
+eyJoaXN0b3J5IjpbMTAxNDYzMjc2LC02NTk5MjM0NTQsNzQ2Nz
 AxNjIzLC0xMTE4MDQ3NDU2LDE4MDkxNDg4NTIsLTg5MDA2Mzk0
 MSwtNzU3ODgzMjM5LDE2MDAwMjExMTUsMjEwOTE0MDAwMSwtMT
 gyNjk2MTg4MCw4NDAxNDUwMDgsLTg4ODMxNDkzMiwtODEwNDY4
