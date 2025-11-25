@@ -52,9 +52,9 @@ _(Though the space after `#!` is optional, and many people choose to omit it.)_
 
 The `<executable>` should be an absolute (non-relative) path to either an interpreter (`sh`, `bash`, `pwsh`, `python3`, `ruby`, `node`, etc.), or an executable that can _find_ an interpreter (`/usr/bin/env`).
 
-Using `#! /usr/bin/env <interpreter>` is typically more "portable" (works more reliab
+Using `#! /usr/bin/env <interpreter>` is typically more "portable" (works more reliably across a wide variety of OSes). This is because `/usr/bin/env` should always exist, but your interpreter could live in a non-standard location, especially 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTIwMjY3NDQ4MDYsLTE4ODAzMjcyNjIsNj
-YyMjMyOTQ5LC01Mjg4MDk1MjEsNzEwNjIwMTE4LC0xMzcwOTg0
-NDc0XX0=
+eyJoaXN0b3J5IjpbMTMzMDk1NTMyOCwtMTg4MDMyNzI2Miw2Nj
+IyMzI5NDksLTUyODgwOTUyMSw3MTA2MjAxMTgsLTEzNzA5ODQ0
+NzRdfQ==
 -->
