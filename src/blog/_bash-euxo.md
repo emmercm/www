@@ -252,13 +252,13 @@ Some arguments _against_ relying on `set -euo pipefail` are:
 	- Positional parameters such as `$1` may not be set, and this is safe in some situations ([Wooledge](https://mywiki.wooledge.org/BashFAQ/112))
 	- Different versions of Bash handle empty arrays differently ([Wooledge](https://mywiki.wooledge.org/BashFAQ/112))
 
-If we apply some common sense, we should naturally understand that complex situations likely call for a different programming language. You shouldn't be relying on the _semantics_ of `set -euo pipefail`
+If we apply some common sense, we should naturally understand that complex situations likely call for a different programming language. `set -euo pipefail` won't completely save you from dangerous shell scripting, but it sure provides a better backstop than nothing at all.
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTI4MTkwODIyOCwyMTA5MTQwMDAxLC0xOD
-I2OTYxODgwLDg0MDE0NTAwOCwtODg4MzE0OTMyLC04MTA0Njgz
-MzEsMTg1MDY1MTY1OCwtMTg3Mjk3Mjg5NiwxNjExMTE3NjM3LC
-00NDAxMzA0ODksLTE2NTA3MzY1MDMsNjU5Mzk5NSwtMTg5Njc1
-NDg5NSwtOTEyNjcyMDY0LDM2NTE4Njk1MSwtODMwNzAwMzY5LD
-E0NDk3NDY1OTcsMTIzNTcxMzY3NSwtMjAxMjM5OTQzOCwtOTgx
-OTY2NjE1XX0=
+eyJoaXN0b3J5IjpbLTEwNzcxNTM3ODEsMjEwOTE0MDAwMSwtMT
+gyNjk2MTg4MCw4NDAxNDUwMDgsLTg4ODMxNDkzMiwtODEwNDY4
+MzMxLDE4NTA2NTE2NTgsLTE4NzI5NzI4OTYsMTYxMTExNzYzNy
+wtNDQwMTMwNDg5LC0xNjUwNzM2NTAzLDY1OTM5OTUsLTE4OTY3
+NTQ4OTUsLTkxMjY3MjA2NCwzNjUxODY5NTEsLTgzMDcwMDM2OS
+wxNDQ5NzQ2NTk3LDEyMzU3MTM2NzUsLTIwMTIzOTk0MzgsLTk4
+MTk2NjYxNV19
 -->
