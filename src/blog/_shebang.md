@@ -121,10 +121,12 @@ _(This is less important for executables such as `/bin/bash` that should always 
 Both Command Prompt (`cmd.exe`) and PowerShell do not natively interpret shebangs. Further, shebangs will cause problems for Command Prompt, as comments are started with `REM` or `::` and not `#`.
 
 Instead, Windows will use file extensions and associations to determine which executable to use.
+
+_(Unix-like shells such as [Windows Subsystem for Linux (WSL)](https://learn.microsoft.com/en-us/windows/wsl/about), [Cygwin](https://www.cygwin.com/), and [MSYS2](https://www.msys2.org/).)_
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTI2OTQ3NzIxOSwyMDMwODUwNDkzLDE2NT
-YwMDA4NzEsMTkxMjcwMDQ5NCwtMTE4NzQ4MDAyNiwtMTEwMDI4
-MzkyMiwtMTY3MzE0MDU4LDk5MzAwODEwOCw5MTAwOTgzLC0xOD
-gwMzI3MjYyLDY2MjIzMjk0OSwtNTI4ODA5NTIxLDcxMDYyMDEx
-OCwtMTM3MDk4NDQ3NF19
+eyJoaXN0b3J5IjpbLTExODI2NTk2NTEsMjAzMDg1MDQ5MywxNj
+U2MDAwODcxLDE5MTI3MDA0OTQsLTExODc0ODAwMjYsLTExMDAy
+ODM5MjIsLTE2NzMxNDA1OCw5OTMwMDgxMDgsOTEwMDk4MywtMT
+g4MDMyNzI2Miw2NjIyMzI5NDksLTUyODgwOTUyMSw3MTA2MjAx
+MTgsLTEzNzA5ODQ0NzRdfQ==
 -->
