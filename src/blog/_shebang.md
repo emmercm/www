@@ -29,9 +29,11 @@ Simply put, a shebang tells your operating system where to find a program to int
 Shebangs look like this:
 
 ```bash
-#! executable [optional0-ar]
+#! executable [optional-single-arg]
 ```
+
+though the space after `#!` is optional, and many people choose to leave it off.
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTkxNjkxMTQ1Nyw3MTA2MjAxMTgsLTEzNz
+eyJoaXN0b3J5IjpbLTg5Njk2MDAyMyw3MTA2MjAxMTgsLTEzNz
 A5ODQ0NzRdfQ==
 -->
