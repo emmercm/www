@@ -27,6 +27,11 @@ echo "I will be executed by Bash!"
 echo "I will be executed by Z shell!"
 ```
 
+```bash
+#!/usr/bin/env python3
+print("I will be executed by Python 3!")
+```
+
 ## Syntax
 
 Shebangs look like this:
@@ -37,6 +42,6 @@ Shebangs look like this:
 
 though the space after `#!` is optional, and many people choose to leave it off.
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTUyODgwOTUyMSw3MTA2MjAxMTgsLTEzNz
-A5ODQ0NzRdfQ==
+eyJoaXN0b3J5IjpbNjYyMjMyOTQ5LC01Mjg4MDk1MjEsNzEwNj
+IwMTE4LC0xMzcwOTg0NDc0XX0=
 -->
