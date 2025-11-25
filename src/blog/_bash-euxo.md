@@ -210,7 +210,10 @@ pipefail       	on
 However, `set -e` can behave differently in checked vs. unchecked contexts:
 
 ```bash
+set -e
 
+# The subshell will return with an exit code
+(cat nonexistent_file; echo "this will not print")
 ```
 
 **In subshells.** The Bash you're writing may be in a location that is inappropriate to set defaults, such as in `~/.bashrc`/`~/.zshrc`. In these instances, you could consider the overhead of spawning [subshells](https://tldp.org/LDP/abs/html/subshells.html) and setting `set -euo pipefail` within them.
@@ -230,11 +233,11 @@ However, `set -e` can behave differently in checked vs. unchecked contexts:
 	}
 	```
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTE4MjY5NjE4ODAsODQwMTQ1MDA4LC04OD
-gzMTQ5MzIsLTgxMDQ2ODMzMSwxODUwNjUxNjU4LC0xODcyOTcy
-ODk2LDE2MTExMTc2MzcsLTQ0MDEzMDQ4OSwtMTY1MDczNjUwMy
-w2NTkzOTk1LC0xODk2NzU0ODk1LC05MTI2NzIwNjQsMzY1MTg2
-OTUxLC04MzA3MDAzNjksMTQ0OTc0NjU5NywxMjM1NzEzNjc1LC
-0yMDEyMzk5NDM4LC05ODE5NjY2MTUsLTUxNDU5Njc1NywtMTMw
-MTAzNzYxOV19
+eyJoaXN0b3J5IjpbMTk1NDM4NjMwNywtMTgyNjk2MTg4MCw4ND
+AxNDUwMDgsLTg4ODMxNDkzMiwtODEwNDY4MzMxLDE4NTA2NTE2
+NTgsLTE4NzI5NzI4OTYsMTYxMTExNzYzNywtNDQwMTMwNDg5LC
+0xNjUwNzM2NTAzLDY1OTM5OTUsLTE4OTY3NTQ4OTUsLTkxMjY3
+MjA2NCwzNjUxODY5NTEsLTgzMDcwMDM2OSwxNDQ5NzQ2NTk3LD
+EyMzU3MTM2NzUsLTIwMTIzOTk0MzgsLTk4MTk2NjYxNSwtNTE0
+NTk2NzU3XX0=
 -->
