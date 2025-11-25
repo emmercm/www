@@ -107,8 +107,11 @@ rm -rf "${NONEXISTENT_VAR}/"
 
 # Without 'set -u', this will do nothing, keeping the current working directory
 cd "${NONEXISTENT_VAR}"
+```
 
-# Safely determine if the variable is unset or null
+You can check for unset or null variables like this:
+
+```bash
 if [ -z "${NONEXISTENT_VAR+unset}" ]; then
 	echo "NONEXISTENT_VAR is unset"
 elif [ -z "${NONEXISTENT_VAR}" ]; then
@@ -120,7 +123,7 @@ if [ -z "${NONEXISTENT_VAR:-}" ]; then
 fi
 ```
 
-You can use the `${parameter:−word}` [shell parameter expansion](https://www.gnu.org/software/bash/manual/html_node/Shell-Parameter-Expansion.html) if it's safe to provide a [default value](/blog/bash-environment-variable-defaults).
+You can also use the `${parameter:−word}` [shell parameter expansion](https://www.gnu.org/software/bash/manual/html_node/Shell-Parameter-Expansion.html) if it's safe to provide a [default value](/blog/bash-environment-variable-defaults) in your situation.
 
 Using `set -u` lets you be sure that the arguments you're providing to commands are exactly what you intended.
 
@@ -227,7 +230,7 @@ if (cat nonexistent_file; echo "this will print"); then true; fi
 
 I hope you're convinced by all the examples above of why you should be using `set -euo pipefail` by default everywhere you can.
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTMxODIxMTE3NywtMTgyNjk2MTg4MCw4ND
+eyJoaXN0b3J5IjpbLTUyNjI1NjQ3NiwtMTgyNjk2MTg4MCw4ND
 AxNDUwMDgsLTg4ODMxNDkzMiwtODEwNDY4MzMxLDE4NTA2NTE2
 NTgsLTE4NzI5NzI4OTYsMTYxMTExNzYzNywtNDQwMTMwNDg5LC
 0xNjUwNzM2NTAzLDY1OTM5OTUsLTE4OTY3NTQ4OTUsLTkxMjY3
