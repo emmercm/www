@@ -131,7 +131,7 @@ $ "$(pwd)/python3" -c 'print("hello world")'
 bash: /home/ubuntu/python3: No such file or directory
 ```
 
-Using `#! /usr/bin/env <interpreter>` is particularly important if your interpreter is frequently in different locations in different environments, such as `python3`, `ruby`, `node`, and `perl`.
+Using `#! /usr/bin/env <interpreter>` is particularly important if your interpreter is frequently in different locations in different OSes, such as `python3`, `ruby`, `node`, and `perl`.
 
 For example, on macOS, Python v3.9.6 could be in any one of these locations:
 
@@ -147,7 +147,7 @@ import sys
 print("I was executed by '" + sys.executable + "'!")
 ```
 
-_(This is less important for executables such as `/bin/bash` that should always exist in the same location, but it also isn't dangerous to default to using `/usr/bin/env`.)_
+_(This is less important for shell executables such as `/bin/bash` that should always exist in the same location, but it also isn't dangerous to default to using `/usr/bin/env`.)_
 
 ## Windows
 
@@ -157,11 +157,11 @@ Instead, Windows will use file extensions and associations to determine which ex
 
 _(Unix-like shells such as [Windows Subsystem for Linux (WSL)](https://learn.microsoft.com/en-us/windows/wsl/about), [Cygwin](https://www.cygwin.com/), and [MSYS2](https://www.msys2.org/) all handle shebangs correctly.)_
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTE0MTI2NzQ3MTMsLTk2MjY0OTk1LC05Nj
-g1MTk3MDksLTEzMTUzMTQyNDMsMjEzNTk1NTY0NCwtODAxNDYz
-ODMzLC0yNjYzNDU5MSw5NDQ4MTA4MDUsLTE0NTg3OTgxMjksLT
-IwMjkxMjA0MCwzOTc2MzM0OTksMTM1OTQyNDQ0MCwyMDMwODUw
-NDkzLDE2NTYwMDA4NzEsMTkxMjcwMDQ5NCwtMTE4NzQ4MDAyNi
-wtMTEwMDI4MzkyMiwtMTY3MzE0MDU4LDk5MzAwODEwOCw5MTAw
-OTgzXX0=
+eyJoaXN0b3J5IjpbMTEyOTY5NTkwOSwtOTYyNjQ5OTUsLTk2OD
+UxOTcwOSwtMTMxNTMxNDI0MywyMTM1OTU1NjQ0LC04MDE0NjM4
+MzMsLTI2NjM0NTkxLDk0NDgxMDgwNSwtMTQ1ODc5ODEyOSwtMj
+AyOTEyMDQwLDM5NzYzMzQ5OSwxMzU5NDI0NDQwLDIwMzA4NTA0
+OTMsMTY1NjAwMDg3MSwxOTEyNzAwNDk0LC0xMTg3NDgwMDI2LC
+0xMTAwMjgzOTIyLC0xNjczMTQwNTgsOTkzMDA4MTA4LDkxMDA5
+ODNdfQ==
 -->
