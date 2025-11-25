@@ -260,15 +260,15 @@ Some arguments _against_ relying on `set -euo pipefail` are:
 	- Different versions of Bash handle empty arrays differently ([1](https://mywiki.wooledge.org/BashFAQ/112)).
 	- You should instead use a linting tool such as [ShellCheck](https://www.shellcheck.net/) ([1](https://www.mulle-kybernetik.com/modern-bash-scripting/state-euxo-pipefail.html), [2](https://bbs.archlinux.org/viewtopic.php?pid=1811150#p1811150)).
 
-      You should definitely use ShellCheck to catch other dangerous mistakes you can make when shell scripting, but this isn't a valid argument
+      You should definitely use ShellCheck to catch other dangerous mistakes you can make when shell scripting, but this isn't a valid argument of why `set -u` is _dangerous_.
 
 If we apply some common sense, we should naturally understand that complex situations likely call for a different programming language. `set -euo pipefail` won't completely save you from dangerous shell scripting, but it sure provides a better backstop than nothing at all.
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTE5MjQ2MDc3NzgsLTc1Nzg4MzIzOSwxNj
-AwMDIxMTE1LDIxMDkxNDAwMDEsLTE4MjY5NjE4ODAsODQwMTQ1
-MDA4LC04ODgzMTQ5MzIsLTgxMDQ2ODMzMSwxODUwNjUxNjU4LC
-0xODcyOTcyODk2LDE2MTExMTc2MzcsLTQ0MDEzMDQ4OSwtMTY1
-MDczNjUwMyw2NTkzOTk1LC0xODk2NzU0ODk1LC05MTI2NzIwNj
-QsMzY1MTg2OTUxLC04MzA3MDAzNjksMTQ0OTc0NjU5NywxMjM1
-NzEzNjc1XX0=
+eyJoaXN0b3J5IjpbLTI1MTkwMjY3OSwtNzU3ODgzMjM5LDE2MD
+AwMjExMTUsMjEwOTE0MDAwMSwtMTgyNjk2MTg4MCw4NDAxNDUw
+MDgsLTg4ODMxNDkzMiwtODEwNDY4MzMxLDE4NTA2NTE2NTgsLT
+E4NzI5NzI4OTYsMTYxMTExNzYzNywtNDQwMTMwNDg5LC0xNjUw
+NzM2NTAzLDY1OTM5OTUsLTE4OTY3NTQ4OTUsLTkxMjY3MjA2NC
+wzNjUxODY5NTEsLTgzMDcwMDM2OSwxNDQ5NzQ2NTk3LDEyMzU3
+MTM2NzVdfQ==
 -->
