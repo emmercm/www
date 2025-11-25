@@ -65,7 +65,7 @@ This will cause a script to fail as soon as any of these return a non-zero exit 
 - A single simple command
 - A pipeline (commands chained with `|` pipes)
 - A list of commands (commands chained with `;`, `&`, `&&`, or `||`)
-- , or a compound command returns a non-zero exit code.
+- A compound command (loops, conditionals, and groups)
 
 For example:
 
@@ -81,6 +81,13 @@ false && echo "will never print"
 
 # 'echo' returns an exit code of 0, but 'grep' returns an exit code of 1 because it won't find "world"
 echo "hello" | grep -q "world"
+```
+
+Non-zero exit codes in a conditional don't cause an exit, as you would hope:
+
+```bash
+#!/usr/bin/env bash
+set -e
 
 # Non-zero exit codes in a conditional don't cause an exit
 if ! rm -rf "TMP_DIR"; then
@@ -238,11 +245,11 @@ if (cat nonexistent_file; echo "this will print"); then true; fi
 
 I hope you're convinced by all the examples above of why you should be using `set -euo pipefail` by default everywhere you can.
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbODQ1NDY3ODEsLTE4MjY5NjE4ODAsODQwMT
-Q1MDA4LC04ODgzMTQ5MzIsLTgxMDQ2ODMzMSwxODUwNjUxNjU4
-LC0xODcyOTcyODk2LDE2MTExMTc2MzcsLTQ0MDEzMDQ4OSwtMT
-Y1MDczNjUwMyw2NTkzOTk1LC0xODk2NzU0ODk1LC05MTI2NzIw
-NjQsMzY1MTg2OTUxLC04MzA3MDAzNjksMTQ0OTc0NjU5NywxMj
-M1NzEzNjc1LC0yMDEyMzk5NDM4LC05ODE5NjY2MTUsLTUxNDU5
-Njc1N119
+eyJoaXN0b3J5IjpbMTc3ODgyMzU5NCwtMTgyNjk2MTg4MCw4ND
+AxNDUwMDgsLTg4ODMxNDkzMiwtODEwNDY4MzMxLDE4NTA2NTE2
+NTgsLTE4NzI5NzI4OTYsMTYxMTExNzYzNywtNDQwMTMwNDg5LC
+0xNjUwNzM2NTAzLDY1OTM5OTUsLTE4OTY3NTQ4OTUsLTkxMjY3
+MjA2NCwzNjUxODY5NTEsLTgzMDcwMDM2OSwxNDQ5NzQ2NTk3LD
+EyMzU3MTM2NzUsLTIwMTIzOTk0MzgsLTk4MTk2NjYxNSwtNTE0
+NTk2NzU3XX0=
 -->
