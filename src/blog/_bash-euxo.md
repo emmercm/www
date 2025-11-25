@@ -73,6 +73,8 @@ false && echo "will never print"
 
 # 'echo' returns an exit code of 0, but 'grep' returns an exit code of 1 because it won't find "world"
 echo "hello" | grep -q "world"
+
+# Non-zero exit codes in a cond
 ```
 
 You will still have some commands you'll want to ignore errors such that the script doesn't exit, you can do that with `|| true`:
@@ -83,8 +85,14 @@ set -e
 
 # '|| true' causes the statement to return an exit of 0 always
 rm -rf "TMP_DIR" || true
+```
 
-# if/then can catch failures
+
+```bash
+#!/usr/bin/env bash
+set -e
+
+# Failures in a conditional don't cause an exit
 if ! rm -rf "TMP_DIR"; then
 	echo "TMP_DIR doesn't exist"
 fi
@@ -227,7 +235,7 @@ if (cat nonexistent_file; echo "this will print"); then true; fi
 
 I hope you're convinced by all the examples above of why you should be using `set -euo pipefail` by default everywhere you can.
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMjA4MDAzNDY0LC0xODI2OTYxODgwLDg0MD
+eyJoaXN0b3J5IjpbNTU1NDc5MDY0LC0xODI2OTYxODgwLDg0MD
 E0NTAwOCwtODg4MzE0OTMyLC04MTA0NjgzMzEsMTg1MDY1MTY1
 OCwtMTg3Mjk3Mjg5NiwxNjExMTE3NjM3LC00NDAxMzA0ODksLT
 E2NTA3MzY1MDMsNjU5Mzk5NSwtMTg5Njc1NDg5NSwtOTEyNjcy
