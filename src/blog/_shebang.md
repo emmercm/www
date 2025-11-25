@@ -66,10 +66,11 @@ So it is more reliable to use `/usr/bin/env` to find where `python3` is, plus it
 
 ```python
 #!/usr/bin/env python3
-print("I will be executed by Python 3!")
+import sys
+print("I was executed by '" + sys.executable + "'!")
 ```
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTE3MDE5NDU0NzcsLTE4ODAzMjcyNjIsNj
-YyMjMyOTQ5LC01Mjg4MDk1MjEsNzEwNjIwMTE4LC0xMzcwOTg0
-NDc0XX0=
+eyJoaXN0b3J5IjpbOTEwMDk4MywtMTg4MDMyNzI2Miw2NjIyMz
+I5NDksLTUyODgwOTUyMSw3MTA2MjAxMTgsLTEzNzA5ODQ0NzRd
+fQ==
 -->
