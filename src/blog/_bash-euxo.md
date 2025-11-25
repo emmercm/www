@@ -229,17 +229,16 @@ pipefail       	on
 
 However, `set -e` behaves differently in some scenarios:
 
-> If a compound command other than a subshell returns a non-zero status because a command failed while `-e` was being ignored, the shell does not exit.
-> ...
-> If a compound command or shell function executes in a context where -e is being ignored, none of the commands executed within the compound command or function body will be affected by the -e setting, even if -e is set and a command returns a failure status. If a compound command or shell function sets -e while executing in a context where -e is ignored, that setting will not have any effect until the compound command or the command containing the function call completes.
+> The shell does not exit if the command that fails is part of the command list immediately following a `while` or `until` reserved word, part of the test in an `if` statement, part of any command executed in a `&&` or `||` list except the command following the final `&&` or `||`, any command in a pipeline but the last (subject to the state of the `pipefail` shell option), or if the command’s return status is being inverted with `!`.
 
 ```bash
 set -e
 
-# For "unchecked" contexts, the subshell will inherit 'set -e',
-# and return an exit code as expected:
+# These subshells will inherit 'set -e' and return an exit code as expected:
 (cat nonexistent_file; echo "this will NOT print")
 VAR=$(cat nonexistent_file; echo "this will NOT print")
+
+# However, these won't...
 
 # However, 'set -e' gets disabled in the subshell in these "checked" contexts:
 if (cat nonexistent_file; echo "this will print"); then true; fi
@@ -275,11 +274,11 @@ Some arguments _against_ relying on `set -euo pipefail` are:
 
 If we apply some common sense, we should naturally understand that complex situations likely call for a different programming language. `set -euo pipefail` won't completely save you from dangerous shell scripting, but it sure provides a better backstop than nothing at all.
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTY1OTkyMzQ1NCw3NDY3MDE2MjMsLTExMT
-gwNDc0NTYsMTgwOTE0ODg1MiwtODkwMDYzOTQxLC03NTc4ODMy
-MzksMTYwMDAyMTExNSwyMTA5MTQwMDAxLC0xODI2OTYxODgwLD
-g0MDE0NTAwOCwtODg4MzE0OTMyLC04MTA0NjgzMzEsMTg1MDY1
-MTY1OCwtMTg3Mjk3Mjg5NiwxNjExMTE3NjM3LC00NDAxMzA0OD
-ksLTE2NTA3MzY1MDMsNjU5Mzk5NSwtMTg5Njc1NDg5NSwtOTEy
-NjcyMDY0XX0=
+eyJoaXN0b3J5IjpbNzY3NTkwMzAsLTY1OTkyMzQ1NCw3NDY3MD
+E2MjMsLTExMTgwNDc0NTYsMTgwOTE0ODg1MiwtODkwMDYzOTQx
+LC03NTc4ODMyMzksMTYwMDAyMTExNSwyMTA5MTQwMDAxLC0xOD
+I2OTYxODgwLDg0MDE0NTAwOCwtODg4MzE0OTMyLC04MTA0Njgz
+MzEsMTg1MDY1MTY1OCwtMTg3Mjk3Mjg5NiwxNjExMTE3NjM3LC
+00NDAxMzA0ODksLTE2NTA3MzY1MDMsNjU5Mzk5NSwtMTg5Njc1
+NDg5NV19
 -->
