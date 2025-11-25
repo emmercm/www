@@ -62,8 +62,10 @@ Here is an explanation of all the recommended `set -euo pipefail` options.
 
 This will cause a script to fail as soon as any of these return a non-zero exit code:
 
-- A pipeline (commands, a simple command
-- a list command, or a compound command returns a non-zero exit code.
+- A single simple command
+- A pipeline (commands chained with `|` pipes)
+- A list of commands (commands chained with `;`, `&`, `&&`, or `||`)
+- , or a compound command returns a non-zero exit code.
 
 For example:
 
@@ -236,11 +238,11 @@ if (cat nonexistent_file; echo "this will print"); then true; fi
 
 I hope you're convinced by all the examples above of why you should be using `set -euo pipefail` by default everywhere you can.
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTE2MjA2MzI3MTIsLTE4MjY5NjE4ODAsOD
-QwMTQ1MDA4LC04ODgzMTQ5MzIsLTgxMDQ2ODMzMSwxODUwNjUx
-NjU4LC0xODcyOTcyODk2LDE2MTExMTc2MzcsLTQ0MDEzMDQ4OS
-wtMTY1MDczNjUwMyw2NTkzOTk1LC0xODk2NzU0ODk1LC05MTI2
-NzIwNjQsMzY1MTg2OTUxLC04MzA3MDAzNjksMTQ0OTc0NjU5Ny
-wxMjM1NzEzNjc1LC0yMDEyMzk5NDM4LC05ODE5NjY2MTUsLTUx
-NDU5Njc1N119
+eyJoaXN0b3J5IjpbODQ1NDY3ODEsLTE4MjY5NjE4ODAsODQwMT
+Q1MDA4LC04ODgzMTQ5MzIsLTgxMDQ2ODMzMSwxODUwNjUxNjU4
+LC0xODcyOTcyODk2LDE2MTExMTc2MzcsLTQ0MDEzMDQ4OSwtMT
+Y1MDczNjUwMyw2NTkzOTk1LC0xODk2NzU0ODk1LC05MTI2NzIw
+NjQsMzY1MTg2OTUxLC04MzA3MDAzNjksMTQ0OTc0NjU5NywxMj
+M1NzEzNjc1LC0yMDEyMzk5NDM4LC05ODE5NjY2MTUsLTUxNDU5
+Njc1N119
 -->
