@@ -246,20 +246,23 @@ if (cat nonexistent_file; echo "this will print"); then true; fi
 Some arguments _against_ relying on `set -euo pipefail` are:
 
 - Agaisnt `set -e`:
-	- A Bash script can't reliably know if the severity of an external program's non-zero exit code warrants a script exit or not ([Wooledge](https://mywiki.wooledge.org/BashFAQ/105), [Nat!](https://www.mulle-kybernetik.com/modern-bash-scripting/state-euxo-pipefail.html))
-	- Commands may return a non-zero exit code when there isn't an error, for control flow ([Wooledge](https://mywiki.wooledge.org/BashFAQ/105))
-	- Subshells can have differing behavior (described above) ([Wooledge](https://mywiki.wooledge.org/BashFAQ/105))
+	- A Bash script can't reliably know if the severity of an external program's non-zero exit code warrants a script exit or not ([Wooledge](https://mywiki.wooledge.org/BashFAQ/105), [Nat!](https://www.mulle-kybernetik.com/modern-bash-scripting/state-euxo-pipefail.html)).
+
+      I don't think this is a valid argument against `set -euo pipefail`, it's a review on shell scripting syntax.
+
+	- Commands may return a non-zero exit code when there isn't an error, for control flow ([Wooledge](https://mywiki.wooledge.org/BashFAQ/105)).
+	- Subshells can have differing behavior (described above) ([Wooledge](https://mywiki.wooledge.org/BashFAQ/105)).
 - Against `set -u`:
-	- Positional parameters such as `$1` may not be set, and this is safe in some situations ([Wooledge](https://mywiki.wooledge.org/BashFAQ/112))
-	- Different versions of Bash handle empty arrays differently ([Wooledge](https://mywiki.wooledge.org/BashFAQ/112))
+	- Positional parameters such as `$1` may not be set, and this is safe in some situations ([Wooledge](https://mywiki.wooledge.org/BashFAQ/112)).
+	- Different versions of Bash handle empty arrays differently ([Wooledge](https://mywiki.wooledge.org/BashFAQ/112)).
 
 If we apply some common sense, we should naturally understand that complex situations likely call for a different programming language. `set -euo pipefail` won't completely save you from dangerous shell scripting, but it sure provides a better backstop than nothing at all.
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTg3NzE4MDI1OCwxNjAwMDIxMTE1LDIxMD
-kxNDAwMDEsLTE4MjY5NjE4ODAsODQwMTQ1MDA4LC04ODgzMTQ5
-MzIsLTgxMDQ2ODMzMSwxODUwNjUxNjU4LC0xODcyOTcyODk2LD
-E2MTExMTc2MzcsLTQ0MDEzMDQ4OSwtMTY1MDczNjUwMyw2NTkz
-OTk1LC0xODk2NzU0ODk1LC05MTI2NzIwNjQsMzY1MTg2OTUxLC
-04MzA3MDAzNjksMTQ0OTc0NjU5NywxMjM1NzEzNjc1LC0yMDEy
-Mzk5NDM4XX0=
+eyJoaXN0b3J5IjpbLTc5OTQ3NDIzLDE2MDAwMjExMTUsMjEwOT
+E0MDAwMSwtMTgyNjk2MTg4MCw4NDAxNDUwMDgsLTg4ODMxNDkz
+MiwtODEwNDY4MzMxLDE4NTA2NTE2NTgsLTE4NzI5NzI4OTYsMT
+YxMTExNzYzNywtNDQwMTMwNDg5LC0xNjUwNzM2NTAzLDY1OTM5
+OTUsLTE4OTY3NTQ4OTUsLTkxMjY3MjA2NCwzNjUxODY5NTEsLT
+gzMDcwMDM2OSwxNDQ5NzQ2NTk3LDEyMzU3MTM2NzUsLTIwMTIz
+OTk0MzhdfQ==
 -->
