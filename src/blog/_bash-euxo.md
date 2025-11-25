@@ -262,13 +262,13 @@ false | echo "this will print" && echo "and so will this"
 ! false && echo "this will print"
 ```
 
-And by default, the `inherit_errexit` option is off, causing command substitutions to not inherit `set -e`:
+And by default, the [`inherit_errexit`](https://www.gnu.org/software/bash/manual/html_node/The-Shopt-Builtin.html) option is off, causing command substitutions to not inherit `set -e`:
 
 ```bash
 #!/usr/bin/env bash
 set -e
 
-
+echo "this will print$(false)" && echo "and so will this"
 ```
 
 ## Counter arguments
@@ -299,11 +299,11 @@ Some arguments _against_ relying on `set -euo pipefail` are:
 
 If we apply some common sense, we should naturally understand that complex situations likely call for a different programming language. `set -euo pipefail` won't completely save you from dangerous shell scripting, but it sure provides a better backstop than nothing at all.
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTgwNzAyMzk5MiwtMTY4OTM1MTU0MCwtNj
-U5OTIzNDU0LDc0NjcwMTYyMywtMTExODA0NzQ1NiwxODA5MTQ4
-ODUyLC04OTAwNjM5NDEsLTc1Nzg4MzIzOSwxNjAwMDIxMTE1LD
-IxMDkxNDAwMDEsLTE4MjY5NjE4ODAsODQwMTQ1MDA4LC04ODgz
-MTQ5MzIsLTgxMDQ2ODMzMSwxODUwNjUxNjU4LC0xODcyOTcyOD
-k2LDE2MTExMTc2MzcsLTQ0MDEzMDQ4OSwtMTY1MDczNjUwMyw2
-NTkzOTk1XX0=
+eyJoaXN0b3J5IjpbLTE3NDAzNDI4OTAsLTE2ODkzNTE1NDAsLT
+Y1OTkyMzQ1NCw3NDY3MDE2MjMsLTExMTgwNDc0NTYsMTgwOTE0
+ODg1MiwtODkwMDYzOTQxLC03NTc4ODMyMzksMTYwMDAyMTExNS
+wyMTA5MTQwMDAxLC0xODI2OTYxODgwLDg0MDE0NTAwOCwtODg4
+MzE0OTMyLC04MTA0NjgzMzEsMTg1MDY1MTY1OCwtMTg3Mjk3Mj
+g5NiwxNjExMTE3NjM3LC00NDAxMzA0ODksLTE2NTA3MzY1MDMs
+NjU5Mzk5NV19
 -->
