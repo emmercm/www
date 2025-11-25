@@ -1114,6 +1114,7 @@ tracer(Metalsmith(path.resolve()))
             'qbittorrent.org',
             'mitpress.mit.edu',
             'npmjs.com',
+            'fvue.nl',
             // Anti-bot 404
             'fonts.gstatic.com$',
             'support.google.com',
