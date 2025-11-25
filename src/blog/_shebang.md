@@ -114,10 +114,10 @@ Using the `#! /usr/bin/env <interpreter>` style for shebangs is typically more "
 [`env <command>`](https://linux.die.net/man/1/env) is similar to [`which <programname>`](https://linux.die.net/man/1/which) in that it will search your `$PATH` and return the first executable found matching the given name. But while `which` prints the path of the executable, `env` will invoke the executable and pass all remaining arguments to it. Example:
 
 ```shell
-$ which echo
-echo: shell built-in command
+$ which python3
+/usr/bin/python3
 
-$ /usr/bin/env echo "hello world"
+$ /usr/bin/env python3 -c 'print("hello world")'
 hello world
 ```
 
@@ -147,7 +147,7 @@ Instead, Windows will use file extensions and associations to determine which ex
 
 _(Unix-like shells such as [Windows Subsystem for Linux (WSL)](https://learn.microsoft.com/en-us/windows/wsl/about), [Cygwin](https://www.cygwin.com/), and [MSYS2](https://www.msys2.org/) all handle shebangs correctly.)_
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTEyMDI5NzEyMzAsLTk2MjY0OTk1LC05Nj
+eyJoaXN0b3J5IjpbLTE3MTAwMDc5NzksLTk2MjY0OTk1LC05Nj
 g1MTk3MDksLTEzMTUzMTQyNDMsMjEzNTk1NTY0NCwtODAxNDYz
 ODMzLC0yNjYzNDU5MSw5NDQ4MTA4MDUsLTE0NTg3OTgxMjksLT
 IwMjkxMjA0MCwzOTc2MzM0OTksMTM1OTQyNDQ0MCwyMDMwODUw
