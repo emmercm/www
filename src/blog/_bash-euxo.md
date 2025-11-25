@@ -215,16 +215,21 @@ set -e
 # The subshell will return with an exit code, as expected
 (cat nonexistent_file; echo "this will NOT print")
 
+# 'set -e' is disabled
 if (cat nonexistent_file; echo "this will print"); then
-	echo "the subshell had -e"
+	echo "the subshell had 'set -e' disabled"
 fi
+
+(cat nonexistent_file; echo "this will print") || true
+
+(cat nonexistent_file; echo "this will print") || true
 ```
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTI5NTU0NDIwOCwtMTgyNjk2MTg4MCw4ND
-AxNDUwMDgsLTg4ODMxNDkzMiwtODEwNDY4MzMxLDE4NTA2NTE2
-NTgsLTE4NzI5NzI4OTYsMTYxMTExNzYzNywtNDQwMTMwNDg5LC
-0xNjUwNzM2NTAzLDY1OTM5OTUsLTE4OTY3NTQ4OTUsLTkxMjY3
-MjA2NCwzNjUxODY5NTEsLTgzMDcwMDM2OSwxNDQ5NzQ2NTk3LD
-EyMzU3MTM2NzUsLTIwMTIzOTk0MzgsLTk4MTk2NjYxNSwtNTE0
-NTk2NzU3XX0=
+eyJoaXN0b3J5IjpbLTEyMjc5NjA3NDEsLTE4MjY5NjE4ODAsOD
+QwMTQ1MDA4LC04ODgzMTQ5MzIsLTgxMDQ2ODMzMSwxODUwNjUx
+NjU4LC0xODcyOTcyODk2LDE2MTExMTc2MzcsLTQ0MDEzMDQ4OS
+wtMTY1MDczNjUwMyw2NTkzOTk1LC0xODk2NzU0ODk1LC05MTI2
+NzIwNjQsMzY1MTg2OTUxLC04MzA3MDAzNjksMTQ0OTc0NjU5Ny
+wxMjM1NzEzNjc1LC0yMDEyMzk5NDM4LC05ODE5NjY2MTUsLTUx
+NDU5Njc1N119
 -->
