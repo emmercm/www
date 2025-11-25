@@ -54,9 +54,9 @@ The `<executable>` should be an absolute (non-relative) path to either an interp
 
 ## Portability
 
-Using `#! /usr/bin/env <interpreter>` for shebangs is typically more "portable" (works more reliably across a wide variety of OSes). This is because `/usr/bin/env` should always exist, but your interpreter could live in a non-standard location, especially if it isn't a shell (`python3`, `ruby`, `node`, `perl`, etc.).
+Using `#! /usr/bin/env <interpreter>` for shebangs is typically more "portable" (works more reliably across a wide variety of OSes). This is because `/usr/bin/env` should always exist (or your OS knows how to handle it), but your interpreter could live in a non-standard location, especially if it isn't a shell (`python3`, `ruby`, `node`, `perl`, etc.).
 
-For example, on macOS, Python 3.9.6 could be in any one of these locations:
+For example, on macOS, Python v3.9.6 could be in any one of these locations:
 
 - `/usr/bin/python3` is provided by the OS (and is typically quite old)
 - `/Library/Frameworks/Python.framework/Versions/3.9/bin/python3` is where the official installer puts it
@@ -70,7 +70,7 @@ import sys
 print("I was executed by '" + sys.executable + "'!")
 ```
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTE1OTEyMjI4MDksOTEwMDk4MywtMTg4MD
-MyNzI2Miw2NjIyMzI5NDksLTUyODgwOTUyMSw3MTA2MjAxMTgs
-LTEzNzA5ODQ0NzRdfQ==
+eyJoaXN0b3J5IjpbOTkzMDA4MTA4LDkxMDA5ODMsLTE4ODAzMj
+cyNjIsNjYyMjMyOTQ5LC01Mjg4MDk1MjEsNzEwNjIwMTE4LC0x
+MzcwOTg0NDc0XX0=
 -->
