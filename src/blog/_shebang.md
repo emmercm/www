@@ -10,7 +10,7 @@ No, it's not a [Ricky Martin](https://en.wikipedia.org/wiki/Ricky_Martin) song.
 
 [Wikpedia](https://en.wikipedia.org/wiki/Shebang_(Unix)) says the shebang also known as a sharp-exclamation, sha-bang, hashbang, pound-bang, or hash-pling. No matter what you call it, it has been around since 80's.
 
-Simply put, a shebang lets a file tell your operating system what executable should interpret your file (an "interpreter directive"), and it's used whenever your file is invoked like an executable.
+Simply put, a shebang lets a file tell your Unix-like operating system what executable should interpret your file (an "interpreter directive"), and it's used whenever your file is invoked like an executable.
 
 Shebangs are always the first line of a file, and they look like this:
 
@@ -56,6 +56,8 @@ Shebangs look like this, and they must be the first line in a file:
 ```
 
 _(Though the space(s)/tab(s) after `#!` are optional, and many people choose to omit them.)_
+
+This works because `#`
 
 The `<executable>` should be an absolute (non-relative) path to either an interpreter (`/bin/sh`, `/bin/bash`, `/usr/bin/pwsh`, `/usr/bin/python3`, `/usr/bin/ruby`, etc.), or an executable that can _find_ an interpreter (`/usr/bin/env`).
 
@@ -118,9 +120,9 @@ _(This is less important for executables such as `/bin/bash` that should always 
 
 Both Command Prompt (`cmd.exe`) and PowerShell do not natively interpret shebangs. Further, shebangs will cause problems for Command Prompt, as comments are started with `REM` or `::` and not `#`.
 
-Instead, Windows will use file extensions
+Instead, Windows will use file extensions and associations to determine which executable to use.
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTc0MzcyOTQwOSwyMDMwODUwNDkzLDE2NT
+eyJoaXN0b3J5IjpbMTA3MDY2MjMyOCwyMDMwODUwNDkzLDE2NT
 YwMDA4NzEsMTkxMjcwMDQ5NCwtMTE4NzQ4MDAyNiwtMTEwMDI4
 MzkyMiwtMTY3MzE0MDU4LDk5MzAwODEwOCw5MTAwOTgzLC0xOD
 gwMzI3MjYyLDY2MjIzMjk0OSwtNTI4ODA5NTIxLDcxMDYyMDEx
