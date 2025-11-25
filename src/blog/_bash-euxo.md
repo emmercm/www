@@ -267,15 +267,15 @@ Some arguments _against_ relying on `set -euo pipefail` are:
       You should definitely use ShellCheck to catch other dangerous mistakes you can make when shell scripting, but this isn't a valid argument of why `set -u` is _dangerous_.
 
 - Against `set -o pipefail`
-  - When combined with `set -e`, `SIGPIPE` signals can cause a pipeline
+  - When combined with `set -e`, `SIGPIPE` signals can cause a pipeline to fail unexpectedly ([1](https://news.ycombinator.com/item?id=14322581)).
 
 If we apply some common sense, we should naturally understand that complex situations likely call for a different programming language. `set -euo pipefail` won't completely save you from dangerous shell scripting, but it sure provides a better backstop than nothing at all.
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTEzMDUyOTk1MjQsLTExMTgwNDc0NTYsMT
-gwOTE0ODg1MiwtODkwMDYzOTQxLC03NTc4ODMyMzksMTYwMDAy
-MTExNSwyMTA5MTQwMDAxLC0xODI2OTYxODgwLDg0MDE0NTAwOC
-wtODg4MzE0OTMyLC04MTA0NjgzMzEsMTg1MDY1MTY1OCwtMTg3
-Mjk3Mjg5NiwxNjExMTE3NjM3LC00NDAxMzA0ODksLTE2NTA3Mz
-Y1MDMsNjU5Mzk5NSwtMTg5Njc1NDg5NSwtOTEyNjcyMDY0LDM2
-NTE4Njk1MV19
+eyJoaXN0b3J5IjpbNzQ2NzAxNjIzLC0xMTE4MDQ3NDU2LDE4MD
+kxNDg4NTIsLTg5MDA2Mzk0MSwtNzU3ODgzMjM5LDE2MDAwMjEx
+MTUsMjEwOTE0MDAwMSwtMTgyNjk2MTg4MCw4NDAxNDUwMDgsLT
+g4ODMxNDkzMiwtODEwNDY4MzMxLDE4NTA2NTE2NTgsLTE4NzI5
+NzI4OTYsMTYxMTExNzYzNywtNDQwMTMwNDg5LC0xNjUwNzM2NT
+AzLDY1OTM5OTUsLTE4OTY3NTQ4OTUsLTkxMjY3MjA2NCwzNjUx
+ODY5NTFdfQ==
 -->
