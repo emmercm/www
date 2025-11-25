@@ -22,7 +22,7 @@ echo "I will be executed by a strictly POSIX-compliant shell!"
 echo "I will be executed by Bash!"
 ```
 
-```bash
+```python
 #!/usr/bin/env python3
 print("I will be executed by Python 3!")
 ```
@@ -58,13 +58,18 @@ Using `#! /usr/bin/env <interpreter>` is typically more "portable" (works more r
 
 For example, on macOS, Python 3.9.6 could be in any one of these locations:
 
-- `/usr/bin/python3` is provided by the OS and is typically quite old
+- `/usr/bin/python3` is provided by the OS (and is typically quite old)
 - `/Library/Frameworks/Python.framework/Versions/3.9/bin/python3` is where the official installer puts it
 - `/opt/homebrew/Cellar/python@3.9/3.9.6/bin/python3` is where [Homebrew](https://brew.sh/) puts it on an Apple Silicon Mac
 
-so it
+So it is more reliable to use `/usr/bin/env` t
+
+```python
+#!/usr/bin/env python3
+print("I will be executed by Python 3!")
+```
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTE4NzI4MjQ4OCwtMTg4MDMyNzI2Miw2Nj
+eyJoaXN0b3J5IjpbMTE3MDkwMjMwOSwtMTg4MDMyNzI2Miw2Nj
 IyMzI5NDksLTUyODgwOTUyMSw3MTA2MjAxMTgsLTEzNzA5ODQ0
 NzRdfQ==
 -->
