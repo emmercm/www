@@ -229,6 +229,8 @@ pipefail       	on
 
 However, `set -e` behaves differently in some scenarios:
 
+> If a compound command other than a subshell returns a non-zero status because a command failed while `-e` was being ignored, the shell does not exit.
+
 ```bash
 set -e
 
@@ -271,11 +273,11 @@ Some arguments _against_ relying on `set -euo pipefail` are:
 
 If we apply some common sense, we should naturally understand that complex situations likely call for a different programming language. `set -euo pipefail` won't completely save you from dangerous shell scripting, but it sure provides a better backstop than nothing at all.
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTE3NDk0NDk0OTcsNzQ2NzAxNjIzLC0xMT
-E4MDQ3NDU2LDE4MDkxNDg4NTIsLTg5MDA2Mzk0MSwtNzU3ODgz
-MjM5LDE2MDAwMjExMTUsMjEwOTE0MDAwMSwtMTgyNjk2MTg4MC
-w4NDAxNDUwMDgsLTg4ODMxNDkzMiwtODEwNDY4MzMxLDE4NTA2
-NTE2NTgsLTE4NzI5NzI4OTYsMTYxMTExNzYzNywtNDQwMTMwND
-g5LC0xNjUwNzM2NTAzLDY1OTM5OTUsLTE4OTY3NTQ4OTUsLTkx
-MjY3MjA2NF19
+eyJoaXN0b3J5IjpbLTUzMjkyMjEyOCw3NDY3MDE2MjMsLTExMT
+gwNDc0NTYsMTgwOTE0ODg1MiwtODkwMDYzOTQxLC03NTc4ODMy
+MzksMTYwMDAyMTExNSwyMTA5MTQwMDAxLC0xODI2OTYxODgwLD
+g0MDE0NTAwOCwtODg4MzE0OTMyLC04MTA0NjgzMzEsMTg1MDY1
+MTY1OCwtMTg3Mjk3Mjg5NiwxNjExMTE3NjM3LC00NDAxMzA0OD
+ksLTE2NTA3MzY1MDMsNjU5Mzk5NSwtMTg5Njc1NDg5NSwtOTEy
+NjcyMDY0XX0=
 -->
