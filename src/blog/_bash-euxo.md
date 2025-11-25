@@ -245,13 +245,14 @@ if (cat nonexistent_file; echo "this will print"); then true; fi
 
 Some arguments _against_ relying on `set -euo pipefail` from people on forums are:
 
-- 
+- A Bash script can't reliably know if the severity of an external program's non-zero exit code warrants a script exit or not ([BashFAQ/105](https://mywiki.wooledge.org/BashFAQ/105)).
+- An external program
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMjAzNTIzODU4OSwyMTA5MTQwMDAxLC0xOD
-I2OTYxODgwLDg0MDE0NTAwOCwtODg4MzE0OTMyLC04MTA0Njgz
-MzEsMTg1MDY1MTY1OCwtMTg3Mjk3Mjg5NiwxNjExMTE3NjM3LC
-00NDAxMzA0ODksLTE2NTA3MzY1MDMsNjU5Mzk5NSwtMTg5Njc1
-NDg5NSwtOTEyNjcyMDY0LDM2NTE4Njk1MSwtODMwNzAwMzY5LD
-E0NDk3NDY1OTcsMTIzNTcxMzY3NSwtMjAxMjM5OTQzOCwtOTgx
-OTY2NjE1XX0=
+eyJoaXN0b3J5IjpbMjU3NjY0NjMzLDIxMDkxNDAwMDEsLTE4Mj
+Y5NjE4ODAsODQwMTQ1MDA4LC04ODgzMTQ5MzIsLTgxMDQ2ODMz
+MSwxODUwNjUxNjU4LC0xODcyOTcyODk2LDE2MTExMTc2MzcsLT
+Q0MDEzMDQ4OSwtMTY1MDczNjUwMyw2NTkzOTk1LC0xODk2NzU0
+ODk1LC05MTI2NzIwNjQsMzY1MTg2OTUxLC04MzA3MDAzNjksMT
+Q0OTc0NjU5NywxMjM1NzEzNjc1LC0yMDEyMzk5NDM4LC05ODE5
+NjY2MTVdfQ==
 -->
