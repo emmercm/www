@@ -246,7 +246,7 @@ if (cat nonexistent_file; echo "this will print"); then true; fi
 Some arguments _against_ relying on `set -euo pipefail` are:
 
 - Agaisnt `set -e`:
-	- A Bash script can't reliably know if the severity of an external program's non-zero exit code warrants a script exit or not ([Wooledge](https://mywiki.wooledge.org/BashFAQ/105))
+	- A Bash script can't reliably know if the severity of an external program's non-zero exit code warrants a script exit or not ([Wooledge](https://mywiki.wooledge.org/BashFAQ/105), [Nat!](https://www.mulle-kybernetik.com/modern-bash-scripting/state-euxo-pipefail.html))
 	- Commands may return a non-zero exit code when there isn't an error, for control flow ([Wooledge](https://mywiki.wooledge.org/BashFAQ/105))
 	- Subshells can have differing behavior (described above) ([Wooledge](https://mywiki.wooledge.org/BashFAQ/105))
 - Against `set -u`:
@@ -255,11 +255,11 @@ Some arguments _against_ relying on `set -euo pipefail` are:
 
 If we apply some common sense, we should naturally understand that complex situations likely call for a different programming language. `set -euo pipefail` won't completely save you from dangerous shell scripting, but it sure provides a better backstop than nothing at all.
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTYwMDAyMTExNSwyMTA5MTQwMDAxLC0xOD
-I2OTYxODgwLDg0MDE0NTAwOCwtODg4MzE0OTMyLC04MTA0Njgz
-MzEsMTg1MDY1MTY1OCwtMTg3Mjk3Mjg5NiwxNjExMTE3NjM3LC
-00NDAxMzA0ODksLTE2NTA3MzY1MDMsNjU5Mzk5NSwtMTg5Njc1
-NDg5NSwtOTEyNjcyMDY0LDM2NTE4Njk1MSwtODMwNzAwMzY5LD
-E0NDk3NDY1OTcsMTIzNTcxMzY3NSwtMjAxMjM5OTQzOCwtOTgx
-OTY2NjE1XX0=
+eyJoaXN0b3J5IjpbLTg3NzE4MDI1OCwxNjAwMDIxMTE1LDIxMD
+kxNDAwMDEsLTE4MjY5NjE4ODAsODQwMTQ1MDA4LC04ODgzMTQ5
+MzIsLTgxMDQ2ODMzMSwxODUwNjUxNjU4LC0xODcyOTcyODk2LD
+E2MTExMTc2MzcsLTQ0MDEzMDQ4OSwtMTY1MDczNjUwMyw2NTkz
+OTk1LC0xODk2NzU0ODk1LC05MTI2NzIwNjQsMzY1MTg2OTUxLC
+04MzA3MDAzNjksMTQ0OTc0NjU5NywxMjM1NzEzNjc1LC0yMDEy
+Mzk5NDM4XX0=
 -->
