@@ -109,7 +109,7 @@ Here are some examples that execute the same way:
 
 ## Portability
 
-Using the `#! /usr/bin/env <interpreter>` style for shebangs is typically more "portable" (works more reliably across a wide variety of OSes environments). [`env <command>`](https://linux.die.net/man/1/env) is similar to [`which <programname>`](https://linux.die.net/man/1/which) in that it will search your `$PATH` for the 
+Using the `#! /usr/bin/env <interpreter>` style for shebangs is typically more "portable" (works more reliably across a wide variety of OSes environments). [`env <command>`](https://linux.die.net/man/1/env) is similar to [`which <programname>`](https://linux.die.net/man/1/which) in that it will search your `$PATH` and return the first executable found matching the given name. But while `which` prints the path of the executable, `env` will invoke the executable and pass all remaining arguments to it.
 
 This is because `/usr/bin/env` should almost always exist (or your OS knows how to handle it), but your interpreter could live in a non-standard location, especially if it isn't a shell (`python3`, `ruby`, `node`, `perl`, etc.).
 
@@ -137,7 +137,7 @@ Instead, Windows will use file extensions and associations to determine which ex
 
 _(Unix-like shells such as [Windows Subsystem for Linux (WSL)](https://learn.microsoft.com/en-us/windows/wsl/about), [Cygwin](https://www.cygwin.com/), and [MSYS2](https://www.msys2.org/) all handle shebangs correctly.)_
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTQyMjAyMTM3MCwtOTYyNjQ5OTUsLTk2OD
+eyJoaXN0b3J5IjpbLTg2NjY4NzI5NiwtOTYyNjQ5OTUsLTk2OD
 UxOTcwOSwtMTMxNTMxNDI0MywyMTM1OTU1NjQ0LC04MDE0NjM4
 MzMsLTI2NjM0NTkxLDk0NDgxMDgwNSwtMTQ1ODc5ODEyOSwtMj
 AyOTEyMDQwLDM5NzYzMzQ5OSwxMzU5NDI0NDQwLDIwMzA4NTA0
