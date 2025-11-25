@@ -54,7 +54,7 @@ _(Though the space(s)/tab(s) after `#!` are optional, and many people choose to 
 
 The `<executable>` should be an absolute (non-relative) path to either an interpreter (`sh`, `bash`, `pwsh`, `python3`, `ruby`, `node`, etc.), or an executable that can _find_ an interpreter (`/usr/bin/env`).
 
-Shebangs are
+Shebangs let files assert what interpreter should run them (and IDEs frequently pick up on them for syntax highlighting
 
 ## Portability
 
@@ -76,7 +76,8 @@ print("I was executed by '" + sys.executable + "'!")
 
 _(This is less important for executables such as `/bin/bash` that should always exist in the same location, but it also isn't dangerous to default to using `/usr/bin/env`.)_
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTExMDAyODM5MjIsLTE2NzMxNDA1OCw5OT
-MwMDgxMDgsOTEwMDk4MywtMTg4MDMyNzI2Miw2NjIyMzI5NDks
-LTUyODgwOTUyMSw3MTA2MjAxMTgsLTEzNzA5ODQ0NzRdfQ==
+eyJoaXN0b3J5IjpbLTkyNTI0MzI5MiwtMTEwMDI4MzkyMiwtMT
+Y3MzE0MDU4LDk5MzAwODEwOCw5MTAwOTgzLC0xODgwMzI3MjYy
+LDY2MjIzMjk0OSwtNTI4ODA5NTIxLDcxMDYyMDExOCwtMTM3MD
+k4NDQ3NF19
 -->
