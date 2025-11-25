@@ -213,19 +213,17 @@ However, `set -e` can behave differently in checked vs. unchecked contexts:
 set -e
 
 # The subshell will return with an exit code, as expected
-(cat nonexistent_file; echo "this will NOT print")
+(cat nonexistent_file; echo "this will NOT print")VAR
 
-# 'set -e' is disabled
-if (cat nonexistent_file; echo "this will print"); then
-	echo "the subshell had 'set -e' disabled"
-fi
 
+# However, 'set -e' gets disabled in the subshell in these "checked" contexts:
+
+if (cat nonexistent_file; echo "this will print"); then true; fi
 (cat nonexistent_file; echo "this will print") || true
-
-(cat nonexistent_file; echo "this will print") || true
+(cat nonexistent_file; echo "this will print") && true
 ```
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTEyMjc5NjA3NDEsLTE4MjY5NjE4ODAsOD
+eyJoaXN0b3J5IjpbLTE0ODY0MTA4MDQsLTE4MjY5NjE4ODAsOD
 QwMTQ1MDA4LC04ODgzMTQ5MzIsLTgxMDQ2ODMzMSwxODUwNjUx
 NjU4LC0xODcyOTcyODk2LDE2MTExMTc2MzcsLTQ0MDEzMDQ4OS
 wtMTY1MDczNjUwMyw2NTkzOTk1LC0xODk2NzU0ODk1LC05MTI2
