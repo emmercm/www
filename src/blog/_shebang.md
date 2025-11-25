@@ -29,7 +29,13 @@ print("I will be executed by Python 3!")
 
 and then if that file is named `my_executable` (with no extension, to prove nothing can know the right interpreter without reading the file), it can be executed like this:
 
-```ba
+```bash
+# The file has to be made executable first
+chmod +x my_executable
+
+#
+./my_executable
+```
 
 ## Syntax
 
@@ -43,7 +49,7 @@ _(Though the space after `#!` is optional, and many people choose to omit it.)_
 
 The `executable` should be an exact, non-relative path to either an interpreter (`sh`, `bash`, `pwsh`, `python3`, `ruby`, `node`, etc.), or an executable that can _find_ an interpreter (`/usr/bin/env`).
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTg2NDExMTM5MSwtMTg4MDMyNzI2Miw2Nj
+eyJoaXN0b3J5IjpbMjAzNjQ5NzM5OSwtMTg4MDMyNzI2Miw2Nj
 IyMzI5NDksLTUyODgwOTUyMSw3MTA2MjAxMTgsLTEzNzA5ODQ0
 NzRdfQ==
 -->
