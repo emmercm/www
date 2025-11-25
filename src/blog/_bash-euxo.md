@@ -227,7 +227,7 @@ nounset        	on
 pipefail       	on
 ```
 
-However, `set -e` can behave differently in checked vs. unchecked contexts:
+However, `set -e` behaves differently in some scenarios:
 
 ```bash
 set -e
@@ -271,11 +271,11 @@ Some arguments _against_ relying on `set -euo pipefail` are:
 
 If we apply some common sense, we should naturally understand that complex situations likely call for a different programming language. `set -euo pipefail` won't completely save you from dangerous shell scripting, but it sure provides a better backstop than nothing at all.
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbNzQ2NzAxNjIzLC0xMTE4MDQ3NDU2LDE4MD
-kxNDg4NTIsLTg5MDA2Mzk0MSwtNzU3ODgzMjM5LDE2MDAwMjEx
-MTUsMjEwOTE0MDAwMSwtMTgyNjk2MTg4MCw4NDAxNDUwMDgsLT
-g4ODMxNDkzMiwtODEwNDY4MzMxLDE4NTA2NTE2NTgsLTE4NzI5
-NzI4OTYsMTYxMTExNzYzNywtNDQwMTMwNDg5LC0xNjUwNzM2NT
-AzLDY1OTM5OTUsLTE4OTY3NTQ4OTUsLTkxMjY3MjA2NCwzNjUx
-ODY5NTFdfQ==
+eyJoaXN0b3J5IjpbLTE3NDk0NDk0OTcsNzQ2NzAxNjIzLC0xMT
+E4MDQ3NDU2LDE4MDkxNDg4NTIsLTg5MDA2Mzk0MSwtNzU3ODgz
+MjM5LDE2MDAwMjExMTUsMjEwOTE0MDAwMSwtMTgyNjk2MTg4MC
+w4NDAxNDUwMDgsLTg4ODMxNDkzMiwtODEwNDY4MzMxLDE4NTA2
+NTE2NTgsLTE4NzI5NzI4OTYsMTYxMTExNzYzNywtNDQwMTMwND
+g5LC0xNjUwNzM2NTAzLDY1OTM5OTUsLTE4OTY3NTQ4OTUsLTkx
+MjY3MjA2NF19
 -->
