@@ -52,15 +52,19 @@ _(Though the space(s)/tab(s) after `#!` are optional, and many people choose to 
 
 The `<executable>` should be an absolute (non-relative) path to either an interpreter (`sh`, `bash`, `pwsh`, `python3`, `ruby`, `node`, etc.), or an executable that can _find_ an interpreter (`/usr/bin/env`).
 
+## Portability
+
 Using `#! /usr/bin/env <interpreter>` is typically more "portable" (works more reliably across a wide variety of OSes). This is because `/usr/bin/env` should always exist, but your interpreter could live in a non-standard location, especially if it isn't a shell (`python3`, `ruby`, `node`, `perl`, etc.).
 
 For example, on macOS, Python 3.9.6 could be in any one of these locations:
 
 - `/usr/bin/python3` is provided by the OS and is typically quite old
 - `/Library/Frameworks/Python.framework/Versions/3.9/bin/python3` is where the official installer puts it
-- `/opt/homebrew/Cellar/python@3.9/3.9.6/bin/python3` is where Homebrew puts it on an Apple Silicon Mac
+- `/opt/homebrew/Cellar/python@3.9/3.9.6/bin/python3` is where [Homebrew](https://brew.sh/) puts it on an Apple Silicon Mac
+
+so it
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTExMTM5OTQ3NjAsLTE4ODAzMjcyNjIsNj
-YyMjMyOTQ5LC01Mjg4MDk1MjEsNzEwNjIwMTE4LC0xMzcwOTg0
-NDc0XX0=
+eyJoaXN0b3J5IjpbLTE4NzI4MjQ4OCwtMTg4MDMyNzI2Miw2Nj
+IyMzI5NDksLTUyODgwOTUyMSw3MTA2MjAxMTgsLTEzNzA5ODQ0
+NzRdfQ==
 -->
