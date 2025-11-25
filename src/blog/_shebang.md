@@ -27,6 +27,10 @@ echo "I will be executed by Bash!"
 print("I will be executed by Python 3!")
 ```
 
+and then if that file is named `my_executable` (with no extension, to prove nothing can know the right interpreter without reading the file), it can be executed like this:
+
+```ba
+
 ## Syntax
 
 Shebangs look like this:
@@ -39,7 +43,7 @@ _(Though the space after `#!` is optional, and many people choose to omit it.)_
 
 The `executable` should be an exact, non-relative path to either an interpreter (`sh`, `bash`, `pwsh`, `python3`, `ruby`, `node`, etc.), or an executable that can _find_ an interpreter (`/usr/bin/env`).
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTcyMTQyNDE3MCwtMTg4MDMyNzI2Miw2Nj
+eyJoaXN0b3J5IjpbLTg2NDExMTM5MSwtMTg4MDMyNzI2Miw2Nj
 IyMzI5NDksLTUyODgwOTUyMSw3MTA2MjAxMTgsLTEzNzA5ODQ0
 NzRdfQ==
 -->
