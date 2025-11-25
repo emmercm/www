@@ -253,24 +253,24 @@ Some arguments _against_ relying on `set -euo pipefail` are:
       You get a choice to use function return values in your scripts and functions, but you don't get a choice with external programs.
 
 	- Commands may return a non-zero exit code when there isn't an error, for control flow ([1](https://mywiki.wooledge.org/BashFAQ/105)).
-	- Subshells can have differing behavior (described above) ([1](https://mywiki.wooledge.org/BashFAQ/105)).
+	- Subshells can have differing behavior (described above) ([1](https://mywiki.wooledge.org/BashFAQ/105), [2](https://fvue.nl/wiki/Bash:_Error_handling)).
 
       This is one of the stronger counter arguments.
 
 - Against `set -u`:
 	- Positional parameters such as `$1` may not be set, and this is safe in some situations ([1](https://mywiki.wooledge.org/BashFAQ/112)).
-	- Different versions of Bash handle empty arrays differently ([1](https://mywiki.wooledge.org/BashFAQ/112)).
+	- Different versions of Bash handle empty arrays differently ([1](https://mywiki.wooledge.org/BashFAQ/112), [2](https://gist.github.com/dimo414/2fb052d230654cc0c25e9e41a9651ebe)).
 	- You should instead use a linting tool such as [ShellCheck](https://www.shellcheck.net/) ([1](https://www.mulle-kybernetik.com/modern-bash-scripting/state-euxo-pipefail.html), [2](https://bbs.archlinux.org/viewtopic.php?pid=1811150#p1811150)).
 
       You should definitely use ShellCheck to catch other dangerous mistakes you can make when shell scripting, but this isn't a valid argument of why `set -u` is _dangerous_.
 
 If we apply some common sense, we should naturally understand that complex situations likely call for a different programming language. `set -euo pipefail` won't completely save you from dangerous shell scripting, but it sure provides a better backstop than nothing at all.
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTg5MDA2Mzk0MSwtNzU3ODgzMjM5LDE2MD
-AwMjExMTUsMjEwOTE0MDAwMSwtMTgyNjk2MTg4MCw4NDAxNDUw
-MDgsLTg4ODMxNDkzMiwtODEwNDY4MzMxLDE4NTA2NTE2NTgsLT
-E4NzI5NzI4OTYsMTYxMTExNzYzNywtNDQwMTMwNDg5LC0xNjUw
-NzM2NTAzLDY1OTM5OTUsLTE4OTY3NTQ4OTUsLTkxMjY3MjA2NC
-wzNjUxODY5NTEsLTgzMDcwMDM2OSwxNDQ5NzQ2NTk3LDEyMzU3
-MTM2NzVdfQ==
+eyJoaXN0b3J5IjpbMTgwOTE0ODg1MiwtODkwMDYzOTQxLC03NT
+c4ODMyMzksMTYwMDAyMTExNSwyMTA5MTQwMDAxLC0xODI2OTYx
+ODgwLDg0MDE0NTAwOCwtODg4MzE0OTMyLC04MTA0NjgzMzEsMT
+g1MDY1MTY1OCwtMTg3Mjk3Mjg5NiwxNjExMTE3NjM3LC00NDAx
+MzA0ODksLTE2NTA3MzY1MDMsNjU5Mzk5NSwtMTg5Njc1NDg5NS
+wtOTEyNjcyMDY0LDM2NTE4Njk1MSwtODMwNzAwMzY5LDE0NDk3
+NDY1OTddfQ==
 -->
