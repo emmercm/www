@@ -251,8 +251,10 @@ Some arguments _against_ relying on `set -euo pipefail` from people on forums ar
 - Against `set -u`:
 	- Positional parameters such as `$1` may not be set, and this is safe in some situations ([Wooledge](https://mywiki.wooledge.org/BashFAQ/112))
 	- Different versions of Bash handle empty arrays differently ([Wooledge](https://mywiki.wooledge.org/BashFAQ/112))
+
+If we apply some common sense, we should naturally understand that complex situations likely call for a different programming language. I do not think any of this counter arguments
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTc3MzE2NzIwNSwyMTA5MTQwMDAxLC0xOD
+eyJoaXN0b3J5IjpbLTI0NzY1Mjg0OCwyMTA5MTQwMDAxLC0xOD
 I2OTYxODgwLDg0MDE0NTAwOCwtODg4MzE0OTMyLC04MTA0Njgz
 MzEsMTg1MDY1MTY1OCwtMTg3Mjk3Mjg5NiwxNjExMTE3NjM3LC
 00NDAxMzA0ODksLTE2NTA3MzY1MDMsNjU5Mzk5NSwtMTg5Njc1
