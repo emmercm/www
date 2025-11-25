@@ -246,29 +246,29 @@ if (cat nonexistent_file; echo "this will print"); then true; fi
 Some arguments _against_ relying on `set -euo pipefail` are:
 
 - Agaisnt `set -e`:
-	- Exit codes aren't granular enough to know the reason for or severity of a non-zero exit code, so it would be inappropriate to always exit ([Wooledge](https://mywiki.wooledge.org/BashFAQ/105), [Nat!](https://www.mulle-kybernetik.com/modern-bash-scripting/state-euxo-pipefail.html)).
+	- Exit codes aren't granular enough to know the reason for or severity of a non-zero exit code, so it would be inappropriate to always exit ([1](https://mywiki.wooledge.org/BashFAQ/105), [2](https://www.mulle-kybernetik.com/modern-bash-scripting/state-euxo-pipefail.html)).
 
       You get a choice to use function return values in your scripts and functions, but you don't get a choice with external programs.
 
-	- Commands may return a non-zero exit code when there isn't an error, for control flow ([Wooledge](https://mywiki.wooledge.org/BashFAQ/105)).
-	- Subshells can have differing behavior (described above) ([Wooledge](https://mywiki.wooledge.org/BashFAQ/105)).
+	- Commands may return a non-zero exit code when there isn't an error, for control flow ([1](https://mywiki.wooledge.org/BashFAQ/105)).
+	- Subshells can have differing behavior (described above) ([1](https://mywiki.wooledge.org/BashFAQ/105)).
 
       This is one of the stronger counter arguments.
 
 - Against `set -u`:
-	- Positional parameters such as `$1` may not be set, and this is safe in some situations ([Wooledge](https://mywiki.wooledge.org/BashFAQ/112)).
-	- Different versions of Bash handle empty arrays differently ([Wooledge](https://mywiki.wooledge.org/BashFAQ/112)).
-	- You should instead use a linting tool such as [ShellCheck](https://www.shellcheck.net/) ([Nat!](https://www.mulle-kybernetik.com/modern-bash-scripting/state-euxo-pipefail.html)).
+	- Positional parameters such as `$1` may not be set, and this is safe in some situations ([1](https://mywiki.wooledge.org/BashFAQ/112)).
+	- Different versions of Bash handle empty arrays differently ([1](https://mywiki.wooledge.org/BashFAQ/112)).
+	- You should instead use a linting tool such as [ShellCheck](https://www.shellcheck.net/) ([1](https://www.mulle-kybernetik.com/modern-bash-scripting/state-euxo-pipefail.html), [2](https://bbs.archlinux.org/viewtopic.php?pid=1811150#p1811150)).
 
       You should definitely use ShellCheck to catch other dangerous mistakes you can make when shell scripting, but this isn't a valid argument
 
 If we apply some common sense, we should naturally understand that complex situations likely call for a different programming language. `set -euo pipefail` won't completely save you from dangerous shell scripting, but it sure provides a better backstop than nothing at all.
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbNzUzNzU4MDc0LC03NTc4ODMyMzksMTYwMD
-AyMTExNSwyMTA5MTQwMDAxLC0xODI2OTYxODgwLDg0MDE0NTAw
-OCwtODg4MzE0OTMyLC04MTA0NjgzMzEsMTg1MDY1MTY1OCwtMT
-g3Mjk3Mjg5NiwxNjExMTE3NjM3LC00NDAxMzA0ODksLTE2NTA3
-MzY1MDMsNjU5Mzk5NSwtMTg5Njc1NDg5NSwtOTEyNjcyMDY0LD
-M2NTE4Njk1MSwtODMwNzAwMzY5LDE0NDk3NDY1OTcsMTIzNTcx
-MzY3NV19
+eyJoaXN0b3J5IjpbLTE5MjQ2MDc3NzgsLTc1Nzg4MzIzOSwxNj
+AwMDIxMTE1LDIxMDkxNDAwMDEsLTE4MjY5NjE4ODAsODQwMTQ1
+MDA4LC04ODgzMTQ5MzIsLTgxMDQ2ODMzMSwxODUwNjUxNjU4LC
+0xODcyOTcyODk2LDE2MTExMTc2MzcsLTQ0MDEzMDQ4OSwtMTY1
+MDczNjUwMyw2NTkzOTk1LC0xODk2NzU0ODk1LC05MTI2NzIwNj
+QsMzY1MTg2OTUxLC04MzA3MDAzNjksMTQ0OTc0NjU5NywxMjM1
+NzEzNjc1XX0=
 -->
