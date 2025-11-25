@@ -240,8 +240,13 @@ VAR=$(cat nonexistent_file; echo "this will NOT print")
 
 # However, these won't...
 
-# However, 'set -e' gets disabled in the subshell in these "checked" contexts:
+# "command that fails is part of the command list immediately following a `while` or `until` reserved word"
+while $(false); do echo "this will NOT print"; done && echo "but this will"
+
+# "part of the test in an `if` statement"
 if (cat nonexistent_file; echo "this will print"); then true; fi
+
+# However, 'set -e' gets disabled in the subshell in these "checked" contexts:
 (cat nonexistent_file; echo "this will print") || true
 (cat nonexistent_file; echo "this will print") && true
 ```
@@ -274,11 +279,11 @@ Some arguments _against_ relying on `set -euo pipefail` are:
 
 If we apply some common sense, we should naturally understand that complex situations likely call for a different programming language. `set -euo pipefail` won't completely save you from dangerous shell scripting, but it sure provides a better backstop than nothing at all.
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbNzY3NTkwMzAsLTY1OTkyMzQ1NCw3NDY3MD
-E2MjMsLTExMTgwNDc0NTYsMTgwOTE0ODg1MiwtODkwMDYzOTQx
-LC03NTc4ODMyMzksMTYwMDAyMTExNSwyMTA5MTQwMDAxLC0xOD
-I2OTYxODgwLDg0MDE0NTAwOCwtODg4MzE0OTMyLC04MTA0Njgz
-MzEsMTg1MDY1MTY1OCwtMTg3Mjk3Mjg5NiwxNjExMTE3NjM3LC
-00NDAxMzA0ODksLTE2NTA3MzY1MDMsNjU5Mzk5NSwtMTg5Njc1
-NDg5NV19
+eyJoaXN0b3J5IjpbLTE1ODk2NDk4NDksLTY1OTkyMzQ1NCw3ND
+Y3MDE2MjMsLTExMTgwNDc0NTYsMTgwOTE0ODg1MiwtODkwMDYz
+OTQxLC03NTc4ODMyMzksMTYwMDAyMTExNSwyMTA5MTQwMDAxLC
+0xODI2OTYxODgwLDg0MDE0NTAwOCwtODg4MzE0OTMyLC04MTA0
+NjgzMzEsMTg1MDY1MTY1OCwtMTg3Mjk3Mjg5NiwxNjExMTE3Nj
+M3LC00NDAxMzA0ODksLTE2NTA3MzY1MDMsNjU5Mzk5NSwtMTg5
+Njc1NDg5NV19
 -->
