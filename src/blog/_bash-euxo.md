@@ -244,23 +244,18 @@ However, `set -e` behaves differently in some scenarios:
 #!/usr/bin/env bash
 set -e
 
-# These subshells will inherit 'set -e' and return an exit code as expected:
-(false; echo "this will NOT print")
-VAR=$(false; echo "this will NOT print")
-
-# However, these won't...
-
 # "command that fails is part of the command list immediately following a `while` or `until` reserved word"
 while $(false); do echo "this will NOT print"; done && echo "but this will"
+until $(false; true); do echo "this will NOT print"; done
 
 # "part of the test in an `if` statement"
 if (false; echo "this will print"); then true; fi
 
 # "part of any command executed in a `&&` or `||` list except the command following the final `&&` or `||`"
-
-# However, 'set -e' gets disabled in the subshell in these "checked" contexts:
 (cat nonexistent_file; echo "this will print") || true
 (cat nonexistent_file; echo "this will print") && true
+
+# "any command in a pipeline but the last (subject to the state of the `pipefail` shell option)"
 ```
 
 ## Counter points
@@ -291,7 +286,7 @@ Some arguments _against_ relying on `set -euo pipefail` are:
 
 If we apply some common sense, we should naturally understand that complex situations likely call for a different programming language. `set -euo pipefail` won't completely save you from dangerous shell scripting, but it sure provides a better backstop than nothing at all.
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTk1MzU3ODMxLC02NTk5MjM0NTQsNzQ2Nz
+eyJoaXN0b3J5IjpbODM2ODExNTg2LC02NTk5MjM0NTQsNzQ2Nz
 AxNjIzLC0xMTE4MDQ3NDU2LDE4MDkxNDg4NTIsLTg5MDA2Mzk0
 MSwtNzU3ODgzMjM5LDE2MDAwMjExMTUsMjEwOTE0MDAwMSwtMT
 gyNjk2MTg4MCw4NDAxNDUwMDgsLTg4ODMxNDkzMiwtODEwNDY4
