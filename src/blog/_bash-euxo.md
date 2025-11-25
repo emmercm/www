@@ -162,6 +162,8 @@ false | echo "this will print" && echo "but this won't"
 cat nonexistent_file | gzip > compressed_file.gz
 ```
 
+_Cloudflare had [an incident](https://blog.cloudflare.com/pipefail-how-a-missing-shell-option-slowed-cloudflare-down/) in December 2021 that would have been prevented with `set -o pipefail`._
+
 Using `set -o pipefail`, similar to `set -e`, lets you be sure that execution won't continue after an unhandled command failure.
 
 ## Safety by default
@@ -266,11 +268,11 @@ Some arguments _against_ relying on `set -euo pipefail` are:
 
 If we apply some common sense, we should naturally understand that complex situations likely call for a different programming language. `set -euo pipefail` won't completely save you from dangerous shell scripting, but it sure provides a better backstop than nothing at all.
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTgwOTE0ODg1MiwtODkwMDYzOTQxLC03NT
-c4ODMyMzksMTYwMDAyMTExNSwyMTA5MTQwMDAxLC0xODI2OTYx
-ODgwLDg0MDE0NTAwOCwtODg4MzE0OTMyLC04MTA0NjgzMzEsMT
-g1MDY1MTY1OCwtMTg3Mjk3Mjg5NiwxNjExMTE3NjM3LC00NDAx
-MzA0ODksLTE2NTA3MzY1MDMsNjU5Mzk5NSwtMTg5Njc1NDg5NS
-wtOTEyNjcyMDY0LDM2NTE4Njk1MSwtODMwNzAwMzY5LDE0NDk3
-NDY1OTddfQ==
+eyJoaXN0b3J5IjpbLTExMTgwNDc0NTYsMTgwOTE0ODg1MiwtOD
+kwMDYzOTQxLC03NTc4ODMyMzksMTYwMDAyMTExNSwyMTA5MTQw
+MDAxLC0xODI2OTYxODgwLDg0MDE0NTAwOCwtODg4MzE0OTMyLC
+04MTA0NjgzMzEsMTg1MDY1MTY1OCwtMTg3Mjk3Mjg5NiwxNjEx
+MTE3NjM3LC00NDAxMzA0ODksLTE2NTA3MzY1MDMsNjU5Mzk5NS
+wtMTg5Njc1NDg5NSwtOTEyNjcyMDY0LDM2NTE4Njk1MSwtODMw
+NzAwMzY5XX0=
 -->
