@@ -230,6 +230,8 @@ pipefail       	on
 However, `set -e` behaves differently in some scenarios:
 
 > If a compound command other than a subshell returns a non-zero status because a command failed while `-e` was being ignored, the shell does not exit.
+> ...
+> If a compound command or shell function executes in a context where -e is being ignored, none of the commands executed within the compound command or function body will be affected by the -e setting, even if -e is set and a command returns a failure status. If a compound command or shell function sets -e while executing in a context where -e is ignored, that setting will not have any effect until the compound command or the command containing the function call completes.
 
 ```bash
 set -e
@@ -273,7 +275,7 @@ Some arguments _against_ relying on `set -euo pipefail` are:
 
 If we apply some common sense, we should naturally understand that complex situations likely call for a different programming language. `set -euo pipefail` won't completely save you from dangerous shell scripting, but it sure provides a better backstop than nothing at all.
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTUzMjkyMjEyOCw3NDY3MDE2MjMsLTExMT
+eyJoaXN0b3J5IjpbLTY1OTkyMzQ1NCw3NDY3MDE2MjMsLTExMT
 gwNDc0NTYsMTgwOTE0ODg1MiwtODkwMDYzOTQxLC03NTc4ODMy
 MzksMTYwMDAyMTExNSwyMTA5MTQwMDAxLC0xODI2OTYxODgwLD
 g0MDE0NTAwOCwtODg4MzE0OTMyLC04MTA0NjgzMzEsMTg1MDY1
