@@ -66,7 +66,7 @@ _(Though the space(s)/tab(s) after `#!` are optional, and many people choose to 
 
 Putting this in your source file is safe because `#` is a single-line comment marker in most scripting languages, so the interpreter will ignore it during execution.
 
-The `<executable>` should be an absolute (non-relative) path to either an interpreter (`/bin/sh`, `/bin/bash`, `/usr/bin/pwsh`, `/usr/bin/python3`, `/usr/bin/ruby`, etc.), or an executable that can _find_ an interpreter (`/usr/bin/env`). Some OSes allow the executable to be a script and not a binary, but macOS notably does not.
+The `<executable>` _should_ be an absolute (non-relative) path to either an interpreter (`/bin/sh`, `/bin/bash`, `/usr/bin/pwsh`, `/usr/bin/python3`, `/usr/bin/ruby`, etc.), or an executable that can _find_ an interpreter (`/usr/bin/env`). Some OSes allow the executable to be a script and not a binary, but macOS notably does not.
 
 Shebangs let files assert what interpreter should run them (and IDEs frequently pick up on them for syntax highlighting), but they are just shortcuts to more verbose commands. The executable specified will be invoked with the optional argument, and then the name of the script, and then any CLI arguments after.
 
@@ -135,11 +135,11 @@ Instead, Windows will use file extensions and associations to determine which ex
 
 _(Unix-like shells such as [Windows Subsystem for Linux (WSL)](https://learn.microsoft.com/en-us/windows/wsl/about), [Cygwin](https://www.cygwin.com/), and [MSYS2](https://www.msys2.org/) all handle shebangs correctly.)_
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTEzMTUzMTQyNDMsMjEzNTk1NTY0NCwtOD
-AxNDYzODMzLC0yNjYzNDU5MSw5NDQ4MTA4MDUsLTE0NTg3OTgx
-MjksLTIwMjkxMjA0MCwzOTc2MzM0OTksMTM1OTQyNDQ0MCwyMD
-MwODUwNDkzLDE2NTYwMDA4NzEsMTkxMjcwMDQ5NCwtMTE4NzQ4
-MDAyNiwtMTEwMDI4MzkyMiwtMTY3MzE0MDU4LDk5MzAwODEwOC
-w5MTAwOTgzLC0xODgwMzI3MjYyLDY2MjIzMjk0OSwtNTI4ODA5
-NTIxXX0=
+eyJoaXN0b3J5IjpbLTk2ODUxOTcwOSwtMTMxNTMxNDI0MywyMT
+M1OTU1NjQ0LC04MDE0NjM4MzMsLTI2NjM0NTkxLDk0NDgxMDgw
+NSwtMTQ1ODc5ODEyOSwtMjAyOTEyMDQwLDM5NzYzMzQ5OSwxMz
+U5NDI0NDQwLDIwMzA4NTA0OTMsMTY1NjAwMDg3MSwxOTEyNzAw
+NDk0LC0xMTg3NDgwMDI2LC0xMTAwMjgzOTIyLC0xNjczMTQwNT
+gsOTkzMDA4MTA4LDkxMDA5ODMsLTE4ODAzMjcyNjIsNjYyMjMy
+OTQ5XX0=
 -->
