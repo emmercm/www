@@ -124,7 +124,7 @@ rm -rf "${NONEXISTENT_VAR}/"
 cd "${NONEXISTENT_VAR}"
 ```
 
-You can check for unset or null variables like this:
+You can safely check for unset or null variables like this:
 
 ```bash
 if [ -z "${NONEXISTENT_VAR+unset}" ]; then
@@ -245,7 +245,7 @@ if (cat nonexistent_file; echo "this will print"); then true; fi
 
 I hope you're convinced by all the examples above of why you should be using `set -euo pipefail` by default everywhere you can.
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTc4NTE1NTA2NywtMTgyNjk2MTg4MCw4ND
+eyJoaXN0b3J5IjpbMjEwOTE0MDAwMSwtMTgyNjk2MTg4MCw4ND
 AxNDUwMDgsLTg4ODMxNDkzMiwtODEwNDY4MzMxLDE4NTA2NTE2
 NTgsLTE4NzI5NzI4OTYsMTYxMTExNzYzNywtNDQwMTMwNDg5LC
 0xNjUwNzM2NTAzLDY1OTM5OTUsLTE4OTY3NTQ4OTUsLTkxMjY3
