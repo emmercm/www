@@ -241,15 +241,17 @@ if (cat nonexistent_file; echo "this will print"); then true; fi
 (cat nonexistent_file; echo "this will print") && true
 ```
 
-## Conclusion
+## Counter points
 
-I hope you're convinced by all the examples above of why you should be using `set -euo pipefail` by default everywhere you can.
+Some arguments _against_ relying on `set -euo pipefail` from people on forums are:
+
+- 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMjEwOTE0MDAwMSwtMTgyNjk2MTg4MCw4ND
-AxNDUwMDgsLTg4ODMxNDkzMiwtODEwNDY4MzMxLDE4NTA2NTE2
-NTgsLTE4NzI5NzI4OTYsMTYxMTExNzYzNywtNDQwMTMwNDg5LC
-0xNjUwNzM2NTAzLDY1OTM5OTUsLTE4OTY3NTQ4OTUsLTkxMjY3
-MjA2NCwzNjUxODY5NTEsLTgzMDcwMDM2OSwxNDQ5NzQ2NTk3LD
-EyMzU3MTM2NzUsLTIwMTIzOTk0MzgsLTk4MTk2NjYxNSwtNTE0
-NTk2NzU3XX0=
+eyJoaXN0b3J5IjpbMjAzNTIzODU4OSwyMTA5MTQwMDAxLC0xOD
+I2OTYxODgwLDg0MDE0NTAwOCwtODg4MzE0OTMyLC04MTA0Njgz
+MzEsMTg1MDY1MTY1OCwtMTg3Mjk3Mjg5NiwxNjExMTE3NjM3LC
+00NDAxMzA0ODksLTE2NTA3MzY1MDMsNjU5Mzk5NSwtMTg5Njc1
+NDg5NSwtOTEyNjcyMDY0LDM2NTE4Njk1MSwtODMwNzAwMzY5LD
+E0NDk3NDY1OTcsMTIzNTcxMzY3NSwtMjAxMjM5OTQzOCwtOTgx
+OTY2NjE1XX0=
 -->
