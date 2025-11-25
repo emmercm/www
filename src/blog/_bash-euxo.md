@@ -246,7 +246,7 @@ if (cat nonexistent_file; echo "this will print"); then true; fi
 Some arguments _against_ relying on `set -euo pipefail` are:
 
 - Against any options at all:
-  - Straying from default shell behavior can cause issues for code that is expecting default behavior,  ([1](https://www.mulle-kybernetik.com/modern-bash-scripting/state-euxo-pipefail.html))
+  - Straying from default shell behavior might cause unexpected issues, such as with code that is expecting or relying on default behavior ([1](https://www.mulle-kybernetik.com/modern-bash-scripting/state-euxo-pipefail.html))
 - Agaisnt `set -e`:
 	- Exit codes aren't granular enough to know the reason for or severity of a non-zero exit code, so it would be inappropriate to always exit ([1](https://mywiki.wooledge.org/BashFAQ/105), [2](https://www.mulle-kybernetik.com/modern-bash-scripting/state-euxo-pipefail.html)).
 
@@ -266,7 +266,7 @@ Some arguments _against_ relying on `set -euo pipefail` are:
 
 If we apply some common sense, we should naturally understand that complex situations likely call for a different programming language. `set -euo pipefail` won't completely save you from dangerous shell scripting, but it sure provides a better backstop than nothing at all.
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTg5MDEwOTgzMSwtNzU3ODgzMjM5LDE2MD
+eyJoaXN0b3J5IjpbLTg5MDA2Mzk0MSwtNzU3ODgzMjM5LDE2MD
 AwMjExMTUsMjEwOTE0MDAwMSwtMTgyNjk2MTg4MCw4NDAxNDUw
 MDgsLTg4ODMxNDkzMiwtODEwNDY4MzMxLDE4NTA2NTE2NTgsLT
 E4NzI5NzI4OTYsMTYxMTExNzYzNywtNDQwMTMwNDg5LC0xNjUw
