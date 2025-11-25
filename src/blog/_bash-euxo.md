@@ -60,7 +60,12 @@ Here is an explanation of all the recommended `set -euo pipefail` options.
 
 ### `set -e` / `set -o errexit`
 
-This will cause a script to fail as soon as a pipeline, a single command, . For example:
+This will cause a script to fail as soon as any of these return a non-zero exit code:
+
+- A pipeline (commands, a simple command
+- a list command, or a compound command returns a non-zero exit code.
+
+For example:
 
 ```bash
 #!/usr/bin/env bash
@@ -231,7 +236,7 @@ if (cat nonexistent_file; echo "this will print"); then true; fi
 
 I hope you're convinced by all the examples above of why you should be using `set -euo pipefail` by default everywhere you can.
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTExMzI3ODE0MTEsLTE4MjY5NjE4ODAsOD
+eyJoaXN0b3J5IjpbLTE2MjA2MzI3MTIsLTE4MjY5NjE4ODAsOD
 QwMTQ1MDA4LC04ODgzMTQ5MzIsLTgxMDQ2ODMzMSwxODUwNjUx
 NjU4LC0xODcyOTcyODk2LDE2MTExMTc2MzcsLTQ0MDEzMDQ4OS
 wtMTY1MDczNjUwMyw2NTkzOTk1LC0xODk2NzU0ODk1LC05MTI2
