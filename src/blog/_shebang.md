@@ -16,12 +16,12 @@ Shebangs are always the first line inside a file, and they look like this:
 
 ```bash
 #!/usr/bin/env sh
-echo "I will be executed by a strictly POSIX-compliant shell!"
+echo "I should be executed by a strictly POSIX-compliant shell!"
 ```
 
 ```bash
 #!/usr/bin/env bash
-echo "I will be executed by Bash!"
+echo "I should be executed by Bash!"
 ```
 
 ```python
@@ -56,6 +56,13 @@ The `<executable>` should be an absolute (non-relative) path to either an interp
 
 Shebangs let files assert what interpreter should run them (and IDEs frequently pick up on them for syntax highlighting), but they are just shortcuts to more verbose commands.
 
+- ```bash
+  #!/usr/bin/env bash
+  echo "I should be executed by Bash!"
+  ```
+```shell
+./my_executable
+/usr/bin/env
 ```
 
 ## Portability
@@ -78,8 +85,8 @@ print("I was executed by '" + sys.executable + "'!")
 
 _(This is less important for executables such as `/bin/bash` that should always exist in the same location, but it also isn't dangerous to default to using `/usr/bin/env`.)_
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTkxMzUwMzk4MSwtMTEwMDI4MzkyMiwtMT
-Y3MzE0MDU4LDk5MzAwODEwOCw5MTAwOTgzLC0xODgwMzI3MjYy
-LDY2MjIzMjk0OSwtNTI4ODA5NTIxLDcxMDYyMDExOCwtMTM3MD
-k4NDQ3NF19
+eyJoaXN0b3J5IjpbMTkwNDUyNjkxLC0xMTAwMjgzOTIyLC0xNj
+czMTQwNTgsOTkzMDA4MTA4LDkxMDA5ODMsLTE4ODAzMjcyNjIs
+NjYyMjMyOTQ5LC01Mjg4MDk1MjEsNzEwNjIwMTE4LC0xMzcwOT
+g0NDc0XX0=
 -->
