@@ -16,7 +16,7 @@ Shebangs are always the first line inside a file, and they look like this:
 
 ```bash
 #!/usr/bin/env sh
-echo "I should be executed by a strictly POSIX-compliant shell!"
+echo "I should be executed by a POSIX-compliant shell!"
 ```
 
 ```bash
@@ -82,7 +82,7 @@ Here are some examples that execute the same way:
   ./my_python_script --arg-one --arg-two
   
   # Don't use the shebang
-  /usr/bin/env bash ./my_python_script --arg-one --arg-two
+  /usr/bin/env python3 ./my_python_script --arg-one --arg-two
   ```
 
 ## Portability
@@ -105,8 +105,8 @@ print("I was executed by '" + sys.executable + "'!")
 
 _(This is less important for executables such as `/bin/bash` that should always exist in the same location, but it also isn't dangerous to default to using `/usr/bin/env`.)_
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTI4NDA5Nzg1MywtMTEwMDI4MzkyMiwtMT
-Y3MzE0MDU4LDk5MzAwODEwOCw5MTAwOTgzLC0xODgwMzI3MjYy
-LDY2MjIzMjk0OSwtNTI4ODA5NTIxLDcxMDYyMDExOCwtMTM3MD
-k4NDQ3NF19
+eyJoaXN0b3J5IjpbLTExODc0ODAwMjYsLTExMDAyODM5MjIsLT
+E2NzMxNDA1OCw5OTMwMDgxMDgsOTEwMDk4MywtMTg4MDMyNzI2
+Miw2NjIyMzI5NDksLTUyODgwOTUyMSw3MTA2MjAxMTgsLTEzNz
+A5ODQ0NzRdfQ==
 -->
