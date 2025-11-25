@@ -35,11 +35,11 @@ Shebangs look like this:
 #! executable [optional-single-arg]
 ```
 
-though the space after `#!` is optional, and many people choose to leave it off.
+_(Though the space after `#!` is optional, and many people choose to omit it.)_
 
-The `executable` should be an exact, non-relative path to either an interpreter (`sh`, `bash`, `pwsh`, `python3`, `ruby`, `node`, etc.)
+The `executable` should be an exact, non-relative path to either an interpreter (`sh`, `bash`, `pwsh`, `python3`, `ruby`, `node`, etc.), or an executable that can _find_ an interpreter (`/usr/bin/env`).
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTE1MTc0NTUwNTcsLTE4ODAzMjcyNjIsNj
-YyMjMyOTQ5LC01Mjg4MDk1MjEsNzEwNjIwMTE4LC0xMzcwOTg0
-NDc0XX0=
+eyJoaXN0b3J5IjpbLTcyMTQyNDE3MCwtMTg4MDMyNzI2Miw2Nj
+IyMzI5NDksLTUyODgwOTUyMSw3MTA2MjAxMTgsLTEzNzA5ODQ0
+NzRdfQ==
 -->
