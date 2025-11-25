@@ -227,16 +227,26 @@ nounset        	on
 pipefail       	on
 ```
 
+```bash
+#!/usr/bin/env bash
+set -e
+
+# These subshells will inherit 'set -e' and return an exit code as expected:
+(false; echo "this will NOT print")
+VAR=$(false; echo "this will NOT print")
+```
+
 However, `set -e` behaves differently in some scenarios:
 
 > The shell does not exit if the command that fails is part of the command list immediately following a `while` or `until` reserved word, part of the test in an `if` statement, part of any command executed in a `&&` or `||` list except the command following the final `&&` or `||`, any command in a pipeline but the last (subject to the state of the `pipefail` shell option), or if the command’s return status is being inverted with `!`.
 
 ```bash
+#!/usr/bin/env bash
 set -e
 
 # These subshells will inherit 'set -e' and return an exit code as expected:
-(cat nonexistent_file; echo "this will NOT print")
-VAR=$(cat nonexistent_file; echo "this will NOT print")
+(false; echo "this will NOT print")
+VAR=$(false; echo "this will NOT print")
 
 # However, these won't...
 
@@ -244,7 +254,9 @@ VAR=$(cat nonexistent_file; echo "this will NOT print")
 while $(false); do echo "this will NOT print"; done && echo "but this will"
 
 # "part of the test in an `if` statement"
-if (cat nonexistent_file; echo "this will print"); then true; fi
+if (false; echo "this will print"); then true; fi
+
+# "part of any command executed in a `&&` or `||` list except the command following the final `&&` or `||`"
 
 # However, 'set -e' gets disabled in the subshell in these "checked" contexts:
 (cat nonexistent_file; echo "this will print") || true
@@ -279,11 +291,11 @@ Some arguments _against_ relying on `set -euo pipefail` are:
 
 If we apply some common sense, we should naturally understand that complex situations likely call for a different programming language. `set -euo pipefail` won't completely save you from dangerous shell scripting, but it sure provides a better backstop than nothing at all.
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTE1ODk2NDk4NDksLTY1OTkyMzQ1NCw3ND
-Y3MDE2MjMsLTExMTgwNDc0NTYsMTgwOTE0ODg1MiwtODkwMDYz
-OTQxLC03NTc4ODMyMzksMTYwMDAyMTExNSwyMTA5MTQwMDAxLC
-0xODI2OTYxODgwLDg0MDE0NTAwOCwtODg4MzE0OTMyLC04MTA0
-NjgzMzEsMTg1MDY1MTY1OCwtMTg3Mjk3Mjg5NiwxNjExMTE3Nj
-M3LC00NDAxMzA0ODksLTE2NTA3MzY1MDMsNjU5Mzk5NSwtMTg5
-Njc1NDg5NV19
+eyJoaXN0b3J5IjpbLTk1MzU3ODMxLC02NTk5MjM0NTQsNzQ2Nz
+AxNjIzLC0xMTE4MDQ3NDU2LDE4MDkxNDg4NTIsLTg5MDA2Mzk0
+MSwtNzU3ODgzMjM5LDE2MDAwMjExMTUsMjEwOTE0MDAwMSwtMT
+gyNjk2MTg4MCw4NDAxNDUwMDgsLTg4ODMxNDkzMiwtODEwNDY4
+MzMxLDE4NTA2NTE2NTgsLTE4NzI5NzI4OTYsMTYxMTExNzYzNy
+wtNDQwMTMwNDg5LC0xNjUwNzM2NTAzLDY1OTM5OTUsLTE4OTY3
+NTQ4OTVdfQ==
 -->
