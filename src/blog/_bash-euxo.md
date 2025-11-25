@@ -77,7 +77,7 @@ set -e
 false
 
 # 'false' returns an exit code of 1, so 'echo' is never invoked
-false && echo "will never print"
+false && echo "this will NOT print"
 
 # 'echo' returns an exit code of 0, but 'grep' returns an exit code of 1 because it won't find "world"
 echo "hello" | grep -q "world"
@@ -91,11 +91,11 @@ set -e
 
 # Non-zero exit codes in a conditional don't cause an exit
 if ! rm -rf "TMP_DIR"; then
-	echo "TMP_DIR doesn't exist"
+	echo "this will print"
 fi
 ```
 
-You will still have some commands you'll want to ignore errors such that the script doesn't exit, you can do that with `|| true`:
+You will still have some commands for which you'll want to ignore errors for, such that the script doesn't exit. You can do that with `|| true`:
 
 ```bash
 #!/usr/bin/env bash
@@ -144,7 +144,7 @@ Using `set -u` lets you be sure that the arguments you're providing to commands 
 
 ### `set -o pipefail`
 
-This will cause a script to fail if any command in a pipeline (those chained with `|` pipes) fails. If multiple commands fail, the last/rightmost failing command's exit code will be used. `set -o pipefail` does _not_ cause early termination of the pipeline, the full pipeline will still run.
+This will cause a script to fail if _any_ command in a pipeline (those chained with `|` pipes) fails. If multiple commands fail, the last/rightmost failing command's exit code will be used. `set -o pipefail` does _not_ cause early termination of the pipeline, the full pipeline will still run.
 
 For example:
 
@@ -245,7 +245,7 @@ if (cat nonexistent_file; echo "this will print"); then true; fi
 
 I hope you're convinced by all the examples above of why you should be using `set -euo pipefail` by default everywhere you can.
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTc3ODgyMzU5NCwtMTgyNjk2MTg4MCw4ND
+eyJoaXN0b3J5IjpbLTc4NTE1NTA2NywtMTgyNjk2MTg4MCw4ND
 AxNDUwMDgsLTg4ODMxNDkzMiwtODEwNDY4MzMxLDE4NTA2NTE2
 NTgsLTE4NzI5NzI4OTYsMTYxMTExNzYzNywtNDQwMTMwNDg5LC
 0xNjUwNzM2NTAzLDY1OTM5OTUsLTE4OTY3NTQ4OTUsLTkxMjY3
