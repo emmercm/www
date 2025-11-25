@@ -37,8 +37,9 @@ Shebangs look like this:
 
 though the space after `#!` is optional, and many people choose to leave it off.
 
-The `executable` should be an exact/non-relative path
+The `executable` should be an exact, non-relative path to either an interpreter (`sh`, `bash`, `pwsh`, `python3`, `ruby`, `node`, etc.)
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTE4ODAzMjcyNjIsNjYyMjMyOTQ5LC01Mj
-g4MDk1MjEsNzEwNjIwMTE4LC0xMzcwOTg0NDc0XX0=
+eyJoaXN0b3J5IjpbLTE1MTc0NTUwNTcsLTE4ODAzMjcyNjIsNj
+YyMjMyOTQ5LC01Mjg4MDk1MjEsNzEwNjIwMTE4LC0xMzcwOTg0
+NDc0XX0=
 -->
