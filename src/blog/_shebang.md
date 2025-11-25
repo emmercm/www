@@ -8,8 +8,9 @@ tags:
 
 No, it's not a [Ricky Martin](https://en.wikipedia.org/wiki/Ricky_Martin) song.
 
-_[Wikpedia](https://en.wikipedia.org/wiki/Shebang_(Unix)) says the shebang also known as a sharp-exclamation, sha-bang, hashbang, pound-bang, or hash-pling._
+[Wikpedia](https://en.wikipedia.org/wiki/Shebang_(Unix)) says the shebang also known as a sharp-exclamation, sha-bang, hashbang, pound-bang, or hash-pling. No matter what you call it, it has been around since 80's.
 
+Simply put, a shebang lets a file tell your operating system where to find
 Simply put, a shebang tells your operating system where to find a program to interpret your file (an "interpreter directive"), and it's used whenever your file is invoked like an executable.
 
 Shebangs are always the first line inside a file, and they look like this:
@@ -105,8 +106,8 @@ print("I was executed by '" + sys.executable + "'!")
 
 _(This is less important for executables such as `/bin/bash` that should always exist in the same location, but it also isn't dangerous to default to using `/usr/bin/env`.)_
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTExODc0ODAwMjYsLTExMDAyODM5MjIsLT
-E2NzMxNDA1OCw5OTMwMDgxMDgsOTEwMDk4MywtMTg4MDMyNzI2
-Miw2NjIyMzI5NDksLTUyODgwOTUyMSw3MTA2MjAxMTgsLTEzNz
-A5ODQ0NzRdfQ==
+eyJoaXN0b3J5IjpbNTgyMTk1MTk0LC0xMTg3NDgwMDI2LC0xMT
+AwMjgzOTIyLC0xNjczMTQwNTgsOTkzMDA4MTA4LDkxMDA5ODMs
+LTE4ODAzMjcyNjIsNjYyMjMyOTQ5LC01Mjg4MDk1MjEsNzEwNj
+IwMTE4LC0xMzcwOTg0NDc0XX0=
 -->
