@@ -37,7 +37,7 @@ chmod +x my_executable
 ./my_executable
 
 # It can be invoked with an absolute path
-"$(pwd)/my_executable
+"$(pwd)/my_executable"
 ```
 
 ## Syntax
@@ -45,14 +45,16 @@ chmod +x my_executable
 Shebangs look like this:
 
 ```bash
-#! executable [optional-single-arg]
+#! <executable> [optional-single-arg]
 ```
 
 _(Though the space after `#!` is optional, and many people choose to omit it.)_
 
-The `executable` should be an absolute (non-relative) path to either an interpreter (`sh`, `bash`, `pwsh`, `python3`, `ruby`, `node`, etc.), or an executable that can _find_ an interpreter (`/usr/bin/env`).
+The `<executable>` should be an absolute (non-relative) path to either an interpreter (`sh`, `bash`, `pwsh`, `python3`, `ruby`, `node`, etc.), or an executable that can _find_ an interpreter (`/usr/bin/env`).
+
+Using `#! /usr/bin/env <interpreter>` is typically more "portable" (works more reliab
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTIwODQyMzkxNjgsLTE4ODAzMjcyNjIsNj
+eyJoaXN0b3J5IjpbLTIwMjY3NDQ4MDYsLTE4ODAzMjcyNjIsNj
 YyMjMyOTQ5LC01Mjg4MDk1MjEsNzEwNjIwMTE4LC0xMzcwOTg0
 NDc0XX0=
 -->
