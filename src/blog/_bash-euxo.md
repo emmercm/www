@@ -222,8 +222,12 @@ if (cat nonexistent_file; echo "this will print"); then true; fi
 (cat nonexistent_file; echo "this will print") || true
 (cat nonexistent_file; echo "this will print") && true
 ```
+
+## Conclusion
+
+I hope you're convinced by all the examples above of why you should be using `set -euo pipefail` by defa
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTQyNDA3Mzk5NiwtMTgyNjk2MTg4MCw4ND
+eyJoaXN0b3J5IjpbLTIyODEzNzIyMCwtMTgyNjk2MTg4MCw4ND
 AxNDUwMDgsLTg4ODMxNDkzMiwtODEwNDY4MzMxLDE4NTA2NTE2
 NTgsLTE4NzI5NzI4OTYsMTYxMTExNzYzNywtNDQwMTMwNDg5LC
 0xNjUwNzM2NTAzLDY1OTM5OTUsLTE4OTY3NTQ4OTUsLTkxMjY3
