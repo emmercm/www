@@ -246,7 +246,7 @@ set -e
 
 # "command that fails is part of the command list immediately following a `while` or `until` reserved word"
 while $(false); do echo "this will NOT print"; done && echo "but this will"
-until $(false; true); do echo "this will NOT print"; done
+until $(false; true); do echo "this will NOT print"; done && echo "but this will"
 
 # "part of the test in an `if` statement"
 if (false; echo "this will print"); then true; fi
@@ -286,11 +286,11 @@ Some arguments _against_ relying on `set -euo pipefail` are:
 
 If we apply some common sense, we should naturally understand that complex situations likely call for a different programming language. `set -euo pipefail` won't completely save you from dangerous shell scripting, but it sure provides a better backstop than nothing at all.
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbODM2ODExNTg2LC02NTk5MjM0NTQsNzQ2Nz
-AxNjIzLC0xMTE4MDQ3NDU2LDE4MDkxNDg4NTIsLTg5MDA2Mzk0
-MSwtNzU3ODgzMjM5LDE2MDAwMjExMTUsMjEwOTE0MDAwMSwtMT
-gyNjk2MTg4MCw4NDAxNDUwMDgsLTg4ODMxNDkzMiwtODEwNDY4
-MzMxLDE4NTA2NTE2NTgsLTE4NzI5NzI4OTYsMTYxMTExNzYzNy
-wtNDQwMTMwNDg5LC0xNjUwNzM2NTAzLDY1OTM5OTUsLTE4OTY3
-NTQ4OTVdfQ==
+eyJoaXN0b3J5IjpbMTMzNjg5Mzc1NiwtNjU5OTIzNDU0LDc0Nj
+cwMTYyMywtMTExODA0NzQ1NiwxODA5MTQ4ODUyLC04OTAwNjM5
+NDEsLTc1Nzg4MzIzOSwxNjAwMDIxMTE1LDIxMDkxNDAwMDEsLT
+E4MjY5NjE4ODAsODQwMTQ1MDA4LC04ODgzMTQ5MzIsLTgxMDQ2
+ODMzMSwxODUwNjUxNjU4LC0xODcyOTcyODk2LDE2MTExMTc2Mz
+csLTQ0MDEzMDQ4OSwtMTY1MDczNjUwMyw2NTkzOTk1LC0xODk2
+NzU0ODk1XX0=
 -->
