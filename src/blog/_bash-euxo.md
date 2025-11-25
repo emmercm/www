@@ -258,7 +258,7 @@ if (false; echo "this will print"); then true; fi
 # "any command in a pipeline but the last (subject to the state of the `pipefail` shell option)"
 ```
 
-> 
+> If one of the expansions contained a command substitution, the exit status of the command is the exit status of the last command substitution performed. If there were no command substitutions, the command exits with a zero status.
 
 ## Counter arguments
 
@@ -288,11 +288,11 @@ Some arguments _against_ relying on `set -euo pipefail` are:
 
 If we apply some common sense, we should naturally understand that complex situations likely call for a different programming language. `set -euo pipefail` won't completely save you from dangerous shell scripting, but it sure provides a better backstop than nothing at all.
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTAxNDYzMjc2LC02NTk5MjM0NTQsNzQ2Nz
-AxNjIzLC0xMTE4MDQ3NDU2LDE4MDkxNDg4NTIsLTg5MDA2Mzk0
-MSwtNzU3ODgzMjM5LDE2MDAwMjExMTUsMjEwOTE0MDAwMSwtMT
-gyNjk2MTg4MCw4NDAxNDUwMDgsLTg4ODMxNDkzMiwtODEwNDY4
-MzMxLDE4NTA2NTE2NTgsLTE4NzI5NzI4OTYsMTYxMTExNzYzNy
-wtNDQwMTMwNDg5LC0xNjUwNzM2NTAzLDY1OTM5OTUsLTE4OTY3
-NTQ4OTVdfQ==
+eyJoaXN0b3J5IjpbLTE2ODkzNTE1NDAsLTY1OTkyMzQ1NCw3ND
+Y3MDE2MjMsLTExMTgwNDc0NTYsMTgwOTE0ODg1MiwtODkwMDYz
+OTQxLC03NTc4ODMyMzksMTYwMDAyMTExNSwyMTA5MTQwMDAxLC
+0xODI2OTYxODgwLDg0MDE0NTAwOCwtODg4MzE0OTMyLC04MTA0
+NjgzMzEsMTg1MDY1MTY1OCwtMTg3Mjk3Mjg5NiwxNjExMTE3Nj
+M3LC00NDAxMzA0ODksLTE2NTA3MzY1MDMsNjU5Mzk5NSwtMTg5
+Njc1NDg5NV19
 -->
