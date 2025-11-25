@@ -51,7 +51,7 @@ If a file does not include a shebang, it will be interpreted by current shell:
 
 ```bash
 # I don't know what I'll be executed by!
-echo "I was executed by $$ !"
+echo "I was executed by ${SHELL}!"
 ```
 
 ## Syntax
@@ -135,10 +135,11 @@ Instead, Windows will use file extensions and associations to determine which ex
 
 _(Unix-like shells such as [Windows Subsystem for Linux (WSL)](https://learn.microsoft.com/en-us/windows/wsl/about), [Cygwin](https://www.cygwin.com/), and [MSYS2](https://www.msys2.org/) all handle shebangs correctly.)_
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTI2NjM0NTkxLDk0NDgxMDgwNSwtMTQ1OD
-c5ODEyOSwtMjAyOTEyMDQwLDM5NzYzMzQ5OSwxMzU5NDI0NDQw
-LDIwMzA4NTA0OTMsMTY1NjAwMDg3MSwxOTEyNzAwNDk0LC0xMT
-g3NDgwMDI2LC0xMTAwMjgzOTIyLC0xNjczMTQwNTgsOTkzMDA4
-MTA4LDkxMDA5ODMsLTE4ODAzMjcyNjIsNjYyMjMyOTQ5LC01Mj
-g4MDk1MjEsNzEwNjIwMTE4LC0xMzcwOTg0NDc0XX0=
+eyJoaXN0b3J5IjpbLTgwMTQ2MzgzMywtMjY2MzQ1OTEsOTQ0OD
+EwODA1LC0xNDU4Nzk4MTI5LC0yMDI5MTIwNDAsMzk3NjMzNDk5
+LDEzNTk0MjQ0NDAsMjAzMDg1MDQ5MywxNjU2MDAwODcxLDE5MT
+I3MDA0OTQsLTExODc0ODAwMjYsLTExMDAyODM5MjIsLTE2NzMx
+NDA1OCw5OTMwMDgxMDgsOTEwMDk4MywtMTg4MDMyNzI2Miw2Nj
+IyMzI5NDksLTUyODgwOTUyMSw3MTA2MjAxMTgsLTEzNzA5ODQ0
+NzRdfQ==
 -->
