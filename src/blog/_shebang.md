@@ -29,6 +29,11 @@ echo "I should be executed by Bash!"
 print("I should be executed by Python 3!")
 ```
 
+```javascript
+#!/usr/bin/env node
+console.log("I should be executed by Node.js!")
+```
+
 and then if that file is named `my_executable` (with no extension, to prove that the OS won't know the right interpreter without reading the file), it can be executed like this:
 
 ```bash
@@ -52,7 +57,7 @@ Shebangs look like this, and they must be the first line in a file:
 
 _(Though the space(s)/tab(s) after `#!` are optional, and many people choose to omit them.)_
 
-The `<executable>` should be an absolute (non-relative) path to either an interpreter (`sh`, `bash`, `pwsh`, `python3`, `ruby`, `node`, etc.), or an executable that can _find_ an interpreter (`/usr/bin/env`).
+The `<executable>` should be an absolute (non-relative) path to either an interpreter (`/bin/sh`, `/bin/bash`, `/usr/bin/pwsh`, `/usr/bin/python3`, `/usr/bin/ruby`, etc.), or an executable that can _find_ an interpreter (`/usr/bin/env`).
 
 Shebangs let files assert what interpreter should run them (and IDEs frequently pick up on them for syntax highlighting), but they are just shortcuts to more verbose commands. The executable specified will be invoked with the optional argument, and then the name of the script, and then any arguments after.
 
@@ -105,8 +110,8 @@ print("I was executed by '" + sys.executable + "'!")
 
 _(This is less important for executables such as `/bin/bash` that should always exist in the same location, but it also isn't dangerous to default to using `/usr/bin/env`.)_
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbNDY3MzM1ODk1LC0xMTg3NDgwMDI2LC0xMT
-AwMjgzOTIyLC0xNjczMTQwNTgsOTkzMDA4MTA4LDkxMDA5ODMs
-LTE4ODAzMjcyNjIsNjYyMjMyOTQ5LC01Mjg4MDk1MjEsNzEwNj
-IwMTE4LC0xMzcwOTg0NDc0XX0=
+eyJoaXN0b3J5IjpbLTgwMTExNTgzNCwtMTE4NzQ4MDAyNiwtMT
+EwMDI4MzkyMiwtMTY3MzE0MDU4LDk5MzAwODEwOCw5MTAwOTgz
+LC0xODgwMzI3MjYyLDY2MjIzMjk0OSwtNTI4ODA5NTIxLDcxMD
+YyMDExOCwtMTM3MDk4NDQ3NF19
 -->
