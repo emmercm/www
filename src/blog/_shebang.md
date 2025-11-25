@@ -116,11 +116,11 @@ _(This is less important for executables such as `/bin/bash` that should always 
 
 ## Windows
 
-TODO
+Both Command Prompt (`cmd.exe`) and PowerShell do not natively interpret shebangs.
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMjAzMDg1MDQ5MywxNjU2MDAwODcxLDE5MT
-I3MDA0OTQsLTExODc0ODAwMjYsLTExMDAyODM5MjIsLTE2NzMx
-NDA1OCw5OTMwMDgxMDgsOTEwMDk4MywtMTg4MDMyNzI2Miw2Nj
-IyMzI5NDksLTUyODgwOTUyMSw3MTA2MjAxMTgsLTEzNzA5ODQ0
-NzRdfQ==
+eyJoaXN0b3J5IjpbMTQyNTc1OTQyNCwyMDMwODUwNDkzLDE2NT
+YwMDA4NzEsMTkxMjcwMDQ5NCwtMTE4NzQ4MDAyNiwtMTEwMDI4
+MzkyMiwtMTY3MzE0MDU4LDk5MzAwODEwOCw5MTAwOTgzLC0xOD
+gwMzI3MjYyLDY2MjIzMjk0OSwtNTI4ODA5NTIxLDcxMDYyMDEx
+OCwtMTM3MDk4NDQ3NF19
 -->
