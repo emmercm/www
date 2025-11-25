@@ -205,7 +205,7 @@ RUN echo "set -euo pipefail is active" && \
     echo "set -euo pipefail is still active"
 ```
 
-## Option inheritance
+## Option inheritance with 
 
 [Subshells](https://tldp.org/LDP/abs/html/subshells.html) generally inherit all of the `set -euo pipefail` options. (A notable exclusion is when Bash is not in POSIX mode, it [will clear the `set -e` option in subshells](https://www.gnu.org/software/bash/manual/html_node/Command-Execution-Environment.html).) You can prove this for yourself like this:
 
@@ -258,7 +258,7 @@ if (false; echo "this will print"); then true; fi
 # "any command in a pipeline but the last (subject to the state of the `pipefail` shell option)"
 ```
 
-## Counter points
+## Counter arguments
 
 Some arguments _against_ relying on `set -euo pipefail` are:
 
@@ -286,11 +286,11 @@ Some arguments _against_ relying on `set -euo pipefail` are:
 
 If we apply some common sense, we should naturally understand that complex situations likely call for a different programming language. `set -euo pipefail` won't completely save you from dangerous shell scripting, but it sure provides a better backstop than nothing at all.
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTMzNjg5Mzc1NiwtNjU5OTIzNDU0LDc0Nj
-cwMTYyMywtMTExODA0NzQ1NiwxODA5MTQ4ODUyLC04OTAwNjM5
-NDEsLTc1Nzg4MzIzOSwxNjAwMDIxMTE1LDIxMDkxNDAwMDEsLT
-E4MjY5NjE4ODAsODQwMTQ1MDA4LC04ODgzMTQ5MzIsLTgxMDQ2
-ODMzMSwxODUwNjUxNjU4LC0xODcyOTcyODk2LDE2MTExMTc2Mz
-csLTQ0MDEzMDQ4OSwtMTY1MDczNjUwMyw2NTkzOTk1LC0xODk2
-NzU0ODk1XX0=
+eyJoaXN0b3J5IjpbLTEzMjEzNDQ0MDksLTY1OTkyMzQ1NCw3ND
+Y3MDE2MjMsLTExMTgwNDc0NTYsMTgwOTE0ODg1MiwtODkwMDYz
+OTQxLC03NTc4ODMyMzksMTYwMDAyMTExNSwyMTA5MTQwMDAxLC
+0xODI2OTYxODgwLDg0MDE0NTAwOCwtODg4MzE0OTMyLC04MTA0
+NjgzMzEsMTg1MDY1MTY1OCwtMTg3Mjk3Mjg5NiwxNjExMTE3Nj
+M3LC00NDAxMzA0ODksLTE2NTA3MzY1MDMsNjU5Mzk5NSwtMTg5
+Njc1NDg5NV19
 -->
