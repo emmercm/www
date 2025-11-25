@@ -124,7 +124,14 @@ hello world
 You can't use `#! python3` for your shebang, the OS will treat that as path relative to your current working directory, which would be the same as:
 
 ```shell
+$ ./python3 -c 'print("hello world")'
+bash: ./python3: No such file or directory
+
+$ "$(pwd)/python3" -c 'print("hello world")'
+bash: /home/ubuntu/python3: No such file or directory
 ```
+
+Using `#! /usr/bin/env <interpreter>` is particularly important
 
 This is because `/usr/bin/env` should almost always exist (or your OS knows how to handle it), but your interpreter could live in a non-standard location, especially if it isn't a shell (`python3`, `ruby`, `node`, `perl`, etc.).
 
@@ -152,11 +159,11 @@ Instead, Windows will use file extensions and associations to determine which ex
 
 _(Unix-like shells such as [Windows Subsystem for Linux (WSL)](https://learn.microsoft.com/en-us/windows/wsl/about), [Cygwin](https://www.cygwin.com/), and [MSYS2](https://www.msys2.org/) all handle shebangs correctly.)_
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTM3OTQyMzEyMywtOTYyNjQ5OTUsLTk2OD
-UxOTcwOSwtMTMxNTMxNDI0MywyMTM1OTU1NjQ0LC04MDE0NjM4
-MzMsLTI2NjM0NTkxLDk0NDgxMDgwNSwtMTQ1ODc5ODEyOSwtMj
-AyOTEyMDQwLDM5NzYzMzQ5OSwxMzU5NDI0NDQwLDIwMzA4NTA0
-OTMsMTY1NjAwMDg3MSwxOTEyNzAwNDk0LC0xMTg3NDgwMDI2LC
-0xMTAwMjgzOTIyLC0xNjczMTQwNTgsOTkzMDA4MTA4LDkxMDA5
-ODNdfQ==
+eyJoaXN0b3J5IjpbLTE4NTMxNTExODIsLTk2MjY0OTk1LC05Nj
+g1MTk3MDksLTEzMTUzMTQyNDMsMjEzNTk1NTY0NCwtODAxNDYz
+ODMzLC0yNjYzNDU5MSw5NDQ4MTA4MDUsLTE0NTg3OTgxMjksLT
+IwMjkxMjA0MCwzOTc2MzM0OTksMTM1OTQyNDQ0MCwyMDMwODUw
+NDkzLDE2NTYwMDA4NzEsMTkxMjcwMDQ5NCwtMTE4NzQ4MDAyNi
+wtMTEwMDI4MzkyMiwtMTY3MzE0MDU4LDk5MzAwODEwOCw5MTAw
+OTgzXX0=
 -->
