@@ -40,6 +40,8 @@ Wouldn't it be easier to just make an assumption about the working directory? I 
 
 _See "[Resetting the Working Directory on Shell Function Exit](/blog/resetting-the-working-directory-on-shell-function-exit)" for when you need to reset the working directory during script execution._
 
+_See "[Defensive Shell Scripting with Shell Options](/blog/defensive-shell-scripting-with-shell-options)" for more information about `set -euo pipefail`._
+
 ## The one-liner
 
 Here's the trick, put this at the top of every script you write, just below the [shebang](https://en.wikipedia.org/wiki/Shebang_(Unix)).

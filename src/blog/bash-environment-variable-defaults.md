@@ -13,6 +13,8 @@ I was first tipped off to this syntax by [Temporal's](https://temporal.io/) serv
 
 But there is still a lot of value with setting variable defaults even when not using Docker.
 
+_For more information about `set -euo pipefail` used in the examples, see "[Defensive Shell Scripting with Shell Options](/blog/defensive-shell-scripting-with-shell-options)"._
+
 ## Syntax for env vars
 
 Here is a Bash script with two variables, `$GREETING` and `$NAME`, that each have a default value:
