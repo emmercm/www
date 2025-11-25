@@ -59,7 +59,7 @@ _(Though the space(s)/tab(s) after `#!` are optional, and many people choose to 
 
 Putting this in your source file is safe because `#` is a single-line comment marker in most scripting languages, so the interpreter will ignore it during execution.
 
-The `<executable>` should be an absolute (non-relative) path to either an interpreter (`/bin/sh`, `/bin/bash`, `/usr/bin/pwsh`, `/usr/bin/python3`, `/usr/bin/ruby`, etc.), or an executable that can _find_ an interpreter (`/usr/bin/env`).
+The `<executable>` should be an absolute (non-relative) path to either an interpreter (`/bin/sh`, `/bin/bash`, `/usr/bin/pwsh`, `/usr/bin/python3`, `/usr/bin/ruby`, etc.), or an executable that can _find_ an interpreter (`/usr/bin/env`). Some OSes allow the executable to be a script and not a binary, but macOS notably does not.
 
 Shebangs let files assert what interpreter should run them (and IDEs frequently pick up on them for syntax highlighting), but they are just shortcuts to more verbose commands. The executable specified will be invoked with the optional argument, and then the name of the script, and then any CLI arguments after.
 
@@ -124,9 +124,9 @@ Instead, Windows will use file extensions and associations to determine which ex
 
 _(Unix-like shells such as [Windows Subsystem for Linux (WSL)](https://learn.microsoft.com/en-us/windows/wsl/about), [Cygwin](https://www.cygwin.com/), and [MSYS2](https://www.msys2.org/) all handle shebangs correctly.)_
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTM1OTQyNDQ0MCwyMDMwODUwNDkzLDE2NT
-YwMDA4NzEsMTkxMjcwMDQ5NCwtMTE4NzQ4MDAyNiwtMTEwMDI4
-MzkyMiwtMTY3MzE0MDU4LDk5MzAwODEwOCw5MTAwOTgzLC0xOD
-gwMzI3MjYyLDY2MjIzMjk0OSwtNTI4ODA5NTIxLDcxMDYyMDEx
-OCwtMTM3MDk4NDQ3NF19
+eyJoaXN0b3J5IjpbMzk3NjMzNDk5LDEzNTk0MjQ0NDAsMjAzMD
+g1MDQ5MywxNjU2MDAwODcxLDE5MTI3MDA0OTQsLTExODc0ODAw
+MjYsLTExMDAyODM5MjIsLTE2NzMxNDA1OCw5OTMwMDgxMDgsOT
+EwMDk4MywtMTg4MDMyNzI2Miw2NjIyMzI5NDksLTUyODgwOTUy
+MSw3MTA2MjAxMTgsLTEzNzA5ODQ0NzRdfQ==
 -->
