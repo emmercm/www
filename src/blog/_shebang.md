@@ -1,6 +1,6 @@
 ---
 
-title: What is a  "Shebang"?
+title: What is a Script "Shebang"?
 tags:
 - shell
 
@@ -135,11 +135,11 @@ Instead, Windows will use file extensions and associations to determine which ex
 
 _(Unix-like shells such as [Windows Subsystem for Linux (WSL)](https://learn.microsoft.com/en-us/windows/wsl/about), [Cygwin](https://www.cygwin.com/), and [MSYS2](https://www.msys2.org/) all handle shebangs correctly.)_
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTE2NjEyMzg4MjgsMjEzNTk1NTY0NCwtOD
-AxNDYzODMzLC0yNjYzNDU5MSw5NDQ4MTA4MDUsLTE0NTg3OTgx
-MjksLTIwMjkxMjA0MCwzOTc2MzM0OTksMTM1OTQyNDQ0MCwyMD
-MwODUwNDkzLDE2NTYwMDA4NzEsMTkxMjcwMDQ5NCwtMTE4NzQ4
-MDAyNiwtMTEwMDI4MzkyMiwtMTY3MzE0MDU4LDk5MzAwODEwOC
-w5MTAwOTgzLC0xODgwMzI3MjYyLDY2MjIzMjk0OSwtNTI4ODA5
-NTIxXX0=
+eyJoaXN0b3J5IjpbLTY5ODE1Njc5MSwyMTM1OTU1NjQ0LC04MD
+E0NjM4MzMsLTI2NjM0NTkxLDk0NDgxMDgwNSwtMTQ1ODc5ODEy
+OSwtMjAyOTEyMDQwLDM5NzYzMzQ5OSwxMzU5NDI0NDQwLDIwMz
+A4NTA0OTMsMTY1NjAwMDg3MSwxOTEyNzAwNDk0LC0xMTg3NDgw
+MDI2LC0xMTAwMjgzOTIyLC0xNjczMTQwNTgsOTkzMDA4MTA4LD
+kxMDA5ODMsLTE4ODAzMjcyNjIsNjYyMjMyOTQ5LC01Mjg4MDk1
+MjFdfQ==
 -->
