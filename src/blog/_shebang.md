@@ -50,7 +50,7 @@ chmod +x my_executable
 If a file does not include a shebang, it will be interpreted by current shell, which means different environments can behave differently:
 
 ```bash
-# I don't know what I'll be executed by!
+# We don't know what this will be executed by
 echo "I was executed by ${SHELL}!"
 ```
 
@@ -135,11 +135,11 @@ Instead, Windows will use file extensions and associations to determine which ex
 
 _(Unix-like shells such as [Windows Subsystem for Linux (WSL)](https://learn.microsoft.com/en-us/windows/wsl/about), [Cygwin](https://www.cygwin.com/), and [MSYS2](https://www.msys2.org/) all handle shebangs correctly.)_
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTk2ODUxOTcwOSwtMTMxNTMxNDI0MywyMT
-M1OTU1NjQ0LC04MDE0NjM4MzMsLTI2NjM0NTkxLDk0NDgxMDgw
-NSwtMTQ1ODc5ODEyOSwtMjAyOTEyMDQwLDM5NzYzMzQ5OSwxMz
-U5NDI0NDQwLDIwMzA4NTA0OTMsMTY1NjAwMDg3MSwxOTEyNzAw
-NDk0LC0xMTg3NDgwMDI2LC0xMTAwMjgzOTIyLC0xNjczMTQwNT
-gsOTkzMDA4MTA4LDkxMDA5ODMsLTE4ODAzMjcyNjIsNjYyMjMy
-OTQ5XX0=
+eyJoaXN0b3J5IjpbLTk2MjY0OTk1LC05Njg1MTk3MDksLTEzMT
+UzMTQyNDMsMjEzNTk1NTY0NCwtODAxNDYzODMzLC0yNjYzNDU5
+MSw5NDQ4MTA4MDUsLTE0NTg3OTgxMjksLTIwMjkxMjA0MCwzOT
+c2MzM0OTksMTM1OTQyNDQ0MCwyMDMwODUwNDkzLDE2NTYwMDA4
+NzEsMTkxMjcwMDQ5NCwtMTE4NzQ4MDAyNiwtMTEwMDI4MzkyMi
+wtMTY3MzE0MDU4LDk5MzAwODEwOCw5MTAwOTgzLC0xODgwMzI3
+MjYyXX0=
 -->
