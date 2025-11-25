@@ -212,28 +212,15 @@ However, `set -e` can behave differently in checked vs. unchecked contexts:
 ```bash
 set -e
 
-# The subshell will return with an exit code
-(cat nonexistent_file; echo "this will not print")
+# The subshell will return with an exit code, as expected
+(cat nonexistent_file; echo "this will NOT print")
+
+if (cat nonexistent_file; echo "this will print"); then
+	echo "the subshell had -e"
+fi
 ```
-
-**In subshells.** The Bash you're writing may be in a location that is inappropriate to set defaults, such as in `~/.bashrc`/`~/.zshrc`. In these instances, you could consider the overhead of spawning [subshells](https://tldp.org/LDP/abs/html/subshells.html) and setting `set -euo pipefail` within them.
-
----
-
-1. At the top of every bash file
-2. As the Docker shell
-3. In GitHub Actions steps?
-4. In subshells within functions?
-
-	```bash
-	func() {
-		(
-			set -euo pipefail
-		)
-	}
-	```
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTk1NDM4NjMwNywtMTgyNjk2MTg4MCw4ND
+eyJoaXN0b3J5IjpbLTI5NTU0NDIwOCwtMTgyNjk2MTg4MCw4ND
 AxNDUwMDgsLTg4ODMxNDkzMiwtODEwNDY4MzMxLDE4NTA2NTE2
 NTgsLTE4NzI5NzI4OTYsMTYxMTExNzYzNywtNDQwMTMwNDg5LC
 0xNjUwNzM2NTAzLDY1OTM5OTUsLTE4OTY3NTQ4OTUsLTkxMjY3
