@@ -57,7 +57,7 @@ Shebangs look like this, and they must be the first line in a file:
 
 _(Though the space(s)/tab(s) after `#!` are optional, and many people choose to omit them.)_
 
-This works because `#`
+Putting this in your source file is safe because `#` is a single-line comment marker in most scripting languages, so the interpreter will ignore it during execution.
 
 The `<executable>` should be an absolute (non-relative) path to either an interpreter (`/bin/sh`, `/bin/bash`, `/usr/bin/pwsh`, `/usr/bin/python3`, `/usr/bin/ruby`, etc.), or an executable that can _find_ an interpreter (`/usr/bin/env`).
 
@@ -122,7 +122,7 @@ Both Command Prompt (`cmd.exe`) and PowerShell do not natively interpret shebang
 
 Instead, Windows will use file extensions and associations to determine which executable to use.
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTA3MDY2MjMyOCwyMDMwODUwNDkzLDE2NT
+eyJoaXN0b3J5IjpbMTI2OTQ3NzIxOSwyMDMwODUwNDkzLDE2NT
 YwMDA4NzEsMTkxMjcwMDQ5NCwtMTE4NzQ4MDAyNiwtMTEwMDI4
 MzkyMiwtMTY3MzE0MDU4LDk5MzAwODEwOCw5MTAwOTgzLC0xOD
 gwMzI3MjYyLDY2MjIzMjk0OSwtNTI4ODA5NTIxLDcxMDYyMDEx
