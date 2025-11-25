@@ -78,6 +78,7 @@ Here are some examples that execute the same way:
   
   # Don't use the shebang
   /usr/bin/env bash ./my_script.sh
+  bash ./my_script.sh
   ```
 
 - `my_script.py`:
@@ -94,6 +95,7 @@ Here are some examples that execute the same way:
   
   # Don't use the shebang
   /usr/bin/env python3 ./my_script.py --arg-one --arg-two
+  python3 ./my_script.py --arg-one --arg-two
   ```
 
 ## Portability
@@ -124,9 +126,9 @@ Instead, Windows will use file extensions and associations to determine which ex
 
 _(Unix-like shells such as [Windows Subsystem for Linux (WSL)](https://learn.microsoft.com/en-us/windows/wsl/about), [Cygwin](https://www.cygwin.com/), and [MSYS2](https://www.msys2.org/) all handle shebangs correctly.)_
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMzk3NjMzNDk5LDEzNTk0MjQ0NDAsMjAzMD
-g1MDQ5MywxNjU2MDAwODcxLDE5MTI3MDA0OTQsLTExODc0ODAw
-MjYsLTExMDAyODM5MjIsLTE2NzMxNDA1OCw5OTMwMDgxMDgsOT
-EwMDk4MywtMTg4MDMyNzI2Miw2NjIyMzI5NDksLTUyODgwOTUy
-MSw3MTA2MjAxMTgsLTEzNzA5ODQ0NzRdfQ==
+eyJoaXN0b3J5IjpbLTIwMjkxMjA0MCwzOTc2MzM0OTksMTM1OT
+QyNDQ0MCwyMDMwODUwNDkzLDE2NTYwMDA4NzEsMTkxMjcwMDQ5
+NCwtMTE4NzQ4MDAyNiwtMTEwMDI4MzkyMiwtMTY3MzE0MDU4LD
+k5MzAwODEwOCw5MTAwOTgzLC0xODgwMzI3MjYyLDY2MjIzMjk0
+OSwtNTI4ODA5NTIxLDcxMDYyMDExOCwtMTM3MDk4NDQ3NF19
 -->
