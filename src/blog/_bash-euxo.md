@@ -245,10 +245,13 @@ if (cat nonexistent_file; echo "this will print"); then true; fi
 
 Some arguments _against_ relying on `set -euo pipefail` from people on forums are:
 
-- A Bash script can't reliably know if the severity of an external program's non-zero exit code warrants a script exit or not ([BashFAQ/105](https://mywiki.wooledge.org/BashFAQ/105)).
-- Commands may return a non-zero exit code when there isn't an error, for control flow ([BashFAQ/105](https://mywiki.wooledge.org/BashFAQ/105)).
+- Agaisnt `set -e`:
+	- A Bash script can't reliably know if the severity of an external program's non-zero exit code warrants a script exit or not ([BashFAQ/105](https://mywiki.wooledge.org/BashFAQ/105)).
+	- Commands may return a non-zero exit code when there isn't an error, for control flow ([BashFAQ/105](https://mywiki.wooledge.org/BashFAQ/105)).
+- Against `set -u`:
+	- V
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTA2OTc3MjMxNCwyMTA5MTQwMDAxLC0xOD
+eyJoaXN0b3J5IjpbMTU3OTM1NDA1MSwyMTA5MTQwMDAxLC0xOD
 I2OTYxODgwLDg0MDE0NTAwOCwtODg4MzE0OTMyLC04MTA0Njgz
 MzEsMTg1MDY1MTY1OCwtMTg3Mjk3Mjg5NiwxNjExMTE3NjM3LC
 00NDAxMzA0ODksLTE2NTA3MzY1MDMsNjU5Mzk5NSwtMTg5Njc1
