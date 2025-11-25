@@ -14,14 +14,17 @@ Simply put, a shebang tells your operating system where to find a program to int
 
 ```bash
 #!/usr/bin/env sh
+echo "I will be executed by a strictly POSIX-compliant shell!"
 ```
 
 ```bash
 #!/usr/bin/env bash
+echo "I will be executed by Bash!"
 ```
 
 ```bash
 #!/usr/bin/env zsh
+echo "I will be executed by Z shell!"
 ```
 
 ## Syntax
@@ -34,6 +37,6 @@ Shebangs look like this:
 
 though the space after `#!` is optional, and many people choose to leave it off.
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTg5Njk2MDAyMyw3MTA2MjAxMTgsLTEzNz
+eyJoaXN0b3J5IjpbLTUyODgwOTUyMSw3MTA2MjAxMTgsLTEzNz
 A5ODQ0NzRdfQ==
 -->
