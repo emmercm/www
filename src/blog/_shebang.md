@@ -116,9 +116,11 @@ _(This is less important for executables such as `/bin/bash` that should always 
 
 ## Windows
 
-Both Command Prompt (`cmd.exe`) and PowerShell do not natively interpret shebangs.
+Both Command Prompt (`cmd.exe`) and PowerShell do not natively interpret shebangs. Further, shebangs will cause problems for Command Prompt, as comments are started with `REM` or `::` and not `#`.
+
+Instead, Windows will use file extensions
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTQyNTc1OTQyNCwyMDMwODUwNDkzLDE2NT
+eyJoaXN0b3J5IjpbMTc0MzcyOTQwOSwyMDMwODUwNDkzLDE2NT
 YwMDA4NzEsMTkxMjcwMDQ5NCwtMTE4NzQ4MDAyNiwtMTEwMDI4
 MzkyMiwtMTY3MzE0MDU4LDk5MzAwODEwOCw5MTAwOTgzLC0xOD
 gwMzI3MjYyLDY2MjIzMjk0OSwtNTI4ODA5NTIxLDcxMDYyMDEx
