@@ -54,7 +54,7 @@ _(Though the space(s)/tab(s) after `#!` are optional, and many people choose to 
 
 The `<executable>` should be an absolute (non-relative) path to either an interpreter (`sh`, `bash`, `pwsh`, `python3`, `ruby`, `node`, etc.), or an executable that can _find_ an interpreter (`/usr/bin/env`).
 
-Shebangs let files assert what interpreter should run them (and IDEs frequently pick up on them for syntax highlighting), but they are just shortcuts to more verbose commands.
+Shebangs let files assert what interpreter should run them (and IDEs frequently pick up on them for syntax highlighting), but they are just shortcuts to more verbose commands. The executable specified will be invoked with the optional argument, and then the name of the script, and then any arguments after. 
 
 - ```bash
   #!/usr/bin/env bash
@@ -63,10 +63,10 @@ Shebangs let files assert what interpreter should run them (and IDEs frequently 
 
   ```bash
   # Use the shebang
-  ./my_executable
+  ./my_bash_script
   
   # Don't use the shebang
-  /usr/bin/env bash ./my_executable
+  /usr/bin/env bash ./my_bash_script
   ```
 
 - ```python
@@ -76,10 +76,10 @@ Shebangs let files assert what interpreter should run them (and IDEs frequently 
 
   ```bash
   # Use the shebang
-  ./my_executable
+  ./my_python_script
   
   # Don't use the shebang
-  /usr/bin/env bash ./my_executable
+  /usr/bin/env bash ./my_python_script
   ```
 
 ## Portability
@@ -102,8 +102,8 @@ print("I was executed by '" + sys.executable + "'!")
 
 _(This is less important for executables such as `/bin/bash` that should always exist in the same location, but it also isn't dangerous to default to using `/usr/bin/env`.)_
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbNTgyODQ4OTY1LC0xMTAwMjgzOTIyLC0xNj
-czMTQwNTgsOTkzMDA4MTA4LDkxMDA5ODMsLTE4ODAzMjcyNjIs
-NjYyMjMyOTQ5LC01Mjg4MDk1MjEsNzEwNjIwMTE4LC0xMzcwOT
-g0NDc0XX0=
+eyJoaXN0b3J5IjpbLTIwMzk0MDEwMTAsLTExMDAyODM5MjIsLT
+E2NzMxNDA1OCw5OTMwMDgxMDgsOTEwMDk4MywtMTg4MDMyNzI2
+Miw2NjIyMzI5NDksLTUyODgwOTUyMSw3MTA2MjAxMTgsLTEzNz
+A5ODQ0NzRdfQ==
 -->
