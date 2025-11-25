@@ -26,7 +26,7 @@ echo "I should be executed by Bash!"
 
 ```python
 #!/usr/bin/env python3
-print("I will be executed by Python 3!")
+print("I should be executed by Python 3!")
 ```
 
 and then if that file is named `my_executable` (with no extension, to prove the OS won't know the right interpreter without reading the file), it can be executed like this:
@@ -60,10 +60,27 @@ Shebangs let files assert what interpreter should run them (and IDEs frequently 
   #!/usr/bin/env bash
   echo "I should be executed by Bash!"
   ```
-```shell
-./my_executable
-/usr/bin/env
-```
+
+  ```bash
+  # Use the shebang
+  ./my_executable
+  
+  # Don't use the shebang
+  /usr/bin/env bash ./my_executable
+  ```
+
+- ```python
+  #!/usr/bin/env python3
+  print("I should be executed by Python 3!")
+  ```
+
+  ```bash
+  # Use the shebang
+  ./my_executable
+  
+  # Don't use the shebang
+  /usr/bin/env bash ./my_executable
+  ```
 
 ## Portability
 
@@ -85,7 +102,7 @@ print("I was executed by '" + sys.executable + "'!")
 
 _(This is less important for executables such as `/bin/bash` that should always exist in the same location, but it also isn't dangerous to default to using `/usr/bin/env`.)_
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTkwNDUyNjkxLC0xMTAwMjgzOTIyLC0xNj
+eyJoaXN0b3J5IjpbNTgyODQ4OTY1LC0xMTAwMjgzOTIyLC0xNj
 czMTQwNTgsOTkzMDA4MTA4LDkxMDA5ODMsLTE4ODAzMjcyNjIs
 NjYyMjMyOTQ5LC01Mjg4MDk1MjEsNzEwNjIwMTE4LC0xMzcwOT
 g0NDc0XX0=
