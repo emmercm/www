@@ -23,7 +23,15 @@ Simply put, a shebang tells your operating system where to find a program to int
 ```bash
 #!/usr/bin/env zsh
 ```
+
+## Syntax
+
+Shebangs look like this:
+
+```bash
+#! executable [optional0-ar]
+```
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTE4NjA4OTE3NjMsNzEwNjIwMTE4LC0xMz
-cwOTg0NDc0XX0=
+eyJoaXN0b3J5IjpbMTkxNjkxMTQ1Nyw3MTA2MjAxMTgsLTEzNz
+A5ODQ0NzRdfQ==
 -->
