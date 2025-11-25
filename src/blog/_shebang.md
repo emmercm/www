@@ -54,7 +54,7 @@ The `<executable>` should be an absolute (non-relative) path to either an interp
 
 ## Portability
 
-Using `#! /usr/bin/env <interpreter>` is typically more "portable" (works more reliably across a wide variety of OSes). This is because `/usr/bin/env` should always exist, but your interpreter could live in a non-standard location, especially if it isn't a shell (`python3`, `ruby`, `node`, `perl`, etc.).
+Using `#! /usr/bin/env <interpreter>` for shebangs is typically more "portable" (works more reliably across a wide variety of OSes). This is because `/usr/bin/env` should always exist, but your interpreter could live in a non-standard location, especially if it isn't a shell (`python3`, `ruby`, `node`, `perl`, etc.).
 
 For example, on macOS, Python 3.9.6 could be in any one of these locations:
 
@@ -62,7 +62,7 @@ For example, on macOS, Python 3.9.6 could be in any one of these locations:
 - `/Library/Frameworks/Python.framework/Versions/3.9/bin/python3` is where the official installer puts it
 - `/opt/homebrew/Cellar/python@3.9/3.9.6/bin/python3` is where [Homebrew](https://brew.sh/) puts it on an Apple Silicon Mac
 
-So it is more reliable to use `/usr/bin/env` to find where `python3` is, plus it respects your `$PATH`:
+So it is more reliable to use `/usr/bin/env` to find where `python3` is, plus it respects your `$PATH` ordering:
 
 ```python
 #!/usr/bin/env python3
@@ -70,7 +70,7 @@ import sys
 print("I was executed by '" + sys.executable + "'!")
 ```
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbOTEwMDk4MywtMTg4MDMyNzI2Miw2NjIyMz
-I5NDksLTUyODgwOTUyMSw3MTA2MjAxMTgsLTEzNzA5ODQ0NzRd
-fQ==
+eyJoaXN0b3J5IjpbLTE1OTEyMjI4MDksOTEwMDk4MywtMTg4MD
+MyNzI2Miw2NjIyMzI5NDksLTUyODgwOTUyMSw3MTA2MjAxMTgs
+LTEzNzA5ODQ0NzRdfQ==
 -->
