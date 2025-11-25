@@ -47,7 +47,11 @@ chmod +x my_executable
 "$(pwd)/my_executable"
 ```
 
-If a file does not include a shebang, it will be interpreted by 
+If a file does not include a shebang, it will be interpreted by current shell:
+
+```bash
+# I don't know what I'll be executed by!
+```
 
 ## Syntax
 
@@ -130,10 +134,10 @@ Instead, Windows will use file extensions and associations to determine which ex
 
 _(Unix-like shells such as [Windows Subsystem for Linux (WSL)](https://learn.microsoft.com/en-us/windows/wsl/about), [Cygwin](https://www.cygwin.com/), and [MSYS2](https://www.msys2.org/) all handle shebangs correctly.)_
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTgzNDM0NjAwNywtMTQ1ODc5ODEyOSwtMj
-AyOTEyMDQwLDM5NzYzMzQ5OSwxMzU5NDI0NDQwLDIwMzA4NTA0
-OTMsMTY1NjAwMDg3MSwxOTEyNzAwNDk0LC0xMTg3NDgwMDI2LC
-0xMTAwMjgzOTIyLC0xNjczMTQwNTgsOTkzMDA4MTA4LDkxMDA5
-ODMsLTE4ODAzMjcyNjIsNjYyMjMyOTQ5LC01Mjg4MDk1MjEsNz
-EwNjIwMTE4LC0xMzcwOTg0NDc0XX0=
+eyJoaXN0b3J5IjpbOTQ0ODEwODA1LC0xNDU4Nzk4MTI5LC0yMD
+I5MTIwNDAsMzk3NjMzNDk5LDEzNTk0MjQ0NDAsMjAzMDg1MDQ5
+MywxNjU2MDAwODcxLDE5MTI3MDA0OTQsLTExODc0ODAwMjYsLT
+ExMDAyODM5MjIsLTE2NzMxNDA1OCw5OTMwMDgxMDgsOTEwMDk4
+MywtMTg4MDMyNzI2Miw2NjIyMzI5NDksLTUyODgwOTUyMSw3MT
+A2MjAxMTgsLTEzNzA5ODQ0NzRdfQ==
 -->
