@@ -56,10 +56,11 @@ Using `#! /usr/bin/env <interpreter>` is typically more "portable" (works more r
 
 For example, on macOS, Python 3.9 could be in any one of these locations:
 
-- `/usr/bin/python3` is provided by the OS
-- `/Library/Frameworks/Python.framework/Versions/3.9/bin/python3`
+- `/usr/bin/python3` is provided by the OS and is typically quite old
+- `/Library/Frameworks/Python.framework/Versions/3.9/bin/python3` is where the official installer puts it
+- `
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTUyNTY0OTU1OSwtMTg4MDMyNzI2Miw2Nj
+eyJoaXN0b3J5IjpbLTczNjgzMzExNywtMTg4MDMyNzI2Miw2Nj
 IyMzI5NDksLTUyODgwOTUyMSw3MTA2MjAxMTgsLTEzNzA5ODQ0
 NzRdfQ==
 -->
