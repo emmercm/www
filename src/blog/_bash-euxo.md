@@ -74,7 +74,10 @@ false && echo "will never print"
 # 'echo' returns an exit code of 0, but 'grep' returns an exit code of 1 because it won't find "world"
 echo "hello" | grep -q "world"
 
-# Non-zero exit codes in a cond
+# Non-zero exit codes in a conditional don't cause an exit
+if ! rm -rf "TMP_DIR"; then
+	echo "TMP_DIR doesn't exist"
+fi
 ```
 
 You will still have some commands you'll want to ignore errors such that the script doesn't exit, you can do that with `|| true`:
@@ -85,17 +88,6 @@ set -e
 
 # '|| true' causes the statement to return an exit of 0 always
 rm -rf "TMP_DIR" || true
-```
-
-
-```bash
-#!/usr/bin/env bash
-set -e
-
-# Failures in a conditional don't cause an exit
-if ! rm -rf "TMP_DIR"; then
-	echo "TMP_DIR doesn't exist"
-fi
 ```
 
 Using `set -e` lets you be sure that no matter where you are in your script's execution, you can be sure that all previous commands succeeded or had failures explicitly ignored.
@@ -235,11 +227,11 @@ if (cat nonexistent_file; echo "this will print"); then true; fi
 
 I hope you're convinced by all the examples above of why you should be using `set -euo pipefail` by default everywhere you can.
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbNTU1NDc5MDY0LC0xODI2OTYxODgwLDg0MD
-E0NTAwOCwtODg4MzE0OTMyLC04MTA0NjgzMzEsMTg1MDY1MTY1
-OCwtMTg3Mjk3Mjg5NiwxNjExMTE3NjM3LC00NDAxMzA0ODksLT
-E2NTA3MzY1MDMsNjU5Mzk5NSwtMTg5Njc1NDg5NSwtOTEyNjcy
-MDY0LDM2NTE4Njk1MSwtODMwNzAwMzY5LDE0NDk3NDY1OTcsMT
-IzNTcxMzY3NSwtMjAxMjM5OTQzOCwtOTgxOTY2NjE1LC01MTQ1
-OTY3NTddfQ==
+eyJoaXN0b3J5IjpbMTMxODIxMTE3NywtMTgyNjk2MTg4MCw4ND
+AxNDUwMDgsLTg4ODMxNDkzMiwtODEwNDY4MzMxLDE4NTA2NTE2
+NTgsLTE4NzI5NzI4OTYsMTYxMTExNzYzNywtNDQwMTMwNDg5LC
+0xNjUwNzM2NTAzLDY1OTM5OTUsLTE4OTY3NTQ4OTUsLTkxMjY3
+MjA2NCwzNjUxODY5NTEsLTgzMDcwMDM2OSwxNDQ5NzQ2NTk3LD
+EyMzU3MTM2NzUsLTIwMTIzOTk0MzgsLTk4MTk2NjYxNSwtNTE0
+NTk2NzU3XX0=
 -->
