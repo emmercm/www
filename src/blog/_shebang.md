@@ -72,13 +72,15 @@ Here are some examples that execute the same way:
 
   ```bash
   # Use the shebang
-  ./my_bash_script
+  ./my_script.sh
   
   # Don't use the shebang
-  /usr/bin/env bash ./my_bash_script
+  /usr/bin/env bash ./my_script.sh
   ```
 
-- ```python
+- `my_script.py`:
+
+  ```python
   #!/usr/bin/env python3
   import sys
   print("I should be executed by Python 3, with the args:", sys.argv)
@@ -86,15 +88,15 @@ Here are some examples that execute the same way:
 
   ```bash
   # Use the shebang
-  ./my_python_script --arg-one --arg-two
+  ./my_script.py --arg-one --arg-two
   
   # Don't use the shebang
-  /usr/bin/env python3 ./my_python_script --arg-one --arg-two
+  /usr/bin/env python3 ./my_script.py --arg-one --arg-two
   ```
 
 ## Portability
 
-Using `#! /usr/bin/env <interpreter>` for shebangs is typically more "portable" (works more reliably across a wide variety of OSes). This is because `/usr/bin/env` should always exist (or your OS knows how to handle it), but your interpreter could live in a non-standard location, especially if it isn't a shell (`python3`, `ruby`, `node`, `perl`, etc.).
+Using `#! /usr/bin/env <interpreter>` for shebangs is typically more "portable" (works more reliably across a wide variety of OSes). This is because `/usr/bin/env` should almost always exist (or your OS knows how to handle it), but your interpreter could live in a non-standard location, especially if it isn't a shell (`python3`, `ruby`, `node`, `perl`, etc.).
 
 For example, on macOS, Python v3.9.6 could be in any one of these locations:
 
@@ -112,7 +114,7 @@ print("I was executed by '" + sys.executable + "'!")
 
 _(This is less important for executables such as `/bin/bash` that should always exist in the same location, but it also isn't dangerous to default to using `/usr/bin/env`.)_
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTExNzIzODU1MywtMTE4NzQ4MDAyNiwtMT
+eyJoaXN0b3J5IjpbMTkxMjcwMDQ5NCwtMTE4NzQ4MDAyNiwtMT
 EwMDI4MzkyMiwtMTY3MzE0MDU4LDk5MzAwODEwOCw5MTAwOTgz
 LC0xODgwMzI3MjYyLDY2MjIzMjk0OSwtNTI4ODA5NTIxLDcxMD
 YyMDExOCwtMTM3MDk4NDQ3NF19
