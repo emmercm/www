@@ -109,7 +109,9 @@ Here are some examples that execute the same way:
 
 ## Portability
 
-Using `#! /usr/bin/env <interpreter>` for shebangs is typically more "portable" (works more reliably across a wide variety of OSes). This is because `/usr/bin/env` should almost always exist (or your OS knows how to handle it), but your interpreter could live in a non-standard location, especially if it isn't a shell (`python3`, `ruby`, `node`, `perl`, etc.).
+Using `#! /usr/bin/env <interpreter>` for shebangs is typically more "portable" (works more reliably across a wide variety of OSes environments).
+
+This is because `/usr/bin/env` should almost always exist (or your OS knows how to handle it), but your interpreter could live in a non-standard location, especially if it isn't a shell (`python3`, `ruby`, `node`, `perl`, etc.).
 
 For example, on macOS, Python v3.9.6 could be in any one of these locations:
 
@@ -135,11 +137,11 @@ Instead, Windows will use file extensions and associations to determine which ex
 
 _(Unix-like shells such as [Windows Subsystem for Linux (WSL)](https://learn.microsoft.com/en-us/windows/wsl/about), [Cygwin](https://www.cygwin.com/), and [MSYS2](https://www.msys2.org/) all handle shebangs correctly.)_
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTk2MjY0OTk1LC05Njg1MTk3MDksLTEzMT
-UzMTQyNDMsMjEzNTk1NTY0NCwtODAxNDYzODMzLC0yNjYzNDU5
-MSw5NDQ4MTA4MDUsLTE0NTg3OTgxMjksLTIwMjkxMjA0MCwzOT
-c2MzM0OTksMTM1OTQyNDQ0MCwyMDMwODUwNDkzLDE2NTYwMDA4
-NzEsMTkxMjcwMDQ5NCwtMTE4NzQ4MDAyNiwtMTEwMDI4MzkyMi
-wtMTY3MzE0MDU4LDk5MzAwODEwOCw5MTAwOTgzLC0xODgwMzI3
-MjYyXX0=
+eyJoaXN0b3J5IjpbLTExNTQ0NTEwNTcsLTk2MjY0OTk1LC05Nj
+g1MTk3MDksLTEzMTUzMTQyNDMsMjEzNTk1NTY0NCwtODAxNDYz
+ODMzLC0yNjYzNDU5MSw5NDQ4MTA4MDUsLTE0NTg3OTgxMjksLT
+IwMjkxMjA0MCwzOTc2MzM0OTksMTM1OTQyNDQ0MCwyMDMwODUw
+NDkzLDE2NTYwMDA4NzEsMTkxMjcwMDQ5NCwtMTE4NzQ4MDAyNi
+wtMTEwMDI4MzkyMiwtMTY3MzE0MDU4LDk5MzAwODEwOCw5MTAw
+OTgzXX0=
 -->
