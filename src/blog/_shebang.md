@@ -44,13 +44,13 @@ chmod +x my_executable
 
 ## Syntax
 
-Shebangs look like this:
+Shebangs look like this, and they must be the first line in a file:
 
 ```bash
 #! <executable> [optional-single-arg]
 ```
 
-_(Though the space(s)/tab(s) after `#!` are optional, and many people choose to omit it.)_
+_(Though the space(s)/tab(s) after `#!` are optional, and many people choose to omit them.)_
 
 The `<executable>` should be an absolute (non-relative) path to either an interpreter (`sh`, `bash`, `pwsh`, `python3`, `ruby`, `node`, etc.), or an executable that can _find_ an interpreter (`/usr/bin/env`).
 
@@ -72,7 +72,7 @@ import sys
 print("I was executed by '" + sys.executable + "'!")
 ```
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTM0OTEzMjQzMyw5OTMwMDgxMDgsOTEwMD
+eyJoaXN0b3J5IjpbLTE2NzMxNDA1OCw5OTMwMDgxMDgsOTEwMD
 k4MywtMTg4MDMyNzI2Miw2NjIyMzI5NDksLTUyODgwOTUyMSw3
 MTA2MjAxMTgsLTEzNzA5ODQ0NzRdfQ==
 -->
