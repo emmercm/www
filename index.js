@@ -424,6 +424,7 @@ tracer(Metalsmith(path.resolve()))
                 const imgixParameters = '&auto=format&q=80&cs=srgb&fit=crop&crop=entropy';
                 imageUrlGenerator = (width, height) => `${photo.urls.raw}${imgixParameters}&w=${width}&h=${height}`;
                 const utmParameters = '?utm_source=emmer-dev&utm_medium=referral';
+                files[filename].imageAlt = photo.alt_description;
                 files[filename].imageCredit = `Photo by <a href="${photo.user.links.html}${utmParameters}">${photo.user.name}</a> on <a href="${photo.links.html}${utmParameters}">Unsplash</a>`;
             } else {
                 imageUrlGenerator = (width, height) => `https://source.unsplash.com/${photoId}/${width}x${height}`;

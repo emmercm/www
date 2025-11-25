@@ -2,7 +2,7 @@
     {{#if data.thumb}}
         <a href="{{data.paths.href}}" title="{{data.title}}" class="mb-3 {{#if horizontal}}mb-sm-0 me-sm-4 w-sm-25 max-vh-20 max-vh-sm-100{{/if}}">
             <picture class="fill">
-                {{{ data.thumbSources }}}<img src="{{data.thumb}}" alt="{{sanitize data.title}}" class="fill">
+                {{{ data.thumbSources }}}<img src="{{data.thumb}}" alt="{{#if data.imageAlt}}{{data.imageAlt}}{{else}}{{sanitize data.title}}{{/if}}" class="fill">
             </picture>
         </a>
     {{/if}}
