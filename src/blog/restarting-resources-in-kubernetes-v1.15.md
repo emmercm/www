@@ -21,7 +21,8 @@ There are a bunch of reasons why you'd want to restart a resource in Kubernetes:
 Thankfully there's an easy command to restart different types of resources:
 
 ```shell
-$ kubectl rollout restart <resource>
+$ bash
+kubectl rollout restart <resource>
 ```
 
 According to the [changelog](https://github.com/kubernetes/kubernetes/tree/master/CHANGELOG), here's the different resources that are supported right now:
@@ -38,3 +39,6 @@ deployment.extensions/api restarted
 ```
 
 Happy hacking!
+<!--stackedit_data:
+eyJoaXN0b3J5IjpbMTUyMjkyNjk5OF19
+-->
