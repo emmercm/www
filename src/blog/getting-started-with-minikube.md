@@ -16,7 +16,8 @@ We'll be using [Docker](https://www.docker.com/) to run `minikube`, so make sure
 Follow the `minikube` [installation instructions](https://minikube.sigs.k8s.io/docs/start/) for your OS, or if you're on macOS, you can easily install it with [Homebrew](https://brew.sh/):
 
 ```shell
-$ brew install minikube
+$ bash
+brew install minikube
 ```
 
 Afterwards, we can verify everything is installed correctly with a few commands (ignoring the specific versions):
@@ -205,6 +206,10 @@ Request Body:
 If at any point you run into unrecoverable state, you can reset `minikube` with the commands:
 
 ```shell
-$ minikube delete
+$ bash
+minikube delete
 $ minikube start
 ```
+<!--stackedit_data:
+eyJoaXN0b3J5IjpbLTEyNjcxNTE1NjJdfQ==
+-->
