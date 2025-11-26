@@ -75,11 +75,11 @@ We can tie all of the above logic together into a nice Bash function we can add 
 
 ```bash
 djava() {
-  if [[ -z "$1" || "${1:-}" -ge 9 ]]; then
-    docker run --interactive --tty "openjdk:${1:-latest}" jshell
-  else
-    docker run --interactive --tty "openjdk:$1" bash -c "wget --quiet https://github.com/beanshell/beanshell/releases/download/2.1.0/bsh-2.1.0.jar && java -cp bsh-*.jar bsh.Interpreter"
-  fi
+    if [[ -z "$1" || "${1:-}" -ge 9 ]]; then
+        docker run --interactive --tty "openjdk:${1:-latest}" jshell
+    else
+        docker run --interactive --tty "openjdk:$1" bash -c "wget --quiet https://github.com/beanshell/beanshell/releases/download/2.1.0/bsh-2.1.0.jar && java -cp bsh-*.jar bsh.Interpreter"
+    fi
 }
 ```
 
@@ -123,3 +123,6 @@ Fizz
 Fizz
 Buzz
 ```
+<!--stackedit_data:
+eyJoaXN0b3J5IjpbMTI5NzUzOTEzMF19
+-->
