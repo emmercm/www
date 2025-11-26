@@ -21,7 +21,8 @@ To keep this article short and to the point we're not going to set up a full web
 Starting with an empty project, install some Metalsmith packages:
 
 ```shell
-$ npm install --save metalsmith metalsmith-sitemap
+$ bash
+npm install --save metalsmith metalsmith-sitemap
 ```
 
 - [`metalsmith`](https://www.npmjs.com/package/metalsmith) for the base project.
@@ -82,7 +83,8 @@ The options used for [`metalsmith-sitemap`](https://www.npmjs.com/package/metals
 Run the build command like normal:
 
 ```shell
-$ node index
+$ bash
+node index
 ```
 
 And you should see `build/sitemap.xml` exist with both pages listed:
@@ -140,3 +142,6 @@ This page won't be in the sitemap.
 ## Additional thoughts
 
 The frontmatter properties mentioned above (`changefreq`, `priority`, `lastmod`, and `private`) are completely optional and [`metalsmith-sitemap`](https://www.npmjs.com/package/metalsmith-sitemap) won't throw any exceptions if they don't exist so you may want to consider using [`metalsmith-validate`](https://www.npmjs.com/package/metalsmith-validate) or similar to make them required for certain sets of files.
+<!--stackedit_data:
+eyJoaXN0b3J5IjpbMTU1NjY4MzY3Nl19
+-->
