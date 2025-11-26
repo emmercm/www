@@ -21,7 +21,8 @@ To keep this article short and to the point we're not going to set up a full web
 Starting with an empty project, install some Metalsmith packages:
 
 ```shell
-$ npm install --save metalsmith metalsmith-html-relative
+$ bash
+npm install --save metalsmith metalsmith-html-relative
 ```
 
 - [`metalsmith`](https://www.npmjs.com/package/metalsmith) for the base project.
@@ -113,7 +114,8 @@ See the [`metalsmith-html-relative` options](https://www.npmjs.com/package/metal
 Run the build command like normal:
 
 ```shell
-$ node index
+$ bash
+node index
 ```
 
 And you'll get output similar to (minus comments):
@@ -157,3 +159,6 @@ Note that no local resource link begins with a forward slash (`/`), and there ar
 ## Conclusion
 
 Admittedly the use cases for all of this are limited, but you can definitely save some time if you need it!
+<!--stackedit_data:
+eyJoaXN0b3J5IjpbNjk0MDM2MjMwXX0=
+-->
