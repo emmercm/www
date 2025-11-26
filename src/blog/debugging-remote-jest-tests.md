@@ -20,7 +20,7 @@ Using the examples from Jest's "[Getting Started](https://jestjs.io/docs/en/gett
 
 ```javascript
 function sum(a, b) {
-  return a + b;
+    return a + b;
 }
 module.exports = sum;
 ```
@@ -31,7 +31,7 @@ and `sum.test.js`:
 const sum = require('./sum');
 
 test('adds 1 + 2 to equal 3', () => {
-  expect(sum(1, 2)).toBe(3);
+    expect(sum(1, 2)).toBe(3);
 });
 ```
 
@@ -87,7 +87,8 @@ Now let's walk through each of those debug commands.
 #### `test-debug`
 
 ```shell
-$ node --inspect-brk=0.0.0.0 ./node_modules/jest/bin/jest.js
+$ bash
+node --inspect-brk=0.0.0.0 ./node_modules/jest/bin/jest.js
 ```
 
 To break down each part of the command:
@@ -99,7 +100,8 @@ To break down each part of the command:
 #### `test-watch-debug`
 
 ```shell
-$ node --inspect-brk=0.0.0.0 ./node_modules/jest/bin/jest.js --watchAll --runInBand
+$ bash
+node --inspect-brk=0.0.0.0 ./node_modules/jest/bin/jest.js --watchAll --runInBand
 ```
 
 This adds two extra flags to Jest:
@@ -125,7 +127,8 @@ After creating those 5 files you will end up with the directory tree:
 First, build the container and tag it as `sum`:
 
 ```shell
-$ docker build -t sum .
+$ bash
+docker build -t sum .
 ```
 
 Then we'll walk through the different Docker commands that change depending on which testing command we want.
@@ -135,7 +138,8 @@ Then we'll walk through the different Docker commands that change depending on w
 To run `test-debug` we have a fairly short command:
 
 ```shell
-$ docker run -p 9229:9229 sum npm run test-debug
+$ bash
+docker run -p 9229:9229 sum npm run test-debug
 ```
 
 - `docker run` to run a command in an already built image.
@@ -150,7 +154,8 @@ This will start the container and wait for a debugger to be attached on port 922
 The `--watchAll` flag for Jest requires some additional Docker flags:
 
 ```shell
-$ docker run -it -v "$(pwd):/usr/src/app" -p 9229:9229 sum npm run test-watch-debug
+$ bash
+docker run -it -v "$(pwd):/usr/src/app" -p 9229:9229 sum npm run test-watch-debug
 ```
 
 - `-it` to be able to interact with the process, to control Jest.
@@ -169,3 +174,6 @@ It would take too long to list out the instructions for each editor, so here are
 - [JetBrains WebStorm 2017.1+](https://www.jetbrains.com/help/webstorm/running-and-debugging-node-js.html)
 
 Make sure to use `localhost` for the host and `9229` for the port.
+<!--stackedit_data:
+eyJoaXN0b3J5IjpbNDk1OTAwOTA3XX0=
+-->
