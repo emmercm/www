@@ -1,7 +1,7 @@
 ---
 
 title: What is a Script "Shebang"?
-date: 2025-11-25T21:36:00
+date: 2025-11-26T05:07:00
 tags:
 - shell
 
