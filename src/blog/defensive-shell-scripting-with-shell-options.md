@@ -43,9 +43,9 @@ echo "SUCCESS!"
 
 What a mess! We have zero confidence the script did what it was supposed to, and worse, it may have had dangerous side effects.
 
-The answer? Shell options. You should set these options at the top of every shell script, directly after the [shebang](/blog/what-is-a-script-shebang):
+The answer? Shell options. You should set these options at the top of every shell script, directly after the [shebang](/blog/what-is-a-script-shebanghttps://en.wikipedia.org/wiki/Shebang_(Unix)):
 
-```bash
+```bashell
 set -euo pipefail
 ```
 
@@ -55,7 +55,7 @@ It won't protect against _absolutely every_ failure scenario, but it's a sensibl
 
 The POSIX standards ([POSIX.1-2024](https://pubs.opengroup.org/onlinepubs/9799919799/utilities/V3_chap02.html#tag_19_26)) define many shell options that, when set, last for the length of the script or shell. These options are configured with the [`set` builtin](https://pubs.opengroup.org/onlinepubs/9799919799/utilities/V3_chap02.html#tag_19_26), and you can see the options for your current shell with:
 
-```bash
+```bashell
 set -o
 ```
 
@@ -99,7 +99,7 @@ set -e
 
 # Non-zero exit codes in a conditional don't cause an exit
 if ! rm -rf "TMP_DIR"; then
-  echo "this will print"
+  	echo "this will print"
 fi
 ```
 
@@ -139,13 +139,13 @@ You can safely check for unset or null variables like this:
 
 ```bash
 if [ -z "${VAR+unset}" ]; then
-  echo "VAR is unset"
+  	echo "VAR is unset"
 elif [ -z "${VAR}" ]; then
-  echo "VAR is null (set, but empty)"
+  	echo "VAR is null (set, but empty)"
 fi
 
 if [ -z "${VAR:-}" ]; then
-  echo "VAR is unset or null (set, but empty)"
+  	echo "VAR is unset or null (set, but empty)"
 fi
 ```
 
@@ -188,16 +188,16 @@ Here are places you _should_ use `set -euo pipefail`:
 ```yaml
 name: Dummy Workflow
 on:
-  push:
+  	push:
 defaults:
-  run:
-    shell: bash -euo pipefail {0}
+  	run:
+    		shell: bash -euo pipefail {0}
 jobs:
-  dummy:
-    runs-on: ubuntu-latest
-    steps:
-      - run: echo "set -euo pipefail is active"
-      - run: echo "set -euo pipefail is still active"
+  	dummy:
+    		runs-on: ubuntu-latest
+    		steps:
+      			- run: echo "set -euo pipefail is active"
+      			- run: echo "set -euo pipefail is still active"
 ```
 
 **In your Dockerfiles.** You can change the shell and its parameters in a Dockerfile like this:
@@ -340,3 +340,6 @@ Some arguments _against_ relying on `set -euo pipefail` are:
 - When combined with `set -e`, `SIGPIPE` signals can cause a pipeline to fail unexpectedly ([1](https://news.ycombinator.com/item?id=14322581)).
 
 If we apply some common sense, we should naturally understand that complex situations likely call for a different programming language. `set -euo pipefail` won't completely save you from every pitfall, but it sure provides a better backstop than nothing at all.
+<!--stackedit_data:
+eyJoaXN0b3J5IjpbLTQzNjA0MjQ4MF19
+-->
