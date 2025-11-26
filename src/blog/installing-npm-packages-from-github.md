@@ -68,11 +68,14 @@ Here's a bash function from [my dotfiles](https://github.com/emmercm/dotfiles) y
 # @example ngit isaacs/rimraf v3
 # @example ngit emmercm/metalsmith-plugins 8e21383 packages/metalsmith-mermaid
 ngit() {
-  local user_repo=$(echo "$1" | sed 's#^[a-z]*://[a-z.]*/\([^/]*/[^/]*\).*#\1#i')
-  if [[ "${3:-}" == "" ]]; then
-    npm install "git+https://github.com/${user_repo}#$2"
-  else
-    npm install "https://gitpkg.now.sh/${user_repo}/$3?$2"
-  fi
+    local user_repo=$(echo "$1" | sed 's#^[a-z]*://[a-z.]*/\([^/]*/[^/]*\).*#\1#i')
+    if [[ "${3:-}" == "" ]]; then
+        npm install "git+https://github.com/${user_repo}#$2"
+    else
+        npm install "https://gitpkg.now.sh/${user_repo}/$3?$2"
+    fi
 }
 ```
+<!--stackedit_data:
+eyJoaXN0b3J5IjpbLTE2NDk5NjA4OThdfQ==
+-->
