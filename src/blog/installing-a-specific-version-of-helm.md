@@ -24,7 +24,8 @@ First, you'll want to uninstall any existing version of `helm` you have - throug
 Then, find out what version you want, such as `2.13.1` from above, and run the commands:
 
 ```shell
-$ curl -fsSL -o get_helm.sh https://raw.githubusercontent.com/helm/helm/master/scripts/get
+$ bash
+curl -fsSL -o get_helm.sh https://raw.githubusercontent.com/helm/helm/master/scripts/get
 $ chmod +x get_helm.sh
 $ ./get_helm.sh -v v<version>
 ```
@@ -155,3 +156,6 @@ Run 'helm init' to configure helm.
 $ helm list
 (no output because we don't have any releases)
 ```
+<!--stackedit_data:
+eyJoaXN0b3J5IjpbMTM2OTk5ODYyMl19
+-->
