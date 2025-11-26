@@ -21,7 +21,8 @@ We'll cover `kubectl` first because the basic concepts carry over to `k9s`.
 The basic `kubectl port-forward` usage is:
 
 ```shell
-$ kubectl port-forward <resource> [<local port>:]<remote port>
+$ bash
+kubectl port-forward <resource> [<local port>:]<remote port>
 ```
 
 Where `<resource>` can be any of the following:
@@ -42,13 +43,15 @@ Given a `<remote port>` of `8080`, there are some options for `<local port>`:
 **Forwarding to a specific pod** - maybe it's a known misbehaving pod and you want to make test requests to it to figure out what is happening:
 
 ```shell
-$ kubectl port-forward pod/sample-service-b68464b55-5xjkw 8080
+$ bash
+kubectl port-forward pod/sample-service-b68464b55-5xjkw 8080
 ```
 
 **Forwarding to a specific deployment** - maybe you don't care what pod serves your request, but you do care what local port is used:
 
 ```shell
-$ kubectl port-forward deployment/sample-service 5000:8080
+$ bash
+kubectl port-forward deployment/sample-service 5000:8080
 ```
 
 It's likely your deployment, replica set, and service all have very similar names and could be used interchangeably - but only you know your environment.
@@ -63,7 +66,7 @@ Here's a Bash alias I tend to use frequently:
 # @param {number} $2 Local+remote OR local port number
 # @param {number=} $3 Remote port number
 kforward() {
-  kubectl port-forward "deployment/$1" "$2${3:+:$3}"
+    kubectl port-forward "deployment/$1" "$2${3:+:$3}"
 }
 ```
 
@@ -81,3 +84,6 @@ Here are the `k9s` commands to list the different resources mentioned above:
 Then once you have the resource you'd like to forward to selected, the hotkey is `<shift-f>` and then you'll be presented with port options similar to the ones described above.
 
 To view active port forwards in your `k9s` session (because you can have multiple active), the command is: `:pf`, `:portforward`, or `:portforwards`. You can delete active forwards with `<ctrl-d>`.
+<!--stackedit_data:
+eyJoaXN0b3J5IjpbLTE0NjU0Nzk5OTBdfQ==
+-->
