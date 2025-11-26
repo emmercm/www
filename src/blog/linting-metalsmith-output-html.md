@@ -19,8 +19,8 @@ To keep this article short and to the point we're not going to set up a full web
 
 Starting with an empty project, install some Metalsmith packages:
 
-```bash
-npm install --save metalsmith metalsmith-formatcheck metalsmith-link-checker
+```shell
+$ npm install --save metalsmith metalsmith-formatcheck metalsmith-link-checker
 ```
 
 - [`metalsmith`](https://www.npmjs.com/package/metalsmith) for the base project.
@@ -92,8 +92,8 @@ Lorem ipsum dolor sit amet, consectetur adipiscing elit.
 
 Run the build command like normal:
 
-```bash
-node index
+```shell
+$ node index
 ```
 
 The build should pass as long as you have an active internet connection.

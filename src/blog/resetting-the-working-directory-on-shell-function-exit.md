@@ -24,10 +24,10 @@ You should use a [subshell](https://tldp.org/LDP/abs/html/subshells.html) with P
 set -euo pipefail
 
 function cd_and_exec() {
-    (
-        echo "I won't affect my parent"
-        cd ~
-    )
+  (
+    echo "I won't affect my parent"
+    cd ~
+  )
 }
 
 echo "I don't want my working directory to change."
@@ -49,7 +49,7 @@ Subshells isolate the entire environment from the parent process, which may or m
   including [`export`ed](https://www.gnu.org/software/bash/manual/html_node/Bourne-Shell-Builtins.html#index-export) variables!
 
   ```shell
-  ( export PATH=/my/bin/dir:$PATH; my_bin ) && echo $PATH
+  $ ( export PATH=/my/bin/dir:$PATH; my_bin ) && echo $PATH
   ```
 
 - [`trap`](https://man7.org/linux/man-pages/man1/trap.1p.html)ped signals:
@@ -62,13 +62,13 @@ Subshells isolate the entire environment from the parent process, which may or m
 - [`umask`](https://linux.die.net/man/2/umask) file mode creation mask:
 
   ```shell
-  ( umask 077; touch private_file )
+  $ ( umask 077; touch private_file )
   ```
 
 - File descriptors:
 
   ```shell
-  ( exec > output.log; echo "This will be logged" )
+  $ ( exec > output.log; echo "This will be logged" )
   ```
 
 Other common use cases of subshells include:
@@ -76,13 +76,13 @@ Other common use cases of subshells include:
 - Output can be redirected together:
 
   ```shell
-  ( echo "lorem"; echo "ipsum" ) > output.log
+  $ ( echo "lorem"; echo "ipsum" ) > output.log
   ```
 
   or captured together:
 
   ```shell
-  output=$( echo "hello"; echo "world" )
+  $ output=$( echo "hello"; echo "world" )
   ```
 
 - Exit codes are returned:
@@ -104,9 +104,9 @@ Most shells have some way to trap exit signals, but some also have a way to trap
   #!/usr/bin/env bash
 
   function foo() {
-      trap "cd \"${PWD}\"" RETURN
-      echo "I'm safe to change the working directory"
-      cd ~
+    trap "cd \"${PWD}\"" RETURN
+    echo "I'm safe to change the working directory"
+    cd ~
   }
   ```
 
@@ -116,8 +116,8 @@ Most shells have some way to trap exit signals, but some also have a way to trap
   #!/usr/bin/env zsh
 
   function foo() {
-      trap "cd \"${PWD}\"" EXIT
-      echo "I'm safe to change the working directory"
-      cd ~
+    trap "cd \"${PWD}\"" EXIT
+    echo "I'm safe to change the working directory"
+    cd ~
   }
   ```

@@ -20,7 +20,7 @@ Using the examples from Jest's "[Getting Started](https://jestjs.io/docs/en/gett
 
 ```javascript
 function sum(a, b) {
-    return a + b;
+  return a + b;
 }
 module.exports = sum;
 ```
@@ -31,7 +31,7 @@ and `sum.test.js`:
 const sum = require('./sum');
 
 test('adds 1 + 2 to equal 3', () => {
-    expect(sum(1, 2)).toBe(3);
+  expect(sum(1, 2)).toBe(3);
 });
 ```
 
@@ -86,8 +86,8 @@ Now let's walk through each of those debug commands.
 
 #### `test-debug`
 
-```bash
-node --inspect-brk=0.0.0.0 ./node_modules/jest/bin/jest.js
+```shell
+$ node --inspect-brk=0.0.0.0 ./node_modules/jest/bin/jest.js
 ```
 
 To break down each part of the command:
@@ -98,8 +98,8 @@ To break down each part of the command:
 
 #### `test-watch-debug`
 
-```bash
-node --inspect-brk=0.0.0.0 ./node_modules/jest/bin/jest.js --watchAll --runInBand
+```shell
+$ node --inspect-brk=0.0.0.0 ./node_modules/jest/bin/jest.js --watchAll --runInBand
 ```
 
 This adds two extra flags to Jest:
@@ -124,8 +124,8 @@ After creating those 5 files you will end up with the directory tree:
 
 First, build the container and tag it as `sum`:
 
-```bash
-docker build -t sum .
+```shell
+$ docker build -t sum .
 ```
 
 Then we'll walk through the different Docker commands that change depending on which testing command we want.
@@ -134,8 +134,8 @@ Then we'll walk through the different Docker commands that change depending on w
 
 To run `test-debug` we have a fairly short command:
 
-```bash
-docker run -p 9229:9229 sum npm run test-debug
+```shell
+$ docker run -p 9229:9229 sum npm run test-debug
 ```
 
 - `docker run` to run a command in an already built image.
@@ -149,8 +149,8 @@ This will start the container and wait for a debugger to be attached on port 922
 
 The `--watchAll` flag for Jest requires some additional Docker flags:
 
-```bash
-docker run -it -v "$(pwd):/usr/src/app" -p 9229:9229 sum npm run test-watch-debug
+```shell
+$ docker run -it -v "$(pwd):/usr/src/app" -p 9229:9229 sum npm run test-watch-debug
 ```
 
 - `-it` to be able to interact with the process, to control Jest.

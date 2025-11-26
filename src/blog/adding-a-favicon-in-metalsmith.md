@@ -18,8 +18,8 @@ To keep this article short and to the point we're not going to set up a full web
 
 Starting with an empty project, install some Metalsmith packages:
 
-```bash
-npm install --save metalsmith metalsmith-favicons metalsmith-layouts jstransformer-handlebars
+```shell
+$ npm install --save metalsmith metalsmith-favicons metalsmith-layouts jstransformer-handlebars
 ```
 
 - [`metalsmith`](https://www.npmjs.com/package/metalsmith) for the base project.
@@ -123,8 +123,8 @@ Note this does a lot more than just generate a single `favicon.ico` or `favicon.
 
 Run the build command like normal:
 
-```bash
-node index
+```shell
+$ node index
 ```
 
 Then open the resulting `build/index.html` in your browser, and you should the favicon displayed.

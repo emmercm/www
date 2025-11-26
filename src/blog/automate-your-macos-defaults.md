@@ -47,22 +47,22 @@ The `defaults` commands that you will care about are:
 - `defaults read [<domain> [<key>]]`, examples:
 
   ```shell
-  defaults read com.apple.finder
-  defaults read com.apple.finder ShowStatusBar
+  $ defaults read com.apple.finder
+  $ defaults read com.apple.finder ShowStatusBar
   ```
 
 - `defaults write <domain> <key> [-string, -int, -float, -bool, ...] <value>`, examples:
 
   ```shell
-  defaults write com.apple.finder ShowStatusBar -bool true
-  defaults write com.apple.finder FXPreferredViewStyle -string "nlsv"
+  $ defaults write com.apple.finder ShowStatusBar -bool true
+  $ defaults write com.apple.finder FXPreferredViewStyle -string "nlsv"
   ```
 
 ## Some example defaults
 
 For some examples of OS settings you can change, see my current dotfiles [settings script](https://github.com/emmercm/dotfiles/blob/6c5558037ccd6d6467fb870a388f6a9add0eba18/settings.sh). Here are a few:
 
-```shell
+```bash
 # ***** Settings > Control Center *****
 # Bluetooth: always show in menu bar
 defaults -currentHost write com.apple.controlcenter Bluetooth -int 18
@@ -113,7 +113,7 @@ Let's say that you want to programmatically change macOS to be in dark mode with
 In a new terminal, we can dump all current settings it can read (and change) to a file like this:
 
 ```shell
-defaults read > before
+$ defaults read > before
 ```
 
 _Note: you may get an OS notification that "Terminal.app" would like to access data from other apps - you should allow it._
@@ -121,7 +121,7 @@ _Note: you may get an OS notification that "Terminal.app" would like to access d
 After running that command, let's change our two settings. In the same terminal, dump the settings again:
 
 ```shell
-defaults read > after
+$ defaults read > after
 ```
 
 then, we can generate a "diff" of the two files like this:
@@ -184,7 +184,7 @@ Dark
 We can make an educated guess that the value of the light appearance is probably "Light." Let's try it:
 
 ```shell
-defaults write .GlobalPreferences AppleInterfaceStyle -string "Light"
+$ defaults write .GlobalPreferences AppleInterfaceStyle -string "Light"
 ```
 
 If your computer is like mine, then nothing happened! That's because a lot of OS applications have to be killed and restarted for them to pick up on changes written by `defaults`. In the case of interface settings, you have to restart your computer for the change to take effect.
@@ -207,7 +207,7 @@ $ defaults read .GlobalPreferences AppleAccentColor
 the number changed, so we likely have the right key. From here it will be up to you to find what number is associated with your favorite accent color. After, we can write the setting like this:
 
 ```shell
-defaults write .GlobalPreferences AppleAccentColor 1
+$ defaults write .GlobalPreferences AppleAccentColor 1
 ```
 
 _Note: not every OS setting can be read and written to by `defaults`. Some settings such as power management settings and display settings will require other tools._

@@ -15,14 +15,14 @@ I recently had the need to tunnel a database connection from a local Docker cont
 
 Because containers are [intended to be ephemeral](https://docs.docker.com/develop/develop-images/dockerfile_best-practices/#create-ephemeral-containers), an obvious solution is to open a long-running tunnel on the host machine:
 
-```bash
-ssh -nNT -L 3306:dev-mysql.abcd1234.us-east-1.rds.amazonaws.com:3306 ubuntu@52.0.0.0
+```shell
+$ ssh -nNT -L 3306:dev-mysql.abcd1234.us-east-1.rds.amazonaws.com:3306 ubuntu@52.0.0.0
 ```
 
 And connect to it from within the container:
 
-```bash
-MYSQL_PWD=poorpassword mysql --host=host.docker.internal --port=3306 --user=dev --execute "SELECT 1"
+```shell
+$ MYSQL_PWD=poorpassword mysql --host=host.docker.internal --port=3306 --user=dev --execute "SELECT 1"
 ```
 
 But I'm a big fan of running fewer commands to achieve the same result.
@@ -54,8 +54,8 @@ services:
 
 With the command:
 
-```bash
-docker-compose up --build
+```shell
+$ docker-compose up --build
 ```
 
 I'm using Alpine Linux as the base image for the tunnel because of its small download size (and likeliness you have it cached), but you could choose another base such as Debian.

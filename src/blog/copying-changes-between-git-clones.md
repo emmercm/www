@@ -19,25 +19,25 @@ Here's a Bash function that you can copy into your dotfiles:
 # @param {string} $1 The original/old git root
 # @param {string} $2 The new git root
 gcopy() {
-    git -C "$1" status --porcelain=v1 | while read -r state file; do
-        if [[ "${state}" == *D* ]]; then
-            # Copy deletions
-            echo -e "\033[91mX\033[0m ${file}"
-            rm -rf "${2:?}/${file}"
-        elif [[ "${state}" == *R* ]]; then
-            # Copy renames
-            before="${file% -> *}"
-            after="${file#* -> }"
-            echo -e "\033[95m>\033[0m ${before} -> ${after}"
-            git -C "$2" mv --force "${before}" "${after}"
-            cp "$1/${after}" "$2/${after}"
-        else
-            # Copy modifications
-            echo -e "\033[92m*\033[0m ${file}"
-            mkdir -p "$2/$(dirname "${file}")"
-            cp "$1/${file}" "$2/${file}"
-        fi
-    done
+  git -C "$1" status --porcelain=v1 | while read -r state file; do
+    if [[ "${state}" == *D* ]]; then
+      # Copy deletions
+      echo -e "\033[91mX\033[0m ${file}"
+      rm -rf "${2:?}/${file}"
+    elif [[ "${state}" == *R* ]]; then
+      # Copy renames
+      before="${file% -> *}"
+      after="${file#* -> }"
+      echo -e "\033[95m>\033[0m ${before} -> ${after}"
+      git -C "$2" mv --force "${before}" "${after}"
+      cp "$1/${after}" "$2/${after}"
+    else
+      # Copy modifications
+      echo -e "\033[92m*\033[0m ${file}"
+      mkdir -p "$2/$(dirname "${file}")"
+      cp "$1/${file}" "$2/${file}"
+    fi
+  done
 }
 ```
 

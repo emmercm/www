@@ -23,10 +23,10 @@ First, you'll want to uninstall any existing version of `helm` you have - throug
 
 Then, find out what version you want, such as `2.13.1` from above, and run the commands:
 
-```bash
-curl -fsSL -o get_helm.sh https://raw.githubusercontent.com/helm/helm/master/scripts/get
-chmod +x get_helm.sh
-./get_helm.sh -v v<version>
+```shell
+$ curl -fsSL -o get_helm.sh https://raw.githubusercontent.com/helm/helm/master/scripts/get
+$ chmod +x get_helm.sh
+$ ./get_helm.sh -v v<version>
 ```
 
 The "v" in front of the version is important, without you'll get an error similar to:

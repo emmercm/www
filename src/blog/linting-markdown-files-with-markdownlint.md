@@ -18,19 +18,19 @@ _See "[Common Markdown Mistakes](/blog/common-markdown-mistakes)" for a list of 
 
 `markdownlint-cli` has [instructions](https://github.com/igorshubovych/markdownlint-cli#installation) for how to install via [`npm`](https://www.npmjs.com/) and [Homebrew](https://brew.sh/), but I'll focus on running it via Docker for OS portability. You can run `markdownlint-cli` in a container to lint Markdown files in your current directory like this:
 
-```bash
-docker run --volume "$PWD:/workdir" \
-  ghcr.io/igorshubovych/markdownlint-cli:latest \
-  "**/*.md"
+```shell
+$ docker run --volume "$PWD:/workdir" \
+    ghcr.io/igorshubovych/markdownlint-cli:latest \
+    "**/*.md"
 ```
 
 If you want to disable certain markdownlint rules, you can do so like this:
 
-```bash
-docker run --volume "$PWD:/workdir" \
-  ghcr.io/igorshubovych/markdownlint-cli:latest \
-  --disable MD013 MD033 MD041 -- \
-  "**/*.md"
+```shell
+$ docker run --volume "$PWD:/workdir" \
+    ghcr.io/igorshubovych/markdownlint-cli:latest \
+    --disable MD013 MD033 MD041 -- \
+    "**/*.md"
 ```
 
 _Note the required `--` which terminates the list of space-separated rule names._

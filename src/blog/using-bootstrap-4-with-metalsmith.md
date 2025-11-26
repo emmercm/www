@@ -4,7 +4,6 @@ title: Using Bootstrap 4 with Metalsmith
 date: 2019-09-22T20:45:00
 tags:
 - metalsmith
-# - bootstrap
 
 ---
 
@@ -18,8 +17,8 @@ This guide assumes some base understanding of Metalsmith, see "[Starting a Metal
 
 Starting with an empty project, install some Metalsmith plugins:
 
-```bash
-npm install --save metalsmith metalsmith-layouts jstransformer-handlebars metalsmith-markdown metalsmith-sass metalsmith-autoprefixer metalsmith-include-files
+```shell
+$ npm install --save metalsmith metalsmith-layouts jstransformer-handlebars metalsmith-markdown metalsmith-sass metalsmith-autoprefixer metalsmith-include-files
 ```
 
 - `metalsmith`, `metalsmith-layouts`, `jstransformer-handlebars`, `metalsmith-markdown` as a base for our source parsing and templating.
@@ -29,8 +28,8 @@ npm install --save metalsmith metalsmith-layouts jstransformer-handlebars metals
 
 And then install [jQuery](https://jquery.com/) and [Bootstrap](https://getbootstrap.com/):
 
-```bash
-npm install --save jquery bootstrap
+```shell
+$ npm install --save jquery bootstrap
 ```
 
 We'll ignore the [Popper.js](https://popper.js.org/) peer dependency as we'll use the bundled Bootstrap JavaScript which includes it.

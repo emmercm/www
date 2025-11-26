@@ -20,7 +20,7 @@
             <div class="d-flex flex-wrap m-n1">
                 {{#each (sort data.tags)}}
                     <span class="m-1 mw-100 fs-5">
-                        <a href="/blog/tag/{{this}}" title="{{this}}" class="badge link-white bg-{{get "color" (get this ../blog_tags)}} mw-100 text-break text-wrap">{{ this }}</a>
+                        <a href="/blog/tag/{{this}}" title="{{this}}" class="badge link-white bg-{{get "color" (get this ../blog_tags)}} mw-100 text-break text-wrap">{{#if (get "text" (get this ../blog_tags))}}{{get "text" (get this ../blog_tags)}}{{else}}{{ this }}{{/if}}</a>
                     </span>
                 {{/each}}
             </div>

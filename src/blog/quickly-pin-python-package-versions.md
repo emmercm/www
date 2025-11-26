@@ -125,21 +125,21 @@ I said I would help those Windows users who can't easily run Bash or Zsh.
 All of the above can be accomplished with this [Docker](https://www.docker.com/) command, when run via PowerShell (for the `${PWD}` environment variable):
 
 ```powershell
-docker run --interactive --tty --rm `
-  --volume "${PWD}:/pwd" `
-  --workdir "/pwd" `
-  python:3-alpine sh -c `
-  'pip install --requirement requirements.txt && echo "$(pip freeze --requirement requirements.txt | sed "/^\s*#.*pip freeze/,$ d")" > requirements.txt'
+> docker run --interactive --tty --rm `
+    --volume "${PWD}:/pwd" `
+    --workdir "/pwd" `
+    python:3-alpine sh -c `
+    'pip install --requirement requirements.txt && echo "$(pip freeze --requirement requirements.txt | sed "/^\s*#.*pip freeze/,$ d")" > requirements.txt'
 ```
 
 or like this when run from a typical Windows `cmd.exe` command prompt:
 
-```batch
-docker run --interactive --tty --rm ^
-  --volume "%cd%:/pwd" ^
-  --workdir "/pwd" ^
-  python:3-alpine sh -c ^
-  'pip install --requirement requirements.txt && echo "$(pip freeze --requirement requirements.txt | sed "/^\s*#.*pip freeze/,$ d")" > requirements.txt'
+```dos
+> docker run --interactive --tty --rm ^
+    --volume "%cd%:/pwd" ^
+    --workdir "/pwd" ^
+    python:3-alpine sh -c ^
+    'pip install --requirement requirements.txt && echo "$(pip freeze --requirement requirements.txt | sed "/^\s*#.*pip freeze/,$ d")" > requirements.txt'
 ```
 
 _Note: I'm using [Alpine](https://alpinelinux.org/) to keep the download and storage size small, but feel free to use other image variants._

@@ -2,8 +2,10 @@
 
 title: Defensive Shell Scripting with Shell Options
 date: 2025-11-25T04:46:00
+updated: 2025-11-25T19:41:00
 tags:
 - ci-cd
+- docker
 - github
 - shell
 
@@ -41,9 +43,9 @@ echo "SUCCESS!"
 
 What a mess! We have zero confidence the script did what it was supposed to, and worse, it may have had dangerous side effects.
 
-The answer? Shell options. You should set these options at the top of every shell script, directly after the [shebang](https://en.wikipedia.org/wiki/Shebang_(Unix)):
+The answer? Shell options. You should set these options at the top of every shell script, directly after the [shebang](/blog/what-is-a-script-shebang):
 
-```shell
+```bash
 set -euo pipefail
 ```
 
@@ -53,13 +55,13 @@ It won't protect against _absolutely every_ failure scenario, but it's a sensibl
 
 The POSIX standards ([POSIX.1-2024](https://pubs.opengroup.org/onlinepubs/9799919799/utilities/V3_chap02.html#tag_19_26)) define many shell options that, when set, last for the length of the script or shell. These options are configured with the [`set` builtin](https://pubs.opengroup.org/onlinepubs/9799919799/utilities/V3_chap02.html#tag_19_26), and you can see the options for your current shell with:
 
-```shell
+```bash
 set -o
 ```
 
 Because these options are part of the POSIX standards, any shell that is POSIX-compliant should implement them correctly ([Bash](https://www.gnu.org/software/bash/manual/html_node/The-Set-Builtin.html), [Zsh](https://zsh.sourceforge.io/Doc/Release/Options.html?utm_source=chatgpt.com#sh_002fksh-emulation-set), [Dash/Ash](https://manpages.debian.org/unstable/dash/dash.1.en.html)).
 
-_Note: [`set -o pipefail`](https://pubs.opengroup.org/onlinepubs/9799919799/utilities/V3_chap02.html#tag_19_08_01) was only recently added in POSIX.1-2024. Shells based on the 1003.2/1003.2a specifications from 1992 won't have it._
+_Note: [`set -o pipefail`](https://pubs.opengroup.org/onlinepubs/9799919799/utilities/V3_chap02.html#tag_19_08_01) was only recently added in POSIX.1-2024. Shells based on the 1003.2/1003.2a specifications from 1992, or the 1003.1-2001 specification, won't have it._
 
 Here is an explanation of all the options in `set -euo pipefail`.
 
@@ -97,7 +99,7 @@ set -e
 
 # Non-zero exit codes in a conditional don't cause an exit
 if ! rm -rf "TMP_DIR"; then
-	echo "this will print"
+  echo "this will print"
 fi
 ```
 
@@ -109,6 +111,7 @@ set -e
 
 # '|| true' causes the statement to return an exit of 0 always
 rm -rf "TMP_DIR" || true
+echo "this will print"
 ```
 
 Using `set -e` increases the confidence that no matter where you are in your script's execution, most of the previous commands _probably_ succeeded, or were ignored.
@@ -136,13 +139,13 @@ You can safely check for unset or null variables like this:
 
 ```bash
 if [ -z "${VAR+unset}" ]; then
-	echo "VAR is unset"
+  echo "VAR is unset"
 elif [ -z "${VAR}" ]; then
-	echo "VAR is null (set, but empty)"
+  echo "VAR is null (set, but empty)"
 fi
 
 if [ -z "${VAR:-}" ]; then
-	echo "VAR is unset or null (set, but empty)"
+  echo "VAR is unset or null (set, but empty)"
 fi
 ```
 
@@ -185,16 +188,16 @@ Here are places you _should_ use `set -euo pipefail`:
 ```yaml
 name: Dummy Workflow
 on:
-	push:
+  push:
 defaults:
-	run:
-		shell: bash -euo pipefail {0}
+  run:
+    shell: bash -euo pipefail {0}
 jobs:
-	dummy:
-		runs-on: ubuntu-latest
-		steps:
-			- run: echo "set -euo pipefail is active"
-			- run: echo "set -euo pipefail is still active"
+  dummy:
+    runs-on: ubuntu-latest
+    steps:
+      - run: echo "set -euo pipefail is active"
+      - run: echo "set -euo pipefail is still active"
 ```
 
 **In your Dockerfiles.** You can change the shell and its parameters in a Dockerfile like this:
@@ -298,6 +301,8 @@ Some arguments _against_ relying on `set -euo pipefail` are:
 
 - Straying from default shell behavior might cause unexpected issues, such as with code that is expecting or relying on default behavior ([1](https://www.mulle-kybernetik.com/modern-bash-scripting/state-euxo-pipefail.html)).
 
+  (_This is a reasonable argument, I agree that straying from language/environment idioms makes code harder to read and modify, increasing risk._)
+
 **Against `set -e`:**
 
 - Exit codes aren't granular enough to know the reason for, or severity of, a non-zero exit code, so it would be inappropriate to always exit ([1](https://mywiki.wooledge.org/BashFAQ/105), [2](https://www.mulle-kybernetik.com/modern-bash-scripting/state-euxo-pipefail.html)).
@@ -306,7 +311,7 @@ Some arguments _against_ relying on `set -euo pipefail` are:
 
 - Commands may return a non-zero exit code when there isn't an error, for control flow ([1](https://mywiki.wooledge.org/BashFAQ/105)).
 
-  (_The `[ -d /foo ]` example is weak, you would expect that to fail if `/foo` doesn't exist, and it won't cause an exit because it's part of the conditional._)
+  (_The `[ -d /foo ]` example is weak, you would expect that to fail if `/foo` doesn't exist, and it won't cause an exit because it's part of the conditional. It still wouldn't cause an exit if the leading `if` was swapped for a trailing `&&`._)
 
 - Subshells can have differing behavior (described above) ([1](https://mywiki.wooledge.org/BashFAQ/105), [2](https://fvue.nl/wiki/Bash:_Error_handling), [3](https://blog.janestreet.com/when-bash-scripts-bite/)).
 
@@ -319,6 +324,9 @@ Some arguments _against_ relying on `set -euo pipefail` are:
   (_You could use a conditional on `[ $# -gt 0 ]`, or a substitution like `${1:-}`._)
 
 - Different versions of Bash handle empty arrays differently ([1](https://mywiki.wooledge.org/BashFAQ/112), [2](https://gist.github.com/dimo414/2fb052d230654cc0c25e9e41a9651ebe)).
+
+  (_I avoid arrays, including associative arrays, 99% of the time I'm writing Bash. They're one of the least portable features available. For example, macOS Tahoe v26.1 still ships with Bash v3.2.57 from 2014._)
+
 - You should instead use a linting tool such as [ShellCheck](https://www.shellcheck.net/) ([1](https://www.mulle-kybernetik.com/modern-bash-scripting/state-euxo-pipefail.html), [2](https://bbs.archlinux.org/viewtopic.php?pid=1811150#p1811150)).
 
   (_You should definitely use ShellCheck to catch other dangerous mistakes you can make when shell scripting, but this isn't a valid argument of why `set -u` is dangerous._)
@@ -326,6 +334,9 @@ Some arguments _against_ relying on `set -euo pipefail` are:
 **Against `set -o pipefail`:**
 
 - It was only recently added to the POSIX specification, many shells don't respect it yet.
+
+  (_You definitely need to understand this, though it can be mitigated by using Bash in your shebang._)
+
 - When combined with `set -e`, `SIGPIPE` signals can cause a pipeline to fail unexpectedly ([1](https://news.ycombinator.com/item?id=14322581)).
 
 If we apply some common sense, we should naturally understand that complex situations likely call for a different programming language. `set -euo pipefail` won't completely save you from every pitfall, but it sure provides a better backstop than nothing at all.

@@ -1,6 +1,6 @@
-<div class="row">
+<div class="row g-0">
     <div class="col-12 col-md-9">
-        <h1 class="mt-0 mb-4 mb-md-5 pb-3 border-bottom border-secondary">Recent Articles{{#if title}} - {{title}}{{/if}}</h1>
+        <h1 class="mt-0 mb-4 mb-md-5 pb-3 border-bottom border-secondary">{{#not title}}Recent {{/not}}Articles{{#if title}} on {{title}}{{/if}}</h1>
 
         {{>blog_list_vertical data=pagination.files}}
 
@@ -9,19 +9,19 @@
         <div class="d-flex justify-content-center">
             {{#unless (eq pagination.index 0)}}<a href="/{{pagination.previous.path}}" title="Newer" class="btn btn-outline-secondary br-max d-none d-md-block">Newer</a>{{/unless}}
             {{#forEach pagination.pages}}
-                <a href="/{{get "path" (itemAt ../pagination.pages (subtract index 1))}}" title="Page {{index}}" class="btn {{#eq ../pagination.index (subtract index 1)}}btn-outline-primary disabled{{else}}btn-outline-secondary{{/eq}} br-max ms-2">{{ index }}</a>
+                <a href="/{{get "path" (itemAt ../pagination.pages (subtract index 1))}}" title="Page {{index}}" class="btn {{#eq ../pagination.index (subtract index 1)}}btn-outline-primary disabled{{else}}btn-outline-secondary{{/eq}} br-max ms-2">{{ pagination.name }}</a>
             {{/forEach}}
             {{#unless (eq pagination.index (subtract pagination.pages.length 1))}}<a href="/{{pagination.next.path}}" title="Older" class="btn btn-outline-secondary br-max d-none d-md-block ms-2">Older</a>{{/unless}}
         </div>
     </div>
 
     <div class="col-12 col-md-3 ps-md-5 pt-5 pt-md-0">
-        <h3>Article Tags</h3>
+        <h4>Article Tags</h4>
 
         <div class="d-flex flex-wrap">
             {{#each (sort (unique (flat (pluck collections.blog "tags"))))}}
                 <span class="m-1 mw-100 fs-5">
-                    <a href="/blog/tag/{{this}}" title="{{this}}" class="badge link-white bg-{{get "color" (get this ../blog_tags)}} mw-100 text-break text-wrap">{{ this }}</a>
+                    <a href="/blog/tag/{{this}}" title="{{this}}" class="badge link-white bg-{{get "color" (get this ../blog_tags)}} mw-100 text-break text-wrap">{{#if (get "text" (get this ../blog_tags))}}{{get "text" (get this ../blog_tags)}}{{else}}{{ this }}{{/if}}</a>
                 </span>
             {{/each}}
         </div>
