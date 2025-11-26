@@ -28,13 +28,15 @@ One way of doing this is by adding/setting an environment variable such as `LAST
 First, let's get the first container name in the pod template (replacing `<DEPLOYMENT>` with your deployment name):
 
 ```shell
-$ kubectl get deployment --output=jsonpath="{.spec.template.spec.containers[*].name}" "<DEPLOYMENT>" | tr -s '[[:space:]]' '\n' | head -1
+$ bash
+kubectl get deployment --output=jsonpath="{.spec.template.spec.containers[*].name}" "<DEPLOYMENT>" | tr -s '[[:space:]]' '\n' | head -1
 ```
 
 Then we can patch the deployment to cause a rollout like this (still replacing `<DEPLOYMENT>` with your deployment name, and now also `<CONTAINER>` with the container name you just found):
 
 ```shell
-$ kubectl patch deployment "<DEPLOYMENT>" --patch="{\"spec\":{\"template\":{\"spec\":{\"containers\":[{\"name\":\"<CONTAINER>\",\"env\":[{\"name\":\"LAST_MANUAL_RESTART\",\"value\":\"$(date +%s)\"}]}]}}}}"
+$ bash
+kubectl patch deployment "<DEPLOYMENT>" --patch="{\"spec\":{\"template\":{\"spec\":{\"containers\":[{\"name\":\"<CONTAINER>\",\"env\":[{\"name\":\"LAST_MANUAL_RESTART\",\"value\":\"$(date +%s)\"}]}]}}}}"
 ```
 
 You can string those together and make yourself an alias such as:
@@ -43,11 +45,14 @@ You can string those together and make yourself an alias such as:
 # Reboot a Kubernetes deployment
 # @param {string} $1 Deployment name
 kreboot() {
-  CONTAINER=$(kubectl get deployment --output=jsonpath="{.spec.template.spec.containers[*].name}" "$1" | tr -s '[[:space:]]' '\n' | head -1)
-  kubectl patch deployment "$1" --patch="{\"spec\":{\"template\":{\"spec\":{\"containers\":[{\"name\":\"${CONTAINER}\",\"env\":[{\"name\":\"LAST_MANUAL_RESTART\",\"value\":\"$(date +%s)\"}]}]}}}}"
+    CONTAINER=$(kubectl get deployment --output=jsonpath="{.spec.template.spec.containers[*].name}" "$1" | tr -s '[[:space:]]' '\n' | head -1)
+    kubectl patch deployment "$1" --patch="{\"spec\":{\"template\":{\"spec\":{\"containers\":[{\"name\":\"${CONTAINER}\",\"env\":[{\"name\":\"LAST_MANUAL_RESTART\",\"value\":\"$(date +%s)\"}]}]}}}}"
 }
 ```
 
 ## Conclusion
 
 I think this offers a much cleaner way to restart a deployment than strategies such as editing the replica count twice, but really you should just update past Kubernetes v1.15 as it's more than a year old and it'll give you access to `kubectl rollout restart <resource>`.
+<!--stackedit_data:
+eyJoaXN0b3J5IjpbMjA4MTA2NDA4Nl19
+-->
