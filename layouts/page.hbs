@@ -189,7 +189,7 @@
                             {{>gravatar size=56 class="me-3 rounded-circle img-thumbnail bg-secondary border-0"}}
                             <div class="media-body">
                                 <div>{{ sitename }}</div>
-                                <div class="text-muted"><span title="{{#not (eq this.updated this.date)}}Updated on {{luxon this.updated "fff"}}{{else}}{{luxon this.date "fff"}}{{/not}}">{{luxon this.date "DD"}}{{#unlessEq this.updated this.date}}<sup>*</sup>{{/unlessEq}}</span> &middot; {{readingTime}}</div>
+                                <div class="text-muted"><span title="{{#not (eq this.updated this.date)}}Updated on {{luxon this.updated "fff"}}{{else}}{{luxon this.date "fff"}}{{/not}}">{{luxon this.date "DD"}}{{#unlessEq this.updated this.date}}*{{/unlessEq}}</span> &middot; {{readingTime}}</div>
                             </div>
                         </div>
                         <div class="d-flex flex-nowrap">
@@ -254,7 +254,7 @@
                             <i class="fa-regular fa-tags"></i>
                             {{#each tags}}
                                 <span class="my-0 ms-2 mw-100">
-                                    <a href="/blog/tag/{{this}}" title="{{this}}" class="badge link-white bg-{{get "color" (get this ../blog_tags)}} mw-100 text-break text-wrap">{{ this }}</a>
+                                    <a href="/blog/tag/{{this}}" title="{{this}}" class="badge link-white bg-{{get "color" (get this ../blog_tags)}} mw-100 text-break text-wrap">{{#if (get "text" (get this ../blog_tags))}}{{get "text" (get this ../blog_tags)}}{{else}}{{ this }}{{/if}}</a>
                                 </span>
                             {{/each}}
                         {{/if}}

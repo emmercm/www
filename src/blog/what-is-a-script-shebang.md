@@ -1,0 +1,177 @@
+---
+
+title: What is a Script "Shebang"?
+date: 2025-11-26T05:07:00
+tags:
+- shell
+
+---
+
+No, it's not a [Ricky Martin](https://en.wikipedia.org/wiki/Ricky_Martin) song.
+
+[Wikpedia](https://en.wikipedia.org/wiki/Shebang_(Unix)) says the shebang also known as a sharp-exclamation, sha-bang, hashbang, pound-bang, or hash-pling. No matter what you call it, it has been around since 80's.
+
+Simply put, a shebang lets a file tell your Unix-like operating system what executable should interpret your file (an "interpreter directive"), and it's used whenever your file is invoked like an executable.
+
+Shebangs are always the first line of a file, and they look like this:
+
+```bash
+#!/usr/bin/env sh
+echo "I should be executed by a POSIX-compliant shell!"
+```
+
+```bash
+#!/usr/bin/env bash
+echo "I should be executed by Bash!"
+```
+
+```python
+#!/usr/bin/env python3
+print("I should be executed by Python 3!")
+```
+
+```javascript
+#!/usr/bin/env node
+console.log("I should be executed by Node.js!")
+```
+
+and then if that file is named `my_executable` (with no extension, to prove that the OS won't know the right interpreter without reading the file), it can be executed like this:
+
+```shell
+$ # (the file has to be made executable first)
+$ chmod +x my_executable
+
+$ # It can be invoked with a relative path
+$ ./my_executable
+
+$ # It can be invoked with an absolute path
+$ "$(pwd)/my_executable"
+```
+
+If a file does not include a shebang, it will be interpreted by current shell, which means different environments can behave differently:
+
+```bash
+# We don't know what this will be executed by
+echo "I was executed by ${SHELL}!"
+```
+
+## Syntax
+
+Shebangs look like this, and they must be the first line in a file:
+
+```bash
+#! <executable> [optional-single-arg]
+```
+
+_(Though the space(s)/tab(s) after `#!` are optional, and many people choose to omit them.)_
+
+Putting this in your source file is safe because `#` is a single-line comment marker in most scripting languages, so the interpreter will ignore it during execution.
+
+The `<executable>` _should_ be an absolute (non-relative) path to either an interpreter (`/bin/sh`, `/bin/bash`, `/usr/bin/pwsh`, `/usr/bin/python3`, `/usr/bin/ruby`, etc.), or an executable that can _find_ an interpreter (`/usr/bin/env`). Some OSes allow the executable to be a script and not a binary, but macOS notably does not.
+
+Shebangs let files assert what interpreter should run them (and IDEs frequently pick up on them for syntax highlighting), but they are just shortcuts to more verbose commands. The executable specified will be invoked with the optional argument, and then the name of the script, and then any CLI arguments after.
+
+Here are some examples that execute the same way:
+
+- `my_script.sh`:
+
+  ```bash
+  #!/usr/bin/env bash
+  echo "I should be executed by Bash!"
+  ```
+
+  ```shell
+  $ # Use the shebang
+
+  $ chmod +x my_script.sh
+  $ ./my_script.sh
+  I should be executed by Bash!
+
+  $ # Don't use the shebang
+
+  $ /usr/bin/env bash ./my_script.sh
+  I should be executed by Bash!
+
+  $ "$(which bash)" ./my_script.sh
+  I should be executed by Bash!
+
+  $ bash ./my_script.sh
+  I should be executed by Bash!
+  ```
+
+- `my_script.py`:
+
+  ```python
+  #!/usr/bin/env python3
+  import sys
+  print("I should be executed by Python 3, with the args:", sys.argv[1:])
+  ```
+
+  ```shell
+  $ # Use the shebang
+
+  $ chmod +x my_script.py
+  $ ./my_script.py --arg-one --arg-two
+  I should be executed by Python 3, with the args: ['--arg-one', '--arg-two']
+
+  $ # Don't use the shebang
+
+  $ /usr/bin/env python3 ./my_script.py --arg-one --arg-two
+  I should be executed by Python 3, with the args: ['--arg-one', '--arg-two']
+
+  $ "$(which python3)" ./my_script.py --arg-one --arg-two
+  I should be executed by Python 3, with the args: ['--arg-one', '--arg-two']
+
+  $ python3 ./my_script.py --arg-one --arg-two
+  I should be executed by Python 3, with the args: ['--arg-one', '--arg-two']
+  ```
+
+## Portability
+
+Using the `#! /usr/bin/env <interpreter>` style for shebangs is typically more "portable," meaning that it works more reliably across a wide variety of OSes environments.
+
+[`env <command>`](https://linux.die.net/man/1/env) is similar to [`which <programname>`](https://linux.die.net/man/1/which) in that it will search your `$PATH` and return the first executable found matching the given name. But while `which` prints the path of the executable, `env` will invoke the executable and pass all remaining arguments to it. Example:
+
+```shell
+$ which python3
+/usr/bin/python3
+
+$ /usr/bin/env python3 -c 'print("hello world")'
+hello world
+```
+
+You can't use `#! python3` for your shebang, the OS will treat that as path relative to your current working directory, which would be the same as:
+
+```shell
+$ ./python3 -c 'print("hello world")'
+bash: ./python3: No such file or directory
+
+$ "$(pwd)/python3" -c 'print("hello world")'
+bash: /home/ubuntu/python3: No such file or directory
+```
+
+Using `#! /usr/bin/env <interpreter>` is particularly important if your interpreter is frequently in different locations in different OSes, such as `python3`, `ruby`, `node`, and `perl`.
+
+For example, on macOS, Python v3.9.6 could be in any one of these locations:
+
+- `/usr/bin/python3` is provided by the OS (and is typically quite old)
+- `/Library/Frameworks/Python.framework/Versions/3.9/bin/python3` is where the official installer puts it
+- `/opt/homebrew/Cellar/python@3.9/3.9.6/bin/python3` is where [Homebrew](https://brew.sh/) puts it on an Apple Silicon Mac
+
+So it is more reliable to use `/usr/bin/env` to find where `python3` is, plus it respects your `$PATH` ordering:
+
+```python
+#!/usr/bin/env python3
+import sys
+print("I was executed by '" + sys.executable + "'!")
+```
+
+_(This is less important for shell executables such as `/bin/bash` that should always exist in the same location, but it also isn't dangerous to default to using `/usr/bin/env`.)_
+
+## Windows
+
+Both Command Prompt (`cmd.exe`) and PowerShell do not natively interpret shebangs. Further, shebangs will cause problems for Command Prompt, as comments are started with `REM` or `::` and not `#`.
+
+Instead, Windows will use file extensions and associations to determine which executable to use.
+
+_(Unix-like shells such as [Windows Subsystem for Linux (WSL)](https://learn.microsoft.com/en-us/windows/wsl/about), [Cygwin](https://www.cygwin.com/), and [MSYS2](https://www.msys2.org/) all handle shebangs correctly.)_

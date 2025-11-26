@@ -30,7 +30,7 @@ config=$(cat "$(dirname "$0")/config.json")
 
 # Enumerate some local files
 while read -r file; do
-	# Do something with the file...
+  # Do something with the file...
 done <<< "$(find "$(dirname "$0")" -maxdepth 1 -type f)"
 ```
 
@@ -44,7 +44,7 @@ _See "[Defensive Shell Scripting with Shell Options](/blog/defensive-shell-scrip
 
 ## The one-liner
 
-Here's the trick, put this at the top of every script you write, just below the [shebang](https://en.wikipedia.org/wiki/Shebang_(Unix)).
+Here's the trick, put this at the top of every script you write, just below the [shebang](/blog/what-is-a-script-shebang) and shell options.
 
 ```bash
 trap "cd \"${PWD}\"" EXIT
@@ -85,7 +85,7 @@ config=$(cat ./config.json)
 
 # Enumerate some local files
 while read -r file; do
-	# Do something with the file...
+  # Do something with the file...
 done <<< "$(find . -maxdepth 1 -type f)"
 ```
 

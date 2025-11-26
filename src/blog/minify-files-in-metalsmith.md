@@ -20,8 +20,8 @@ To keep this article short and to the point we're not going to set up a full web
 
 Starting with an empty project, install some Metalsmith packages:
 
-```bash
-npm install --save metalsmith metalsmith-uglify metalsmith-css-unused metalsmith-clean-css metalsmith-renamer metalsmith-html-minifier
+```shell
+$ npm install --save metalsmith metalsmith-uglify metalsmith-css-unused metalsmith-clean-css metalsmith-renamer metalsmith-html-minifier
 ```
 
 - [`metalsmith`](https://www.npmjs.com/package/metalsmith) for the base project.
@@ -140,8 +140,8 @@ This will (in order):
 
 Run the build command like normal:
 
-```bash
-node index
+```shell
+$ node index
 ```
 
 Then the resulting files will all be minified and ready for deployment!

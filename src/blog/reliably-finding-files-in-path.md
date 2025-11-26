@@ -52,7 +52,7 @@ $ sed() { echo "sed?" }
 
 $ which sed
 sed () {
-	echo "sed?"
+  echo "sed?"
 }
 ```
 
@@ -66,7 +66,7 @@ $ foo() { echo "bar" }
 
 $ which foo
 foo () {
-	echo "bar"
+  echo "bar"
 }
 ```
 
@@ -140,13 +140,13 @@ If you need functionality similar to `which` to get the _path_ of an executable,
 
 ```bash
 pinpoint() {
-    while read -r DIR; do
-        if [[ -x "${DIR}/$1" ]]; then
-            echo "${DIR}/$1"
-            return 0
-        fi
-    done <<< "$(echo "${PATH}" | tr ':' '\n')"
-    return 1
+  while read -r DIR; do
+    if [[ -x "${DIR}/$1" ]]; then
+      echo "${DIR}/$1"
+      return 0
+    fi
+  done <<< "$(echo "${PATH}" | tr ':' '\n')"
+  return 1
 }
 ```
 
@@ -184,7 +184,7 @@ not in path
 
 Again, this custom function is best used for when you need the _path_ of an executable, either for further manipulation or later use. Here is a concrete example to set `$EDITOR` with a full executable path to rid yourself of vi/vim:
 
-```shell
+```bash
 export EDITOR=$(pinpoint nano)
 ```
 
