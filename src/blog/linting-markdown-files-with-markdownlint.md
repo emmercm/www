@@ -19,7 +19,8 @@ _See "[Common Markdown Mistakes](/blog/common-markdown-mistakes)" for a list of 
 `markdownlint-cli` has [instructions](https://github.com/igorshubovych/markdownlint-cli#installation) for how to install via [`npm`](https://www.npmjs.com/) and [Homebrew](https://brew.sh/), but I'll focus on running it via Docker for OS portability. You can run `markdownlint-cli` in a container to lint Markdown files in your current directory like this:
 
 ```shell
-$ docker run --volume "$PWD:/workdir" \
+$ bash
+docker run --volume "$PWD:/workdir" \
     ghcr.io/igorshubovych/markdownlint-cli:latest \
     "**/*.md"
 ```
@@ -27,7 +28,8 @@ $ docker run --volume "$PWD:/workdir" \
 If you want to disable certain markdownlint rules, you can do so like this:
 
 ```shell
-$ docker run --volume "$PWD:/workdir" \
+$ bash
+docker run --volume "$PWD:/workdir" \
     ghcr.io/igorshubovych/markdownlint-cli:latest \
     --disable MD013 MD033 MD041 -- \
     "**/*.md"
@@ -84,3 +86,6 @@ jobs:
 ```
 
 Then you can add a [branch protection rule](https://docs.github.com/en/repositories/configuring-branches-and-merges-in-your-repository/defining-the-mergeability-of-pull-requests/about-protected-branches) to prevent pull request merges without certain passing jobs.
+<!--stackedit_data:
+eyJoaXN0b3J5IjpbLTExMDcwNjc5MjNdfQ==
+-->
