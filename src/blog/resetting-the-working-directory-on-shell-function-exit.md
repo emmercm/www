@@ -25,9 +25,10 @@ set -euo pipefail
 
 function cd_and_exec() {
   (
-    echo "I won't affect my parent"
-    cd ~
-  )
+  (
+        echo "I won't affect my parent"
+        cd ~
+    )
 }
 
 echo "I don't want my working directory to change."
@@ -104,9 +105,9 @@ Most shells have some way to trap exit signals, but some also have a way to trap
   #!/usr/bin/env bash
 
   function foo() {
-    trap "cd \"${PWD}\"" RETURN
-    echo "I'm safe to change the working directory"
-    cd ~
+      trap "cd \"${PWD}\"" RETURN
+      echo "I'm safe to change the working directory"
+      cd ~
   }
   ```
 
@@ -116,8 +117,11 @@ Most shells have some way to trap exit signals, but some also have a way to trap
   #!/usr/bin/env zsh
 
   function foo() {
-    trap "cd \"${PWD}\"" EXIT
-    echo "I'm safe to change the working directory"
-    cd ~
+      trap "cd \"${PWD}\"" EXIT
+      echo "I'm safe to change the working directory"
+      cd ~
   }
   ```
+<!--stackedit_data:
+eyJoaXN0b3J5IjpbMjUzMjQ3NzAxXX0=
+-->
