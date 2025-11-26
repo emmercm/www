@@ -62,7 +62,7 @@ The `defaults` commands that you will care about are:
 
 For some examples of OS settings you can change, see my current dotfiles [settings script](https://github.com/emmercm/dotfiles/blob/6c5558037ccd6d6467fb870a388f6a9add0eba18/settings.sh). Here are a few:
 
-```bash
+```bashell
 # ***** Settings > Control Center *****
 # Bluetooth: always show in menu bar
 defaults -currentHost write com.apple.controlcenter Bluetooth -int 18
@@ -217,3 +217,6 @@ _Note: not every OS setting can be read and written to by `defaults`. Some setti
 The above steps of running `defaults read`, `diff`, and `grep` to find change settings isn't the easiest or fastest method. Thankfully, Chirag Davé has written a tool called [`plistwatch`](https://github.com/catilac/plistwatch) that can monitor changes to settings in real-time.
 
 Ben Balter also has a tool called [`plister`](https://github.com/benbalter/plister) that can let you manage these `defaults`-accessible settings with an easier-to-read YAML file.
+<!--stackedit_data:
+eyJoaXN0b3J5IjpbNjg3NDI1NjkyXX0=
+-->
