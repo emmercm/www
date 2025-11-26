@@ -23,7 +23,8 @@ To keep this article short and to the point we're not going to set up a full web
 Starting with an empty project, install some Metalsmith packages:
 
 ```shell
-$ npm install --save metalsmith metalsmith-html-unused
+$ bash
+npm install --save metalsmith metalsmith-html-unused
 ```
 
 - [`metalsmith`](https://www.npmjs.com/package/metalsmith) for the base project.
@@ -104,7 +105,8 @@ See the [`metalsmith-html-unused` options](https://www.npmjs.com/package/metalsm
 Run the build command like normal:
 
 ```shell
-$ node index
+$ bash
+node index
 ```
 
 Then look in `build/static` and see that none of the "unused" assets are there.
@@ -118,3 +120,6 @@ As stated in the intro, there are a number of reasons why you might want to remo
 - Could remove unused files before expensive processing (such as converting/resizing images with [`metalsmith-sharp`](https://www.npmjs.com/package/metalsmith-sharp)).
 
 With such little code needed you might as well take this optimization!
+<!--stackedit_data:
+eyJoaXN0b3J5IjpbLTExNDY1NTM3MjVdfQ==
+-->
