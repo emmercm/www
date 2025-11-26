@@ -20,7 +20,8 @@ To keep this article short and to the point we're not going to set up a full web
 Starting with an empty project, install some Metalsmith packages:
 
 ```shell
-$ npm install --save metalsmith metalsmith-formatcheck metalsmith-link-checker
+$ bash
+npm install --save metalsmith metalsmith-formatcheck metalsmith-link-checker
 ```
 
 - [`metalsmith`](https://www.npmjs.com/package/metalsmith) for the base project.
@@ -93,7 +94,8 @@ Lorem ipsum dolor sit amet, consectetur adipiscing elit.
 Run the build command like normal:
 
 ```shell
-$ node index
+$ bash
+node index
 ```
 
 The build should pass as long as you have an active internet connection.
@@ -120,3 +122,6 @@ We can cause broken links in a couple different ways:
 - Reference a local file that doesn't exist such as `<script src="script.js"></script>`.
 
 Making any of those changes and then building will fail with a non-zero exit code and leave you with an empty `build` output directory.
+<!--stackedit_data:
+eyJoaXN0b3J5IjpbNTI0MDk2NzUxXX0=
+-->
