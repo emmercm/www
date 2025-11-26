@@ -61,7 +61,8 @@ Go ahead and make a new directory for your project and a `src/` directory under 
 The full instructions for installation are on [GitHub](https://github.com/nvm-sh/nvm#installation-and-update), but in general it is as simple as:
 
 ```shell
-$ curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.34.0/install.sh | bash
+$ bash
+curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.34.0/install.sh | bash
 ```
 
 Metalsmith requires a Node.js version above 0.12.x so we'll instruct `nvm` to use the latest LTS version (currently 10.16.3) by creating a `.nvmrc` file at the root of our project with the contents:
@@ -73,7 +74,8 @@ lts/*
 And then running the command:
 
 ```shell
-$ nvm install
+$ bash
+nvm install
 ```
 
 Now our directory tree will look like:
@@ -89,7 +91,8 @@ Now our directory tree will look like:
 `npm` or "Node Package Manager" is a tool to install Node.js packages and is the recommended way to install Metalsmith. To set up our project run the command:
 
 ```shell
-$ npm init
+$ bash
+npm init
 ```
 
 And follow the prompts. Hitting the enter key for all prompts is fine for now if you don't want to fill it all out. This will create an initialized `package.json` for us:
@@ -106,7 +109,8 @@ And follow the prompts. Hitting the enter key for all prompts is fine for now if
 From the root of our project run the command:
 
 ```shell
-$ npm install --save metalsmith
+$ bash
+npm install --save metalsmith
 ```
 
 Which will install Metalsmith and all required dependencies. This will create the `node_modules/` directory (with _many_ subdirectories in it) and the `package-lock.json` file. To save some space I'll skip writing out all the extra `node_modules/` subdirectories:
@@ -140,7 +144,8 @@ Metalsmith(__dirname)
 And then run the command:
 
 ```shell
-$ node index
+$ bash
+node index
 ```
 
 If there is no output from the command we know Metalsmith is working right.
@@ -164,7 +169,8 @@ You might have noticed after the `node index` command above it didn't actually c
 And then try the command again:
 
 ```shell
-$ node index
+$ bash
+node index
 ```
 
 We'll know this worked if it copied `src/index.html` to `build/index.html`:
@@ -190,7 +196,8 @@ We're not living in 1999 anymore and we have the power of HTML templating system
 Let's install both the layouts plugin as well as Handlebars like we did with Metalsmith:
 
 ```shell
-$ npm install --save metalsmith-layouts jstransformer-handlebars
+$ bash
+npm install --save metalsmith-layouts jstransformer-handlebars
 ```
 
 Now we need to add `metalsmith-layouts` as a step in our build process in `index.js`:
@@ -240,7 +247,8 @@ Now that we've moved the structural HTML from `src/index.html` to `layouts/page.
 Then build:
 
 ```shell
-$ node index
+$ bash
+node index
 ```
 
 We'll end up with `build/index.html` looking like:
@@ -285,7 +293,8 @@ It's more common to use Markdown instead of HTML as an input source in Metalsmit
 Markdown conversion requires another plugin:
 
 ```shell
-$ npm install --save metalsmith-markdown
+$ bash
+npm install --save metalsmith-markdown
 ```
 
 And an addition to our `index.js`:
@@ -323,7 +332,8 @@ This is a paragraph.
 And build:
 
 ```shell
-$ node index
+$ bash
+node index
 ```
 
 Which will give us a `build/index.html` very similar to before (heading IDs can be turned off with a `metalsmith-markdown` option):
@@ -401,7 +411,8 @@ Where anything between the `---`'s is parsed as YAML and is made available to th
 And after building:
 
 ```shell
-$ node index
+$ bash
+node index
 ```
 
 We get `build/index.html`:
@@ -436,7 +447,8 @@ This is a sample website built with Metalsmith.
 Which after build:
 
 ```shell
-$ node index
+$ bash
+node index
 ```
 
 Produces `build/help.html`:
@@ -483,7 +495,8 @@ Good development practices encourage splitting up code into smaller pieces that 
 To make our lives easier let's install another plugin:
 
 ```shell
-$ npm install --save metalsmith-discover-partials
+$ bash
+npm install --save metalsmith-discover-partials
 ```
 
 And add it to our `index.js`:
@@ -536,7 +549,8 @@ And we can reference it by its filename base in `layouts/page.hbs` like this:
 And after one last build:
 
 ```shell
-$ node index
+$ bash
+node index
 ```
 
 We end up with a `build/index.html` of:
@@ -585,3 +599,6 @@ And a directory tree of:
 ## Conclusion
 
 Metalsmith is a great option for someone looking for a lot of control in a static site generator. There are many [different plugins](https://metalsmith.io/#the-community-plugins) that exist for processing different kinds of inputs and there is no strict order they need to be used in. With a minimal amount of setup that should be familiar to existing Node.js developers it's very quick to get started with Metalsmith.
+<!--stackedit_data:
+eyJoaXN0b3J5IjpbMTgyMjc0MTIyNF19
+-->
