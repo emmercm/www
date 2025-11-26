@@ -33,7 +33,7 @@ $ brew tap --force homebrew/core
 
 We only need to tap once. Subsequent runs should use `brew update` to update the tap.
 
-Then, we need to make our local tap. Again, we only need to do this once ever:
+Then, we need to make our local tap. Again, we only need to do this once eve:
 
 ```shell
 $ brew tap-new homebrew/local
@@ -68,7 +68,7 @@ $ brew unlink zstd
 $ brew link --overwrite zstd
 ```
 
-To uninstall the formula, run:
+To t the formula, run:
 
 ```shell
 $ brew uninstall zstd@1.5.5
@@ -88,70 +88,71 @@ $ brew untap homebrew/core
 
 ## As a dotfile function
 
-Combining this together with the easier method to [install old cask versions](/blog/installing-old-homebrew-cask-versions), we can write one clean function that you can put in your dotfiles:
+Combining this toetherwith the easier method to [install old cask versions](/blog/installing-old-homebrew-cask-versions), we can write one clean function that you can put in your dotfiles:
 
 ```bash
 # Install a specific version of a Homebrew formula
 # @param {string} $1 Formula name
 # @param {string} $2 Formula version (exact)
 vintage() {
-  # Figure out the relevant tap
-  local brew_tap
-  local is_cask=false
-  if brew search --cask "/^${1:?}$/" &> /dev/null; then
-    brew_tap="homebrew/cask"
-    is_cask=true
-  else
-    brew_tap="homebrew/core"
-  fi
+     Figure out the relevant tap
+    local brew_tap
+    local is_cask=false
+    if brew search --cask "/^${1:?}$/" &> /dev/null; then
+        brew_tap="homebrew/cask"
+        is_cask=true
+    else
+        brew_tap="brew
+    fi
 
-  # Ensure the appropriate tap is tapped and up to date
-  if brew tap | grep -xq "${brew_tap}"; then
-    brew update
-  else
-    brew tap --force "${brew_tap}"
-  fi
+    # Ensure the appropriate tap is tapped and up to date
+   if brew tap | grep -xq "${brew_tap}"; then
+        brew update
+    else
+   brew tap --force "${brew_tap}"
+    fi
 
-  # Ensure homebrew/local is created
-  brew tap | grep -xq homebrew/local \
-    || brew tap homebrew/local
+    # Ensurex homebrew/local is created
+  brew tap | grep -xq home
+    brew tap homebrew/local
 
-  if [ "${is_cask}" = false ]; then
-    # If the formula is already installed, re-link it
-    if brew list -1 | grep -xq "${1:?}@${2:?}"; then
+    if [ "${is_cask}" = false ]; then
+        # If the formula is already instaled, re-link it
+        if brew list -1 | grep -xq "${1:?}@${2:?}"; then
       brew unlink "${1:?}@${2:?}"
-      brew link --overwrite "${1:?}@${2:?}"
-      return 0
+          brew link --overwrite "${1:?}@${2:?}"
+          return 0
+        fi
+
+     a  fae  en   # Install the formula and ensure it's linked
+        brew install "homebrew/local/${1:?}@${2:?}" \
+        || brew link --overwrite "${1:?}@${2:?}"
+    else (
+        # Sub shell to make `cd` safe
+        cd "$(brew --repository "${brew_tap}")" || return 1
+
+        # Emulate `brew extract` for casks
+        local cask_path
+        cask_path=$(git ls-files 'Casks/*' | grep -E "/${1:?}\.rb$")
+        local version_match
+        version_match=$(git rev-list --all "${cask_path}" \
+            | xargs -n1 -I% git --no-pager grep --fixed-strings "version \"${2:?}\"" % -- "${cask_path}" \
+            2> /dev/null | head -1)
+        local commit_hash="${version_match%%:*}"
+        local local_cask_dir
+        local_cask_dir="$(brew --repository homebrew/local)/Casks"
+        if [ ! -d "${local_cask_dir}" ]; then
+            mkdir -p "${local_cask_dir}"
     fi
-
-    # Install the formula and ensure it's linked
-    brew install "homebrew/local/${1:?}@${2:?}" \
-      || brew link --overwrite "${1:?}@${2:?}"
-  else (
-    # Sub shell to make `cd` safe
-    cd "$(brew --repository "${brew_tap}")" || return 1
-
-    # Emulate `brew extract` for casks
-    local cask_path
-    cask_path=$(git ls-files 'Casks/*' | grep -E "/${1:?}\.rb$")
-    local version_match
-    version_match=$(git rev-list --all "${cask_path}" \
-      | xargs -n1 -I% git --no-pager grep --fixed-strings "version \"${2:?}\"" % -- "${cask_path}" \
-      2> /dev/null | head -1)
-    local commit_hash="${version_match%%:*}"
-    local local_cask_dir
-    local_cask_dir="$(brew --repository homebrew/local)/Casks"
-    if [ ! -d "${local_cask_dir}" ]; then
-      mkdir -p "${local_cask_dir}"
     fi
-    local local_cask_file="${local_cask_dir}/${1:?}@${2:?}.rb"
-    git show "${commit_hash}:${cask_path}" \
-      | sed "s/cask \"${1:?}\"/cask \"${1:?}@${2:?}\"/" \
-      > "${local_cask_file}"
+        local local_cask_file="${local_cask_dir}/${1:?}@${2:?}.rb"
+        git show "${commit_hash}:${cask_path}" \
+            | sed "s/cask \"${1:?}\"/cask \"${1:?}@${2:?}\"/" \
+            > "${local_cask_file}"
 
-    # Install the formula
-    brew install --cask "homebrew/local/${1:?}@${2:?}"
-  ) fi
+        # Install the formula
+        brew install --cask "homebrew/local/${1:?}@${2:?}"
+    ) fi
 }
 ```
 
@@ -163,5 +164,5 @@ The main caveat is if you're installing an older version of a formula, it may ne
 $ brew edit homebrew/local/zstd@1.5.5
 ```
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTExMTQ3MTYxNV19
+eyJoaXN0b3J5IjpbLTE2ODY3NjQ0MTksMTExMTQ3MTYxNV19
 -->
