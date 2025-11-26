@@ -1,12 +1,17 @@
 pre {
   background-color: $code-bg;
-  // border: 1px solid darken($code-bg, 1%);
-  @extend .shadow-sm;
-  padding: .75rem 1rem;
+  padding: .75rem 1rem !important;
 
   :not(li) > &:last-child {
     margin-bottom: 0 !important;
   }
+}
+.pre-card,
+:not(.pre-card) > pre {
+  @extend .shadow-sm;
+}
+.pre-card {
+  margin-bottom: 1rem;
 }
 
 // Expand code blocks at small screen sizes
@@ -14,7 +19,8 @@ pre {
   @include media-breakpoint-down($breakpoint) {
     $infix: breakpoint-infix($breakpoint, $grid-breakpoints);
     @each $size, $length in $spacers {
-      .container#{$infix}.px-#{$size} #contents > pre {
+      .container#{$infix}.px-#{$size} #contents > pre,
+      .container#{$infix}.px-#{$size} #contents > .pre-card, {
         margin-left: -$length;
         margin-right: -$length;
       }

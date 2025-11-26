@@ -1,7 +1,9 @@
 ---
 
-title: One, Few, or Many
+title: "One, Few, or Many: A Guide to Rapid Impact Assessment"
 date: 2025-11-23T01:13:00
+updated: 2025-11-25T16:13:00
+permalink: blog/one-few-or-many
 image: https://unsplash.com/photos/a-close-up-of-a-computer-screen-Ke1OwjOUhm4
 tags:
 - career
@@ -9,7 +11,7 @@ tags:
 
 ---
 
-The golden question for issue triaging and impact assessment.
+Stakeholders love this one simple trick.
 
 I touch on incident severity assessment in "[An Effective Incident Runbook Template](/blog/an-effective-incident-runbook-template)," but it's kept generic enough to be applicable to many situations. But lately I've found myself repeating a phrase to colleagues while leading disaster scenario roleplaying ahead of Black Friday:
 

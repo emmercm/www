@@ -54,8 +54,8 @@ There are three scenarios to correct here:
 
 To fix the incorrect message in the most recent commit we can use the "amend commit" command:
 
-```bash
-git commit --amend
+```shell
+$ git commit --amend
 ```
 
 This will open your CLI editor (`$EDITOR`) with the contents:
@@ -92,8 +92,8 @@ Because the remote repository doesn't know about this commit yet, we don't need 
 
 To fix the spelling mistake in the middle commit, we need to use the "[interactive rebase](https://git-scm.com/book/en/v2/Git-Tools-Rewriting-History)" command, looking back 2 commits:
 
-```bash
-git rebase -i HEAD~2
+```shell
+$ git rebase -i HEAD~2
 ```
 
 This will again open your CLI editor (`$EDITOR`), with the truncated contents:
@@ -156,8 +156,8 @@ In the first two scenarios we corrected commits that haven't been pushed yet, on
 
 We'll start the interactive rebase, looking back 3 commits this time, but because it includes the first commit we need to use `--root` instead of `HEAD~3`:
 
-```bash
-git rebase -i --root
+```shell
+$ git rebase -i --root
 ```
 
 This will again open your CLI editor (`$EDITOR`), with the truncated contents:
@@ -217,8 +217,8 @@ Note that `origin/master` has disappeared, indicating our local repository has c
 
 Because we've edited a commit that was already pushed, we need to "force push" our local branch, overwriting the remote repository history:
 
-```bash
-git push --force
+```shell
+$ git push --force
 ```
 
 We can validate that the operation was successful if `origin/master` is on the most recent commit here:

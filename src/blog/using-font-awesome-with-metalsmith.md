@@ -18,8 +18,8 @@ To keep this article short and to the point we're not going to set up a full web
 
 Starting with an empty project, install some Metalsmith packages:
 
-```bash
-npm install --save metalsmith metalsmith-include-files
+```shell
+$ npm install --save metalsmith metalsmith-include-files
 ```
 
 - `metalsmith` for the base project.
@@ -27,8 +27,8 @@ npm install --save metalsmith metalsmith-include-files
 
 And then install Font Awesome:
 
-```bash
-npm install --save @fortawesome/fontawesome-free
+```shell
+$ npm install --save @fortawesome/fontawesome-free
 ```
 
 ### Why not use a CDN?
@@ -112,8 +112,8 @@ Then fill in your `src/index.html` like this:
 
 Run the build command like normal:
 
-```bash
-node index
+```shell
+$ node index
 ```
 
 Then open the resulting `build/index.html` in your browser and you should see the two icons displayed.

@@ -217,11 +217,37 @@ markdownRenderer.code = (_code, infostring, escaped) => {
             _code = out;
         }
     }
-    if (!lang) {
-        return `<pre><code>${escaped ? _code : escape(_code, true)}</code></pre>\n`;
-    }
+
     const escapedLang = escape(lang, true);
-    return `<pre class="hljs" data-lang="${escapedLang}"><code class="language-${escapedLang}">${escaped ? _code : escape(_code, true)}</code></pre>\n`;
+
+    let html = '<div class="card pre-card"><div class="card-header row g-0 justify-content-between py-2 px-3 fs-6 font-monospace">';
+    if (['shell', 'console'].includes(lang)) {
+        html += `<div class="col">
+<span class="text-mac-red">●</span>
+<span class="text-mac-yellow">●</span>
+<span class="text-mac-green">●</span>
+</div>
+<div class="col text-center">${lang}</div>
+<div class="col"></div>`;
+    } else if (['dos', 'bat', 'cmd', 'powershell', 'ps', 'ps1'].includes(lang)) {
+        html += `<div class="col">
+<i class="fa-regular fa-rectangle-terminal"></i>
+${lang}
+</div>
+<div class="col text-end">
+<i class="fa-regular fa-hyphen"></i>
+<i class="fa-regular fa-square"></i>
+<i class="fa-regular fa-x"></i>
+</div>`;
+    } else {
+        html += `<div class="col">${lang}</div>`;
+    }
+    html += `</div>`;
+    html += escapedLang ? `<pre class="hljs card-body" data-lang="${escapedLang}">` : '<pre>';
+    html += escapedLang ? `<code class="language-${escapedLang}">` : '<code>';
+    html += escaped ? _code : escape(_code, true);
+    html += '</code></pre></div>\n';
+    return html;
 };
 
 /**************************
@@ -633,7 +659,7 @@ tracer(Metalsmith(path.resolve()))
                             const added = $elem
                                 .parents('h1, h2, h3, h4, h5, h6, p, div, table')
                                 .first()
-                                .nextAll(':not(blockquote, pre)')
+                                .nextAll(':not(blockquote, pre, .pre-card)')
                                 .first()
                                 .before(textToAdd);
                         });

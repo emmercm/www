@@ -22,8 +22,8 @@ To keep this article short and to the point we're not going to set up a full web
 
 Starting with an empty project, install some Metalsmith packages:
 
-```bash
-npm install --save metalsmith metalsmith-html-unused
+```shell
+$ npm install --save metalsmith metalsmith-html-unused
 ```
 
 - [`metalsmith`](https://www.npmjs.com/package/metalsmith) for the base project.
@@ -103,8 +103,8 @@ See the [`metalsmith-html-unused` options](https://www.npmjs.com/package/metalsm
 
 Run the build command like normal:
 
-```bash
-node index
+```shell
+$ node index
 ```
 
 Then look in `build/static` and see that none of the "unused" assets are there.

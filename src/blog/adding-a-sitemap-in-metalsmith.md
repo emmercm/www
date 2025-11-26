@@ -20,8 +20,8 @@ To keep this article short and to the point we're not going to set up a full web
 
 Starting with an empty project, install some Metalsmith packages:
 
-```bash
-npm install --save metalsmith metalsmith-sitemap
+```shell
+$ npm install --save metalsmith metalsmith-sitemap
 ```
 
 - [`metalsmith`](https://www.npmjs.com/package/metalsmith) for the base project.
@@ -81,8 +81,8 @@ The options used for [`metalsmith-sitemap`](https://www.npmjs.com/package/metals
 
 Run the build command like normal:
 
-```bash
-node index
+```shell
+$ node index
 ```
 
 And you should see `build/sitemap.xml` exist with both pages listed:

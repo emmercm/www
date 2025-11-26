@@ -15,6 +15,7 @@ career:
   color: purple
 
 ci-cd:
+  text: ci/cd
   title: CI/CD
   color: yellow
 

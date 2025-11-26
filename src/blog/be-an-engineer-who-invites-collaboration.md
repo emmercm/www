@@ -5,6 +5,7 @@ date: 2025-11-23T22:34:00
 image: https://unsplash.com/photos/white-concrete-building-under-blue-sky-during-daytime-IIzQUKls5Sc
 tags:
 - career
+- opinion
 
 ---
 
