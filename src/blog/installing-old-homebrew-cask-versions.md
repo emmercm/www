@@ -56,8 +56,8 @@ Then, we'll write the contents of the desired file version to our local `homebre
 ```shell
 $ cd "$(brew --repository homebrew/cask)"
 $ git show "51d5d6c524854fe11dfa82c5b7439e6a502c47cf:Casks/c/corretto.rb" \
-    | sed "s/cask \"corretto\"/cask \"corretto@24.0.2.12.1\"/" \
-    > "$(brew --repository homebrew/local)/Casks/corretto@24.0.2.12.1.rb"
+    		| sed "s/cask \"corretto\"/cask \"corretto@24.0.2.12.1\"/" \
+    		> "$(brew --repository homebrew/local)/Casks/corretto@24.0.2.12.1.rb"
 ```
 
 Then, we'll install the cask:
@@ -95,62 +95,66 @@ Combining this together with the easier method to [install old formula versions]
 # @param {string} $1 Formula name
 # @param {string} $2 Formula version (exact)
 vintage() {
-  # Figure out the relevant tap
-  local brew_tap
-  local is_cask=false
-  if brew search --cask "/^${1:?}$/" &> /dev/null; then
-    brew_tap="homebrew/cask"
-    is_cask=true
-  else
-    brew_tap="homebrew/core"
-  fi
-
-  # Ensure the appropriate tap is tapped and up to date
-  if brew tap | grep -xq "${brew_tap}"; then
-    brew update
-  else
-    brew tap --force "${brew_tap}"
-  fi
-
-  # Ensure homebrew/local is created
-  brew tap | grep -xq homebrew/local \
-    || brew tap homebrew/local
-
-  if [ "${is_cask}" = false ]; then
-    # If the formula is already installed, re-link it
-    if brew list -1 | grep -xq "${1:?}@${2:?}"; then
-      brew unlink "${1:?}@${2:?}"
-      brew link --overwrite "${1:?}@${2:?}"
-      return 0
+    # Figure out the relevant tap
+    local brew_tap
+    local is_cask=false
+    if brew search --cask "/^${1:?}$/" &> /dev/null; then
+        brew_tap="homebrew/cask"
+        is_cask=true
+    else
+        brew_tap="homebrew/core"
     fi
 
-    # Install the formula and ensure it's linked
-    brew install "homebrew/local/${1:?}@${2:?}" \
-      || brew link --overwrite "${1:?}@${2:?}"
-  else (
-    # Sub shell to make `cd` safe
-    cd "$(brew --repository "${brew_tap}")" || return 1
-
-    # Emulate `brew extract` for casks
-    local cask_path
-    cask_path=$(git ls-files 'Casks/*' | grep -E "/${1:?}\.rb$")
-    local version_match
-    version_match=$(git rev-list --all "${cask_path}" \
-      | xargs -n1 -I% git --no-pager grep --fixed-strings "version \"${2:?}\"" % -- "${cask_path}" \
-      2> /dev/null | head -1)
-    local commit_hash="${version_match%%:*}"
-    local local_cask_dir
-    local_cask_dir="$(brew --repository homebrew/local)/Casks"
-    if [ ! -d "${local_cask_dir}" ]; then
-      mkdir -p "${local_cask_dir}"
+    # Ensure the appropriate tap is tapped and up to date
+    if brew tap | grep -xq "${brew_tap}"; then
+        brew update
+    else
+        brew tap --force "${brew_tap}"
     fi
-    local local_cask_file="${local_cask_dir}/${1:?}@${2:?}.rb"
-    git show "${commit_hash}:${cask_path}" \
-      | sed "s/cask \"${1:?}\"/cask \"${1:?}@${2:?}\"/" \
-      > "${local_cask_file}"
 
-    # Install the formula
-    brew install --cask "homebrew/local/${1:?}@${2:?}"
-  ) fi
+    # Ensure homebrew/local is created
+    brew tap | grep -xq homebrew/local \
+        || brew tap homebrew/local
+
+    if [ "${is_cask}" = false ]; then
+        # If the formula is already installed, re-link it
+        if brew list -1 | grep -xq "${1:?}@${2:?}"; then
+            brew unlink "${1:?}@${2:?}"
+            brew link --overwrite "${1:?}@${2:?}"
+            return 0
+        fi
+
+        # Install the formula and ensure it's linked
+        brew install "homebrew/local/${1:?}@${2:?}" \
+            || brew link --overwrite "${1:?}@${2:?}"
+    else (
+        # Sub shell to make `cd` safe
+        cd "$(brew --repository "${brew_tap}")" || return 1
+
+        # Emulate `brew extract` for casks
+        local cask_path
+        cask_path=$(git ls-files 'Casks/*' | grep -E "/${1:?}\.rb$")
+        local version_match
+        version_match=$(git rev-list --all "${cask_path}" \
+            | xargs -n1 -I% git --no-pager grep --fixed-strings "version \"${2:?}\"" % -- "${cask_path}" \
+            2> /dev/null | head -1)
+        local commit_hash="${version_match%%:*}"
+        local local_cask_dir
+        local_cask_dir="$(brew --repository homebrew/local)/Casks"
+        if [ ! -d "${local_cask_dir}" ]; then
+            mkdir -p "${local_cask_dir}"
+    fi
+    fi
+        local local_cask_file="${local_cask_dir}/${1:?}@${2:?}.rb"
+        git show "${commit_hash}:${cask_path}" \
+            | sed "s/cask \"${1:?}\"/cask \"${1:?}@${2:?}\"/" \
+            > "${local_cask_file}"
+
+        # Install the formula
+        brew install --cask "homebrew/local/${1:?}@${2:?}"
+    ) fi
 }
 ```
+<!--stackedit_data:
+eyJoaXN0b3J5IjpbLTEwMDg0Mzg2OTRdfQ==
+-->
