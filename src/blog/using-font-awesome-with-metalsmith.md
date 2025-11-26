@@ -19,7 +19,8 @@ To keep this article short and to the point we're not going to set up a full web
 Starting with an empty project, install some Metalsmith packages:
 
 ```shell
-$ npm install --save metalsmith metalsmith-include-files
+$ bash
+npm install --save metalsmith metalsmith-include-files
 ```
 
 - `metalsmith` for the base project.
@@ -28,7 +29,8 @@ $ npm install --save metalsmith metalsmith-include-files
 And then install Font Awesome:
 
 ```shell
-$ npm install --save @fortawesome/fontawesome-free
+$ bash
+npm install --save @fortawesome/fontawesome-free
 ```
 
 ### Why not use a CDN?
@@ -113,7 +115,8 @@ Then fill in your `src/index.html` like this:
 Run the build command like normal:
 
 ```shell
-$ node index
+$ bash
+node index
 ```
 
 Then open the resulting `build/index.html` in your browser and you should see the two icons displayed.
@@ -123,3 +126,6 @@ Then open the resulting `build/index.html` in your browser and you should see th
 As of writing, the pro tier of Font Awesome has more than 4x the icons of the free tier, and more styles available. It's pricey but may be worth it for your application.
 
 All of the above instructions still apply, but the package name is changed to `@fortawesome/fontawesome-pro`. See the "[Using a Package Manager](https://fontawesome.com/how-to-use/on-the-web/setup/using-package-managers)" page for instructions on installation.
+<!--stackedit_data:
+eyJoaXN0b3J5IjpbLTExMzkxNjE0MzFdfQ==
+-->
