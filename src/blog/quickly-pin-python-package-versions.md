@@ -135,7 +135,8 @@ All of the above can be accomplished with this [Docker](https://www.docker.com/)
 or like this when run from a typical Windows `cmd.exe` command prompt:
 
 ```dos
-> docker run --interactive --tty --rm ^
+> batch
+docker run --interactive --tty --rm ^
     --volume "%cd%:/pwd" ^
     --workdir "/pwd" ^
     python:3-alpine sh -c ^
@@ -143,3 +144,6 @@ or like this when run from a typical Windows `cmd.exe` command prompt:
 ```
 
 _Note: I'm using [Alpine](https://alpinelinux.org/) to keep the download and storage size small, but feel free to use other image variants._
+<!--stackedit_data:
+eyJoaXN0b3J5IjpbLTI3MTU0MTcxXX0=
+-->
