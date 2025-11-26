@@ -13,7 +13,7 @@ Before I go into the details, this is the syntax you want:
 
 ```bash
 if command -v <command_name> &> /dev/null; then
-  echo "command exists"
+    echo "command exists"
 fi
 ```
 
@@ -71,7 +71,7 @@ One of the more common methods I've seen suggested is:
 
 ```bash
 if [[ -x "$(command -v <command_name>)" ]]; then
-  echo "executable exists"
+    echo "executable exists"
 fi
 ```
 
@@ -108,7 +108,7 @@ To check for the nonexistence of a command you can use `! command -v <command_na
 
 ```bash
 if ! command -v beep &> /dev/null; then
-  alias beep="echo -ne '\007'"
+    alias beep="echo -ne '\007'"
 fi
 ```
 
@@ -116,11 +116,11 @@ For a real world example, I have my [macOS dotfiles](https://github.com/emmercm/
 
 ```bash
 if command -v brew &> /dev/null; then
-  command -v gawk > /dev/null || brew install gawk
-  command -v gsed > /dev/null || brew install gnu-sed
-  command -v jq   > /dev/null || brew install jq
-  command -v tree > /dev/null || brew install tree
-  command -v wget > /dev/null || brew install wget
+    command -v gawk > /dev/null || brew install gawk
+    command -v gsed > /dev/null || brew install gnu-sed
+    command -v jq   > /dev/null || brew install jq
+    command -v tree > /dev/null || brew install tree
+    command -v wget > /dev/null || brew install wget
 fi
 ```
 
@@ -128,7 +128,7 @@ I also [alias `pip3` to `pip`](https://github.com/emmercm/dotfiles/blob/master/.
 
 ```bash
 if ! command -v pip &> /dev/null && command -v pip3 &> /dev/null; then
-  alias pip=pip3
+    alias pip=pip3
 fi
 ```
 
@@ -136,6 +136,9 @@ You can also mix `command -v <command_name>` conditionals with other Bash condit
 
 ```bash
 if ! command -v brew &> /dev/null && [[ -f /opt/homebrew/bin/brew ]]; then
-  eval "$(/opt/homebrew/bin/brew shellenv)"
+    eval "$(/opt/homebrew/bin/brew shellenv)"
 fi
 ```
+<!--stackedit_data:
+eyJoaXN0b3J5IjpbLTQ1OTAwMDA2NV19
+-->
