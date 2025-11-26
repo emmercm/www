@@ -16,15 +16,15 @@ Here is a Bash function that uses MD5 to help generate a number:
 ```bash
 # @param {string} $1 String to hash to a positive number
 stringsum() {
-  echo "md5sum,md5" | tr ',' '\n' | while read -r cmd; do
-    if [[ -x "$(command -v "${cmd}")" ]]; then
-      num=$(( 0x$(echo "$1" | command "${cmd}" | cut -d ' ' -f 1 | head -c 15) ))
-      [[ $num -lt 0 ]] && num=$((num * -1))
-      echo $num
-      return 0
-    fi
-  done
-  return 1
+    echo "md5sum,md5" | tr ',' '\n' | while read -r cmd; do
+        if [[ -x "$(command -v "${cmd}")" ]]; then
+            num=$(( 0x$(echo "$1" | command "${cmd}" | cut -d ' ' -f 1 | head -c 15) ))
+            [[ $num -lt 0 ]] && num=$((num * -1))
+            echo $num
+            return 0
+        fi
+    done
+    return 1
 }
 ```
 
@@ -54,3 +54,6 @@ $ echo $(( $(stringsum "another ID") % 10000 ))
 ```
 
 You can read more about arithmetic expansion in Bash on [The Linux Documentation Project](https://tldp.org/LDP/abs/html/arithexp.html).
+<!--stackedit_data:
+eyJoaXN0b3J5IjpbMTkxNDcyMDUzMV19
+-->
