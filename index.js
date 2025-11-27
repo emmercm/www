@@ -1141,6 +1141,8 @@ tracer(Metalsmith(path.resolve()))
             'mitpress.mit.edu',
             'npmjs.com',
             'fvue.nl',
+            'patreon.com',
+            'news.ycombinator.com',
             // Anti-bot 404
             'fonts.gstatic.com$',
             'support.google.com',
