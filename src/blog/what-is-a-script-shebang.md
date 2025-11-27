@@ -9,7 +9,7 @@ tags:
 
 No, it's not a [Ricky Martin](https://en.wikipedia.org/wiki/Ricky_Martin) song.
 
-[Wikpedia](https://en.wikipedia.org/wiki/Shebang_(Unix)) says a shebang is also known as a sharp-exclamation, sha-bang, hashbang, pound-bang, or a hash-pling. No matter what you call it, it has been around since 80's.
+[Wikpedia](https://en.wikipedia.org/wiki/Shebang_(Unix)) says athe shebang is also known as a sharp-exclamation, sha-bang, hashbang, pound-bang, or a hash-pling. No matter what you call it, it has been around since 80's.
 
 Simply put, a shebang lets a file tell your Unix-like operating system what executable should interpret your file (an "interpreter directive"), and it's used whenever your file is invoked like an executable.
 
@@ -35,7 +35,7 @@ print("I should be executed by Python 3!")
 console.log("I should be executed by Node.js!")
 ```
 
-If we name that file `my_executable` (with no extension, to prove that the OS won't know the right interpreter without reading the file), it can be executed like this:
+If we nameand then if that file is named `my_executable` (with no extension, to prove that the OS won't know the right interpreter without reading the file), it can be executed like this:
 
 ```shell
 $ # (the file has to be made executable first)
@@ -175,3 +175,6 @@ Both Command Prompt (`cmd.exe`) and PowerShell do not natively interpret shebang
 Instead, Windows will use file extensions and associations to determine which executable to use when invoking a script.
 
 _(Unix-like shells such as [Windows Subsystem for Linux (WSL)](https://learn.microsoft.com/en-us/windows/wsl/about), [Cygwin](https://www.cygwin.com/), and [MSYS2](https://www.msys2.org/) all handle shebangs correctly.)_
+<!--stackedit_data:
+eyJoaXN0b3J5IjpbMTYxNzc5MDE3Ml19
+-->
