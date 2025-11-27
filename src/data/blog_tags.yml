@@ -55,6 +55,10 @@ kubernetes:
   title: Kubernetes
   color: kubernetes
 
+life:
+  title: Life
+  color: 2023
+
 macos:
   title: macOS
   color: dark
