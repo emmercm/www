@@ -1984,7 +1984,26 @@ $theme-colors: map.merge($theme-colors, $colors);
 }
 
 $theme-colors: map.merge($theme-colors, (
-  "agile": #FFAB00, // https://atlassian.design/foundations/color "golden state"
+  "2025": #A47764, // https://www.pantone.com/color-of-the-year/2025
+  "2024": #FEBE98, // https://www.pantone.com/color-of-the-year/2024
+  "2023": #BB2649, // https://www.pantone.com/color-of-the-year/2023
+  "2022": #6667AB, // https://www.pantone.com/color-of-the-year-2022
+  "2021-ultimate-gray": #939599, // https://www.pantone.com/articles/color-of-the-year/color-of-the-year-2021
+  "2021-illuminating": #F7E10E, // https://www.pantone.com/articles/color-of-the-year/color-of-the-year-2021
+  "2020": #35558A, // https://www.pantone.com/articles/color-of-the-year/color-of-the-year-2020
+  "2019": #F36F63, // https://www.pantone.com/articles/color-of-the-year/color-of-the-year-2019
+  "2018": #6E5B98, // https://www.pantone.com/articles/color-of-the-year/color-of-the-year-2018
+  "2017": #86B049, // https://www.pantone.com/articles/color-of-the-year/color-of-the-year-2017
+  "2016-rose-quartz": #F6CAC9, // https://www.pantone.com/articles/color-of-the-year/color-of-the-year-2016
+  "2016-serenity": #91A7D0, // https://www.pantone.com/articles/color-of-the-year/color-of-the-year-2016
+  "2015": #964F4D, // https://www.pantone.com/articles/color-of-the-year/color-of-the-year-2015
+  "2014": #B565A7, // https://www.pantone.com/articles/color-of-the-year/color-of-the-year-2014
+  "2013": #009B77, // https://www.pantone.com/articles/color-of-the-year/color-of-the-year-2013
+  "2012": #E0523C,  // https://www.pantone.com/articles/color-of-the-year/color-of-the-year-2012
+  "2011": #E56283, // https://www.pantone.com/articles/color-of-the-year/color-of-the-year-2011
+  "2010": #45B5AA, // https://www.pantone.com/articles/color-of-the-year/color-of-the-year-2010
+  "agile": color.adjust(#FFAB00, $lightness: -10%), // https://atlassian.design/foundations/color "golden state"
+  "apache": #D22128, // https://www.apache.org/foundation/press/kit/
   "bootstrap": #533B78,
   "datadog": #632CA6,
   "docker": #2396ED,
@@ -2003,6 +2022,7 @@ $theme-colors: map.merge($theme-colors, (
   "opinion": #B44C43,
   "pagerduty": #048A24,
   "postgres": #336791,
+  "pulsar": #188FFF,
   "python": #1f4361,
   "renovate": #308BE3,
   "mac-red": #FF5C60,
