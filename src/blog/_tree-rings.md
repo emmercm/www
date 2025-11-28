@@ -20,11 +20,12 @@ You and I are both better developers than we were a couple of years ago. We've w
 
 I've been at my current company long enough to see quite a few growth rings, here are some examples:
 
-- Using [Immutables](https://immutables.github.io/) instead of value objects with manually-written getters and setters
+- Using [Immutables](https://immutables.github.io/) in Java instead of value objects with manually-written getters and setters; helping eliminate some nullability
+  - And after upgrading to Java 17+, using record classes
 
  such as immutable value objects, test doubles for volatile dependencies, package-by-feature organization, and more.  
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTU5OTQ1OTAyNiwtMTA4MTQwMjU1NSwxNj
+eyJoaXN0b3J5IjpbMTYwOTQyNDE1MiwtMTA4MTQwMjU1NSwxNj
 UwMDIzNDM0LC0zMTI5NTAzODIsODk0NzQ3ODgxLDE4Mjk0NTE3
 ODIsLTY5MzcxNTYxNyw4NDUwNzIwMzIsMTMyMTY0NTE2NCwtMT
 Y2OTM4NjQyOCw4NjExNjkzNDBdfQ==
