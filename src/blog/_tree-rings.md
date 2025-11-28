@@ -5,6 +5,7 @@ draft: true
 image: https://unsplash.com/photos/a-close-up-of-a-circular-pattern-on-a-wall-WHBWT21ZLJw
 tags:
 - career
+- java
 
 ---
 
@@ -22,12 +23,13 @@ I've been at my current company long enough to see quite a few growth rings, her
 
 - Using [Immutables](https://immutables.github.io/) in Java instead of value objects with manually-written getters and setters; helping eliminate some nullability
   - And after upgrading to Java 17+, using record classes in some places
-- Packaging classes [by feature](http://www.javapractices.com/topic/TopicAction.do?Id=205), rather than by layer
+- Using more test fakes
+- Some teams have chosen to pacakge classes [by feature](http://www.javapractices.com/topic/TopicAction.do?Id=205), rather than by layer
 
  such as immutable value objects, test doubles for volatile dependencies, package-by-feature organization, and more.  
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTkwMDExODQzNSwtMTA4MTQwMjU1NSwxNj
-UwMDIzNDM0LC0zMTI5NTAzODIsODk0NzQ3ODgxLDE4Mjk0NTE3
-ODIsLTY5MzcxNTYxNyw4NDUwNzIwMzIsMTMyMTY0NTE2NCwtMT
-Y2OTM4NjQyOCw4NjExNjkzNDBdfQ==
+eyJoaXN0b3J5IjpbMzkwOTkzMDc2LC0xMDgxNDAyNTU1LDE2NT
+AwMjM0MzQsLTMxMjk1MDM4Miw4OTQ3NDc4ODEsMTgyOTQ1MTc4
+MiwtNjkzNzE1NjE3LDg0NTA3MjAzMiwxMzIxNjQ1MTY0LC0xNj
+Y5Mzg2NDI4LDg2MTE2OTM0MF19
 -->
