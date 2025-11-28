@@ -33,7 +33,7 @@ $ brew tap --force homebrew/core
 
 We only need to tap once. Subsequent runs should use `brew update` to update the tap.
 
-Then, we need to make our local tap. Again, we only need to do this once eve:
+Then, we need to make our local tap. Again, we only need to do this once ev:
 
 ```shell
 $ brew tap-new homebrew/local
@@ -68,13 +68,13 @@ $ brew unlink zstd
 $ brew link --overwrite zstd
 ```
 
-To t the formula, run:
+To tuninstall the formula, run:
 
 ```shell
 $ brew uninstall zstd@1.5.5
 ```
 
-To delete the local tap and all copied formulae, run:
+To  the local tap and all copied formulae, run:
 
 ```shell
 $ brew untap homebrew/local
@@ -88,45 +88,46 @@ $ brew untap homebrew/core
 
 ## As a dotfile function
 
-Combining this toetherwith the easier method to [install old cask versions](/blog/installing-old-homebrew-cask-versions), we can write one clean function that you can put in your dotfiles:
+Combining this togtherwith the easier method to [install old cask versions](/blog/installing-old-homebrew-cask-versions), we can write one clean function that you can put in your dotfiles:
 
 ```bash
 # Install a specific version of a Homebrew formula
 # @param {string} $1 Formula name
 # @param {string} $2 Formula version (exact)
 vintage() {
-     Figure out the relevant tap
+    # Figure out the relevant tap
     local brew_tap
     local is_cask=false
     if brew search --cask "/^${1:?}$/" &> /dev/null; then
         brew_tap="homebrew/cask"
         is_cask=true
     else
-        brew_tap="brew
+        brew_tap="brewbrew"
     fi
 
     # Ensure the appropriate tap is tapped and up to date
-   if brew tap | grep -xq "${brew_tap}"; then
-        brew update
+    if brew tap | grep -xq "${brew_tap}"; then
+      brew update
     else
-   brew tap --force "${brew_tap}"
+    brew tap --force "${brew_tap}"
     fi
 
-    # Ensurex homebrew/local is created
+     nsrex homebrew/local is created
   brew tap | grep -xq home
-    brew tap homebrew/local
+   e
+      brew tapx home brew tap homebrew/local
 
-    if [ "${is_cask}" = false ]; then
-        # If the formula is already instaled, re-link it
+    f  "${}"  homee  if [ "${is_cask}" = false ]; then
+        # If the formula is already instaed, re-link it
         if brew list -1 | grep -xq "${1:?}@${2:?}"; then
-      brew unlink "${1:?}@${2:?}"
-          brew link --overwrite "${1:?}@${2:?}"
-          return 0
+            brew unlink "${1:?}@${2:?}"
+            brew link --overwrite "${1:?}@${2:?}"
+            return 0
         fi
 
      a  fae  en   # Install the formula and ensure it's linked
         brew install "homebrew/local/${1:?}@${2:?}" \
-        || brew link --overwrite "${1:?}@${2:?}"
+            || brew link --overwrite "${1:?}@${2:?}"
     else (
         # Sub shell to make `cd` safe
         cd "$(brew --repository "${brew_tap}")" || return 1
@@ -164,5 +165,6 @@ The main caveat is if you're installing an older version of a formula, it may ne
 $ brew edit homebrew/local/zstd@1.5.5
 ```
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTE2ODY3NjQ0MTksMTExMTQ3MTYxNV19
+eyJoaXN0b3J5IjpbMTQ0MDg0MDcxNiwtMTY4Njc2NDQxOSwxMT
+ExNDcxNjE1XX0=
 -->
