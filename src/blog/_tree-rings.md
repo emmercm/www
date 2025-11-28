@@ -18,11 +18,13 @@ I've developed a metaphor recently that has been landing with my colleagues:
 
 You and I are both better developers than we were a couple of years ago. We've worked with new people that have brought new ideas, have experience with more design patterns, and have worked with code long enough to understand the pitfalls of past decisions. And everyone else in the company has grown, too, and are likely making decisions that you'd agree with now. And maybe you'll both disagree with them in another couple of years.
 
-I've been at my current company long enough to see quite a few rings
+I've been at my current company long enough to see quite a few growth rings, here are some examples:
+
+- Using [Immutables](https://immutables.github.io/) instead of value objects with manually-written getters and setters
 
  such as immutable value objects, test doubles for volatile dependencies, package-by-feature organization, and more.  
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTgyNTE3NDM1MSwtMTA4MTQwMjU1NSwxNj
+eyJoaXN0b3J5IjpbLTU5OTQ1OTAyNiwtMTA4MTQwMjU1NSwxNj
 UwMDIzNDM0LC0zMTI5NTAzODIsODk0NzQ3ODgxLDE4Mjk0NTE3
 ODIsLTY5MzcxNTYxNyw4NDUwNzIwMzIsMTMyMTY0NTE2NCwtMT
 Y2OTM4NjQyOCw4NjExNjkzNDBdfQ==
