@@ -10,7 +10,9 @@ tags:
 
 You can measure the growth of a tree by looking at its rings. Software at your company has rings, too.
 
-I write a lot about [countering](/blog/avoiding-blanket-statements) [negativity](/blog/being-critical-of-past-developers) in software engineering. I believe people have a lot of prudct
+I write a lot about [countering](/blog/avoiding-blanket-statements) [negativity](/blog/being-critical-of-past-developers) in software engineering. I believe people have a lot of productive solutions available to them.
+
+A metaphore
 
 When a colleague expresses frustration with the state of some code (especially if inherited from another team), I've developed an optimistic way of looking at things:  
   
@@ -18,7 +20,7 @@ When a colleague expresses frustration with the state of some code (especially i
 >  
 > You and I are both better developers than we were a couple of years ago. We've worked with new people that have brought new ideas, have experience with more design patterns, and have worked with code long enough to understand the pitfalls of past decisions. And everyone else in the company has grown, too, and are likely making decisions that you'd agree with now.
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTE1NzI0NTcyOTAsLTMxMjk1MDM4Miw4OT
-Q3NDc4ODEsMTgyOTQ1MTc4MiwtNjkzNzE1NjE3LDg0NTA3MjAz
-MiwxMzIxNjQ1MTY0LC0xNjY5Mzg2NDI4LDg2MTE2OTM0MF19
+eyJoaXN0b3J5IjpbMTUwMjQ0ODI3OSwtMzEyOTUwMzgyLDg5ND
+c0Nzg4MSwxODI5NDUxNzgyLC02OTM3MTU2MTcsODQ1MDcyMDMy
+LDEzMjE2NDUxNjQsLTE2NjkzODY0MjgsODYxMTY5MzQwXX0=
 -->
