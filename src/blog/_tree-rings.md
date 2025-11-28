@@ -2,6 +2,7 @@
 
 title: Tree Rings
 draft: true
+image: https://unsplash.com/photos/a-close-up-of-a-tree-trunk-showing-the-rings-NxFD6nWOPbU
 
 ---
 
@@ -13,5 +14,6 @@ When a colleague expresses frustration with the state of some code (especially i
 >  
 > You and I are both better developers than we were a couple of years ago. We've worked with new people that have brought new ideas, have experience with more design patterns, and have worked with code long enough to understand the pitfalls of past decisions. And everyone else in the company has grown, too, and are likely making decisions that you'd agree with now.
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTE2NjkzODY0MjgsODYxMTY5MzQwXX0=
+eyJoaXN0b3J5IjpbMTMyMTY0NTE2NCwtMTY2OTM4NjQyOCw4Nj
+ExNjkzNDBdfQ==
 -->
