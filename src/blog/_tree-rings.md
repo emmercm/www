@@ -23,11 +23,11 @@ I've been at my current company long enough to see quite a few growth rings, her
 
 - Using [Immutables](https://immutables.github.io/) in Java instead of value objects with manually-written getters and setters, helping eliminate some nullability
   - And after upgrading to Java 17+, using record classes in some places
-- Using more [test fakes](https://martinfowler.com/bliki/TestDouble.html) instead of mocks, helping
+- Using more [test fakes](https://martinfowler.com/bliki/TestDouble.html) instead of mocks, helping tests know less about the inner workings of the class under test
 - Some teams have chosen to pacakge classes [by feature](http://www.javapractices.com/topic/TopicAction.do?Id=205), rather than by layer
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMjczOTYxOTgsLTEwODE0MDI1NTUsMTY1MD
-AyMzQzNCwtMzEyOTUwMzgyLDg5NDc0Nzg4MSwxODI5NDUxNzgy
-LC02OTM3MTU2MTcsODQ1MDcyMDMyLDEzMjE2NDUxNjQsLTE2Nj
-kzODY0MjgsODYxMTY5MzQwXX0=
+eyJoaXN0b3J5IjpbNTI3NTY1NjksMjczOTYxOTgsLTEwODE0MD
+I1NTUsMTY1MDAyMzQzNCwtMzEyOTUwMzgyLDg5NDc0Nzg4MSwx
+ODI5NDUxNzgyLC02OTM3MTU2MTcsODQ1MDcyMDMyLDEzMjE2ND
+UxNjQsLTE2NjkzODY0MjgsODYxMTY5MzQwXX0=
 -->
