@@ -1,7 +1,7 @@
 ---
 
 title: Tree Rings
-draft: true
+date: 2025-11-29T00:00:00
 image: https://unsplash.com/photos/a-close-up-of-a-circular-pattern-on-a-wall-WHBWT21ZLJw
 tags:
 - career
@@ -20,8 +20,9 @@ You and I are both better developers than we were a couple of years ago. We've w
 
 And maybe you'll both disagree with those decisions in another couple of years.
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTQwODc5NjQxOSwyNzM5NjE5OCwtMTA4MT
-QwMjU1NSwxNjUwMDIzNDM0LC0zMTI5NTAzODIsODk0NzQ3ODgx
-LDE4Mjk0NTE3ODIsLTY5MzcxNTYxNyw4NDUwNzIwMzIsMTMyMT
-Y0NTE2NCwtMTY2OTM4NjQyOCw4NjExNjkzNDBdfQ==
+eyJoaXN0b3J5IjpbNjQyNTc5MDQ2LDE0MDg3OTY0MTksMjczOT
+YxOTgsLTEwODE0MDI1NTUsMTY1MDAyMzQzNCwtMzEyOTUwMzgy
+LDg5NDc0Nzg4MSwxODI5NDUxNzgyLC02OTM3MTU2MTcsODQ1MD
+cyMDMyLDEzMjE2NDUxNjQsLTE2NjkzODY0MjgsODYxMTY5MzQw
+XX0=
 -->
