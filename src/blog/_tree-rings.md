@@ -8,7 +8,7 @@ tags:
 
 ---
 
-You can measure the growth of a tree by looking at its rings. Software at your company has rings, too.
+You can You can measure the growth of a tree by looking at its rings. Software at your company has rings, too.
 
 I write a lot about [countering](/blog/avoiding-blanket-statements) [negativity](/blog/being-critical-of-past-developers) in software engineering. I believe people have a lot of productive solutions available to them.
 
@@ -20,9 +20,9 @@ You and I are both better developers than we were a couple of years ago. We've w
 
 And maybe you'll both disagree with those decisions in another couple of years.
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbNjQyNTc5MDQ2LDE0MDg3OTY0MTksMjczOT
-YxOTgsLTEwODE0MDI1NTUsMTY1MDAyMzQzNCwtMzEyOTUwMzgy
-LDg5NDc0Nzg4MSwxODI5NDUxNzgyLC02OTM3MTU2MTcsODQ1MD
-cyMDMyLDEzMjE2NDUxNjQsLTE2NjkzODY0MjgsODYxMTY5MzQw
-XX0=
+eyJoaXN0b3J5IjpbNjYwNzg1NDYxLDY0MjU3OTA0NiwxNDA4Nz
+k2NDE5LDI3Mzk2MTk4LC0xMDgxNDAyNTU1LDE2NTAwMjM0MzQs
+LTMxMjk1MDM4Miw4OTQ3NDc4ODEsMTgyOTQ1MTc4MiwtNjkzNz
+E1NjE3LDg0NTA3MjAzMiwxMzIxNjQ1MTY0LC0xNjY5Mzg2NDI4
+LDg2MTE2OTM0MF19
 -->
