@@ -10,11 +10,9 @@ tags:
 
 It is easy to see the past growth of a tree by cutting it down and measuring its rings. Software at your company has growth rings, too.
 
-I write a lot about [countering negativity](/blog/avoiding-blanket-statements) in software engineering, especially when it comes to [complaints about inherited situations](/blog/being-critical-of-past-developers). The only options available are to make the situation better yourself, and to change your mindset.
+I write a lot about [countering negativity](/blog/avoiding-blanket-statements) in software engineering, especially when it comes to [complaints about inherited situations](/blog/being-critical-of-past-developers). Really the only options available in these situations are to take action yourself, and to change your mindset.
 
-I've been thinking about the mindset option a lot this year, in the context of inherited code that wouldn't pass current standards.
-
-I've developed a metaphor recently that has been landing with my colleagues:
+I've been thinking about the mindset option a lot this year, in the context of inherited code that wouldn't pass current standards. I've developed a metaphor that has been landing with my colleagues:
   
 > Software is like a tree. When you cut it open, you're going to find some growth rings. You'll see when various patterns got popularized across the company, when new libraries were adopted, and other positive changes. The old, middle rings are going to look a little rotten.
 
@@ -22,10 +20,10 @@ You and I are both better developers than we were a couple of years ago. We've w
 
 And maybe you'll both disagree with those decisions in another couple of years.
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTQzMDgzNjYzMywtODI2NjUyMTY2LDEzMz
-k1MDYxNzYsLTY2OTIwNTUyMCwxMTIyODU5MDE4LDY0MjU3OTA0
-NiwxNDA4Nzk2NDE5LDI3Mzk2MTk4LC0xMDgxNDAyNTU1LDE2NT
-AwMjM0MzQsLTMxMjk1MDM4Miw4OTQ3NDc4ODEsMTgyOTQ1MTc4
-MiwtNjkzNzE1NjE3LDg0NTA3MjAzMiwxMzIxNjQ1MTY0LC0xNj
-Y5Mzg2NDI4LDg2MTE2OTM0MF19
+eyJoaXN0b3J5IjpbNTgzMjE5Mzc1LDE0MzA4MzY2MzMsLTgyNj
+Y1MjE2NiwxMzM5NTA2MTc2LC02NjkyMDU1MjAsMTEyMjg1OTAx
+OCw2NDI1NzkwNDYsMTQwODc5NjQxOSwyNzM5NjE5OCwtMTA4MT
+QwMjU1NSwxNjUwMDIzNDM0LC0zMTI5NTAzODIsODk0NzQ3ODgx
+LDE4Mjk0NTE3ODIsLTY5MzcxNTYxNyw4NDUwNzIwMzIsMTMyMT
+Y0NTE2NCwtMTY2OTM4NjQyOCw4NjExNjkzNDBdfQ==
 -->
