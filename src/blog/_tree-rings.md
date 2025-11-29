@@ -8,7 +8,7 @@ tags:
 
 ---
 
-You can see the past growth of a tree by cutting it open and looking at its rings. Software at your company has growth rings, too.
+It is easy to see the past growth of a tree by cutting it down and measuring its rings. Software at your company has growth rings, too.
 
 I write a lot about [countering](/blog/avoiding-blanket-statements) [negativity](/blog/being-critical-of-past-developers) in software engineering. I believe people have a lot of productive solutions available to them.
 
@@ -20,7 +20,7 @@ You and I are both better developers than we were a couple of years ago. We've w
 
 And maybe you'll both disagree with those decisions in another couple of years.
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTU3MjQzMDg0Niw2NDI1NzkwNDYsMTQwOD
+eyJoaXN0b3J5IjpbMTEyMjg1OTAxOCw2NDI1NzkwNDYsMTQwOD
 c5NjQxOSwyNzM5NjE5OCwtMTA4MTQwMjU1NSwxNjUwMDIzNDM0
 LC0zMTI5NTAzODIsODk0NzQ3ODgxLDE4Mjk0NTE3ODIsLTY5Mz
 cxNTYxNyw4NDUwNzIwMzIsMTMyMTY0NTE2NCwtMTY2OTM4NjQy
