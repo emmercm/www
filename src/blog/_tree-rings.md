@@ -10,7 +10,7 @@ tags:
 
 It is easy to see the past growth of a tree by cutting it down and measuring its rings. Software at your company has growth rings, too.
 
-I write a lot about [countering](/blog/avoiding-blanket-statements) [negativity](/blog/being-critical-of-past-developers) in software engineering, especially when it comes to. I believe people have a lot of productive solutions available to them.
+I write a lot about [countering](/blog/avoiding-blanket-statements) [negativity] in software engineering, especially when it comes to complaints about (/blog/being-critical-of-past-developers). I believe people have a lot of productive solutions available to them.
 
 I've developed a metaphor recently that has been landing with my colleagues:
   
@@ -20,9 +20,9 @@ You and I are both better developers than we were a couple of years ago. We've w
 
 And maybe you'll both disagree with those decisions in another couple of years.
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTY2OTIwNTUyMCwxMTIyODU5MDE4LDY0Mj
-U3OTA0NiwxNDA4Nzk2NDE5LDI3Mzk2MTk4LC0xMDgxNDAyNTU1
-LDE2NTAwMjM0MzQsLTMxMjk1MDM4Miw4OTQ3NDc4ODEsMTgyOT
-Q1MTc4MiwtNjkzNzE1NjE3LDg0NTA3MjAzMiwxMzIxNjQ1MTY0
-LC0xNjY5Mzg2NDI4LDg2MTE2OTM0MF19
+eyJoaXN0b3J5IjpbLTEyODc3MDI1NTUsLTY2OTIwNTUyMCwxMT
+IyODU5MDE4LDY0MjU3OTA0NiwxNDA4Nzk2NDE5LDI3Mzk2MTk4
+LC0xMDgxNDAyNTU1LDE2NTAwMjM0MzQsLTMxMjk1MDM4Miw4OT
+Q3NDc4ODEsMTgyOTQ1MTc4MiwtNjkzNzE1NjE3LDg0NTA3MjAz
+MiwxMzIxNjQ1MTY0LC0xNjY5Mzg2NDI4LDg2MTE2OTM0MF19
 -->
