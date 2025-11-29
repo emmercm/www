@@ -14,16 +14,17 @@ I write a lot about [countering negativity](/blog/avoiding-blanket-statements) i
 
 I've been thinking about the mindset option a lot this year, in the context of inherited code that wouldn't pass current standards. I've developed a metaphor that has kept me empathetic, and it has been landing with my colleagues:
   
-> Software is like a tree. When you cut it open, you're going to find some growth rings. You'll see when various patterns got popularized across the company, when new libraries were adopted, and other positive changes. The old, middle rings are going to look a little rotten.
+> Software is like a tree. When you cut it open, you're going to find some growth rings. You'll see when various patterns got popularized across the company, when new libraries were adopted, and other positive changes. But in an old enough piece of code that has developed quite a few rings, 
+> The old, middle rings are going to look a little rotten.
 
 You and I are both better developers than we were a couple of years ago. We've worked with new people that have brought new ideas, have experience with more design patterns, and have worked with code long enough to understand the pitfalls of past decisions. And everyone else in the company has grown, too, and are likely making decisions that you'd agree with now.
 
 And maybe you'll both disagree with those decisions in another couple of years.
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTg5NTgzMDM2MSwxNDMwODM2NjMzLC04Mj
-Y2NTIxNjYsMTMzOTUwNjE3NiwtNjY5MjA1NTIwLDExMjI4NTkw
-MTgsNjQyNTc5MDQ2LDE0MDg3OTY0MTksMjczOTYxOTgsLTEwOD
-E0MDI1NTUsMTY1MDAyMzQzNCwtMzEyOTUwMzgyLDg5NDc0Nzg4
-MSwxODI5NDUxNzgyLC02OTM3MTU2MTcsODQ1MDcyMDMyLDEzMj
-E2NDUxNjQsLTE2NjkzODY0MjgsODYxMTY5MzQwXX0=
+eyJoaXN0b3J5IjpbNzIyMzM4NTMwLDE0MzA4MzY2MzMsLTgyNj
+Y1MjE2NiwxMzM5NTA2MTc2LC02NjkyMDU1MjAsMTEyMjg1OTAx
+OCw2NDI1NzkwNDYsMTQwODc5NjQxOSwyNzM5NjE5OCwtMTA4MT
+QwMjU1NSwxNjUwMDIzNDM0LC0zMTI5NTAzODIsODk0NzQ3ODgx
+LDE4Mjk0NTE3ODIsLTY5MzcxNTYxNyw4NDUwNzIwMzIsMTMyMT
+Y0NTE2NCwtMTY2OTM4NjQyOCw4NjExNjkzNDBdfQ==
 -->
