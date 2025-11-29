@@ -13,7 +13,7 @@ The Agile Alliance recommends 15 minutes every day, I would recommend even short
 
 ## What is a standup?
 
-From the Agile Alliance's [glossary](https://www.agilealliance.org/glossary/daily-meeting/):
+From the Agile Alliance's [glossary](https://agilealliance.org/glossary/daily-meeting/):
 
 > Each day at the same time, the team meets so as to bring everyone up to date on the information that is vital for coordination: each team members briefly describes any "completed" contributions and any obstacles that stand in their way. Usually, Scrum's Three Questions are used to structure discussion. The meeting is normally held in front of the task board.
 
@@ -38,7 +38,7 @@ We're going to assume a few points about the average team:
 - The team is long-lived with people allocation relatively stable
 - The team is working on multiple projects at the same time, with at least some team members on disparate projects
 
-Given that, the Agile Alliance's [glossary](https://www.agilealliance.org/glossary/daily-meeting/) calls out four common problems, with my commentary added:
+Given that, the Agile Alliance's [glossary](https://agilealliance.org/glossary/daily-meeting/) calls out four common problems, with my commentary added:
 
 - **The meeting devolves into status-giving/gathering meeting.**
 
