@@ -18,12 +18,12 @@ I've been thinking about the mindset option a lot this year, in the context of i
 >
 > You and I are both better developers than we were a couple of years ago. We've worked with new people that have brought new ideas, have experience with more design patterns, and have worked with code long enough to understand the pitfalls of past decisions. And everyone else in the company has grown, too, and are likely making decisions that you'd agree with now.
 
-And maybe you'll both disagree with those decisions in another couple of years.
+And who knows, maybe you'll both disagree with those decisions in another couple of years.
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTU0NjY4NTU0NCwxNDMwODM2NjMzLC04Mj
-Y2NTIxNjYsMTMzOTUwNjE3NiwtNjY5MjA1NTIwLDExMjI4NTkw
-MTgsNjQyNTc5MDQ2LDE0MDg3OTY0MTksMjczOTYxOTgsLTEwOD
-E0MDI1NTUsMTY1MDAyMzQzNCwtMzEyOTUwMzgyLDg5NDc0Nzg4
-MSwxODI5NDUxNzgyLC02OTM3MTU2MTcsODQ1MDcyMDMyLDEzMj
-E2NDUxNjQsLTE2NjkzODY0MjgsODYxMTY5MzQwXX0=
+eyJoaXN0b3J5IjpbMTM0MDM1OTc4LDE0MzA4MzY2MzMsLTgyNj
+Y1MjE2NiwxMzM5NTA2MTc2LC02NjkyMDU1MjAsMTEyMjg1OTAx
+OCw2NDI1NzkwNDYsMTQwODc5NjQxOSwyNzM5NjE5OCwtMTA4MT
+QwMjU1NSwxNjUwMDIzNDM0LC0zMTI5NTAzODIsODk0NzQ3ODgx
+LDE4Mjk0NTE3ODIsLTY5MzcxNTYxNyw4NDUwNzIwMzIsMTMyMT
+Y0NTE2NCwtMTY2OTM4NjQyOCw4NjExNjkzNDBdfQ==
 -->
