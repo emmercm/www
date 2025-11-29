@@ -12,7 +12,7 @@ Unit tests should be testing acceptance criteria, not internal behavior. Here ar
 
 ## Given-when-then
 
-_Given-when-then_ is a way to write acceptance criteria scenarios in business requirements that then can be translated 1:1 to unit tests. This style stems from [behavior-driven development (BDD)](https://agilealliance.org/glossary/bdd) which specifies that tests should be written to test _behavior_ (as opposed to _state_). Tests should map so well to scenarios that they practically write themselves.
+_Given-when-then_ is a way to write acceptance criteria scenarios in business requirements that then can be translated 1:1 to unit tests. This style stems from [behavior-driven development (BDD)](https://www.agilealliance.org/glossary/bdd) which specifies that tests should be written to test _behavior_ (as opposed to _state_). Tests should map so well to scenarios that they practically write themselves.
 
 It's possible to use the _given-when-then_ test structure with acceptance criteria written in other ways, but there is a lot of benefit to be gained from tests matching acceptance criteria word for word.
 
@@ -146,7 +146,7 @@ The _given-when-then_ test style can be used with any testing framework, but the
 
 ## Arrange-act-assert
 
-_Arrange-act-assert_ is mostly synonymous with _given-when-then_, but stems from [test-driven development (TDD)](https://agilealliance.org/glossary/tdd/) rather than BDD.
+_Arrange-act-assert_ is mostly synonymous with _given-when-then_, but stems from [test-driven development (TDD)](https://www.agilealliance.org/glossary/tdd/) rather than BDD.
 
 The three parts to an _arrange-act-assert_ test are:
 
@@ -169,3 +169,6 @@ If we try our best to create a [test pyramid](https://martinfowler.com/articles/
 ## Summary
 
 Overall, the goal of these patterns is to help you write more readable and maintainable tests, one of the most important goals with software engineering. Each pattern was established at a different time and came from a different school of thought, but all have the same objectives.
+<!--stackedit_data:
+eyJoaXN0b3J5IjpbLTEzNjYzNzkyNl19
+-->
