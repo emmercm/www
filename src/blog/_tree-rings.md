@@ -10,7 +10,9 @@ tags:
 
 It is easy to see the past growth of a tree by cutting it down and measuring its rings. Software at your company has growth rings, too.
 
-I write a lot about [countering negativity](/blog/avoiding-blanket-statements) in software engineering, especially when it comes to [complaints about inherited situations](/blog/being-critical-of-past-developers). The only options available are to make the situation better yourself, and to change your mindset. I've been thinking about the mindset
+I write a lot about [countering negativity](/blog/avoiding-blanket-statements) in software engineering, especially when it comes to [complaints about inherited situations](/blog/being-critical-of-past-developers). The only options available are to make the situation better yourself, and to change your mindset.
+
+I've been thinking about the mindset option a lot this year, in the context of inherited code that wouldn't pass current standards.
 
 I've developed a metaphor recently that has been landing with my colleagues:
   
@@ -20,10 +22,10 @@ You and I are both better developers than we were a couple of years ago. We've w
 
 And maybe you'll both disagree with those decisions in another couple of years.
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbNTgzMDE0Njc1LC04MjY2NTIxNjYsMTMzOT
-UwNjE3NiwtNjY5MjA1NTIwLDExMjI4NTkwMTgsNjQyNTc5MDQ2
-LDE0MDg3OTY0MTksMjczOTYxOTgsLTEwODE0MDI1NTUsMTY1MD
-AyMzQzNCwtMzEyOTUwMzgyLDg5NDc0Nzg4MSwxODI5NDUxNzgy
-LC02OTM3MTU2MTcsODQ1MDcyMDMyLDEzMjE2NDUxNjQsLTE2Nj
-kzODY0MjgsODYxMTY5MzQwXX0=
+eyJoaXN0b3J5IjpbMTQzMDgzNjYzMywtODI2NjUyMTY2LDEzMz
+k1MDYxNzYsLTY2OTIwNTUyMCwxMTIyODU5MDE4LDY0MjU3OTA0
+NiwxNDA4Nzk2NDE5LDI3Mzk2MTk4LC0xMDgxNDAyNTU1LDE2NT
+AwMjM0MzQsLTMxMjk1MDM4Miw4OTQ3NDc4ODEsMTgyOTQ1MTc4
+MiwtNjkzNzE1NjE3LDg0NTA3MjAzMiwxMzIxNjQ1MTY0LC0xNj
+Y5Mzg2NDI4LDg2MTE2OTM0MF19
 -->
