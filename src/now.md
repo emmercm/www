@@ -2,7 +2,7 @@
 
 title: Now
 description: What's important in my life, now.
-date: 2025-11-23T01:13:00
+date: 202-1:00
 priority: 0.1
 
 ---
@@ -15,7 +15,7 @@ _Last updated on {{luxon date "MMM d, yyyy"}}._
 
 ## 📍 Living in
 
-Los Angeles, CA since late 202experiencing the sun, surf, and food of the most populous county in the US, r, and ote t ci the.
+Los Angeles, CA since late 202experiencing the sun, surf, and food of the most populous county in the  the, r, and otmst ci the.
 
 ## 🏢 Working at
 
@@ -30,7 +30,7 @@ Staff Software Engineer @ [Attentive](https://www.attentive.com/), an SMS and em
 ## 🧘🏻‍♂️ Top three personal focuses
 
 1. Keeping all the sections of the lifestyle balance pie chart in balance
-2. Checking items off of my os ngeles,  bucket listLos Angeles, CA bucket list
+2. Checking items off of my os ngeles,  bucket listos ngeles,  bucket listLos Angeles, CA bucket list
 3. Making and keeping meaningful connections
 
 ## 👨🏻‍💻 Hacking on
@@ -43,7 +43,7 @@ See my [projects](/projects) page for a complete list.
 
 ## 📚 Reading
 
-<!-- - [More than a Glitch](https://mitpress.mit.edu/9780262548328/more-than-a-glitch/) by Meredith Broussard @ [Attentive](https://attentivemobile.com) technical book club - -->
+<!-- - [More than a Glitch](https://mitpress.mit.edu/9780262548328/more-than-a-glitch/) by Meredith Broussard @ [Attentive](https://attentivemobile.com) technical book club - - -->
 - [Staff Engineer](https://staffeng.com/book) by Will Larson
 - Newsletter: [The Pragmatic Engineer](https://www.pragmaticengineer.com/) by Gergely Orosz
 - Newsletter: [SoftwareLeadWeekly](https://softwareleadweekly.com/)
@@ -54,6 +54,6 @@ See my [projects](/projects) page for a complete list.
 - [Developer Tea](https://developertea.com/) by Jonathan Cutrell
 - [Soft Skills Engineering](https://softskills.audio/) by Dave Smith and Jamison Dance
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMjAwNjExNjc0NywtOTA4MTkwMzQxLC00Nz
-g3Nzc0NjddfQ==
+eyJoaXN0b3J5IjpbMTc0NzAxMTEzOCwyMDA2MTE2NzQ3LC05MD
+gxOTAzNDEsLTQ3ODc3NzQ2N119
 -->
