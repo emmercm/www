@@ -25,7 +25,7 @@ To keep this article short and to the point we're not going to set up a full web
 Starting with an empty project, install some Metalsmith packages:
 
 ```shell
-$ bash
+$ sh
 npm install --save metalsmith metalsmith-ignore metalsmith-include-files
 ```
 
@@ -105,7 +105,7 @@ google-site-verification: google0123456789abcdef.html
 Run the build command like normal:
 
 ```shell
-$ bash
+$ sh
 node index
 ```
 
@@ -145,5 +145,6 @@ If you're using [`metalsmith-sitemap`](https://www.npmjs.com/package/metalsmith-
 
 If you're using [`metalsmith-formatcheck`](https://www.npmjs.com/package/metalsmith-formatcheck) to lint your output HTML (see "[Linting Metalsmith Output HTML](/blog/linting-metalsmith-output-html)") you're going to want to do that before including the verification file as it isn't valid HTML.
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTE5MzkwODI1MDMsMTkxNjE5MDQyM119
+eyJoaXN0b3J5IjpbMTg3MjI5NTY3NSwtMTkzOTA4MjUwMywxOT
+E2MTkwNDIzXX0=
 -->
