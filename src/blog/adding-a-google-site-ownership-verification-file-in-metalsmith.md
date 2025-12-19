@@ -105,7 +105,7 @@ google-site-verification: google0123456789abcdef.html
 Run the build command like normal:
 
 ```shell
-$ sh
+sh
 node index
 ```
 
@@ -145,6 +145,6 @@ If you're using [`metalsmith-sitemap`](https://www.npmjs.com/package/metalsmith-
 
 If you're using [`metalsmith-formatcheck`](https://www.npmjs.com/package/metalsmith-formatcheck) to lint your output HTML (see "[Linting Metalsmith Output HTML](/blog/linting-metalsmith-output-html)") you're going to want to do that before including the verification file as it isn't valid HTML.
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTg3MjI5NTY3NSwtMTkzOTA4MjUwMywxOT
-E2MTkwNDIzXX0=
+eyJoaXN0b3J5IjpbMjAwMjczOTgzOSwxODcyMjk1Njc1LC0xOT
+M5MDgyNTAzLDE5MTYxOTA0MjNdfQ==
 -->
