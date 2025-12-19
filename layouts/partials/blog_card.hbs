@@ -1,12 +1,12 @@
-<div class="d-flex flex-column {{#if horizontal}}flex-sm-row{{/if}} h-100">
+<div class="d-flex {{#if horizontal}}flex-row{{else}}flex-column{{/if}} h-100">
     {{#if data.thumb}}
-        <a href="{{data.paths.href}}" title="{{data.title}}" class="mb-3 {{#if horizontal}}mb-sm-0 me-sm-4 w-sm-25 max-vh-20 max-vh-sm-100{{/if}}">
+        <a href="{{data.paths.href}}" title="{{data.title}}" class="{{#if horizontal}}mb-0 me-4 w-25 max-vh-20 max-vh-100{{else}}mb-3{{/if}}">
             <picture class="fill">
                 {{{ data.thumbSources }}}<img src="{{data.thumb}}" alt="{{#if data.imageAlt}}{{data.imageAlt}}{{else}}{{sanitize data.title}}{{/if}}" class="fill">
             </picture>
         </a>
     {{/if}}
-    <div class="d-flex flex-column h-100 {{#if horizontal}}w-sm-75{{/if}}">
+    <div class="d-flex flex-column h-100 {{#if horizontal}}w-75{{/if}}">
         <h6 class="mt-0 mb-3 fw-bold">
             <a href="{{data.paths.href}}" title="{{data.title}}" class="link-body-emphasis">{{ data.title }}</a>
         </h6>
@@ -14,7 +14,7 @@
             {{luxon data.date "MMM d, yyyy"}} &middot; {{data.readingTime}}
         </h6>
         {{#and excerpt data.excerpt}}
-            <p class="fs-6">{{{sanitize data.excerpt}}}</p>
+            <p class="fs-6 d-none d-sm-inline">{{{sanitize data.excerpt}}}</p>
         {{/and}}
         {{#and tags data.tags}}
             <div class="d-flex flex-wrap m-n1">

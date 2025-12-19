@@ -1130,6 +1130,7 @@ tracer(Metalsmith(path.resolve()))
 
     // Ensure no broken links
     .use(msIf(prodBuild, linkChecker({
+        attempts: 3,
         ignore: [
             // Anti-bot 403
             'discogs.com',

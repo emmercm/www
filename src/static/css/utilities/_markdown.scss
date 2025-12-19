@@ -1,28 +1,33 @@
 @use "sass:math";
 
 .markdown {
+  @include font-size(1.25rem !important); // 20px
+  @include media-breakpoint-down('md') {
+    @include font-size(1.125rem !important); // 18px
+  }
+
   h1, .h1 {
-    margin-top: $h1-font-size * 1.5;
+    margin-top: $h1-font-size * 1.375;
     margin-bottom: max($h1-font-size * 2/3, $font-size-base);
   }
   h2, .h2 {
-    margin-top: $h2-font-size * 1.5;
+    margin-top: $h2-font-size * 1.375;
     margin-bottom: max($h2-font-size * 2/3, $font-size-base);
   }
   h3, .h3 {
-    margin-top: $h3-font-size * 1.5;
+    margin-top: $h3-font-size * 1.375;
     margin-bottom: max($h3-font-size * 2/3, $font-size-base);
   }
   h4, .h4 {
-    margin-top: $h4-font-size * 1.5;
+    margin-top: $h4-font-size * 1.375;
     margin-bottom: max($h4-font-size * 2/3, $font-size-base);
   }
   h5, .h5 {
-    margin-top: $h5-font-size * 1.5;
+    margin-top: $h5-font-size * 1.375;
     margin-bottom: max($h5-font-size * 2/3, $font-size-base);
   }
   h6, .h6 {
-    margin-top: $h6-font-size * 1.5;
+    margin-top: $h6-font-size * 1.375;
     margin-bottom: max($h6-font-size * 2/3, $font-size-base);
   }
 
@@ -62,9 +67,9 @@
   }
 
   blockquote {
-    margin-left: -$border-width*10 - $border-width*2;
-    padding-left: $border-width*10;
-    border-left: $border-width*2 solid var(--#{$prefix}primary);
+    margin-left: -$border-width*10;
+    padding-left: $border-width*10 - $border-width*1.5;
+    border-left: $border-width*1.5 solid var(--#{$prefix}primary);
     font-style: italic;
   }
   ul blockquote {
