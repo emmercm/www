@@ -26,12 +26,14 @@ Some examples of flatlining include:
 
 - Network connections or threads are not being released, causing other threads to wait forever
 - Conflicting mutexes has caused a deadlock between threads
+- The service repeatedly consumes a "poison pill" message, preventing consumption of subsequent messages
 
 **Failure to stay alive**
 
-- The service is overwhelmed with data, causing it to run out of memory, before it can emit the results of any processing
+- The service is overwhelmed with data, causing it to run out of memory
+- The service e
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTY1MjQwNzExLDE3NzcwNTEyODEsLTg1ND
-A5NDU5OSwtMTk3MjAzOTY2OCw1MjIyMjM3ODAsNjk0MjQwMTgs
-LTM1OTgyNTE0MCwtMTQzMjE3Mjc5Ml19
+eyJoaXN0b3J5IjpbMTg3NjU2NDI1NCwtNjUyNDA3MTEsMTc3Nz
+A1MTI4MSwtODU0MDk0NTk5LC0xOTcyMDM5NjY4LDUyMjIyMzc4
+MCw2OTQyNDAxOCwtMzU5ODI1MTQwLC0xNDMyMTcyNzkyXX0=
 -->
