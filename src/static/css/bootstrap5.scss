@@ -1984,6 +1984,7 @@ $theme-colors: map.merge($theme-colors, $colors);
 }
 
 $theme-colors: map.merge($theme-colors, (
+  "2026": #F0EFEB, // https://www.pantone.com/color-of-the-year/2026
   "2025": #A47764, // https://www.pantone.com/color-of-the-year/2025
   "2024": #FEBE98, // https://www.pantone.com/color-of-the-year/2024
   "2023": #BB2649, // https://www.pantone.com/color-of-the-year/2023

@@ -96,7 +96,7 @@ python:
   color: python
 
 renovate:
-  title: Renovate
+  title: Mend Renovate
   color: renovate
 
 shell:
