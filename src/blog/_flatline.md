@@ -42,11 +42,11 @@ Some of these situations can be tricky to detect, but it is imperative that you 
 
 Here are some common failure metrics to monitor, that when they pass a certain threshold are likely to cause an SLO to be breached:
 
-- **Service orchestration errors:** Kubernetes or other compute orchestrators
+- **Service orchestration errors:** Kubernetes or other compute orchestrators should e
 - **Out-of-memory exceptions:** if a service runs out of memory multiple times then it is likely to keep doing so.
 - **Large message queue depth:** if a message queue's depth rises above a certain threshold then it may indicate a service cannot make progress.
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTI3MjAyNjU3LC02NTI0MDcxMSwxNzc3MD
-UxMjgxLC04NTQwOTQ1OTksLTE5NzIwMzk2NjgsNTIyMjIzNzgw
-LDY5NDI0MDE4LC0zNTk4MjUxNDAsLTE0MzIxNzI3OTJdfQ==
+eyJoaXN0b3J5IjpbLTE2MDk2NTI1ODMsLTY1MjQwNzExLDE3Nz
+cwNTEyODEsLTg1NDA5NDU5OSwtMTk3MjAzOTY2OCw1MjIyMjM3
+ODAsNjk0MjQwMTgsLTM1OTgyNTE0MCwtMTQzMjE3Mjc5Ml19
 -->
