@@ -27,13 +27,14 @@ Some examples of flatlining include:
 
 **Failure to make progress**
 
-- Network connections or threads are not being released, causing other threads to wait forever
-- Conflicting mutexes has caused a deadlock between threads
-- The service repeatedly consumes a "poison pill" message, preventing consumption of subsequent messages
+- Your service isn't releasing network connections or threads, causing other threads to wait forever
+- Your service is deadlocking due to conflicting mutexes
+- Your service is repeatedly consuming a "poison pill" message from a queue, preventing progress
 
 **Failure to stay alive**
 
-- The service is overwhelmed with data, causing it to run out of memory
+- Your service is overwhelmed with data, causing it to run out of memory
+- Your service 
 - A storage disk is full, or is made full every time a service runs
 
 Some of these situations can be tricky to detect, but it is imperative that you try to.
@@ -50,7 +51,7 @@ Here are some common failure metrics to monitor, that when they pass a certain t
 
 - **Errors observed by clients:** if clients of your service observe an abnoraml rate of timeouts or errors it may indicate a problem with your service or the network in between.
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTQyNjAwMzk3MCwxNjcyMDI2MjUwLC02NT
+eyJoaXN0b3J5IjpbMTg1MTA0NzM2NSwxNjcyMDI2MjUwLC02NT
 I0MDcxMSwxNzc3MDUxMjgxLC04NTQwOTQ1OTksLTE5NzIwMzk2
 NjgsNTIyMjIzNzgwLDY5NDI0MDE4LC0zNTk4MjUxNDAsLTE0Mz
 IxNzI3OTJdfQ==
