@@ -14,10 +14,12 @@ It's important to be alerted when the processes you are responsible for are no l
 
 Some examples of flatlining include:
 
-- The service is run on [Kubernetes](/blog/tag/kubernetes) and its pods can't be scheduled
-- The service is run on [Kubernetes](/blog/tag/kubernetes) and its pods are in a `CrashLoopBackOff`
+- The service runs on [Kubernetes](/blog/tag/kubernetes) and its pods can't be scheduled
+- The service runs on [Kubernetes](/blog/tag/kubernetes) and its pods are in a `CrashLoopBackOff`
+- The service has deadlocked
 - The service is overwhelmed with data, causing it to run out of memory, before it can emit the results of any processing
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTE5NzIwMzk2NjgsNTIyMjIzNzgwLDY5ND
-I0MDE4LC0zNTk4MjUxNDAsLTE0MzIxNzI3OTJdfQ==
+eyJoaXN0b3J5IjpbLTg1NDA5NDU5OSwtMTk3MjAzOTY2OCw1Mj
+IyMjM3ODAsNjk0MjQwMTgsLTM1OTgyNTE0MCwtMTQzMjE3Mjc5
+Ml19
 -->
