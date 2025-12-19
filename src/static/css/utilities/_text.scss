@@ -8,7 +8,12 @@
       .text#{$infix}-wrap     { white-space: normal !important; }
       .text#{$infix}-nowrap   { white-space: nowrap !important; }
       .text#{$infix}-truncate { @include text-truncate(); }
-
     }
+
+    //@each $prop, $size in $font-sizes {
+    //  .fs#{$infix}-#{$prop} {
+    //    @include font-size($size !important);
+    //  }
+    //}
   }
 }
