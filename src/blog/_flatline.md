@@ -48,10 +48,14 @@ Here are some common failure metrics to monitor, that when they pass a certain t
 
   _Most durable message queues track the queue depth in terms of a message count, but some message queues may also track the age of the oldest message. Only rely on message age metrics being emitted by the broker, not your service! Because if your service doesn't consume anything then it can't emit a metric, which may cause a false positive of health._
 
+- **Messages produced to a dead-letter queue (DLQ):**
+
+  _If you aren't usi
+
 - **Errors observed by clients:** if clients of your service observe an abnoraml rate of timeouts or errors then it may indicate a systemic problem with your service or the network in between.
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTE3NzYxNDY2NjIsMTY3MjAyNjI1MCwtNj
-UyNDA3MTEsMTc3NzA1MTI4MSwtODU0MDk0NTk5LC0xOTcyMDM5
-NjY4LDUyMjIyMzc4MCw2OTQyNDAxOCwtMzU5ODI1MTQwLC0xND
-MyMTcyNzkyXX0=
+eyJoaXN0b3J5IjpbMjA4NTg2MjQ2LDE2NzIwMjYyNTAsLTY1Mj
+QwNzExLDE3NzcwNTEyODEsLTg1NDA5NDU5OSwtMTk3MjAzOTY2
+OCw1MjIyMjM3ODAsNjk0MjQwMTgsLTM1OTgyNTE0MCwtMTQzMj
+E3Mjc5Ml19
 -->
