@@ -24,14 +24,14 @@ Some examples of flatlining include:
 
 **Failure to make progress**
 
-- Network connections or threads are not being released, causing 
-- The service has deadlocked, stopping all processing (failing the [liveness probe](/blog/types-of-probes-in-kubernetes) if it's on Kubernetes)
+- Network connections or threads are not being released, causing other threads to wait forever
+- Conflicting mutexes has caused a deadlock between threads
 
 **Failure to stay alive**
 
 - The service is overwhelmed with data, causing it to run out of memory, before it can emit the results of any processing
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTU3MjMxMDY1LDE3NzcwNTEyODEsLTg1ND
+eyJoaXN0b3J5IjpbLTY1MjQwNzExLDE3NzcwNTEyODEsLTg1ND
 A5NDU5OSwtMTk3MjAzOTY2OCw1MjIyMjM3ODAsNjk0MjQwMTgs
 LTM1OTgyNTE0MCwtMTQzMjE3Mjc5Ml19
 -->
