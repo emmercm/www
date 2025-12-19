@@ -8,7 +8,8 @@ tags:
 
 ---
 
-When (not if) your service dies, will you know?
+When (not _if_) your service dies, will you know?
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTM1OTgyNTE0MCwtMTQzMjE3Mjc5Ml19
+eyJoaXN0b3J5IjpbNjk0MjQwMTgsLTM1OTgyNTE0MCwtMTQzMj
+E3Mjc5Ml19
 -->
