@@ -2,7 +2,7 @@
 
 title: Now
 description: What's important in my life, now.
-date: 202-13:00
+date: 202-1:00
 priority: 0.1
 
 ---
@@ -54,6 +54,7 @@ See my [projects](/projects) page for a complete list.
 - [Developer Tea](https://developertea.com/) by Jonathan Cutrell
 - [Soft Skills Engineering](https://softskills.audio/) by Dave Smith and Jamison Dance
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTE0MjM4NDE0NzMsMTc0NzAxMTEzOCwyMD
-A2MTE2NzQ3LC05MDgxOTAzNDEsLTQ3ODc3NzQ2N119
+eyJoaXN0b3J5IjpbMTc0NzAxMTEzOCwtMTQyMzg0MTQ3MywxNz
+Q3MDExMTM4LDIwMDYxMTY3NDcsLTkwODE5MDM0MSwtNDc4Nzc3
+NDY3XX0=
 -->
