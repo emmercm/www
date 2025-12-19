@@ -14,8 +14,9 @@ It's important to be alerted when the processes you are responsible for are no l
 
 Some examples of this:
 
-- The service is run on Kubernetes and its pods
+- The service is run on [Kubernetes](/blog/tag/kubernetes) and its pods are in a `CrashLoopBackOff`
+- The service consumes events from a message queue but
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTE4MDc1NzQwMjQsNjk0MjQwMTgsLTM1OT
-gyNTE0MCwtMTQzMjE3Mjc5Ml19
+eyJoaXN0b3J5IjpbNTIyMjIzNzgwLDY5NDI0MDE4LC0zNTk4Mj
+UxNDAsLTE0MzIxNzI3OTJdfQ==
 -->
