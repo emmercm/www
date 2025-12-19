@@ -8,7 +8,8 @@ tags:
 
 If your machine's CPU reaches 100% for a few minutes, does it actually matter?
 
-(transient issues are what 
+(transient issues are what you should care about, things like disk pressure likely don't get better)
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTcwMjg2MjU1MiwtMTI2NDAxMjY4MF19
+eyJoaXN0b3J5IjpbLTE1NDY2OTQ3NjMsLTEyNjQwMTI2ODBdfQ
+==
 -->
