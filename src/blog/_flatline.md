@@ -10,8 +10,12 @@ tags:
 
 When (not _if_) your service dies, will you know?
 
-It's important to be alerted when the processes you are responsible for are no longer having the expected outcome. Most of the time you want these alerts to be driven by well-defined [SLOs](/blog/slis-slos-and-slas-what-are-they). An obvious failure mode that will lead to breaking an SLO is if a service
+It's important to be alerted when the processes you are responsible for are no longer having the expected outcome. Most of the time you want these alerts to be driven by well-defined [SLOs](/blog/slis-slos-and-slas-what-are-they). An obvious failure mode that will lead to breaking an SLO is if a service _flatlines_, as in it is no longer running or producing any output.
+
+Some examples of this:
+
+- The service is run on Kubernetes and its pods
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbNDIxMTgxNDgwLDY5NDI0MDE4LC0zNTk4Mj
-UxNDAsLTE0MzIxNzI3OTJdfQ==
+eyJoaXN0b3J5IjpbLTE4MDc1NzQwMjQsNjk0MjQwMTgsLTM1OT
+gyNTE0MCwtMTQzMjE3Mjc5Ml19
 -->
