@@ -48,14 +48,16 @@ Here are some common failure metrics to monitor, that when they pass a certain t
 
   _Most durable message queues track the queue depth in terms of a message count, but some message queues may also track the age of the oldest message. Only rely on message age metrics being emitted by the broker, not your service! Because if your service doesn't consume anything then it can't emit a metric, which may cause a false positive of health._
 
-- **Messages produced to a dead-letter queue (DLQ):** if a message fails to be processed multiple times, or within some reasonable timespan, then they should be routed to a DLQ to prevent other me
+- **Messages produced to a dead-letter queue (DLQ):** if a message fails to be processed multiple times, or within some reasonable timespan, then they should be routed to a DLQ to keep them from blocking other messages in the queue.
 
   _If you aren't using a DLQ, then you probably should, but you may instead be able to monitor a high message queue redelivery rate._
 
 - **Errors observed by clients:** if clients of your service observe an abnoraml rate of timeouts or errors then it may indicate a systemic problem with your service or the network in between.
+
+## Conclusion
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTUwMzU3Mzk2NiwxNjcyMDI2MjUwLC02NT
-I0MDcxMSwxNzc3MDUxMjgxLC04NTQwOTQ1OTksLTE5NzIwMzk2
-NjgsNTIyMjIzNzgwLDY5NDI0MDE4LC0zNTk4MjUxNDAsLTE0Mz
-IxNzI3OTJdfQ==
+eyJoaXN0b3J5IjpbLTE3MTQ0MzM5OTAsMTY3MjAyNjI1MCwtNj
+UyNDA3MTEsMTc3NzA1MTI4MSwtODU0MDk0NTk5LC0xOTcyMDM5
+NjY4LDUyMjIyMzc4MCw2OTQyNDAxOCwtMzU5ODI1MTQwLC0xND
+MyMTcyNzkyXX0=
 -->
