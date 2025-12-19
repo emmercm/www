@@ -45,8 +45,9 @@ Here are some common failure metrics to monitor, that when they pass a certain t
 - **Service orchestration errors:** Kubernetes or other compute orchestrators should emit metrics when it fails to schedule services or if they fail to start.
 - **Out-of-memory exceptions:** if a service runs out of memory multiple times then it is likely to keep doing so.
 - **Large message queue depth:** if a message queue's depth rises above a certain threshold then it may indicate a service cannot make progress.
+- **
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMjExNjQxMDM5MSwtNjUyNDA3MTEsMTc3Nz
-A1MTI4MSwtODU0MDk0NTk5LC0xOTcyMDM5NjY4LDUyMjIyMzc4
-MCw2OTQyNDAxOCwtMzU5ODI1MTQwLC0xNDMyMTcyNzkyXX0=
+eyJoaXN0b3J5IjpbMzc5Mjk0NDE4LC02NTI0MDcxMSwxNzc3MD
+UxMjgxLC04NTQwOTQ1OTksLTE5NzIwMzk2NjgsNTIyMjIzNzgw
+LDY5NDI0MDE4LC0zNTk4MjUxNDAsLTE0MzIxNzI3OTJdfQ==
 -->
