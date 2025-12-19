@@ -14,16 +14,23 @@ It's important to be alerted when the processes you are responsible for are no l
 
 Some examples of flatlining include:
 
-- Failure to start, such as:
-  - The service runs on [Kubernetes](/blog/tag/kubernetes) and its pods can't be scheduled or are in a `CrashLoopBackOff`
-- Failure for clients to reach the service, such as:
-  - A failure with service discovery or DNS resolution
-- Failure to stay alive, such as:
-  - The service has deadlocked, stopping all processing (failing the [liveness probe](/blog/types-of-probes-in-kubernetes) if it's on Kubernetes)
-  - The service is overwhelmed with data, causing it to run out of memory, before it can emit the results of any processing
-  - 
+**Failure to start**
+
+- The service runs on [Kubernetes](/blog/tag/kubernetes) and its pods can't be scheduled or are in a `CrashLoopBackOff`
+
+**Failure for clients to reach the service**
+
+- A failure with service discovery or DNS resolution
+
+**Failure to stay alive**
+
+- The service is overwhelmed with data, causing it to run out of memory, before it can emit the results of any processing
+
+**Failure to make progress**
+
+- The service has deadlocked, stopping all processing (failing the [liveness probe](/blog/types-of-probes-in-kubernetes) if it's on Kubernetes)
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbOTg0ODM2OTQ1LDE3NzcwNTEyODEsLTg1ND
+eyJoaXN0b3J5IjpbMzU4NjU1NjE4LDE3NzcwNTEyODEsLTg1ND
 A5NDU5OSwtMTk3MjAzOTY2OCw1MjIyMjM3ODAsNjk0MjQwMTgs
 LTM1OTgyNTE0MCwtMTQzMjE3Mjc5Ml19
 -->
