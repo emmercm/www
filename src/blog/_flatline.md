@@ -40,9 +40,11 @@ Some of these situations can be tricky to detect, but it is imperative that you 
 
 ## Example metrics
 
-Here are some common metrics to mon
+Here are some common failure metrics to monitor, that when they pass a certain threshold are likely to cause an SLO to be breached:
+
+- **Out-of-memory exceptions:** if a service runs out of memory 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTk3NzIzMTcyMSwtNjUyNDA3MTEsMTc3Nz
+eyJoaXN0b3J5IjpbMTgwMTkzMzQ1MiwtNjUyNDA3MTEsMTc3Nz
 A1MTI4MSwtODU0MDk0NTk5LC0xOTcyMDM5NjY4LDUyMjIyMzc4
 MCw2OTQyNDAxOCwtMzU5ODI1MTQwLC0xNDMyMTcyNzkyXX0=
 -->
