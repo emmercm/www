@@ -10,7 +10,7 @@ tags:
 
 When (not _if_) your service dies, will you know?
 
-It's important to be alerted when the processes you are responsible for are no longer having the expected outcome. Most of the time you want these alerts to be driven by well-defined [SLOs](/blog/slis-slos-and-slas-what-are-they). An obvious failure mode that will lead to breaking an SLO is if a service _flatlines_, as in it is no longer running or producing any output.
+It's important to be alerted when the processes you are responsible for are no longer having their expected outcome. Most of the time you want these alerts to be driven by well-defined [SLOs](/blog/slis-slos-and-slas-what-are-they). An obvious failure mode that will lead to breaking an SLO is if a service _flatlines_, as in it is no longer running or making any progress.
 
 ## Example scenarios
 
@@ -18,12 +18,12 @@ Some examples of flatlining include:
 
 **Failure to start**
 
-- The service runs on [Kubernetes](/blog/tag/kubernetes) and its pods can't be scheduled or are in a `CrashLoopBackOff`
-- The service isn't being provided environment variables or other configuration it depends on to start
+- Your service runs on [Kubernetes](/blog/tag/kubernetes) and its pods can't be scheduled or are in a `CrashLoopBackOff`
+- Your service isn't being provided environment variables or other configuration it depends on to start
 
 **Failure to be reached**
 
-- A problem with service discovery or DNS resolution prevents clients from contacting the service
+- Clients of your service can't reach it because of a problem with service discovery or DNS resolution
 
 **Failure to make progress**
 
@@ -50,8 +50,8 @@ Here are some common failure metrics to monitor, that when they pass a certain t
 
 - **Errors observed by clients:** if clients of your service observe an abnoraml rate of timeouts or errors it may indicate a problem with your service or the network in between.
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTU3NjIyNzU1LDE2NzIwMjYyNTAsLTY1Mj
-QwNzExLDE3NzcwNTEyODEsLTg1NDA5NDU5OSwtMTk3MjAzOTY2
-OCw1MjIyMjM3ODAsNjk0MjQwMTgsLTM1OTgyNTE0MCwtMTQzMj
-E3Mjc5Ml19
+eyJoaXN0b3J5IjpbMTQyNjAwMzk3MCwxNjcyMDI2MjUwLC02NT
+I0MDcxMSwxNzc3MDUxMjgxLC04NTQwOTQ1OTksLTE5NzIwMzk2
+NjgsNTIyMjIzNzgwLDY5NDI0MDE4LC0zNTk4MjUxNDAsLTE0Mz
+IxNzI3OTJdfQ==
 -->
