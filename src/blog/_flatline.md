@@ -17,10 +17,11 @@ Some examples of flatlining include:
 **Failure to start**
 
 - The service runs on [Kubernetes](/blog/tag/kubernetes) and its pods can't be scheduled or are in a `CrashLoopBackOff`
+- The service isn't being provided environment variables or other configuration it depends on to start
 
 **Failure for clients to reach the service**
 
-- A failure with service discovery or DNS resolution
+- A problem with service discovery or DNS resolution
 
 **Failure to make progress**
 
@@ -31,9 +32,9 @@ Some examples of flatlining include:
 **Failure to stay alive**
 
 - The service is overwhelmed with data, causing it to run out of memory
-- The service e
+- A storage disk is full, or is made full every time a service runs
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTg3NjU2NDI1NCwtNjUyNDA3MTEsMTc3Nz
-A1MTI4MSwtODU0MDk0NTk5LC0xOTcyMDM5NjY4LDUyMjIyMzc4
-MCw2OTQyNDAxOCwtMzU5ODI1MTQwLC0xNDMyMTcyNzkyXX0=
+eyJoaXN0b3J5IjpbLTk3ODAxNTQ4LC02NTI0MDcxMSwxNzc3MD
+UxMjgxLC04NTQwOTQ1OTksLTE5NzIwMzk2NjgsNTIyMjIzNzgw
+LDY5NDI0MDE4LC0zNTk4MjUxNDAsLTE0MzIxNzI3OTJdfQ==
 -->
