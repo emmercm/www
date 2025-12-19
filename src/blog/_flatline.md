@@ -9,7 +9,9 @@ tags:
 ---
 
 When (not _if_) your service dies, will you know?
+
+It's important to be alerted
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbNjk0MjQwMTgsLTM1OTgyNTE0MCwtMTQzMj
-E3Mjc5Ml19
+eyJoaXN0b3J5IjpbMTUyMjI3NDU0Niw2OTQyNDAxOCwtMzU5OD
+I1MTQwLC0xNDMyMTcyNzkyXX0=
 -->
