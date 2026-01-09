@@ -14,17 +14,9 @@
 
 - title: Social
   icons:
-    # - link: https://www.facebook.com/emmercm/
-    #   title: Facebook
-    #   icon: fa-brands fa-facebook
-
     - link: https://bsky.app/profile/igir.io
       title: Bluesky
       icon: fa-brands fa-bluesky
-
-    - link: https://twitter.com/emmercm
-      title: X
-      icon: fa-brands fa-x-twitter
 
     - link: https://www.instagram.com/emmercm/
       title: Instagram
