@@ -344,8 +344,7 @@ tracer(Metalsmith(path.resolve()))
         siteurl: siteURL,
         sitedescription: siteDescription,
         sitelogo: siteLogo,
-        blueskyhandle: `@${blueskyHandle}`,
-        twitterhandle: `@${twitterHandle}`
+        blueskyhandle: `@${blueskyHandle}`
     })
 
     // Add all env vars to global metadata
@@ -774,7 +773,7 @@ tracer(Metalsmith(path.resolve()))
                 url: siteURL,
                 sameAs: [
                     metalsmith.metadata().github ? metalsmith.metadata().github.profile.user.html_url : null,
-                    `https://twitter.com/${twitterHandle}`,
+                    `https://bsky.app/profile/${blueskyHandle}`,
                     'https://www.linkedin.com/in/emmercm/'
                 ].filter(url=>url)
             }
