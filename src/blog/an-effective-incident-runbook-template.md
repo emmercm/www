@@ -125,7 +125,7 @@ Steps to take, in order:
 > 1. Help the incident responder take steps to stop the situation from getting worse.
 > 2. Help the incident responder take steps to recover from the situation.
 >
-> Incident mitigation is all about fixing the immediate problem. You can think of mitigation as: if I’ am paged at 3 a.m., what do I need to do to get the system healthy such that I can confidently & safely go back to sleep?
+> Incident mitigation is all about fixing the immediate problem. You can think of mitigation as: if I'm paged at 3 a.m., what do I need to do to get the system healthy such that I can confidently & safely go back to sleep?
 >
 > Complicated, nuanced, or unclear steps may benefit from the inclusion of screenshots that have been marked up with arrows and/or numbers to indicate action order.
 >
@@ -155,13 +155,13 @@ Indicators that health has been restored:
 >
 > - Help the incident responder take any final, necessary steps before the incident can be resolved.
 >
-> Incident remediation covers the steps that need to be taken after mitigation, generally during normal working hours. Steps may include, but aren’ not limited to:
+> Incident remediation covers the steps that need to be taken after mitigation, generally during normal working hours. Steps may include but aren't limited to:
 >
 > - Reverting any temporary hotfixes made during mitigation
 > - Dealing with any corrupted data or statistics
 > - Auditing other services, jobs, etc. for similar risks
 >
-> This doesn’ not encompass incident follow-ups, which should be created & prioritized as part of the written incident postmortem & debrief meeting.
+> This doesn't encompass incident follow-ups, which should be created & prioritized as part of the written incident postmortem & debrief meeting.
 
 Steps to take, in order:
 

@@ -72,5 +72,5 @@ SLAs don't make sense for all companies or services, sometimes the consequence o
 ## More reading
 
 - Google: [SRE fundamentals: SLIs, SLAs and SLOs](https://cloud.google.com/blog/products/gcp/sre-fundamentals-slis-slas-and-slos)
-- Atlassian: [SLA vs. SLO vs. SLI: What’s the difference?](https://www.atlassian.com/incident-management/kpis/sla-vs-slo-vs-sli)
+- Atlassian: [SLA vs. SLO vs. SLI: What's the difference?](https://www.atlassian.com/incident-management/kpis/sla-vs-slo-vs-sli)
 - New Relic: [Best Practices for Setting SLOs and SLIs For Modern, Complex Systems](https://blog.newrelic.com/engineering/best-practices-for-setting-slos-and-slis-for-modern-complex-systems/)
