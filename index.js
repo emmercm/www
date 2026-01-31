@@ -542,9 +542,11 @@ tracer(Metalsmith(path.resolve()))
         directoryIndex: 'index.md'
     }))
 
-    // Validate markdown file naming
     .use((files, metalsmith, done) => {
-        const pathMismatches = metalsmith.match('**/*.md', Object.keys(files))
+        const markdownFilenames = metalsmith.match('**/*.md', Object.keys(files));
+
+        // Validate markdown file naming
+        const pathMismatches = markdownFilenames
             .map((filename) => {
                 const file = files[filename];
                 const permanentPath = `${file.paths.dir || 'index'}${file.paths.ext}`
@@ -555,7 +557,24 @@ tracer(Metalsmith(path.resolve()))
             .filter((err) => err);
         if (pathMismatches.length) {
             done(`Some blog articles are named incorrectly:\n${pathMismatches.map((err) => `  ${err}`).join('\n')}`);
+            return;
         }
+
+        // Validate markdown content
+        const illegalContents = markdownFilenames
+            .map((filename) => {
+                const file = files[filename];
+                const illegalMatches = /([ʹʺʻʼʽˈ˝ˮ‘’‛“”„‟′″‵‶])/.exec(file.contents.toString());
+                if (illegalMatches !== null) {
+                    return `${filename}: ${illegalMatches.slice(1).join(', ')}`;
+                }
+            })
+            .filter((err) => err);
+        if (illegalContents.length) {
+            done(`Some blog articles have illegal content:\n${illegalContents.map((err) => `  ${err} `).join('\n')}`);
+            return;
+        }
+
         done();
     })
 
