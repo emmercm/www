@@ -7,26 +7,9 @@ title:
 https://dev.to/bolajiwahab/progress-reporting-in-postgresql-1i0d
 
 ```sql
-SELECT now()  
-     , a.query  
-  , p.phase  
-  , round(100.0 * p.blocks_done / nullif(p.blocks_total, 0), 2) AS "%_blocks_done"  
-     , p.blocks_done  
-  , p.blocks_total  
-  , round(100.0 * p.tuples_done / nullif(p.tuples_total, 0), 2) AS "%_tuples_done"  
-     , p.tuples_done  
-  , p.tuples_total  
-  , ai.relname AS table_name  
-  , ai.indexrelname AS index_name  
-FROM pg_stat_progress_create_index p  
-JOIN pg_stat_activity a  
-     ON p.pid = a.pid  
-LEFT JOIN pg_stat_all_indexes ai  
-          ON ai.relid = p.relid AND ai.indexrelid = p.index_relid;  
-  
 -- https://dev.to/bolajiwahab/progress-reporting-in-postgresql-1i0d  
 SELECT p.pid  
-  , now() - a.backend_start AS duration  
+  , now() - a.xact_start AS duration  
      , ai.schemaname AS schema_name  
   , ai.relname AS table_name  
   , ai.indexrelname AS index_name  
@@ -85,5 +68,5 @@ LEFT JOIN pg_stat_all_indexes ai
   AND ai.indexrelid = p.index_relid;
   ```
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTc2ODU2MzQ1Nl19
+eyJoaXN0b3J5IjpbLTE3ODM0OTI4NTAsLTc2ODU2MzQ1Nl19
 -->
