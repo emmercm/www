@@ -20,7 +20,7 @@ I don't have infinite time in the day, and neither do you. We set up automated a
 
 What do I think is truly important enough to break my concentration? I'll tell you!
 
-- **Breaking a service SLO, or an SLO error budget burn rate that will imminently cause SLO breakage.**
+- **Breaking a service [SLO](/blog/slis-slos-and-slas-what-are-they), or an SLO error budget burn rate that will imminently cause SLO breakage.**
 
   Clients, internal and external, rely on services maintaining their SLOs. A service breaking its SLO means that service is likely to degrade other services that depend on it. Depending on how tightly-coupled services are, that could be disastrous.
 
@@ -28,6 +28,6 @@ What do I think is truly important enough to break my concentration? I'll tell y
 
   If a service isn't available, it is definitely going to break its SLOs. The lack of availability could be a bug with code, resource exhaustion (pinned CPU, full disk, saturated connection pools, etc.), or infrastructure (data stores, networking, deployment manager, etc.). The cause doesn't particularly matter, I still need to be paged.
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTE2MTI5MDUxMTcsLTkxNzU1MjIyLC0xNz
-I0NzM4MjIzXX0=
+eyJoaXN0b3J5IjpbLTk0NDA0Mjc5MiwtOTE3NTUyMjIsLTE3Mj
+Q3MzgyMjNdfQ==
 -->
