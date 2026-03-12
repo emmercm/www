@@ -30,8 +30,8 @@ What do I think is truly important enough to break my concentration? I'll tell y
 
 - **Security issues.**
 
-  If I can semi-accurately identify a bot attack, I want to be paged. A bot attack will li
+  If I can semi-accurately identify a bot attack, I want to be paged. A bot attack will likely lead to availability issues or runaway spend.
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbODM0NDU0ODMsLTkxNzU1MjIyLC0xNzI0Nz
-M4MjIzXX0=
+eyJoaXN0b3J5IjpbLTE0NDM2ODIyNTQsLTkxNzU1MjIyLC0xNz
+I0NzM4MjIzXX0=
 -->
