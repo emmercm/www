@@ -23,6 +23,11 @@ What do I think is truly important enough to break my concentration? I'll tell y
 - **Breaking a service SLO, or an SLO error budget burn rate that will imminently cause SLO breakage.**
 
   Clients, internal and external, rely on services maintaining their SLOs. A service breaking its SLO means that service is likely to degrade other services that depend on it. Depending on how tightly-coupled services are, that could be disastrous.
+
+- **Availability issues.**
+
+  If a service isn't available, it is definitely going to break its SLOs. The lack of availability could be the service itself, or it could be its infrastructure (data stores, networking, 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTkxNzU1MjIyLC0xNzI0NzM4MjIzXX0=
+eyJoaXN0b3J5IjpbMTYwODk5MjM5NiwtOTE3NTUyMjIsLTE3Mj
+Q3MzgyMjNdfQ==
 -->
