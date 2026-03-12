@@ -20,7 +20,9 @@ I don't have infinite time in the day, and neither do you. We set up automated a
 
 What do I think is truly important enough to break my concentration? I'll tell you!
 
-- **Breaking a service SLO, or an SLO error budget burn rate that will imminently cause SLO breakage.**
+- **Breaking a service SLO, or an SLO error budget burn rate that will imminently cause SLO/SLA breakage.**
+
+Clients, internal and external, rely on services maintaining their SLOs. Breaking an SLO
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTcxOTgwNTQ1MCwtMTcyNDczODIyM119
+eyJoaXN0b3J5IjpbNDM1MzgwMTI1LC0xNzI0NzM4MjIzXX0=
 -->
