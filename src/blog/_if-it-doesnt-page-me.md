@@ -14,7 +14,13 @@ At places I've worked, it is common for automated alerts to ping Slack channels.
 
 **If I need to take immediate action because of an alert, it needs to page me.**
 
-I don't have infinite time in the day, and neither do you. We set up automated alerts because we believe these failure conditions are important enough to take us away from other work. If they're truly important enough to break my concentration, then they should page me. Context switching cost is real, 
+I don't have infinite time in the day, and neither do you. We set up automated alerts because we believe these failure conditions are important enough to take us away from other work. If they're truly important enough to break my concentration, then they should page me. Context switching cost is real, and it's expensive.
+
+## Examples
+
+What do I think is truly important enough to break my concentration? I'll tell you!
+
+
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTU2NTE2MDY0MywtMTcyNDczODIyM119
+eyJoaXN0b3J5IjpbMTkxNjE0NTAyNiwtMTcyNDczODIyM119
 -->
