@@ -26,8 +26,8 @@ What do I think is truly important enough to break my concentration? I'll tell y
 
 - **Availability issues.**
 
-  If a service isn't available, it is definitely going to break its SLOs. The lack of availability could be a bug with code, resource exhaustion, or infrastructure (data stores, networking, deployment manager, etc.) — either way, I need to know.
+  If a service isn't available, it is definitely going to break its SLOs. The lack of availability could be a bug with code, resource exhaustion (pinned CPU, full disk, saturated connection pools, etc.), or infrastructure (data stores, networking, deployment manager, etc.). The cause doesn't particularly matter, I still need to be paged.
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTM3NTU0ODMwMiwtOTE3NTUyMjIsLTE3Mj
-Q3MzgyMjNdfQ==
+eyJoaXN0b3J5IjpbLTEyODY4NjA2MTksLTkxNzU1MjIyLC0xNz
+I0NzM4MjIzXX0=
 -->
