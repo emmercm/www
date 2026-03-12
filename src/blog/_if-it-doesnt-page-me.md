@@ -16,7 +16,7 @@ At places I've worked, it is common for automated alerts to ping Slack channels.
 
 I don't have infinite time in the day, and neither do you. We set up automated alerts because we believe these failure conditions are important enough to take us away from other work. If they're truly important enough to break my concentration, then they should page me. Context switching cost is real, and it's expensive.
 
-## Examples of import
+## Matters of import
 
 What do I think is truly important enough to break my concentration? I'll tell you!
 
@@ -31,7 +31,9 @@ What do I think is truly important enough to break my concentration? I'll tell y
 - **Security issues.**
 
   If I can semi-accurately identify a bot attack, I want to be paged. A bot attack will likely lead to availability issues or runaway spend.
+
+## Matters of little import
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTE0NDM2ODIyNTQsLTkxNzU1MjIyLC0xNz
-I0NzM4MjIzXX0=
+eyJoaXN0b3J5IjpbLTgzNjYwNTE3LC05MTc1NTIyMiwtMTcyND
+czODIyM119
 -->
