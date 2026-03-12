@@ -16,7 +16,7 @@ At places I've worked, it is common for automated alerts to ping Slack channels.
 
 I don't have infinite time in the day, and neither do you. We set up automated alerts because we believe these failure conditions are important enough to take us away from other work. If they're truly important enough to break my concentration, then they should page me. Context switching cost is real, and it's expensive.
 
-## Examples
+## Examples of import
 
 What do I think is truly important enough to break my concentration? I'll tell you!
 
@@ -28,6 +28,6 @@ What do I think is truly important enough to break my concentration? I'll tell y
 
   If a service isn't available, it is definitely going to break its SLOs. The lack of availability could be a bug with code, resource exhaustion (pinned CPU, full disk, saturated connection pools, etc.), or infrastructure (data stores, networking, deployment manager, etc.). The cause doesn't particularly matter, I still need to be paged.
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTEyODY4NjA2MTksLTkxNzU1MjIyLC0xNz
+eyJoaXN0b3J5IjpbLTE2MTI5MDUxMTcsLTkxNzU1MjIyLC0xNz
 I0NzM4MjIzXX0=
 -->
