@@ -20,9 +20,9 @@ I don't have infinite time in the day, and neither do you. We set up automated a
 
 What do I think is truly important enough to break my concentration? I'll tell you!
 
-- **Breaking a service SLO, or an SLO error budget burn rate that will imminently cause SLO/SLA breakage.**
+- **Breaking a service SLO, or an SLO error budget burn rate that will imminently cause SLO breakage.**
 
-Clients, internal and external, rely on services maintaining their SLOs. Breaking an SLO
+  Clients, internal and external, rely on services maintaining their SLOs. A service breaking its SLO means that service is likely to degrade other services that depend on it. Depending on how tightly-coupled services are, that could be disastrous.
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbNDM1MzgwMTI1LC0xNzI0NzM4MjIzXX0=
+eyJoaXN0b3J5IjpbLTkxNzU1MjIyLC0xNzI0NzM4MjIzXX0=
 -->
