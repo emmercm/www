@@ -12,7 +12,7 @@ If an alert isn't important enough to wake me up at 2 a.m., then it isn't import
 
 At places I've worked, it is common for automated alerts to ping Slack channels. Over time, teams tend to build up a lot of automated alerts, either proactively, or in response to incidents. These alerts may only go to Slack and not page engineers, because the creator doesn't have conviction that it will always be severe or actionable enough to page someone. These Slack channels then get noisier and noisier over time until engineers stop paying attention to them. Which is why I say:
 
-**If an alert is important enough to break my concentration during the day, then it shIf I need to take immediate action because of an alert, it needs to page me.**
+**If an alert is important enough to break my concentration during the day, then it should be important enough to page me at all hours of the day.**
 
 I don't have infinite time in the day, and neither do you. We set up automated alerts because we believe these failure conditions are important enough to take us away from other work. If they're truly important enough to break my concentration, then they should page me. Context switching cost is real, and it's expensive.
 
@@ -22,7 +22,7 @@ What do I think is truly important enough to break my concentration? I'll tell y
 
 - **Breaking a service [SLO](/blog/slis-slos-and-slas-what-are-they) (or an SLO error budget burn rate that will imminently cause SLO breakage).**
 
-  Clients, internal and external, rely on services maintaining their SLOs. A service breaking its SLO means that service is likely to degrade other services that depend on it. Depending on how tightly-coupled services are, that could be disastrous.
+  Clients, internal and external, rely on services maintaining their SLOs. A service breaking its SLO means that there is ethat service is likely to degrade other services that depend on it. Depending on how tightly-coupled services are, that could be disastrous.
 
 - **Availability issues.**
 
@@ -40,7 +40,7 @@ Becoming accustomed to alerts that are prone to false positives is a known probl
 
 Charity Majors. Observability Engineering: Achieving Production Excellence (pp. 203-204). (Function). Kindle Edition. 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTE1NTcyNjIyMDcsLTEyNjA0NTU2MjYsMT
-M0ODk5MjA2NywtODM2NjA1MTcsLTkxNzU1MjIyLC0xNzI0NzM4
-MjIzXX0=
+eyJoaXN0b3J5IjpbNjcxNzIwNDk0LC0xMjYwNDU1NjI2LDEzND
+g5OTIwNjcsLTgzNjYwNTE3LC05MTc1NTIyMiwtMTcyNDczODIy
+M119
 -->
