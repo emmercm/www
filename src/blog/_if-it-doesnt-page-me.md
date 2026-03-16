@@ -42,7 +42,7 @@ What do I think is frequently a waste of my concentration? Anything that isn't a
 
 - **High rate of retries.**
 
-  The whole point of retries is so that a intermittent failures are handled without human intervention. I don't particularly care if my service is retrying
+  The whole point of retries is so that a intermittent failures are handled without human intervention. I don't particularly care if my service has a high retry count with processing a queue or making outbound requests if it's still within its latency SLO.
 
 - **Request validation failures.**
 
@@ -54,7 +54,7 @@ Becoming accustomed to alerts that are prone to false positives is a known probl
 
 Charity Majors. Observability Engineering: Achieving Production Excellence (pp. 203-204). (Function). Kindle Edition. 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTQ2ODgxNzIyLDk5MDYwNDYxNywxMDE2Mj
-QwNjAwLC0xMjYwNDU1NjI2LDEzNDg5OTIwNjcsLTgzNjYwNTE3
-LC05MTc1NTIyMiwtMTcyNDczODIyM119
+eyJoaXN0b3J5IjpbLTI0MjkyODM5MCw5OTA2MDQ2MTcsMTAxNj
+I0MDYwMCwtMTI2MDQ1NTYyNiwxMzQ4OTkyMDY3LC04MzY2MDUx
+NywtOTE3NTUyMjIsLTE3MjQ3MzgyMjNdfQ==
 -->
