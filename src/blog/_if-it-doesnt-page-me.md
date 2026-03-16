@@ -40,13 +40,17 @@ What do I think is frequently a waste of my concentration?
 
   So what if my service or DB has high CPU or is using a lot of memory if it's still within its availability and latency SLOs? I don't want to be paged for a situation that had minimal customer impact and possibly autorecovered before I even had a chance to look at it.
 
+- **Request validation failures.**
+
+  If a person or another service is sending bad requests to my service, and my service is rejecting those appropriately, then that's a "you" problem and not a "me" problem.
+
 ---
 
 Becoming accustomed to alerts that are prone to false positives is a known problem and a dangerous practice. In other industries, that problem is known as normalization of deviance: a term coined during the investigation of the Challenger disaster. When individuals in an organization regularly shut off alarms or fail to take action when alarms occur, they eventually become so desensitized about the practice deviating from the expected response that it no longer feels wrong to them. Failures that are “normal” and disregarded are, at best, simply background noise. At worst, they lead to disastrous oversights from cascading system failures.
 
 Charity Majors. Observability Engineering: Achieving Production Excellence (pp. 203-204). (Function). Kindle Edition. 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTI5NzQ0NzY3MywxMDE2MjQwNjAwLC0xMj
-YwNDU1NjI2LDEzNDg5OTIwNjcsLTgzNjYwNTE3LC05MTc1NTIy
-MiwtMTcyNDczODIyM119
+eyJoaXN0b3J5IjpbOTEwMTc2ODY5LDEwMTYyNDA2MDAsLTEyNj
+A0NTU2MjYsMTM0ODk5MjA2NywtODM2NjA1MTcsLTkxNzU1MjIy
+LC0xNzI0NzM4MjIzXX0=
 -->
