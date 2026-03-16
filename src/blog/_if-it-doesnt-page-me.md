@@ -36,7 +36,7 @@ What do I think is truly important enough to break my concentration? I'll tell y
 
 What do I think is frequently a waste of my concentration?
 
-- **High CPU, low available memory, OOMs, high I/O.**
+- **High CPU, low available memory, OOMs/restarts, high I/O.**
 
   So what if my service or DB has high CPU or is using a lot of memory if it's still within its availability and latency SLOs? I don't want to be paged for a situation that had minimal customer impact and possibly autorecovered before I even had a chance to look at it.
 
@@ -46,7 +46,7 @@ Becoming accustomed to alerts that are prone to false positives is a known probl
 
 Charity Majors. Observability Engineering: Achieving Production Excellence (pp. 203-204). (Function). Kindle Edition. 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTg1OTA0MTA5NiwxMDE2MjQwNjAwLC0xMj
+eyJoaXN0b3J5IjpbMTI5NzQ0NzY3MywxMDE2MjQwNjAwLC0xMj
 YwNDU1NjI2LDEzNDg5OTIwNjcsLTgzNjYwNTE3LC05MTc1NTIy
 MiwtMTcyNDczODIyM119
 -->
