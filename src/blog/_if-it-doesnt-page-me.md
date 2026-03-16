@@ -10,9 +10,9 @@ tags:
 
 If an alert isn't important enough to wake me up at 2 a.m., then it isn't important enough to interrupt my working hours.
 
-At places I've worked, it is common for automated alerts to ping Slack channels. Over time, teams tend to build up a lot of automated alerts, either proactively, or in response to incidents. These alerts may only go to Slack and not page engineers, because the creator doesn't have conviction. These Slack channels then get noisier and noisier over time until engineers stop paying attention to them. Which is why I say:
+At places I've worked, it is common for automated alerts to ping Slack channels. Over time, teams tend to build up a lot of automated alerts, either proactively, or in response to incidents. These alerts may only go to Slack and not page engineers, because the creator doesn't have conviction that it will always be severe or actionable enough to page someone. These Slack channels then get noisier and noisier over time until engineers stop paying attention to them. Which is why I say:
 
-**If I need to take immediate action because of an alert, it needs to page me.**
+**If an alert is important enough to break my concentration during the day, then it shIf I need to take immediate action because of an alert, it needs to page me.**
 
 I don't have infinite time in the day, and neither do you. We set up automated alerts because we believe these failure conditions are important enough to take us away from other work. If they're truly important enough to break my concentration, then they should page me. Context switching cost is real, and it's expensive.
 
@@ -40,7 +40,7 @@ Becoming accustomed to alerts that are prone to false positives is a known probl
 
 Charity Majors. Observability Engineering: Achieving Production Excellence (pp. 203-204). (Function). Kindle Edition. 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTE3NDI0NDA5NiwtMTI2MDQ1NTYyNiwxMz
-Q4OTkyMDY3LC04MzY2MDUxNywtOTE3NTUyMjIsLTE3MjQ3Mzgy
-MjNdfQ==
+eyJoaXN0b3J5IjpbLTE1NTcyNjIyMDcsLTEyNjA0NTU2MjYsMT
+M0ODk5MjA2NywtODM2NjA1MTcsLTkxNzU1MjIyLC0xNzI0NzM4
+MjIzXX0=
 -->
