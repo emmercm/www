@@ -54,10 +54,9 @@ What do I think is frequently a waste of my concentration? Anything that isn't a
 
 ## Exceptions
 
-I do think there's a cogent argument
+I do think there's a cogent argument that if "cause" is severe enough, often enough or for long enough, that it warrants investigation. That's not the same as being paged for it.
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTIxMDUwNDk1NzMsLTExMDE3OTI2NTUsOT
-kwNjA0NjE3LDEwMTYyNDA2MDAsLTEyNjA0NTU2MjYsMTM0ODk5
-MjA2NywtODM2NjA1MTcsLTkxNzU1MjIyLC0xNzI0NzM4MjIzXX
-0=
+eyJoaXN0b3J5IjpbMjQ1MzI3NzQ3LC0xMTAxNzkyNjU1LDk5MD
+YwNDYxNywxMDE2MjQwNjAwLC0xMjYwNDU1NjI2LDEzNDg5OTIw
+NjcsLTgzNjYwNTE3LC05MTc1NTIyMiwtMTcyNDczODIyM119
 -->
