@@ -38,7 +38,7 @@ What do I think is frequently a waste of my concentration?
 
 - **High CPU, low available memory, OOMs, high I/O.**
 
-  So what if my service or DB has high CPU or is using a lot of memory if it's still within its availability and latency SLOs? I'd actually rather my services
+  So what if my service or DB has high CPU or is using a lot of memory if it's still within its availability and latency SLOs? I don't want to be paged for a situation that had minimal customer impact and possibly autore
 
 ---
 
@@ -46,7 +46,7 @@ Becoming accustomed to alerts that are prone to false positives is a known probl
 
 Charity Majors. Observability Engineering: Achieving Production Excellence (pp. 203-204). (Function). Kindle Edition. 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTE5NzU5NTc0LDEwMTYyNDA2MDAsLTEyNj
+eyJoaXN0b3J5IjpbMzIyMTE5MjgwLDEwMTYyNDA2MDAsLTEyNj
 A0NTU2MjYsMTM0ODk5MjA2NywtODM2NjA1MTcsLTkxNzU1MjIy
 LC0xNzI0NzM4MjIzXX0=
 -->
