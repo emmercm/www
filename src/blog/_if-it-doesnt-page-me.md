@@ -34,7 +34,7 @@ What do I think is truly important enough to break my concentration? I'll tell y
 
 ## Matters of little import
 
-What do I think is frequently a waste of my concentration?
+What do I think is frequently a waste of my concentration? Anything
 
 - **High CPU, low available memory, OOMs/restarts, high I/O.**
 
@@ -50,7 +50,7 @@ Becoming accustomed to alerts that are prone to false positives is a known probl
 
 Charity Majors. Observability Engineering: Achieving Production Excellence (pp. 203-204). (Function). Kindle Edition. 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbOTEwMTc2ODY5LDEwMTYyNDA2MDAsLTEyNj
-A0NTU2MjYsMTM0ODk5MjA2NywtODM2NjA1MTcsLTkxNzU1MjIy
-LC0xNzI0NzM4MjIzXX0=
+eyJoaXN0b3J5IjpbLTY2NjA1NDU2NywxMDE2MjQwNjAwLC0xMj
+YwNDU1NjI2LDEzNDg5OTIwNjcsLTgzNjYwNTE3LC05MTc1NTIy
+MiwtMTcyNDczODIyM119
 -->
