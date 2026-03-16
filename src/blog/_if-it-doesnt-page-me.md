@@ -30,9 +30,13 @@ What do I think is truly important enough to break my concentration? I'll tell y
 
 - **Security issues.**
 
-  If I can semi-accurately identify a breach or bot attack, I want to be paged. Both may require fast action, and both are going to be 
+  If I can semi-accurately identify a breach or bot attack, I want to be paged. Both may require fast action, and both are going to be expensive.
 
 ## Matters of little import
+
+What do I think is frequently a waste of my concentration?
+
+- High CPU, 
 
 ---
 
@@ -40,7 +44,7 @@ Becoming accustomed to alerts that are prone to false positives is a known probl
 
 Charity Majors. Observability Engineering: Achieving Production Excellence (pp. 203-204). (Function). Kindle Edition. 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbNDg1MjYyMzU4LC0xMjYwNDU1NjI2LDEzND
-g5OTIwNjcsLTgzNjYwNTE3LC05MTc1NTIyMiwtMTcyNDczODIy
-M119
+eyJoaXN0b3J5IjpbLTE1NjUxODI1NSwtMTI2MDQ1NTYyNiwxMz
+Q4OTkyMDY3LC04MzY2MDUxNywtOTE3NTUyMjIsLTE3MjQ3Mzgy
+MjNdfQ==
 -->
