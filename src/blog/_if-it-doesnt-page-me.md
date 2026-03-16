@@ -22,7 +22,7 @@ What do I think is truly important enough to break my concentration? I'll tell y
 
 - **Breaking a service [SLO](/blog/slis-slos-and-slas-what-are-they) (or an SLO error budget burn rate that will imminently cause SLO breakage).**
 
-  Clients, internal and external, rely on services maintaining their SLOs. A service breaking its SLO means that there is direct customer impact. The service might be causing it directly, or it is somehow degrading another servicthat service is likely to degrade other services that depend on it. Depending on how tightly-coupled services are, that could be disastrous.
+  Clients, internal and external, rely on services maintaining their SLOs. A service breaking its SLO means that there is direct customer impact. The service might be causing it directly, or it is somehow degrading another service which is causing the customer impact.
 
 - **Availability issues.**
 
@@ -30,7 +30,7 @@ What do I think is truly important enough to break my concentration? I'll tell y
 
 - **Security issues.**
 
-  If I can semi-accurately identify a bot attack, I want to be paged. A bot attack will likely lead to availability issues or runaway spend.
+  If I can semi-accurately identify a breach or bot attack, I want to be paged. Both may require fast action, and both are going to be 
 
 ## Matters of little import
 
@@ -40,7 +40,7 @@ Becoming accustomed to alerts that are prone to false positives is a known probl
 
 Charity Majors. Observability Engineering: Achieving Production Excellence (pp. 203-204). (Function). Kindle Edition. 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTc0OTA5ODU5NywtMTI2MDQ1NTYyNiwxMz
-Q4OTkyMDY3LC04MzY2MDUxNywtOTE3NTUyMjIsLTE3MjQ3Mzgy
-MjNdfQ==
+eyJoaXN0b3J5IjpbNDg1MjYyMzU4LC0xMjYwNDU1NjI2LDEzND
+g5OTIwNjcsLTgzNjYwNTE3LC05MTc1NTIyMiwtMTcyNDczODIy
+M119
 -->
