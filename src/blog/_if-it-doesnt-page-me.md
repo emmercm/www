@@ -16,6 +16,12 @@ At places I've worked, it is common for automated alerts to ping Slack channels.
 
 I don't have infinite time in the day, and neither do you. We set up automated alerts because we believe these failure conditions are important enough to take us away from other work. If they're truly important enough to break my concentration, then they should page me. Context switching cost is real, and it's expensive.
 
+Here's a quote from [Observability Engineering: Achieving Production Excellence](https://www.oreilly.com/library/view/observability-engineering/9781492076438/) 
+
+> Becoming accustomed to alerts that are prone to false positives is a known problem and a dangerous practice. In other industries, that problem is known as normalization of deviance: a term coined during the investigation of the Challenger disaster. When individuals in an organization regularly shut off alarms or fail to take action when alarms occur, they eventually become so desensitized about the practice deviating from the expected response that it no longer feels wrong to them. Failures that are “normal” and disregarded are, at best, simply background noise. At worst, they lead to disastrous oversights from cascading system failures.
+
+Charity Majors. Observability Engineering: Achieving Production Excellence (pp. 203-204). (Function). Kindle Edition. 
+
 ## Matters of high import
 
 What do I think is truly important enough to break my concentration? I'll tell you!
@@ -48,9 +54,8 @@ What do I think is frequently a waste of my concentration? Anything that isn't a
 
   If a person or another service is sending bad requests to my service, and my service is rejecting those appropriately, then that's a "you" problem and not a "me" problem.
 
-
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTc5MDg2OTQwNSw5OTA2MDQ2MTcsMTAxNj
-I0MDYwMCwtMTI2MDQ1NTYyNiwxMzQ4OTkyMDY3LC04MzY2MDUx
-NywtOTE3NTUyMjIsLTE3MjQ3MzgyMjNdfQ==
+eyJoaXN0b3J5IjpbMTQ3MDQ0MTUsOTkwNjA0NjE3LDEwMTYyND
+A2MDAsLTEyNjA0NTU2MjYsMTM0ODk5MjA2NywtODM2NjA1MTcs
+LTkxNzU1MjIyLC0xNzI0NzM4MjIzXX0=
 -->
