@@ -34,11 +34,11 @@ What do I think is truly important enough to break my concentration? I'll tell y
 
 ## Matters of little import
 
-What do I think is frequently a waste of my concentration? Anything
+What do I think is frequently a waste of my concentration? Anything that isn't actionable the gross majority of the time.
 
 - **High CPU, low available memory, OOMs/restarts, high I/O.**
 
-  So what if my service or DB has high CPU or is using a lot of memory if it's still within its availability and latency SLOs? I don't want to be paged for a situation that had minimal customer impact and possibly autorecovered before I even had a chance to look at it.
+  So what if my service or DB has high CPU or is using a lot of memory if it's still within its availability and latency SLOs? I don't want to be paged for a situation that has minimal customer impact and possibly autorecovered before I even had a chance to look at it.
 
 - **Request validation failures.**
 
@@ -50,7 +50,7 @@ Becoming accustomed to alerts that are prone to false positives is a known probl
 
 Charity Majors. Observability Engineering: Achieving Production Excellence (pp. 203-204). (Function). Kindle Edition. 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTY2NjA1NDU2NywxMDE2MjQwNjAwLC0xMj
-YwNDU1NjI2LDEzNDg5OTIwNjcsLTgzNjYwNTE3LC05MTc1NTIy
-MiwtMTcyNDczODIyM119
+eyJoaXN0b3J5IjpbOTkwNjA0NjE3LDEwMTYyNDA2MDAsLTEyNj
+A0NTU2MjYsMTM0ODk5MjA2NywtODM2NjA1MTcsLTkxNzU1MjIy
+LC0xNzI0NzM4MjIzXX0=
 -->
