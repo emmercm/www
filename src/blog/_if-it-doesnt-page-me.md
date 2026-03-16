@@ -40,6 +40,10 @@ What do I think is frequently a waste of my concentration? Anything that isn't a
 
   So what if my service or DB has high CPU or is using a lot of memory if it's still within its availability and latency SLOs? I don't want to be paged for a situation that has minimal customer impact and possibly autorecovered before I even had a chance to look at it.
 
+- **High rate of retries.**
+
+  The whole point of retries is so that a intermittent failures are handled without human intervention. I don't particularly care if my service is retrying
+
 - **Request validation failures.**
 
   If a person or another service is sending bad requests to my service, and my service is rejecting those appropriately, then that's a "you" problem and not a "me" problem.
@@ -50,7 +54,7 @@ Becoming accustomed to alerts that are prone to false positives is a known probl
 
 Charity Majors. Observability Engineering: Achieving Production Excellence (pp. 203-204). (Function). Kindle Edition. 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbOTkwNjA0NjE3LDEwMTYyNDA2MDAsLTEyNj
-A0NTU2MjYsMTM0ODk5MjA2NywtODM2NjA1MTcsLTkxNzU1MjIy
-LC0xNzI0NzM4MjIzXX0=
+eyJoaXN0b3J5IjpbLTQ2ODgxNzIyLDk5MDYwNDYxNywxMDE2Mj
+QwNjAwLC0xMjYwNDU1NjI2LDEzNDg5OTIwNjcsLTgzNjYwNTE3
+LC05MTc1NTIyMiwtMTcyNDczODIyM119
 -->
