@@ -48,13 +48,9 @@ What do I think is frequently a waste of my concentration? Anything that isn't a
 
   If a person or another service is sending bad requests to my service, and my service is rejecting those appropriately, then that's a "you" problem and not a "me" problem.
 
----
 
-Becoming accustomed to alerts that are prone to false positives is a known problem and a dangerous practice. In other industries, that problem is known as normalization of deviance: a term coined during the investigation of the Challenger disaster. When individuals in an organization regularly shut off alarms or fail to take action when alarms occur, they eventually become so desensitized about the practice deviating from the expected response that it no longer feels wrong to them. Failures that are “normal” and disregarded are, at best, simply background noise. At worst, they lead to disastrous oversights from cascading system failures.
-
-Charity Majors. Observability Engineering: Achieving Production Excellence (pp. 203-204). (Function). Kindle Edition. 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTI0MjkyODM5MCw5OTA2MDQ2MTcsMTAxNj
+eyJoaXN0b3J5IjpbLTc5MDg2OTQwNSw5OTA2MDQ2MTcsMTAxNj
 I0MDYwMCwtMTI2MDQ1NTYyNiwxMzQ4OTkyMDY3LC04MzY2MDUx
 NywtOTE3NTUyMjIsLTE3MjQ3MzgyMjNdfQ==
 -->
