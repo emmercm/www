@@ -50,11 +50,16 @@ What do I think is frequently a waste of my concentration? Anything that isn't a
 
   The whole point of retries is so that a intermittent failures are handled without human intervention. I don't particularly care if my service has a high retry count with processing a queue or making outbound requests if it's still within its latency SLO.
 
+- **Low throughout.**
+
+  It
+
 - **Request validation failures.**
 
   If a person or another service is sending bad requests to my service, and my service is rejecting those appropriately, then that's a "you" problem and not a "me" problem.
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbNTUwOTgwMTQxLC0xMTAxNzkyNjU1LDk5MD
-YwNDYxNywxMDE2MjQwNjAwLC0xMjYwNDU1NjI2LDEzNDg5OTIw
-NjcsLTgzNjYwNTE3LC05MTc1NTIyMiwtMTcyNDczODIyM119
+eyJoaXN0b3J5IjpbLTE4Nzg4MDI5NjIsLTExMDE3OTI2NTUsOT
+kwNjA0NjE3LDEwMTYyNDA2MDAsLTEyNjA0NTU2MjYsMTM0ODk5
+MjA2NywtODM2NjA1MTcsLTkxNzU1MjIyLC0xNzI0NzM4MjIzXX
+0=
 -->
