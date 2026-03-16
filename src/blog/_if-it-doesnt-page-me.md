@@ -52,8 +52,12 @@ What do I think is frequently a waste of my concentration? Anything that isn't a
 
   If a person or another service is sending bad requests to my service, and my service is rejecting those appropriately, then that's a "you" problem and not a "me" problem.
 
+## Exceptions
+
+I do think there's a cogent argument
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTExMDE3OTI2NTUsOTkwNjA0NjE3LDEwMT
-YyNDA2MDAsLTEyNjA0NTU2MjYsMTM0ODk5MjA2NywtODM2NjA1
-MTcsLTkxNzU1MjIyLC0xNzI0NzM4MjIzXX0=
+eyJoaXN0b3J5IjpbLTIxMDUwNDk1NzMsLTExMDE3OTI2NTUsOT
+kwNjA0NjE3LDEwMTYyNDA2MDAsLTEyNjA0NTU2MjYsMTM0ODk5
+MjA2NywtODM2NjA1MTcsLTkxNzU1MjIyLC0xNzI0NzM4MjIzXX
+0=
 -->
