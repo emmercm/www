@@ -52,13 +52,13 @@ What do I think is frequently a waste of my concentration? Anything that isn't a
 
 - **Low throughout.**
 
-  It
+  It's a good idea to know when your service isn't reachable, but alerting on traffic being below a threshold is likely to give false positives depending on your traffic seasonality. Use a synthetic instead.
 
 - **Request validation failures.**
 
   If a person or another service is sending bad requests to my service, and my service is rejecting those appropriately, then that's a "you" problem and not a "me" problem.
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTE4Nzg4MDI5NjIsLTExMDE3OTI2NTUsOT
+eyJoaXN0b3J5IjpbLTEyMjc0NjQ5OTUsLTExMDE3OTI2NTUsOT
 kwNjA0NjE3LDEwMTYyNDA2MDAsLTEyNjA0NTU2MjYsMTM0ODk5
 MjA2NywtODM2NjA1MTcsLTkxNzU1MjIyLC0xNzI0NzM4MjIzXX
 0=
