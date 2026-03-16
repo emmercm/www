@@ -60,10 +60,10 @@ What do I think is frequently a waste of my concentration? Anything that isn't a
 
 ## Conclusion
 
-The next time you see an alert that no one has acte
+The next time you see an alert fire that no one has acted on in months, just delete it.
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTE0NjQyNTc5MzcsLTEyMjc0NjQ5OTUsLT
-ExMDE3OTI2NTUsOTkwNjA0NjE3LDEwMTYyNDA2MDAsLTEyNjA0
-NTU2MjYsMTM0ODk5MjA2NywtODM2NjA1MTcsLTkxNzU1MjIyLC
-0xNzI0NzM4MjIzXX0=
+eyJoaXN0b3J5IjpbMTIxMTY0MTM1MCwtMTIyNzQ2NDk5NSwtMT
+EwMTc5MjY1NSw5OTA2MDQ2MTcsMTAxNjI0MDYwMCwtMTI2MDQ1
+NTYyNiwxMzQ4OTkyMDY3LC04MzY2MDUxNywtOTE3NTUyMjIsLT
+E3MjQ3MzgyMjNdfQ==
 -->
