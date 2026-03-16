@@ -36,7 +36,7 @@ What do I think is truly important enough to break my concentration? I'll tell y
 
 What do I think is frequently a waste of my concentration?
 
-- High CPU, 
+- **High CPU, low available memory, OOMs, high I/O.**
 
 ---
 
@@ -44,7 +44,7 @@ Becoming accustomed to alerts that are prone to false positives is a known probl
 
 Charity Majors. Observability Engineering: Achieving Production Excellence (pp. 203-204). (Function). Kindle Edition. 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTE1NjUxODI1NSwtMTI2MDQ1NTYyNiwxMz
+eyJoaXN0b3J5IjpbMTAxNjI0MDYwMCwtMTI2MDQ1NTYyNiwxMz
 Q4OTkyMDY3LC04MzY2MDUxNywtOTE3NTUyMjIsLTE3MjQ3Mzgy
 MjNdfQ==
 -->
