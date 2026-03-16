@@ -57,9 +57,13 @@ What do I think is frequently a waste of my concentration? Anything that isn't a
 - **Request validation failures.**
 
   If a person or another service is sending bad requests to my service, and my service is rejecting those appropriately, then that's a "you" problem and not a "me" problem.
+
+## Conclusion
+
+The next time you see an alert that no one has acte
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTEyMjc0NjQ5OTUsLTExMDE3OTI2NTUsOT
-kwNjA0NjE3LDEwMTYyNDA2MDAsLTEyNjA0NTU2MjYsMTM0ODk5
-MjA2NywtODM2NjA1MTcsLTkxNzU1MjIyLC0xNzI0NzM4MjIzXX
-0=
+eyJoaXN0b3J5IjpbLTE0NjQyNTc5MzcsLTEyMjc0NjQ5OTUsLT
+ExMDE3OTI2NTUsOTkwNjA0NjE3LDEwMTYyNDA2MDAsLTEyNjA0
+NTU2MjYsMTM0ODk5MjA2NywtODM2NjA1MTcsLTkxNzU1MjIyLC
+0xNzI0NzM4MjIzXX0=
 -->
