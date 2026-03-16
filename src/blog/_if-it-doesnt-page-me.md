@@ -33,7 +33,13 @@ What do I think is truly important enough to break my concentration? I'll tell y
   If I can semi-accurately identify a bot attack, I want to be paged. A bot attack will likely lead to availability issues or runaway spend.
 
 ## Matters of little import
+
+---
+
+Becoming accustomed to alerts that are prone to false positives is a known problem and a dangerous practice. In other industries, that problem is known as normalization of deviance: a term coined during the investigation of the Challenger disaster. When individuals in an organization regularly shut off alarms or fail to take action when alarms occur, they eventually become so desensitized about the practice deviating from the expected response that it no longer feels wrong to them. Failures that are “normal” and disregarded are, at best, simply background noise. At worst, they lead to disastrous oversights from cascading system failures.
+
+Charity Majors. Observability Engineering: Achieving Production Excellence (pp. 203-204). (Function). Kindle Edition. 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTM0ODk5MjA2NywtODM2NjA1MTcsLTkxNz
-U1MjIyLC0xNzI0NzM4MjIzXX0=
+eyJoaXN0b3J5IjpbLTEyNjA0NTU2MjYsMTM0ODk5MjA2NywtOD
+M2NjA1MTcsLTkxNzU1MjIyLC0xNzI0NzM4MjIzXX0=
 -->
