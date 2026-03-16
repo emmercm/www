@@ -1,6 +1,8 @@
 ---
 
 title: If It Doesn't Page Me, I'm Not Looking at It
+date: 2026-03-16T19:08:00
+image: https://unsplash.com/photos/abstract-dark-landscape-with-textured-mountain-peaks-HxtvH28DSVM
 tags:
 - observability
 - opinion
@@ -51,15 +53,8 @@ What do I think is frequently a waste of my concentration? Anything that isn't a
 - **Request validation failures.**
 
   If a person or another service is sending bad requests to my service, and my service is rejecting those appropriately, then that's a "you" problem and not a "me" problem.
-
-## Exceptions
-
-I do think there's a cogent argument that if "cause" is severe enough, often enough or for long enough, that it warrants investigation. But that's not the same as being paged for it.
-
-The problem with SLO-based alerts
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTU3MzkwMDI3MSwtMTEwMTc5MjY1NSw5OT
-A2MDQ2MTcsMTAxNjI0MDYwMCwtMTI2MDQ1NTYyNiwxMzQ4OTky
-MDY3LC04MzY2MDUxNywtOTE3NTUyMjIsLTE3MjQ3MzgyMjNdfQ
-==
+eyJoaXN0b3J5IjpbNTUwOTgwMTQxLC0xMTAxNzkyNjU1LDk5MD
+YwNDYxNywxMDE2MjQwNjAwLC0xMjYwNDU1NjI2LDEzNDg5OTIw
+NjcsLTgzNjYwNTE3LC05MTc1NTIyMiwtMTcyNDczODIyM119
 -->
