@@ -1162,6 +1162,7 @@ tracer(Metalsmith(path.resolve()))
             'fvue.nl',
             'patreon.com',
             'news.ycombinator.com',
+            'boardgamegeek.com',
             // Anti-bot 404
             'fonts.gstatic.com$',
             'support.google.com',
