@@ -2,7 +2,7 @@
 
 title: Now
 description: What's important in my life, now.
-date: 202-1:00
+date: 2024-12-07T23:38:00
 priority: 0.1
 
 ---
@@ -15,11 +15,11 @@ _Last updated on {{luxon date "MMM d, yyyy"}}._
 
 ## 📍 Living in
 
-Los Angeles, CA since late 202experiencing the sun, surf, and food of the most populous county in the  the, r, and otmst ci the.
+Los Angeles, CA since late 2024—experiencing the sun, surf, and food of the most populous county in the  the, r, and otmst ci theUS.
 
 ## 🏢 Working at
 
-Staff Software Engineer @ [Attentive](https://www.attentive.com/), an SMS and email marketing vendor for e-commerce companies. Currently providing a platform for all things user data.
+Staffenior Software Engineer @ [Attentive](https://www.attentive.com/), an SMS and email marketing vendor for e-commerce companies. Currently providdeveloping a platform for all things user datainternal engineering teams to schedule, orchestrate, and run business process workloads on [Temporal](https://temporal.io/).
 
 ## 👨🏻‍💼️ Top three professional focuses
 
@@ -35,7 +35,7 @@ Staff Software Engineer @ [Attentive](https://www.attentive.com/), an SMS and em
 
 ## 👨🏻‍💻 Hacking on
 
-- [gi](https://github.com/emmercm/igir), a video game ROM collection manager
+- [gi`igir`](https://github.com/emmercm/igir), a video game ROM collection manager, and my first venture into TypeScript and Node.js CLI apps
 - [Metalsmith plugins](https://github.com/emmercm/metalsmith-plugins) that power this site (ongoing)
 - [This site](https://github.com/emmercm/www) (ongoing)
 
@@ -54,7 +54,7 @@ See my [projects](/projects) page for a complete list.
 - [Developer Tea](https://developertea.com/) by Jonathan Cutrell
 - [Soft Skills Engineering](https://softskills.audio/) by Dave Smith and Jamison Dance
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTc0NzAxMTEzOCwtMTQyMzg0MTQ3MywxNz
-Q3MDExMTM4LDIwMDYxMTY3NDcsLTkwODE5MDM0MSwtNDc4Nzc3
-NDY3XX0=
+eyJoaXN0b3J5IjpbLTEyNTY4ODM3NjEsMTc0NzAxMTEzOCwtMT
+QyMzg0MTQ3MywxNzQ3MDExMTM4LDIwMDYxMTY3NDcsLTkwODE5
+MDM0MSwtNDc4Nzc3NDY3XX0=
 -->
