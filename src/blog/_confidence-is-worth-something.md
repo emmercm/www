@@ -1,7 +1,15 @@
+---
+
+title: Confidence is Worth Something
+date: 2026-03-23T17:10:00
+tags:
+- career
+- opinion
+- testing
+
+---
 
 
-
-> Written with [StackEdit](https://stackedit.io/).
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbNzMwOTk4MTE2XX0=
+eyJoaXN0b3J5IjpbMTA0NDQwMjYxXX0=
 -->
