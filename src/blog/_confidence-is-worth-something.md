@@ -18,7 +18,9 @@ Years ago, I was leading a time-sensitive cross-team project and got into an arg
 You can't tell me the _lack_ of confidence wasn't _also_ tangible in that situation.
 
 ## Present
+
+I'm reviving an API migration project that stalled out a year and a half ago. Most of the code was completed previously, left behind feature flags that were never fully enabled.
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTMzOTc5ODI2NywtMjMxMzQwMjgyLC0xNj
-QxMjU2NzkxLC0xMDA2MTQwNDY0XX0=
+eyJoaXN0b3J5IjpbLTQ5NjI5NjUxLC0zMzk3OTgyNjcsLTIzMT
+M0MDI4MiwtMTY0MTI1Njc5MSwtMTAwNjE0MDQ2NF19
 -->
