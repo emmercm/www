@@ -28,12 +28,12 @@ The path forward was clear: we needed as much confidence in the change as we cou
 - The endpoints should perform the same create, update, and delete operations on the underlying data store
 - The endpoints should call the same write endpoints of other services with the same request bodies
 
-I ended up writing more than 40 integration tests for 7 endpoints that had spies for 11 DBs, message brokers, and o
+I ended up writing more than 40 integration tests for 7 endpoints that had spies for 11 DBs, message brokers, and other services.
 
 ## Future
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTkzMjYyMTQ3NiwyMTA5NjU3MTMwLDE4NT
-Q1Njc3NzAsMTcwNzQzMDc5MCwtNDk2Mjk2NTEsLTMzOTc5ODI2
-NywtMjMxMzQwMjgyLC0xNjQxMjU2NzkxLC0xMDA2MTQwNDY0XX
-0=
+eyJoaXN0b3J5IjpbNzU5NTI2MTMzLDIxMDk2NTcxMzAsMTg1ND
+U2Nzc3MCwxNzA3NDMwNzkwLC00OTYyOTY1MSwtMzM5Nzk4MjY3
+LC0yMzEzNDAyODIsLTE2NDEyNTY3OTEsLTEwMDYxNDA0NjRdfQ
+==
 -->
