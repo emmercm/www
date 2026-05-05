@@ -19,9 +19,7 @@ You can't tell me the _lack_ of confidence wasn't _also_ tangible in that situat
 
 ## Present
 
-I'm reviving an API migration project that stalled out a year and a half ago. A new version of endpoints were added for caller ease-of-use, and to allow for deleting some old data models.
-
-Most of the code was completed previously, left behind feature flags that were never fully enabled. Some of them were enabled at some point, but caused a regression, and were rolled back. Even after fixing the regressions individually, the feature flags were not enabled again, for fear of what else might regress. We lacked confidence in the changes.
+I'm reviving an API migration project that stalled out a year and a half ago. A new version of all endpoints were added for to leak less internal information to callers, and to reduce the number of calls they need to coordinate. More than half the callers had code written to start calling the new endpoints, left behind feature flags that were never fully enabled. Some of them were enabled at some point, but caused a regression, and were rolled back. Even after fixing the regressions individually, the feature flags were not enabled again, for fear of what else might regress. We lacked confidence in the changes.
 
 We ended up with Schrödinger's migration: we didn't know if the migration was safe or not until we tried it in production. The classic push-and-pray method, a surefire way to erode customer trust. So the code languished for a year and a half without being exercised.
 
@@ -31,7 +29,7 @@ The path forward was clear: we needed as much confidence in the change as we cou
 
 ## Future
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTc3MzY0NjM1NiwxNzA3NDMwNzkwLC00OT
+eyJoaXN0b3J5IjpbMjA5MTQ4Nzk0MiwxNzA3NDMwNzkwLC00OT
 YyOTY1MSwtMzM5Nzk4MjY3LC0yMzEzNDAyODIsLTE2NDEyNTY3
 OTEsLTEwMDYxNDA0NjRdfQ==
 -->
