@@ -19,17 +19,17 @@ You can't tell me the _lack_ of confidence wasn't _also_ tangible in that situat
 
 ## Present
 
-I'm reviving an API migration project that stalled out a year and a half ago. Most of the code was completed previously, left behind feature flags that were never fully enabled. Some of them were enabled at some point, but caused a regression, and were rolled back. Even after fixing the regressions individually, the feature flags were not enabled again, for fear of what else might regress. We lacked confidence in the changes.
+I'm reviving an API migration project that stalled out a year and a half ago. A new version of endpoints were added for caller ease-of-use, and to allow forMost of the code was completed previously, left behind feature flags that were never fully enabled. Some of them were enabled at some point, but caused a regression, and were rolled back. Even after fixing the regressions individually, the feature flags were not enabled again, for fear of what else might regress. We lacked confidence in the changes.
 
 We ended up with Schrödinger's migration: we didn't know if the migration was safe or not until we tried it in production. The classic push-and-pray method, a surefire way to erode customer trust. So the code languished for a year and a half without being exercised.
 
 The path forward was clear: we needed as much confidence in the change as we could get within a timebox. We needed to know that endpoints that should be functionally equivalent actually were. The approach that I took was evaluating all side-effects between the two endpoints were identical:
 
-- The endpoints should perform the same
+- The endpoints should perform the same create, update, and delete operations on the
 
 ## Future
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTQ5NzAyNjE3MSwxNzA3NDMwNzkwLC00OT
+eyJoaXN0b3J5IjpbMTEwMTc2MDEyNywxNzA3NDMwNzkwLC00OT
 YyOTY1MSwtMzM5Nzk4MjY3LC0yMzEzNDAyODIsLTE2NDEyNTY3
 OTEsLTEwMDYxNDA0NjRdfQ==
 -->
