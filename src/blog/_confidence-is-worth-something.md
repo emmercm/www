@@ -23,13 +23,14 @@ I'm reviving an API migration project that stalled out a year and a half ago. A 
 
 So we ended up with Schrödinger's migration: we didn't know if the migration was safe or not until we tried it in production. The classic push-and-pray method, a surefire way to erode customer trust. So the code languished for a year and a half without being exercised.
 
-The path forward was clear: we needed as much confidence in the change as we could get within a timebox. We needed to know that endpoints that should be functionally equivalent actually were. The approach that I took was evaluating all side-effects between the two endpoints were identical:
+The path forward was clear: we needed as much confidence in the change as we could get (keeping in mind it would never be 100%). We needed to know that endpoints that should be functionally equivalent actually were. The approach that I took was evaluating all side-effects between the two endpoints were identical:
 
-- The endpoints should perform the same create, update, and delete operations on the
+- The endpoints should perform the same create, update, and delete operations on the underlying data store
+- The endpoints should call the same write endpoints
 
 ## Future
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTEzMzA3NjA5MzYsMTcwNzQzMDc5MCwtND
-k2Mjk2NTEsLTMzOTc5ODI2NywtMjMxMzQwMjgyLC0xNjQxMjU2
-NzkxLC0xMDA2MTQwNDY0XX0=
+eyJoaXN0b3J5IjpbMjM2NDAzNzc1LDE3MDc0MzA3OTAsLTQ5Nj
+I5NjUxLC0zMzk3OTgyNjcsLTIzMTM0MDI4MiwtMTY0MTI1Njc5
+MSwtMTAwNjE0MDQ2NF19
 -->
