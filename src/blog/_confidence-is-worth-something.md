@@ -30,12 +30,12 @@ The path forward was clear: we needed as much confidence in the change as we cou
 
 I ended up writing more than 40 integration tests for 7 pairs of endpoints that had spies for 11 DBs, message brokers, and other services. I found that one of the pairs of endpoints had multiple behavior differences that would have been client-visible.
 
-The rest of the endpoints? Entirely fine, no changes necessary. We hoped that was the case, but we didn't 
+The rest of the endpoints? Entirely fine, no changes were necessary, the new endpoint behaved like the old. We _hoped_ that was the case, but we didn't _know_ that. We needed _confidence_.
 
 ## Future
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTAzNTk0NDgxMSw3NTk1MjYxMzMsMjEwOT
-Y1NzEzMCwxODU0NTY3NzcwLDE3MDc0MzA3OTAsLTQ5NjI5NjUx
-LC0zMzk3OTgyNjcsLTIzMTM0MDI4MiwtMTY0MTI1Njc5MSwtMT
-AwNjE0MDQ2NF19
+eyJoaXN0b3J5IjpbLTE5OTY2NDIwNjEsNzU5NTI2MTMzLDIxMD
+k2NTcxMzAsMTg1NDU2Nzc3MCwxNzA3NDMwNzkwLC00OTYyOTY1
+MSwtMzM5Nzk4MjY3LC0yMzEzNDAyODIsLTE2NDEyNTY3OTEsLT
+EwMDYxNDA0NjRdfQ==
 -->
