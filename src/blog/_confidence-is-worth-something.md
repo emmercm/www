@@ -37,10 +37,10 @@ The rest of the endpoints? Entirely fine, no changes were necessary, the new end
 
 Every customer-visible bug and incident erodes trust in your business. Even small issues that customers are initially tolerant of add up over time.
 
-Confidence 
+Confidence is always worth it. Lack of confidence is a business risk.
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTE5ODc3NDgxNzIsMjE5MTkyMTM0LC0xNz
-Q2ODU4NzQwLDc1OTUyNjEzMywyMTA5NjU3MTMwLDE4NTQ1Njc3
-NzAsMTcwNzQzMDc5MCwtNDk2Mjk2NTEsLTMzOTc5ODI2NywtMj
-MxMzQwMjgyLC0xNjQxMjU2NzkxLC0xMDA2MTQwNDY0XX0=
+eyJoaXN0b3J5IjpbMTQxOTMzNTE0MiwyMTkxOTIxMzQsLTE3ND
+Y4NTg3NDAsNzU5NTI2MTMzLDIxMDk2NTcxMzAsMTg1NDU2Nzc3
+MCwxNzA3NDMwNzkwLC00OTYyOTY1MSwtMzM5Nzk4MjY3LC0yMz
+EzNDAyODIsLTE2NDEyNTY3OTEsLTEwMDYxNDA0NjRdfQ==
 -->
