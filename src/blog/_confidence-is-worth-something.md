@@ -2,6 +2,7 @@
 
 title: Confidence is a Requirement
 date: 2026-03-23T17:10:00
+image: https://unsplash.com/photos/white-and-black-no-smoking-sign-on-body-of-water-during-daytime-y-TVmSEWLO4
 tags:
 - career
 - opinion
@@ -34,10 +35,12 @@ The rest of the endpoints? Entirely fine, no changes were necessary, the new end
 
 ## Future
 
-Every customer-visible bug and incident erodes trust in your business. Even small issues that customers are tolerant of add up over time.
+Every customer-visible bug and incident erodes trust in your business. Even small issues that customers are initially tolerant of add up over time.
+
+Confidence 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMjE5MTkyMTM0LC0xNzQ2ODU4NzQwLDc1OT
-UyNjEzMywyMTA5NjU3MTMwLDE4NTQ1Njc3NzAsMTcwNzQzMDc5
-MCwtNDk2Mjk2NTEsLTMzOTc5ODI2NywtMjMxMzQwMjgyLC0xNj
-QxMjU2NzkxLC0xMDA2MTQwNDY0XX0=
+eyJoaXN0b3J5IjpbLTE5ODc3NDgxNzIsMjE5MTkyMTM0LC0xNz
+Q2ODU4NzQwLDc1OTUyNjEzMywyMTA5NjU3MTMwLDE4NTQ1Njc3
+NzAsMTcwNzQzMDc5MCwtNDk2Mjk2NTEsLTMzOTc5ODI2NywtMj
+MxMzQwMjgyLC0xNjQxMjU2NzkxLC0xMDA2MTQwNDY0XX0=
 -->
