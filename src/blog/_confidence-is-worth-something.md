@@ -34,10 +34,10 @@ The rest of the endpoints? Entirely fine, no changes were necessary, the new end
 
 ## Future
 
-Every customer-visible bug and incident erodes trust in your business. Even
+Every customer-visible bug and incident erodes trust in your business. Even small issues that customers are tolerant of add up over time.
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTE3NDY4NTg3NDAsNzU5NTI2MTMzLDIxMD
-k2NTcxMzAsMTg1NDU2Nzc3MCwxNzA3NDMwNzkwLC00OTYyOTY1
-MSwtMzM5Nzk4MjY3LC0yMzEzNDAyODIsLTE2NDEyNTY3OTEsLT
-EwMDYxNDA0NjRdfQ==
+eyJoaXN0b3J5IjpbMjE5MTkyMTM0LC0xNzQ2ODU4NzQwLDc1OT
+UyNjEzMywyMTA5NjU3MTMwLDE4NTQ1Njc3NzAsMTcwNzQzMDc5
+MCwtNDk2Mjk2NTEsLTMzOTc5ODI2NywtMjMxMzQwMjgyLC0xNj
+QxMjU2NzkxLC0xMDA2MTQwNDY0XX0=
 -->
