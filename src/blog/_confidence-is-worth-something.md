@@ -19,9 +19,9 @@ You can't tell me the _lack_ of confidence wasn't _also_ tangible in that situat
 
 ## Present
 
-I'm reviving an API migration project that stalled out a year and a half ago. Most of the code was completed previously, left behind feature flags that were never fully enabled. Some of them were enabled at some point, but caused a regression, and were rolled back. Even after fixing the observed regression, the feature flags were not enabled again, for fear of 
+I'm reviving an API migration project that stalled out a year and a half ago. Most of the code was completed previously, left behind feature flags that were never fully enabled. Some of them were enabled at some point, but caused a regression, and were rolled back. Even after fixing the regressions individually, the feature flags were not enabled again, for fear of what else might regress. We lacked confidence
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTE1ODU2MTc1OTMsLTQ5NjI5NjUxLC0zMz
-k3OTgyNjcsLTIzMTM0MDI4MiwtMTY0MTI1Njc5MSwtMTAwNjE0
-MDQ2NF19
+eyJoaXN0b3J5IjpbNDIzNTE1MDU3LC00OTYyOTY1MSwtMzM5Nz
+k4MjY3LC0yMzEzNDAyODIsLTE2NDEyNTY3OTEsLTEwMDYxNDA0
+NjRdfQ==
 -->
