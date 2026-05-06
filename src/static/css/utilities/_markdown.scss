@@ -76,6 +76,10 @@
     margin-left: 0px;
   }
 
+  pre {
+    @include font-size(1rem !important); // 16px
+  }
+
   $ul-padding: 1.875em;
   ul {
     padding-left: $ul-padding;
