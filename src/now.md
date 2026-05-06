@@ -2,7 +2,7 @@
 
 title: Now
 description: What's important in my life, now.
-date: 2025-11-23T01:13:00
+date: 2026-05-06T02:14:00
 priority: 0.1
 
 ---
@@ -43,8 +43,7 @@ See my [projects](/projects) page for a complete list.
 
 ## 📚 Reading
 
-<!-- - [More than a Glitch](https://mitpress.mit.edu/9780262548328/more-than-a-glitch/) by Meredith Broussard @ [Attentive](https://attentivemobile.com) technical book club -->
-- [Staff Engineer](https://staffeng.com/book) by Will Larson
+- [AI Engineering: Building Applications with Foundation Models](https://www.oreilly.com/library/view/ai-engineering/9781098166298/) by Chip Huyen @ [Attentive](https://attentivemobile.com) technical book club
 - Newsletter: [The Pragmatic Engineer](https://www.pragmaticengineer.com/) by Gergely Orosz
 - Newsletter: [SoftwareLeadWeekly](https://softwareleadweekly.com/)
 
