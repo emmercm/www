@@ -1167,6 +1167,8 @@ tracer(Metalsmith(path.resolve()))
             'fonts.gstatic.com$',
             'support.google.com',
             'twitter.com',
+            // Anti-bot 406
+            'last.fm',
             // Anti-bot 429 rate limiting
             'bsky.app',
             'github.com',
