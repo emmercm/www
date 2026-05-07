@@ -16,8 +16,10 @@ Rémi Louf's article "[The bottleneck was never the code](https://www.thetypical
 
 _The [glue work](https://www.noidea.dog/glue) of building and maintaining a code knowledge base was always a nonnegotiable, but that might be more widely understood now._
 
-##
+## Co-located documentation
+
+If you're working with agents, you probably already have an `AGENTS.md` file (or similar) with an overview of your code's
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTY3MjE3NjQ2OCwyMDM5MzQ5NzU5LC05Mj
+eyJoaXN0b3J5IjpbLTIxNjY2MzM0OCwyMDM5MzQ5NzU5LC05Mj
 g1OTU5MjcsLTEwMDQyNDI0OTQsMTYyOTA5MDgxMl19
 -->
