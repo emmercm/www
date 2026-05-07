@@ -16,9 +16,8 @@ Rémi Louf's article "[The bottleneck was never the code](https://www.thetypical
 
 _The [glue work](https://www.noidea.dog/glue) of building and maintaining a code knowledge base was always a nonnegotiable, but that might be more widely understood now._
 
-
-Short-sighted engineers don't see the value in documentation, and short-sighted leaders don't provide the time or rewards for it.
+##
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTg0MDY5ODgxOSwyMDM5MzQ5NzU5LC05Mj
+eyJoaXN0b3J5IjpbMTY3MjE3NjQ2OCwyMDM5MzQ5NzU5LC05Mj
 g1OTU5MjcsLTEwMDQyNDI0OTQsMTYyOTA5MDgxMl19
 -->
