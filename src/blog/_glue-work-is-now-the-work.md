@@ -18,9 +18,11 @@ _The [glue work](https://www.noidea.dog/glue) of building and maintaining a code
 
 ## Co-located documentation
 
-If you're working with agents, you probably already have an `AGENTS.md` file (or similar) with an overview of your code's architecture, organization, style guide, test instructions, and other standards. Other
+If you're working with agents, you probably already have an `AGENTS.md` file (or similar) with an overview of your code's architecture, organization, style guide, test instructions, and other standards. Information that's necessary to be in every agent's context to navigate and effectively modify & test the code.
+
+Other standards and documentation you may want to co-locate with your code inclu
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTEzNTY3MTg3MzMsMTkwMDgyODkyMiwyMD
-M5MzQ5NzU5LC05Mjg1OTU5MjcsLTEwMDQyNDI0OTQsMTYyOTA5
-MDgxMl19
+eyJoaXN0b3J5IjpbMTI4NDI4OTk2MiwxOTAwODI4OTIyLDIwMz
+kzNDk3NTksLTkyODU5NTkyNywtMTAwNDI0MjQ5NCwxNjI5MDkw
+ODEyXX0=
 -->
