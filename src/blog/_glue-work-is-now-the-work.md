@@ -12,6 +12,8 @@ tags:
 Technical writing was always important, and now it's even more so.
 
 Context management is one of the most important aspects of working with coding agents. The context window has to fit: personal and repository rules, the session history of prompts & responses, and the contents of relevant files. Source code isn't always self-explanatory, so "relevant files" will likely include documentation that's co-located with the code.
+
+I was reading Rémi Louf's article "[The bottleneck was never the code](https://www.thetypicalset.com/blog/thoughts-on-coding-agents)" and it hit me
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTYyOTA5MDgxMl19
+eyJoaXN0b3J5IjpbLTE1MDE4NTQ2NzYsMTYyOTA5MDgxMl19
 -->
