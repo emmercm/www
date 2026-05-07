@@ -11,7 +11,7 @@ tags:
 
 Technical writing was always important, and now it's even more so.
 
-Context management is one of the most important aspects of working with coding agents. The context window needs to contain your prompt instructions, personal and repository instructions, 
+Context management is one of the most important aspects of working with coding agents. The context window has to fit: personal and repository rules, the session history of prompts & responses, and the contents of relevant files
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTAzMDIxNjY3Nl19
+eyJoaXN0b3J5IjpbLTIwODgxNDc3MjRdfQ==
 -->
