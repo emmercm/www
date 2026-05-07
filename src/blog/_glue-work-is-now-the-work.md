@@ -10,6 +10,8 @@ tags:
 ---
 
 Technical writing was always important, and now it's even more so.
+
+Context management is one of the most important
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTEzNDEwMjc1NThdfQ==
+eyJoaXN0b3J5IjpbLTE2NDQxMjc5OTVdfQ==
 -->
