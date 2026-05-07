@@ -4,7 +4,6 @@ title: Glue Work Is Now the Work
 date: 2026-05-07T21:32:00
 tags:
 - ai
-- career
 - opinion
 
 ---
@@ -20,6 +19,6 @@ _The [glue work](https://www.noidea.dog/glue) of building and maintaining a code
 
 Short-sighted engineers don't see the value in documentation, and short-sighted leaders don't provide the time or rewards for it.
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMjAzOTM0OTc1OSwtOTI4NTk1OTI3LC0xMD
-A0MjQyNDk0LDE2MjkwOTA4MTJdfQ==
+eyJoaXN0b3J5IjpbMTMzMTE0NTYyOCwyMDM5MzQ5NzU5LC05Mj
+g1OTU5MjcsLTEwMDQyNDI0OTQsMTYyOTA5MDgxMl19
 -->
