@@ -11,7 +11,7 @@ tags:
 
 Technical writing was always important, and now it's even more so.
 
-Context management is one of the most important
+Context management is one of the most important aspects of working with coding agents.
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTE2NDQxMjc5OTVdfQ==
+eyJoaXN0b3J5IjpbNTkyMjQ4NzAyXX0=
 -->
