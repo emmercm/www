@@ -9,7 +9,7 @@ tags:
 
 ---
 
-Technical writing was always imp
+Technical writing was always important, and now it's even more so.
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTE3MTExNjYyMTNdfQ==
+eyJoaXN0b3J5IjpbLTEzNDEwMjc1NThdfQ==
 -->
