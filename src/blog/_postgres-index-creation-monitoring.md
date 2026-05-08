@@ -1074,51 +1074,56 @@ WHERE subscriptions.company_id = 123
 ---
 
 ```sql
-SELECT 
-    p.pid,
-    now() - a.query_start AS duration,
-    a.wait_event_type || ': ' || a.wait_event AS wait_status,
-    n.nspname AS schema_name,
-    c.relname AS table_name,
-    (SELECT relname FROM pg_class WHERE oid = p.index_relid) AS index_name,
-    '(' || CASE 
-        WHEN p.phase = 'initializing' THEN '1'
-        WHEN p.phase = 'waiting for writers before build' THEN '2'
-        WHEN p.phase = 'building index: scanning table' THEN (CASE WHEN p.command LIKE '%CONCURRENTLY%' THEN '2' ELSE '3' END)
-        WHEN p.phase = 'building index: sorting live tuples' THEN '4'
-        WHEN p.phase = 'building index: sorting dead tuples' THEN '5'
-        WHEN p.phase = 'building index: loading tuples in tree' THEN '6'
-        WHEN p.phase = 'waiting for writers before validation' THEN '7'
-        WHEN p.phase = 'index validation: scanning index' THEN '8'
-        WHEN p.phase = 'index validation: sorting tuples' THEN '9'
-        WHEN p.phase = 'index validation: scanning table' THEN '10'
-        WHEN p.phase = 'waiting for old snapshots' THEN '11'
-        WHEN p.phase = 'waiting for readers before marking dead' THEN '12'
-        WHEN p.phase = 'waiting for readers before dropping' THEN '13'
-        ELSE '?' 
-    END || '/' || CASE 
-        WHEN p.command LIKE '%REINDEX CONCURRENTLY%' THEN '13'
-        WHEN p.command LIKE '%CONCURRENTLY%' THEN '11'
-        ELSE '5' 
-    END || ') ' || p.phase AS phase_progress,
-    format('%s%% (%s/%s)', 
-        coalesce(round(100.0 * p.blocks_done / nullif(p.blocks_total, 0), 2)::text, '0'),
-        p.blocks_done, 
-        p.blocks_total
-    ) AS blocks_progress,
-    format('%s%% (%s/%s)', 
-        coalesce(round(100.0 * p.tuples_done / nullif(p.tuples_total, 0), 2)::text, '0'),
-        p.tuples_done, 
-        p.tuples_total
-    ) AS tuples_progress,
-    a.query
+SELECT p.pid
+     , now() - a.query_start      AS duration
+     , n.nspname                  AS schema_name
+     , c.relname                  AS table_name
+     , (
+    SELECT relname
+    FROM pg_class
+    WHERE oid = p.index_relid
+    )                             AS index_name
+     , '(' || CASE
+                  WHEN p.phase = 'initializing' THEN '1'
+                  WHEN p.phase = 'waiting for writers before build' THEN '2'
+                  WHEN p.phase = 'building index: scanning table' THEN (CASE WHEN p.command LIKE '%CONCURRENTLY%' THEN '2' ELSE '3' END)
+                  WHEN p.phase = 'building index: sorting live tuples' THEN '4'
+                  WHEN p.phase = 'building index: sorting dead tuples' THEN '5'
+                  WHEN p.phase = 'building index: loading tuples in tree' THEN '6'
+                  WHEN p.phase = 'waiting for writers before validation' THEN '7'
+                  WHEN p.phase = 'index validation: scanning index' THEN '8'
+                  WHEN p.phase = 'index validation: sorting tuples' THEN '9'
+                  WHEN p.phase = 'index validation: scanning table' THEN '10'
+                  WHEN p.phase = 'waiting for old snapshots' THEN '11'
+                  WHEN p.phase = 'waiting for readers before marking dead' THEN '12'
+                  WHEN p.phase = 'waiting for readers before dropping' THEN '13'
+                  ELSE '?'
+    END || '/' || CASE
+                      WHEN p.command LIKE '%REINDEX CONCURRENTLY%' THEN '13'
+                      WHEN p.command LIKE '%CONCURRENTLY%' THEN '11'
+                      ELSE '5'
+           END || ') ' || p.phase AS phase_progress
+     , format('%s%% (%s/%s)',
+              coalesce(round(100.0 * p.blocks_done / nullif(p.blocks_total, 0), 2)::TEXT, '0'),
+              p.blocks_done,
+              p.blocks_total
+       )                          AS blocks_progress
+     , format('%s%% (%s/%s)',
+              coalesce(round(100.0 * p.tuples_done / nullif(p.tuples_total, 0), 2)::TEXT, '0'),
+              p.tuples_done,
+              p.tuples_total
+       )                          AS tuples_progress
+     , a.query
 FROM pg_stat_progress_create_index p
-JOIN pg_stat_activity a ON p.pid = a.pid
-JOIN pg_class c ON p.relid = c.oid
-JOIN pg_namespace n ON c.relnamespace = n.oid;
+JOIN pg_stat_activity a
+     ON p.pid = a.pid
+JOIN pg_class c
+     ON p.relid = c.oid
+JOIN pg_namespace n
+     ON c.relnamespace = n.oid;
 ```
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMjAyNjIzMTQxNiw2MTU0NzU5NjgsMTIwMz
-MzMzM3OCwtMzc0MzUxNTE2LC0xNzgzNDkyODUwLC03Njg1NjM0
-NTZdfQ==
+eyJoaXN0b3J5IjpbNTQ4OTA0MzQxLDIwMjYyMzE0MTYsNjE1ND
+c1OTY4LDEyMDMzMzMzNzgsLTM3NDM1MTUxNiwtMTc4MzQ5Mjg1
+MCwtNzY4NTYzNDU2XX0=
 -->
