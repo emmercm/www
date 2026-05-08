@@ -49,7 +49,7 @@ if command -v claude &> /dev/null; then
 						brew upgrade claude-code
 				else
 						# Self-update (requires v2.0+)
-						claude update
+						command claude update
 				fi
 				
 				command claude "$@"
@@ -69,7 +69,7 @@ I abuse [my dotfiles](https://github.com/emmercm/dotfiles). I put a lot of comma
 
 Not all of that needs to happen
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTUzNTI5NDE1NSwtMTc2Mzg0NTkxMSwxMz
-E5ODQ3MDMyLC0xNjExNDI2ODkzLDE1NzM3OTk5MTksLTkwNTgz
-ODYxNSwtMTMwOTM4NjA5N119
+eyJoaXN0b3J5IjpbMzY2MDAwNDgwLC0xNzYzODQ1OTExLDEzMT
+k4NDcwMzIsLTE2MTE0MjY4OTMsMTU3Mzc5OTkxOSwtOTA1ODM4
+NjE1LC0xMzA5Mzg2MDk3XX0=
 -->
