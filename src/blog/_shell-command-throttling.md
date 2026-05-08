@@ -34,7 +34,7 @@ throttle() {
 }
 ```
 
-I've happily used the [K9s](https://k9scli.io/) Kubernetes TUI for years, but it doesn't offer any kind of auto-update functionality.
+I've happily used the [K9s](https://k9scli.io/) Kubernetes TUI for years, but it doesn't offer any kind of auto-update functionality. Let's pretend that it is
 
 I abuse [my dotfiles](https://github.com/emmercm/dotfiles). I put a lot of commands in them that I probably shouldn't, making the time to launch a new terminal quite high. But I know that everything I want is initialized and ready to go every time:
 
@@ -44,6 +44,6 @@ I abuse [my dotfiles](https://github.com/emmercm/dotfiles). I put a lot of comma
 
 Not all of that needs to happen
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbNDQyOTI1MjMwLDE1NzM3OTk5MTksLTkwNT
-gzODYxNSwtMTMwOTM4NjA5N119
+eyJoaXN0b3J5IjpbLTE2MTE0MjY4OTMsMTU3Mzc5OTkxOSwtOT
+A1ODM4NjE1LC0xMzA5Mzg2MDk3XX0=
 -->
