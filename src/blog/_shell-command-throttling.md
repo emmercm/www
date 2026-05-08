@@ -9,7 +9,7 @@ tags:
 
 You can throttle how often a command executes by remembering its last execution time.
 
-Recently, I've been adding [pre-command hooks](/blog/automatically-execute-code-before-after-unix-commands) in [my dotfiles](https://github.com/emmercm/dotfiles) to update various tools before executing them. Many tools don't have the ability to auto-update themselves, or won't under certain circumstances (e.g. [Claude Code](https://code.claude.com/docs/en/setup#auto-updates) won't auto-update itself if it was installed via a package manager).
+Recently, I've been adding [pre-command hooks](/blog/automatically-execute-code-before-after-unix-commands) in [my dotfiles](https://github.com/emmercm/dotfiles) to update various tools before executing them. Many tools can update themselves, but ma
 
 This has been working great, but I launch some of these tools many times in a day, and I don't want to pay the cost of attempting an update on every launch. So I added a Bash function to my dotfiles that can "throttle" commands:
 
@@ -34,6 +34,8 @@ throttle() {
 }
 ```
 
+Claude Code only auto-updates native installations, 
+
 I've happily used the [K9s](https://k9scli.io/) Kubernetes TUI for years, but it doesn't offer any kind of auto-update functionality. Let's pretend that it is
 
 I abuse [my dotfiles](https://github.com/emmercm/dotfiles). I put a lot of commands in them that I probably shouldn't, making the time to launch a new terminal quite high. But I know that everything I want is initialized and ready to go every time:
@@ -44,6 +46,6 @@ I abuse [my dotfiles](https://github.com/emmercm/dotfiles). I put a lot of comma
 
 Not all of that needs to happen
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTE2MTE0MjY4OTMsMTU3Mzc5OTkxOSwtOT
-A1ODM4NjE1LC0xMzA5Mzg2MDk3XX0=
+eyJoaXN0b3J5IjpbMTQ1MTcxNDYzNiwtMTYxMTQyNjg5MywxNT
+czNzk5OTE5LC05MDU4Mzg2MTUsLTEzMDkzODYwOTddfQ==
 -->
