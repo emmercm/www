@@ -34,6 +34,8 @@ throttle() {
 }
 ```
 
+## Example
+
 [Claude Code](https://code.claude.com/docs/en/setup#auto-updates) only auto-updates "native" installations, which were introduced in v2.0 (2025). Before that, you had to update it manually via npm, Homebrew, or whatever package manager you used to install it. You can still use a package manager to install Claude Code, though they don't recommend it anymore.
 
 Here's an example usage of the `throttle` function that will occasionally auto-update Claude Code before it's started:
@@ -41,15 +43,17 @@ Here's an example usage of the `throttle` function that will occasionally auto-u
 ```bash
 if command -v claude &> /dev/null; then
 		claude() {
-				if npm list --global @anthropic-ai/claude-code > /dev/null; then
-						# Update the npm installation
-						npm update --global @anthropic-ai/claude-code
-				elif command  -v  brew &> /dev/null && brew  list  claude-code &> /dev/null; then
-						# Update the Homebrew installation
-						brew upgrade claude-code
-				else
-						# Self-update (requires v2.0+)
-						command claude update
+				if throttle "CLAUDE_AUTO_UPDATE_SECS" 86400; then
+						if npm list --global @anthropic-ai/claude-code > /dev/null; then
+								# Update the npm installation
+								npm update --global @anthropic-ai/claude-code
+						elif command  -v  brew &> /dev/null && brew  list  claude-code &> /dev/null; then
+								# Update the Homebrew installation
+								brew upgrade claude-code
+						else
+								# Self-update (requires v2.0+)
+								command claude update
+						fi
 				fi
 				
 				command claude "$@"
@@ -58,18 +62,8 @@ if command -v claude &> /dev/null; then
 fi
 ```
 
-
-I've happily used the [K9s](https://k9scli.io/) Kubernetes TUI for years, but it doesn't offer any kind of auto-update functionality. Let's pretend that it is
-
-I abuse [my dotfiles](https://github.com/emmercm/dotfiles). I put a lot of commands in them that I probably shouldn't, making the time to launch a new terminal quite high. But I know that everything I want is initialized and ready to go every time:
-
-- Additional directories are added to my `$PATH`
-- Tool scripts are sourced (Homebrew, Bun, pyenv, etc.)
-- Language-specific env vars are set (`GOROOT`, `GOPATH`, `JAVA_HOME`, `NVM_DIR`, `VOLTA_HOME`, `PYENV_ROOT`, etc.)
-
-Not all of that needs to happen
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMzY2MDAwNDgwLC0xNzYzODQ1OTExLDEzMT
-k4NDcwMzIsLTE2MTE0MjY4OTMsMTU3Mzc5OTkxOSwtOTA1ODM4
-NjE1LC0xMzA5Mzg2MDk3XX0=
+eyJoaXN0b3J5IjpbLTE5OTM2MzUwNTksLTE3NjM4NDU5MTEsMT
+MxOTg0NzAzMiwtMTYxMTQyNjg5MywxNTczNzk5OTE5LC05MDU4
+Mzg2MTUsLTEzMDkzODYwOTddfQ==
 -->
