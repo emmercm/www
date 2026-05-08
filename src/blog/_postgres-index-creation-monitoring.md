@@ -1084,25 +1084,25 @@ SELECT p.pid
 		       WHERE oid = p.index_relid
        )                          AS index_name
      , '(' || CASE
-                  WHEN p.phase = 'initializing' THEN '1'
-                  WHEN p.phase = 'waiting for writers before build' THEN '2'
-                  WHEN p.phase = 'building index: scanning table' THEN (CASE WHEN p.command LIKE '%CONCURRENTLY%' THEN '2' ELSE '3' END)
-                  WHEN p.phase = 'building index: sorting live tuples' THEN '4'
-                  WHEN p.phase = 'building index: sorting dead tuples' THEN '5'
-                  WHEN p.phase = 'building index: loading tuples in tree' THEN '6'
-                  WHEN p.phase = 'waiting for writers before validation' THEN '7'
-                  WHEN p.phase = 'index validation: scanning index' THEN '8'
-                  WHEN p.phase = 'index validation: sorting tuples' THEN '9'
-                  WHEN p.phase = 'index validation: scanning table' THEN '10'
-                  WHEN p.phase = 'waiting for old snapshots' THEN '11'
-                  WHEN p.phase = 'waiting for readers before marking dead' THEN '12'
-                  WHEN p.phase = 'waiting for readers before dropping' THEN '13'
-                  ELSE '?'
-    END || '/' || CASE
-                      WHEN p.command LIKE '%REINDEX CONCURRENTLY%' THEN '13'
-                      WHEN p.command LIKE '%CONCURRENTLY%' THEN '11'
-                      ELSE '5'
-           END || ') ' || p.phase AS phase_progress
+              WHEN p.phase = 'initializing' THEN '1'
+              WHEN p.phase = 'waiting for writers before build' THEN '2'
+              WHEN p.phase = 'building index: scanning table' THEN (CASE WHEN p.command LIKE '%CONCURRENTLY%' THEN '2' ELSE '3' END)
+              WHEN p.phase = 'building index: sorting live tuples' THEN '4'
+              WHEN p.phase = 'building index: sorting dead tuples' THEN '5'
+              WHEN p.phase = 'building index: loading tuples in tree' THEN '6'
+              WHEN p.phase = 'waiting for writers before validation' THEN '7'
+              WHEN p.phase = 'index validation: scanning index' THEN '8'
+              WHEN p.phase = 'index validation: sorting tuples' THEN '9'
+              WHEN p.phase = 'index validation: scanning table' THEN '10'
+              WHEN p.phase = 'waiting for old snapshots' THEN '11'
+              WHEN p.phase = 'waiting for readers before marking dead' THEN '12'
+              WHEN p.phase = 'waiting for readers before dropping' THEN '13'
+              ELSE '?'
+       END || '/' || CASE
+                  WHEN p.command LIKE '%REINDEX CONCURRENTLY%' THEN '13'
+                  WHEN p.command LIKE '%CONCURRENTLY%' THEN '11'
+                  ELSE '5'
+       END || ') ' || p.phase AS phase_progress
      , format('%s%% (%s/%s)',
               coalesce(round(100.0 * p.blocks_done / nullif(p.blocks_total, 0), 2)::TEXT, '0'),
               p.blocks_done,
@@ -1123,7 +1123,7 @@ JOIN pg_namespace n
      ON c.relnamespace = n.oid;
 ```
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTEyODUyOTYzMyw1NDg5MDQzNDEsMjAyNj
+eyJoaXN0b3J5IjpbLTg0NzM3NTQyMyw1NDg5MDQzNDEsMjAyNj
 IzMTQxNiw2MTU0NzU5NjgsMTIwMzMzMzM3OCwtMzc0MzUxNTE2
 LC0xNzgzNDkyODUwLC03Njg1NjM0NTZdfQ==
 -->
