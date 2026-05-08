@@ -1079,10 +1079,10 @@ SELECT p.pid
      , n.nspname                  AS schema_name
      , c.relname                  AS table_name
      , (
-    SELECT relname
-    FROM pg_class
-    WHERE oid = p.index_relid
-    )                             AS index_name
+		       SELECT relname
+		       FROM pg_class
+		       WHERE oid = p.index_relid
+       )                          AS index_name
      , '(' || CASE
                   WHEN p.phase = 'initializing' THEN '1'
                   WHEN p.phase = 'waiting for writers before build' THEN '2'
@@ -1123,7 +1123,7 @@ JOIN pg_namespace n
      ON c.relnamespace = n.oid;
 ```
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbNTQ4OTA0MzQxLDIwMjYyMzE0MTYsNjE1ND
-c1OTY4LDEyMDMzMzMzNzgsLTM3NDM1MTUxNiwtMTc4MzQ5Mjg1
-MCwtNzY4NTYzNDU2XX0=
+eyJoaXN0b3J5IjpbLTEyODUyOTYzMyw1NDg5MDQzNDEsMjAyNj
+IzMTQxNiw2MTU0NzU5NjgsMTIwMzMzMzM3OCwtMzc0MzUxNTE2
+LC0xNzgzNDkyODUwLC03Njg1NjM0NTZdfQ==
 -->
