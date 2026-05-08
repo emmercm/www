@@ -34,6 +34,8 @@ throttle() {
 }
 ```
 
+I've happily used the [K9s](https://k9scli.io/) Kubernetes TUI for years
+
 I abuse [my dotfiles](https://github.com/emmercm/dotfiles). I put a lot of commands in them that I probably shouldn't, making the time to launch a new terminal quite high. But I know that everything I want is initialized and ready to go every time:
 
 - Additional directories are added to my `$PATH`
@@ -42,6 +44,6 @@ I abuse [my dotfiles](https://github.com/emmercm/dotfiles). I put a lot of comma
 
 Not all of that needs to happen
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTU3Mzc5OTkxOSwtOTA1ODM4NjE1LC0xMz
-A5Mzg2MDk3XX0=
+eyJoaXN0b3J5IjpbMTA4OTI0NTc3MywxNTczNzk5OTE5LC05MD
+U4Mzg2MTUsLTEzMDkzODYwOTddfQ==
 -->
