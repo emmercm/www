@@ -11,8 +11,8 @@ TODO: tagline
 
 I abuse [my dotfiles](https://github.com/emmercm/dotfiles). I put a lot of commands in them that I probably shouldn't, making the time to launch a new terminal quite high. But I know that everything I want is initialized and ready to go every time:
 
-- Tools are sourced (Homebrew, pyenv, TODO)
+- Tools are sourced (Homebrew, Bun, pyenv, etc.)
 - Language-specific env vars are set (`GOROOT`, `GOPATH`, `JAVA_HOME`, `NVM_DIR`, `VOLTA_HOME`, `PYENV_ROOT`)
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTE1ODgzODk5OThdfQ==
+eyJoaXN0b3J5IjpbLTE5MDIwNDkyNTFdfQ==
 -->
