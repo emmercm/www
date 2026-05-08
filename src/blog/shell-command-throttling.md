@@ -87,4 +87,3 @@ if command -v claude &> /dev/null; then
   }
 fi
 ```
-
