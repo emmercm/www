@@ -43,6 +43,8 @@ if command -v claude &> /dev/null; then
 		claude() {
 				if npm list --global @anthropic-ai/claude-code > /dev/null; then
 						npm update --global @anthropic-ai/claude-code
+				elif command  -v  brew &> /dev/null && brew  list  claude-code &> /dev/null;
+						
 				else
 						claude update
 				fi
@@ -64,7 +66,7 @@ I abuse [my dotfiles](https://github.com/emmercm/dotfiles). I put a lot of comma
 
 Not all of that needs to happen
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTg4NTkxNjI2OCwtMTc2Mzg0NTkxMSwxMz
+eyJoaXN0b3J5IjpbLTczMDEwMTgwMSwtMTc2Mzg0NTkxMSwxMz
 E5ODQ3MDMyLC0xNjExNDI2ODkzLDE1NzM3OTk5MTksLTkwNTgz
 ODYxNSwtMTMwOTM4NjA5N119
 -->
