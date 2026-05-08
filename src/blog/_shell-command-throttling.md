@@ -43,6 +43,11 @@ Here's a contrived usage example:
 if throttle "ECHO_HELLO_WORLD_SECS" 60; then
 	echo "Hello world!"
 fi
+
+# Print "hello world" at most every 60sec
+if throttle "ECHO_HELLO_WORLD_SECS" 3600; then
+	brew update
+fi
 ```
 
 ## Real-world example
@@ -75,7 +80,7 @@ fi
 ```
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTE5MTMwODE2MTcsLTE3NjM4NDU5MTEsMT
-MxOTg0NzAzMiwtMTYxMTQyNjg5MywxNTczNzk5OTE5LC05MDU4
-Mzg2MTUsLTEzMDkzODYwOTddfQ==
+eyJoaXN0b3J5IjpbMjA3MTE0MjY3LC0xNzYzODQ1OTExLDEzMT
+k4NDcwMzIsLTE2MTE0MjY4OTMsMTU3Mzc5OTkxOSwtOTA1ODM4
+NjE1LC0xMzA5Mzg2MDk3XX0=
 -->
