@@ -52,6 +52,13 @@ if throttle "BREW_AUTO_UPDATE_SECS" 43200; then
 fi
 ```
 
+```bash
+# Self-update npm every 48hrs
+if throttle "BREW_AUTO_UPDATE_SECS" 172800; then
+	npm install --global npm@latest
+fi
+```
+
 ## Real-world example
 
 [Claude Code](https://code.claude.com/docs/en/setup#auto-updates) only auto-updates "native" installations, which were introduced in v2.0 (2025). Before that, you had to update it manually via npm, Homebrew, or whatever package manager you used to install it. You can still use a package manager to install Claude Code, though they don't recommend it anymore.
@@ -82,7 +89,7 @@ fi
 ```
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTU5ODI4MDcxOSwtNTI1NDU2MTg1LC0xNz
-YzODQ1OTExLDEzMTk4NDcwMzIsLTE2MTE0MjY4OTMsMTU3Mzc5
-OTkxOSwtOTA1ODM4NjE1LC0xMzA5Mzg2MDk3XX0=
+eyJoaXN0b3J5IjpbLTE0ODMwNDQzNzcsLTUyNTQ1NjE4NSwtMT
+c2Mzg0NTkxMSwxMzE5ODQ3MDMyLC0xNjExNDI2ODkzLDE1NzM3
+OTk5MTksLTkwNTgzODYxNSwtMTMwOTM4NjA5N119
 -->
