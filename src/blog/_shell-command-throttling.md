@@ -14,6 +14,8 @@ I abuse [my dotfiles](https://github.com/emmercm/dotfiles). I put a lot of comma
 - Additional directories are added to my `$PATH`
 - Tool scripts are sourced (Homebrew, Bun, pyenv, etc.)
 - Language-specific env vars are set (`GOROOT`, `GOPATH`, `JAVA_HOME`, `NVM_DIR`, `VOLTA_HOME`, `PYENV_ROOT`, etc.)
+
+Not all of that needs to happen
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbNDYxMTYwOTUzXX0=
+eyJoaXN0b3J5IjpbLTg5ODM1OTk0NV19
 -->
