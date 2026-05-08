@@ -34,6 +34,8 @@ throttle() {
 }
 ```
 
+The function remembers the last time it was executed
+
 ## Example
 
 [Claude Code](https://code.claude.com/docs/en/setup#auto-updates) only auto-updates "native" installations, which were introduced in v2.0 (2025). Before that, you had to update it manually via npm, Homebrew, or whatever package manager you used to install it. You can still use a package manager to install Claude Code, though they don't recommend it anymore.
@@ -43,7 +45,7 @@ Here's an example usage of the `throttle` function that will occasionally auto-u
 ```bash
 if command -v claude &> /dev/null; then
 	claude() {
-		# Update Claude
+		# Update Claude Code once every 24hrs
 		if throttle "CLAUDE_AUTO_UPDATE_SECS" 86400; then
 			if npm list --global @anthropic-ai/claude-code > /dev/null; then
 				# Update the npm installation
@@ -64,7 +66,7 @@ fi
 ```
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbNjIyMTgwMjE5LC0xNzYzODQ1OTExLDEzMT
+eyJoaXN0b3J5IjpbNDkxNDUyODA1LC0xNzYzODQ1OTExLDEzMT
 k4NDcwMzIsLTE2MTE0MjY4OTMsMTU3Mzc5OTkxOSwtOTA1ODM4
 NjE1LC0xMzA5Mzg2MDk3XX0=
 -->
