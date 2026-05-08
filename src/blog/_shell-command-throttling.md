@@ -41,7 +41,11 @@ Here's an example usage of the `throttle` function that will occasionally auto-u
 ```bash
 if command -v claude &> /dev/null; then
 		claude() {
-				if [[ "$CLAUDE_BIN" == *"node"* || "$CLAUDE_BIN" == *"npm"* || "$CLAUDE_BIN" == *"nvm"* ]]; then
+				if npm list --global @anthropic-ai/claude-code > /dev/null; then
+						npm update --global @anthropic-ai/claude-code
+				else
+						claude update
+				fi
 				
 				command claude "$@"
         return $?
@@ -60,7 +64,7 @@ I abuse [my dotfiles](https://github.com/emmercm/dotfiles). I put a lot of comma
 
 Not all of that needs to happen
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTY5NzE3MDk3OCwtMTc2Mzg0NTkxMSwxMz
+eyJoaXN0b3J5IjpbMTg4NTkxNjI2OCwtMTc2Mzg0NTkxMSwxMz
 E5ODQ3MDMyLC0xNjExNDI2ODkzLDE1NzM3OTk5MTksLTkwNTgz
 ODYxNSwtMTMwOTM4NjA5N119
 -->
