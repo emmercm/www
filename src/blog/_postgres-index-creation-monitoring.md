@@ -1099,9 +1099,9 @@ SELECT p.pid
               WHEN p.phase = 'waiting for readers before dropping' THEN '13'
               ELSE '?'
        END || '/' || CASE
-                  WHEN p.command LIKE '%REINDEX CONCURRENTLY%' THEN '13'
-                  WHEN p.command LIKE '%CONCURRENTLY%' THEN '11'
-                  ELSE '5'
+		                 WHEN p.command LIKE '%REINDEX CONCURRENTLY%' THEN '13'
+		                 WHEN p.command LIKE '%CONCURRENTLY%' THEN '11'
+		                 ELSE '5'
        END || ') ' || p.phase AS phase_progress
      , format('%s%% (%s/%s)',
               coalesce(round(100.0 * p.blocks_done / nullif(p.blocks_total, 0), 2)::TEXT, '0'),
@@ -1123,7 +1123,7 @@ JOIN pg_namespace n
      ON c.relnamespace = n.oid;
 ```
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTg0NzM3NTQyMyw1NDg5MDQzNDEsMjAyNj
+eyJoaXN0b3J5IjpbMTU1NjY5ODE4OSw1NDg5MDQzNDEsMjAyNj
 IzMTQxNiw2MTU0NzU5NjgsMTIwMzMzMzM3OCwtMzc0MzUxNTE2
 LC0xNzgzNDkyODUwLC03Njg1NjM0NTZdfQ==
 -->
