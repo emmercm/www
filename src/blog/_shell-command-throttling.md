@@ -36,16 +36,25 @@ throttle() {
 
 The function remembers the last time your user executed it by storing a timestamp in a state file. Each command that you want to throttle should have its own key, decided by you.
 
-Here's a contrived usage example:
+Here are some contrived usage examples:
 
 ```bash
 # Print "hello world" at most every 60sec
 if throttle "ECHO_HELLO_WORLD_SECS" 60; then
 	echo "Hello world!"
 fi
+```
 
-# Print "hello world" at most every 60sec
-if throttle "ECHO_HELLO_WORLD_SECS" 3600; then
+```bash
+# Update every Homebrew package every 12hrs
+if throttle "BREW_AUTO_UPDATE_SECS" 43200; then
+	brew update
+fi
+```
+
+```bash
+# Update every Homebrew package every 12hrs
+if throttle "BREW_AUTO_UPDATE_SECS" 43200; then
 	brew update
 fi
 ```
@@ -80,7 +89,7 @@ fi
 ```
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMjA3MTE0MjY3LC0xNzYzODQ1OTExLDEzMT
-k4NDcwMzIsLTE2MTE0MjY4OTMsMTU3Mzc5OTkxOSwtOTA1ODM4
-NjE1LC0xMzA5Mzg2MDk3XX0=
+eyJoaXN0b3J5IjpbLTUyNTQ1NjE4NSwtMTc2Mzg0NTkxMSwxMz
+E5ODQ3MDMyLC0xNjExNDI2ODkzLDE1NzM3OTk5MTksLTkwNTgz
+ODYxNSwtMTMwOTM4NjA5N119
 -->
