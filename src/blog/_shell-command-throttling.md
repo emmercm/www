@@ -9,7 +9,9 @@ tags:
 
 TODO: tagline
 
-I abuse [my dotfiles](https://github.com/emmercm/dotfiles). I put a lot of commands in them that I probably shouldn't, driving up
+I abuse [my dotfiles](https://github.com/emmercm/dotfiles). I put a lot of commands in them that I probably shouldn't, making the time to launch a new terminal quite high. But I know that everything I want is initialized and ready to go every time:
+
+- 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTI4NDA4NjM5N119
+eyJoaXN0b3J5IjpbMTkxNDAxMzg2OV19
 -->
