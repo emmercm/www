@@ -7,7 +7,7 @@ tags:
 
 ---
 
-TODO: tagline
+You can throttle how often a command executes by remembering its last execution time.
 
 Recently, I've been adding [pre-command hooks](/blog/automatically-execute-code-before-after-unix-commands) in [my dotfiles](https://github.com/emmercm/dotfiles) to update various tools before executing them. Some of my commonly-used tools, such as [Claude Code](https://code.claude.com/docs/en/overview), update nearly every day, or sometimes multiple times in a day.
 
@@ -42,5 +42,5 @@ I abuse [my dotfiles](https://github.com/emmercm/dotfiles). I put a lot of comma
 
 Not all of that needs to happen
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTEzMDkzODYwOTddfQ==
+eyJoaXN0b3J5IjpbLTkwNTgzODYxNSwtMTMwOTM4NjA5N119
 -->
