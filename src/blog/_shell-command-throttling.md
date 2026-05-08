@@ -34,9 +34,9 @@ throttle() {
 }
 ```
 
-[Claude Code](https://code.claude.com/docs/en/setup#auto-updates) only auto-updates "native" installations, which were introduced in v2.0 (2025). Before that, you had to update it manually via npm, Homebrew, or whatever package manager you used to install it. You can still use a package manager to install Claude Code, 
+[Claude Code](https://code.claude.com/docs/en/setup#auto-updates) only auto-updates "native" installations, which were introduced in v2.0 (2025). Before that, you had to update it manually via npm, Homebrew, or whatever package manager you used to install it. You can still use a package manager to install Claude Code, though they don't recommend it anymore.
 
-Here's an example of the 
+Here's an example usage of the `throttle` function that will auto-update Claude Code before
 
 
 I've happily used the [K9s](https://k9scli.io/) Kubernetes TUI for years, but it doesn't offer any kind of auto-update functionality. Let's pretend that it is
@@ -49,7 +49,7 @@ I abuse [my dotfiles](https://github.com/emmercm/dotfiles). I put a lot of comma
 
 Not all of that needs to happen
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTE0NzgxNzA5MDEsMTMxOTg0NzAzMiwtMT
+eyJoaXN0b3J5IjpbLTE3NjM4NDU5MTEsMTMxOTg0NzAzMiwtMT
 YxMTQyNjg5MywxNTczNzk5OTE5LC05MDU4Mzg2MTUsLTEzMDkz
 ODYwOTddfQ==
 -->
