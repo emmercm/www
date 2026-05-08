@@ -39,8 +39,9 @@ The function remembers the last time your user executed it by storing a timestam
 Here's a contrived usage example:
 
 ```bash
-if throttle "CLAUDE_AUTO_UPDATE_SECS" 60; then
-	echo "
+# Print "hello world" at most every 60sec
+if throttle "ECHO_HELLO_WORLD_SECS" 60; then
+	echo "Hello world!"
 fi
 ```
 
@@ -74,7 +75,7 @@ fi
 ```
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTc0NzE1MzYwOSwtMTc2Mzg0NTkxMSwxMz
-E5ODQ3MDMyLC0xNjExNDI2ODkzLDE1NzM3OTk5MTksLTkwNTgz
-ODYxNSwtMTMwOTM4NjA5N119
+eyJoaXN0b3J5IjpbLTE5MTMwODE2MTcsLTE3NjM4NDU5MTEsMT
+MxOTg0NzAzMiwtMTYxMTQyNjg5MywxNTczNzk5OTE5LC05MDU4
+Mzg2MTUsLTEzMDkzODYwOTddfQ==
 -->
