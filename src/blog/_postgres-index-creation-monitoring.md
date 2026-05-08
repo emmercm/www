@@ -1,8 +1,19 @@
----
 
-title:
-
----
+---  
+  
+title: Monitoring PostgreSQL Index Creation  
+date: 2026-05-07  
+tags:  
+- databases  
+- postgres  
+  
+---  
+  
+PostgreSQL has the ability to monitor the progress of index creation, which is very helpful for long-running queries.  
+  
+PostgreSQL added the ability to monitor the progress of index creation in [v12.0 (2019)](https://www.postgresql.org/docs/release/12.0/) by querying the [`pg_stat_progress_create_index` view](https://www.postgresql.org/docs/current/progress-reporting.html#CREATE-INDEX-PROGRESS-REPORTING). It requires the [statistics collector](https://www.postgresql.org/docs/current/monitoring-stats.html) to be enabled (which it is by default). Superusers and users with the [`pg_read_all_stats` role](https://www.postgresql.org/docs/current/predefined-roles.html#PREDEFINED-ROLE-PG-MONITOR) can query the progress of every index being created, and all other users will be restricted to only seeing the progress of indexes they are creating.  
+  
+Index creation is broken down into phases
 
 https://dev.to/bolajiwahab/progress-reporting-in-postgresql-1i0d
 
@@ -1107,6 +1118,6 @@ JOIN pg_class c ON p.relid = c.oid
 JOIN pg_namespace n ON c.relnamespace = n.oid;
 ```
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTIwMzMzMzM3OCwtMzc0MzUxNTE2LC0xNz
-gzNDkyODUwLC03Njg1NjM0NTZdfQ==
+eyJoaXN0b3J5IjpbNjE1NDc1OTY4LDEyMDMzMzMzNzgsLTM3ND
+M1MTUxNiwtMTc4MzQ5Mjg1MCwtNzY4NTYzNDU2XX0=
 -->
