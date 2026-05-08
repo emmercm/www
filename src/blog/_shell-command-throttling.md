@@ -42,10 +42,13 @@ Here's an example usage of the `throttle` function that will occasionally auto-u
 if command -v claude &> /dev/null; then
 		claude() {
 				if npm list --global @anthropic-ai/claude-code > /dev/null; then
+						# Update the npm installation
 						npm update --global @anthropic-ai/claude-code
-				elif command  -v  brew &> /dev/null && brew  list  claude-code &> /dev/null;
-						
+				elif command  -v  brew &> /dev/null && brew  list  claude-code &> /dev/null; then
+						# Update the Homebrew installation
+						brew upgrade claude-code
 				else
+						# Self-update (requires v2.0+)
 						claude update
 				fi
 				
@@ -66,7 +69,7 @@ I abuse [my dotfiles](https://github.com/emmercm/dotfiles). I put a lot of comma
 
 Not all of that needs to happen
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTczMDEwMTgwMSwtMTc2Mzg0NTkxMSwxMz
+eyJoaXN0b3J5IjpbLTUzNTI5NDE1NSwtMTc2Mzg0NTkxMSwxMz
 E5ODQ3MDMyLC0xNjExNDI2ODkzLDE1NzM3OTk5MTksLTkwNTgz
 ODYxNSwtMTMwOTM4NjA5N119
 -->
