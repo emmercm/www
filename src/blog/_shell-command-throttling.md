@@ -52,13 +52,6 @@ if throttle "BREW_AUTO_UPDATE_SECS" 43200; then
 fi
 ```
 
-```bash
-# Update every Homebrew package every 12hrs
-if throttle "BREW_AUTO_UPDATE_SECS" 43200; then
-	brew update
-fi
-```
-
 ## Real-world example
 
 [Claude Code](https://code.claude.com/docs/en/setup#auto-updates) only auto-updates "native" installations, which were introduced in v2.0 (2025). Before that, you had to update it manually via npm, Homebrew, or whatever package manager you used to install it. You can still use a package manager to install Claude Code, though they don't recommend it anymore.
@@ -89,7 +82,7 @@ fi
 ```
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTUyNTQ1NjE4NSwtMTc2Mzg0NTkxMSwxMz
-E5ODQ3MDMyLC0xNjExNDI2ODkzLDE1NzM3OTk5MTksLTkwNTgz
-ODYxNSwtMTMwOTM4NjA5N119
+eyJoaXN0b3J5IjpbMTU5ODI4MDcxOSwtNTI1NDU2MTg1LC0xNz
+YzODQ1OTExLDEzMTk4NDcwMzIsLTE2MTE0MjY4OTMsMTU3Mzc5
+OTkxOSwtOTA1ODM4NjE1LC0xMzA5Mzg2MDk3XX0=
 -->
