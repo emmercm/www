@@ -42,28 +42,29 @@ Here's an example usage of the `throttle` function that will occasionally auto-u
 
 ```bash
 if command -v claude &> /dev/null; then
-		claude() {
-				if throttle "CLAUDE_AUTO_UPDATE_SECS" 86400; then
-						if npm list --global @anthropic-ai/claude-code > /dev/null; then
-								# Update the npm installation
-								npm update --global @anthropic-ai/claude-code
-						elif command  -v  brew &> /dev/null && brew  list  claude-code &> /dev/null; then
-								# Update the Homebrew installation
-								brew upgrade claude-code
-						else
-								# Self-update (requires v2.0+)
-								command claude update
-						fi
-				fi
-				
-				command claude "$@"
-        return $?
-		}
+	claude() {
+		# Update Claude
+		if throttle "CLAUDE_AUTO_UPDATE_SECS" 86400; then
+			if npm list --global @anthropic-ai/claude-code > /dev/null; then
+				# Update the npm installation
+				npm update --global @anthropic-ai/claude-code
+			elif command -v brew &> /dev/null && brew list claude-code &> /dev/null; then
+				# Update the Homebrew installation
+				brew upgrade claude-code
+			else
+				# Self-update (requires v2.0+)
+				command claude update
+			fi
+		fi
+
+		command claude "$@"
+		return $?
+	}
 fi
 ```
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTE5OTM2MzUwNTksLTE3NjM4NDU5MTEsMT
-MxOTg0NzAzMiwtMTYxMTQyNjg5MywxNTczNzk5OTE5LC05MDU4
-Mzg2MTUsLTEzMDkzODYwOTddfQ==
+eyJoaXN0b3J5IjpbNjIyMTgwMjE5LC0xNzYzODQ1OTExLDEzMT
+k4NDcwMzIsLTE2MTE0MjY4OTMsMTU3Mzc5OTkxOSwtOTA1ODM4
+NjE1LC0xMzA5Mzg2MDk3XX0=
 -->
