@@ -46,7 +46,7 @@ fi
 ```
 
 ```bash
-# Update every Homebrew package every 12hrs
+# Update all Homebrew packages every 12hrs
 if throttle "BREW_AUTO_UPDATE_SECS" 43200; then
 	brew update
 fi
@@ -89,7 +89,7 @@ fi
 ```
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTEyMTk3OTIwNjgsLTUyNTQ1NjE4NSwtMT
-c2Mzg0NTkxMSwxMzE5ODQ3MDMyLC0xNjExNDI2ODkzLDE1NzM3
-OTk5MTksLTkwNTgzODYxNSwtMTMwOTM4NjA5N119
+eyJoaXN0b3J5IjpbLTYzMzE4Mjc3NSwtNTI1NDU2MTg1LC0xNz
+YzODQ1OTExLDEzMTk4NDcwMzIsLTE2MTE0MjY4OTMsMTU3Mzc5
+OTkxOSwtOTA1ODM4NjE1LC0xMzA5Mzg2MDk3XX0=
 -->
