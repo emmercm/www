@@ -39,6 +39,13 @@ throttle() {
 Here's an example usage of the `throttle` function that will occasionally auto-update Claude Code before it's started:
 
 ```bash
+if command -v claude &> /dev/null; then
+		claude() {
+				
+				command claude "$@"
+        return $?
+		}
+fi
 ```
 
 
@@ -52,7 +59,7 @@ I abuse [my dotfiles](https://github.com/emmercm/dotfiles). I put a lot of comma
 
 Not all of that needs to happen
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTEzMzY0NDQwNjYsLTE3NjM4NDU5MTEsMT
-MxOTg0NzAzMiwtMTYxMTQyNjg5MywxNTczNzk5OTE5LC05MDU4
-Mzg2MTUsLTEzMDkzODYwOTddfQ==
+eyJoaXN0b3J5IjpbMTAxNTk3MDI1MywtMTc2Mzg0NTkxMSwxMz
+E5ODQ3MDMyLC0xNjExNDI2ODkzLDE1NzM3OTk5MTksLTkwNTgz
+ODYxNSwtMTMwOTM4NjA5N119
 -->
