@@ -34,9 +34,17 @@ throttle() {
 }
 ```
 
-The function remembers the last time your user executed it by storing a timestamp in a state file. Each command that 
+The function remembers the last time your user executed it by storing a timestamp in a state file. Each command that you want to throttle should have its own key, decided by you.
 
-## Example
+Here's a contrived usage example:
+
+```bash
+if throttle "CLAUDE_AUTO_UPDATE_SECS" 60; then
+	echo "
+fi
+```
+
+## Real-world example
 
 [Claude Code](https://code.claude.com/docs/en/setup#auto-updates) only auto-updates "native" installations, which were introduced in v2.0 (2025). Before that, you had to update it manually via npm, Homebrew, or whatever package manager you used to install it. You can still use a package manager to install Claude Code, though they don't recommend it anymore.
 
@@ -66,7 +74,7 @@ fi
 ```
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTMzMDU4NTE0MCwtMTc2Mzg0NTkxMSwxMz
+eyJoaXN0b3J5IjpbMTc0NzE1MzYwOSwtMTc2Mzg0NTkxMSwxMz
 E5ODQ3MDMyLC0xNjExNDI2ODkzLDE1NzM3OTk5MTksLTkwNTgz
 ODYxNSwtMTMwOTM4NjA5N119
 -->
