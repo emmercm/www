@@ -220,7 +220,7 @@ markdownRenderer.code = (_code, infostring, escaped) => {
 
     const escapedLang = escape(lang, true);
 
-    let html = '<div class="card pre-card"><div class="card-header row g-0 justify-content-between py-2 px-3 fs-6 font-monospace">';
+    let html = '<div class="card pre-card"><div class="card-header row g-0 d-print-none justify-content-between py-2 px-3 fs-6 font-monospace">';
     if (['shell', 'console'].includes(lang)) {
         html += `<div class="col">
 <span class="text-mac-red">●</span>
