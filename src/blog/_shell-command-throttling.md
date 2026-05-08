@@ -11,7 +11,7 @@ You can throttle how often a command executes by remembering its last execution 
 
 Recently, I've been adding [pre-command hooks](/blog/automatically-execute-code-before-after-unix-commands) in [my dotfiles](https://github.com/emmercm/dotfiles) to update various tools before executing them. Many tools can update themselves, but many still can't.
 
-The hooks have been working great, but I launch some of these tools many times in a day, and I don't want to pay the cost of attempting an update on every launch. So I added a Bash function to my dotfiles that can "throttle" commands:
+The hooks have been working great, but I launch some of these tools many times in a day, and I don't want to pay the cost of attempting an update on every launch. So I created a Bash function in my dotfiles that can "throttle" commands:
 
 ```bash
 # @param {string} $1 Name of the throttle key
@@ -34,7 +34,7 @@ throttle() {
 }
 ```
 
-The function remembers the last time your user executed it by storing a timestamp in a state file. Each command that you want to throttle should have its own key, decided by you.
+The function remembers the last time your user called it with a specific "key" by storing a timestamp in a state file. Each command that you want to throttle should have its own key, decided by you.
 
 Here are some contrived usage examples:
 
@@ -54,7 +54,7 @@ fi
 
 ```bash
 # Self-update npm every 48hrs
-if throttle "BREW_AUTO_UPDATE_SECS" 172800; then
+if throttle "NPM_AUTO_UPDATE_SECS" 172800; then
 	npm install --global npm@latest
 fi
 ```
@@ -89,7 +89,7 @@ fi
 ```
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTE0ODMwNDQzNzcsLTUyNTQ1NjE4NSwtMT
+eyJoaXN0b3J5IjpbLTEyMTk3OTIwNjgsLTUyNTQ1NjE4NSwtMT
 c2Mzg0NTkxMSwxMzE5ODQ3MDMyLC0xNjExNDI2ODkzLDE1NzM3
 OTk5MTksLTkwNTgzODYxNSwtMTMwOTM4NjA5N119
 -->
