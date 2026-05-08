@@ -34,7 +34,7 @@ throttle() {
 }
 ```
 
-[Claude Code](https://code.claude.com/docs/en/setup#auto-updates) only auto-updates "native" installations, which were introduced in v2.0. Before that, 
+[Claude Code](https://code.claude.com/docs/en/setup#auto-updates) only auto-updates "native" installations, which were introduced in v2.0 (2025). Before that, you had to tell npm or Homebrew
 
 I've happily used the [K9s](https://k9scli.io/) Kubernetes TUI for years, but it doesn't offer any kind of auto-update functionality. Let's pretend that it is
 
@@ -46,6 +46,6 @@ I abuse [my dotfiles](https://github.com/emmercm/dotfiles). I put a lot of comma
 
 Not all of that needs to happen
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMzUzNzQwNDc4LC0xNjExNDI2ODkzLDE1Nz
-M3OTk5MTksLTkwNTgzODYxNSwtMTMwOTM4NjA5N119
+eyJoaXN0b3J5IjpbMTg3ODgxNjI3NSwtMTYxMTQyNjg5MywxNT
+czNzk5OTE5LC05MDU4Mzg2MTUsLTEzMDkzODYwOTddfQ==
 -->
