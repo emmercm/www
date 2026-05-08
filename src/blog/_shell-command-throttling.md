@@ -34,7 +34,7 @@ throttle() {
 }
 ```
 
-The function remembers the last time it was executed
+The function remembers the last time your user executed it by storing a timestamp in a state file. Each command that 
 
 ## Example
 
@@ -66,7 +66,7 @@ fi
 ```
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbNDkxNDUyODA1LC0xNzYzODQ1OTExLDEzMT
-k4NDcwMzIsLTE2MTE0MjY4OTMsMTU3Mzc5OTkxOSwtOTA1ODM4
-NjE1LC0xMzA5Mzg2MDk3XX0=
+eyJoaXN0b3J5IjpbMTMzMDU4NTE0MCwtMTc2Mzg0NTkxMSwxMz
+E5ODQ3MDMyLC0xNjExNDI2ODkzLDE1NzM3OTk5MTksLTkwNTgz
+ODYxNSwtMTMwOTM4NjA5N119
 -->
