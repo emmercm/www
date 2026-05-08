@@ -36,6 +36,7 @@ throttle() {
 
 [Claude Code](https://code.claude.com/docs/en/setup#auto-updates) only auto-updates "native" installations, which were introduced in v2.0 (2025). Before that, you had to update it manually via npm, Homebrew, or whatever package manager you used to install it. Even now you can still
 
+
 I've happily used the [K9s](https://k9scli.io/) Kubernetes TUI for years, but it doesn't offer any kind of auto-update functionality. Let's pretend that it is
 
 I abuse [my dotfiles](https://github.com/emmercm/dotfiles). I put a lot of commands in them that I probably shouldn't, making the time to launch a new terminal quite high. But I know that everything I want is initialized and ready to go every time:
@@ -46,6 +47,6 @@ I abuse [my dotfiles](https://github.com/emmercm/dotfiles). I put a lot of comma
 
 Not all of that needs to happen
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTY5ODk3NTc0LC0xNjExNDI2ODkzLDE1Nz
-M3OTk5MTksLTkwNTgzODYxNSwtMTMwOTM4NjA5N119
+eyJoaXN0b3J5IjpbMTMxOTg0NzAzMiwtMTYxMTQyNjg5MywxNT
+czNzk5OTE5LC05MDU4Mzg2MTUsLTEzMDkzODYwOTddfQ==
 -->
