@@ -1,7 +1,7 @@
 ---
 
 title: Shell Command Throttling
-date: 2026-05-06
+date: 2026-05-08
 tags:
 - shell
 
@@ -34,7 +34,7 @@ throttle() {
 }
 ```
 
-I've happily used the [K9s](https://k9scli.io/) Kubernetes TUI for years
+I've happily used the [K9s](https://k9scli.io/) Kubernetes TUI for years, but it doesn't offer any kind of auto-update functionality.
 
 I abuse [my dotfiles](https://github.com/emmercm/dotfiles). I put a lot of commands in them that I probably shouldn't, making the time to launch a new terminal quite high. But I know that everything I want is initialized and ready to go every time:
 
@@ -44,6 +44,6 @@ I abuse [my dotfiles](https://github.com/emmercm/dotfiles). I put a lot of comma
 
 Not all of that needs to happen
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTA4OTI0NTc3MywxNTczNzk5OTE5LC05MD
-U4Mzg2MTUsLTEzMDkzODYwOTddfQ==
+eyJoaXN0b3J5IjpbNDQyOTI1MjMwLDE1NzM3OTk5MTksLTkwNT
+gzODYxNSwtMTMwOTM4NjA5N119
 -->
