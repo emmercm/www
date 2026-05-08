@@ -11,7 +11,28 @@ TODO: tagline
 
 Recently, I've been adding [pre-command hooks](/blog/automatically-execute-code-before-after-unix-commands) in [my dotfiles](https://github.com/emmercm/dotfiles) to update various tools before executing them. Some of my commonly-used tools, such as [Claude Code](https://code.claude.com/docs/en/overview), update nearly every day, or sometimes multiple times in a day.
 
-This has been working great, but I launch some of these tools many times in a day, and I don't want to pay the cost of attempting an update on every launch. So I wrote a Bash function that can "throttle" comm
+This has been working great, but I launch some of these tools many times in a day, and I don't want to pay the cost of attempting an update on every launch. So I wrote a Bash function that can "throttle" commands:
+
+```bash
+# @param {string} $1 Name of the throttle key
+# @param {number} $2 Cooldown duration in seconds
+throttle() {
+    local state_dir="${XDG_STATE_HOME:-${HOME}/.local/state}/throttle"
+    local state_file="${state_dir}/$1"
+    local now
+    now=$(date +%s)
+    local last_run=0
+    if [[ -f "${state_file}" ]]; then
+        last_run=$(cat "${state_file}" 2>/dev/null || echo 0)
+    fi
+    if (( now - last_run > $2 )); then
+        mkdir -p "${state_dir}"
+        echo "${now}" > "${state_file}"
+        return 0
+    fi
+    return 1
+}
+```
 
 I abuse [my dotfiles](https://github.com/emmercm/dotfiles). I put a lot of commands in them that I probably shouldn't, making the time to launch a new terminal quite high. But I know that everything I want is initialized and ready to go every time:
 
@@ -21,5 +42,5 @@ I abuse [my dotfiles](https://github.com/emmercm/dotfiles). I put a lot of comma
 
 Not all of that needs to happen
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTExMDIxMzk4MzhdfQ==
+eyJoaXN0b3J5IjpbLTEzMDkzODYwOTddfQ==
 -->
