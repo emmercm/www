@@ -9,9 +9,9 @@ tags:
 
 You can throttle how often a command executes by remembering its last execution time.
 
-Recently, I've been adding [pre-command hooks](/blog/automatically-execute-code-before-after-unix-commands) in [my dotfiles](https://github.com/emmercm/dotfiles) to update various tools before executing them. Many tools can update themselves, but ma
+Recently, I've been adding [pre-command hooks](/blog/automatically-execute-code-before-after-unix-commands) in [my dotfiles](https://github.com/emmercm/dotfiles) to update various tools before executing them. Many tools can update themselves, but many still can't.
 
-This has been working great, but I launch some of these tools many times in a day, and I don't want to pay the cost of attempting an update on every launch. So I added a Bash function to my dotfiles that can "throttle" commands:
+The hooks have been working great, but I launch some of these tools many times in a day, and I don't want to pay the cost of attempting an update on every launch. So I added a Bash function to my dotfiles that can "throttle" commands:
 
 ```bash
 # @param {string} $1 Name of the throttle key
@@ -34,7 +34,7 @@ throttle() {
 }
 ```
 
-Claude Code only auto-updates native installations, 
+[Claude Code](https://code.claude.com/docs/en/setup#auto-updates) only auto-updates "native" installations (not
 
 I've happily used the [K9s](https://k9scli.io/) Kubernetes TUI for years, but it doesn't offer any kind of auto-update functionality. Let's pretend that it is
 
@@ -46,6 +46,6 @@ I abuse [my dotfiles](https://github.com/emmercm/dotfiles). I put a lot of comma
 
 Not all of that needs to happen
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTQ1MTcxNDYzNiwtMTYxMTQyNjg5MywxNT
-czNzk5OTE5LC05MDU4Mzg2MTUsLTEzMDkzODYwOTddfQ==
+eyJoaXN0b3J5IjpbLTE1Njk0OTkwMDcsLTE2MTE0MjY4OTMsMT
+U3Mzc5OTkxOSwtOTA1ODM4NjE1LC0xMzA5Mzg2MDk3XX0=
 -->
