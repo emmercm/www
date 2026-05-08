@@ -11,7 +11,7 @@ You can throttle how often a command executes by remembering its last execution 
 
 Recently, I've been adding [pre-command hooks](/blog/automatically-execute-code-before-after-unix-commands) in [my dotfiles](https://github.com/emmercm/dotfiles) to update various tools before executing them. Many tools don't have the ability to auto-update themselves, or won't under certain circumstances (e.g. [Claude Code](https://code.claude.com/docs/en/setup#auto-updates) won't auto-update itself if it was installed via a package manager).
 
-This has been working great, but I launch some of these tools many times in a day, and I don't want to pay the cost of attempting an update on every launch. So I wrote a Bash function that can "throttle" commands:
+This has been working great, but I launch some of these tools many times in a day, and I don't want to pay the cost of attempting an update on every launch. So I added a Bash function to my dotfiles that can "throttle" commands:
 
 ```bash
 # @param {string} $1 Name of the throttle key
@@ -42,6 +42,6 @@ I abuse [my dotfiles](https://github.com/emmercm/dotfiles). I put a lot of comma
 
 Not all of that needs to happen
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTE3NjQwMTI4ODEsLTkwNTgzODYxNSwtMT
-MwOTM4NjA5N119
+eyJoaXN0b3J5IjpbMTU3Mzc5OTkxOSwtOTA1ODM4NjE1LC0xMz
+A5Mzg2MDk3XX0=
 -->
