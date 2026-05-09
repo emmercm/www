@@ -1187,6 +1187,7 @@ tracer(Metalsmith(path.resolve()))
             'brunoscheufler.com',
             'zsh.org',
             'qntm.org',
+            'nownownow.com',
         ]
     })))
 
