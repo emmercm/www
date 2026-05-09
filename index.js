@@ -1186,6 +1186,7 @@ tracer(Metalsmith(path.resolve()))
             'meredithbroussard.com',
             'brunoscheufler.com',
             'zsh.org',
+            'qntm.org',
         ]
     })))
 
