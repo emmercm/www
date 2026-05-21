@@ -11,7 +11,9 @@ Shifting the discussion left causes contributions to have a higher acceptance ra
 
 The main benefit of organizing teams around domains is they should be able to move faster due to fewer dependencies on other teams. But the main drawback is if you do depend on another team, getting them to prioritize functionality or fixes you need can be a battle. If your company has a culture of [innersourcing](/blog/pull-requests-welcome-tm), then providing outside contributions can help you keep your velocity.
 
-But you have to be a good neighbor, you have to put in the work to understand if your gift wi
+But you have to be a good neighbor, you have to put in the work to understand if your gift will be accepted or not.
+
+If the first time the owning team hears about your project is at pull request time, 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTE0MTUwNjMyMjddfQ==
+eyJoaXN0b3J5IjpbMTQzNTE2NjM5MF19
 -->
