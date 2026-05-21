@@ -29,11 +29,11 @@ In the context of outside contributions, I believe that writing and presenting a
 1. You've put in the work to understand that a change is important and truly necessary.
 2. You're inviting discussion and feedback.
 
-A pull request is not an invitation for discussion.
+_A pull request is not an invitation for discussion or feedback._
 
-Even though [Boehm's Law](https://www.pmi.org/disciplined-agile/agile/costofchange) is typically referenced in the context of fixing defects, the same holds true for pivoting technical design. It's a lot less expensive (in terms of time, but also emotions) to pivot a design earlier in a project's lifecycle than it is later.
+Even though [Boehm's Law](https://www.pmi.org/disciplined-agile/agile/costofchange) is typically referenced in the context of fixing software defects, the same idea holds true for pivoting technical design. It's a lot less expensive (in terms of time, but also emotions) to pivot a design earlier in a project's lifecycle than it is later. It's frustrating to both sides when a pull request
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTA1Mjc4Mjc1MywtOTUwOTI4NzM0LDMzNz
+eyJoaXN0b3J5IjpbLTU0OTExNjM3NCwtOTUwOTI4NzM0LDMzNz
 QzMjQ4NCwtMTc0MTA5OTIwMywtMjkwNjMwNzgxLDIxMDcwNjA1
 NDcsLTE5NDI4Nzk4ODksMTAzMjY4MTMyMiwtMTc2MjQ1NjMyMV
 19
