@@ -15,7 +15,7 @@ But you have to be a good neighbor, you have to put in the work to understand if
 
 Think about it: offering to buy a friend a concert ticket for a band you both like is a nice gesture, but buying them a concert ticket without knowing what they like (or if they like live music) could be a burdensome gift.
 
-So how can you know if your gift of code will be received well? _S
+So how can you know if your gift of code will be received well? _Start a conversation._ You may not know what the other team's goals are, what migration they might be in the middle of, or what their team norms are
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbNTU4MzY4MzYwLC0xNzYyNDU2MzIxXX0=
+eyJoaXN0b3J5IjpbMTY1NDM5NTA3NywtMTc2MjQ1NjMyMV19
 -->
