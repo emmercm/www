@@ -2,6 +2,7 @@
 
 title: Buy-In Before Implementation
 date: 2026-05-21
+image: https://unsplash.com/photos/black-and-white-cow-graffiti-on-orange-wall-jvR4bSCJDI4
 tags:
 - career
 
@@ -32,7 +33,7 @@ A pull request is not an invitation for discussion.
 
 Even though [Boehm's Law](https://www.pmi.org/disciplined-agile/agile/costofchange) is typically referenced in the context of fixing defects, the same holds true for pivoting technical design. It's a lot less expensive (in terms of time, but also emotions) to pivot a design earlier in a project's lifecycle than it is later.
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMzM3NDMyNDg0LC0xNzQxMDk5MjAzLC0yOT
-A2MzA3ODEsMjEwNzA2MDU0NywtMTk0Mjg3OTg4OSwxMDMyNjgx
-MzIyLC0xNzYyNDU2MzIxXX0=
+eyJoaXN0b3J5IjpbLTk1MDkyODczNCwzMzc0MzI0ODQsLTE3ND
+EwOTkyMDMsLTI5MDYzMDc4MSwyMTA3MDYwNTQ3LC0xOTQyODc5
+ODg5LDEwMzI2ODEzMjIsLTE3NjI0NTYzMjFdfQ==
 -->
