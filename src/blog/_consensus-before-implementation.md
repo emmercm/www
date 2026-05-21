@@ -31,9 +31,11 @@ In the context of outside contributions, I believe that writing and presenting a
 
 _A pull request is not an invitation for discussion or feedback._
 
-Even though [Boehm's Law](https://www.pmi.org/disciplined-agile/agile/costofchange) is typically referenced in the context of fixing software defects, the same idea holds true for pivoting technical design. It's a lot less expensive (in terms of time, but also emotions) to pivot a design earlier in a project's lifecycle than it is later. It's frustrating to both sides when an outside
+Even though [Boehm's Law](https://www.pmi.org/disciplined-agile/agile/costofchange) is typically referenced in the context of fixing software defects, the same idea holds true for pivoting technical design. It's a lot less expensive (in terms of time, but also emotions) to pivot a design earlier in a project's lifecycle than it is later. It's frustrating to both sides when an outside contribution gets rejected. The submitter is frustrated that their effort has gone to waste, and the owner is frustrated from being blindsided.
+
+Start the conversation and gain buy-in well before implementation starts
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTQ4ODU5MjAyMSwtOTUwOTI4NzM0LDMzNz
+eyJoaXN0b3J5IjpbMTU1MzAxMTA2NSwtOTUwOTI4NzM0LDMzNz
 QzMjQ4NCwtMTc0MTA5OTIwMywtMjkwNjMwNzgxLDIxMDcwNjA1
 NDcsLTE5NDI4Nzk4ODksMTAzMjY4MTMyMiwtMTc2MjQ1NjMyMV
 19
