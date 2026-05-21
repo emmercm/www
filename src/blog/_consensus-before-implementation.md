@@ -21,15 +21,15 @@ So how can you know if your gift of code will be received well? _Start a convers
 
 I like written artifacts, I blog about the importance of them a lot.
 
-I think an artifact that engineers under-use is a problem statement document. The goal is to get people to agree on the outcome you want to achieve, and it opens the door to discussing _how_ to achieve it. They are typically lightweight to write & read (1-2 pages max), so they shouldn't be burdensome to anyone (unless you don't actually know what the problem is).
+I think an artifact that engineers under-use is a problem statement document. The goal is to get people to agree on the outcome you want to achieve, and it opens the door to discussing _how_ to achieve it. They are typically lightweight to write & read (1-2 pages max), so they shouldn't be burdensome to anyone.
 
-I believe writing and presenting a problem statement document conveys to the other party two things:
+In the context of outside contributions, I believe that writing and presenting a problem statement document conveys to the other party two things:
 
 1. You've put in the work to understand that a change is important and truly necessary.
 2. You're inviting discussion and feedback.
 
-A pull request is not an invitation for discussion.
+A pull request is not an invitation for discussion. You need to put in the work up-front
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbNjY5MDAzMjg4LDEwMzI2ODEzMjIsLTE3Nj
+eyJoaXN0b3J5IjpbMTA4NDExMzAwLDEwMzI2ODEzMjIsLTE3Nj
 I0NTYzMjFdfQ==
 -->
