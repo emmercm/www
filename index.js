@@ -1164,6 +1164,7 @@ tracer(Metalsmith(path.resolve()))
             'news.ycombinator.com',
             'boardgamegeek.com',
             'cygwin.com',
+            'pmi.org',
             // Anti-bot 404
             'fonts.gstatic.com$',
             'support.google.com',
