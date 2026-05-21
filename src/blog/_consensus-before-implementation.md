@@ -14,7 +14,7 @@ The main benefit of organizing teams around domains is they should be able to mo
 
 But you have to be a good neighbor, you have to put in the work to understand if your gift will be accepted or not. If the first time an owning team hears about your project is when you submit a pull request that changes their code's behavior, performance, or dependencies—then it's probably going to be rejected, and it could be relationship damaging.
 
-Think about it: offering to buy a friend a concert ticket for a band you both like is a nice gesture, but buying them a concert ticket without knowing what they like (or if they even like live music) could be a burdensome gift.
+Think about it: offering to buy a friend a concert ticket for a band you both like is a nice gesture, but buying them a concert ticket without knowing what they like (or event if they like live music) could be a burdensome gift.
 
 So how can you know if your gift of code will be received well? _Start a conversation._ You may not know what the other team's goals are, what migration they might be in the middle of, or what their team norms are unless you talk.
 
@@ -33,7 +33,8 @@ A pull request is not an invitation for discussion.
 
 Even though [Boehm's Law](https://www.pmi.org/disciplined-agile/agile/costofchange) is typically referenced in the context of fixing defects, the same holds true for pivoting technical design. It's a lot less expensive (in terms of time, but also emotions) to pivot a design earlier in a project's lifecycle than it is later.
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTk1MDkyODczNCwzMzc0MzI0ODQsLTE3ND
-EwOTkyMDMsLTI5MDYzMDc4MSwyMTA3MDYwNTQ3LC0xOTQyODc5
-ODg5LDEwMzI2ODEzMjIsLTE3NjI0NTYzMjFdfQ==
+eyJoaXN0b3J5IjpbLTUyNDExOTI1MiwtOTUwOTI4NzM0LDMzNz
+QzMjQ4NCwtMTc0MTA5OTIwMywtMjkwNjMwNzgxLDIxMDcwNjA1
+NDcsLTE5NDI4Nzk4ODksMTAzMjY4MTMyMiwtMTc2MjQ1NjMyMV
+19
 -->
