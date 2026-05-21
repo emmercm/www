@@ -13,7 +13,9 @@ The main benefit of organizing teams around domains is they should be able to mo
 
 But you have to be a good neighbor, you have to put in the work to understand if your gift will be accepted or not. If the first time an owning team hears about your project is when you submit a pull request that changes behavior, performance, or dependencies—then it's probably going to be rejected, and it could be relationship damaging.
 
-Think about it: offering to buy a friend a concert ticket for a band you both like is a nice gesture, but buying them a concert ticket with
+Think about it: offering to buy a friend a concert ticket for a band you both like is a nice gesture, but buying them a concert ticket without knowing what they like (or if they like live music) could be a burdensome gift.
+
+So how can you know if your gift of code will be received well? _S
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbNjA3MTQ0ODEzLC0xNzYyNDU2MzIxXX0=
+eyJoaXN0b3J5IjpbNTU4MzY4MzYwLC0xNzYyNDU2MzIxXX0=
 -->
