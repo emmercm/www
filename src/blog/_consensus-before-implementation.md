@@ -28,8 +28,8 @@ In the context of outside contributions, I believe that writing and presenting a
 1. You've put in the work to understand that a change is important and truly necessary.
 2. You're inviting discussion and feedback.
 
-A pull request is not an invitation for discussion. You need to put in the work up-front
+A pull request is not an invitation for discussion. By the time you reach the implementation phase, the cost of 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTA4NDExMzAwLDEwMzI2ODEzMjIsLTE3Nj
-I0NTYzMjFdfQ==
+eyJoaXN0b3J5IjpbLTE5NDI4Nzk4ODksMTAzMjY4MTMyMiwtMT
+c2MjQ1NjMyMV19
 -->
