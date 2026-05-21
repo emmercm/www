@@ -17,10 +17,8 @@ Think about it: offering to buy a friend a concert ticket for a band you both li
 
 So how can you know if your gift of code will be received well? _Start a conversation._ You may not know what the other team's goals are, what migration they might be in the middle of, or what their team norms are unless you talk.
 
-I like written artifacts, I blog about the importance of them a lot. I think an artifact that engineers under-use is a problem statement document. The goal of the document is this:
-
-- To get people to agree that a stated problem/need exists and is worth solving.
-- To get people to agree that
+I like written artifacts, I blog about the importance of them a lot. I think an artifact that engineers under-use is a problem statement document. The goal is to get people to agree on the outcome you want to achieve, and it opens the door to discussing _They are typically lightweight to write & read, they convey
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTE5NzU5ODA1NywtMTc2MjQ1NjMyMV19
+eyJoaXN0b3J5IjpbLTE4OTU4MjExODgsLTE3NjI0NTYzMjFdfQ
+==
 -->
