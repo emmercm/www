@@ -28,8 +28,12 @@ In the context of outside contributions, I believe that writing and presenting a
 1. You've put in the work to understand that a change is important and truly necessary.
 2. You're inviting discussion and feedback.
 
-A pull request is not an invitation for discussion. By the time you reach the implementation phase, the cost of 
+A pull request is not an invitation for discussion.
+
+Even though [Boehm's Law](https://www.pmi.org/disciplined-agile/agile/costofchange) is typically
+
+By the time you reach the implementation phase, the cost of 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTE5NDI4Nzk4ODksMTAzMjY4MTMyMiwtMT
-c2MjQ1NjMyMV19
+eyJoaXN0b3J5IjpbMjEwNzA2MDU0NywtMTk0Mjg3OTg4OSwxMD
+MyNjgxMzIyLC0xNzYyNDU2MzIxXX0=
 -->
