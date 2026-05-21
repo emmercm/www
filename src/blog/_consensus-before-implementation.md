@@ -30,10 +30,10 @@ In the context of outside contributions, I believe that writing and presenting a
 
 A pull request is not an invitation for discussion.
 
-Even though [Boehm's Law](https://www.pmi.org/disciplined-agile/agile/costofchange) is typically
+Even though [Boehm's Law](https://www.pmi.org/disciplined-agile/agile/costofchange) is typically invoked in the context of fixing defects, the same holds true
 
 By the time you reach the implementation phase, the cost of 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMjEwNzA2MDU0NywtMTk0Mjg3OTg4OSwxMD
-MyNjgxMzIyLC0xNzYyNDU2MzIxXX0=
+eyJoaXN0b3J5IjpbLTI5MDYzMDc4MSwyMTA3MDYwNTQ3LC0xOT
+QyODc5ODg5LDEwMzI2ODEzMjIsLTE3NjI0NTYzMjFdfQ==
 -->
