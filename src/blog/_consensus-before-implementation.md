@@ -7,7 +7,7 @@ tags:
 
 ---
 
-Shifting the discussion left causes contributions to have a higher acceptance rate.
+Shifting the discussion left causes outside contributions to have a higher acceptance rate.
 
 The main benefit of organizing teams around domains is they should be able to move faster due to fewer dependencies on other teams. But the main drawback is if you do depend on another team, getting them to prioritize functionality or fixes you need can be a battle. If your company has a culture of [innersourcing](/blog/pull-requests-welcome-tm), then providing outside contributions can help you keep your velocity.
 
@@ -30,11 +30,9 @@ In the context of outside contributions, I believe that writing and presenting a
 
 A pull request is not an invitation for discussion.
 
-Even though [Boehm's Law](https://www.pmi.org/disciplined-agile/agile/costofchange) is typically invoked in the context of fixing defects, the same holds true for pivoting technical design. It's a lot less expensive (in terms of time, but also emotions) to pivot a design e
-
-By the time you reach the implementation phase, the cost of 
+Even though [Boehm's Law](https://www.pmi.org/disciplined-agile/agile/costofchange) is typically invoked in the context of fixing defects, the same holds true for pivoting technical design. It's a lot less expensive (in terms of time, but also emotions) to pivot a design earlier in a project's lifecycle than it is later.
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTMxNzM5Mjg4NCwtMjkwNjMwNzgxLDIxMD
-cwNjA1NDcsLTE5NDI4Nzk4ODksMTAzMjY4MTMyMiwtMTc2MjQ1
-NjMyMV19
+eyJoaXN0b3J5IjpbLTE3NDEwOTkyMDMsLTI5MDYzMDc4MSwyMT
+A3MDYwNTQ3LC0xOTQyODc5ODg5LDEwMzI2ODEzMjIsLTE3NjI0
+NTYzMjFdfQ==
 -->
