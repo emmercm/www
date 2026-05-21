@@ -19,7 +19,8 @@ So how can you know if your gift of code will be received well? _Start a convers
 
 I like written artifacts, I blog about the importance of them a lot. I think an artifact that engineers under-use is a problem statement document. The goal of the document is this:
 
-- To 
+- To get people to agree that a stated problem/need exists and is worth solving.
+- To get people to agree that
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTIxNzcxMjMwLC0xNzYyNDU2MzIxXX0=
+eyJoaXN0b3J5IjpbMTE5NzU5ODA1NywtMTc2MjQ1NjMyMV19
 -->
