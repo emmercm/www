@@ -23,10 +23,13 @@ I like written artifacts, I blog about the importance of them a lot.
 
 I think an artifact that engineers under-use is a problem statement document. The goal is to get people to agree on the outcome you want to achieve, and it opens the door to discussing _how_ to achieve it. They are typically lightweight to write & read, so they shouldn't be burdensome to anyone (unless you don't actually know what the problem is).
 
+I believe writing and presenting a problem statement document conveys to the other party two things:
 
+1. You've put in the work to understand that a change is important and truly necessary.
+2. You're inviting discussion and feedback.
+3. 
 
  and they convey that you've put in work to understand that a change is truly necessary in someone else's code.
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTE2NTg0ODA2ODEsLTE3NjI0NTYzMjFdfQ
-==
+eyJoaXN0b3J5IjpbODI5NDYzNTk1LC0xNzYyNDU2MzIxXX0=
 -->
