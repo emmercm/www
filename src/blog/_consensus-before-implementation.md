@@ -7,7 +7,7 @@ tags:
 
 ---
 
-You can shift 
+Shifting the discussion left causes contributions to have a higher acceptance rate.
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTI5MDczNjA3Nl19
+eyJoaXN0b3J5IjpbLTg1NTUzNDE5Ml19
 -->
