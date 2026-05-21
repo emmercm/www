@@ -30,10 +30,11 @@ In the context of outside contributions, I believe that writing and presenting a
 
 A pull request is not an invitation for discussion.
 
-Even though [Boehm's Law](https://www.pmi.org/disciplined-agile/agile/costofchange) is typically invoked in the context of fixing defects, the same holds true
+Even though [Boehm's Law](https://www.pmi.org/disciplined-agile/agile/costofchange) is typically invoked in the context of fixing defects, the same holds true for pivoting technical design. It's a lot less expensive (in terms of time, but also emotions) to pivot a design e
 
 By the time you reach the implementation phase, the cost of 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTI5MDYzMDc4MSwyMTA3MDYwNTQ3LC0xOT
-QyODc5ODg5LDEwMzI2ODEzMjIsLTE3NjI0NTYzMjFdfQ==
+eyJoaXN0b3J5IjpbMTMxNzM5Mjg4NCwtMjkwNjMwNzgxLDIxMD
+cwNjA1NDcsLTE5NDI4Nzk4ODksMTAzMjY4MTMyMiwtMTc2MjQ1
+NjMyMV19
 -->
