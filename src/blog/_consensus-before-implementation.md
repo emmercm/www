@@ -17,7 +17,7 @@ Think about it: offering to buy a friend a concert ticket for a band you both li
 
 So how can you know if your gift of code will be received well? _Start a conversation._ You may not know what the other team's goals are, what migration they might be in the middle of, or what their team norms are unless you talk.
 
-## Starting
+## Starting the conversation
 
 I like written artifacts, I blog about the importance of them a lot.
 
@@ -27,9 +27,8 @@ I believe writing and presenting a problem statement document conveys to the oth
 
 1. You've put in the work to understand that a change is important and truly necessary.
 2. You're inviting discussion and feedback.
-3. 
 
- and they convey that you've put in work to understand that a change is truly necessary in someone else's code.
+A pull request is not an invitation for discussion.
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbODI5NDYzNTk1LC0xNzYyNDU2MzIxXX0=
+eyJoaXN0b3J5IjpbMTAzMjY4MTMyMiwtMTc2MjQ1NjMyMV19
 -->
