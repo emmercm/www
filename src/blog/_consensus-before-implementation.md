@@ -22,7 +22,7 @@ So how can you know if your gift of code will be received well? _Start a convers
 
 I like written artifacts, I blog about the importance of them a lot.
 
-I think an artifact that engineers under-use is a problem statement document. The goal is to get people to agree on the outcome you want to achieve, and it opens the door to discussing _how_ to achieve it. They are typically lightweight to write & read (1-2 pages max), so they shouldn't be burdensome to anyone.
+I think an artifact that engineers under-utilize is a problem statement document. The goal of the document is to get people to agree on the outcome you want to achieve, and then it opens the door to discussing _how_ to achieve it. They are typically lightweight to write & read (1-2 pages max), so they shouldn't be burdensome to anyone.
 
 In the context of outside contributions, I believe that writing and presenting a problem statement document conveys to the other party two things:
 
@@ -33,7 +33,7 @@ A pull request is not an invitation for discussion.
 
 Even though [Boehm's Law](https://www.pmi.org/disciplined-agile/agile/costofchange) is typically referenced in the context of fixing defects, the same holds true for pivoting technical design. It's a lot less expensive (in terms of time, but also emotions) to pivot a design earlier in a project's lifecycle than it is later.
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTUyNDExOTI1MiwtOTUwOTI4NzM0LDMzNz
+eyJoaXN0b3J5IjpbMTA1Mjc4Mjc1MywtOTUwOTI4NzM0LDMzNz
 QzMjQ4NCwtMTc0MTA5OTIwMywtMjkwNjMwNzgxLDIxMDcwNjA1
 NDcsLTE5NDI4Nzk4ODksMTAzMjY4MTMyMiwtMTc2MjQ1NjMyMV
 19
