@@ -1165,6 +1165,8 @@ tracer(Metalsmith(path.resolve()))
             'boardgamegeek.com',
             'cygwin.com',
             'pmi.org',
+            'zsh.sourceforge.io',
+            'validator.w3.org',
             // Anti-bot 404
             'fonts.gstatic.com$',
             'support.google.com',
