@@ -1167,6 +1167,8 @@ tracer(Metalsmith(path.resolve()))
             'pmi.org',
             'zsh.sourceforge.io',
             'validator.w3.org',
+            'defaults-write.com',
+            'oreilly.com',
             // Anti-bot 404
             'fonts.gstatic.com$',
             'support.google.com',
