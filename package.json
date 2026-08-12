@@ -91,7 +91,7 @@
     "minimatch": "8.0.4",
     "netlify-plugin-cache": "1.0.3",
     "node-fetch": "3.3.2",
-    "postcss": "8.5.14",
+    "postcss": "8.5.23",
     "transliteration": "2.6.1",
     "unsplash-js": "7.0.20"
   },
