@@ -691,7 +691,7 @@ tracer(Metalsmith(path.resolve()))
     )
 
     // Generate and render paginated blog index partials
-    .use(multiCollections.default({
+    .use(multiCollections({
         pattern: 'blog/**',
         key: 'tags',
         collection: 'blog/tag/{val}',
