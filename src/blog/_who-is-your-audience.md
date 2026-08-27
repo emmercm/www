@@ -25,7 +25,9 @@ When I identify a system problem that I believe is worth addressing, I like the 
 
 Here's how I'd answer the three questions:
 
-1. **Who is my audience?** My manager, product manager, or whoever has control over
+1. **Who is my audience?** My manager, product manager, or whoever has control over my roadmap or sprint planning.
+2. **What do I want from them?** I want them to be convinced that the problem I have identified is worth solving, and it is worth solving in the next 3 months.
+3. **What do they care about?** They care about the value that would be added, 
 
 ## Product requirements documents
 
@@ -33,5 +35,5 @@ Here's how I'd answer the three questions:
 
 ## How-to guides
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTUzNTIyMDE5OSw3MDI3NjQ0MzddfQ==
+eyJoaXN0b3J5IjpbMjQwODEzNzI0LDcwMjc2NDQzN119
 -->
