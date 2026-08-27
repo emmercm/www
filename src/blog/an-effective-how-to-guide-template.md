@@ -3,7 +3,7 @@
 title: An Effective How-To Guide Template
 date: 2024-12-11T23:53:00
 tags:
-- writing
+- writingcareer
 
 ---
 
@@ -115,3 +115,6 @@ _Optional section: summary of any setup work required before a person can execut
 ## Next steps
 
 _Optional section: how-to guides and/or tasks that a person would commonly need to take next._
+<!--stackedit_data:
+eyJoaXN0b3J5IjpbMTMxOTI1NTM0XX0=
+-->
