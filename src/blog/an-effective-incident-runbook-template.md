@@ -3,8 +3,8 @@
 title: An Effective Incident Runbook Template
 date: 2023-11-03T17:42:00
 tags:
-- career
 - sre
+- writing
 
 ---
 

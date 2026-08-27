@@ -3,7 +3,7 @@
 title: An Effective How-To Guide Template
 date: 2024-12-11T23:53:00
 tags:
-- career
+- writing
 
 ---
 

@@ -7,6 +7,7 @@ image: https://unsplash.com/photos/person-sitting-front-of-laptop-mfB1B1s4sMc
 tags:
 - career
 - opinion
+- writing
 
 ---
 
