@@ -27,13 +27,15 @@ Here's how I'd answer the three questions:
 
 1. **Who is my audience?** My manager, product manager, or whoever has control over my roadmap or sprint planning.
 2. **What do I want from them?** I want them to be convinced that the problem I have identified is worth solving, and it is worth solving in the next 3 months.
-3. **What do they care about?** They care about the value that would be added, 
+3. **What do they care about?** They care about the value that would be added, the money that would be saved, or the risk that would be mitigated. They need enough information to make a decision if this project is more or less important than another.
 
 ## Product requirements documents
+
+The three questions don't 
 
 ## RFCs
 
 ## How-to guides
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMjQwODEzNzI0LDcwMjc2NDQzN119
+eyJoaXN0b3J5IjpbLTEyODQwMjE2MDQsNzAyNzY0NDM3XX0=
 -->
