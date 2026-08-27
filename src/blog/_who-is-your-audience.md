@@ -21,7 +21,7 @@ I'll give some concrete examples of how I answer the questions.
 
 ## Problem statements
 
-When I identify a system problem that I believe is worth addressing, I like the format of a lightweight ("one-pager") document to succinctly describe the problem, the severity, and a hypothesis for the solution with a rough estimate.
+When I identify a system problem that I believe is worth addressing, I like the format of a lightweight ("one-pager") document to succinctly describe the problem, the severity, and a hypothesis for the solution with a rough estimate. If making a decision requires a meeting, it's especially helpful to have a 
 
 ## Product requirements documents
 
@@ -29,5 +29,5 @@ When I identify a system problem that I believe is worth addressing, I like the 
 
 ## How-to guides
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbNzAyNzY0NDM3XX0=
+eyJoaXN0b3J5IjpbMjAzNjk2NTI3Miw3MDI3NjQ0MzddfQ==
 -->
