@@ -49,9 +49,12 @@ As a software engineer, this is what I write the most of. Technical design docum
 	2. I want implementers to understand the plan such that they can execute it accurately.
 3. **What do they care about?** Again, two answers for the two audiences:
 	1. Reviewers care that I have compared all feasible solutions, have mitigated all risks, and documented all tradeoffs and consequences.
-	2. Implementers care about having clarity
+	2. Implementers care about having clarity about each task and how they all fit together.
 
 ## How-to guides
+
+I wrote a [template for how-to guides designed to be easily copy-and-paste-able
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTIwNjg0MDEyNDUsNzAyNzY0NDM3XX0=
+eyJoaXN0b3J5IjpbLTI0OTEzOTY4NSwtMjA2ODQwMTI0NSw3MD
+I3NjQ0MzddfQ==
 -->
