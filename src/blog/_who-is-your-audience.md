@@ -23,7 +23,11 @@ I'll give some concrete examples of how I answer the questions.
 
 When I identify a system problem that I believe is worth addressing, I like the format of a lightweight ("one-pager") document to succinctly describe the problem, the severity, and a hypothesis for the solution with a rough estimate.
 
+## Product requirements documents
 
+## RFCs
+
+## How-to guides
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMzg0MzUwNDYzXX0=
+eyJoaXN0b3J5IjpbNzAyNzY0NDM3XX0=
 -->
