@@ -43,14 +43,15 @@ As a software engineer, this is what I write the most of. Technical design docum
 
 1. **Who is my audience?** There are two:
 	1. Whoever needs to review and approve the plan. This might be your teammates and counterparts from other teams, or it might be an architecture review board.
-	2. Whoever needs to implement the plan, probably your teammates.
+	2. Whoever needs to execute the plan, probably your teammates.
 2. **What do I want from them?** Two answers for the two audiences:
 	1. I want reviewers to be convinced that I have chosen the best approach given the project constraints.
-	2. I want implementers to understand
+	2. I want implementers to understand the plan such that they can execute it accurately.
 3. **What do they care about?** Again, two answers for the two audiences:
-	1. Reviewers care that I have
+	1. Reviewers care that I have compared all feasible solutions, have mitigated all risks, and documented all tradeoffs and consequences.
+	2. Implementers care about having clarity
 
 ## How-to guides
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTc3NDIzMzg4NSw3MDI3NjQ0MzddfQ==
+eyJoaXN0b3J5IjpbLTIwNjg0MDEyNDUsNzAyNzY0NDM3XX0=
 -->
