@@ -2,7 +2,7 @@
 
 title: Who Is Your Audience, and What Do They Do?
 date: 2026-08-26
-imag
+image: https://unsplash.com/photos/people-sitting-down-near-table-with-assorted-laptop-computers-SYTO3xs06fU
 tags:
 - writing
 
@@ -60,6 +60,6 @@ I wrote a [template for how-to guides](/blog/an-effective-how-to-guide-template)
 2. **What do I want from them?** Most of the time I just want them to not bother me with questions that a document could answer.
 3. **What do they care about?** They care about being provided accurate and succinct information that helps them achieve their desired outcome.
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTIwMjI1ODYzMiwtMjA1MzI0MzAyOCwtMj
-A2ODQwMTI0NSw3MDI3NjQ0MzddfQ==
+eyJoaXN0b3J5IjpbMjM5NzkxMDEzLC0yMDUzMjQzMDI4LC0yMD
+Y4NDAxMjQ1LDcwMjc2NDQzN119
 -->
