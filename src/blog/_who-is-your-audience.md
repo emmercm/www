@@ -35,7 +35,7 @@ A product requirements document (PRD), product spec, functional requirements doc
 
 1. **Who is my audience?** The people who will be executing the project or implementing the feature.
 2. **What do I want from them?** I want them to execute the project accurately, achieving all of its goals.
-3. **What do they care about?** They care about being provided the "what" and the "why," such that they can determine the "how."
+3. **What do they care about?** The project executors care about being provided the "what" and the "why," such that they can determine the "how."
 
 ## Technical design documents
 
@@ -56,9 +56,9 @@ As a software engineer, this is what I write the most of. Technical design docum
 I wrote a [template for how-to guides](/blog/an-effective-how-to-guide-template) designed to be easily copy-and-paste-able, and it helps walk you through answering the three questions:
 
 1. **Who is my audience?** It might be your teammates, it might explicitly be people not on your team, or it might be people with a completely different job function. You will need to know who will be responsible for executing the work that you're describing.
-2. **What do I want from them?** Most of the time I just want them to not bother me with lazy questions 
-3. **What do they care about?** They care about being provided the "what" and the "why," such that they can determine the "how."
+2. **What do I want from them?** Most of the time I just want them to not bother me with questions that a document could answer.
+3. **What do they care about?** They care about being provided accurate and succinct information that helps them achieve their desired outcome.
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbOTM3OTQxNTU4LC0yMDY4NDAxMjQ1LDcwMj
-c2NDQzN119
+eyJoaXN0b3J5IjpbLTIwNTMyNDMwMjgsLTIwNjg0MDEyNDUsNz
+AyNzY0NDM3XX0=
 -->
