@@ -42,11 +42,12 @@ A product requirements document (PRD), product spec, functional requirements doc
 As a software engineer, this is what I write the most of. Technical design documents, tech specs, RFC, or any other document that conveys an implementation plan has a very different audience from the other examples.
 
 1. **Who is my audience?** There are two:
-	1. Whoever needs to review and approve the plan. This might be your teammates and counterparts from other teams, or it might be an archite review board.
-2. **What do I want from them?** I want them to execute the project accurately, achieving all of its goals.
-3. **What do they care about?** They care about being provided the "what" and the "why," such that they can determine the "how."
+	1. Whoever needs to review and approve the plan. This might be your teammates and counterparts from other teams, or it might be an architecture review board.
+	2. Whoever needs to execute the plan, probably your teammates.
+2. **What do I want from them?** I want them to be convinced that I have chosen the
+3. **What do they care about?** 
 
 ## How-to guides
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTcxMjU0NDM2Nyw3MDI3NjQ0MzddfQ==
+eyJoaXN0b3J5IjpbNzczNzM2NTE4LDcwMjc2NDQzN119
 -->
