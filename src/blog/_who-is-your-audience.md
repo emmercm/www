@@ -7,7 +7,11 @@ tags:
 
 ---
 
-Increasing
+Having a clear goal will increase the effectiveness of your technical writing.
+
+I've found myself giving this advice at work lately:
+
+> When writing a 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTQxNzQ1ODIwNF19
+eyJoaXN0b3J5IjpbMTY5MDIzMzY0OF19
 -->
