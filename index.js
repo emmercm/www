@@ -501,8 +501,7 @@ tracer(Metalsmith(path.resolve()))
     .use(collections({
         blog: {
             pattern: 'blog/*.md',
-            sortBy: (a, b) => DateTime.fromJSDate(a.date).toMillis() - DateTime.fromJSDate(b.date).toMillis(),
-            reverse: true
+            sort: (a, b) => DateTime.fromJSDate(b.date).toMillis() - DateTime.fromJSDate(a.date).toMillis(),
         }
     }))
     .use(collectionMeta({
@@ -550,8 +549,8 @@ tracer(Metalsmith(path.resolve()))
             .map((filename) => {
                 const file = files[filename];
                 const permanentPath = `${file.paths.dir || 'index'}${file.paths.ext}`
-                if (permanentPath !== file.path) {
-                    return `'${permanentPath}' != '${file.path}'`;
+                if (file.originalPath !== permanentPath) {
+                    return `'${file.originalPath}' != '${permanentPath}'`;
                 }
             })
             .filter((err) => err);
@@ -584,7 +583,7 @@ tracer(Metalsmith(path.resolve()))
             pattern: '**/*.@(html|md)',
             defaults: {
                 image: file => {
-                    const basenameWithoutExt = file.path
+                    const basenameWithoutExt = file.paths.dir
                         .replace(/\/index\.[a-z]+$/, '')
                         .split('/').pop()
                         .replace(/\.[a-z]+$/, '');
@@ -592,7 +591,7 @@ tracer(Metalsmith(path.resolve()))
                         ?.replace(/^/, '/');
                 },
                 thumb: file => {
-                    const basenameWithoutExt = file.path
+                    const basenameWithoutExt = file.paths.dir
                         .replace(/\/index\.[a-z]+$/, '')
                         .split('/').pop()
                         .replace(/\.[a-z]+$/, '');
@@ -696,8 +695,7 @@ tracer(Metalsmith(path.resolve()))
         key: 'tags',
         collection: 'blog/tag/{val}',
         settings: {
-            sortBy: (a, b) => DateTime.fromJSDate(a.date).toMillis() - DateTime.fromJSDate(b.date).toMillis(),
-            reverse: true
+            sort: (a, b) => DateTime.fromJSDate(b.date).toMillis() - DateTime.fromJSDate(a.date).toMillis(),
         }
     }))
     .use((files, metalsmith, done) => {
