@@ -46,10 +46,11 @@ As a software engineer, this is what I write the most of. Technical design docum
 	2. Whoever needs to implement the plan, probably your teammates.
 2. **What do I want from them?** Two answers for the two audiences:
 	1. I want reviewers to be convinced that I have chosen the best approach given the project constraints.
-	2. I want implementers 
-3. **What do they care about?** 
+	2. I want implementers to understand
+3. **What do they care about?** Again, two answers for the two audiences:
+	1. Reviewers care that I have
 
 ## How-to guides
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbODIzOTgzNDg0LDcwMjc2NDQzN119
+eyJoaXN0b3J5IjpbMTc3NDIzMzg4NSw3MDI3NjQ0MzddfQ==
 -->
