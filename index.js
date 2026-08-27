@@ -1187,6 +1187,7 @@ tracer(Metalsmith(path.resolve()))
             'console.cloud.google.com',
             'gitpkg.vercel.app',
             'mywiki.wooledge.org',
+            'groovy-lang.org'
         ]
     })))
 
