@@ -6,10 +6,6 @@ books:
   title: Books
   color: goodreads
 
-bootstrap:
-  title: Bootstrap
-  color: bootstrap
-
 career:
   title: Career
   color: purple
@@ -26,10 +22,6 @@ databases:
 docker:
   title: Docker
   color: docker
-
-fontawesome:
-  title: Font Awesome
-  color: fontawesome
 
 git:
   title: Git
@@ -110,3 +102,7 @@ sre:
 testing:
   title: Testing
   color: pink
+
+writing:
+  title: Writing
+  color: 2015

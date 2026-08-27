@@ -71,6 +71,12 @@
     padding-left: $border-width*10 - $border-width*1.5;
     border-left: $border-width*1.5 solid var(--#{$prefix}primary);
     font-style: italic;
+
+    & > ol,
+    & > ul,
+    & > dl {
+      padding-bottom: $paragraph-margin-bottom / 4;
+    }
   }
   ul blockquote {
     margin-left: 0px;
