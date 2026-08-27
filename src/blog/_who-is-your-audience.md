@@ -31,15 +31,15 @@ Here's how I'd answer the three questions:
 
 ## Product requirements documents
 
-A PRD, a product spec., or any other document that conveys project goals and requirements should also answer the three questions.
+A product requirements document (PRD), product spec., functional requirements document (FRD), or any other document that conveys project goals and requirements should also answer the three questions.
 
 1. **Who is my audience?** The people who will be executing the project or implementing the feature.
 2. **What do I want from them?** I want them to execute the project accurately, achieving all of its goals.
-3. **What do they care about?** They care about being provided the 
+3. **What do they care about?** They care about being provided the "what" and the "why," such that they can determine the "how."
 
 ## RFCs
 
 ## How-to guides
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMjAyNjE2MDkzLDcwMjc2NDQzN119
+eyJoaXN0b3J5IjpbLTQzNTgyMzA2Miw3MDI3NjQ0MzddfQ==
 -->
