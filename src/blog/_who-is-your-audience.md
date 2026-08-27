@@ -37,9 +37,12 @@ A product requirements document (PRD), product spec., functional requirements do
 2. **What do I want from them?** I want them to execute the project accurately, achieving all of its goals.
 3. **What do they care about?** They care about being provided the "what" and the "why," such that they can determine the "how."
 
-## RFCs
+## Technical design documents
+
+As a 
+A technical design document, technical spec., RFC, or any other document that conveys an implementation plan
 
 ## How-to guides
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTQzNTgyMzA2Miw3MDI3NjQ0MzddfQ==
+eyJoaXN0b3J5IjpbLTg4MjEzODU5NCw3MDI3NjQ0MzddfQ==
 -->
