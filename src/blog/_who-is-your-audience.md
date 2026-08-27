@@ -31,11 +31,15 @@ Here's how I'd answer the three questions:
 
 ## Product requirements documents
 
-The three questions don't 
+A PRD, a product spec., or any other document that conveys project goals and requirements should also answer the three questions.
+
+1. **Who is my audience?** The people who will be
+2. **What do I want from them?** I want them to be convinced that the problem I have identified is worth solving, and it is worth solving in the next 3 months.
+3. **What do they care about?** 
 
 ## RFCs
 
 ## How-to guides
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTEyODQwMjE2MDQsNzAyNzY0NDM3XX0=
+eyJoaXN0b3J5IjpbNjcxOTQ0MDA3LDcwMjc2NDQzN119
 -->
