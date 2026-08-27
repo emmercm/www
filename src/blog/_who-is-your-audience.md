@@ -16,6 +16,12 @@ I've found myself giving this advice at work lately:
 > 1. Who is my audience?
 > 2. What do I want from them?
 > 3. What do they care about?
+
+I'll give some concrete examples of how I answer the questions.
+
+## Problem statements
+
+When I identify a system problem that I believe is worth addressing, I like the format of a ligh
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTEyMTgyNDgwNjldfQ==
+eyJoaXN0b3J5IjpbLTU2NDc4NTU0MV19
 -->
