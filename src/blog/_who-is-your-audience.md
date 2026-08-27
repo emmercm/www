@@ -9,7 +9,7 @@ tags:
 
 Having a clear goal will increase the effectiveness of your technical writing.
 
-I've found myself giving this advice at work lately:
+I've found myself giving this advice to fellow software engineers at work recently:
 
 > When writing a document that intends to communicate an idea or drive some action, you need to answer three questions:
 >
@@ -21,7 +21,11 @@ I'll give some concrete examples of how I answer the questions.
 
 ## Problem statements
 
-When I identify a system problem that I believe is worth addressing, I like the format of a lightweight ("one-pager") document to succinctly describe the problem, the severity, and a hypothesis for the solution with a rough estimate. If making a decision requires a meeting, it's especially helpful to have a 
+When I identify a system problem that I believe is worth addressing, I like the format of a lightweight ("one-pager") document to succinctly describe the problem, the severity, and a hypothesis for the solution with a rough estimate. If making a decision requires a meeting, it's especially helpful to have a document for participants to read ahead of time.
+
+Here's how I'd answer the three questions:
+
+1. **Who is my audience?** My manager, product manager, or whoever has control over
 
 ## Product requirements documents
 
@@ -29,5 +33,5 @@ When I identify a system problem that I believe is worth addressing, I like the 
 
 ## How-to guides
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMjAzNjk2NTI3Miw3MDI3NjQ0MzddfQ==
+eyJoaXN0b3J5IjpbLTUzNTIyMDE5OSw3MDI3NjQ0MzddfQ==
 -->
