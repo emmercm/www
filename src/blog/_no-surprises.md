@@ -15,6 +15,11 @@ Examples:
 Ask yourself the question:
 
 > Would this behavior surprise my client?
+
+What reduces surprises?
+
+- Documentation
+- Interfaces that possible make errors/problems obvious, such as Go's error returns
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbNzMxNzQ2MDU4XX0=
+eyJoaXN0b3J5IjpbMTAyNTY1MTgwOSw3MzE3NDYwNThdfQ==
 -->
