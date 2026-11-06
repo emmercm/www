@@ -12,7 +12,7 @@ I had a use case recently where I wanted to speed up some Bash processing that I
 
 You may ask: _why do this in Bash at all? It seems silly to use a language with poor concurrency controls._ You'd be right to ask this question, and my answer is: because [I have a fondness for Bash](/blog/tag/shell), and I wanted the challenge. But you're probably better off using another language such as Python.
 
-First the code, and then I'll show some examples:
+Here is code that establishes a TODO pool that accepts Bash commands to execute
 
 ```bash
 ```
@@ -64,7 +64,7 @@ or
 TODO: read from file
 ```
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTQ1NDgzNjA0NiwtMTYyNDA0NzYyOSwtNz
-k5NzMyMzg2LDE4NzM4NDk4MDksNzAzNjcwOTc1LDY0OTMyMTIz
-NywtMTE1ODk3MTkyNF19
+eyJoaXN0b3J5IjpbNjEyMjY0ODU0LC00NTQ4MzYwNDYsLTE2Mj
+QwNDc2MjksLTc5OTczMjM4NiwxODczODQ5ODA5LDcwMzY3MDk3
+NSw2NDkzMjEyMzcsLTExNTg5NzE5MjRdfQ==
 -->
