@@ -151,7 +151,16 @@ third
 first
 ```
 
-TODO: subshell inheritance
+Process pools are inherited by subshells:
+
+```shell
+$ pool_start 2  
+$ ( pool_submit 'echo "submitted from a subshell"' )  
+$ pool_submit 'echo "submitted from the main shell"'  
+$ pool_wait
+submitted from a subshell  
+submitted from the main shell
+```
 
 TODO: separate subshells
 
@@ -177,7 +186,7 @@ TODO: read from file
 
 GNU `parallel` works similarly.
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTQ2OTI4NjEzMSwtMTExOTc3Mzg5MywtMT
+eyJoaXN0b3J5IjpbLTczNjAyOTc0OSwtMTExOTc3Mzg5MywtMT
 YzMjM2NzQ1NCwtNzEzOTAzMyw1MTMxOTAyOTUsMTEzMjE0Njgx
 NywtNDU0ODM2MDQ2LC0xNjI0MDQ3NjI5LC03OTk3MzIzODYsMT
 g3Mzg0OTgwOSw3MDM2NzA5NzUsNjQ5MzIxMjM3LC0xMTU4OTcx
