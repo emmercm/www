@@ -50,7 +50,7 @@ TODO: could I pipe commands into this?
 
 ## Traps
 
-## Why not a `mkfifo` pipe?
+## Why not `mkfifo` without a file descriptor?
 
 ## Why not only `xargs -P`?
 
@@ -68,8 +68,8 @@ TODO: read from file
 
 GNU `parallel` works similarly.
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTcxMzkwMzMsNTEzMTkwMjk1LDExMzIxND
-Y4MTcsLTQ1NDgzNjA0NiwtMTYyNDA0NzYyOSwtNzk5NzMyMzg2
-LDE4NzM4NDk4MDksNzAzNjcwOTc1LDY0OTMyMTIzNywtMTE1OD
-k3MTkyNF19
+eyJoaXN0b3J5IjpbLTE2MzIzNjc0NTQsLTcxMzkwMzMsNTEzMT
+kwMjk1LDExMzIxNDY4MTcsLTQ1NDgzNjA0NiwtMTYyNDA0NzYy
+OSwtNzk5NzMyMzg2LDE4NzM4NDk4MDksNzAzNjcwOTc1LDY0OT
+MyMTIzNywtMTE1ODk3MTkyNF19
 -->
