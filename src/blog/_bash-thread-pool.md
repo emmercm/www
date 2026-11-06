@@ -6,7 +6,7 @@ tags:
 
 ---
 
-Technically, they're _process_ pools, 
+Technically, it's _multiprocessthey're _process_ pools, 
 
 I had a use case recently where I wanted to speed up some Bash processing that I was doing, but still keep concurrency constrained. So I wondered: _is there a straightforward way to create thread pools in Bash?_ The answer is: mostly yes.
 
@@ -66,7 +66,7 @@ TODO: read from file
 
 GNU `parallel` works similarly.
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTY4ODA1MjY3NywtNDU0ODM2MDQ2LC0xNj
-I0MDQ3NjI5LC03OTk3MzIzODYsMTg3Mzg0OTgwOSw3MDM2NzA5
-NzUsNjQ5MzIxMjM3LC0xMTU4OTcxOTI0XX0=
+eyJoaXN0b3J5IjpbMTA4NzEzMzA1LC00NTQ4MzYwNDYsLTE2Mj
+QwNDc2MjksLTc5OTczMjM4NiwxODczODQ5ODA5LDcwMzY3MDk3
+NSw2NDkzMjEyMzcsLTExNTg5NzE5MjRdfQ==
 -->
