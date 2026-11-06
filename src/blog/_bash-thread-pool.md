@@ -8,6 +8,8 @@ tags:
 
 Technically, they're _process_ pools, 
 
+I had a use case recently where I wanted to speed up some Bash processing that I was doing, but still keep concurrency constrained. So I wondered: _is there a straightforward-
+
 ```bash
 #!/usr/bin/env bash  
 set -euo pipefail  
@@ -41,6 +43,7 @@ TODO: could I pipe commands into this?
 
 ## Why not `xargs -P`?
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTc5OTczMjM4NiwxODczODQ5ODA5LDcwMz
-Y3MDk3NSw2NDkzMjEyMzcsLTExNTg5NzE5MjRdfQ==
+eyJoaXN0b3J5IjpbLTEyMzAwOTIxMDUsLTc5OTczMjM4NiwxOD
+czODQ5ODA5LDcwMzY3MDk3NSw2NDkzMjEyMzcsLTExNTg5NzE5
+MjRdfQ==
 -->
