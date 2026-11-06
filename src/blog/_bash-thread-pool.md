@@ -21,11 +21,15 @@ It works in Bash and Zsh, and it has as much defensive programming as I know how
 
 ## Examples
 
-TODO: separate s
+TODO: a simple usage
 
-TODO: could I pipe commands into this?
+TODO: subshell inheritance
 
-## Traps
+TODO: separate subshells
+
+TODO: pipe a command into it, including files
+
+TODO: starting a thread from a thread?
 
 ## Why not `mkfifo` without a file descriptor?
 
@@ -45,8 +49,9 @@ TODO: read from file
 
 GNU `parallel` works similarly.
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTExMTk3NzM4OTMsLTE2MzIzNjc0NTQsLT
-cxMzkwMzMsNTEzMTkwMjk1LDExMzIxNDY4MTcsLTQ1NDgzNjA0
-NiwtMTYyNDA0NzYyOSwtNzk5NzMyMzg2LDE4NzM4NDk4MDksNz
-AzNjcwOTc1LDY0OTMyMTIzNywtMTE1ODk3MTkyNF19
+eyJoaXN0b3J5IjpbLTI4NzQ2MjQxMiwtMTExOTc3Mzg5MywtMT
+YzMjM2NzQ1NCwtNzEzOTAzMyw1MTMxOTAyOTUsMTEzMjE0Njgx
+NywtNDU0ODM2MDQ2LC0xNjI0MDQ3NjI5LC03OTk3MzIzODYsMT
+g3Mzg0OTgwOSw3MDM2NzA5NzUsNjQ5MzIxMjM3LC0xMTU4OTcx
+OTI0XX0=
 -->
