@@ -243,11 +243,56 @@ ${lang}
         html += `<div class="col">${lang}</div>`;
     }
     html += `</div>`;
-    html += escapedLang ? `<pre class="hljs card-body" data-lang="${escapedLang}">` : '<pre>';
+
+    let body = escaped ? _code : escape(_code, true);
+    const lineNumbers = !['shell', 'console', 'dos', 'bat', 'cmd', 'powershell', 'ps', 'ps1'].includes(lang);
+    let lineNumberDigits = 0;
+    if (lineNumbers) {
+        const lines = splitHighlightedLines(body);
+        lineNumberDigits = String(lines.length).length;
+        body = lines
+            .map((line) => `<span class="line">${line}</span>`)
+            .join('\n');
+    }
+    const preClasses = [
+        ...(escapedLang ? ['hljs', 'card-body'] : []),
+        ...(lineNumbers ? ['line-numbers'] : []),
+    ];
+    html += `<pre${preClasses.length ? ` class="${preClasses.join(' ')}"` : ''}${escapedLang ? ` data-lang="${escapedLang}"` : ''}${lineNumbers ? ` style="--line-number-digits: ${lineNumberDigits}"` : ''}>`;
     html += escapedLang ? `<code class="language-${escapedLang}">` : '<code>';
-    html += escaped ? _code : escape(_code, true);
+    html += body;
     html += '</code></pre></div>\n';
     return html;
+};
+
+/**
+ * Split highlight.js HTML output into lines, closing any `<span>`s still open at the end of a
+ * line and re-opening them at the start of the next, so each line is valid HTML on its own.
+ */
+const splitHighlightedLines = (html) => {
+    const lines = [];
+    const openTags = [];
+    let line = '';
+    for (const token of html.split(/(<span[^>]*>|<\/span>|\n)/)) {
+        if (token === '\n') {
+            lines.push(line + '</span>'.repeat(openTags.length));
+            line = openTags.join('');
+        } else {
+            if (token.startsWith('<span')) {
+                openTags.push(token);
+            } else if (token === '</span>') {
+                openTags.pop();
+            }
+            line += token;
+        }
+    }
+    lines.push(line);
+
+    // Don't number a trailing empty line
+    if (lines.length > 1 && lines.at(-1).replace(/<[^>]*>/g, '') === '') {
+        lines.pop();
+    }
+    return lines;
 };
 
 /**************************
@@ -1189,7 +1234,8 @@ tracer(Metalsmith(path.resolve()))
             'mywiki.wooledge.org',
             'groovy-lang.org',
             'hodgkins.io',
-            'team358.org'
+            'team358.org',
+            'gnu.org'
         ]
     })))
 

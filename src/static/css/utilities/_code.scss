@@ -14,6 +14,52 @@ pre {
   margin-bottom: 1rem;
 }
 
+// Line numbers, drawn with CSS so they can't be selected or copied
+// Digits are set per block by the markdown renderer; then add padding + divider
+$line-number-gutter: calc(var(--line-number-digits, 3) * 1ch + 1.5rem + 1px);
+pre.line-numbers {
+  counter-reset: line;
+  // Draw the divider on the <pre> so it spans the full height, including the <pre>'s padding
+  background-image: linear-gradient(to right,
+    transparent calc(#{$line-number-gutter} - 1px),
+    var(--#{$prefix}border-color) calc(#{$line-number-gutter} - 1px),
+    var(--#{$prefix}border-color) $line-number-gutter,
+    transparent $line-number-gutter);
+
+  // Make every line as wide as the longest line so the sticky gutter can't scroll out of its line
+  code {
+    display: block;
+    width: max-content;
+    min-width: 100%;
+  }
+  .line {
+    display: inline-block;
+    min-width: 100%;
+  }
+
+  .line::before {
+    counter-increment: line;
+    content: counter(line);
+    display: inline-block;
+    position: sticky;
+    left: -1rem;
+    box-sizing: border-box;
+    width: $line-number-gutter;
+    // Cover the <pre>'s left padding so scrolled code doesn't show to the left of the gutter
+    margin-left: -1rem;
+    padding-left: 1rem;
+    margin-right: .75rem;
+    padding-right: .5rem;
+    border-right: 1px solid var(--#{$prefix}border-color);
+    // Keep a gap between the gutter and code that has scrolled underneath it
+    box-shadow: .25rem 0 0 0 $code-bg;
+    background-color: $code-bg;
+    color: var(--#{$prefix}gray);
+    text-align: right;
+    user-select: none;
+  }
+}
+
 // Expand code blocks at small screen sizes
 @each $breakpoint in map-keys($grid-breakpoints) {
   @include media-breakpoint-down($breakpoint) {
