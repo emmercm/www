@@ -1,3 +1,11 @@
+---
+
+title: Shell Thread Pools
+tags:
+- shell
+
+---
+
 ```bash
 #!/usr/bin/env bash  
 set -euo pipefail  
@@ -27,5 +35,5 @@ wait "${pids[@]}"
 
 TODO: could I pipe commands into this?
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTExNTg5NzE5MjRdfQ==
+eyJoaXN0b3J5IjpbNjQ5MzIxMjM3LC0xMTU4OTcxOTI0XX0=
 -->
