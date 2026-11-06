@@ -1234,7 +1234,8 @@ tracer(Metalsmith(path.resolve()))
             'mywiki.wooledge.org',
             'groovy-lang.org',
             'hodgkins.io',
-            'team358.org'
+            'team358.org',
+            'gnu.org'
         ]
     })))
 
