@@ -162,6 +162,25 @@ submitted from a subshell
 submitted from the main shell
 ```
 
+Different subshells can have their own process pool:
+
+```shell
+$ ( \
+	  pool_start 2; \
+	  for n in 1 2 3 4; do pool_submit "sleep 1; echo first pool, job ${n}"; done; \
+	  pool_wait; \
+	) & \
+first=$!; \
+( \
+  pool_start 1; \
+  for n in 1 2; do pool_submit "sleep 1; echo second pool, job ${n}"; done; \
+  pool_wait; \
+) & \
+second=$!; \
+wait "${first}"; \
+wait "${second}"
+```
+
 TODO: separate subshells
 
 TODO: pipe a command into it, including files
@@ -186,7 +205,7 @@ TODO: read from file
 
 GNU `parallel` works similarly.
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTczNjAyOTc0OSwtMTExOTc3Mzg5MywtMT
+eyJoaXN0b3J5IjpbMTkyODA4NjQ4MywtMTExOTc3Mzg5MywtMT
 YzMjM2NzQ1NCwtNzEzOTAzMyw1MTMxOTAyOTUsMTEzMjE0Njgx
 NywtNDU0ODM2MDQ2LC0xNjI0MDQ3NjI5LC03OTk3MzIzODYsMT
 g3Mzg0OTgwOSw3MDM2NzA5NzUsNjQ5MzIxMjM3LC0xMTU4OTcx
