@@ -10,7 +10,7 @@ Technically, they're _process_ pools,
 
 I had a use case recently where I wanted to speed up some Bash processing that I was doing, but still keep concurrency constrained. So I wondered: _is there a straightforward way to create thread pools in Bash?_ The answer is: mostly yes.
 
-You may ask: _why do this in Bash at all? It seems silly to use a language with poor concurrency controls._ You'd be right to ask this question, and my answer is: because I have a fondness for Bash, and I wanted the challenge. But you're probably better off using another language such as Python.
+You may ask: _why do this in Bash at all? It seems silly to use a language with poor concurrency controls._ You'd be right to ask this question, and my answer is: because [I have a fondness for Bash](/blog/tag/shell), and I wanted the challenge. But you're probably better off using another language such as Python.
 
 First the code, and then I'll show some examples:
 
@@ -50,7 +50,7 @@ TODO: could I pipe commands into this?
 
 ## Why not `xargs -P`?
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTkyMDQxNTUwOSwtNzk5NzMyMzg2LDE4Nz
-M4NDk4MDksNzAzNjcwOTc1LDY0OTMyMTIzNywtMTE1ODk3MTky
-NF19
+eyJoaXN0b3J5IjpbLTE2MjQwNDc2MjksLTc5OTczMjM4NiwxOD
+czODQ5ODA5LDcwMzY3MDk3NSw2NDkzMjEyMzcsLTExNTg5NzE5
+MjRdfQ==
 -->
