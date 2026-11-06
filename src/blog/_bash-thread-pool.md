@@ -17,6 +17,8 @@ Here is code that creates a TODO pool that accepts Bash commands to execute. You
 ```bash
 ```
 
+It has as much defensive programming as I know how to add, but I'm confident it has failure modes that are difficult to predict or avoid.
+
 ```bash
 #!/usr/bin/env bash  
 set -euo pipefail  
@@ -66,7 +68,8 @@ TODO: read from file
 
 GNU `parallel` works similarly.
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbNTEzMTkwMjk1LDExMzIxNDY4MTcsLTQ1ND
-gzNjA0NiwtMTYyNDA0NzYyOSwtNzk5NzMyMzg2LDE4NzM4NDk4
-MDksNzAzNjcwOTc1LDY0OTMyMTIzNywtMTE1ODk3MTkyNF19
+eyJoaXN0b3J5IjpbLTcxMzkwMzMsNTEzMTkwMjk1LDExMzIxND
+Y4MTcsLTQ1NDgzNjA0NiwtMTYyNDA0NzYyOSwtNzk5NzMyMzg2
+LDE4NzM4NDk4MDksNzAzNjcwOTc1LDY0OTMyMTIzNywtMTE1OD
+k3MTkyNF19
 -->
