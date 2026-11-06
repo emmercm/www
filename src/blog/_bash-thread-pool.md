@@ -187,8 +187,6 @@ first pool, job 3
 first pool, job 4
 ```
 
-TODO: separate subshells
-
 TODO: pipe a command into it, including files
 
 TODO: starting a thread from a thread?
@@ -211,9 +209,9 @@ TODO: read from file
 
 GNU `parallel` works similarly.
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTExNTYzOTYzODUsLTExMTk3NzM4OTMsLT
-E2MzIzNjc0NTQsLTcxMzkwMzMsNTEzMTkwMjk1LDExMzIxNDY4
-MTcsLTQ1NDgzNjA0NiwtMTYyNDA0NzYyOSwtNzk5NzMyMzg2LD
-E4NzM4NDk4MDksNzAzNjcwOTc1LDY0OTMyMTIzNywtMTE1ODk3
-MTkyNF19
+eyJoaXN0b3J5IjpbLTk2Mzk2MTUyNywtMTExOTc3Mzg5MywtMT
+YzMjM2NzQ1NCwtNzEzOTAzMyw1MTMxOTAyOTUsMTEzMjE0Njgx
+NywtNDU0ODM2MDQ2LC0xNjI0MDQ3NjI5LC03OTk3MzIzODYsMT
+g3Mzg0OTgwOSw3MDM2NzA5NzUsNjQ5MzIxMjM3LC0xMTU4OTcx
+OTI0XX0=
 -->
