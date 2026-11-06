@@ -19,32 +19,9 @@ Here is code that creates a process pool that accepts Bash commands to execute. 
 
 It works in Bash and Zsh, and it has as much defensive programming as I know how to add, but I'm confident it has failure modes that are difficult to predict or avoid.
 
-```bash
-#!/usr/bin/env bash  
-set -euo pipefail  
-  
-fifo_queue="$(mktemp -u -t fifo)"  
-mkfifo "${fifo_queue}"  
-trap "rm -f \"${fifo_queue}\"" EXIT  
-  
-pids=()  
-for i in $(seq 1 4); do  
-  (  
-  while IFS= read -r cmd; do  
- [[ -z "${cmd// }" ]] && continue  
- echo -e "\033[7m[${i}] ${cmd}\033[0m"  
-  bash -c "$cmd"  
-  done < "${fifo_queue}"  
-  ) &  
-  pids+=("$!")  
-done  
-  
-for n in {1..20}; do  
-  echo "echo job $n" > "${fifo_queue}"  
-done  
-  
-wait "${pids[@]}"
-```
+## Examples
+
+TODO: separate s
 
 TODO: could I pipe commands into this?
 
@@ -68,8 +45,8 @@ TODO: read from file
 
 GNU `parallel` works similarly.
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTIxNTA0NTc4NSwtMTYzMjM2NzQ1NCwtNz
-EzOTAzMyw1MTMxOTAyOTUsMTEzMjE0NjgxNywtNDU0ODM2MDQ2
-LC0xNjI0MDQ3NjI5LC03OTk3MzIzODYsMTg3Mzg0OTgwOSw3MD
-M2NzA5NzUsNjQ5MzIxMjM3LC0xMTU4OTcxOTI0XX0=
+eyJoaXN0b3J5IjpbLTExMTk3NzM4OTMsLTE2MzIzNjc0NTQsLT
+cxMzkwMzMsNTEzMTkwMjk1LDExMzIxNDY4MTcsLTQ1NDgzNjA0
+NiwtMTYyNDA0NzYyOSwtNzk5NzMyMzg2LDE4NzM4NDk4MDksNz
+AzNjcwOTc1LDY0OTMyMTIzNywtMTE1ODk3MTkyNF19
 -->
