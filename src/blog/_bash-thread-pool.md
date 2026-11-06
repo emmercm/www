@@ -1,12 +1,12 @@
 ---
 
-title: Shell Thread Pools
+title: Multiprocessing Shell Commands
 tags:
 - shell
 
 ---
 
-Technically, it's _multiprocessing_ (not _multithreading_) with _process_ pools, 
+How to run shell commands in parallel while 
 
 I had a use case recently where I wanted to speed up some Bash processing that I was doing, but still keep concurrency constrained. So I wondered: _is there a straightforward way to create thread pools in Bash?_ The answer is: mostly yes.
 
@@ -66,7 +66,8 @@ TODO: read from file
 
 GNU `parallel` works similarly.
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTEzMjE0NjgxNywtNDU0ODM2MDQ2LC0xNj
-I0MDQ3NjI5LC03OTk3MzIzODYsMTg3Mzg0OTgwOSw3MDM2NzA5
-NzUsNjQ5MzIxMjM3LC0xMTU4OTcxOTI0XX0=
+eyJoaXN0b3J5IjpbLTUzNzA1MjkyMSwxMTMyMTQ2ODE3LC00NT
+Q4MzYwNDYsLTE2MjQwNDc2MjksLTc5OTczMjM4NiwxODczODQ5
+ODA5LDcwMzY3MDk3NSw2NDkzMjEyMzcsLTExNTg5NzE5MjRdfQ
+==
 -->
