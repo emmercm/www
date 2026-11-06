@@ -6,6 +6,8 @@ tags:
 
 ---
 
+Technically, they're _process_ pools, 
+
 ```bash
 #!/usr/bin/env bash  
 set -euo pipefail  
@@ -37,6 +39,6 @@ TODO: could I pipe commands into this?
 
 ## Why not use a `mkfifo` pipe?
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbNzAzNjcwOTc1LDY0OTMyMTIzNywtMTE1OD
-k3MTkyNF19
+eyJoaXN0b3J5IjpbMTg3Mzg0OTgwOSw3MDM2NzA5NzUsNjQ5Mz
+IxMjM3LC0xMTU4OTcxOTI0XX0=
 -->
