@@ -136,15 +136,15 @@ fi
 
 It works in Bash and Zsh, and it has as much defensive programming as I know how to add, but I'm confident it has failure modes that are difficult to predict or avoid.
 
-## Examples
+## Example usage
 
 Concurrency is respected, only starting command three after command two has completed:
 
 ```shell
 $ pool_start 2  
-$ pool_submit "sleep 1; echo first"  
-$ pool_submit "echo second"  
-$ pool_submit "echo third"  
+$ pool_submit 'sleep 1; echo first'
+$ pool_submit 'echo second'
+$ pool_submit 'echo third'
 $ pool_wait
 second  
 third  
@@ -177,9 +177,9 @@ TODO: read from file
 
 GNU `parallel` works similarly.
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTE2OTY0MjcxNTcsLTExMTk3NzM4OTMsLT
-E2MzIzNjc0NTQsLTcxMzkwMzMsNTEzMTkwMjk1LDExMzIxNDY4
-MTcsLTQ1NDgzNjA0NiwtMTYyNDA0NzYyOSwtNzk5NzMyMzg2LD
-E4NzM4NDk4MDksNzAzNjcwOTc1LDY0OTMyMTIzNywtMTE1ODk3
-MTkyNF19
+eyJoaXN0b3J5IjpbLTQ2OTI4NjEzMSwtMTExOTc3Mzg5MywtMT
+YzMjM2NzQ1NCwtNzEzOTAzMyw1MTMxOTAyOTUsMTEzMjE0Njgx
+NywtNDU0ODM2MDQ2LC0xNjI0MDQ3NjI5LC03OTk3MzIzODYsMT
+g3Mzg0OTgwOSw3MDM2NzA5NzUsNjQ5MzIxMjM3LC0xMTU4OTcx
+OTI0XX0=
 -->
