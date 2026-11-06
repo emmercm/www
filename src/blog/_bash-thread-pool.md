@@ -8,7 +8,9 @@ tags:
 
 Technically, they're _process_ pools, 
 
-I had a use case recently where I wanted to speed up some Bash processing that I was doing, but still keep concurrency constrained. So I wondered: _is there a straightforward-
+I had a use case recently where I wanted to speed up some Bash processing that I was doing, but still keep concurrency constrained. So I wondered: _is there a straightforward way to create thread pools in Bash?_ The answer is: _mostly yes_.
+
+You may ask: _why do this in Bash at all? It seems silly to use a language with poor concurrency contro
 
 ```bash
 #!/usr/bin/env bash  
@@ -43,7 +45,7 @@ TODO: could I pipe commands into this?
 
 ## Why not `xargs -P`?
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTEyMzAwOTIxMDUsLTc5OTczMjM4NiwxOD
-czODQ5ODA5LDcwMzY3MDk3NSw2NDkzMjEyMzcsLTExNTg5NzE5
-MjRdfQ==
+eyJoaXN0b3J5IjpbMTg0MjY5NzcsLTc5OTczMjM4NiwxODczOD
+Q5ODA5LDcwMzY3MDk3NSw2NDkzMjEyMzcsLTExNTg5NzE5MjRd
+fQ==
 -->
