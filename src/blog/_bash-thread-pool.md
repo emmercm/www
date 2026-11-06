@@ -35,8 +35,8 @@ wait "${pids[@]}"
 
 TODO: could I pipe commands into this?
 
-## Why not use `mkfifo`?
+## Why not use a `mkfifo` pipe?
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTMyNjA4ODYzNCw2NDkzMjEyMzcsLTExNT
-g5NzE5MjRdfQ==
+eyJoaXN0b3J5IjpbNzAzNjcwOTc1LDY0OTMyMTIzNywtMTE1OD
+k3MTkyNF19
 -->
