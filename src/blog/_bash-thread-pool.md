@@ -172,14 +172,19 @@ $ (
 	) &  
 $ first=$!  
 $ (  
- pool_start 1  
-  for n in 1 2; do pool_submit "sleep 1; echo second pool, job ${n}"; done  
-  pool_wait  
-) &  
-second=$!  
-  
-wait "${first}"  
-wait "${second}"
+	 pool_start 1  
+	  for n in 1 2; do pool_submit "sleep 1; echo second pool, job ${n}"; done  
+	  pool_wait  
+	) &  
+$ second=$!  
+$ wait "${first}"  
+$ wait "${second}"
+second pool, job 1  
+first pool, job 1  
+first pool, job 2  
+second pool, job 2  
+first pool, job 3  
+first pool, job 4
 ```
 
 TODO: separate subshells
@@ -206,7 +211,7 @@ TODO: read from file
 
 GNU `parallel` works similarly.
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTE5MjIyNTYxMDQsLTExMTk3NzM4OTMsLT
+eyJoaXN0b3J5IjpbLTExNTYzOTYzODUsLTExMTk3NzM4OTMsLT
 E2MzIzNjc0NTQsLTcxMzkwMzMsNTEzMTkwMjk1LDExMzIxNDY4
 MTcsLTQ1NDgzNjA0NiwtMTYyNDA0NzYyOSwtNzk5NzMyMzg2LD
 E4NzM4NDk4MDksNzAzNjcwOTc1LDY0OTMyMTIzNywtMTE1ODk3
