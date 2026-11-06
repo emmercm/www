@@ -138,7 +138,18 @@ It works in Bash and Zsh, and it has as much defensive programming as I know how
 
 ## Examples
 
-TODO: a simple usage
+Concurrency is respected, only starting command three after command two has completed:
+
+```shell
+$ pool_start 2  
+$ pool_submit "sleep 1; echo first"  
+$ pool_submit "echo second"  
+$ pool_submit "echo third"  
+$ pool_wait
+second  
+third  
+first
+```
 
 TODO: subshell inheritance
 
@@ -166,9 +177,9 @@ TODO: read from file
 
 GNU `parallel` works similarly.
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbNDgxMjU4OTY0LC0xMTE5NzczODkzLC0xNj
-MyMzY3NDU0LC03MTM5MDMzLDUxMzE5MDI5NSwxMTMyMTQ2ODE3
-LC00NTQ4MzYwNDYsLTE2MjQwNDc2MjksLTc5OTczMjM4NiwxOD
-czODQ5ODA5LDcwMzY3MDk3NSw2NDkzMjEyMzcsLTExNTg5NzE5
-MjRdfQ==
+eyJoaXN0b3J5IjpbLTE2OTY0MjcxNTcsLTExMTk3NzM4OTMsLT
+E2MzIzNjc0NTQsLTcxMzkwMzMsNTEzMTkwMjk1LDExMzIxNDY4
+MTcsLTQ1NDgzNjA0NiwtMTYyNDA0NzYyOSwtNzk5NzMyMzg2LD
+E4NzM4NDk4MDksNzAzNjcwOTc1LDY0OTMyMTIzNywtMTE1ODk3
+MTkyNF19
 -->
