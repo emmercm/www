@@ -84,6 +84,9 @@
 
   pre {
     @include font-size(1rem !important); // 16px
+    @include media-breakpoint-down('md') {
+      @include font-size(0.875rem !important); // 14px
+    }
   }
 
   $ul-padding: 1.875em;
