@@ -52,9 +52,19 @@ TODO: could I pipe commands into this?
 
 ## Why not only `xargs -P`?
 
-If you know what
+If you know all commands that you want to execute up-front, then a lot of the code can be simplified with a simple:
+
+```bash
+TODO: pipe into xargs
+```
+
+or
+
+```bash
+TODO: read from file
+```
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTEyMzQzOTExMiwtMTYyNDA0NzYyOSwtNz
+eyJoaXN0b3J5IjpbLTQ1NDgzNjA0NiwtMTYyNDA0NzYyOSwtNz
 k5NzMyMzg2LDE4NzM4NDk4MDksNzAzNjcwOTc1LDY0OTMyMTIz
 NywtMTE1ODk3MTkyNF19
 -->
