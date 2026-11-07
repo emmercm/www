@@ -138,6 +138,12 @@ It works in Bash and Zsh, and it has as much defensive programming as I know how
 
 ## Example usage
 
+My original use case had to do with making a large number of web requests, so here's an example using Postman Echo:
+
+```shell
+https://postman-echo.com
+```
+
 Concurrency is respected, only starting command three after command two has completed:
 
 ```shell
@@ -241,10 +247,11 @@ from command output, line 2
 from command output, line 3
 ```
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTc5ODYyMTUwNSwtMTAxNjE2NTQ1MiwxNz
-g5MDA3MjY3LDE4NDM3NzMxOTYsLTE5Nzc5Mzk2NTEsLTk2Mzk2
-MTUyNywtMTExOTc3Mzg5MywtMTYzMjM2NzQ1NCwtNzEzOTAzMy
-w1MTMxOTAyOTUsMTEzMjE0NjgxNywtNDU0ODM2MDQ2LC0xNjI0
-MDQ3NjI5LC03OTk3MzIzODYsMTg3Mzg0OTgwOSw3MDM2NzA5Nz
-UsNjQ5MzIxMjM3LC0xMTU4OTcxOTI0XX0=
+eyJoaXN0b3J5IjpbMTg0MDY3Nzk3MSwxNzk4NjIxNTA1LC0xMD
+E2MTY1NDUyLDE3ODkwMDcyNjcsMTg0Mzc3MzE5NiwtMTk3Nzkz
+OTY1MSwtOTYzOTYxNTI3LC0xMTE5NzczODkzLC0xNjMyMzY3ND
+U0LC03MTM5MDMzLDUxMzE5MDI5NSwxMTMyMTQ2ODE3LC00NTQ4
+MzYwNDYsLTE2MjQwNDc2MjksLTc5OTczMjM4NiwxODczODQ5OD
+A5LDcwMzY3MDk3NSw2NDkzMjEyMzcsLTExNTg5NzE5MjRdfQ==
+
 -->
