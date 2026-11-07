@@ -234,12 +234,14 @@ $ tr '\n' '\0' < commands.txt | \
 [GNU `parallel`](https://www.gnu.org/software/parallel/) works similarly:
 
 ```shell
+$ printf 'echo "from command output, line %d"\n' 1 2 3 | \
+		parallel -j 2
 ```
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTg1MjI0ODIyLDE4NDM3NzMxOTYsLTE5Nz
-c5Mzk2NTEsLTk2Mzk2MTUyNywtMTExOTc3Mzg5MywtMTYzMjM2
-NzQ1NCwtNzEzOTAzMyw1MTMxOTAyOTUsMTEzMjE0NjgxNywtND
-U0ODM2MDQ2LC0xNjI0MDQ3NjI5LC03OTk3MzIzODYsMTg3Mzg0
-OTgwOSw3MDM2NzA5NzUsNjQ5MzIxMjM3LC0xMTU4OTcxOTI0XX
-0=
+eyJoaXN0b3J5IjpbMTc4OTAwNzI2NywxODQzNzczMTk2LC0xOT
+c3OTM5NjUxLC05NjM5NjE1MjcsLTExMTk3NzM4OTMsLTE2MzIz
+Njc0NTQsLTcxMzkwMzMsNTEzMTkwMjk1LDExMzIxNDY4MTcsLT
+Q1NDgzNjA0NiwtMTYyNDA0NzYyOSwtNzk5NzMyMzg2LDE4NzM4
+NDk4MDksNzAzNjcwOTc1LDY0OTMyMTIzNywtMTE1ODk3MTkyNF
+19
 -->
