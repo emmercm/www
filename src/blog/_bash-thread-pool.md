@@ -214,7 +214,7 @@ $ pool_wait
 
 ## Why not just `xargs -P`?
 
-If you know all commands that you want to execute up-front, then a lot of the code can be simplified with a simple:
+If you know all commands that you want to execute up-front, then the solution gets _far_ simpler:
 
 ```shell
 $ printf 'echo "from command output, line %d"\0' 1 2 3 | \
@@ -236,12 +236,15 @@ $ tr '\n' '\0' < commands.txt | \
 ```shell
 $ printf 'echo "from command output, line %d"\n' 1 2 3 | \
 		parallel -j 2
+from command output, line 2  
+from command output, line 1  
+from command output, line 3
 ```
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTc4OTAwNzI2NywxODQzNzczMTk2LC0xOT
-c3OTM5NjUxLC05NjM5NjE1MjcsLTExMTk3NzM4OTMsLTE2MzIz
-Njc0NTQsLTcxMzkwMzMsNTEzMTkwMjk1LDExMzIxNDY4MTcsLT
-Q1NDgzNjA0NiwtMTYyNDA0NzYyOSwtNzk5NzMyMzg2LDE4NzM4
-NDk4MDksNzAzNjcwOTc1LDY0OTMyMTIzNywtMTE1ODk3MTkyNF
-19
+eyJoaXN0b3J5IjpbNzQwODgzNDE0LDE3ODkwMDcyNjcsMTg0Mz
+c3MzE5NiwtMTk3NzkzOTY1MSwtOTYzOTYxNTI3LC0xMTE5Nzcz
+ODkzLC0xNjMyMzY3NDU0LC03MTM5MDMzLDUxMzE5MDI5NSwxMT
+MyMTQ2ODE3LC00NTQ4MzYwNDYsLTE2MjQwNDc2MjksLTc5OTcz
+MjM4NiwxODczODQ5ODA5LDcwMzY3MDk3NSw2NDkzMjEyMzcsLT
+ExNTg5NzE5MjRdfQ==
 -->
