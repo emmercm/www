@@ -187,7 +187,15 @@ first pool, job 3
 first pool, job 4
 ```
 
-TODO: pipe a command into it, including files
+Queueing each line of a command's output as a command to execute:
+
+```shell
+$ pool_start 2  
+$ while IFS= read -r line; do  
+	  pool_submit "${line}"  
+	done < <(printf 'echo "from command output, line %d"\n' 1 2 3)  
+$ pool_wait
+```
 
 TODO: starting a thread from a thread?
 
@@ -209,9 +217,9 @@ TODO: read from file
 
 GNU `parallel` works similarly.
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTk2Mzk2MTUyNywtMTExOTc3Mzg5MywtMT
-YzMjM2NzQ1NCwtNzEzOTAzMyw1MTMxOTAyOTUsMTEzMjE0Njgx
-NywtNDU0ODM2MDQ2LC0xNjI0MDQ3NjI5LC03OTk3MzIzODYsMT
-g3Mzg0OTgwOSw3MDM2NzA5NzUsNjQ5MzIxMjM3LC0xMTU4OTcx
-OTI0XX0=
+eyJoaXN0b3J5IjpbLTE5Nzc5Mzk2NTEsLTk2Mzk2MTUyNywtMT
+ExOTc3Mzg5MywtMTYzMjM2NzQ1NCwtNzEzOTAzMyw1MTMxOTAy
+OTUsMTEzMjE0NjgxNywtNDU0ODM2MDQ2LC0xNjI0MDQ3NjI5LC
+03OTk3MzIzODYsMTg3Mzg0OTgwOSw3MDM2NzA5NzUsNjQ5MzIx
+MjM3LC0xMTU4OTcxOTI0XX0=
 -->
