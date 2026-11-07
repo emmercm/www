@@ -138,7 +138,7 @@ It works in Bash and Zsh, and it has as much defensive programming as I know how
 
 ## Example usage
 
-My original use case had to do with making a large number of web requests, so here's an example using Postman Echo:
+My original use case had to do with making a large number of web requests, so here's an example using [Postman Echo](https://www.postman.com/postman/published-postman-templates/documentation/631643-f695cab7-6878-eb55-7943-ad88e1ccfd65):
 
 ```shell
 https://postman-echo.com
@@ -216,8 +216,6 @@ $ while IFS= read -r line; do
 $ pool_wait
 ```
 
-## Why not `mkfifo` without a file descriptor?
-
 ## Why not just `xargs -P`?
 
 If you know all commands that you want to execute up-front, then the solution gets _far_ simpler:
@@ -247,11 +245,11 @@ from command output, line 2
 from command output, line 3
 ```
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTg0MDY3Nzk3MSwxNzk4NjIxNTA1LC0xMD
-E2MTY1NDUyLDE3ODkwMDcyNjcsMTg0Mzc3MzE5NiwtMTk3Nzkz
-OTY1MSwtOTYzOTYxNTI3LC0xMTE5NzczODkzLC0xNjMyMzY3ND
-U0LC03MTM5MDMzLDUxMzE5MDI5NSwxMTMyMTQ2ODE3LC00NTQ4
-MzYwNDYsLTE2MjQwNDc2MjksLTc5OTczMjM4NiwxODczODQ5OD
-A5LDcwMzY3MDk3NSw2NDkzMjEyMzcsLTExNTg5NzE5MjRdfQ==
+eyJoaXN0b3J5IjpbLTEzOTY2Mzg2NjAsMTc5ODYyMTUwNSwtMT
+AxNjE2NTQ1MiwxNzg5MDA3MjY3LDE4NDM3NzMxOTYsLTE5Nzc5
+Mzk2NTEsLTk2Mzk2MTUyNywtMTExOTc3Mzg5MywtMTYzMjM2Nz
+Q1NCwtNzEzOTAzMyw1MTMxOTAyOTUsMTEzMjE0NjgxNywtNDU0
+ODM2MDQ2LC0xNjI0MDQ3NjI5LC03OTk3MzIzODYsMTg3Mzg0OT
+gwOSw3MDM2NzA5NzUsNjQ5MzIxMjM3LC0xMTU4OTcxOTI0XX0=
 
 -->
