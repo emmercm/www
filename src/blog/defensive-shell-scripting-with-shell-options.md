@@ -8,6 +8,13 @@ tags:
 - docker
 - github
 - shell
+shellcheck:
+  exclude:
+    - SC2034
+    - SC2091
+    - SC2115
+    - SC2164
+    - SC2216
 
 ---
 
@@ -19,7 +26,7 @@ Here's an example scenario of re-building an existing project from source:
 # Go to the project directory
 # (if $PROJECT_DIR is unset, this will silently do nothing,
 #   leaving us in the same directory as before)
-cd "${PROJECT_DIR}"
+cd "${PROJECT_DIR}" || exit 1
 
 # Remove untracked files and pull the latest version
 git clean -fdx

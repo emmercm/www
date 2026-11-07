@@ -12,15 +12,15 @@ You'll find quite a few different methods suggested on the internet, and they al
 Before I go into the details, this is the syntax you want:
 
 ```bash
-if command -v <command_name> &> /dev/null; then
-    echo "command exists"
+if command -v "<command_name>" &> /dev/null; then
+  echo "command exists"
 fi
 ```
 
 or alternatively:
 
 ```bash
-command -v <command_name> &> /dev/null && echo "command exists"
+command -v "<command_name>" &> /dev/null && echo "command exists"
 ```
 
 ## Explanation
@@ -70,12 +70,12 @@ which foo &> /dev/null && echo "'foo' maybe exists?"
 One of the more common methods I've seen suggested is:
 
 ```bash
-if [[ -x "$(command -v <command_name>)" ]]; then
-    echo "executable exists"
+if [[ -x "$(command -v "<command_name>")" ]]; then
+  echo "executable exists"
 fi
 ```
 
-This will test if the output of the `command -v <command_name>` is an executable _file_ or not, which _won't_ work for aliases. If you want to check for the existence of executables, there are better options such as `find <dir> -type f -executable` or the `pinpoint` function from "[Reliably Finding Executables in $PATH](/blog/reliably-finding-files-in-path)".
+This will test if the output of the `command -v "<command_name>"` is an executable _file_ or not, which _won't_ work for aliases. If you want to check for the existence of executables, there are better options such as `find <dir> -type f -executable` or the `pinpoint` function from "[Reliably Finding Executables in $PATH](/blog/reliably-finding-files-in-path)".
 
 `if [[ -x file ]]` doesn't work for aliases, which may be used to intentionally shadow executables:
 
@@ -104,7 +104,7 @@ _See "[Automatically Execute Code Before & After Unix Commands](/blog/automatica
 
 ## Example usages
 
-To check for the nonexistence of a command you can use `! command -v <command_name>` syntax:
+To check for the nonexistence of a command you can use `! command -v "<command_name>"` syntax:
 
 ```bash
 if ! command -v beep &> /dev/null; then
@@ -132,7 +132,7 @@ if ! command -v pip &> /dev/null && command -v pip3 &> /dev/null; then
 fi
 ```
 
-You can also mix `command -v <command_name>` conditionals with other Bash conditionals [like this](https://github.com/emmercm/dotfiles/blob/99fcc57675bf8831857b71c26d808d2bbdfd6b9d/.10_macos.bash#L8-L10):
+You can also mix `command -v "<command_name>"` conditionals with other Bash conditionals [like this](https://github.com/emmercm/dotfiles/blob/99fcc57675bf8831857b71c26d808d2bbdfd6b9d/.10_macos.bash#L8-L10):
 
 ```bash
 if ! command -v brew &> /dev/null && [[ -f /opt/homebrew/bin/brew ]]; then

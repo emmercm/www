@@ -15,6 +15,7 @@ import gravatar         from 'metalsmith-gravatar';
 import drafts           from '@metalsmith/drafts';
 import renamer          from 'metalsmith-renamer';
 import validate         from 'metalsmith-validate';
+import shellcheck       from 'metalsmith-shellcheck';
 import dataLoader       from 'metalsmith-data-loader';
 // BUILD CSS
 import sass             from '@metalsmith/sass';
@@ -35,6 +36,7 @@ import branch           from 'metalsmith-branch';
 import hbtmd            from './lib/metalsmith-hbt-md.js';
 import mermaid          from 'metalsmith-mermaid';
 import vega             from 'metalsmith-vega';
+import highlightjs      from 'metalsmith-highlightjs';
 import markdown         from '@metalsmith/markdown';
 import excerpts         from './lib/metalsmith-excerpts.js';
 import except           from 'metalsmith-except';
@@ -72,7 +74,6 @@ import linkChecker      from 'metalsmith-link-checker';
 import robots           from 'metalsmith-robots';
 
 import async           from 'async';
-import highlight       from 'highlight.js';
 import {marked}        from 'marked';
 import minimatch       from 'minimatch';
 import {DateTime}      from 'luxon';
@@ -180,57 +181,47 @@ markdownRenderer.table = (header, body) => {
         ${body}
         </table>`;
 };
-markdownRenderer.code = (_code, infostring, escaped) => {
-    const _highlight = (code, language) => highlight.getLanguage(language) ? highlight.highlight(code, {
-        language,
-        ignoreIllegals: true
-    }).value : highlight.highlightAuto(code).value;
-    // v1.1.0
-    const escapeTest = /[&<>"']/;
-    const escapeReplace = /[&<>"']/g;
-    const escapeTestNoEncode = /[<>"']|&(?!#?\w+;)/;
-    const escapeReplaceNoEncode = /[<>"']|&(?!#?\w+;)/g;
-    const escapeReplacements = {
-        '&': '&amp;',
-        '<': '&lt;',
-        '>': '&gt;',
-        '"': '&quot;',
-        "'": '&#39;',
-    };
-    const getEscapeReplacement = (ch) => escapeReplacements[ch];
-    const escape = (html, encode) => {
-        if (encode) {
-            if (escapeTest.test(html)) {
-                return html.replace(escapeReplace, getEscapeReplacement);
-            }
-        } else if (escapeTestNoEncode.test(html)) {
-            return html.replace(escapeReplaceNoEncode, getEscapeReplacement);
-        }
-        return html;
-    };
-    const lang = (infostring || '').match(/\S*/)[0]
-        .replace('json5', 'json');
-    if (_highlight) {
-        const out = _highlight(_code, lang);
-        if (out != null && out !== _code) {
-            escaped = true;
-            _code = out;
-        }
-    }
+// Terminal-like languages, which get a window-like header and no line numbers
+const unixShellLanguages = ['shell', 'console'];
+const windowsShellLanguages = ['dos', 'bat', 'cmd', 'powershell', 'ps', 'ps1'];
 
-    const escapedLang = escape(lang, true);
+// Syntax highlight code blocks - needs to happen after any plugins that render code blocks themselves, and before markdown
+const highlightjsOptions = {
+    aliases: {
+        json: ['json5']
+    },
+    lineNumbers: {
+        excludeLanguages: [...unixShellLanguages, ...windowsShellLanguages]
+    },
+};
 
-    let html = '<div class="card pre-card"><div class="card-header row g-0 d-print-none justify-content-between py-2 px-3 fs-6 font-monospace">';
-    if (['shell', 'console'].includes(lang)) {
-        html += `<div class="col">
+/**
+ * Wrap every metalsmith-highlightjs code block in a Bootstrap card, with a header that shows its language.
+ * Needs to happen after markdown.
+ */
+const codeCards = () => (files, metalsmith, done) => {
+    metalsmith.match('**/*.html', Object.keys(files)).forEach(filename => {
+        const contents = files[filename].contents.toString();
+        if (!contents.includes('<pre class="hljs"')) {
+            return;
+        }
+        files[filename].contents = Buffer.from(contents.replace(
+            /<pre class="hljs"([^>]*)>([\s\S]*?)<\/pre>/g,
+            (_match, attributes, code) => {
+                // Already HTML-escaped by metalsmith-highlightjs
+                const lang = (attributes.match(/ data-lang="([^"]*)"/) || [])[1] || '';
+
+                let header;
+                if (unixShellLanguages.includes(lang)) {
+                    header = `<div class="col">
 <span class="text-mac-red">●</span>
 <span class="text-mac-yellow">●</span>
 <span class="text-mac-green">●</span>
 </div>
 <div class="col text-center">${lang}</div>
 <div class="col"></div>`;
-    } else if (['dos', 'bat', 'cmd', 'powershell', 'ps', 'ps1'].includes(lang)) {
-        html += `<div class="col">
+                } else if (windowsShellLanguages.includes(lang)) {
+                    header = `<div class="col">
 <i class="fa-regular fa-rectangle-terminal"></i>
 ${lang}
 </div>
@@ -239,60 +230,18 @@ ${lang}
 <i class="fa-regular fa-square"></i>
 <i class="fa-regular fa-x"></i>
 </div>`;
-    } else {
-        html += `<div class="col">${lang}</div>`;
-    }
-    html += `</div>`;
+                } else {
+                    header = `<div class="col">${lang}</div>`;
+                }
 
-    let body = escaped ? _code : escape(_code, true);
-    const lineNumbers = !['shell', 'console', 'dos', 'bat', 'cmd', 'powershell', 'ps', 'ps1'].includes(lang);
-    let lineNumberDigits = 0;
-    if (lineNumbers) {
-        const lines = splitHighlightedLines(body);
-        lineNumberDigits = String(lines.length).length;
-        body = lines
-            .map((line) => `<span class="line">${line}</span>`)
-            .join('\n');
-    }
-    const preClasses = [
-        ...(escapedLang ? ['hljs', 'card-body'] : []),
-        ...(lineNumbers ? ['line-numbers'] : []),
-    ];
-    html += `<pre${preClasses.length ? ` class="${preClasses.join(' ')}"` : ''}${escapedLang ? ` data-lang="${escapedLang}"` : ''}${lineNumbers ? ` style="--line-number-digits: ${lineNumberDigits}"` : ''}>`;
-    html += escapedLang ? `<code class="language-${escapedLang}">` : '<code>';
-    html += body;
-    html += '</code></pre></div>\n';
-    return html;
-};
-
-/**
- * Split highlight.js HTML output into lines, closing any `<span>`s still open at the end of a
- * line and re-opening them at the start of the next, so each line is valid HTML on its own.
- */
-const splitHighlightedLines = (html) => {
-    const lines = [];
-    const openTags = [];
-    let line = '';
-    for (const token of html.split(/(<span[^>]*>|<\/span>|\n)/)) {
-        if (token === '\n') {
-            lines.push(line + '</span>'.repeat(openTags.length));
-            line = openTags.join('');
-        } else {
-            if (token.startsWith('<span')) {
-                openTags.push(token);
-            } else if (token === '</span>') {
-                openTags.pop();
+                return '<div class="card pre-card">'
+                    + `<div class="card-header row g-0 d-print-none justify-content-between py-2 px-3 fs-6 font-monospace">${header}</div>`
+                    + `<pre class="hljs card-body"${attributes}>${code}</pre>`
+                    + '</div>';
             }
-            line += token;
-        }
-    }
-    lines.push(line);
-
-    // Don't number a trailing empty line
-    if (lines.length > 1 && lines.at(-1).replace(/<[^>]*>/g, '') === '') {
-        lines.pop();
-    }
-    return lines;
+        ));
+    });
+    done();
 };
 
 /**************************
@@ -463,6 +412,9 @@ tracer(Metalsmith(path.resolve()))
             }
         }
     ]))
+
+    // Lint bash code blocks
+    .use(shellcheck())
 
     // Load external YAML files into page metadata
     .use(dataLoader({
@@ -660,9 +612,11 @@ tracer(Metalsmith(path.resolve()))
         .use(hbtmd(Handlebars))
         .use(mermaid())
         .use(vega(vegaOptions))
+        .use(highlightjs(highlightjsOptions))
         .use(markdown({
             renderer: markdownRenderer
         }))
+        .use(codeCards())
         // Extract first paragraph as an excerpt and then change the page description (needs to happen after metalsmith-markdown)
         .use(excerpts())
         .use(except('pageDescription'))
@@ -903,9 +857,11 @@ tracer(Metalsmith(path.resolve()))
     // Convert markdown to HTML
     .use(mermaid())
     .use(vega(vegaOptions))
+    .use(highlightjs(highlightjsOptions))
     .use(markdown({
         renderer: markdownRenderer
     }))
+    .use(codeCards())
 
     // Find related files
     .use(related({

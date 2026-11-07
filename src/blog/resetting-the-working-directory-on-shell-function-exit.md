@@ -105,9 +105,10 @@ Most shells have some way to trap exit signals, but some also have a way to trap
   #!/usr/bin/env bash
 
   function foo() {
-      trap "cd \"${PWD}\"" RETURN
-      echo "I'm safe to change the working directory"
-      cd ~
+    # shellcheck disable=SC2064
+    trap "cd \"${PWD}\"" RETURN
+    echo "I'm safe to change the working directory"
+    cd ~ || return 1
   }
   ```
 
