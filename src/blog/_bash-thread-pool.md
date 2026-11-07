@@ -231,8 +231,9 @@ $ pool_wait
 
 ## Known issues
 
-- **A shell can only have one process pool.** The amount of additional code needed to support multiple is complicated and
-- **Command output is intentionally not streamed.** This prevents interleaving the output of different commands.
+- **A shell can only have one process pool.** The amount of additional code needed to support multiple is complicated and likely isn't needed in most cases.
+- **Command output is intentionally not streamed.** This prevents interleaving the output of most commands. Output larger than `PIPE_BUF` may still get interleaved.
+- **`pool_wait` doesn't return 
 - **`pool_wait` has to wait for any backgrounded (`&`) jobs.** Any other backgrounded jobs will inherit the queue write file descriptor (which is what allows subshells to work), and `pool_wait` has to wait for every process to close it.
 - **`_pool_stop` indiscriminately terminates descendants.** Any other backgrounded jobs will be terminated.
 - Executing shells won't inherit
@@ -267,10 +268,11 @@ from command output, line 2
 from command output, line 3
 ```
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTIwMTQ3NywxNzk4NjIxNTA1LC0xMDE2MT
-Y1NDUyLDE3ODkwMDcyNjcsMTg0Mzc3MzE5NiwtMTk3NzkzOTY1
-MSwtOTYzOTYxNTI3LC0xMTE5NzczODkzLC0xNjMyMzY3NDU0LC
-03MTM5MDMzLDUxMzE5MDI5NSwxMTMyMTQ2ODE3LC00NTQ4MzYw
-NDYsLTE2MjQwNDc2MjksLTc5OTczMjM4NiwxODczODQ5ODA5LD
-cwMzY3MDk3NSw2NDkzMjEyMzcsLTExNTg5NzE5MjRdfQ==
+eyJoaXN0b3J5IjpbLTIzMzM5MDY1MiwxNzk4NjIxNTA1LC0xMD
+E2MTY1NDUyLDE3ODkwMDcyNjcsMTg0Mzc3MzE5NiwtMTk3Nzkz
+OTY1MSwtOTYzOTYxNTI3LC0xMTE5NzczODkzLC0xNjMyMzY3ND
+U0LC03MTM5MDMzLDUxMzE5MDI5NSwxMTMyMTQ2ODE3LC00NTQ4
+MzYwNDYsLTE2MjQwNDc2MjksLTc5OTczMjM4NiwxODczODQ5OD
+A5LDcwMzY3MDk3NSw2NDkzMjEyMzcsLTExNTg5NzE5MjRdfQ==
+
 -->
