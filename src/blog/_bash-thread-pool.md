@@ -141,12 +141,15 @@ It works in Bash and Zsh, and it has as much defensive programming as I know how
 My original use case had to do with making a large number of web requests, so here's an example using [Postman Echo](https://www.postman.com/postman/published-postman-templates/documentation/631643-f695cab7-6878-eb55-7943-ad88e1ccfd65):
 
 ```shell
-https://postman-echo.com
+$ pool_start 3  
+$ for n in 1 2 3 4 5; do  
+  pool_submit "set -o pipefail; curl -sS --fail-with-body --max-time 10 -X POST \  
+ -H 'Content-Type: application/json' -d '{\"request\": ${n}}' \  
+ https://postman-echo.com/post | jq -c .json"done  
+pool_wait
 ```
 
-Concurrency is respected, only starting command three after command two has completed:
-
-A more deterministic scenario demonstrating that
+A more deterministic scenario demonstrating that concurrency is respected, only starting command three after command two has completed:
 
 ```shell
 $ pool_start 2  
@@ -251,7 +254,7 @@ from command output, line 2
 from command output, line 3
 ```
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTE4OTk5OTEzNzEsMTc5ODYyMTUwNSwtMT
+eyJoaXN0b3J5IjpbLTE4ODk0MjUzOTEsMTc5ODYyMTUwNSwtMT
 AxNjE2NTQ1MiwxNzg5MDA3MjY3LDE4NDM3NzMxOTYsLTE5Nzc5
 Mzk2NTEsLTk2Mzk2MTUyNywtMTExOTc3Mzg5MywtMTYzMjM2Nz
 Q1NCwtNzEzOTAzMyw1MTMxOTAyOTUsMTEzMjE0NjgxNywtNDU0
