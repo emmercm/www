@@ -200,11 +200,21 @@ from command output, line 2
 from command output, line 3
 ```
 
+Queueing each line of a file as a command:
+
+```shell
+$ pool_start 2
+$ while IFS= read -r line; do
+		pool_submit "${line}"
+	done < commands.txt
+$ pool_wait
+```
+
 TODO: starting a thread from a thread?
 
 ## Why not `mkfifo` without a file descriptor?
 
-## Why not only `xargs -P`?
+## Why not just `xargs -P`?
 
 If you know all commands that you want to execute up-front, then a lot of the code can be simplified with a simple:
 
@@ -220,9 +230,9 @@ TODO: read from file
 
 GNU `parallel` works similarly.
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbNTYwNTU3NzYwLC0xOTc3OTM5NjUxLC05Nj
-M5NjE1MjcsLTExMTk3NzM4OTMsLTE2MzIzNjc0NTQsLTcxMzkw
-MzMsNTEzMTkwMjk1LDExMzIxNDY4MTcsLTQ1NDgzNjA0NiwtMT
-YyNDA0NzYyOSwtNzk5NzMyMzg2LDE4NzM4NDk4MDksNzAzNjcw
-OTc1LDY0OTMyMTIzNywtMTE1ODk3MTkyNF19
+eyJoaXN0b3J5IjpbLTI4ODMyNzMyMywtMTk3NzkzOTY1MSwtOT
+YzOTYxNTI3LC0xMTE5NzczODkzLC0xNjMyMzY3NDU0LC03MTM5
+MDMzLDUxMzE5MDI5NSwxMTMyMTQ2ODE3LC00NTQ4MzYwNDYsLT
+E2MjQwNDc2MjksLTc5OTczMjM4NiwxODczODQ5ODA5LDcwMzY3
+MDk3NSw2NDkzMjEyMzcsLTExNTg5NzE5MjRdfQ==
 -->
