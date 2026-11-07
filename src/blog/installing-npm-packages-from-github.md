@@ -68,7 +68,9 @@ Here's a bash function from [my dotfiles](https://github.com/emmercm/dotfiles) y
 # @example ngit isaacs/rimraf v3
 # @example ngit emmercm/metalsmith-plugins 8e21383 packages/metalsmith-mermaid
 ngit() {
-  local user_repo=$(echo "$1" | sed 's#^[a-z]*://[a-z.]*/\([^/]*/[^/]*\).*#\1#i')
+  local user_repo
+  # shellcheck disable=SC2001
+  user_repo="$(echo "$1" | sed 's#^[a-z]*://[a-z.]*/\([^/]*/[^/]*\).*#\1#i')"
   if [[ "${3:-}" == "" ]]; then
     npm install "git+https://github.com/${user_repo}#$2"
   else

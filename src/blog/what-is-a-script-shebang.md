@@ -4,6 +4,10 @@ title: What is a Script "Shebang"?
 date: 2025-11-26T05:07:00
 tags:
 - shell
+shellcheck:
+  exclude:
+    - SC1008
+    - SC2239
 
 ---
 

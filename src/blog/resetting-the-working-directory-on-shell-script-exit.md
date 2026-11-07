@@ -5,6 +5,10 @@ date: 2024-03-06T00:06:00
 updated: 2024-03-06T16:35:00
 tags:
 - shell
+shellcheck:
+  exclude:
+    - SC2034
+    - SC2064
 
 ---
 
@@ -26,11 +30,12 @@ set -euo pipefail
 . "$(dirname "$0")/aliases.sh"
 
 # Load some local config
-config=$(cat "$(dirname "$0")/config.json")
+config="$(cat "$(dirname "$0")/config.json")"
 
 # Enumerate some local files
 while read -r file; do
   # Do something with the file...
+  echo "${file}"
 done <<< "$(find "$(dirname "$0")" -maxdepth 1 -type f)"
 ```
 
@@ -86,6 +91,7 @@ config=$(cat ./config.json)
 # Enumerate some local files
 while read -r file; do
   # Do something with the file...
+  echo "${file}"
 done <<< "$(find . -maxdepth 1 -type f)"
 ```
 

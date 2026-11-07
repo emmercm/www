@@ -185,7 +185,8 @@ not in path
 Again, this custom function is best used for when you need the _path_ of an executable, either for further manipulation or later use. Here is a concrete example to set `$EDITOR` with a full executable path to rid yourself of vi/vim:
 
 ```bash
-export EDITOR=$(pinpoint nano)
+EDITOR=$(pinpoint nano)
+export EDITOR
 ```
 
 Happy searching!

@@ -93,7 +93,7 @@ default
 [`${parameter:-word}`](https://www.gnu.org/savannah-checkouts/gnu/bash/manual/bash.html#index-parameter-expansion) is another shell parameter expansion that could be used to default values. These two commands produce the same result:
 
 ```bash
-: ${FOO:=default}
+: "${FOO:=default}"
 ```
 
 ```bash
@@ -104,7 +104,7 @@ But it's more common to use `${parameter:-word}` without variable assignment lik
 
 ```bash
 # Merge the base Git branch into the current branch
-git merge --no-edit origin/${GIT_TRUNK:-main}
+git merge --no-edit "origin/${GIT_TRUNK:-main}"
 ```
 
 Even though the two expansions can be used to accomplish a lot of the same goals, you probably want to prefer `${parameter:=word}` for a few reasons:
@@ -117,7 +117,7 @@ Even though the two expansions can be used to accomplish a lot of the same goals
 
   docker run --name local-mysql \
     --env MYSQL_ROOT_PASSWORD=mysecretpassword \
-    --env MYSQL_DATABASE=${MYSQL_DATABASE:-main} \
+    --env MYSQL_DATABASE="${MYSQL_DATABASE:-main}" \
     --publish 3306:3306 --detach \
     mysql:latest
 
@@ -130,9 +130,9 @@ Even though the two expansions can be used to accomplish a lot of the same goals
       --execute "$2"
   }
 
-  mysql ${MYSQL_DATABASE:-main} "CREATE TABLE users (id INT(11) UNSIGNED AUTO_INCREMENT PRIMARY KEY, name VARCHAR(255) NOT NULL);"
-  mysql ${MYSQL_DATABASE:-main} "INSERT INTO users (name) VALUES ('Meredith'), ('Henry'), ('Lola');"
-  mysql ${MYSQL_DATABASE:-main} "SELECT * FROM users;"
+  mysql "${MYSQL_DATABASE:-main}" "CREATE TABLE users (id INT(11) UNSIGNED AUTO_INCREMENT PRIMARY KEY, name VARCHAR(255) NOT NULL);"
+  mysql "${MYSQL_DATABASE:-main}" "INSERT INTO users (name) VALUES ('Meredith'), ('Henry'), ('Lola');"
+  mysql "${MYSQL_DATABASE:-main}" "SELECT * FROM users;"
   ```
 
 - Grouping all variable defaults at the top of a Bash script helps increase its readability.
@@ -157,8 +157,8 @@ Start a PostgreSQL server in a Docker container:
 #!/usr/bin/env bash
 set -euo pipefail
 
-: "${POSTGRES_USER:=postgres}
-: "${POSTGRES_PASSWORD:=postgres}
+: "${POSTGRES_USER:=postgres}"
+: "${POSTGRES_PASSWORD:=postgres}"
 : "${POSTGRES_DB:=$POSTGRES_USER}"
 
 docker run --name local-postgres \
