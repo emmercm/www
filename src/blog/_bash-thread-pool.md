@@ -231,7 +231,7 @@ $ tr '\n' '\0' < commands.txt | \
 		xargs -0 -n 1 -P 2 bash -c
 ```
 
-[GNU `parallel`](https://www.gnu.org/software/parallel/) works similarly:
+[GNU `parallel`](https://www.gnu.org/software/parallel/) works similarly, though macOS doesn't ship with it:
 
 ```shell
 $ printf 'echo "from command output, line %d"\n' 1 2 3 | \
@@ -241,10 +241,10 @@ from command output, line 2
 from command output, line 3
 ```
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTEwMTYxNjU0NTIsMTc4OTAwNzI2NywxOD
-QzNzczMTk2LC0xOTc3OTM5NjUxLC05NjM5NjE1MjcsLTExMTk3
-NzM4OTMsLTE2MzIzNjc0NTQsLTcxMzkwMzMsNTEzMTkwMjk1LD
-ExMzIxNDY4MTcsLTQ1NDgzNjA0NiwtMTYyNDA0NzYyOSwtNzk5
-NzMyMzg2LDE4NzM4NDk4MDksNzAzNjcwOTc1LDY0OTMyMTIzNy
-wtMTE1ODk3MTkyNF19
+eyJoaXN0b3J5IjpbMTc5ODYyMTUwNSwtMTAxNjE2NTQ1MiwxNz
+g5MDA3MjY3LDE4NDM3NzMxOTYsLTE5Nzc5Mzk2NTEsLTk2Mzk2
+MTUyNywtMTExOTc3Mzg5MywtMTYzMjM2NzQ1NCwtNzEzOTAzMy
+w1MTMxOTAyOTUsMTEzMjE0NjgxNywtNDU0ODM2MDQ2LC0xNjI0
+MDQ3NjI5LC03OTk3MzIzODYsMTg3Mzg0OTgwOSw3MDM2NzA5Nz
+UsNjQ5MzIxMjM3LC0xMTU4OTcxOTI0XX0=
 -->
