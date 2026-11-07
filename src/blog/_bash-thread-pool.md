@@ -217,20 +217,26 @@ $ pool_wait
 If you know all commands that you want to execute up-front, then a lot of the code can be simplified with a simple:
 
 ```shell
-printf 'echo "from command output, line %d"\0' 1 2 3 | \
-	xargs -0 -n 1 -P 2 bash -c
+$ printf 'echo "from command output, line %d"\0' 1 2 3 | \
+		xargs -0 -n 1 -P 2 bash -c
+from command output, line 1  
+from command output, line 2  
+from command output, line 3
 ```
 
 or
 
 ```shell
-tr '\n' '\0' < commands.txt | \
-	xargs -0 -n 1 -P 2 bash -c
+$ tr '\n' '\0' < commands.txt | \
+		xargs -0 -n 1 -P 2 bash -c
 ```
 
-GNU `parallel` works similarly.
+[GNU `parallel`](https://www.gnu.org/software/parallel/) works similarly:
+
+```shell
+```
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbNjI4NzE2MjIyLDE4NDM3NzMxOTYsLTE5Nz
+eyJoaXN0b3J5IjpbLTg1MjI0ODIyLDE4NDM3NzMxOTYsLTE5Nz
 c5Mzk2NTEsLTk2Mzk2MTUyNywtMTExOTc3Mzg5MywtMTYzMjM2
 NzQ1NCwtNzEzOTAzMyw1MTMxOTAyOTUsMTEzMjE0NjgxNywtND
 U0ODM2MDQ2LC0xNjI0MDQ3NjI5LC03OTk3MzIzODYsMTg3Mzg0
