@@ -8,7 +8,7 @@ tags:
 
 How to run shell commands in parallel while limiting their concurrency.
 
-I had a use case recently where I wanted to speed up some Bash processing that I was doing, but still keep concurrency constrained. So I wondered: _is there a straightforward way to create thread pools in Bash?_ The answer is: yes, but it takes some work to be portable.
+I had a use case recently where I wanted to speed up some Bash processing that I was doing, but still keep concurrency constrained. So I wondered: _is there a straightforward way to create thread pools in Bash?_ The answer is: yes, but it takes some work to be semi-resilient and portable.
 
 You may ask: _why do this in Bash at all? It seems silly to use a language with poor concurrency controls._ You'd be right to ask this question, and my answer is: because [I have a fondness for Bash](/blog/tag/shell), and I wanted the challenge. But you're still probably better off using another language, such as Python.
 
@@ -217,9 +217,9 @@ TODO: read from file
 
 GNU `parallel` works similarly.
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTE5Nzc5Mzk2NTEsLTk2Mzk2MTUyNywtMT
-ExOTc3Mzg5MywtMTYzMjM2NzQ1NCwtNzEzOTAzMyw1MTMxOTAy
-OTUsMTEzMjE0NjgxNywtNDU0ODM2MDQ2LC0xNjI0MDQ3NjI5LC
-03OTk3MzIzODYsMTg3Mzg0OTgwOSw3MDM2NzA5NzUsNjQ5MzIx
-MjM3LC0xMTU4OTcxOTI0XX0=
+eyJoaXN0b3J5IjpbNDAxMzczOTk4LC0xOTc3OTM5NjUxLC05Nj
+M5NjE1MjcsLTExMTk3NzM4OTMsLTE2MzIzNjc0NTQsLTcxMzkw
+MzMsNTEzMTkwMjk1LDExMzIxNDY4MTcsLTQ1NDgzNjA0NiwtMT
+YyNDA0NzYyOSwtNzk5NzMyMzg2LDE4NzM4NDk4MDksNzAzNjcw
+OTc1LDY0OTMyMTIzNywtMTE1ODk3MTkyNF19
 -->
