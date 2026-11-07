@@ -146,6 +146,8 @@ https://postman-echo.com
 
 Concurrency is respected, only starting command three after command two has completed:
 
+A more deterministic scenario demonstrating that
+
 ```shell
 $ pool_start 2  
 $ pool_submit 'sleep 1; echo first'
@@ -216,6 +218,10 @@ $ while IFS= read -r line; do
 $ pool_wait
 ```
 
+## Known issues
+
+TODO
+
 ## Why not just `xargs -P`?
 
 If you know all commands that you want to execute up-front, then the solution gets _far_ simpler:
@@ -245,7 +251,7 @@ from command output, line 2
 from command output, line 3
 ```
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTEzOTY2Mzg2NjAsMTc5ODYyMTUwNSwtMT
+eyJoaXN0b3J5IjpbLTE4OTk5OTEzNzEsMTc5ODYyMTUwNSwtMT
 AxNjE2NTQ1MiwxNzg5MDA3MjY3LDE4NDM3NzMxOTYsLTE5Nzc5
 Mzk2NTEsLTk2Mzk2MTUyNywtMTExOTc3Mzg5MywtMTYzMjM2Nz
 Q1NCwtNzEzOTAzMyw1MTMxOTAyOTUsMTEzMjE0NjgxNywtNDU0
