@@ -235,11 +235,9 @@ Here are some reasons why you might just want a different programming language:
 
 - **A shell can only have one process pool.** The amount of additional code needed to support multiple is complicated and likely isn't needed in most cases. Subshells can still have their own pools.
 - **Command output is intentionally not streamed.** This prevents interleaving the output of most commands. Output larger than `PIPE_BUF` may still get interleaved.
-- **`pool_wait` doesn't return a value indicating any job failure.** This would require a second file descriptor and some complicated code.
-- **`pool_wait` has to wait for any backgrounded (`&`) jobs.** Processes started after `pool_start` will inherit the queue write file descriptor (which is what allows subshells to work), and `xargs` won't see the end of the queue until every copy of the write descriptor is closed.
-- **`_pool_stop` indiscriminately terminates descendants.** Any other backgrounded jobs will be terminated.
-- Executing shells won't inherit
-
+- **`pool_wait` doesn't return a value indicating any job failure.** This would require a temporary file or a second file descriptor and some complicated code.
+- **`pool_wait` has to wait for running processes started after `pool_start`.** Processes started after `pool_start` will inherit the queue write file descriptor (which is what allows subshells to work), and `xargs` won't see the end of the queue until every copy of the write descriptor is closed.
+- **`_pool_stop` indiscriminately terminates descendants.** Any other backgrounded jobs will be terminated, including ones started before `pool_start`.
 
 ## Why not just `xargs -P`?
 
@@ -270,10 +268,11 @@ from command output, line 2
 from command output, line 3
 ```
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbNDUyNjQ2MjM5LDE3OTg2MjE1MDUsLTEwMT
-YxNjU0NTIsMTc4OTAwNzI2NywxODQzNzczMTk2LC0xOTc3OTM5
-NjUxLC05NjM5NjE1MjcsLTExMTk3NzM4OTMsLTE2MzIzNjc0NT
-QsLTcxMzkwMzMsNTEzMTkwMjk1LDExMzIxNDY4MTcsLTQ1NDgz
-NjA0NiwtMTYyNDA0NzYyOSwtNzk5NzMyMzg2LDE4NzM4NDk4MD
-ksNzAzNjcwOTc1LDY0OTMyMTIzNywtMTE1ODk3MTkyNF19
+eyJoaXN0b3J5IjpbLTUxOTQ5MTk4NSwxNzk4NjIxNTA1LC0xMD
+E2MTY1NDUyLDE3ODkwMDcyNjcsMTg0Mzc3MzE5NiwtMTk3Nzkz
+OTY1MSwtOTYzOTYxNTI3LC0xMTE5NzczODkzLC0xNjMyMzY3ND
+U0LC03MTM5MDMzLDUxMzE5MDI5NSwxMTMyMTQ2ODE3LC00NTQ4
+MzYwNDYsLTE2MjQwNDc2MjksLTc5OTczMjM4NiwxODczODQ5OD
+A5LDcwMzY3MDk3NSw2NDkzMjEyMzcsLTExNTg5NzE5MjRdfQ==
+
 -->
