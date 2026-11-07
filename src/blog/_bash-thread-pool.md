@@ -134,6 +134,8 @@ if [[ $- != *i* ]]; then
 fi
 ```
 
+`pool_start` does the setup, `pool_submit` submits commands to the queue, and `pool_wait` waits for the queue to drain before cleaning up.
+
 It works in Bash and Zsh, and it has as much defensive programming as I know how to add, but I'm confident it has failure modes that are difficult to predict or avoid.
 
 ## Example usage
@@ -260,7 +262,7 @@ from command output, line 2
 from command output, line 3
 ```
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTc1OTMxMTgzNywxNzk4NjIxNTA1LC0xMD
+eyJoaXN0b3J5IjpbLTQ3MTIxNjc4MiwxNzk4NjIxNTA1LC0xMD
 E2MTY1NDUyLDE3ODkwMDcyNjcsMTg0Mzc3MzE5NiwtMTk3Nzkz
 OTY1MSwtOTYzOTYxNTI3LC0xMTE5NzczODkzLC0xNjMyMzY3ND
 U0LC03MTM5MDMzLDUxMzE5MDI5NSwxMTMyMTQ2ODE3LC00NTQ4
