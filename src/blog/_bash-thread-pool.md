@@ -143,10 +143,16 @@ My original use case had to do with making a large number of web requests, so he
 ```shell
 $ pool_start 3  
 $ for n in 1 2 3 4 5; do  
-  pool_submit "set -o pipefail; curl -sS --fail-with-body --max-time 10 -X POST \  
- -H 'Content-Type: application/json' -d '{\"request\": ${n}}' \  
- https://postman-echo.com/post | jq -c .json"done  
-pool_wait
+	  pool_submit "set -o pipefail; \  
+	 curl -sS --fail-with-body --max-time 10 -X POST -H 'Content-Type: application/json' \ -d '{\"request\": ${n}}' \  
+	 https://postman-echo.com/post | \ jq -c .json"
+	done  
+$ pool_wait
+{"request":1}  
+{"request":2}  
+{"request":3}    
+{"request":4}
+{"request":5}
 ```
 
 A more deterministic scenario demonstrating that concurrency is respected, only starting command three after command two has completed:
@@ -254,11 +260,11 @@ from command output, line 2
 from command output, line 3
 ```
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTE4ODk0MjUzOTEsMTc5ODYyMTUwNSwtMT
-AxNjE2NTQ1MiwxNzg5MDA3MjY3LDE4NDM3NzMxOTYsLTE5Nzc5
-Mzk2NTEsLTk2Mzk2MTUyNywtMTExOTc3Mzg5MywtMTYzMjM2Nz
-Q1NCwtNzEzOTAzMyw1MTMxOTAyOTUsMTEzMjE0NjgxNywtNDU0
-ODM2MDQ2LC0xNjI0MDQ3NjI5LC03OTk3MzIzODYsMTg3Mzg0OT
-gwOSw3MDM2NzA5NzUsNjQ5MzIxMjM3LC0xMTU4OTcxOTI0XX0=
+eyJoaXN0b3J5IjpbMTc1OTMxMTgzNywxNzk4NjIxNTA1LC0xMD
+E2MTY1NDUyLDE3ODkwMDcyNjcsMTg0Mzc3MzE5NiwtMTk3Nzkz
+OTY1MSwtOTYzOTYxNTI3LC0xMTE5NzczODkzLC0xNjMyMzY3ND
+U0LC03MTM5MDMzLDUxMzE5MDI5NSwxMTMyMTQ2ODE3LC00NTQ4
+MzYwNDYsLTE2MjQwNDc2MjksLTc5OTczMjM4NiwxODczODQ5OD
+A5LDcwMzY3MDk3NSw2NDkzMjEyMzcsLTExNTg5NzE5MjRdfQ==
 
 -->
