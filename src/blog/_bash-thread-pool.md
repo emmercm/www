@@ -217,7 +217,8 @@ $ pool_wait
 If you know all commands that you want to execute up-front, then a lot of the code can be simplified with a simple:
 
 ```bash
-TODO: pipe into xargs
+printf 'echo "from command output, line %d"\0' 1 2 3 | \
+	xargs -0 -n 1 -P 2 bash -c
 ```
 
 or
@@ -228,9 +229,10 @@ TODO: read from file
 
 GNU `parallel` works similarly.
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTg0Mzc3MzE5NiwtMTk3NzkzOTY1MSwtOT
-YzOTYxNTI3LC0xMTE5NzczODkzLC0xNjMyMzY3NDU0LC03MTM5
-MDMzLDUxMzE5MDI5NSwxMTMyMTQ2ODE3LC00NTQ4MzYwNDYsLT
-E2MjQwNDc2MjksLTc5OTczMjM4NiwxODczODQ5ODA5LDcwMzY3
-MDk3NSw2NDkzMjEyMzcsLTExNTg5NzE5MjRdfQ==
+eyJoaXN0b3J5IjpbMTc3ODUyMzI5MSwxODQzNzczMTk2LC0xOT
+c3OTM5NjUxLC05NjM5NjE1MjcsLTExMTk3NzM4OTMsLTE2MzIz
+Njc0NTQsLTcxMzkwMzMsNTEzMTkwMjk1LDExMzIxNDY4MTcsLT
+Q1NDgzNjA0NiwtMTYyNDA0NzYyOSwtNzk5NzMyMzg2LDE4NzM4
+NDk4MDksNzAzNjcwOTc1LDY0OTMyMTIzNywtMTE1ODk3MTkyNF
+19
 -->
