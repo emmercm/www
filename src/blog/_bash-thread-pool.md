@@ -195,6 +195,9 @@ $ while IFS= read -r line; do
 	  pool_submit "${line}"  
 	done < <(printf 'echo "from command output, line %d"\n' 1 2 3)  
 $ pool_wait
+from command output, line 1  
+from command output, line 2  
+from command output, line 3
 ```
 
 TODO: starting a thread from a thread?
@@ -217,7 +220,7 @@ TODO: read from file
 
 GNU `parallel` works similarly.
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbNDAxMzczOTk4LC0xOTc3OTM5NjUxLC05Nj
+eyJoaXN0b3J5IjpbNTYwNTU3NzYwLC0xOTc3OTM5NjUxLC05Nj
 M5NjE1MjcsLTExMTk3NzM4OTMsLTE2MzIzNjc0NTQsLTcxMzkw
 MzMsNTEzMTkwMjk1LDExMzIxNDY4MTcsLTQ1NDgzNjA0NiwtMT
 YyNDA0NzYyOSwtNzk5NzMyMzg2LDE4NzM4NDk4MDksNzAzNjcw
