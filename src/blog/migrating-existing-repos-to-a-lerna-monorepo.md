@@ -144,7 +144,9 @@ Lerna uses [npm workspaces](https://docs.npmjs.com/cli/v7/using-npm/workspaces) 
 
 ```shell
 $ nvm use 16
-$ grep -l '"lockfileVersion": 1' packages/*/package-lock.json | while read line; do npm install --prefix "$(dirname "${line}")"; done
+$ grep -l '"lockfileVersion": 1' packages/*/package-lock.json | while read -r line; do
+    npm install --prefix "$(dirname "${line}")"
+  done
 ```
 
 And finally, we'll install every package's dependencies:

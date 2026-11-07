@@ -145,7 +145,7 @@ Using a Bash function, we can automatically load environment variables when we `
 cd() {
   # Execute the original intended command.
   # We must use `builtin` because `cd` is a built-in, not an executable.
-  builtin cd "${1:-${HOME}}"
+  builtin cd "${1:-${HOME}}" || return 1
 
   # Load the environment variables in a .env file, if it exists.
   if [[ -f .env ]]; then
