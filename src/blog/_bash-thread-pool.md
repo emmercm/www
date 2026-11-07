@@ -232,6 +232,7 @@ $ pool_wait
 ## Known issues
 
 - **`pool_wait` has to wait for any backgrounded (`&`) jobs.** Backgrounded jobs inherit the queue write file descriptor (which is what allows subshells to work), and `pool_wait` has to wait for every process to close it.
+- **`_pool_stop` indiscriminately terminates descendants.** Any other backgrounded jobs will be killed.
 
 
 ## Why not just `xargs -P`?
@@ -263,7 +264,7 @@ from command output, line 2
 from command output, line 3
 ```
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTkyMTkxODAxLDE3OTg2MjE1MDUsLTEwMT
+eyJoaXN0b3J5IjpbLTk3NjE0NzU1LDE3OTg2MjE1MDUsLTEwMT
 YxNjU0NTIsMTc4OTAwNzI2NywxODQzNzczMTk2LC0xOTc3OTM5
 NjUxLC05NjM5NjE1MjcsLTExMTk3NzM4OTMsLTE2MzIzNjc0NT
 QsLTcxMzkwMzMsNTEzMTkwMjk1LDExMzIxNDY4MTcsLTQ1NDgz
