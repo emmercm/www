@@ -236,15 +236,15 @@ $ tr '\n' '\0' < commands.txt | \
 ```shell
 $ printf 'echo "from command output, line %d"\n' 1 2 3 | \
 		parallel -j 2
+from command output, line 1
 from command output, line 2  
-from command output, line 1  
 from command output, line 3
 ```
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbNzQwODgzNDE0LDE3ODkwMDcyNjcsMTg0Mz
-c3MzE5NiwtMTk3NzkzOTY1MSwtOTYzOTYxNTI3LC0xMTE5Nzcz
-ODkzLC0xNjMyMzY3NDU0LC03MTM5MDMzLDUxMzE5MDI5NSwxMT
-MyMTQ2ODE3LC00NTQ4MzYwNDYsLTE2MjQwNDc2MjksLTc5OTcz
-MjM4NiwxODczODQ5ODA5LDcwMzY3MDk3NSw2NDkzMjEyMzcsLT
-ExNTg5NzE5MjRdfQ==
+eyJoaXN0b3J5IjpbLTEwMTYxNjU0NTIsMTc4OTAwNzI2NywxOD
+QzNzczMTk2LC0xOTc3OTM5NjUxLC05NjM5NjE1MjcsLTExMTk3
+NzM4OTMsLTE2MzIzNjc0NTQsLTcxMzkwMzMsNTEzMTkwMjk1LD
+ExMzIxNDY4MTcsLTQ1NDgzNjA0NiwtMTYyNDA0NzYyOSwtNzk5
+NzMyMzg2LDE4NzM4NDk4MDksNzAzNjcwOTc1LDY0OTMyMTIzNy
+wtMTE1ODk3MTkyNF19
 -->
