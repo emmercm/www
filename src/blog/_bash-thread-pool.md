@@ -210,8 +210,6 @@ $ while IFS= read -r line; do
 $ pool_wait
 ```
 
-TODO: starting a thread from a thread?
-
 ## Why not `mkfifo` without a file descriptor?
 
 ## Why not just `xargs -P`?
@@ -230,7 +228,7 @@ TODO: read from file
 
 GNU `parallel` works similarly.
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTI4ODMyNzMyMywtMTk3NzkzOTY1MSwtOT
+eyJoaXN0b3J5IjpbMTg0Mzc3MzE5NiwtMTk3NzkzOTY1MSwtOT
 YzOTYxNTI3LC0xMTE5NzczODkzLC0xNjMyMzY3NDU0LC03MTM5
 MDMzLDUxMzE5MDI5NSwxMTMyMTQ2ODE3LC00NTQ4MzYwNDYsLT
 E2MjQwNDc2MjksLTc5OTczMjM4NiwxODczODQ5ODA5LDcwMzY3
