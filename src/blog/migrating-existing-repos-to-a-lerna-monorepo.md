@@ -146,7 +146,7 @@ Lerna uses [npm workspaces](https://docs.npmjs.com/cli/v7/using-npm/workspaces) 
 $ nvm use 16
 $ grep -l '"lockfileVersion": 1' packages/*/package-lock.json | while read -r line; do
     npm install --prefix "$(dirname "${line}")"
-  done
+ ; done
 ```
 
 And finally, we'll install every package's dependencies:
@@ -284,3 +284,6 @@ At this point we're ready to delete the temporary directory we've been working i
 6. Write a new [Renovate config](/blog/keep-lerna-monorepos-updated-with-renovate)
 
 Then, in the future, it should be much easier to update many plugins at once!
+<!--stackedit_data:
+eyJoaXN0b3J5IjpbLTg3NDQ5ODY4MV19
+-->
