@@ -52,7 +52,7 @@ $ sed() { echo "sed?" }
 
 $ which sed
 sed () {
-  echo "sed?"
+echo "sed?"
 }
 ```
 
@@ -143,9 +143,9 @@ pinpoint() {
   while read -r DIR; do
     if [[ -x "${DIR}/$1" ]]; then
       echo "${DIR}/$1"
-      return 0
-    fi
-  done <<< "$(echo "${PATH}" | tr ':' '\n')"
+return 0
+fi
+done <<< "$(echo "${PATH}" | tr ':' '\n')"
   return 1
 }
 ```
@@ -191,5 +191,5 @@ export EDITOR
 
 Happy searching!
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTIyMjkyNTc2OF19
+eyJoaXN0b3J5IjpbLTU3NzQ0OTk3LC0yMjI5MjU3NjhdfQ==
 -->
