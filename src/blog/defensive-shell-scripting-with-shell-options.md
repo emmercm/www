@@ -258,7 +258,7 @@ VAR=$(false; echo "this will NOT print")
 
 However, there is a whole list of scenarios where `set -e` isn't inherited. From the [`set` docs](https://www.gnu.org/software/bash/manual/html_node/The-Set-Builtin.html):
 
-> The shell does not exit if the command that fails is part of the command list immediately following a `while` or `until` reserved word, part of the test in an `if` statement, part of any command executed in a `&&` or `||` list except the command following the final `&&` or `||`, any command in a pipeline but the last (subject to the state of the `pipefail` shell option), or if the command's return status is being inverted with `!`.
+> The shell does not exit if the command that fails is part of the command list immediately following a `while` or `until` reserved word, part of the test in an `if` statement, part of any command executed in a `&&` or `||` list except the command following the final `&&` or `||`, any command in a pipeline but the last (subject to the state of the `pipefail` shell option), or if the commands return status is being inverted with `!`.
 
 ```bash
 #!/usr/bin/env bash
@@ -287,7 +287,7 @@ fi
 # "any command in a pipeline but the last"
 false | echo "this will print" && echo "and so will this"
 
-# "or if the command's return status is being inverted with '!'"
+# "or if the commands return status is being inverted with '!'"
 ! false && echo "this will print"
 ```
 
@@ -348,5 +348,5 @@ Some arguments _against_ relying on `set -euo pipefail` are:
 
 If we apply some common sense, we should naturally understand that complex situations likely call for a different programming language. `set -euo pipefail` won't completely save you from every pitfall, but it sure provides a better backstop than nothing at all.
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTQzNjA0MjQ4MF19
+eyJoaXN0b3J5IjpbLTYwOTY2MzAyOCwtNDM2MDQyNDgwXX0=
 -->
