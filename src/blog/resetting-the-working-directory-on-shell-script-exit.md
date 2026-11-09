@@ -34,7 +34,7 @@ config="$(cat "$(dirname "$0")/config.json")"
 
 # Enumerate some local files
 while read -r file; do
-  # Do something with the file...
+# Do something with the file...
   echo "${file}"
 done <<< "$(find "$(dirname "$0")" -maxdepth 1 -type f)"
 ```
@@ -125,5 +125,5 @@ You can see that `I exited gracefully!` never printed.
 
 `cd -` and `cd "${OLDPWD}"` can both take you back to your previous directory in Bash, but the above [`trap`](https://man7.org/linux/man-pages/man1/trap.1p.html) solution is still better in case you need to change directories multiple times.
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbOTkyNzE2NjgwXX0=
+eyJoaXN0b3J5IjpbMzk0MTU1NTEzLDk5MjcxNjY4MF19
 -->
