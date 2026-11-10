@@ -24,7 +24,7 @@ BEGIN
     -- 10 random bytes = 20 random hex characters, generated all at once
     DECLARE r CHAR(20) DEFAULT HEX(RANDOM_BYTES(10));
 
-    -- 48-bit Unix timestamp in milliseconds = 12 characters = 6 bytes
+    -- 48-bit Unix timestamp in milliseconds = 6 bytes
     DECLARE ts CHAR(12) DEFAULT LPAD(HEX(FLOOR(UNIX_TIMESTAMP(SYSDATE(3)) * 1000)), 12, '0');
 
     -- 1st group is 8 characters = 4 bytes, the first part of the timestamp
@@ -33,10 +33,10 @@ BEGIN
     -- 2nd group is 4 characters = 2 bytes, the rest of the timestamp
     DECLARE g2 CHAR(4) DEFAULT SUBSTR(ts, 9, 4);
 
-    -- 3rd group is 4 characters = 2 bytes, starting with a: 7
+    -- 3rd group is 4 characters = 2 bytes, starting with a: '7'
     DECLARE g3 CHAR(4) DEFAULT CONCAT('7', SUBSTR(r, 1, 3));
 
-    -- 4th group is 4 characters = 2 bytes, starting with a: 8, 9, A, or B
+    -- 4th group is 4 characters = 2 bytes, starting with a: '8', '9', 'A', or 'B'
     DECLARE g4 CHAR(4) DEFAULT CONCAT(HEX(CONV(SUBSTR(r, 4, 1), 16, 10) & 3 | 8), SUBSTR(r, 5, 3));
 
     -- 5th group is 12 characters = 6 bytes
