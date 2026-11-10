@@ -74,7 +74,8 @@ import linkChecker      from 'metalsmith-link-checker';
 import robots           from 'metalsmith-robots';
 
 import async           from 'async';
-import {marked}        from 'marked';
+import {Marked, marked} from 'marked';
+import markedAlerts    from './lib/marked-alerts.js';
 import minimatch       from 'minimatch';
 import {DateTime}      from 'luxon';
 import transliteration from 'transliteration';
@@ -181,6 +182,15 @@ markdownRenderer.table = (header, body) => {
         ${body}
         </table>`;
 };
+// @metalsmith/markdown bundles its own copy of marked, so render with our own instance that has extensions
+const markedInstance = new Marked(markedAlerts());
+const markdownOptions = {
+    render: (source, engineOptions) => markedInstance.parse(source, engineOptions),
+    engineOptions: {
+        renderer: markdownRenderer
+    }
+};
+
 // Terminal-like languages, which get a window-like header and no line numbers
 const unixShellLanguages = ['shell', 'console'];
 const windowsShellLanguages = ['dos', 'bat', 'cmd', 'powershell', 'ps', 'ps1'];
@@ -613,9 +623,7 @@ tracer(Metalsmith(path.resolve()))
         .use(mermaid())
         .use(vega(vegaOptions))
         .use(highlightjs(highlightjsOptions))
-        .use(markdown({
-            renderer: markdownRenderer
-        }))
+        .use(markdown(markdownOptions))
         .use(codeCards())
         // Extract first paragraph as an excerpt and then change the page description (needs to happen after metalsmith-markdown)
         .use(excerpts())
@@ -672,12 +680,17 @@ tracer(Metalsmith(path.resolve()))
                                 return;
                             }
                             // Otherwise, find the block-level element that we're inside of and append the content after
-                            const added = $elem
+                            const $firstParent = $elem
                                 .parents('h1, h2, h3, h4, h5, h6, p, div, table')
-                                .first()
-                                .nextAll(':not(blockquote, pre, .pre-card)')
-                                .first()
-                                .before(textToAdd);
+                                .first();
+                            const $nextSibling = $firstParent
+                                .nextAll(':not(blockquote, ol, pre, ul, .pre-card)')
+                                .first();
+                            if ($nextSibling.length > 0) {
+                                $nextSibling.before(textToAdd)
+                            } else {
+                                $firstParent.after(textToAdd);
+                            }
                         });
                     if (modified) {
                         files[filename].contents = Buffer.from($.html().replaceAll('{{&gt;', '{{>'));
@@ -858,9 +871,7 @@ tracer(Metalsmith(path.resolve()))
     .use(mermaid())
     .use(vega(vegaOptions))
     .use(highlightjs(highlightjsOptions))
-    .use(markdown({
-        renderer: markdownRenderer
-    }))
+    .use(markdown(markdownOptions))
     .use(codeCards())
 
     // Find related files
@@ -1191,7 +1202,8 @@ tracer(Metalsmith(path.resolve()))
             'groovy-lang.org',
             'hodgkins.io',
             'team358.org',
-            'gnu.org'
+            'gnu.org',
+            'quay.io'
         ]
     })))
 
