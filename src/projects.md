@@ -82,26 +82,3 @@ A script to build and install a Realtek RTL8812AU WiFi driver from source.
 ### [rpi-cast](https://github.com/emmercm/rpi-cast)
 
 A tool to automatically cast audio input from a Raspberry Pi.
-
-## <i class="fa-regular fa-robot"></i> FIRST Robotics Competition
-
-I have developed a number of applications for use in the [FIRST Robotics Competition](https://www.firstinspires.org/robotics/frc), a worldwide STEM competition for high school students.
-
-### [SharkScout](https://github.com/hammerhead226/SharkScout)
-
-A Python ([`CherryPy`](https://cherrypy.readthedocs.io), [`ws4py`](https://ws4py.readthedocs.io/en/latest/), [`Genshi`](https://genshi.edgewall.org/)) and MongoDB-based web app for both quantitative and qualitative [competition scouting](http://www.team358.org/files/scouting/). Used by the [Hammerheads (226)](http://hammerhead226.org/) in the 2017 and 2018 competition seasons.
-
-Built with unreliable client connections as a primary concern, the app makes use of front-end caching and background syncing with web sockets. Designed to make use of team and event data from [The Blue Alliance](https://www.thebluealliance.com/), stored locally for offline use, there is very little work required to get started.
-
-### [SharkCV](https://github.com/hammerhead226/SharkCV)
-
-A Python and OpenCV-based vision processing framework designed to run on a coprocessor. Used by the [Hammerheads (226)](http://hammerhead226.org/) in the 2016 competition season.
-
-Similar to the [GRIP](https://wpiroboticsprojects.github.io/GRIP) and [Limelight](https://limelightvision.io/) software, SharkCV was designed to abstract away most of the OpenCV complexity so configuration can be fast and easy. Unlike other hardware solutions, SharkCV running on a coprocessor such as a Raspberry Pi gives many different options for both input and output sources.
-
-### [docker-cheesy-parts](https://github.com/Troy-Argonauts/docker-cheesy-parts)
-
-A Docker image packaging for the popular parts management web app [Cheesy Parts](https://github.com/Team254/cheesy-parts), complete with deployment scripts to host a copy on [Heroku](https://www.heroku.com/).
-<!--stackedit_data:
-eyJoaXN0b3J5IjpbLTQyNTkwMTM1NV19
--->

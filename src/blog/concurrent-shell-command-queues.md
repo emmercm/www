@@ -149,7 +149,7 @@ if [[ $- != *i* ]]; then
 fi
 ```
 
-`queue_start` initializes the queue and starts the executor (with concurrency managed by `xargs -P`, `queue_submit` submits commands to the queue, and `queue_wait` waits for the queue to drain before cleaning up. Calling `queue_wait` is optional, command processing will start as soon as you queue it with `queue_submit`.
+`queue_start` initializes the queue (managed by [`mkfifo`](https://man7.org/linux/man-pages/man1/mkfifo.1.html)) and starts the executor (concurrency managed by `xargs -P`), `queue_submit` submits commands to the queue, and `queue_wait` waits for the queue to drain before cleaning up. Calling `queue_wait` is optional, command processing will start as soon as you queue it with `queue_submit`.
 
 You can copy and paste this code into a script, or it's also safe to put in your dotfiles, as it only sets some of the exit traps for interactive shells. It works in Bash and Zsh, and it has as much defensive programming as I know how to add, but I'm confident it has failure modes that are difficult to predict or avoid.
 
