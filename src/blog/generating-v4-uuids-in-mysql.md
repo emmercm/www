@@ -2,7 +2,7 @@
 
 title: Generating v4 UUIDs in MySQL
 date: 2020-11-13T22:43:00
-updated: 2026-11-10T04:26:00
+updated: 2026-11-10T05:27:00
 tags:
 - databases
 - mysql
@@ -24,28 +24,28 @@ CREATE FUNCTION uuid_v4() RETURNS CHAR(36)
     NO SQL
 BEGIN
     -- 16 random bytes = 32 random hex characters, generated all at once
-    DECLARE r CHAR(32) DEFAULT HEX(RANDOM_BYTES(16));
+    DECLARE rand CHAR(32) DEFAULT HEX(RANDOM_BYTES(16));
 
     -- 1st group is 8 characters = 4 bytes
-    DECLARE g1 CHAR(8) DEFAULT SUBSTR(r, 1, 8);
+    DECLARE g1 CHAR(8) DEFAULT SUBSTR(rand, 1, 8);
 
     -- 2nd group is 4 characters = 2 bytes
-    DECLARE g2 CHAR(4) DEFAULT SUBSTR(r, 9, 4);
+    DECLARE g2 CHAR(4) DEFAULT SUBSTR(rand, 9, 4);
 
     -- 3rd group is 4 characters = 2 bytes, starting with a: '4'
-    DECLARE g3 CHAR(4) DEFAULT CONCAT('4', SUBSTR(r, 13, 3));
+    DECLARE g3 CHAR(4) DEFAULT CONCAT('4', SUBSTR(rand, 13, 3));
 
     -- 4th group is 4 characters = 2 bytes, starting with a: '8', '9', 'A', or 'B'
-    DECLARE g4 CHAR(4) DEFAULT CONCAT(HEX(CONV(SUBSTR(r, 16, 1), 16, 10) & 3 | 8), SUBSTR(r, 17, 3));
+    DECLARE g4 CHAR(4) DEFAULT CONCAT(HEX(CONV(SUBSTR(rand, 16, 1), 16, 10) & 3 | 8), SUBSTR(rand, 17, 3));
 
     -- 5th group is 12 characters = 6 bytes
-    DECLARE g5 CHAR(12) DEFAULT SUBSTR(r, 20, 12);
+    DECLARE g5 CHAR(12) DEFAULT SUBSTR(rand, 20, 12);
 
     RETURN LOWER(CONCAT(g1, '-', g2, '-', g3, '-', g4, '-', g5));
 END;
 ```
 
-This generates all the random bytes with a single call to `RANDOM_BYTES()`, rather than one call per group, and then splits them up. It uses [local variables](https://dev.mysql.com/doc/refman/8.0/en/declare-local-variable.html), which are cheaper than `@` [user-defined variables](https://dev.mysql.com/doc/refman/8.0/en/user-variables.html), and they don't leak into the caller's session.
+This generates all the random bytes with a single call to [`RANDOM_BYTES()`](https://dev.mysql.com/doc/refman/8.0/en/encryption-functions.html#function_random-bytes), rather than one call per group, and then splits them up. It uses [local variables](https://dev.mysql.com/doc/refman/8.0/en/declare-local-variable.html), which are cheaper than `@` [user-defined variables](https://dev.mysql.com/doc/refman/8.0/en/user-variables.html), and they don't leak into the caller's session.
 
 Here's a version with only one variable, to remove any overhead the others might add:
 
@@ -54,13 +54,13 @@ CREATE FUNCTION uuid_v4() RETURNS CHAR(36)
     NOT DETERMINISTIC
     NO SQL
 BEGIN
-    DECLARE r CHAR(32) DEFAULT HEX(RANDOM_BYTES(16));
+    DECLARE rand CHAR(32) DEFAULT HEX(RANDOM_BYTES(16));
     RETURN LOWER(CONCAT(
-            SUBSTR(r, 1, 8),
-            '-', SUBSTR(r, 9, 4),
-            '-4', SUBSTR(r, 13, 3),
-            '-', HEX(CONV(SUBSTR(r, 16, 1), 16, 10) & 3 | 8), SUBSTR(r, 17, 3),
-            '-', SUBSTR(r, 20, 12)
+            SUBSTR(rand, 1, 8),
+            '-', SUBSTR(rand, 9, 4),
+            '-4', SUBSTR(rand, 13, 3),
+            '-', HEX(CONV(SUBSTR(rand, 16, 1), 16, 10) & 3 | 8), SUBSTR(rand, 17, 3),
+            '-', SUBSTR(rand, 20, 12)
         ));
 END;
 ```
