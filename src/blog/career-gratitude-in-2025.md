@@ -34,7 +34,7 @@ I'm also thankful to everyone who just simply _cares_. Who cares enough to ask q
 
 ## A strong network of "people of high character"
 
-A dear friend forwarded me a Scott Galloway article titled "[Friending](https://www.profgalloway.com/friending/)" this year. It highlights some worrying statistics about the male loneliness epidemic. The article is admittedly an advertisement for his new book (which is next on my to-do list), but I've been thinking a lot about this quote:
+A dear friend forwarded me a Scott Galloway article titled "[Friending](https://web.archive.org/web/20261005003613/https://www.profgalloway.com/friending/)" this year. It highlights some worrying statistics about the male loneliness epidemic. The article is admittedly an advertisement for his new book (which is next on my to-do list), but I've been thinking a lot about this quote:
 
 > The best thing anyone can do to improve their own success is make friends with people of high character who are ambitious. You are the average of your five closest friends.
 

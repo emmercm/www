@@ -1202,7 +1202,8 @@ tracer(Metalsmith(path.resolve()))
             'groovy-lang.org',
             'hodgkins.io',
             'team358.org',
-            'gnu.org'
+            'gnu.org',
+            'quay.io'
         ]
     })))
 
