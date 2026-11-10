@@ -2,6 +2,7 @@
 
 title: Why You Should Use UUIDs for Your Primary Keys
 date: 2020-01-31T05:03:00
+updated: 2026-11-10T03:32:00
 tags:
 - databases
 - opinion
@@ -9,6 +10,9 @@ tags:
 ---
 
 [Universally unique identifiers (UUIDs)](https://en.wikipedia.org/wiki/Universally_unique_identifier) are 128-bit (16-byte) numbers that are designed to be globally unique, and as a result they make for great primary keys.
+
+> [!WARNING]
+> November 2026 edit: For databases that use clustered indexes, which order data on disk in primary key order (MySQL InnoDB, SQLite `WITHOUT ROWID`, etc.), you should use a time-ordered UUID version such as v6 or [v7](/blog/generating-v7-uuids-in-mysql). A random-ordered UUID such as UUIDv4 can cause excessive random page writes, page splits, and cache misses.
 
 ## Background
 
@@ -28,7 +32,7 @@ Most common relational databases (ignoring SQLite) have support for UUIDs:
 
 **MySQL:**
 
-- [v4.1.2 (2004)](https://web.archive.org/web/20150318151009/http://dev.mysql.com/doc/refman/4.1/en/news-4-1-2.html) introduced `UUID()` to generate v1 UUID strings (see "[Generating v4 UUIDs in MySQL](/blog/generating-v4-uuids-in-mysql)" for v4 UUIDs)
+- [v4.1.2 (2004)](https://web.archive.org/web/20150318151009/http://dev.mysql.com/doc/refman/4.1/en/news-4-1-2.html) introduced `UUID()` to generate v1 UUID strings (but I have written solutions for [v4](/blog/generating-v4-uuids-in-mysql) and [v7](/blog/generating-v7-uuids-in-mysql) UUID generation)
 - [v5.1.20 (2007)](https://web.archive.org/web/20150925051852/http://dev.mysql.com/doc/relnotes/mysql/5.1/en/news-5-1-20.html) introduced `UUID_SHORT()` to generate half-sized v1 UUID integers
 - [v8.0.0 (2016)](https://dev.mysql.com/doc/relnotes/mysql/8.0/en/news-8-0-0.html#mysqld-8-0-0-feature) introduced `UUID_TO_BIN()`, `BIN_TO_UUID()`, and `IS_UUID()`
 
