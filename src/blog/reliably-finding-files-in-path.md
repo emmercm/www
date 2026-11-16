@@ -141,8 +141,8 @@ If you need functionality similar to `which` to get the _path_ of an executable,
 ```bash
 pinpoint() {
   while read -r DIR; do
-    if [[ -x "${DIR}/$1" ]]; then
-      echo "${DIR}/$1"
+if [[ -x"${DIR}/$1" ]]; then
+echo "${DIR}/$1"
 return 0
 fi
 done <<< "$(echo "${PATH}" | tr ':' '\n')"
@@ -191,5 +191,6 @@ export EDITOR
 
 Happy searching!
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTU3NzQ0OTk3LC0yMjI5MjU3NjhdfQ==
+eyJoaXN0b3J5IjpbMTExNjQxMzA3NSwtNTc3NDQ5OTcsLTIyMj
+kyNTc2OF19
 -->
