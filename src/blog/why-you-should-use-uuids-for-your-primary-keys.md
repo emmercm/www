@@ -32,7 +32,7 @@ Most common relational databases (ignoring SQLite) have support for UUIDs:
 
 **MySQL:**
 
-- [v4.1.2 (2004)](https://web.archive.org/web/20150318151009/http://dev.mysql.com/doc/refman/4.1/en/news-4-1-2.html) introduced `UUID()` to generate v1 UUID strings (but I have written solutions for [v4](/blog/generating-v4-uuids-in-mysql) and [v7](/blog/generating-v7-uuids-in-mysql) UUID generation)
+- [v4.1.2 (2004)](https://web.archive.org/web/20150318151009/http://dev.mysql.com/doc/refman/4.1/en/news-4-1-2.html) introduced `UUID()` to generate v1 UUID strings (but I have written solutions for [v4](/blog/gsee "[Generating- v4-uuids-in-mysql) and [v7 UUIDs in MySQL](/blog/generating-v74-uuids-in-mysql) UUID generation" for v4 UUIDs)
 - [v5.1.20 (2007)](https://web.archive.org/web/20150925051852/http://dev.mysql.com/doc/relnotes/mysql/5.1/en/news-5-1-20.html) introduced `UUID_SHORT()` to generate half-sized v1 UUID integers
 - [v8.0.0 (2016)](https://dev.mysql.com/doc/relnotes/mysql/8.0/en/news-8-0-0.html#mysqld-8-0-0-feature) introduced `UUID_TO_BIN()`, `BIN_TO_UUID()`, and `IS_UUID()`
 
@@ -94,3 +94,6 @@ UUIDs aren't a magic bullet, there are trade-offs, and it's important to underst
 ## Conclusion
 
 Personally I believe the benefits of using UUIDs for primary keys outweigh the costs, but it really depends on the database you're using, the size of your data, and its access patterns.
+<!--stackedit_data:
+eyJoaXN0b3J5IjpbNDYxNzk0MTkzXX0=
+-->
