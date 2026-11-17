@@ -20,7 +20,7 @@ You can't tell me the _lack_ of confidence wasn't _also_ tangible in that situat
 
 ## Present
 
-I revived an API migration project at work that stalled out a year and a half ago. A new version of all endpoints were added for to leak less internal information to callers, and to reduce the number of API calls the callers need to coordinate. More than half the callers had code written to start calling the new endpoints, but it was left behind feature flags that were never fully enabled. Some of the feature flags had been enabled at some point, but caused regressions, so they were rolled back. Even after fixing the regressions individually, the feature flags were not enabled again, for fear of what else might regress. We lacked confidence in the caller migration.
+I revived an API migration project at work that stalled out a year and a half ago. A new version of all endpoints were added to leak less internal information to callers, and to reduce the number of API calls the callers need to coordinate. More than half the callers had code written to start calling the new endpoints, but it was left behind feature flags that were never fully enabled. Some of the feature flags had been enabled at some point, but caused regressions, so they were rolled back. Even after fixing the regressions individually, the feature flags were not enabled again, for fear of what else might regress. We lacked confidence in the caller migration.
 
 So we ended up with Schrödinger's migration: we didn't know if the migration was safe or not until we tried it in production. The classic push-and-pray method, a surefire way to erode customer trust. So the code languished for a year and a half without being exercised.
 
