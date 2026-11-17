@@ -16,7 +16,7 @@ What is an incident runbook? Google calls them "playbooks," but the definition i
 
 _Note: many organizations draw a distinction between "runbooks" and "playbooks," with "playbook" referring to an organization-specific incident response process. To be clear and consistent, I will use the phrase "incident runbooks."_
 
-[Google estimates](https://sre.google/sre-book/introduction/) that creating incident runbooks "produces roughly a 3x improvement in [[mean time to repair (MTTR)](https://en.wikipedia.org/wiki/Mean_time_to_repair)] as compared to the strategy of 'winging it.'"
+[Google estimates](https://sre.google/sre-book/introduction/) that creating incident runbooks "produces roughly a 3x improvement in [[mean time to recovery (MTTR)](https://en.wikipedia.org/wiki/Mean_time_to_recovery)] as compared to the strategy of 'winging it.'"
 
 Regardless of opinions on naming, most thought leaders agree on the five A's of incident runbooks; that runbooks must be:
 

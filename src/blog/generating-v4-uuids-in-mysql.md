@@ -83,7 +83,7 @@ CREATE TABLE users
     PRIMARY KEY (id)
 );
 
-INSERT INTO users (id, name) VALUE (uuid_v4(), 'Bill Gates');
+INSERT INTO users (id, name) VALUE (uuid_v4(), 'David Axmark');
 
 SELECT *
 FROM users;
@@ -92,11 +92,11 @@ FROM users;
 If everything went well, at the end you should have table contents similar to:
 
 ```text
-+--------------------------------------+------------+
-| id                                   | name       |
-+--------------------------------------+------------+
-| bdffcd96-a52e-40ed-8c3f-806899e5b6b4 | Bill Gates |
-+--------------------------------------+------------+
++--------------------------------------+--------------+
+| id                                   | name         |
++--------------------------------------+--------------+
+| bdffcd96-a52e-40ed-8c3f-806899e5b6b4 | David Axmark |
++--------------------------------------+--------------+
 ```
 
 ## Why _not_ choose v4?
