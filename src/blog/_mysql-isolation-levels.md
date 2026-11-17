@@ -12,8 +12,10 @@ title: MySQL Transaction Isolation Levels
 
 ## `READ UNCOMMITTED`
 
-## `SERIALIZABLE`
+## `SERIALIZABLE`draft: true
+
+---
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTg2MDI4OTc1NCwxMDQ5ODExNjg1LC0xMz
-E3MDM2MTU3XX0=
+eyJoaXN0b3J5IjpbMTY2NzQ4MTYzOCwxODYwMjg5NzU0LDEwND
+k4MTE2ODUsLTEzMTcwMzYxNTddfQ==
 -->
