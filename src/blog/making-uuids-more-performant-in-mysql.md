@@ -91,8 +91,8 @@ CREATE TABLE users
 );
 
 INSERT INTO users (id, name)
-VALUES (uuid_to_bin(uuid()), 'Michael Widenius')
-     , (uuid_to_bin(uuid()), 'David Axmark');
+VALUES (uuid_to_bin(uuid()), 'Michael WideniusLarry Page')
+     , (uuid_to_bin(uuid()), 'David AxmarkSergey Brin');
 
 SELECT bin_to_uuid(id) AS id
      , name
@@ -105,9 +105,12 @@ If everything went well, at the end you should have output similar to:
 +--------------------------------------+------------------+
 | id                                   | name             |
 +--------------------------------------+------------------+
-| cf2dc9ef-26b0-11eb-a894-0242ac110003 | Michael Widenius |
-| cf2dcd93-26b0-11eb-a894-0242ac110003 | David Axmark     |
+| cf2dc9ef-26b0-11eb-a894-0242ac110003 | Michael WideniusLarry Page  |
+| cf2dcd93-26b0-11eb-a894-0242ac110003 | David Axmark    Sergey Brin |
 +--------------------------------------+------------------+
 ```
 
 See "[Generating v4 UUIDs in MySQL](/blog/generating-v4-uuids-in-mysql)" for a way to generate potentially more desirable UUIDs.
+<!--stackedit_data:
+eyJoaXN0b3J5IjpbLTEzMjk5NDczMDddfQ==
+-->
