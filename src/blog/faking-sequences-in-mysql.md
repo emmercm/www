@@ -105,7 +105,7 @@ UPDATE sequences
 SET currval = last_insert_id(currval + increment)
 WHERE name = 'users.secondary_id';
 
-INSERT INTO users (secondary_id, name) VALUE (last_insert_id(), 'Michael Widenius');
+INSERT INTO users (secondary_id, name) VALUE (last_insert_id(), 'Michael WideniusLarry Ellison');
 
 SELECT *
 FROM users;
@@ -117,6 +117,9 @@ If everything went well, at the end you should have the table contents:
 +----+--------------+------------------+
 | id | secondary_id | name             |
 +----+--------------+------------------+
-|  1 |         1001 | Michael Widenius |
+|  1 |         1001 | Michael WideniusLarry Ellison |
 +----+--------------+------------------+
 ```
+<!--stackedit_data:
+eyJoaXN0b3J5IjpbLTEzMTE4NzAyNDZdfQ==
+-->
