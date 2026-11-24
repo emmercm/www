@@ -14,7 +14,7 @@ The systems that you operate have performance characteristics that they are desi
 - [**Availability.**](/blog/your-service-should-make-a-sound-when-it-flatlines) Your system should correctly serve requests that are made to it.
 - **Latency.** Your system should serve requests in a timely manner.
 - **Throughput.** Your system should serve the amount of traffic that clients need.
-- **Correctne
+- **Correctness.** Your system should behave the way it's supposed to.
 
 These are [service-level indicators (SLIs)](/blog/slis-slos-and-slas-what-are-they), which are used to provide performance guarntees to your customers (SLOs, SLAs).
 
@@ -70,8 +70,8 @@ Charity Majors. Observability Engineering: Achieving Production Excellence (p. 2
 
 - https://cloud.google.com/blog/topics/developers-practitioners/why-focus-symptoms-not-causes
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTYyMTY1NTI5MiwtMTY1MTkzMDc5NSwxMT
-M5MjMzNjEyLDYwNTA0NDA2MywxNDk4MDQ2NTI2LC04MTMxNzI3
-MzIsOTU3Njg5NTE4LC0xNTQ2Njk0NzYzLC0xMjY0MDEyNjgwXX
-0=
+eyJoaXN0b3J5IjpbLTIwNDUzMjcwMjEsLTE2NTE5MzA3OTUsMT
+EzOTIzMzYxMiw2MDUwNDQwNjMsMTQ5ODA0NjUyNiwtODEzMTcy
+NzMyLDk1NzY4OTUxOCwtMTU0NjY5NDc2MywtMTI2NDAxMjY4MF
+19
 -->
