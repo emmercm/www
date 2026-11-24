@@ -32,11 +32,12 @@ Some example symptoms of an unhealthy system are:
   - A high rate of RPC error responses, such as HTTP 5xx errors.
   - Failure to discover the system or resolve its DNS name.
 - **High latency:**
-  - Long RPC response times (for RPC requests, consumed messages, batch jobs, etc.).
+  - Long RPC response times.
   - Long consumed message processing time. This might contribute to a growing queue depth.
-  - Long batch job processing time.
+  - Long batch job processing time. This might lead to data staleness.
 - **Low throughput:**
-  - Request backlogs (increasing message queue depth, queued cron jobs, etc.).
+  - Message queue depth (messages are being produced faster than they are consumed).
+  - Queued runs of cron job runs that aren't allowed to overlap.
 
 The definition of "low" and "high" will be driven by the needs of your clients and the guarantees you have made to them.
 
@@ -65,7 +66,7 @@ Charity Majors. Observability Engineering: Achieving Production Excellence (p. 2
 
 - https://cloud.google.com/blog/topics/developers-practitioners/why-focus-symptoms-not-causes
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTU4NTgzMTc5OSwxMTM5MjMzNjEyLDYwNT
-A0NDA2MywxNDk4MDQ2NTI2LC04MTMxNzI3MzIsOTU3Njg5NTE4
-LC0xNTQ2Njk0NzYzLC0xMjY0MDEyNjgwXX0=
+eyJoaXN0b3J5IjpbLTE5MjEyOTExOTQsMTEzOTIzMzYxMiw2MD
+UwNDQwNjMsMTQ5ODA0NjUyNiwtODEzMTcyNzMyLDk1NzY4OTUx
+OCwtMTU0NjY5NDc2MywtMTI2NDAxMjY4MF19
 -->
