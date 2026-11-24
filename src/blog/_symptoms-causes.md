@@ -11,7 +11,7 @@ If your machine's CPU stays at 100% for minutes, does it actually matter?
 
 The systems that you operate have performance characteristics that they are designed to meet. These are typically described as:
 
-- **Availability.** Your system should serve requests that are made to it.
+- [**Availability.**](/blog/your-service-should-make-a-sound-when-it-flatlines) Your system should correctly serve requests that are made to it.
 - **Latency.** Your system should serve requests in a timely manner.
 - **Throughput.** Your system should serve the amount of traffic that clients need.
 
@@ -38,7 +38,7 @@ Charity Majors. Observability Engineering: Achieving Production Excellence (p. 2
 
 - https://cloud.google.com/blog/topics/developers-practitioners/why-focus-symptoms-not-causes
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTE4MDQ5NTMzODAsMTEzOTIzMzYxMiw2MD
-UwNDQwNjMsMTQ5ODA0NjUyNiwtODEzMTcyNzMyLDk1NzY4OTUx
-OCwtMTU0NjY5NDc2MywtMTI2NDAxMjY4MF19
+eyJoaXN0b3J5IjpbMjYzMDg4ODg0LDExMzkyMzM2MTIsNjA1MD
+Q0MDYzLDE0OTgwNDY1MjYsLTgxMzE3MjczMiw5NTc2ODk1MTgs
+LTE1NDY2OTQ3NjMsLTEyNjQwMTI2ODBdfQ==
 -->
