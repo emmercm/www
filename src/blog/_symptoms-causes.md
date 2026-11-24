@@ -21,9 +21,15 @@ Your internal clients (i.e. other engineering teams) and external clients (i.e. 
 
 ## Symptoms vs. causes
 
-The Cambridge Dictionary defines [_symptom_ as:
+The Cambridge Dictionary defines [_symptom_](https://dictionary.cambridge.org/us/dictionary/english/symptom) as:
 
 > any single problem that is caused by and shows a more serious and general problem
+
+Some example symptoms of an unhealthy system are:
+
+- **Low availability:**
+  - A high rate of
+- High latency (where "high" is defined 
 
 (example unhealthy symptom)
 
@@ -50,7 +56,7 @@ Charity Majors. Observability Engineering: Achieving Production Excellence (p. 2
 
 - https://cloud.google.com/blog/topics/developers-practitioners/why-focus-symptoms-not-causes
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTYxODgyNjkzNiwxMTM5MjMzNjEyLDYwNT
+eyJoaXN0b3J5IjpbLTU2Mjc0MDcwMSwxMTM5MjMzNjEyLDYwNT
 A0NDA2MywxNDk4MDQ2NTI2LC04MTMxNzI3MzIsOTU3Njg5NTE4
 LC0xNTQ2Njk0NzYzLC0xMjY0MDEyNjgwXX0=
 -->
