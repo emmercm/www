@@ -28,8 +28,10 @@ The Cambridge Dictionary defines [_symptom_](https://dictionary.cambridge.org/us
 Some example symptoms of an unhealthy system are:
 
 - **Low availability:**
-  - A high rate of
-- High latency (where "high" is defined 
+  - A high rate of client timeouts to the system. This has to be measured from the client's perspective, as intermediate networking may prevent the system from ever receiving the request.
+  - A high rate of error responses, such as HTTP 5xx errors.
+- **High latency (where "high" is defined by the needs of your clients):**
+  - 
 
 (example unhealthy symptom)
 
@@ -56,7 +58,7 @@ Charity Majors. Observability Engineering: Achieving Production Excellence (p. 2
 
 - https://cloud.google.com/blog/topics/developers-practitioners/why-focus-symptoms-not-causes
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTU2Mjc0MDcwMSwxMTM5MjMzNjEyLDYwNT
-A0NDA2MywxNDk4MDQ2NTI2LC04MTMxNzI3MzIsOTU3Njg5NTE4
-LC0xNTQ2Njk0NzYzLC0xMjY0MDEyNjgwXX0=
+eyJoaXN0b3J5IjpbLTExNTY2NDM2NzIsMTEzOTIzMzYxMiw2MD
+UwNDQwNjMsMTQ5ODA0NjUyNiwtODEzMTcyNzMyLDk1NzY4OTUx
+OCwtMTU0NjY5NDc2MywtMTI2NDAxMjY4MF19
 -->
