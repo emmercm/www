@@ -21,7 +21,9 @@ Your internal clients (i.e. other engineering teams) and external clients (i.e. 
 
 ## Symptoms vs. causes
 
-(define symptom)
+The Cambridge Dictionary defines [_symptom_ as:
+
+> any single problem that is caused by and shows a more serious and general problem
 
 (example unhealthy symptom)
 
@@ -48,7 +50,7 @@ Charity Majors. Observability Engineering: Achieving Production Excellence (p. 2
 
 - https://cloud.google.com/blog/topics/developers-practitioners/why-focus-symptoms-not-causes
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTM5ODUzMTE0MywxMTM5MjMzNjEyLDYwNT
+eyJoaXN0b3J5IjpbLTYxODgyNjkzNiwxMTM5MjMzNjEyLDYwNT
 A0NDA2MywxNDk4MDQ2NTI2LC04MTMxNzI3MzIsOTU3Njg5NTE4
 LC0xNTQ2Njk0NzYzLC0xMjY0MDEyNjgwXX0=
 -->
