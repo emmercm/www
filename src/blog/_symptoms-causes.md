@@ -9,13 +9,14 @@ tags:
 
 If your machine's CPU stays at 100% for minutes, does it actually matter?
 
-The systems that you operate have performance characteristics that they are designed to meet. These are typically one of:
+The systems that you operate have performance characteristics that they are designed to meet. These are typically described as:
 
-- Availability. Your system should serve requests that are made to it, within the load it was designed to handle.
-- 
-- Latency. Your system should serve requests in a timely manner.
+- **Availability.** Your system should serve requests that are made to it.
+- **Latency.** Your system should serve requests in a timely manner.
+- **Throughput.** Your system should serve the amount of traffic that clients need.
 
 Your internal (i.e. other engineering teams) and external clients (i.e. customers) don't care about anything else. So
+
 
 Here is a list of example metrics that are relatively easy to observe that
 
@@ -33,7 +34,7 @@ Charity Majors. Observability Engineering: Achieving Production Excellence (p. 2
 
 - https://cloud.google.com/blog/topics/developers-practitioners/why-focus-symptoms-not-causes
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbNjc5MTgxNTI1LDExMzkyMzM2MTIsNjA1MD
+eyJoaXN0b3J5IjpbNjE4ODIxMDk3LDExMzkyMzM2MTIsNjA1MD
 Q0MDYzLDE0OTgwNDY1MjYsLTgxMzE3MjczMiw5NTc2ODk1MTgs
 LTE1NDY2OTQ3NjMsLTEyNjQwMTI2ODBdfQ==
 -->
