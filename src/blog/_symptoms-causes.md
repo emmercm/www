@@ -14,6 +14,7 @@ The systems that you operate have performance characteristics that they are desi
 - [**Availability.**](/blog/your-service-should-make-a-sound-when-it-flatlines) Your system should correctly serve requests that are made to it.
 - **Latency.** Your system should serve requests in a timely manner.
 - **Throughput.** Your system should serve the amount of traffic that clients need.
+- **Correctne
 
 These are [service-level indicators (SLIs)](/blog/slis-slos-and-slas-what-are-they), which are used to provide performance guarntees to your customers (SLOs, SLAs).
 
@@ -37,6 +38,7 @@ Some example symptoms of an unhealthy system are:
   - Long consumed message processing time. This might contribute to a growing queue depth.
   - Long waits between message production and consumption times. This is likely because of a high queue depth.
   - Long batch job processing time. This might lead to data staleness.
+  - Long data replication lag.
 - **Low throughput:**
   - High (or growing) message queue depth (messages are being produced faster than they are consumed).
   - Queued runs of cron jobs that aren't allowed to overlap.
@@ -68,7 +70,7 @@ Charity Majors. Observability Engineering: Achieving Production Excellence (p. 2
 
 - https://cloud.google.com/blog/topics/developers-practitioners/why-focus-symptoms-not-causes
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTA0ODc4NDI1NywtMTY1MTkzMDc5NSwxMT
+eyJoaXN0b3J5IjpbLTYyMTY1NTI5MiwtMTY1MTkzMDc5NSwxMT
 M5MjMzNjEyLDYwNTA0NDA2MywxNDk4MDQ2NTI2LC04MTMxNzI3
 MzIsOTU3Njg5NTE4LC0xNTQ2Njk0NzYzLC0xMjY0MDEyNjgwXX
 0=
