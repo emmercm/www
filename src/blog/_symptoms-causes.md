@@ -27,14 +27,14 @@ The Cambridge Dictionary defines a [_symptom_](https://dictionary.cambridge.org/
 
 Some example symptoms of an unhealthy system are:
 
-- **Low availability:**
-  - A high rate of RPC timeouts to the system. This has to be measured from the client's perspective, as intermediate networking may prevent the system from ever receiving the request.
+- **Low availability (measured from the client's perspective):**
+  - A high rate of RPC timeouts to the system.
   - A high rate of RPC error responses, such as HTTP 5xx errors.
   - Failure to discover the system or resolve its DNS name.
 - **High latency:**
   - Long processing times (for RPC requests, consumed messages, batch jobs, etc.).
-  - Request backlogs (increasing message queue depth, queue
 - **Low throughput:**
+  - Request backlogs (increasing message queue depth, queued cron jobs, etc.).
 
 The definition of "low" and "high" will be driven by the needs of your clients and the guarantees you have made to them.
 
@@ -63,7 +63,7 @@ Charity Majors. Observability Engineering: Achieving Production Excellence (p. 2
 
 - https://cloud.google.com/blog/topics/developers-practitioners/why-focus-symptoms-not-causes
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTY0NzQ5OTcsMTEzOTIzMzYxMiw2MDUwND
-QwNjMsMTQ5ODA0NjUyNiwtODEzMTcyNzMyLDk1NzY4OTUxOCwt
-MTU0NjY5NDc2MywtMTI2NDAxMjY4MF19
+eyJoaXN0b3J5IjpbMTYyNTMxMDg3MSwxMTM5MjMzNjEyLDYwNT
+A0NDA2MywxNDk4MDQ2NTI2LC04MTMxNzI3MzIsOTU3Njg5NTE4
+LC0xNTQ2Njk0NzYzLC0xMjY0MDEyNjgwXX0=
 -->
