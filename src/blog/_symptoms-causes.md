@@ -15,9 +15,9 @@ The systems that you operate have performance characteristics that they are desi
 - **Latency.** Your system should serve requests in a timely manner.
 - **Throughput.** Your system should serve the amount of traffic that clients need.
 
-These are service-level indicators (SLIs), which are used to provide
+These are [service-level indicators (SLIs)](/blog/slis-slos-and-slas-what-are-they), which are used to provide performance guarntees to your customers (SLOs, SLAs).
 
-Your internal (i.e. other engineering teams) and external clients (i.e. customers) don't care about anything else. So
+Your internal clients (i.e. other engineering teams) and external clients (i.e. customers) don't care about anything else. So why would you monitor anything else?
 
 
 Here is a list of example metrics that are relatively easy to observe that
@@ -36,7 +36,7 @@ Charity Majors. Observability Engineering: Achieving Production Excellence (p. 2
 
 - https://cloud.google.com/blog/topics/developers-practitioners/why-focus-symptoms-not-causes
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTExMDk1MzQxMDYsMTEzOTIzMzYxMiw2MD
+eyJoaXN0b3J5IjpbLTEwNTE0NjI1MjksMTEzOTIzMzYxMiw2MD
 UwNDQwNjMsMTQ5ODA0NjUyNiwtODEzMTcyNzMyLDk1NzY4OTUx
 OCwtMTU0NjY5NDc2MywtMTI2NDAxMjY4MF19
 -->
