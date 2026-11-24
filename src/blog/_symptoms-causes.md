@@ -12,6 +12,7 @@ If your machine's CPU stays at 100% for minutes, does it actually matter?
 The systems that you operate have performance characteristics that they are designed to meet. These are typically one of:
 
 - Availability. Your system should serve requests that are made to it, within the load it was designed to handle.
+- 
 - Latency. Your system should serve requests in a timely manner.
 
 Your internal (i.e. other engineering teams) and external clients (i.e. customers) don't care about anything else. So
@@ -32,7 +33,7 @@ Charity Majors. Observability Engineering: Achieving Production Excellence (p. 2
 
 - https://cloud.google.com/blog/topics/developers-practitioners/why-focus-symptoms-not-causes
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTEzNzUyMTg4MiwxMTM5MjMzNjEyLDYwNT
-A0NDA2MywxNDk4MDQ2NTI2LC04MTMxNzI3MzIsOTU3Njg5NTE4
-LC0xNTQ2Njk0NzYzLC0xMjY0MDEyNjgwXX0=
+eyJoaXN0b3J5IjpbNjc5MTgxNTI1LDExMzkyMzM2MTIsNjA1MD
+Q0MDYzLDE0OTgwNDY1MjYsLTgxMzE3MjczMiw5NTc2ODk1MTgs
+LTE1NDY2OTQ3NjMsLTEyNjQwMTI2ODBdfQ==
 -->
