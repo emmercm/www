@@ -29,6 +29,8 @@ Your internal clients (i.e. other engineering teams) and external clients (i.e. 
 
 (example causes of unhealth)
 
+## Leading vs. lagging indicators
+
 
 Here is a list of example metrics that are relatively easy to observe that
 
@@ -46,7 +48,7 @@ Charity Majors. Observability Engineering: Achieving Production Excellence (p. 2
 
 - https://cloud.google.com/blog/topics/developers-practitioners/why-focus-symptoms-not-causes
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTA2ODYwODgyMSwxMTM5MjMzNjEyLDYwNT
+eyJoaXN0b3J5IjpbLTM5ODUzMTE0MywxMTM5MjMzNjEyLDYwNT
 A0NDA2MywxNDk4MDQ2NTI2LC04MTMxNzI3MzIsOTU3Njg5NTE4
 LC0xNTQ2Njk0NzYzLC0xMjY0MDEyNjgwXX0=
 -->
