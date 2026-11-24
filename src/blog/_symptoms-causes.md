@@ -31,7 +31,9 @@ Some example symptoms of an unhealthy system are:
   - A high rate of client timeouts to the system. This has to be measured from the client's perspective, as intermediate networking may prevent the system from ever receiving the request.
   - A high rate of error responses, such as HTTP 5xx errors.
 - **High latency (where "high" is defined by the needs of your clients):**
-  - 
+- **Low throughput:**
+
+The definition of "low" and "high" will be driven by the needs of your clients
 
 The Cambridge Dictionary defines a [_cause_](https://dictionary.cambridge.org/us/dictionary/english/cause) as:
 
@@ -58,7 +60,7 @@ Charity Majors. Observability Engineering: Achieving Production Excellence (p. 2
 
 - https://cloud.google.com/blog/topics/developers-practitioners/why-focus-symptoms-not-causes
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTkxMzk0ODQwMCwxMTM5MjMzNjEyLDYwNT
+eyJoaXN0b3J5IjpbMTA0NTg4NjEwNCwxMTM5MjMzNjEyLDYwNT
 A0NDA2MywxNDk4MDQ2NTI2LC04MTMxNzI3MzIsOTU3Njg5NTE4
 LC0xNTQ2Njk0NzYzLC0xMjY0MDEyNjgwXX0=
 -->
