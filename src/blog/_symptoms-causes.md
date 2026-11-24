@@ -9,7 +9,9 @@ tags:
 
 If your machine's CPU stays at 100% for minutes, does it actually matter?
 
-Here is an example list
+The systems that you operate
+
+Here is a list of example metrics that are relatively easy to observe that
 
 Symptoms can be defined as: what is
 
@@ -25,7 +27,7 @@ Charity Majors. Observability Engineering: Achieving Production Excellence (p. 2
 
 - https://cloud.google.com/blog/topics/developers-practitioners/why-focus-symptoms-not-causes
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTExMTE4MTI4NDksMTEzOTIzMzYxMiw2MD
-UwNDQwNjMsMTQ5ODA0NjUyNiwtODEzMTcyNzMyLDk1NzY4OTUx
-OCwtMTU0NjY5NDc2MywtMTI2NDAxMjY4MF19
+eyJoaXN0b3J5IjpbNTMwNzU4NTU4LDExMzkyMzM2MTIsNjA1MD
+Q0MDYzLDE0OTgwNDY1MjYsLTgxMzE3MjczMiw5NTc2ODk1MTgs
+LTE1NDY2OTQ3NjMsLTEyNjQwMTI2ODBdfQ==
 -->
