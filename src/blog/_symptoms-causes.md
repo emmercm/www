@@ -7,7 +7,7 @@ tags:
 
 ---
 
-If your machine's CPU reaches 100% for minutes, does it actually matter?
+If your machine's CPU stays at 100% for minutes, does it actually matter?
 
 Symptoms can be defined as: what is
 
@@ -19,7 +19,7 @@ Charity Majors. Observability Engineering: Achieving Production Excellence (p. 2
 In a time of complex and interdependent systems, teams can easily reach fatigue from the deluge of alerts that may, but probably don’t, reliably indicate a problem with the way customers are currently using the services your business relies on. Alerts for conditions that aren’t tied directly to customer experience will quickly become nothing more than background noise.
 Charity Majors. Observability Engineering: Achieving Production Excellence (p. 207). (Function). Kindle Edition. 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTEzOTIzMzYxMiw2MDUwNDQwNjMsMTQ5OD
-A0NjUyNiwtODEzMTcyNzMyLDk1NzY4OTUxOCwtMTU0NjY5NDc2
-MywtMTI2NDAxMjY4MF19
+eyJoaXN0b3J5IjpbLTIwMTI5NzEyNzYsMTEzOTIzMzYxMiw2MD
+UwNDQwNjMsMTQ5ODA0NjUyNiwtODEzMTcyNzMyLDk1NzY4OTUx
+OCwtMTU0NjY5NDc2MywtMTI2NDAxMjY4MF19
 -->
