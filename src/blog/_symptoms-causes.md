@@ -29,12 +29,13 @@ Some example symptoms of an unhealthy system are:
 
 - **Low availability (measured from the client's perspective):**
   - A high rate of RPC timeouts to the system.
-  - A high rate of RPC error responses, such as HTTP 5xx errors.
-  - A high rate of con
+  - A high rate of RPC error responses, such as HTTP 5xx errors. This includes failures to accept valid commands or enqueue work.
+  - A high rate of network connection refusals.
   - Failure to discover the system or resolve its DNS name.
 - **High latency:**
   - Long RPC response times.
   - Long consumed message processing time. This might contribute to a growing queue depth.
+  - Long waits between message production and consumption times.
   - Long batch job processing time. This might lead to data staleness.
 - **Low throughput:**
   - Large (or growing) message queue depth (messages are being produced faster than they are consumed).
@@ -67,7 +68,7 @@ Charity Majors. Observability Engineering: Achieving Production Excellence (p. 2
 
 - https://cloud.google.com/blog/topics/developers-practitioners/why-focus-symptoms-not-causes
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTI1ODQxNjgzNSwtMTY1MTkzMDc5NSwxMT
+eyJoaXN0b3J5IjpbMTY0OTI3MzE2NiwtMTY1MTkzMDc5NSwxMT
 M5MjMzNjEyLDYwNTA0NDA2MywxNDk4MDQ2NTI2LC04MTMxNzI3
 MzIsOTU3Njg5NTE4LC0xNTQ2Njk0NzYzLC0xMjY0MDEyNjgwXX
 0=
