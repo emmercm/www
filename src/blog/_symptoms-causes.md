@@ -9,6 +9,8 @@ tags:
 
 If your machine's CPU stays at 100% for minutes, does it actually matter?
 
+Here is an example list
+
 Symptoms can be defined as: what is
 
 (transient issues are what you should care about, things like disk pressure likely don't get better)
@@ -18,8 +20,12 @@ Charity Majors. Observability Engineering: Achieving Production Excellence (p. 2
 
 In a time of complex and interdependent systems, teams can easily reach fatigue from the deluge of alerts that may, but probably don’t, reliably indicate a problem with the way customers are currently using the services your business relies on. Alerts for conditions that aren’t tied directly to customer experience will quickly become nothing more than background noise.
 Charity Majors. Observability Engineering: Achieving Production Excellence (p. 207). (Function). Kindle Edition. 
+
+## Additional reading
+
+- https://cloud.google.com/blog/topics/developers-practitioners/why-focus-symptoms-not-causes
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTIwMTI5NzEyNzYsMTEzOTIzMzYxMiw2MD
+eyJoaXN0b3J5IjpbLTExMTE4MTI4NDksMTEzOTIzMzYxMiw2MD
 UwNDQwNjMsMTQ5ODA0NjUyNiwtODEzMTcyNzMyLDk1NzY4OTUx
 OCwtMTU0NjY5NDc2MywtMTI2NDAxMjY4MF19
 -->
