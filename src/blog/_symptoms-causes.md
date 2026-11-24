@@ -28,12 +28,13 @@ The Cambridge Dictionary defines a [_symptom_](https://dictionary.cambridge.org/
 Some example symptoms of an unhealthy system are:
 
 - **Low availability:**
-  - A high rate of client timeouts to the system. This has to be measured from the client's perspective, as intermediate networking may prevent the system from ever receiving the request.
-  - A high rate of error responses, such as HTTP 5xx errors.
-- **High latency (where "high" is defined by the needs of your clients):**
+  - A high rate of RPC timeouts to the system. This has to be measured from the client's perspective, as intermediate networking may prevent the system from ever receiving the request.
+  - A high rate of RPC error responses, such as HTTP 5xx errors.
+- **High latency:**
+  - 
 - **Low throughput:**
 
-The definition of "low" and "high" will be driven by the needs of your clients
+The definition of "low" and "high" will be driven by the needs of your clients and the guarantees you have made to them.
 
 The Cambridge Dictionary defines a [_cause_](https://dictionary.cambridge.org/us/dictionary/english/cause) as:
 
@@ -60,7 +61,7 @@ Charity Majors. Observability Engineering: Achieving Production Excellence (p. 2
 
 - https://cloud.google.com/blog/topics/developers-practitioners/why-focus-symptoms-not-causes
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTA0NTg4NjEwNCwxMTM5MjMzNjEyLDYwNT
-A0NDA2MywxNDk4MDQ2NTI2LC04MTMxNzI3MzIsOTU3Njg5NTE4
-LC0xNTQ2Njk0NzYzLC0xMjY0MDEyNjgwXX0=
+eyJoaXN0b3J5IjpbNzg2NDM0Mjg2LDExMzkyMzM2MTIsNjA1MD
+Q0MDYzLDE0OTgwNDY1MjYsLTgxMzE3MjczMiw5NTc2ODk1MTgs
+LTE1NDY2OTQ3NjMsLTEyNjQwMTI2ODBdfQ==
 -->
