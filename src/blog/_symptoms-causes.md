@@ -36,7 +36,7 @@ Some example symptoms of an unhealthy system are:
   - Long consumed message processing time. This might contribute to a growing queue depth.
   - Long batch job processing time. This might lead to data staleness.
 - **Low throughput:**
-  - Message queue depth (messages are being produced faster than they are consumed).
+  - Large message queue depth (messages are being produced faster than they are consumed).
   - Queued runs of cron jobs that aren't allowed to overlap.
 
 _(The definition of "low" and "high" will be driven by the needs of your clients and the guarantees you have made to them.)_
@@ -66,7 +66,7 @@ Charity Majors. Observability Engineering: Achieving Production Excellence (p. 2
 
 - https://cloud.google.com/blog/topics/developers-practitioners/why-focus-symptoms-not-causes
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTQwMjMwODk3NiwxMTM5MjMzNjEyLDYwNT
-A0NDA2MywxNDk4MDQ2NTI2LC04MTMxNzI3MzIsOTU3Njg5NTE4
-LC0xNTQ2Njk0NzYzLC0xMjY0MDEyNjgwXX0=
+eyJoaXN0b3J5IjpbLTE2NTE5MzA3OTUsMTEzOTIzMzYxMiw2MD
+UwNDQwNjMsMTQ5ODA0NjUyNiwtODEzMTcyNzMyLDk1NzY4OTUx
+OCwtMTU0NjY5NDc2MywtMTI2NDAxMjY4MF19
 -->
