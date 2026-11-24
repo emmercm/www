@@ -14,6 +14,8 @@ The systems that you operate have performance characteristics that they are desi
 - Availability. Your system should serve requests that are made to it, within the load it was designed to handle.
 - Latency. Your system should serve requests in a timely manner.
 
+Your internal (i.e. other engineering teams) and external clients (i.e. customers) don't care about anything else. So
+
 Here is a list of example metrics that are relatively easy to observe that
 
 Symptoms can be defined as: what is
@@ -30,7 +32,7 @@ Charity Majors. Observability Engineering: Achieving Production Excellence (p. 2
 
 - https://cloud.google.com/blog/topics/developers-practitioners/why-focus-symptoms-not-causes
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTIzMTQ1MDAwMSwxMTM5MjMzNjEyLDYwNT
+eyJoaXN0b3J5IjpbMTEzNzUyMTg4MiwxMTM5MjMzNjEyLDYwNT
 A0NDA2MywxNDk4MDQ2NTI2LC04MTMxNzI3MzIsOTU3Njg5NTE4
 LC0xNTQ2Njk0NzYzLC0xMjY0MDEyNjgwXX0=
 -->
