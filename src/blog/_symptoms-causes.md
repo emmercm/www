@@ -31,7 +31,8 @@ Some example symptoms of an unhealthy system are:
   - A high rate of RPC timeouts to the system. This has to be measured from the client's perspective, as intermediate networking may prevent the system from ever receiving the request.
   - A high rate of RPC error responses, such as HTTP 5xx errors.
 - **High latency:**
-  - 
+  - Long processing times for RPC requests.
+  - Data staleness
 - **Low throughput:**
 
 The definition of "low" and "high" will be driven by the needs of your clients and the guarantees you have made to them.
@@ -61,7 +62,7 @@ Charity Majors. Observability Engineering: Achieving Production Excellence (p. 2
 
 - https://cloud.google.com/blog/topics/developers-practitioners/why-focus-symptoms-not-causes
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbNzg2NDM0Mjg2LDExMzkyMzM2MTIsNjA1MD
-Q0MDYzLDE0OTgwNDY1MjYsLTgxMzE3MjczMiw5NTc2ODk1MTgs
-LTE1NDY2OTQ3NjMsLTEyNjQwMTI2ODBdfQ==
+eyJoaXN0b3J5IjpbLTcwNzE2MzgzNiwxMTM5MjMzNjEyLDYwNT
+A0NDA2MywxNDk4MDQ2NTI2LC04MTMxNzI3MzIsOTU3Njg5NTE4
+LC0xNTQ2Njk0NzYzLC0xMjY0MDEyNjgwXX0=
 -->
