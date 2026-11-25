@@ -83,7 +83,9 @@ You do _not_ want your automated alerts to be based on causes. Many causes aren'
 - Retryable request failures don't matter unless they threaten availability or latency guarantees.
 - Retryable batch job failures don't matter unless they threaten latency or throughput guarantees.
 
-Work through the thought exercise on your own: if you were to be paged for high CPU, high memory RSS, or a high rate of error logs, what action would you even take?
+Work through the thought exercise on your own: _if you were to be paged for high CPU, high memory RSS, or a high rate of error logs, what action would you even take?_
+
+Where causes _do_ belong is in your observability tooling. When you _do_ get paged on a symptom, you will want a clear application dashboard to help you diagnose and address the cause.
 
 ## Actionable causes
 
@@ -97,6 +99,8 @@ The big asterisk to "alert on symptoms and not causes" is: there are causes that
 Even if these kinds of issues might not initially be visible to clients, they have a high chance of breaking your guarantees unless a human takes action. Depending on the issue and the runway left, some of these don't need to page overnight and can be handled during working hours.
 
 ## What about mean-time-to-detection?
+
+One question that might come to mind is: _
 
 
 Here is a list of example metrics that are relatively easy to observe that
@@ -115,8 +119,8 @@ Charity Majors. Observability Engineering: Achieving Production Excellence (p. 2
 
 - https://cloud.google.com/blog/topics/developers-practitioners/why-focus-symptoms-not-causes
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTIwNzE4MjY0NCwtMTY1MTkzMDc5NSwxMT
-M5MjMzNjEyLDYwNTA0NDA2MywxNDk4MDQ2NTI2LC04MTMxNzI3
-MzIsOTU3Njg5NTE4LC0xNTQ2Njk0NzYzLC0xMjY0MDEyNjgwXX
-0=
+eyJoaXN0b3J5IjpbNTU0MDMzOTgzLC0xNjUxOTMwNzk1LDExMz
+kyMzM2MTIsNjA1MDQ0MDYzLDE0OTgwNDY1MjYsLTgxMzE3Mjcz
+Miw5NTc2ODk1MTgsLTE1NDY2OTQ3NjMsLTEyNjQwMTI2ODBdfQ
+==
 -->
