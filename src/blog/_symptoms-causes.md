@@ -83,6 +83,10 @@ You do _not_ want your automated alerts to be based on causes. Many causes aren'
 - Retryable request failures don't matter unless they threaten availability or latency guarantees.
 - Retryable batch job failures don't matter unless they threaten latency or throughput guarantees.
 
+Work through the thought exercise on your own: if you were to be paged for high CPU, high memory RSS, or a high rate of error logs, what action would you even take?
+
+## Non-transient causes
+
 ## What about mean-time-to-detection?
 
 
@@ -102,8 +106,8 @@ Charity Majors. Observability Engineering: Achieving Production Excellence (p. 2
 
 - https://cloud.google.com/blog/topics/developers-practitioners/why-focus-symptoms-not-causes
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTE0MzgwMzY1MjYsLTE2NTE5MzA3OTUsMT
-EzOTIzMzYxMiw2MDUwNDQwNjMsMTQ5ODA0NjUyNiwtODEzMTcy
-NzMyLDk1NzY4OTUxOCwtMTU0NjY5NDc2MywtMTI2NDAxMjY4MF
-19
+eyJoaXN0b3J5IjpbLTY1OTAzMTM3MCwtMTY1MTkzMDc5NSwxMT
+M5MjMzNjEyLDYwNTA0NDA2MywxNDk4MDQ2NTI2LC04MTMxNzI3
+MzIsOTU3Njg5NTE4LC0xNTQ2Njk0NzYzLC0xMjY0MDEyNjgwXX
+0=
 -->
