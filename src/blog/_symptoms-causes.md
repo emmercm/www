@@ -77,7 +77,9 @@ Some example causes of an unhealthy system are:
   - Rate limits imposed by downstream systems.
   - High rate of message retries.
 
-You do _not_ want your automated alerts to be based on causes. Most causes are poor predictors of system unhealth
+You do _not_ want your automated alerts to be based on causes. Most causes aren't actionable, and many of them may actually be expected. For example:
+
+-
 
 ## Leading vs. lagging indicators
 
@@ -98,7 +100,7 @@ Charity Majors. Observability Engineering: Achieving Production Excellence (p. 2
 
 - https://cloud.google.com/blog/topics/developers-practitioners/why-focus-symptoms-not-causes
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTgxMzI1MTcwOSwtMTY1MTkzMDc5NSwxMT
+eyJoaXN0b3J5IjpbLTI0OTQ1NzY5MiwtMTY1MTkzMDc5NSwxMT
 M5MjMzNjEyLDYwNTA0NDA2MywxNDk4MDQ2NTI2LC04MTMxNzI3
 MzIsOTU3Njg5NTE4LC0xNTQ2Njk0NzYzLC0xMjY0MDEyNjgwXX
 0=
