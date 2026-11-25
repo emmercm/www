@@ -94,7 +94,7 @@ The big asterisk to "alert on symptoms and not causes" is: there are causes that
 - Application replica count persistently below the desired count.
 - Permanent loss of a data store replica.
 
-Even if these kinds of issues might not initially be visible to clients, they have a high chance of breaking your guarantees unless a human takes action. Many of these issues can be handled during working hours rather than requiring overnight pages and afterhours work.
+Even if these kinds of issues might not initially be visible to clients, they have a high chance of breaking your guarantees unless a human takes action. Depending on the issue and the runway left, some of these don't need to page overnight and can be handled during working hours.
 
 ## What about mean-time-to-detection?
 
@@ -115,8 +115,8 @@ Charity Majors. Observability Engineering: Achieving Production Excellence (p. 2
 
 - https://cloud.google.com/blog/topics/developers-practitioners/why-focus-symptoms-not-causes
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbNDExMzE5ODEwLC0xNjUxOTMwNzk1LDExMz
-kyMzM2MTIsNjA1MDQ0MDYzLDE0OTgwNDY1MjYsLTgxMzE3Mjcz
-Miw5NTc2ODk1MTgsLTE1NDY2OTQ3NjMsLTEyNjQwMTI2ODBdfQ
-==
+eyJoaXN0b3J5IjpbMTIwNzE4MjY0NCwtMTY1MTkzMDc5NSwxMT
+M5MjMzNjEyLDYwNTA0NDA2MywxNDk4MDQ2NTI2LC04MTMxNzI3
+MzIsOTU3Njg5NTE4LC0xNTQ2Njk0NzYzLC0xMjY0MDEyNjgwXX
+0=
 -->
