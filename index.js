@@ -1191,6 +1191,7 @@ tracer(Metalsmith(path.resolve()))
             'instagram.com',
             'linkedin.com',
             'web.archive.org',
+            'unsplash.com',
             // Anti-bot ECONNREFUSED
             'tldp.org',
             // Anti-bot timeouts
