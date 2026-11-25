@@ -11,8 +11,8 @@ If your system's CPU stays at 100% for minutes, does it actually matter?
 
 The systems that you operate have performance characteristics that they are designed to meet. These are typically described in terms of:
 
-- [**Availability.**](/blog/your-service-should-make-a-sound-when-it-flatlines) Your system should correctly serve requests that are made to it.
-- **Latency.** Your system should serve requests in a timely manner.
+- [**Availability.**](/blog/your-service-should-make-a-sound-when-it-flatlines) Your system should be able to serve requests that are made to it.
+- **Latency.** Your system should serve requests as quickly as clients need.
 - **Throughput.** Your system should serve the amount of traffic that clients need.
 - **Correctness.** Your system should behave the way it's supposed to.
 
@@ -123,8 +123,8 @@ Charity Majors. Observability Engineering: Achieving Production Excellence (p. 2
 - Datadog: [Monitoring 101: Investigating performance issues](https://www.datadoghq.com/blog/monitoring-101-investigation/)
 - O'Reilly: [Observability Engineering, 2nd Edition](https://www.oreilly.com/library/view/observability-engineering-2nd/9781098179915/)
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTQ2MDkxMzI5NCwxNjM3ODQ0MjczLC0xNj
-UxOTMwNzk1LDExMzkyMzM2MTIsNjA1MDQ0MDYzLDE0OTgwNDY1
-MjYsLTgxMzE3MjczMiw5NTc2ODk1MTgsLTE1NDY2OTQ3NjMsLT
-EyNjQwMTI2ODBdfQ==
+eyJoaXN0b3J5IjpbLTIwODY2MDE1ODYsMTYzNzg0NDI3MywtMT
+Y1MTkzMDc5NSwxMTM5MjMzNjEyLDYwNTA0NDA2MywxNDk4MDQ2
+NTI2LC04MTMxNzI3MzIsOTU3Njg5NTE4LC0xNTQ2Njk0NzYzLC
+0xMjY0MDEyNjgwXX0=
 -->
