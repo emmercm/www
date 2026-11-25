@@ -83,9 +83,9 @@ You typically do _not_ want your automated alerts to be based on causes. Many ca
 - Retryable request failures don't matter unless they threaten availability or latency guarantees.
 - Retryable batch job failures don't matter unless they threaten latency or throughput guarantees.
 
-Work through the thought exercise on your own: _if you were to be paged for high CPU, high memory RSS, or a high rate of error logs, could you describe the client impact, ?_
+Work through the thought exercise on your own: _if you were to be paged for high CPU, high memory RSS, or a high rate of error logs, could you describe the client impact, or if any action is even necessary?_
 
-Where causes _do_ belong is in your observability tooling. When you _do_ get paged on a symptom, you will want a clear application dashboard to help you diagnose and address the cause.
+Where causes _do_ belong is in your observability tooling. When you _do_ get paged on a symptom, you will want a clear application dashboard to help you diagnose and address the root cause.
 
 ## Actionable causes
 
@@ -123,8 +123,8 @@ Charity Majors. Observability Engineering: Achieving Production Excellence (p. 2
 - Datadog: [Monitoring 101: Investigating performance issues](https://www.datadoghq.com/blog/monitoring-101-investigation/)
 - O'Reilly: [Observability Engineering, 2nd Edition](https://www.oreilly.com/library/view/observability-engineering-2nd/9781098179915/)
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbNjA0OTgzOTM2LDE2Mzc4NDQyNzMsLTE2NT
-E5MzA3OTUsMTEzOTIzMzYxMiw2MDUwNDQwNjMsMTQ5ODA0NjUy
-NiwtODEzMTcyNzMyLDk1NzY4OTUxOCwtMTU0NjY5NDc2MywtMT
-I2NDAxMjY4MF19
+eyJoaXN0b3J5IjpbLTE0MzY2MDkyOTEsMTYzNzg0NDI3MywtMT
+Y1MTkzMDc5NSwxMTM5MjMzNjEyLDYwNTA0NDA2MywxNDk4MDQ2
+NTI2LC04MTMxNzI3MzIsOTU3Njg5NTE4LC0xNTQ2Njk0NzYzLC
+0xMjY0MDEyNjgwXX0=
 -->
