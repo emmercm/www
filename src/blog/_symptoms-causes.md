@@ -58,7 +58,8 @@ The Cambridge Dictionary defines a [_cause_](https://dictionary.cambridge.org/us
 Some example causes of an unhealthy system are:
 
 - **Low availability:**
-  - Out-of-memory exceptions
+  - Out-of-memory exceptions.
+  - Start
   - Failure to schedule workloads.
   - Low availability of downstream systems or data stores.
 - **High latency:**
@@ -86,8 +87,8 @@ Charity Majors. Observability Engineering: Achieving Production Excellence (p. 2
 
 - https://cloud.google.com/blog/topics/developers-practitioners/why-focus-symptoms-not-causes
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbODk5ODU0MDcxLC0xNjUxOTMwNzk1LDExMz
-kyMzM2MTIsNjA1MDQ0MDYzLDE0OTgwNDY1MjYsLTgxMzE3Mjcz
-Miw5NTc2ODk1MTgsLTE1NDY2OTQ3NjMsLTEyNjQwMTI2ODBdfQ
-==
+eyJoaXN0b3J5IjpbMTkyNDY0NzU2MCwtMTY1MTkzMDc5NSwxMT
+M5MjMzNjEyLDYwNTA0NDA2MywxNDk4MDQ2NTI2LC04MTMxNzI3
+MzIsOTU3Njg5NTE4LC0xNTQ2Njk0NzYzLC0xMjY0MDEyNjgwXX
+0=
 -->
