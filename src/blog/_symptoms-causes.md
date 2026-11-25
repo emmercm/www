@@ -82,7 +82,9 @@ You do _not_ want your automated alerts to be based on causes. Most causes aren'
 - A sustained high CPU usage doesn't matter unless it threatens latency guarantees. In fact, I _want_ high CPU usage, that means I tuned my application well.
 - Retryable request failures don't matter unless they threaten availability or latency guarantees.
 
-The authors of 
+The authors of Observability Engineering (1st Ed.) said it best:
+
+> In a time of complex and interdependent systems, teams can easily reach fatigue from the deluge of alerts that may, but probably don’t, reliably indicate a problem with the way customers are currently using the services your business relies on. Alerts for conditions that aren’t tied directly to customer experience will quickly become nothing more than background noise.
 
 ## Leading vs. lagging indicators
 
@@ -103,8 +105,8 @@ Charity Majors. Observability Engineering: Achieving Production Excellence (p. 2
 
 - https://cloud.google.com/blog/topics/developers-practitioners/why-focus-symptoms-not-causes
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTkwOTYwNjMwNCwtMTY1MTkzMDc5NSwxMT
-M5MjMzNjEyLDYwNTA0NDA2MywxNDk4MDQ2NTI2LC04MTMxNzI3
-MzIsOTU3Njg5NTE4LC0xNTQ2Njk0NzYzLC0xMjY0MDEyNjgwXX
-0=
+eyJoaXN0b3J5IjpbLTE3MDM4MzU5NTgsLTE2NTE5MzA3OTUsMT
+EzOTIzMzYxMiw2MDUwNDQwNjMsMTQ5ODA0NjUyNiwtODEzMTcy
+NzMyLDk1NzY4OTUxOCwtMTU0NjY5NDc2MywtMTI2NDAxMjY4MF
+19
 -->
