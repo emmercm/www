@@ -45,6 +45,7 @@ Some example symptoms of an unhealthy system are:
 - **Low correctness:**
   - Data lost after acknowledgement.
   - Messages processed out of order.
+  - Messages produced to a dead-letter queue (DLQ).
   - Failure to adhere to at-least-once or at-most-once semantics.
   - Failure to apply security rules.
 
@@ -60,6 +61,7 @@ Some example causes of an unhealthy system are:
   - Out-of-memory exceptions
   - Failure to schedule workloads.
 - **High latency:**
+  - High data store retrieval
 - **Low throughput:**
 - **Low correctness:**
 
@@ -82,8 +84,8 @@ Charity Majors. Observability Engineering: Achieving Production Excellence (p. 2
 
 - https://cloud.google.com/blog/topics/developers-practitioners/why-focus-symptoms-not-causes
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTQxMDEyNDE5MiwtMTY1MTkzMDc5NSwxMT
-M5MjMzNjEyLDYwNTA0NDA2MywxNDk4MDQ2NTI2LC04MTMxNzI3
-MzIsOTU3Njg5NTE4LC0xNTQ2Njk0NzYzLC0xMjY0MDEyNjgwXX
-0=
+eyJoaXN0b3J5IjpbMjQ3MzcyOTM3LC0xNjUxOTMwNzk1LDExMz
+kyMzM2MTIsNjA1MDQ0MDYzLDE0OTgwNDY1MjYsLTgxMzE3Mjcz
+Miw5NTc2ODk1MTgsLTE1NDY2OTQ3NjMsLTEyNjQwMTI2ODBdfQ
+==
 -->
