@@ -60,8 +60,10 @@ Some example causes of an unhealthy system are:
 - **Low availability:**
   - Out-of-memory exceptions
   - Failure to schedule workloads.
+  - Low availability of downstream systems or data stores.
 - **High latency:**
-  - High data store retrieval
+  - High data store retrieval times.
+  - Long garbage colelctor (GC) pause times.
 - **Low throughput:**
 - **Low correctness:**
 
@@ -84,7 +86,7 @@ Charity Majors. Observability Engineering: Achieving Production Excellence (p. 2
 
 - https://cloud.google.com/blog/topics/developers-practitioners/why-focus-symptoms-not-causes
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMjQ3MzcyOTM3LC0xNjUxOTMwNzk1LDExMz
+eyJoaXN0b3J5IjpbODk5ODU0MDcxLC0xNjUxOTMwNzk1LDExMz
 kyMzM2MTIsNjA1MDQ0MDYzLDE0OTgwNDY1MjYsLTgxMzE3Mjcz
 Miw5NTc2ODk1MTgsLTE1NDY2OTQ3NjMsLTEyNjQwMTI2ODBdfQ
 ==
