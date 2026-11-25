@@ -44,8 +44,9 @@ Some example symptoms of an unhealthy system are:
   - Queued runs of cron jobs that aren't allowed to overlap.
 - **Low correctness:**
   - Data lost after acknowledgement.
-  - Failure to adhere to at-least-once or at-most-once semantics.
   - Messages processed out of order.
+  - Failure to adhere to at-least-once or at-most-once semantics.
+  - Failure to apply security rules.
 
 _(The definition of "low" and "high" will be driven by the needs of your clients and the guarantees you have made to them.)_
 
@@ -53,7 +54,13 @@ The Cambridge Dictionary defines a [_cause_](https://dictionary.cambridge.org/us
 
 > the reason why something, especially something bad, happens
 
-(example causes of unhealth)
+Some example causes of an unhealthy system are:
+
+- **Low availability:**
+  - Out-of-memory exceptions
+- **High latency:**
+- **Low throughput:**
+- **Low correctness:**
 
 ## Leading vs. lagging indicators
 
@@ -74,8 +81,8 @@ Charity Majors. Observability Engineering: Achieving Production Excellence (p. 2
 
 - https://cloud.google.com/blog/topics/developers-practitioners/why-focus-symptoms-not-causes
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTExODMwMzk4MDUsLTE2NTE5MzA3OTUsMT
-EzOTIzMzYxMiw2MDUwNDQwNjMsMTQ5ODA0NjUyNiwtODEzMTcy
-NzMyLDk1NzY4OTUxOCwtMTU0NjY5NDc2MywtMTI2NDAxMjY4MF
-19
+eyJoaXN0b3J5IjpbNTgzNzg0NzUzLC0xNjUxOTMwNzk1LDExMz
+kyMzM2MTIsNjA1MDQ0MDYzLDE0OTgwNDY1MjYsLTgxMzE3Mjcz
+Miw5NTc2ODk1MTgsLTE1NDY2OTQ3NjMsLTEyNjQwMTI2ODBdfQ
+==
 -->
