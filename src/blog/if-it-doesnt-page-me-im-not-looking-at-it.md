@@ -17,7 +17,7 @@ At the places I've worked, it is common for automated alerts to ping Slack chann
 
 I don't have infinite time in the day, and neither do you. We set up automated alerts because we believe these failure conditions are important enough to take us away from other work. If they're truly important enough to break my concentration, then they should page me. Context switching cost is real, and it's expensive.
 
-Here's a quote from [Observability Engineering: Achieving Production Excellence](https://www.oreilly.com/library/view/observability-engineering/9781492076438/) that echoes how I feel:
+Here's a quote from [Observability Engineering: Achieving Production Excellence (1st Ed.)](https://www.oreilly.com/library/view/observability-engineering/9781492076438/) that echoes how I feel:
 
 > Becoming accustomed to alerts that are prone to false positives is a known problem and a dangerous practice. In other industries, that problem is known as normalization of deviance: a term coined during the investigation of the Challenger disaster. When individuals in an organization regularly shut off alarms or fail to take action when alarms occur, they eventually become so desensitized about the practice deviating from the expected response that it no longer feels wrong to them. Failures that are "normal" and disregarded are, at best, simply background noise. At worst, they lead to disastrous oversights from cascading system failures. (pp. 203-204)
 
