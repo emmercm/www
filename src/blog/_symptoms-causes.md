@@ -20,7 +20,7 @@ These are [service-level indicators (SLIs)](/blog/slis-slos-and-slas-what-are-th
 
 Your internal clients (i.e. other engineering teams) and external clients (i.e. customers) don't care about anything else. So why would you monitor anything else?
 
-## Symptoms vs. causes
+## Symptoms
 
 The Cambridge Dictionary defines a [_symptom_](https://dictionary.cambridge.org/us/dictionary/english/symptom) as:
 
@@ -51,6 +51,8 @@ Some example symptoms of an unhealthy system are:
 
 _(The definition of "low" and "high" will be driven by the needs of your clients and the guarantees you have made to them.)_
 
+## 
+
 The Cambridge Dictionary defines a [_cause_](https://dictionary.cambridge.org/us/dictionary/english/cause) as:
 
 > the reason why something, especially something bad, happens
@@ -70,7 +72,8 @@ Some example causes of an unhealthy system are:
 - **Low throughput:**
   - Maxed application replicas.
   - Uneven work processing or hot shards.
-- **Low correctness:**
+  - Rate limits imposed by downstream systems.
+  - High rate of message retries.
 
 ## Leading vs. lagging indicators
 
@@ -91,7 +94,7 @@ Charity Majors. Observability Engineering: Achieving Production Excellence (p. 2
 
 - https://cloud.google.com/blog/topics/developers-practitioners/why-focus-symptoms-not-causes
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMjQ3NjY0MDQ1LC0xNjUxOTMwNzk1LDExMz
+eyJoaXN0b3J5IjpbNzM2OTQ4MTc4LC0xNjUxOTMwNzk1LDExMz
 kyMzM2MTIsNjA1MDQ0MDYzLDE0OTgwNDY1MjYsLTgxMzE3Mjcz
 Miw5NTc2ODk1MTgsLTE1NDY2OTQ3NjMsLTEyNjQwMTI2ODBdfQ
 ==
