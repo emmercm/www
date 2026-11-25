@@ -11,7 +11,7 @@ If your system's CPU stays at 100% for minutes, does it actually matter?
 
 The systems that you operate have performance characteristics that they are designed to meet. These are typically described in terms of:
 
-- [**Availability.**](/blog/your-service-should-make-a-sound-when-it-flatlines) Your system should be able to serve requests that are made to it.
+- **Availability.** Your system should be able to serve requests that are made to it.
 - **Latency.** Your system should serve requests as quickly as clients need.
 - **Throughput.** Your system should serve the amount of traffic that clients need.
 - **Correctness.** Your system should behave the way it's supposed to.
@@ -28,7 +28,7 @@ The Cambridge Dictionary defines a [_symptom_](https://dictionary.cambridge.org/
 
 Some example symptoms of an unhealthy system are:
 
-- **Low availability (measured from the client's perspective):**
+- **[Low availability](/blog/your-service-should-make-a-sound-when-it-flatlines) (measured from the client's perspective):**
   - A high rate of RPC timeouts to the system.
   - A high rate of unexpected RPC error responses, such as HTTP 5xx errors. This includes failures to accept valid commands or enqueue work.
   - A high rate of network connection refusals or resets.
@@ -89,7 +89,7 @@ Where causes _do_ belong is in your observability tooling. When you _do_ get pag
 
 ## Actionable causes
 
-The big asterisk to "alert on symptoms and not causes" is: there are causes that are very strong predictors of future unhealth that you still need to care about. Some examples:
+The big asterisk&ast; to "alert on symptoms and not causes" is: there are causes that are very strong predictors of future unhealth that you still need to care about. Some examples:
 
 - Data store running out of storage soon.
 - Certificates expiring soon.
@@ -123,7 +123,7 @@ Charity Majors. Observability Engineering: Achieving Production Excellence (p. 2
 - Datadog: [Monitoring 101: Investigating performance issues](https://www.datadoghq.com/blog/monitoring-101-investigation/)
 - O'Reilly: [Observability Engineering, 2nd Edition](https://www.oreilly.com/library/view/observability-engineering-2nd/9781098179915/)
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbNzY3NjM1MzQ4LDE2Mzc4NDQyNzMsLTE2NT
+eyJoaXN0b3J5IjpbMzU0NDkyNzM1LDE2Mzc4NDQyNzMsLTE2NT
 E5MzA3OTUsMTEzOTIzMzYxMiw2MDUwNDQwNjMsMTQ5ODA0NjUy
 NiwtODEzMTcyNzMyLDk1NzY4OTUxOCwtMTU0NjY5NDc2MywtMT
 I2NDAxMjY4MF19
