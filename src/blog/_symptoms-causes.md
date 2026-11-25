@@ -32,7 +32,7 @@ Some example symptoms of an unhealthy system are:
   - A high rate of RPC timeouts to the system.
   - A high rate of RPC error responses, such as HTTP 5xx errors. This includes failures to accept valid commands or enqueue work.
   - A high rate of network connection refusals or resets.
-  - Failure to discover the system or resolve its DNS name.
+  - Service discovery or DNS resolution failures.
 - **High latency:**
   - Long RPC response times.
   - Long individual message processing time.
@@ -46,8 +46,8 @@ Some example symptoms of an unhealthy system are:
   - Data lost after acknowledgement.
   - Messages processed out of order.
   - Messages produced to a dead-letter queue (DLQ).
-  - Failure to adhere to at-least-once or at-most-once semantics.
-  - Failure to apply security rules.
+  - At-least-once or at-most-once semantic violations.
+  - Security rules violations.
 
 _(The definition of "low" and "high" will be driven by the needs of your clients and the guarantees you have made to them.)_
 
@@ -59,12 +59,13 @@ Some example causes of an unhealthy system are:
 
 - **Low availability:**
   - Out-of-memory exceptions.
-  - Start
-  - Failure to schedule workloads.
+  - Startup failures.
+  - Workload scheduling failures..
   - Low availability of downstream systems or data stores.
 - **High latency:**
-  - High data store retrieval times.
+  - High data store read or write times.
   - Long garbage colelctor (GC) pause times.
+  - CPU contention or throttling.
 - **Low throughput:**
 - **Low correctness:**
 
@@ -87,7 +88,7 @@ Charity Majors. Observability Engineering: Achieving Production Excellence (p. 2
 
 - https://cloud.google.com/blog/topics/developers-practitioners/why-focus-symptoms-not-causes
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTkyNDY0NzU2MCwtMTY1MTkzMDc5NSwxMT
+eyJoaXN0b3J5IjpbLTYwOTY4MDEzNCwtMTY1MTkzMDc5NSwxMT
 M5MjMzNjEyLDYwNTA0NDA2MywxNDk4MDQ2NTI2LC04MTMxNzI3
 MzIsOTU3Njg5NTE4LC0xNTQ2Njk0NzYzLC0xMjY0MDEyNjgwXX
 0=
