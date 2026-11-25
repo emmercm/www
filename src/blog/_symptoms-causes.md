@@ -102,9 +102,9 @@ Even if these kinds of situations might not initially cause impact to clients, t
 
 One question that might come to mind is: _aren't causes a leading indicator and symptoms a lagging indicator? Won't this slow down my ability to be notified to a real problem?_
 
-Maybe. It depends on the cause and the severity. Some causes may need to be occurring consistently for a while before there is any client impact. For a particularly severe issue, it may only require the minimum metric evaluation window (frequently 5 minutes) to impact clients a, so then the mean-time-to-detect is the same as if you alerted on the cause.
+Maybe. It depends on the cause and the severity. Some causes may need to be occurring consistently for a while before there is any client impact. For a particularly severe issue, it may only require the minimum metric evaluation window (frequently 5 minutes) to impact clients and cause a symptom monitor to alert, so then the mean-time-to-detect is the same as if you alerted on the cause.
 
-
+But you know what hurts MTTD potentially more? Fatigued engineers who start to ignore pages when too many of them are non-actionable. 
 
 > In a time of complex and interdependent systems, teams can easily reach fatigue from the deluge of alerts that may, but probably don’t, reliably indicate a problem with the way customers are currently using the services your business relies on. Alerts for conditions that aren’t tied directly to customer experience will quickly become nothing more than background noise.
 Charity Majors. Observability Engineering: Achieving Production Excellence (p. 207). (Function). Kindle Edition. 
@@ -115,7 +115,7 @@ Charity Majors. Observability Engineering: Achieving Production Excellence (p. 2
 - Datadog: [Monitoring 101: Investigating performance issues](https://www.datadoghq.com/blog/monitoring-101-investigation/)
 - O'Reilly: [Observability Engineering, 2nd Edition](https://www.oreilly.com/library/view/observability-engineering-2nd/9781098179915/)
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbNDM3NTUyMTUxLDE2Mzc4NDQyNzMsLTE2NT
+eyJoaXN0b3J5IjpbNjM3MTk4MTQ2LDE2Mzc4NDQyNzMsLTE2NT
 E5MzA3OTUsMTEzOTIzMzYxMiw2MDUwNDQwNjMsMTQ5ODA0NjUy
 NiwtODEzMTcyNzMyLDk1NzY4OTUxOCwtMTU0NjY5NDc2MywtMT
 I2NDAxMjY4MF19
