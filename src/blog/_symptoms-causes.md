@@ -98,9 +98,9 @@ The big asterisk&ast; to "alert on symptoms and not causes" is: there are causes
 
 Even if these kinds of situations might not initially cause impact to clients, they have a high chance of causing you to break your guarantees unless a human takes action. Depending on the issue and the runway left, some of these don't need to page overnight and can be handled during working hours.
 
-## What about mean-time-to-detection?
+## What about mean-time-to-detect?
 
-One question that might come to mind is: _won't this slow down my ability to be notified to a real problem? Aren't causes a leading indicator and symptoms a lagging indicator?_
+One question that might come to mind is: _aren't causes a leading indicator and symptoms a lagging indicator? Won't this slow down my ability to be notified to a real problem?_
 
 TODO
 
@@ -123,8 +123,8 @@ Charity Majors. Observability Engineering: Achieving Production Excellence (p. 2
 - Datadog: [Monitoring 101: Investigating performance issues](https://www.datadoghq.com/blog/monitoring-101-investigation/)
 - O'Reilly: [Observability Engineering, 2nd Edition](https://www.oreilly.com/library/view/observability-engineering-2nd/9781098179915/)
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMzU0NDkyNzM1LDE2Mzc4NDQyNzMsLTE2NT
-E5MzA3OTUsMTEzOTIzMzYxMiw2MDUwNDQwNjMsMTQ5ODA0NjUy
-NiwtODEzMTcyNzMyLDk1NzY4OTUxOCwtMTU0NjY5NDc2MywtMT
-I2NDAxMjY4MF19
+eyJoaXN0b3J5IjpbMTMzMjA0NjcwMSwxNjM3ODQ0MjczLC0xNj
+UxOTMwNzk1LDExMzkyMzM2MTIsNjA1MDQ0MDYzLDE0OTgwNDY1
+MjYsLTgxMzE3MjczMiw5NTc2ODk1MTgsLTE1NDY2OTQ3NjMsLT
+EyNjQwMTI2ODBdfQ==
 -->
