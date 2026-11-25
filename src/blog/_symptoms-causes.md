@@ -49,7 +49,7 @@ Some example symptoms of an unhealthy system are:
   - At-least-once or at-most-once semantic violations.
   - Security rules violations.
 
-_(The definition of "low" and "high" will be driven by the needs of your clients and the guarantees you have made to them.)_
+_(The definition of "low" and "high" above will be driven by the needs of your clients and the guarantees you have made to them.)_
 
 You want your automated alerts to be based on _symptoms_. This is what your clients care about, so it needs to [page you](/blog/if-it-doesnt-page-me-im-not-looking-at-it).
 
@@ -64,7 +64,7 @@ Some example causes of an unhealthy system are:
 - **Low availability:**
   - Out-of-memory exceptions.
   - Startup failures.
-  - Workload scheduling failures..
+  - Workload scheduling failures.
   - Low availability of downstream systems or data stores.
 - **High latency:**
   - High data store read or write times.
@@ -77,7 +77,7 @@ Some example causes of an unhealthy system are:
   - Rate limits imposed by downstream systems.
   - High rate of message retries.
 
-You do _not_ want your automated alerts to be based on causes. Many causes aren't actionable on their own, for example:
+You typically do _not_ want your automated alerts to be based on causes. Many causes aren't actionable on their own, for example:
 
 - A sustained high CPU usage doesn't matter unless it threatens latency or throughput guarantees. In fact, I _want_ high CPU usage, that means I tuned my application well.
 - Retryable request failures don't matter unless they threaten availability or latency guarantees.
@@ -123,8 +123,8 @@ Charity Majors. Observability Engineering: Achieving Production Excellence (p. 2
 - Datadog: [Monitoring 101: Investigating performance issues](https://www.datadoghq.com/blog/monitoring-101-investigation/)
 - O'Reilly: [Observability Engineering, 2nd Edition](https://www.oreilly.com/library/view/observability-engineering-2nd/9781098179915/)
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTIxODQwODU4MiwxNjM3ODQ0MjczLC0xNj
-UxOTMwNzk1LDExMzkyMzM2MTIsNjA1MDQ0MDYzLDE0OTgwNDY1
-MjYsLTgxMzE3MjczMiw5NTc2ODk1MTgsLTE1NDY2OTQ3NjMsLT
-EyNjQwMTI2ODBdfQ==
+eyJoaXN0b3J5IjpbLTE4ODY0ODE3MjYsMTYzNzg0NDI3MywtMT
+Y1MTkzMDc5NSwxMTM5MjMzNjEyLDYwNTA0NDA2MywxNDk4MDQ2
+NTI2LC04MTMxNzI3MzIsOTU3Njg5NTE4LC0xNTQ2Njk0NzYzLC
+0xMjY0MDEyNjgwXX0=
 -->
