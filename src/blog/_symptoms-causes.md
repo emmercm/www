@@ -81,6 +81,7 @@ You do _not_ want your automated alerts to be based on causes. Most causes aren'
 
 - A sustained high CPU usage doesn't matter unless it threatens latency guarantees. In fact, I _want_ high CPU usage, that means I tuned my application well.
 - Retryable request failures don't matter unless they threaten availability or latency guarantees.
+- Retryable batch job failures don'
 
 The authors of Observability Engineering (1st Ed.) said it best:
 
@@ -105,8 +106,8 @@ Charity Majors. Observability Engineering: Achieving Production Excellence (p. 2
 
 - https://cloud.google.com/blog/topics/developers-practitioners/why-focus-symptoms-not-causes
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTM2MDQ2ODk3NSwtMTY1MTkzMDc5NSwxMT
-M5MjMzNjEyLDYwNTA0NDA2MywxNDk4MDQ2NTI2LC04MTMxNzI3
-MzIsOTU3Njg5NTE4LC0xNTQ2Njk0NzYzLC0xMjY0MDEyNjgwXX
-0=
+eyJoaXN0b3J5IjpbLTU0NDM1NjA0LC0xNjUxOTMwNzk1LDExMz
+kyMzM2MTIsNjA1MDQ0MDYzLDE0OTgwNDY1MjYsLTgxMzE3Mjcz
+Miw5NTc2ODk1MTgsLTE1NDY2OTQ3NjMsLTEyNjQwMTI2ODBdfQ
+==
 -->
