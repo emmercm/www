@@ -96,7 +96,7 @@ The big asterisk to "alert on symptoms and not causes" is: there are causes that
 - Application replica count persistently below the desired count.
 - Permanent loss of a data store replica.
 
-Even if these kinds of issues might not initially be visible to clients, they have a high chance of breaking your guarantees unless a human takes action. Depending on the issue and the runway left, some of these don't need to page overnight and can be handled during working hours.
+Even if these kinds of situations might not initially cause impact to clients, they have a high chance of causing you to break your guarantees unless a human takes action. Depending on the issue and the runway left, some of these don't need to page overnight and can be handled during working hours.
 
 ## What about mean-time-to-detection?
 
@@ -123,8 +123,8 @@ Charity Majors. Observability Engineering: Achieving Production Excellence (p. 2
 - Datadog: [Monitoring 101: Investigating performance issues](https://www.datadoghq.com/blog/monitoring-101-investigation/)
 - O'Reilly: [Observability Engineering, 2nd Edition](https://www.oreilly.com/library/view/observability-engineering-2nd/9781098179915/)
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTE0MzY2MDkyOTEsMTYzNzg0NDI3MywtMT
-Y1MTkzMDc5NSwxMTM5MjMzNjEyLDYwNTA0NDA2MywxNDk4MDQ2
-NTI2LC04MTMxNzI3MzIsOTU3Njg5NTE4LC0xNTQ2Njk0NzYzLC
-0xMjY0MDEyNjgwXX0=
+eyJoaXN0b3J5IjpbNzY3NjM1MzQ4LDE2Mzc4NDQyNzMsLTE2NT
+E5MzA3OTUsMTEzOTIzMzYxMiw2MDUwNDQwNjMsMTQ5ODA0NjUy
+NiwtODEzMTcyNzMyLDk1NzY4OTUxOCwtMTU0NjY5NDc2MywtMT
+I2NDAxMjY4MF19
 -->
