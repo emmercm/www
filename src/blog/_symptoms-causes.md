@@ -102,19 +102,11 @@ Even if these kinds of situations might not initially cause impact to clients, t
 
 One question that might come to mind is: _aren't causes a leading indicator and symptoms a lagging indicator? Won't this slow down my ability to be notified to a real problem?_
 
-Maybe. It depends on the cause and the severity. Some causes may need to be occurring consistently for a while before there is any client impact. For a particularly severe issue, it may only require the minimum metric evaluation window (frequently 5 minutes) to show client impact, so then the mean-time-to-detect is the same as if you alerted on .
+Maybe. It depends on the cause and the severity. Some causes may need to be occurring consistently for a while before there is any client impact. For a particularly severe issue, it may only require the minimum metric evaluation window (frequently 5 minutes) to impact clients a, so then the mean-time-to-detect is the same as if you alerted on the cause.
 
 
-Here is a list of example metrics that are relatively easy to observe that
 
-Symptoms can be defined as: what is
-
-(transient issues are what you should care about, things like disk pressure likely don't get better)
-
-These states might, for example, trigger an alert if CPU is above 80%, or if available memory is below 10%, or if disk space is nearly full, or if more than x many threads are running, or any set of other simplistic measures of underlying system conditions. While such simplistic “potential-cause” measures are easy to collect, they don’t produce meaningful alerts for you to act upon.
-Charity Majors. Observability Engineering: Achieving Production Excellence (p. 203). (Function). Kindle Edition. 
-
-In a time of complex and interdependent systems, teams can easily reach fatigue from the deluge of alerts that may, but probably don’t, reliably indicate a problem with the way customers are currently using the services your business relies on. Alerts for conditions that aren’t tied directly to customer experience will quickly become nothing more than background noise.
+> In a time of complex and interdependent systems, teams can easily reach fatigue from the deluge of alerts that may, but probably don’t, reliably indicate a problem with the way customers are currently using the services your business relies on. Alerts for conditions that aren’t tied directly to customer experience will quickly become nothing more than background noise.
 Charity Majors. Observability Engineering: Achieving Production Excellence (p. 207). (Function). Kindle Edition. 
 
 ## Additional reading
@@ -123,8 +115,8 @@ Charity Majors. Observability Engineering: Achieving Production Excellence (p. 2
 - Datadog: [Monitoring 101: Investigating performance issues](https://www.datadoghq.com/blog/monitoring-101-investigation/)
 - O'Reilly: [Observability Engineering, 2nd Edition](https://www.oreilly.com/library/view/observability-engineering-2nd/9781098179915/)
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTE3MzU1MDIyMCwxNjM3ODQ0MjczLC0xNj
-UxOTMwNzk1LDExMzkyMzM2MTIsNjA1MDQ0MDYzLDE0OTgwNDY1
-MjYsLTgxMzE3MjczMiw5NTc2ODk1MTgsLTE1NDY2OTQ3NjMsLT
-EyNjQwMTI2ODBdfQ==
+eyJoaXN0b3J5IjpbNDM3NTUyMTUxLDE2Mzc4NDQyNzMsLTE2NT
+E5MzA3OTUsMTEzOTIzMzYxMiw2MDUwNDQwNjMsMTQ5ODA0NjUy
+NiwtODEzMTcyNzMyLDk1NzY4OTUxOCwtMTU0NjY5NDc2MywtMT
+I2NDAxMjY4MF19
 -->
