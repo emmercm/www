@@ -44,7 +44,8 @@ Some example symptoms of an unhealthy system are:
   - Queued runs of cron jobs that aren't allowed to overlap.
 - **Low correctness:**
   - Data lost after acknowledgement.
-  - Failure to 
+  - Failure to adhere to at-least-once or at-most-once semantics.
+  - Messages processed out of order.
 
 _(The definition of "low" and "high" will be driven by the needs of your clients and the guarantees you have made to them.)_
 
@@ -73,7 +74,7 @@ Charity Majors. Observability Engineering: Achieving Production Excellence (p. 2
 
 - https://cloud.google.com/blog/topics/developers-practitioners/why-focus-symptoms-not-causes
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTEwOTY3NDEwNTUsLTE2NTE5MzA3OTUsMT
+eyJoaXN0b3J5IjpbLTExODMwMzk4MDUsLTE2NTE5MzA3OTUsMT
 EzOTIzMzYxMiw2MDUwNDQwNjMsMTQ5ODA0NjUyNiwtODEzMTcy
 NzMyLDk1NzY4OTUxOCwtMTU0NjY5NDc2MywtMTI2NDAxMjY4MF
 19
