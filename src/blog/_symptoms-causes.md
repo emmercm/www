@@ -102,7 +102,7 @@ Even if these kinds of situations might not initially cause impact to clients, t
 
 One question that might come to mind is: _aren't causes a leading indicator and symptoms a lagging indicator? Won't this slow down my ability to be notified to a real problem?_
 
-TODO
+Maybe, though
 
 
 Here is a list of example metrics that are relatively easy to observe that
@@ -123,7 +123,7 @@ Charity Majors. Observability Engineering: Achieving Production Excellence (p. 2
 - Datadog: [Monitoring 101: Investigating performance issues](https://www.datadoghq.com/blog/monitoring-101-investigation/)
 - O'Reilly: [Observability Engineering, 2nd Edition](https://www.oreilly.com/library/view/observability-engineering-2nd/9781098179915/)
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTMzMjA0NjcwMSwxNjM3ODQ0MjczLC0xNj
+eyJoaXN0b3J5IjpbLTM5MjMwOTY0NCwxNjM3ODQ0MjczLC0xNj
 UxOTMwNzk1LDExMzkyMzM2MTIsNjA1MDQ0MDYzLDE0OTgwNDY1
 MjYsLTgxMzE3MjczMiw5NTc2ODk1MTgsLTE1NDY2OTQ3NjMsLT
 EyNjQwMTI2ODBdfQ==
