@@ -51,7 +51,9 @@ Some example symptoms of an unhealthy system are:
 
 _(The definition of "low" and "high" will be driven by the needs of your clients and the guarantees you have made to them.)_
 
-## 
+You want your automated alerts to be based on _symptoms_. These are the only metrics that matter, as these are the metrics that your clients care about.
+
+## Causes
 
 The Cambridge Dictionary defines a [_cause_](https://dictionary.cambridge.org/us/dictionary/english/cause) as:
 
@@ -94,8 +96,8 @@ Charity Majors. Observability Engineering: Achieving Production Excellence (p. 2
 
 - https://cloud.google.com/blog/topics/developers-practitioners/why-focus-symptoms-not-causes
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbNzM2OTQ4MTc4LC0xNjUxOTMwNzk1LDExMz
-kyMzM2MTIsNjA1MDQ0MDYzLDE0OTgwNDY1MjYsLTgxMzE3Mjcz
-Miw5NTc2ODk1MTgsLTE1NDY2OTQ3NjMsLTEyNjQwMTI2ODBdfQ
-==
+eyJoaXN0b3J5IjpbLTExNTA0MDc1MDksLTE2NTE5MzA3OTUsMT
+EzOTIzMzYxMiw2MDUwNDQwNjMsMTQ5ODA0NjUyNiwtODEzMTcy
+NzMyLDk1NzY4OTUxOCwtMTU0NjY5NDc2MywtMTI2NDAxMjY4MF
+19
 -->
