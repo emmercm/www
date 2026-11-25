@@ -120,9 +120,10 @@ Charity Majors. Observability Engineering: Achieving Production Excellence (p. 2
 ## Additional reading
 
 - Google: [Why Focus on Symptoms, Not Causes?](https://cloud.google.com/blog/topics/developers-practitioners/why-focus-symptoms-not-causes)
+- Datadog: [Monitoring 101: Investigating performance issues](https://www.datadoghq.com/blog/monitoring-101-investigation/)
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTk5NTA4MzYyNSwtMTY1MTkzMDc5NSwxMT
-M5MjMzNjEyLDYwNTA0NDA2MywxNDk4MDQ2NTI2LC04MTMxNzI3
-MzIsOTU3Njg5NTE4LC0xNTQ2Njk0NzYzLC0xMjY0MDEyNjgwXX
-0=
+eyJoaXN0b3J5IjpbODE3OTE4ODQ0LC0xNjUxOTMwNzk1LDExMz
+kyMzM2MTIsNjA1MDQ0MDYzLDE0OTgwNDY1MjYsLTgxMzE3Mjcz
+Miw5NTc2ODk1MTgsLTE1NDY2OTQ3NjMsLTEyNjQwMTI2ODBdfQ
+==
 -->
