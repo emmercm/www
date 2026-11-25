@@ -79,11 +79,11 @@ Some example causes of an unhealthy system are:
 
 You typically do _not_ want your automated alerts to be based on causes. Many causes aren't actionable on their own, for example:
 
-- A sustained high CPU usage doesn't matter unless it threatens latency or throughput guarantees. In fact, I _want_ high CPU usage, that means I tuned my application well.
+- Sustained high CPU usage doesn't matter unless it threatens latency or throughput guarantees. In fact, it might be _desirable_ to have high CPU usage, as it may mean that the application is tuned well.
 - Retryable request failures don't matter unless they threaten availability or latency guarantees.
 - Retryable batch job failures don't matter unless they threaten latency or throughput guarantees.
 
-Work through the thought exercise on your own: _if you were to be paged for high CPU, high memory RSS, or a high rate of error logs, what action would you even take?_
+Work through the thought exercise on your own: _if you were to be paged for high CPU, high memory RSS, or a high rate of error logs, could you describe the client impact, ?_
 
 Where causes _do_ belong is in your observability tooling. When you _do_ get paged on a symptom, you will want a clear application dashboard to help you diagnose and address the cause.
 
@@ -123,8 +123,8 @@ Charity Majors. Observability Engineering: Achieving Production Excellence (p. 2
 - Datadog: [Monitoring 101: Investigating performance issues](https://www.datadoghq.com/blog/monitoring-101-investigation/)
 - O'Reilly: [Observability Engineering, 2nd Edition](https://www.oreilly.com/library/view/observability-engineering-2nd/9781098179915/)
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTE4ODY0ODE3MjYsMTYzNzg0NDI3MywtMT
-Y1MTkzMDc5NSwxMTM5MjMzNjEyLDYwNTA0NDA2MywxNDk4MDQ2
-NTI2LC04MTMxNzI3MzIsOTU3Njg5NTE4LC0xNTQ2Njk0NzYzLC
-0xMjY0MDEyNjgwXX0=
+eyJoaXN0b3J5IjpbNjA0OTgzOTM2LDE2Mzc4NDQyNzMsLTE2NT
+E5MzA3OTUsMTEzOTIzMzYxMiw2MDUwNDQwNjMsMTQ5ODA0NjUy
+NiwtODEzMTcyNzMyLDk1NzY4OTUxOCwtMTU0NjY5NDc2MywtMT
+I2NDAxMjY4MF19
 -->
