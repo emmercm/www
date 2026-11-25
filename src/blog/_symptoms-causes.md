@@ -85,7 +85,9 @@ You do _not_ want your automated alerts to be based on causes. Many causes aren'
 
 Work through the thought exercise on your own: if you were to be paged for high CPU, high memory RSS, or a high rate of error logs, what action would you even take?
 
-## Non-transient causes
+## Actionable causes
+
+The big asterisk to "alert on symptoms and not causes" is: there are causes that are very stron
 
 ## What about mean-time-to-detection?
 
@@ -106,8 +108,8 @@ Charity Majors. Observability Engineering: Achieving Production Excellence (p. 2
 
 - https://cloud.google.com/blog/topics/developers-practitioners/why-focus-symptoms-not-causes
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTY1OTAzMTM3MCwtMTY1MTkzMDc5NSwxMT
-M5MjMzNjEyLDYwNTA0NDA2MywxNDk4MDQ2NTI2LC04MTMxNzI3
-MzIsOTU3Njg5NTE4LC0xNTQ2Njk0NzYzLC0xMjY0MDEyNjgwXX
-0=
+eyJoaXN0b3J5IjpbLTE3Mzg0ODMyNDYsLTE2NTE5MzA3OTUsMT
+EzOTIzMzYxMiw2MDUwNDQwNjMsMTQ5ODA0NjUyNiwtODEzMTcy
+NzMyLDk1NzY4OTUxOCwtMTU0NjY5NDc2MywtMTI2NDAxMjY4MF
+19
 -->
