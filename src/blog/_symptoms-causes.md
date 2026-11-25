@@ -89,7 +89,8 @@ Work through the thought exercise on your own: if you were to be paged for high 
 
 The big asterisk to "alert on symptoms and not causes" is: there are causes that are very strong predictors of future unhealth that you still need to care about. Some examples:
 
-- Low remaining data store
+- Data store running out of storage soon (assuming your data only grows over time).
+- Certificates expiring soon.
 
 ## What about mean-time-to-detection?
 
@@ -110,8 +111,8 @@ Charity Majors. Observability Engineering: Achieving Production Excellence (p. 2
 
 - https://cloud.google.com/blog/topics/developers-practitioners/why-focus-symptoms-not-causes
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbODEwNDg0NzgzLC0xNjUxOTMwNzk1LDExMz
-kyMzM2MTIsNjA1MDQ0MDYzLDE0OTgwNDY1MjYsLTgxMzE3Mjcz
-Miw5NTc2ODk1MTgsLTE1NDY2OTQ3NjMsLTEyNjQwMTI2ODBdfQ
-==
+eyJoaXN0b3J5IjpbLTEyOTIyMTg5NDEsLTE2NTE5MzA3OTUsMT
+EzOTIzMzYxMiw2MDUwNDQwNjMsMTQ5ODA0NjUyNiwtODEzMTcy
+NzMyLDk1NzY4OTUxOCwtMTU0NjY5NDc2MywtMTI2NDAxMjY4MF
+19
 -->
