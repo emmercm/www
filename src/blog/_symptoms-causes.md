@@ -51,7 +51,7 @@ Some example symptoms of an unhealthy system are:
 
 _(The definition of "low" and "high" will be driven by the needs of your clients and the guarantees you have made to them.)_
 
-You want your automated alerts to be based on _symptoms_. This is what your clients care about, so you need to care about it.
+You want your automated alerts to be based on _symptoms_. This is what your clients care about, so it needs to [page you](/blog/if-it-doesnt-page-me-im-not-looking-at-it).
 
 ## Causes
 
@@ -106,7 +106,7 @@ Charity Majors. Observability Engineering: Achieving Production Excellence (p. 2
 
 - https://cloud.google.com/blog/topics/developers-practitioners/why-focus-symptoms-not-causes
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTMxNzg2MTQzNiwtMTY1MTkzMDc5NSwxMT
+eyJoaXN0b3J5IjpbMTg4MzYxNzEwMiwtMTY1MTkzMDc5NSwxMT
 M5MjMzNjEyLDYwNTA0NDA2MywxNDk4MDQ2NTI2LC04MTMxNzI3
 MzIsOTU3Njg5NTE4LC0xNTQ2Njk0NzYzLC0xMjY0MDEyNjgwXX
 0=
