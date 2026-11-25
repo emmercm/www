@@ -100,7 +100,9 @@ Even if these kinds of issues might not initially be visible to clients, they ha
 
 ## What about mean-time-to-detection?
 
-One question that might come to mind is: _
+One question that might come to mind is: _won't this slow down my ability to be notified to a real problem? Aren't causes a leading indicator and symptoms a lagging indicator?_
+
+TODO
 
 
 Here is a list of example metrics that are relatively easy to observe that
@@ -119,8 +121,8 @@ Charity Majors. Observability Engineering: Achieving Production Excellence (p. 2
 
 - https://cloud.google.com/blog/topics/developers-practitioners/why-focus-symptoms-not-causes
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbNTU0MDMzOTgzLC0xNjUxOTMwNzk1LDExMz
-kyMzM2MTIsNjA1MDQ0MDYzLDE0OTgwNDY1MjYsLTgxMzE3Mjcz
-Miw5NTc2ODk1MTgsLTE1NDY2OTQ3NjMsLTEyNjQwMTI2ODBdfQ
-==
+eyJoaXN0b3J5IjpbLTEzMTM5MjI5NiwtMTY1MTkzMDc5NSwxMT
+M5MjMzNjEyLDYwNTA0NDA2MywxNDk4MDQ2NTI2LC04MTMxNzI3
+MzIsOTU3Njg5NTE4LC0xNTQ2Njk0NzYzLC0xMjY0MDEyNjgwXX
+0=
 -->
