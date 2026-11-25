@@ -80,7 +80,9 @@ Some example causes of an unhealthy system are:
 You do _not_ want your automated alerts to be based on causes. Most causes aren't actionable, and many of them may actually be expected. For example:
 
 - A sustained high CPU usage doesn't matter unless it threatens latency guarantees. In fact, I _want_ high CPU usage, that means I tuned my application well.
-- Network failures don't
+- Retryable request failures don't matter unless they threaten availability or latency guarantees.
+
+The authors of 
 
 ## Leading vs. lagging indicators
 
@@ -101,7 +103,7 @@ Charity Majors. Observability Engineering: Achieving Production Excellence (p. 2
 
 - https://cloud.google.com/blog/topics/developers-practitioners/why-focus-symptoms-not-causes
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTU1Mzg3NjI5MCwtMTY1MTkzMDc5NSwxMT
+eyJoaXN0b3J5IjpbMTkwOTYwNjMwNCwtMTY1MTkzMDc5NSwxMT
 M5MjMzNjEyLDYwNTA0NDA2MywxNDk4MDQ2NTI2LC04MTMxNzI3
 MzIsOTU3Njg5NTE4LC0xNTQ2Njk0NzYzLC0xMjY0MDEyNjgwXX
 0=
