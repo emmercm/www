@@ -51,7 +51,7 @@ Some example symptoms of an unhealthy system are:
 
 _(The definition of "low" and "high" will be driven by the needs of your clients and the guarantees you have made to them.)_
 
-You want your automated alerts to be based on _symptoms_. This is what your clients
+You want your automated alerts to be based on _symptoms_. This is what your clients care about, so you need to care about it.
 
 ## Causes
 
@@ -77,7 +77,7 @@ Some example causes of an unhealthy system are:
   - Rate limits imposed by downstream systems.
   - High rate of message retries.
 
-You do _not_ want your automated alerts to be based on causes.
+You do _not_ want your automated alerts to be based on causes. Most causes are poor predictors of system unhealth
 
 ## Leading vs. lagging indicators
 
@@ -98,8 +98,8 @@ Charity Majors. Observability Engineering: Achieving Production Excellence (p. 2
 
 - https://cloud.google.com/blog/topics/developers-practitioners/why-focus-symptoms-not-causes
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMzEzNTE2MzYzLC0xNjUxOTMwNzk1LDExMz
-kyMzM2MTIsNjA1MDQ0MDYzLDE0OTgwNDY1MjYsLTgxMzE3Mjcz
-Miw5NTc2ODk1MTgsLTE1NDY2OTQ3NjMsLTEyNjQwMTI2ODBdfQ
-==
+eyJoaXN0b3J5IjpbLTgxMzI1MTcwOSwtMTY1MTkzMDc5NSwxMT
+M5MjMzNjEyLDYwNTA0NDA2MywxNDk4MDQ2NTI2LC04MTMxNzI3
+MzIsOTU3Njg5NTE4LC0xNTQ2Njk0NzYzLC0xMjY0MDEyNjgwXX
+0=
 -->
