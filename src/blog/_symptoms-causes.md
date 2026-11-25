@@ -16,7 +16,7 @@ The systems that you operate have performance characteristics that they are desi
 - **Throughput.** Your system should serve the amount of traffic that clients need.
 - **Correctness.** Your system should behave the way it's supposed to.
 
-These are [service-level indicators (SLIs)](/blog/slis-slos-and-slas-what-are-they), which are used to provide performance guarntees to your customers (SLOs, SLAs).
+These are [service-level indicators (SLIs)](/blog/slis-slos-and-slas-what-are-they), which are used to provide performance guarantees to your customers (SLOs, SLAs).
 
 Your internal clients (i.e. other engineering teams) and external clients (i.e. customers) don't care about anything else. So why would you monitor anything else?
 
@@ -30,7 +30,7 @@ Some example symptoms of an unhealthy system are:
 
 - **Low availability (measured from the client's perspective):**
   - A high rate of RPC timeouts to the system.
-  - A high rate of RPC error responses, such as HTTP 5xx errors. This includes failures to accept valid commands or enqueue work.
+  - A high rate of unexpected RPC error responses, such as HTTP 5xx errors. This includes failures to accept valid commands or enqueue work.
   - A high rate of network connection refusals or resets.
   - Service discovery or DNS resolution failures.
 - **High latency:**
@@ -123,7 +123,7 @@ Charity Majors. Observability Engineering: Achieving Production Excellence (p. 2
 - Datadog: [Monitoring 101: Investigating performance issues](https://www.datadoghq.com/blog/monitoring-101-investigation/)
 - O'Reilly: [Observability Engineering, 2nd Edition](https://www.oreilly.com/library/view/observability-engineering-2nd/9781098179915/)
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTIwODY2MDE1ODYsMTYzNzg0NDI3MywtMT
+eyJoaXN0b3J5IjpbLTEyNDcxNTcxNTIsMTYzNzg0NDI3MywtMT
 Y1MTkzMDc5NSwxMTM5MjMzNjEyLDYwNTA0NDA2MywxNDk4MDQ2
 NTI2LC04MTMxNzI3MzIsOTU3Njg5NTE4LC0xNTQ2Njk0NzYzLC
 0xMjY0MDEyNjgwXX0=
