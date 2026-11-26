@@ -16,7 +16,7 @@ I've kept this blog focused on software engineering so far, so I'll keep this po
 
 ## A supportive partner
 
-This year (and all years) I'm thankful for a partner who grants me the time and space to pursue professional goals and hobbies. I worked some long hours in 2025, trying to finally get a promotion that I've been eyeing for years. I also put in a lot of work to release a new major version of [Igir](https://igir.io/), which has gained more traction than I could ever hope. And frankly, articles on this blog take a lot of time, and this will be my 14th article this year. My personal and professional interests overlap heavily, so it's easy for me to work long hours at a laptop, and I'm thankful for someone who lets me cycle in and out of technical focus.
+This year (and all years) I'm thankful for a partner who grants me the time and space to pursue professional goals and hobbies. I worked some long hours in 2025, trying to finally get a promotion that I've been eyeing for years. I also put in a lot of work to release a new major version (v4.0.0) of [Igir](https://igir.io/), which has gained more traction than I could ever hope. And frankly, articles on this blog take a lot of time, and this will be my 14th article this year. My personal and professional interests overlap heavily, so it's easy for me to work long hours at a laptop, and I'm thankful for someone who lets me cycle in and out of technical focus.
 
 ## Leaders who advocate for you, and leaders who bring you into the room
 
