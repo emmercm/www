@@ -641,12 +641,17 @@ tracer(Metalsmith(path.resolve()))
             limit: 20,
             destination: 'blog/rss.xml',
             // https://www.npmjs.com/package/rss#itemoptions
-            preprocess: (file) => ({
-                ...file,
-                url: url.resolve(siteURL, file.permalink),
-                categories: file.tags,
-                author: undefined, // undocumented & unneeded, will default to `author` below
-            }),
+            preprocess: (file) => {
+                //if (file.related_ignore) {
+                //    return undefined;
+                //}
+                return {
+                    ...file,
+                    url: url.resolve(siteURL, file.permalink),
+                    categories: file.tags,
+                    author: undefined, // undocumented & unneeded, will default to `author` below
+                };
+            },
             // https://www.npmjs.com/package/rss#feedoptions
             title: siteName,
             description: siteDescription,

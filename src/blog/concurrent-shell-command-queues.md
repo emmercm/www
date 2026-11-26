@@ -258,7 +258,7 @@ Here are some reasons why you might just want a different programming language:
 
   This prevents interleaving the output of most commands. Output larger than `PIPE_BUF` may still get interleaved.
 
-- `queue_wait` doesn't return a value indicating any job failure.**
+- **`queue_wait` doesn't return a value indicating any job failure.**
 
   This would require a temporary file or a second file descriptor and some complicated code.
 
