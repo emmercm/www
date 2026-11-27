@@ -13,7 +13,9 @@ My current company's performance management software has a feature where you can
 If your company has something similar, I think you should, too.
 
 People appreciate knowing that they're valued, that their care and attention matters. This is true both inside and outside the workplace.
+
+Someone helped you work a diff
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTE4MDEwNzU2NzgsMTE0MDc1NTkzMyw4ND
-A3MTQ0MDIsLTE1MzA3NzczOTBdfQ==
+eyJoaXN0b3J5IjpbODE0NDIxMTUwLDExNDA3NTU5MzMsODQwNz
+E0NDAyLC0xNTMwNzc3MzkwXX0=
 -->
