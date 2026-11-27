@@ -12,8 +12,8 @@ My current company's performance management software has a feature where you can
 
 If your company has something similar, I think you should, too.
 
-People appreciate knowing that they're valued, that their care and attention ma
+People appreciate knowing that they're valued, that their care and attention matters.
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMzU2MzAwMDgsMTE0MDc1NTkzMyw4NDA3MT
-Q0MDIsLTE1MzA3NzczOTBdfQ==
+eyJoaXN0b3J5IjpbLTExNjU1NDg0OTYsMTE0MDc1NTkzMyw4ND
+A3MTQ0MDIsLTE1MzA3NzczOTBdfQ==
 -->
