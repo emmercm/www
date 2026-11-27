@@ -2,6 +2,7 @@
 
 title: Restarting Deployments in Kubernetes Before v1.15
 date: 2020-07-10T15:28:00
+related_ignore: true
 tags:
 - kubernetes
 
