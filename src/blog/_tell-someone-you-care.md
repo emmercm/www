@@ -14,13 +14,13 @@ People enjoy knowing that they're valued, that their care and attention is appre
 
 If your HR software has a similar feature, I would encourage you to use it. That praise might help someone get the review rating or promotion that they deserve. Maybe the praise even comes with a mini cash bonus that's completely free to you.
 
-But if you reservations about 
+Even if you don't have similar software, send the person a DM with a few kind words, it doesn't have to be long. Consider sending the same to their manager
 
 If you appreciate a teammate who helped you through a difficult incident, tell them. If you appreciate a teammate who had a meaningful contribution to your project, tell them. If you appreciate a colleague outside your team who was a great collaborator, tell them. If you appreciate a leader who helps you or allows you to do your best work, tell them.
 
 Tell someone you appreciate them _today_.
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTIwNzc5ODY0MDQsLTE3MDY5OTU5NzQsLT
-EyMzk0MDAxMzEsMzg3NzY2MzA1LDExNDA3NTU5MzMsODQwNzE0
-NDAyLC0xNTMwNzc3MzkwXX0=
+eyJoaXN0b3J5IjpbMTg0MTg0MzU1OCwtMTcwNjk5NTk3NCwtMT
+IzOTQwMDEzMSwzODc3NjYzMDUsMTE0MDc1NTkzMyw4NDA3MTQ0
+MDIsLTE1MzA3NzczOTBdfQ==
 -->
