@@ -12,10 +12,10 @@ My current company's performance management software has a feature where you can
 
 If your company has something similar, I think you should, too.
 
-People enjoying knowing that they're valued, that their care and attention is appreciated. This is true both inside and outside the workplace.
+People enjoy knowing that they're valued, that their care and attention is appreciated. This is true both inside and outside the workplace.
 
-Someone helped you work a difficult incident?
+If you appreciate a teammate who helped you through a difficult incident, tell them. If you appreciate a teammate who did
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTMzNTQzMDEzNywxMTQwNzU1OTMzLDg0MD
-cxNDQwMiwtMTUzMDc3NzM5MF19
+eyJoaXN0b3J5IjpbLTEwOTAyNjg0MjYsMTE0MDc1NTkzMyw4ND
+A3MTQ0MDIsLTE1MzA3NzczOTBdfQ==
 -->
