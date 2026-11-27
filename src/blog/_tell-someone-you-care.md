@@ -16,8 +16,8 @@ People enjoy knowing that they're valued, that their care and attention is appre
 
 If you appreciate a teammate who helped you through a difficult incident, tell them. If you appreciate a teammate who had a meaningful contribution to your project, tell them. If you appreciate a colleague outside your team who was a great collaborator, tell them. If you appreciate a leader who helps you or allows you to do your best work, tell them.
 
-Tell someone you appreciate them today.
+Tell someone you appreciate them _today_.
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMzg3NzY2MzA1LDExNDA3NTU5MzMsODQwNz
-E0NDAyLC0xNTMwNzc3MzkwXX0=
+eyJoaXN0b3J5IjpbLTEyMzk0MDAxMzEsMzg3NzY2MzA1LDExND
+A3NTU5MzMsODQwNzE0NDAyLC0xNTMwNzc3MzkwXX0=
 -->
