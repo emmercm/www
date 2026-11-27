@@ -14,8 +14,8 @@ If your company has something similar, I think you should, too.
 
 People enjoy knowing that they're valued, that their care and attention is appreciated. This is true both inside and outside the workplace.
 
-If you appreciate a teammate who helped you through a difficult incident, tell them. If you appreciate a teammate who did
+If you appreciate a teammate who helped you through a difficult incident, tell them. If you appreciate a teammate who had a meaningful contribution to your project, tell them. If you appreciate a colleague outside your
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTEwOTAyNjg0MjYsMTE0MDc1NTkzMyw4ND
-A3MTQ0MDIsLTE1MzA3NzczOTBdfQ==
+eyJoaXN0b3J5IjpbMTMwODg0MzEzNywxMTQwNzU1OTMzLDg0MD
+cxNDQwMiwtMTUzMDc3NzM5MF19
 -->
