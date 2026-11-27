@@ -12,10 +12,10 @@ My current company's performance management software has a feature where you can
 
 If your company has something similar, I think you should, too.
 
-People appreciate knowing that they're valued, that their care and attention matters. This is true both inside and outside the workplace.
+People enjoying knowing that they're valued, that their care and attention is appreciated. This is true both inside and outside the workplace.
 
-Someone helped you work a diff
+Someone helped you work a difficult incident?
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbODE0NDIxMTUwLDExNDA3NTU5MzMsODQwNz
-E0NDAyLC0xNTMwNzc3MzkwXX0=
+eyJoaXN0b3J5IjpbLTMzNTQzMDEzNywxMTQwNzU1OTMzLDg0MD
+cxNDQwMiwtMTUzMDc3NzM5MF19
 -->
