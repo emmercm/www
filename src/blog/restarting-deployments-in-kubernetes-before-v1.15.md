@@ -37,8 +37,7 @@ $ kubectl get deployment --output=jsonpath="{.spec.template.spec.containers[*].n
 Then we can patch the deployment to cause a rollout like this (still replacing `<DEPLOYMENT>` with your deployment name, and now also `<CONTAINER>` with the container name you just found):
 
 ```shell
-$ bash
-kubectl patch deployment "<DEPLOYMENT>" --patch="{\"spec\":{\"template\":{\"spec\":{\"containers\":[{\"name\":\"<CONTAINER>\",\"env\":[{\"name\":\"LAST_MANUAL_RESTART\",\"value\":\"$(date +%s)\"}]}]}}}}"
+$ kubectl patch deployment "<DEPLOYMENT>" --patch="{\"spec\":{\"template\":{\"spec\":{\"containers\":[{\"name\":\"<CONTAINER>\",\"env\":[{\"name\":\"LAST_MANUAL_RESTART\",\"value\":\"$(date +%s)\"}]}]}}}}"
 ```
 
 You can string those together and make yourself an alias such as:
@@ -47,7 +46,7 @@ You can string those together and make yourself an alias such as:
 # Reboot a Kubernetes deployment
 # @param {string} $1 Deployment name
 kreboot() {
-  CONTAINER=$(kubectl get deployment --output=jsonpath="{.spec.template.spec.containers[*].name}" "$1" | tr -s '[:space:]' '\n' | head -1)
+  CONTAINER=$(kubectl get deployment --output=jsonpath="{.spec.template.spec.containers[*].name}" "$1" | tr -s '[:space:' '\n' | head -1)
   kubectl patch deployment "$1" --patch="{\"spec\":{\"template\":{\"spec\":{\"containers\":[{\"name\":\"${CONTAINER}\",\"env\":[{\"name\":\"LAST_MANUAL_RESTART\",\"value\":\"$(date +%s)\"}]}]}}}}"
 }
 ```
@@ -56,5 +55,5 @@ kreboot() {
 
 I think this offers a much cleaner way to restart a deployment than strategies such as editing the replica count twice, but really you should just update past Kubernetes v1.15 as it's more than a year old and it'll give you access to `kubectl rollout restart <resource>`.
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMjA4MTA2NDA4Nl19
+eyJoaXN0b3J5IjpbNjQxNTY0MjA3LDIwODEwNjQwODZdfQ==
 -->
